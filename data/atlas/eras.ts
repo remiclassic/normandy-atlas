@@ -4,7 +4,12 @@ export const atlasEras: AtlasEra[] = [
   // ── Pre-Roman deep-time eras ──────────────────────────────────────
   {
     id: 'neolithic-normandy',
-    label: { en: 'Neolithic Normandy', fr: 'Normandie néolithique' },
+    label: {
+      en: 'Neolithic Normandy',
+      fr: 'Normandie néolithique',
+      es: 'Normandía neolítica',
+      it: 'Normandia neolitica',
+    },
     range: { start: -5000, end: -2000 },
     defaultCamera: { center: [-0.5, 49.1], zoom: 6.8 },
     transitions: [{ toEraId: 'bronze-age-channel', trigger: 'user' }],
@@ -12,11 +17,18 @@ export const atlasEras: AtlasEra[] = [
     summary: {
       en: 'The first farming communities settled the river valleys and coastal plains of what would become Normandy. They raised dolmens, menhirs, and allées couvertes — stone monuments that marked burial sites, sacred gathering places, and territorial claims over the landscape for more than three thousand years.',
       fr: 'Les premières communautés agricoles s\'installèrent dans les vallées fluviales et les plaines côtières de la future Normandie. Elles érigèrent dolmens, menhirs et allées couvertes — des monuments de pierre marquant sépultures, lieux de rassemblement sacrés et revendications territoriales sur le paysage pendant plus de trois millénaires.',
+      es: 'Las primeras comunidades agrícolas se asentaron en los valles fluviales y las llanuras costeras de lo que sería Normandía. Erigieron dólmenes, menhires y galerías cubiertas de piedra: monumentos que señalaban necrópolis, lugares de reunión sagrada y afirmaciones territoriales sobre el paisaje durante más de tres milenios.',
+      it: 'Le prime comunità agricole si stabilirono nelle valli fluviali e nelle pianure costiere di ciò che sarebbe diventata la Normandia. Ersero dolmen, menhir e allées couvertes — monumenti in pietra che segnavano sepolture, luoghi di raduno sacro e rivendicazioni territoriali sul paesaggio per oltre tremila anni.',
     },
   },
   {
     id: 'bronze-age-channel',
-    label: { en: 'Bronze Age Channel', fr: 'Manche à l\'âge du bronze' },
+    label: {
+      en: 'Bronze Age Channel',
+      fr: 'Manche à l\'âge du bronze',
+      es: 'El canal de la Mancha en la Edad del Bronce',
+      it: 'La Manica nell\'età del bronzo',
+    },
     range: { start: -2000, end: -800 },
     defaultCamera: { center: [-1.0, 49.5], zoom: 5.8 },
     transitions: [{ toEraId: 'iron-age-gaul', trigger: 'user' }],
@@ -24,11 +36,18 @@ export const atlasEras: AtlasEra[] = [
     summary: {
       en: 'The Channel was not a barrier but a highway. Tin from Cornwall and copper from Iberia crossed the strait, turning Normandy\'s coast into a gateway corridor. Coastal settlements thrived on metal exchange, and the maritime networks that emerged would be reused — millennia later — by Viking longships.',
       fr: 'La Manche n\'était pas une barrière mais une autoroute. L\'étain de Cornouailles et le cuivre d\'Ibérie traversaient le détroit, faisant de la côte normande un corridor de transit. Les établissements côtiers prospéraient grâce au commerce des métaux, et les réseaux maritimes qui en émergèrent seraient réutilisés — des millénaires plus tard — par les drakkars vikings.',
+      es: 'La Mancha no era una barrera, sino una vía. El estaño de Cornualles y el cobre de la península ibérica cruzaban el estrecho y convertían la costa normanda en un corredor de paso. Los asentamientos costeros prosperaron con el intercambio de metales, y las redes marítimas que surgieron se reutilizarían —milenios después— por los barcos vikingos.',
+      it: 'La Manica non era una barriera ma una strada maestra. Lo stagno della Cornovaglia e il rame della penisola iberica attraversavano lo stretto, trasformando la costa normanna in un corridoio di transito. Gli insediamenti costieri prosperarono grazie allo scambio dei metalli, e le reti marittime che ne emersero sarebbero state riutilizzate — millenni dopo — dalle navi vichinghe.',
     },
   },
   {
     id: 'iron-age-gaul',
-    label: { en: 'Iron Age Gaul', fr: 'Gaule de l\'âge du fer' },
+    label: {
+      en: 'Iron Age Gaul',
+      fr: 'Gaule de l\'âge du fer',
+      es: 'La Galia en la Edad del Hierro',
+      it: 'La Gallia dell\'età del ferro',
+    },
     range: { start: -800, end: -52 },
     defaultCamera: { center: [0.0, 49.2], zoom: 6.4 },
     transitions: [{ toEraId: 'roman-gaul', trigger: 'user' }],
@@ -36,11 +55,18 @@ export const atlasEras: AtlasEra[] = [
     summary: {
       en: 'Powerful Celtic tribes — the Caletes, Veliocasses, Unelli, and Abrincates — carved out territories across the region. Fortified hilltop oppida served as proto-cities and defensive strongholds. The Seine valley, already an ancient artery, became the economic backbone of the Veliocasses, whose capital at Rotomagus (Rouen) would outlast all of them.',
       fr: 'De puissantes tribus celtes — les Calètes, les Véliocasses, les Unelles et les Abrincates — découpèrent des territoires à travers la région. Des oppida fortifiés sur les hauteurs servaient de proto-cités et de places fortes défensives. La vallée de la Seine, déjà une artère ancienne, devint l\'épine dorsale économique des Véliocasses, dont la capitale Rotomagus (Rouen) survivrait à tous.',
+      es: 'Poderosas tribus celtas —calétes, veliocases, unelli y abrincates— trazaron territorios en toda la región. Los oppida fortificados en las alturas funcionaban como proto-ciudades y bastiones defensivos. El valle del Sena, ya una arteria antigua, fue la columna vertebral económica de los veliocases, cuya capital en Rotomago (Ruan) sobreviviría a todas.',
+      it: 'Potenti tribù celtiche — Calèti, Veliocassi, Unelli e Abrincati — tracciarono territori in tutta la regione. Oppida fortificati sulle alture fungevano da proto-città e bastioni difensivi. La valle della Senna, già antica arteria, divenne la spina dorsale economica dei Veliocassi, la cui capitale a Rotomagus (Rouen) avrebbe sopravvissuto a tutte.',
     },
   },
   {
     id: 'roman-gaul',
-    label: { en: 'Roman Gaul', fr: 'Gaule romaine' },
+    label: {
+      en: 'Roman Gaul',
+      fr: 'Gaule romaine',
+      es: 'La Galia romana',
+      it: 'La Gallia romana',
+    },
     range: { start: -52, end: 400 },
     defaultCamera: { center: [0.5, 49.0], zoom: 5.8 },
     transitions: [{ toEraId: 'post-roman-gaul', trigger: 'user' }],
@@ -48,12 +74,19 @@ export const atlasEras: AtlasEra[] = [
     summary: {
       en: 'After Caesar\'s conquest, tribal territories became Roman civitates. Roads replaced forest trails, amphitheatres rose beside oppida, and Rotomagus grew into a major provincial capital. The same river corridors that had served Celtic trade now carried Roman grain barges — and the same coastal forts would later shelter Saxon Shore defences as the empire crumbled.',
       fr: 'Après la conquête de César, les territoires tribaux devinrent des civitates romaines. Les routes remplacèrent les sentiers forestiers, des amphithéâtres s\'élevèrent à côté des oppida, et Rotomagus devint une grande capitale provinciale. Les mêmes corridors fluviaux qui avaient servi le commerce celte transportaient désormais les péniches de grain romaines — et les mêmes forts côtiers abriteraient plus tard les défenses du Litus Saxonicum alors que l\'empire s\'effondrait.',
+      es: 'Tras la conquista de César, los territorios tribales se convirtieron en civitates romanas. Los caminos sustituyeron los senderos, los anfiteatros surgieron junto a los oppida y Rotomago creció como gran capital provincial. Los mismos corredores fluviales que habían servido al comercio celta transportaban ahora barcazas de grano romanas —y los mismos fuertes costeros acogerían más tarde las defensas de la costa sajona mientras el imperio se desmoronaba.',
+      it: 'Dopo la conquista di Cesare, i territori tribali divennero civitates romane. Le strade sostituirono i sentieri forestali, gli anfiteatri sorsero accanto agli oppida e Rotomagus crebbe fino a capitale provinciale di rilievo. Gli stessi corridoi fluviali che avevano servito il commercio celtico trasportavano ora chiatte di grano romane — e gli stessi forti costieri avrebbero più tardi ospitato le difese del Litus Saxonicum mentre l\'impero crollava.',
     },
   },
   // ── Post-Roman → Medieval ─────────────────────────────────────────
   {
     id: 'post-roman-gaul',
-    label: { en: 'Post-Roman Gaul', fr: 'Gaule post-romaine' },
+    label: {
+      en: 'Post-Roman Gaul',
+      fr: 'Gaule post-romaine',
+      es: 'La Galia posromana',
+      it: 'La Gallia post-romana',
+    },
     range: { start: 400, end: 511 },
     defaultCamera: { center: [1.5, 48.8], zoom: 5.0 },
     transitions: [{ toEraId: 'neustria', trigger: 'user' }],
@@ -61,7 +94,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'neustria',
-    label: { en: 'Neustria', fr: 'Neustrie' },
+    label: {
+      en: 'Neustria',
+      fr: 'Neustrie',
+      es: 'Neustria',
+      it: 'Neustria',
+    },
     range: { start: 511, end: 751 },
     defaultCamera: { center: [1.2, 49.0], zoom: 5.4 },
     transitions: [{ toEraId: 'frankish-carolingian', trigger: 'user' }],
@@ -69,7 +107,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'frankish-carolingian',
-    label: { en: 'Frankish & Carolingian Frontier', fr: 'Frontière franque et carolingienne' },
+    label: {
+      en: 'Frankish & Carolingian Frontier',
+      fr: 'Frontière franque et carolingienne',
+      es: 'La frontera franca y carolingia',
+      it: 'Frontiera franca e carolingia',
+    },
     range: { start: 751, end: 841 },
     defaultCamera: { center: [1.5, 49.0], zoom: 5.2 },
     transitions: [{ toEraId: 'viking-age', trigger: 'user' }],
@@ -77,11 +120,18 @@ export const atlasEras: AtlasEra[] = [
     summary: {
       en: 'The Carolingian dynasty united Gaul under a single crown, transforming Neustria from a rival sub-kingdom into an administered heartland. Wealthy abbeys like Jumièges and Saint-Wandrille lined the Seine, and the emporium at Quentovic linked the Channel coast to North Sea trade. Yet Carolingian authority frayed after 840 as civil wars fragmented the empire — leaving the Seine corridor and its monastic riches exposed to the first Norse raids.',
       fr: 'La dynastie carolingienne unifia la Gaule sous une seule couronne, transformant la Neustrie d\'un sous-royaume rival en un cœur administré. De riches abbayes comme Jumièges et Saint-Wandrille bordaient la Seine, et l\'emporium de Quentovic reliait la côte de la Manche au commerce de la mer du Nord. Mais l\'autorité carolingienne s\'effrita après 840, les guerres civiles fragmentant l\'empire — laissant le corridor de la Seine et ses richesses monastiques exposés aux premiers raids scandinaves.',
+      es: 'La dinastía carolingia unió la Galia bajo una sola corona y convirtió Neustria de un subreino rival en un corazón administrado. Abadías opulentas como Jumièges y Saint-Wandrille bordeaban el Sena, y el emporio de Quentovic enlazaba la costa de la Mancha con el comercio del mar del Norte. Sin embargo, la autoridad carolingia se deshilachó tras el 840: las guerras civiles fragmentaron el imperio y dejaron el corredor del Sena y sus riquezas monásticas expuestos a las primeras incursiones nórdicas.',
+      it: 'La dinastia carolingia unì la Gallia sotto un\'unica corona, trasformando la Neustria da sottoregno rivale in cuore amministrato. Ricche abbazie come Jumièges e Saint-Wandrille costeggiavano la Senna, e l\'emporio di Quentovic collegava la costa della Manica al commercio del Mare del Nord. Ma l\'autorità carolingia si disgregò dopo l\'840 mentre le guerre civili frammentavano l\'impero — lasciando il corridoio della Senna e le sue ricchezze monastiche esposte alle prime scorrerie scandinave.',
     },
   },
   {
     id: 'viking-age',
-    label: { en: 'Viking Age', fr: 'Ère viking' },
+    label: {
+      en: 'Viking Age',
+      fr: 'Ère viking',
+      es: 'La era vikinga',
+      it: 'Età vichinga',
+    },
     range: { start: 841, end: 911 },
     defaultCamera: { center: [1.0, 49.3], zoom: 5.6 },
     transitions: [{ toEraId: 'norman-origins', trigger: 'user' }],
@@ -89,7 +139,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'norman-origins',
-    label: { en: 'Norman Origins', fr: 'Origines normandes' },
+    label: {
+      en: 'Norman Origins',
+      fr: 'Origines normandes',
+      es: 'Orígenes normandos',
+      it: 'Origini normanne',
+    },
     range: { start: 911, end: 1066 },
     defaultCamera: { center: [1.0, 49.2], zoom: 5.2 },
     transitions: [{ toEraId: 'norman-expansion', trigger: 'user' }],
@@ -97,7 +152,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'norman-expansion',
-    label: { en: 'Norman Expansion', fr: 'Expansion normande' },
+    label: {
+      en: 'Norman Expansion',
+      fr: 'Expansion normande',
+      es: 'La expansión normanda',
+      it: 'Espansione normanna',
+    },
     range: { start: 1066, end: 1450 },
     defaultCamera: { center: [0.2, 49.5], zoom: 4.6 },
     transitions: [{ toEraId: 'age-of-exploration', trigger: 'user' }],
@@ -106,7 +166,12 @@ export const atlasEras: AtlasEra[] = [
   // ── Atlantic / colonial ───────────────────────────────────────────
   {
     id: 'age-of-exploration',
-    label: { en: 'Age of Exploration', fr: 'Âge des explorations' },
+    label: {
+      en: 'Age of Exploration',
+      fr: 'Âge des explorations',
+      es: 'La era de los descubrimientos',
+      it: 'Età delle esplorazioni',
+    },
     range: { start: 1450, end: 1608 },
     defaultCamera: { center: [-25.0, 46.0], zoom: 2.6 },
     transitions: [{ toEraId: 'new-france-foundations', trigger: 'user' }],
@@ -114,7 +179,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'new-france-foundations',
-    label: { en: 'New France Foundations', fr: 'Fondations de la Nouvelle-France' },
+    label: {
+      en: 'New France Foundations',
+      fr: 'Fondations de la Nouvelle-France',
+      es: 'Los cimientos de Nueva Francia',
+      it: 'Fondamenta della Nuova Francia',
+    },
     range: { start: 1608, end: 1663 },
     defaultCamera: { center: [-45.0, 47.0], zoom: 2.9 },
     transitions: [{ toEraId: 'royal-new-france', trigger: 'user' }],
@@ -122,7 +192,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'royal-new-france',
-    label: { en: 'Royal New France', fr: 'Nouvelle-France royale' },
+    label: {
+      en: 'Royal New France',
+      fr: 'Nouvelle-France royale',
+      es: 'Nueva Francia bajo la corona',
+      it: 'Nuova Francia reale',
+    },
     range: { start: 1663, end: 1713 },
     defaultCamera: { center: [-61.0, 47.0], zoom: 3.2 },
     transitions: [{ toEraId: 'atlantic-imprint', trigger: 'user' }],
@@ -130,7 +205,12 @@ export const atlasEras: AtlasEra[] = [
   },
   {
     id: 'atlantic-imprint',
-    label: { en: 'Atlantic Imprint', fr: 'Empreinte atlantique' },
+    label: {
+      en: 'Atlantic Imprint',
+      fr: 'Empreinte atlantique',
+      es: 'Huella atlántica',
+      it: 'Impronta atlantica',
+    },
     range: { start: 1713, end: 1763 },
     defaultCamera: { center: [-58.0, 46.5], zoom: 3.1 },
     transitions: [],

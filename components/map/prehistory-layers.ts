@@ -1,6 +1,8 @@
 import type { Map as MaplibreMap } from 'maplibre-gl';
 import { atlasPlaces } from '@/data/atlas/places';
 import type { Place } from '@/core/types';
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
+import type { MapDataTheme } from './map-layers';
 
 // ---------------------------------------------------------------------------
 // Source IDs
@@ -36,6 +38,7 @@ function buildSitesGeoJson(kind: Place['kind']): GeoJSON.FeatureCollection {
             id: p.id,
             name: firstState?.label ?? p.id,
             tags: firstState?.affiliationTags?.join(', ') ?? '',
+            atlasIcon: getFeatureIconType({ kind, label: firstState?.label }),
           },
           geometry: {
             type: 'Point' as const,
@@ -105,7 +108,9 @@ function safeAddLayer(map: MaplibreMap, layer: maplibregl.LayerSpecification) {
 // Layer registration
 // ---------------------------------------------------------------------------
 
-function addPrehistoricSiteLayers(map: MaplibreMap) {
+function addPrehistoricSiteLayers(map: MaplibreMap, theme: MapDataTheme) {
+  const imgTheme = theme === 'parchment' ? 'parchment' : 'dark';
+
   safeAddSource(map, PREHISTORIC_SITES_SOURCE, {
     type: 'geojson',
     data: buildSitesGeoJson('megalith'),
@@ -113,16 +118,17 @@ function addPrehistoricSiteLayers(map: MaplibreMap) {
 
   safeAddLayer(map, {
     id: PREHISTORIC_SITES_CIRCLES,
-    type: 'circle',
+    type: 'symbol',
     source: PREHISTORIC_SITES_SOURCE,
-    paint: {
-      'circle-radius': 5,
-      'circle-color': '#a8926a',
-      'circle-stroke-color': '#d4c8a0',
-      'circle-stroke-width': 1.5,
-      'circle-opacity': 0.85,
+    layout: {
+      'icon-image': ['concat', 'atlas-icon-', ['get', 'atlasIcon'], `-${imgTheme}`],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 4, 0.4, 8, 0.55, 12, 0.7],
+      'icon-allow-overlap': true,
+      visibility: 'none',
     },
-    layout: { visibility: 'none' },
+    paint: {
+      'icon-opacity': 0.85,
+    },
   });
 
   safeAddLayer(map, {
@@ -147,7 +153,9 @@ function addPrehistoricSiteLayers(map: MaplibreMap) {
   });
 }
 
-function addHillfortLayers(map: MaplibreMap) {
+function addHillfortLayers(map: MaplibreMap, theme: MapDataTheme) {
+  const imgTheme = theme === 'parchment' ? 'parchment' : 'dark';
+
   safeAddSource(map, HILLFORTS_SOURCE, {
     type: 'geojson',
     data: buildSitesGeoJson('hillfort'),
@@ -155,16 +163,17 @@ function addHillfortLayers(map: MaplibreMap) {
 
   safeAddLayer(map, {
     id: HILLFORTS_CIRCLES,
-    type: 'circle',
+    type: 'symbol',
     source: HILLFORTS_SOURCE,
-    paint: {
-      'circle-radius': 6,
-      'circle-color': '#8b5e3c',
-      'circle-stroke-color': '#c49a6c',
-      'circle-stroke-width': 2,
-      'circle-opacity': 0.9,
+    layout: {
+      'icon-image': ['concat', 'atlas-icon-', ['get', 'atlasIcon'], `-${imgTheme}`],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 4, 0.45, 8, 0.6, 12, 0.75],
+      'icon-allow-overlap': true,
+      visibility: 'none',
     },
-    layout: { visibility: 'none' },
+    paint: {
+      'icon-opacity': 0.9,
+    },
   });
 
   safeAddLayer(map, {
@@ -217,8 +226,8 @@ function addAncientTerrainLayers(map: MaplibreMap) {
 // Composite registration — called from MapCanvas
 // ---------------------------------------------------------------------------
 
-export function addAllPrehistoryLayers(map: MaplibreMap) {
-  addPrehistoricSiteLayers(map);
-  addHillfortLayers(map);
+export function addAllPrehistoryLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
+  addPrehistoricSiteLayers(map, theme);
+  addHillfortLayers(map, theme);
   addAncientTerrainLayers(map);
 }

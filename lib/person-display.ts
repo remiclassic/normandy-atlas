@@ -1,5 +1,6 @@
 import { getPlace, getPlaceEraState } from '@/core';
-import type { MigrationChannel, Person } from '@/core/types';
+import { pickI18n } from '@/lib/locale';
+import type { MigrationChannel, Person, AtlasLocale } from '@/core/types';
 
 export type BadgeTone = 'norman' | 'perche' | 'brittany' | 'aunis' | 'paris' | 'neutral';
 
@@ -70,7 +71,7 @@ export const BADGE_CLASSES: Record<BadgeTone, string> = {
  * Build a "From <place>" display string for the person's origin,
  * preferring era-specific place labels when an eraId is available.
  */
-export function getOriginDisplayLine(person: Person, eraId?: string): string | undefined {
+export function getOriginDisplayLine(person: Person, eraId?: string, locale?: AtlasLocale): string | undefined {
   if (eraId) {
     const eraState = getPlaceEraState(person.originPlaceId, eraId);
     if (eraState) return `From ${eraState.label}`;
@@ -82,7 +83,7 @@ export function getOriginDisplayLine(person: Person, eraId?: string): string | u
     if (firstState) return `From ${firstState.label}`;
   }
 
-  if (person.originLabel?.en) return person.originLabel.en;
+  if (person.originLabel) return pickI18n(person.originLabel, locale ?? 'en');
 
   return undefined;
 }

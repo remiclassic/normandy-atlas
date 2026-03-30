@@ -1,6 +1,7 @@
 import { eras } from '@/data/eras';
 import { getAtlasEras } from '@/core';
-import type { AtlasEra } from '@/core/types';
+import { pickI18n } from '@/lib/locale';
+import type { AtlasEra, AtlasLocale } from '@/core/types';
 
 export interface EraItem {
   id: string;
@@ -33,7 +34,7 @@ function truncate(s: string): string {
   return s.slice(0, SUMMARY_MAX).replace(/\s+\S*$/, '') + '...';
 }
 
-function buildAtlasModel(atlasEras: AtlasEra[]): EraSelectorModel {
+function buildAtlasModel(atlasEras: AtlasEra[], locale: AtlasLocale): EraSelectorModel {
   const groups: EraGroup[] = [];
   let current: EraGroup | null = null;
 
@@ -46,9 +47,9 @@ function buildAtlasModel(atlasEras: AtlasEra[]): EraSelectorModel {
     }
     current.items.push({
       id: era.id,
-      label: era.label.en,
+      label: pickI18n(era.label, locale),
       yearRange: [era.range.start, era.range.end],
-      summary: truncate(era.summary?.en ?? ''),
+      summary: truncate(era.summary ? pickI18n(era.summary, locale) : ''),
     });
   }
 
@@ -81,11 +82,15 @@ function buildLegacyModel(): EraSelectorModel {
 }
 
 let cachedAtlas: EraSelectorModel | null = null;
+let cachedAtlasLocale: AtlasLocale | null = null;
 let cachedLegacy: EraSelectorModel | null = null;
 
-export function getEraSelectorModel(atlasMode: boolean): EraSelectorModel {
+export function getEraSelectorModel(atlasMode: boolean, locale: AtlasLocale = 'en'): EraSelectorModel {
   if (atlasMode) {
-    if (!cachedAtlas) cachedAtlas = buildAtlasModel(getAtlasEras());
+    if (!cachedAtlas || cachedAtlasLocale !== locale) {
+      cachedAtlas = buildAtlasModel(getAtlasEras(), locale);
+      cachedAtlasLocale = locale;
+    }
     return cachedAtlas;
   }
   if (!cachedLegacy) cachedLegacy = buildLegacyModel();

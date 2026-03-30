@@ -3,6 +3,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
+import { pickI18n } from '@/lib/locale';
 import { getRegionRecord } from '@/data/regions-content';
 import { getSettlement } from '@/data/settlements';
 import { getEra } from '@/data/eras';
@@ -111,8 +112,9 @@ function EventList({ eventIds }: { eventIds: string[] }) {
 }
 
 function RegionDetail({ id, eraId }: { id: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const region = useMemo(() => getRegionRecord(id), [id]);
-  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId, locale), [eraId, locale]);
 
   const eraName = useMemo(() => {
     if (!region) return null;
@@ -196,8 +198,9 @@ function RegionDetail({ id, eraId }: { id: string; eraId: string }) {
 }
 
 function SettlementDetail({ id, eraId }: { id: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const settlement = useMemo(() => getSettlement(id), [id]);
-  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId, locale), [eraId, locale]);
 
   const displayName = useMemo(() => {
     if (!settlement) return '';
@@ -406,10 +409,11 @@ function PeopleList({ placeId, eraId }: { placeId: string; eraId: string }) {
 }
 
 function PersonCard({ person, eraId }: { person: Person; eraId?: string }) {
+  const locale = useMapStore((s) => s.locale);
   const lifespan = `${person.birthYear}–${person.deathYear}`;
   const roleStr = person.roles.join(' · ');
   const badge = useMemo(() => getMigrationChannelBadge(person.migrationChannel), [person.migrationChannel]);
-  const originLine = useMemo(() => getOriginDisplayLine(person, eraId), [person, eraId]);
+  const originLine = useMemo(() => getOriginDisplayLine(person, eraId, locale), [person, eraId, locale]);
 
   return (
     <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 space-y-2">
@@ -432,17 +436,18 @@ function PersonCard({ person, eraId }: { person: Person; eraId?: string }) {
           <span className="text-[11px] text-text-muted/70 italic">{originLine}</span>
         )}
       </div>
-      <p className="text-[12px] text-text-muted leading-relaxed">{person.bio.en}</p>
+      <p className="text-[12px] text-text-muted leading-relaxed">{pickI18n(person.bio, locale)}</p>
     </div>
   );
 }
 
 function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: string }) {
+  const locale = useMapStore((s) => s.locale);
   const lifespan = `${person.birthYear}–${person.deathYear}`;
   const roleStr = person.roles.join(' · ');
   const confidence = person.confidence ? CONFIDENCE_LABELS[person.confidence] : null;
   const badge = useMemo(() => getMigrationChannelBadge(person.migrationChannel), [person.migrationChannel]);
-  const originLine = useMemo(() => getOriginDisplayLine(person, eraId), [person, eraId]);
+  const originLine = useMemo(() => getOriginDisplayLine(person, eraId, locale), [person, eraId, locale]);
 
   return (
     <div className="space-y-4">
@@ -467,7 +472,7 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
 
       {person.originLabel && (
         <p className="text-[12px] text-text-muted/70 italic leading-relaxed">
-          {person.originLabel.en}
+          {pickI18n(person.originLabel, locale)}
         </p>
       )}
 
@@ -475,13 +480,13 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
 
       <div>
         <SectionLabel>Biography</SectionLabel>
-        <p className="text-[13px] leading-[1.75] text-text/85">{person.bio.en}</p>
+        <p className="text-[13px] leading-[1.75] text-text/85">{pickI18n(person.bio, locale)}</p>
       </div>
 
-      {person.legacy.en && (
+      {pickI18n(person.legacy, locale) && (
         <div>
           <SectionLabel>Legacy</SectionLabel>
-          <p className="text-[13px] leading-[1.75] text-text-muted">{person.legacy.en}</p>
+          <p className="text-[13px] leading-[1.75] text-text-muted">{pickI18n(person.legacy, locale)}</p>
         </div>
       )}
 
@@ -607,11 +612,11 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
   );
 }
 
-function resolveEraLabel(eraId: string): string | undefined {
+function resolveEraLabel(eraId: string, locale: import('@/core/types').AtlasLocale = 'en'): string | undefined {
   const legacy = getEra(eraId);
   if (legacy) return legacy.label;
   const atlas = getAtlasEra(eraId);
-  return atlas?.label.en;
+  return atlas ? pickI18n(atlas.label, locale) : undefined;
 }
 
 const CONFIDENCE_DOT: Record<StatConfidence, string> = {
@@ -624,6 +629,7 @@ function MigrationShareSnippet({ entityId, eraId, mode }: { entityId: string; er
   const branch = useMapStore((s) => s.migrationBranch);
   const cohortId = useMapStore((s) => s.migrationCohortId);
   const explorerOpen = useMapStore((s) => s.migrationExplorerOpen);
+  const locale = useMapStore((s) => s.locale);
 
   const share = useMemo(() => {
     if (!explorerOpen) return null;
@@ -650,7 +656,7 @@ function MigrationShareSnippet({ entityId, eraId, mode }: { entityId: string; er
           </span>
         </div>
         {share.note && (
-          <p className="text-[10px] text-text-dim/60 leading-snug mt-1">{share.note.en}</p>
+          <p className="text-[10px] text-text-dim/60 leading-snug mt-1">{pickI18n(share.note, locale)}</p>
         )}
       </div>
     </div>
@@ -658,8 +664,9 @@ function MigrationShareSnippet({ entityId, eraId, mode }: { entityId: string; er
 }
 
 function AtlasPlaceDetail({ id, eraId }: { id: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const place = useMemo(() => getPlace(id), [id]);
-  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId, locale), [eraId, locale]);
 
   if (!place) return null;
 
@@ -716,13 +723,14 @@ function AtlasPlaceDetail({ id, eraId }: { id: string; eraId: string }) {
 }
 
 function AtlasRegionDetail({ id, eraId }: { id: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const atlasRegion = useMemo(() => getAtlasRegion(id), [id]);
-  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId, locale), [eraId, locale]);
 
   if (!atlasRegion) return null;
 
   const state = atlasRegion.eraStates[eraId];
-  const displayName = atlasRegion.name.en;
+  const displayName = pickI18n(atlasRegion.name, locale);
   const fillIntent = state?.fillIntent;
   const borderStyle = state?.borderStyle;
 
@@ -768,7 +776,7 @@ function AtlasRegionDetail({ id, eraId }: { id: string; eraId: string }) {
           <ContentFade delay={0.14}>
             <div className="px-7 py-5">
               <p className="text-[14px] leading-[1.75] text-text/85">
-                {atlasRegion.narrativeByEra[eraId].en}
+                {pickI18n(atlasRegion.narrativeByEra[eraId], locale)}
               </p>
             </div>
           </ContentFade>
@@ -996,6 +1004,7 @@ function EvidenceDetail({ id }: { id: string }) {
 }
 
 function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const place = useMemo(() => getPlace(id), [id]);
   if (!place) return null;
 
@@ -1007,7 +1016,7 @@ function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
   const region = getAtlasRegion(place.regionId);
   const regionNarrative = region?.narrativeByEra?.[eraId];
   const era = getAtlasEra(eraId);
-  const eraLabel = era ? era.label.en : eraId;
+  const eraLabel = era ? pickI18n(era.label, locale) : eraId;
 
   return (
     <>
@@ -1035,7 +1044,7 @@ function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
       <ContentFade delay={0.1}>
         <div className="px-7 py-5 space-y-3">
           {tags.length > 0 && <FactRow label="Tags" value={tags.join(', ')} />}
-          {region && <FactRow label="Region" value={region.name.en} />}
+          {region && <FactRow label="Region" value={pickI18n(region.name, locale)} />}
         </div>
       </ContentFade>
 
@@ -1045,7 +1054,7 @@ function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
           <ContentFade delay={0.14}>
             <div className="px-7 py-5">
               <SectionLabel>Context</SectionLabel>
-              <p className="text-[14px] leading-[1.75] text-text/85">{regionNarrative.en}</p>
+              <p className="text-[14px] leading-[1.75] text-text/85">{pickI18n(regionNarrative, locale)}</p>
             </div>
           </ContentFade>
         </>
@@ -1087,6 +1096,7 @@ function AtlasPersonDetail({ personId, eraId }: { personId: string; eraId: strin
 }
 
 function EraInfoDetail({ eraId }: { eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const era = useMemo(() => getAtlasEra(eraId), [eraId]);
   const people = useMemo(() => getPeopleForEra(eraId), [eraId]);
   const regions = useMemo(() => getVisibleRegions(eraId), [eraId]);
@@ -1127,7 +1137,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
 
         <ContentFade delay={0.05}>
           <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
-            {era.label.en}
+            {pickI18n(era.label, locale)}
           </h2>
         </ContentFade>
       </div>
@@ -1137,7 +1147,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
       {era.summary && (
         <ContentFade delay={0.1}>
           <div className="px-7 py-5">
-            <p className="text-[14px] leading-[1.75] text-text/85">{era.summary.en}</p>
+            <p className="text-[14px] leading-[1.75] text-text/85">{pickI18n(era.summary, locale)}</p>
           </div>
         </ContentFade>
       )}
@@ -1174,7 +1184,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                   const narrative = r.narrativeByEra?.[eraId];
                   return (
                     <div key={r.id}>
-                      <h4 className="text-[13px] font-semibold text-parchment/90 mb-1">{r.name.en}</h4>
+                      <h4 className="text-[13px] font-semibold text-parchment/90 mb-1">{pickI18n(r.name, locale)}</h4>
                       <div className="flex items-center gap-2 mb-1.5">
                         {r.currentState.fillIntent && (
                           <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-text-dim/50 bg-white/[0.02] px-2 py-0.5 rounded border border-white/[0.06]">
@@ -1183,7 +1193,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                         )}
                       </div>
                       {narrative && (
-                        <p className="text-[12px] leading-[1.7] text-text-muted/80">{narrative.en}</p>
+                        <p className="text-[12px] leading-[1.7] text-text-muted/80">{pickI18n(narrative, locale)}</p>
                       )}
                     </div>
                   );
@@ -1294,6 +1304,7 @@ const EVIDENCE_LABELS: Record<string, string> = {
 };
 
 function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale);
   const segment = useMemo(() => getSegment(segmentId), [segmentId]);
   const journey = useMemo(
     () => (segment?.journeyId ? getJourney(segment.journeyId) : undefined),
@@ -1326,7 +1337,7 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
         </div>
 
         <h2 className="text-[18px] font-display font-bold text-parchment leading-tight tracking-wide">
-          {segment.segmentTooltip?.en ?? `${fromLabel} → ${toLabel}`}
+          {segment.segmentTooltip ? pickI18n(segment.segmentTooltip, locale) : `${fromLabel} → ${toLabel}`}
         </h2>
 
         {segment.yearRange && (
@@ -1352,7 +1363,7 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
 
           {segment.segmentDetail && (
             <p className="text-[13px] leading-relaxed text-text/75">
-              {segment.segmentDetail.en}
+              {pickI18n(segment.segmentDetail, locale)}
             </p>
           )}
 
@@ -1369,10 +1380,10 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
                 Part of journey
               </span>
               <h3 className="text-[13px] font-medium text-text/85">
-                {journey.name.en}
+                {pickI18n(journey.name, locale)}
               </h3>
               <p className="text-[12px] leading-relaxed text-text/60">
-                {journey.summary.en}
+                {pickI18n(journey.summary, locale)}
               </p>
             </div>
           )}

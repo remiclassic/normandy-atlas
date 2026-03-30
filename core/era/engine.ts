@@ -30,7 +30,7 @@ export function isValidAtlasEra(eraId: string): boolean {
 export function getEraLabel(eraId: string, lang: 'en' | 'fr' = 'en'): string {
   const era = eraMap.get(eraId);
   if (!era) return eraId;
-  return era.label[lang];
+  return era.label[lang] ?? era.label.en;
 }
 
 export function getEraRange(eraId: string): { start: number; end: number } | undefined {

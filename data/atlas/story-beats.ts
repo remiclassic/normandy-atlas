@@ -397,7 +397,15 @@ export const atlasStoryBeats: StoryBeat[] = [
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['la-rochelle', 'dieppe', 'rouen', 'honfleur', 'saint-malo', 'mortagne-au-perche'],
+      placeIds: [
+        'la-rochelle',
+        'dieppe',
+        'rouen',
+        'honfleur',
+        'saint-malo',
+        'mortagne-au-perche',
+        'saint-peter-port',
+      ],
       regionIds: ['normandy', 'perche', 'aunis', 'brittany'],
       routeSegmentIds: [],
     },
@@ -409,8 +417,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'Where settlers came from',
       body: {
-        en: 'New France drew settlers from across Atlantic France — but some regions gave far more than others. Northwest France (Normandy, Brittany, Perche) provided roughly 39% of all immigrants, and the Centre-West (Aunis, Saintonge, Poitou) another 19%. That is why many French Canadians today discover Norman or near-Norman ancestors: repeated recruitment through northwestern ports and parishes, plus a small colonial founder pool, left an outsized mark in genealogy. Open the Migration Explorer to compare cohorts and see how shares shift between all immigrants and those who stayed as founders.',
-        fr: 'La Nouvelle-France attirait des colons de toute la France atlantique, mais certaines régions en ont fourni bien plus que d\'autres. Le Nord-Ouest (Normandie, Bretagne, Perche) représente environ 39% de tous les immigrants, et le Centre-Ouest (Aunis, Saintonge, Poitou) 19% de plus. C\'est pourquoi tant de Canadiens français retrouvent aujourd\'hui des ancêtres normands ou proches : des canaux de recrutement répétés via les ports et paroisses du Nord-Ouest, et une base coloniale restreinte, ont laissé une empreinte disproportionnée dans la généalogie. Ouvrez l\'explorateur des migrations pour comparer les cohortes.',
+        en: 'New France drew settlers from across Atlantic France — but some regions gave far more than others. Northwest France (Normandy, Brittany, Perche) provided roughly 39% of all immigrants, and the Centre-West (Aunis, Saintonge, Poitou) another 19%. That is why many French Canadians today discover Norman or near-Norman ancestors: repeated recruitment through northwestern ports and parishes, plus a small colonial founder pool, left an outsized mark in genealogy. The Channel Islands were part of the same Norman cultural world, yet Saint Peter Port and other insular harbours were not major documented embarkation points for the colony — ships left overwhelmingly from mainland French ports such as Dieppe, Honfleur, La Rochelle, and Saint-Malo. Open the Migration Explorer to compare cohorts, read the Channel Islands callout, and toggle flow corridors to see primary routes versus lighter illustrative island links.',
+        fr: 'La Nouvelle-France attirait des colons de toute la France atlantique, mais certaines régions en ont fourni bien plus que d\'autres. Le Nord-Ouest (Normandie, Bretagne, Perche) représente environ 39% de tous les immigrants, et le Centre-Ouest (Aunis, Saintonge, Poitou) 19% de plus. C\'est pourquoi tant de Canadiens français retrouvent aujourd\'hui des ancêtres normands ou proches : des canaux de recrutement répétés via les ports et paroisses du Nord-Ouest, et une base coloniale restreinte, ont laissé une empreinte disproportionnée dans la généalogie. Les îles Anglo-Normandes partageaient la même sphère culturelle normande, pourtant Saint-Pierre-Port et les autres havres insulaires n\'étaient pas les grands points d\'embarquement documentés vers la colonie — les navires partaient surtout des ports continentaux comme Dieppe, Honfleur, La Rochelle et Saint-Malo. Ouvrez l\'explorateur des migrations pour comparer les cohortes, lire l\'encadré sur les îles et activer les corridors de flux (routes principales versus liens insulaires plus discrets).',
       },
     },
     aiSlot: 'explain_selection',
@@ -464,7 +472,15 @@ export const atlasStoryBeats: StoryBeat[] = [
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['la-rochelle', 'dieppe', 'rouen', 'honfleur', 'saint-malo', 'mortagne-au-perche'],
+      placeIds: [
+        'la-rochelle',
+        'dieppe',
+        'rouen',
+        'honfleur',
+        'saint-malo',
+        'mortagne-au-perche',
+        'saint-peter-port',
+      ],
       regionIds: ['normandy', 'perche', 'aunis', 'brittany'],
       routeSegmentIds: [],
     },
@@ -476,8 +492,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'Origins in Atlantic France',
       body: {
-        en: 'New France drew settlers from across the Atlantic coast of France. Normandy, Perche, Brittany, and the Centre-West each contributed distinct cohorts — founders, engagés, soldiers, and religious figures — flowing through a handful of embarkation ports. Modern French Canadian family trees often highlight Normandy because those channels were thick and the St. Lawrence founder population was small, not because the colony was only Norman.',
-        fr: 'La Nouvelle-France attira des colons de toute la côte atlantique de la France. La Normandie, le Perche, la Bretagne et le Centre-Ouest contribuèrent chacun des cohortes distinctes — fondateurs, engagés, soldats et religieux — transitant par une poignée de ports d\'embarquement. Les arbres généalogiques canadiens-français mettent souvent en avant la Normandie parce que ces canaux étaient denses et que la population fondatrice du Saint-Laurent était restreinte, non parce que la colonie était uniquement normande.',
+        en: 'New France drew settlers from across the Atlantic coast of France. Normandy, Perche, Brittany, and the Centre-West each contributed distinct cohorts — founders, engagés, soldiers, and religious figures — flowing through a handful of mainland embarkation ports (Dieppe, Honfleur, La Rochelle, Saint-Malo). The Channel Islands belonged to that Norman world culturally and historically, but they were not mass terminals for colonial sailings; island-born individuals, when they appear, are usually folded into broader French or Norman categories in the records. Modern French Canadian family trees often highlight Normandy because those channels were thick and the St. Lawrence founder population was small, not because the colony was only Norman.',
+        fr: 'La Nouvelle-France attira des colons de toute la côte atlantique de la France. La Normandie, le Perche, la Bretagne et le Centre-Ouest contribuèrent chacun des cohortes distinctes — fondateurs, engagés, soldats et religieux — transitant par quelques ports continentaux d\'embarquement (Dieppe, Honfleur, La Rochelle, Saint-Malo). Les îles Anglo-Normandes appartenaient à cette sphère normande sur le plan culturel et historique, mais ce n\'étaient pas des terminaux de masse pour les départs coloniaux ; les personnes nées sur les îles, lorsqu\'elles apparaissent, sont le plus souvent regroupées dans des catégories « françaises » ou « normandes » plus larges dans les registres. Les arbres généalogiques canadiens-français mettent souvent en avant la Normandie parce que ces canaux étaient denses et que la population fondatrice du Saint-Laurent était restreinte, non parce que la colonie était uniquement normande.',
       },
     },
     anchorYear: 1608,
@@ -507,8 +523,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'Crossing the Atlantic',
       body: {
-        en: 'Ships departed from Dieppe, La Rochelle, Honfleur, and Saint-Malo in spring, crossed in six to twelve weeks, and carried settlers, supplies, and trade goods to the St. Lawrence. The return voyage brought furs back to France.',
-        fr: 'Les navires partaient de Dieppe, La Rochelle, Honfleur et Saint-Malo au printemps, traversaient en six à douze semaines, et transportaient colons, approvisionnements et marchandises vers le Saint-Laurent. Le voyage retour ramenait les fourrures en France.',
+        en: 'Ships departed from Dieppe, La Rochelle, Honfleur, and Saint-Malo in spring, crossed in six to twelve weeks, and carried settlers, supplies, and trade goods toward Canada. The St. Lawrence colony was the main demographic destination for many of these voyages; Acadia drew especially on La Rochelle and Saint-Malo through the same mainland harbour system — not on insular Channel ports as primary terminals. The return voyage brought furs back to France.',
+        fr: 'Les navires partaient de Dieppe, La Rochelle, Honfleur et Saint-Malo au printemps, traversaient en six à douze semaines, et transportaient colons, approvisionnements et marchandises vers le Canada. La colonie du Saint-Laurent fut pour beaucoup la destination démographique principale ; l\'Acadie puisait surtout à La Rochelle et à Saint-Malo dans le même réseau de ports continentaux — non à des havres insulaires comme terminaux majeurs. Le voyage retour ramenait les fourrures en France.',
       },
     },
     anchorYear: 1620,

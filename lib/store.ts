@@ -6,7 +6,8 @@ import { getDefaultAtlasEraId, isValidAtlasEra, getEraRange } from '@/core/era/e
 import { isMigrationEra } from '@/core/migration/engine';
 import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-france-timeline';
 import type { SelectionKind } from '@/types';
-import type { MigrationMapMode, MigrationBranchId, MigrationCohortId } from '@/core/types';
+import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocale } from '@/core/types';
+import { DEFAULT_LOCALE, readStoredLocale, persistLocale } from '@/lib/locale';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -97,8 +98,10 @@ interface MapStore {
   /** When true, Carto basemap shows cities, countries, roads, water names, and admin boundaries. */
   modernBasemapOverlays: boolean;
 
+  locale: AtlasLocale;
   onboardingPhase: OnboardingPhase;
 
+  setLocale: (locale: AtlasLocale) => void;
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
   toggleLayer: (id: string) => void;
@@ -163,8 +166,13 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   migrationCohortId: 'all_immigrants' as MigrationCohortId,
   migrationFlowEnabled: false,
   modernBasemapOverlays: false,
+  locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
 
+  setLocale: (locale) => {
+    persistLocale(locale);
+    set({ locale });
+  },
   setAtlasMode: (enabled) =>
     set({
       atlasMode: enabled,

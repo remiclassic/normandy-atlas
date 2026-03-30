@@ -3,6 +3,7 @@ import { regionRecords } from '@/data/regions-content';
 import { settlements } from '@/data/settlements';
 import { routeRecords } from '@/data/routes';
 import type { RegionFeatureCollection, Settlement, RouteRecord, RouteKind } from '@/types';
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 export function getRegionsGeoJsonForEra(eraId: string): RegionFeatureCollection {
   const visibleIds = new Set<string>();
@@ -32,6 +33,7 @@ export function buildSettlementsGeoJson(items: Settlement[]): GeoJSON.FeatureCol
         name: s.name,
         regionId: s.regionId,
         category: s.category ?? 'other',
+        atlasIcon: getFeatureIconType({ category: s.category, label: s.name }),
       },
       geometry: {
         type: 'Point' as const,

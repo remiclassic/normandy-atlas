@@ -426,7 +426,9 @@ export function addDensityLayers(map: MaplibreMap) {
 // 5. Archaeological evidence layers
 // ---------------------------------------------------------------------------
 
-export function addEvidenceLayers(map: MaplibreMap) {
+export function addEvidenceLayers(map: MaplibreMap, theme: 'dark' | 'parchment' = 'dark') {
+  const imgTheme = theme === 'parchment' ? 'parchment' : 'dark';
+
   safeAddSource(map, NORMANDY_EVIDENCE_SOURCE, {
     type: 'geojson',
     data: buildEvidenceGeoJson(),
@@ -435,46 +437,33 @@ export function addEvidenceLayers(map: MaplibreMap) {
 
   safeAddLayer(map, {
     id: EVIDENCE_CIRCLES,
-    type: 'circle',
+    type: 'symbol',
     source: NORMANDY_EVIDENCE_SOURCE,
-    paint: {
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 5, 10, 8],
-      'circle-color': ['match', ['get', 'kind'],
-        'burial', EVIDENCE_COLORS.burial,
-        'weapon', EVIDENCE_COLORS.weapon,
-        'fortification', EVIDENCE_COLORS.fortification,
-        '#333',
-      ],
-      'circle-opacity': ['match', ['get', 'certainty'],
-        'confirmed', 0.85,
-        0.55,
-      ],
-      'circle-stroke-width': 1.5,
-      'circle-stroke-color': 'rgba(200, 190, 170, 0.4)',
+    layout: {
+      'icon-image': ['concat', 'atlas-icon-', ['get', 'atlasIcon'], `-${imgTheme}`],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 5, 0.4, 10, 0.6],
+      'icon-allow-overlap': true,
+      visibility: 'none',
     },
-    layout: { visibility: 'none' },
+    paint: {
+      'icon-opacity': ['match', ['get', 'certainty'],
+        'confirmed', 0.9,
+        0.6,
+      ],
+    },
   });
 
+  // Keep the EVIDENCE_ICONS layer id alive (but as a no-op) so existing
+  // references in data/layers.ts don't break layer toggle logic.
   safeAddLayer(map, {
     id: EVIDENCE_ICONS,
     type: 'symbol',
     source: NORMANDY_EVIDENCE_SOURCE,
     layout: {
-      'text-field': ['match', ['get', 'kind'],
-        'burial', EVIDENCE_ICON_TEXT.burial,
-        'weapon', EVIDENCE_ICON_TEXT.weapon,
-        'fortification', EVIDENCE_ICON_TEXT.fortification,
-        '●',
-      ],
-      'text-size': ['interpolate', ['linear'], ['zoom'], 5, 8, 10, 12],
-      'text-font': ['Noto Sans Regular'],
-      'text-allow-overlap': true,
       visibility: 'none',
+      'text-field': '',
     },
-    paint: {
-      'text-color': '#f0e8d8',
-      'text-opacity': 0.9,
-    },
+    paint: {},
   });
 
   safeAddLayer(map, {
@@ -585,13 +574,13 @@ export function addToponymyLayers(map: MaplibreMap) {
 // Master initializer — call once after base layers are set up
 // ---------------------------------------------------------------------------
 
-export function addAllNormandyLayers(map: MaplibreMap) {
+export function addAllNormandyLayers(map: MaplibreMap, theme: 'dark' | 'parchment' = 'dark') {
   addMicroRegionLayers(map);
   addExpansionLayers(map);
   addRiverLayers(map);
   addCultureLayers(map);
   addDensityLayers(map);
-  addEvidenceLayers(map);
+  addEvidenceLayers(map, theme);
   addToponymyLayers(map);
 }
 

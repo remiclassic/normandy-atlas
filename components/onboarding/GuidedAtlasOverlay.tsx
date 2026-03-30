@@ -1,45 +1,26 @@
 'use client';
 
-import { memo, useState, useCallback, useEffect, useRef } from 'react';
+import { memo, useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLocale } from '@/hooks/use-atlas';
+import { t } from '@/lib/ui-strings';
+import type { UiStringKey } from '@/lib/ui-strings';
+
+type Placement = 'center' | 'map-inset' | 'below-anchor' | 'beside-anchor';
 
 interface StepDef {
-  title: string;
-  body: string;
+  titleKey: UiStringKey;
+  bodyKey: UiStringKey;
   anchor?: string;
-  placement: 'center' | 'map-inset' | 'below-anchor' | 'beside-anchor';
+  placement: Placement;
 }
 
-const STEPS: StepDef[] = [
-  {
-    title: 'A living historical system',
-    body: 'This atlas is not just a map.\nIt shows how people moved, settled, and shaped the world over time.',
-    placement: 'center',
-  },
-  {
-    title: 'What you see',
-    body: 'Each point represents a settlement. Lines trace migration routes. Shaded regions show zones of influence — all reconstructed from available records.',
-    anchor: 'map',
-    placement: 'map-inset',
-  },
-  {
-    title: 'Navigate through time',
-    body: 'Move through time to watch history unfold. Each era reveals different layers of activity.',
-    anchor: 'timeline',
-    placement: 'below-anchor',
-  },
-  {
-    title: 'Explore in depth',
-    body: 'Click any location to explore people, events, and context tied to that place and era.',
-    anchor: 'map',
-    placement: 'map-inset',
-  },
-  {
-    title: 'Layers of evidence',
-    body: 'Some layers show documented history. Others reveal modeled influence based on historical patterns and scholarly analysis.',
-    anchor: 'layers',
-    placement: 'beside-anchor',
-  },
+const STEP_DEFS: StepDef[] = [
+  { titleKey: 'tour.step1.title', bodyKey: 'tour.step1.body', placement: 'center' },
+  { titleKey: 'tour.step2.title', bodyKey: 'tour.step2.body', anchor: 'map', placement: 'map-inset' },
+  { titleKey: 'tour.step3.title', bodyKey: 'tour.step3.body', anchor: 'timeline', placement: 'below-anchor' },
+  { titleKey: 'tour.step4.title', bodyKey: 'tour.step4.body', anchor: 'map', placement: 'map-inset' },
+  { titleKey: 'tour.step5.title', bodyKey: 'tour.step5.body', anchor: 'layers', placement: 'beside-anchor' },
 ];
 
 interface Rect {
@@ -109,9 +90,16 @@ function panelStyle(placement: StepDef['placement'], rect: Rect | null): React.C
 
 function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
   const [stepIndex, setStepIndex] = useState(0);
-  const step = STEPS[stepIndex];
-  const isLast = stepIndex === STEPS.length - 1;
-  const rect = useMeasureAnchor(step.anchor);
+  const locale = useLocale();
+  const def = STEP_DEFS[stepIndex];
+  const isLast = stepIndex === STEP_DEFS.length - 1;
+  const rect = useMeasureAnchor(def.anchor);
+
+  const step = useMemo(() => ({
+    title: t(def.titleKey, locale),
+    body: t(def.bodyKey, locale),
+    placement: def.placement,
+  }), [def, locale]);
 
   const next = useCallback(() => {
     if (isLast) onComplete();
@@ -175,7 +163,7 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
         >
           <div className="glass-panel-elevated flex max-h-full flex-col overflow-y-auto p-5">
             <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-gold/50 mb-2">
-              {stepIndex + 1} / {STEPS.length}
+              {stepIndex + 1} / {STEP_DEFS.length}
             </p>
             <h3 className="font-display text-[17px] font-semibold leading-snug text-parchment mb-2">
               {step.title}
@@ -188,7 +176,7 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
                 onClick={onComplete}
                 className="text-[10px] tracking-[0.12em] uppercase text-text-dim hover:text-text-muted transition-colors duration-200"
               >
-                Skip
+                {t('tour.skip', locale)}
               </button>
               <div className="flex gap-2">
                 {stepIndex > 0 && (
@@ -196,14 +184,14 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
                     onClick={prev}
                     className="px-3 py-1.5 text-[11px] tracking-[0.08em] uppercase text-text-muted border border-border hover:border-border-bright transition-colors duration-200"
                   >
-                    Back
+                    {t('tour.back', locale)}
                   </button>
                 )}
                 <button
                   onClick={next}
                   className="px-4 py-1.5 text-[11px] tracking-[0.08em] uppercase text-gold border border-gold/30 hover:border-gold/50 hover:bg-gold/[0.04] transition-all duration-200"
                 >
-                  {isLast ? 'Begin exploring' : 'Next'}
+                  {isLast ? t('tour.begin', locale) : t('tour.next', locale)}
                 </button>
               </div>
             </div>

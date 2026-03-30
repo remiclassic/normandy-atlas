@@ -7,7 +7,8 @@ import { useMapStore, NORMANDY_ERA_IDS } from '@/lib/store';
 import { getEraRange } from '@/core/era/engine';
 import { getMarkersForEra } from '@/data/atlas/timeline-markers';
 import { formatYear, yearToPercent } from '@/lib/timeline-utils';
-import type { TimelineMarker, TimelineMarkerKind } from '@/core/types';
+import { pickI18n } from '@/lib/locale';
+import type { TimelineMarker, TimelineMarkerKind, AtlasLocale } from '@/core/types';
 
 const MAX_VISIBLE_MARKERS = 12;
 const MIN_MARKER_SPACING_PCT = 3;
@@ -86,6 +87,7 @@ const MarkerDot = memo(function MarkerDot({
   marker,
   percent,
   isPast,
+  locale,
   onHover,
   onLeave,
   onClick,
@@ -93,6 +95,7 @@ const MarkerDot = memo(function MarkerDot({
   marker: TimelineMarker;
   percent: number;
   isPast: boolean;
+  locale: AtlasLocale;
   onHover: (marker: TimelineMarker, el: HTMLElement) => void;
   onLeave: () => void;
   onClick: (marker: TimelineMarker) => void;
@@ -110,7 +113,7 @@ const MarkerDot = memo(function MarkerDot({
       onFocus={() => ref.current && onHover(marker, ref.current)}
       onBlur={onLeave}
       onClick={() => onClick(marker)}
-      aria-label={`${marker.label.en}, ${formatYear(marker.year)}`}
+      aria-label={`${pickI18n(marker.label, locale)}, ${formatYear(marker.year)}`}
     >
       {/* Larger invisible hit area */}
       <span className="absolute -inset-2" aria-hidden />
@@ -157,9 +160,11 @@ const TickLabel = memo(function TickLabel({
 function MarkerTooltip({
   marker,
   anchorRect,
+  locale,
 }: {
   marker: TimelineMarker;
   anchorRect: DOMRect;
+  locale: AtlasLocale;
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
@@ -192,7 +197,7 @@ function MarkerTooltip({
       }}
     >
       <p className="text-[12px] font-semibold text-parchment leading-snug">
-        {marker.label.en}
+        {pickI18n(marker.label, locale)}
       </p>
       <div className="flex items-center gap-2 mt-1">
         <span className={`inline-block h-2 w-2 rounded-full flex-shrink-0 ${KIND_COLORS[marker.kind].split(' ')[0]}`} />
@@ -216,6 +221,7 @@ function MarkerTooltip({
 export default function AtlasTimelineRail() {
   const eraId = useMapStore((s) => s.eraId);
   const atlasMode = useMapStore((s) => s.atlasMode);
+  const locale = useMapStore((s) => s.locale);
   const atlasSimYear = useMapStore((s) => s.atlasSimYear);
   const normandySimYear = useMapStore((s) => s.normandySimYear);
   const setAtlasSimYear = useMapStore((s) => s.setAtlasSimYear);
@@ -325,6 +331,7 @@ export default function AtlasTimelineRail() {
               marker={m}
               percent={yearToPercent(m.year, min, max)}
               isPast={clampedYear >= m.year}
+              locale={locale}
               onHover={handleMarkerHover}
               onLeave={handleMarkerLeave}
               onClick={handleMarkerClick}
@@ -359,7 +366,7 @@ export default function AtlasTimelineRail() {
           {/* Portal tooltip */}
           <AnimatePresence>
             {hoveredMarker && anchorRect && (
-              <MarkerTooltip marker={hoveredMarker} anchorRect={anchorRect} />
+              <MarkerTooltip marker={hoveredMarker} anchorRect={anchorRect} locale={locale} />
             )}
           </AnimatePresence>
         </div>

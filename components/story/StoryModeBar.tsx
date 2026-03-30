@@ -6,6 +6,10 @@ import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
 import { getStoryBeats, getBeat, getBeatCount } from '@/core';
 import { getArcEntriesForEra } from '@/data/atlas/era-arcs';
+import { pickI18n } from '@/lib/locale';
+import { t } from '@/lib/ui-strings';
+import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
+import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
 import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 
@@ -14,6 +18,7 @@ export default function StoryModeBar() {
   const stepIndex = useMapStore((s) => s.storyStepIndex);
   const atlasMode = useMapStore((s) => s.atlasMode);
   const storyArc = useMapStore((s) => s.storyArc);
+  const locale = useMapStore((s) => s.locale);
   const startStory = useMapStore((s) => s.startStory);
   const stopStory = useMapStore((s) => s.stopStory);
   const nextStep = useMapStore((s) => s.nextStoryStep);
@@ -35,8 +40,31 @@ export default function StoryModeBar() {
     return normanAtlanticStory[Math.min(stepIndex, normanAtlanticStory.length - 1)] ?? null;
   }, [storyMode, atlasMode, stepIndex]);
 
-  const stepTitle = currentBeat?.copy.title ?? currentLegacyStep?.title ?? '';
-  const stepBody = currentBeat?.copy.body.en ?? currentLegacyStep?.body ?? '';
+  const stepTitle = useMemo(() => {
+    if (!currentBeat) return currentLegacyStep?.title ?? '';
+    if (locale === 'es') {
+      const esTitle = STORY_BEAT_TITLES_ES[currentBeat.id];
+      if (esTitle) return esTitle;
+    }
+    if (locale === 'it') {
+      const itTitle = STORY_BEAT_TITLES_IT[currentBeat.id];
+      if (itTitle) return itTitle;
+    }
+    return currentBeat.copy.title;
+  }, [currentBeat, currentLegacyStep, locale]);
+
+  const stepBody = useMemo(() => {
+    if (!currentBeat) return currentLegacyStep?.body ?? '';
+    if (locale === 'es') {
+      const esBody = STORY_BEAT_BODIES_ES[currentBeat.id];
+      if (esBody) return esBody;
+    }
+    if (locale === 'it') {
+      const itBody = STORY_BEAT_BODIES_IT[currentBeat.id];
+      if (itBody) return itBody;
+    }
+    return pickI18n(currentBeat.copy.body, locale);
+  }, [currentBeat, currentLegacyStep, locale]);
   const stepChapter = currentBeat ? undefined : currentLegacyStep?.chapterTitle;
   const stepId = currentBeat?.id ?? currentLegacyStep?.id ?? '';
 
@@ -97,7 +125,7 @@ export default function StoryModeBar() {
                   <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                 </svg>
               </span>
-              Explore the Story
+              {t('story.explore', locale)}
             </button>
 
             {arcEntries.map((entry) => (
@@ -111,7 +139,7 @@ export default function StoryModeBar() {
                     <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                   </svg>
                 </span>
-                {entry.label.en}
+                {pickI18n(entry.label, locale)}
               </button>
             ))}
           </motion.div>
@@ -184,7 +212,7 @@ export default function StoryModeBar() {
                     onClick={handleStop}
                     className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-white/[0.03]"
                   >
-                    Exit story
+                    {t('story.exit', locale)}
                   </button>
                   <div className="flex items-center gap-2">
                     <button
@@ -200,7 +228,7 @@ export default function StoryModeBar() {
                       onClick={isLast ? handleStop : nextStep}
                       className="flex items-center justify-center h-9 rounded-lg bg-gold/12 border border-gold/20 px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150"
                     >
-                      {isLast ? 'Finish' : 'Continue'}
+                      {isLast ? t('story.finish', locale) : t('story.continue', locale)}
                       {!isLast && (
                         <svg width="12" height="12" viewBox="0 0 14 14" fill="none" className="ml-1.5 opacity-70">
                           <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

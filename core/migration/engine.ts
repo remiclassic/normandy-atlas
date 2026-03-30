@@ -6,6 +6,7 @@ import type {
   MigrationCohortId,
   MigrationBranchId,
   MigrationMapMode,
+  MigrationFlowTier,
   MigrationShareRow,
   MigrationOverlayContext,
   I18nString,
@@ -27,6 +28,8 @@ const FALLBACK_CENTROIDS: Record<string, [number, number]> = {
   'other-france': [2.0, 47.0],
   'other-ports': [-1.0, 47.0],
   'other-st-lawrence': [-72.0, 46.5],
+  /** Archipelago centroid — not a museum immigration category; used only for illustrative flow arcs. */
+  'channel-islands': [-2.35, 49.45],
 };
 
 // ---------------------------------------------------------------------------
@@ -139,7 +142,7 @@ export function getShareForEntity(
 export function buildMigrationWeightMap(
   ctx: MigrationOverlayContext,
 ): Map<string, number> {
-  const rows = getSharesForMode(ctx.dataset, ctx.mapMode);
+  const rows = getSharesForMode(ctx.dataset, ctx.mapMode).filter((r) => r.kind !== 'callout');
   const maxPercent = Math.max(...rows.map((r) => r.percent ?? 0), 1);
   const weights = new Map<string, number>();
   for (const row of rows) {
@@ -183,6 +186,7 @@ export interface ResolvedFlowArc {
   portCoords: [number, number];
   colonyCoords: [number, number];
   weight: number;
+  tier: MigrationFlowTier;
 }
 
 export function resolveFlowArcs(
@@ -197,7 +201,13 @@ export function resolveFlowArcs(
       resolveRegionCentroid(edge.colonyZoneId) ??
       getPlaceCoords(edge.colonyZoneId);
     if (origin && port && colony) {
-      arcs.push({ originCoords: origin, portCoords: port, colonyCoords: colony, weight: edge.weight });
+      arcs.push({
+        originCoords: origin,
+        portCoords: port,
+        colonyCoords: colony,
+        weight: edge.weight,
+        tier: edge.tier ?? 'primary',
+      });
     }
   }
   return arcs;
@@ -211,7 +221,7 @@ export function validateDatasets(): string[] {
   const warnings: string[] = [];
   for (const ds of migrationDatasets) {
     for (const mode of ['origins', 'ports', 'colonies'] as const) {
-      const rows = getSharesForMode(ds, mode);
+      const rows = getSharesForMode(ds, mode).filter((r) => r.kind !== 'callout');
       const total = rows.reduce((sum, r) => sum + (r.percent ?? 0), 0);
       if (Math.abs(total - 100) > 2) {
         warnings.push(

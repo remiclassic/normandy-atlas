@@ -1,7 +1,9 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import { useMapStore } from '@/lib/store';
+import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
+import type { AtlasLocale, I18nString } from '@/core/types';
 import {
   getVisiblePlaces,
   buildPlacesGeoJson,
@@ -24,6 +26,27 @@ import type {
   AtlasEra,
 } from '@/core/types';
 import type { RegionFeatureCollection } from '@/types';
+
+/** Hydrate locale from localStorage once on the client — call in a top-level shell. */
+export function useHydrateLocale(): void {
+  const setLocale = useMapStore((s) => s.setLocale);
+  useEffect(() => {
+    const stored = readStoredLocale();
+    if (stored !== useMapStore.getState().locale) {
+      setLocale(stored);
+    }
+  }, [setLocale]);
+}
+
+export function useLocale(): AtlasLocale {
+  return useMapStore((s) => s.locale);
+}
+
+/** Resolve an I18nString to the active locale. */
+export function useI18n(str: I18nString): string {
+  const locale = useMapStore((s) => s.locale);
+  return _pickI18n(str, locale);
+}
 
 export function useAtlasMode(): boolean {
   return useMapStore((s) => s.atlasMode);

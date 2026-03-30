@@ -13,60 +13,80 @@ export const VIKING_PHASES: VikingPhase[] = [
     id: 'late-carolingian-raids',
     yearStart: 751,
     yearEnd: 841,
-    label: { en: 'Late Carolingian Frontier', fr: 'Frontière carolingienne tardive' },
+    label: {
+      en: 'Late Carolingian Frontier',
+      fr: 'Frontière carolingienne tardive',
+      it: 'Frontiera carolingia tarda',
+    },
     narrative: {
       en: 'The Carolingian empire\'s fragmentation exposed wealthy river corridors. Early Norse raids struck Lindisfarne (793) and the Channel coast; the Seine valley\'s monastic riches attracted growing attention.',
       fr: 'La fragmentation de l\'empire carolingien exposa de riches corridors fluviaux. Les premiers raids scandinaves frappèrent Lindisfarne (793) et la côte de la Manche ; les richesses monastiques de la vallée de la Seine attirèrent une attention croissante.',
+      it: 'La frammentazione dell\'impero carolingio espose ricchi corridoi fluviali. Le prime scorrerie norrene colpirono Lindisfarne (793) e la costa della Manica; le ricchezze monastiche della valle della Senna attirarono crescente attenzione.',
     },
   },
   {
     id: 'seine-raids',
     yearStart: 841,
     yearEnd: 886,
-    label: { en: 'Seine Raids Intensify', fr: 'Intensification des raids sur la Seine' },
+    label: {
+      en: 'Seine Raids Intensify',
+      fr: 'Intensification des raids sur la Seine',
+      it: 'Intensificazione delle scorrerie sulla Senna',
+    },
     narrative: {
       en: 'Rouen fell to Vikings in 841. Over the next four decades, Norse fleets penetrated deep into Francia via the Seine, Loire, and Garonne. Paris was besieged in 885–886. Monasteries burned; the Carolingian response oscillated between tribute and force.',
       fr: 'Rouen tomba aux mains des Vikings en 841. Pendant les quatre décennies suivantes, les flottes scandinaves pénétrèrent profondément en Francie via la Seine, la Loire et la Garonne. Paris fut assiégé en 885–886. Les monastères brûlèrent ; la réponse carolingienne oscilla entre tribut et force.',
+      it: 'Rouen cadde in mano ai vichinghi nell\'841. Nei quattro decenni successivi le flotte norrene penetrarono in profondità nella Francia lungo Senna, Loira e Garonna. Parigi fu assediata nell\'885–886. Gli monasteri bruciarono; la risposta carolingia oscillò tra tributo e forza.',
     },
   },
   {
     id: 'negotiation-settlement',
     yearStart: 886,
     yearEnd: 911,
-    label: { en: 'Negotiation & Settlement', fr: 'Négociation et implantation' },
+    label: { en: 'Negotiation & Settlement', fr: 'Négociation et implantation', it: 'Negoziazione e insediamento' },
     narrative: {
       en: 'After the siege of Paris, Frankish kings increasingly negotiated with Norse war-bands. Viking groups settled semi-permanently along the lower Seine. In 911, Charles the Simple ceded territory to Rollo at Saint-Clair-sur-Epte — the founding act of Normandy.',
       fr: 'Après le siège de Paris, les rois francs négocièrent de plus en plus avec les bandes de guerre scandinaves. Des groupes vikings s\'installèrent semi-durablement le long de la basse Seine. En 911, Charles le Simple céda un territoire à Rollon à Saint-Clair-sur-Epte — l\'acte fondateur de la Normandie.',
+      it: 'Dopo l\'assedio di Parigi i re franchi negoziarono sempre più con bande guerriere norrene. Gruppi vichinghi si stabilirono in modo semipermanente lungo la bassa Senna. Nel 911 Carlo il Semplice cedette un territorio a Rollone a Saint-Clair-sur-Epte — l\'atto fondatore della Normandia.',
     },
   },
   {
     id: 'early-normandy',
     yearStart: 911,
     yearEnd: 965,
-    label: { en: 'Early Normandy', fr: 'Normandie primitive' },
+    label: { en: 'Early Normandy', fr: 'Normandie primitive', it: 'Normandia nascente' },
     narrative: {
       en: 'Rollo\'s successors consolidated control, absorbing Frankish institutions while maintaining a warrior aristocracy. The territory expanded westward into the Cotentin and Avranchin. Norse settlers mixed with the existing Frankish population.',
       fr: 'Les successeurs de Rollon consolidèrent le contrôle, absorbant les institutions franques tout en maintenant une aristocratie guerrière. Le territoire s\'étendit vers l\'ouest dans le Cotentin et l\'Avranchin. Les colons scandinaves se mêlèrent à la population franque existante.',
+      it: 'I successori di Rollone consolidarono il controllo, assorbendo le istituzioni franche pur mantenendo un\'aristocrazia guerriera. Il territorio si estese verso ovest nel Cotentin e nell\'Avranchin. I coloni norreni si mescolarono alla popolazione franca esistente.',
     },
   },
   {
     id: 'ducal-consolidation',
     yearStart: 965,
     yearEnd: 1066,
-    label: { en: 'Ducal Consolidation', fr: 'Consolidation ducale' },
+    label: { en: 'Ducal Consolidation', fr: 'Consolidation ducale', it: 'Consolidazione ducale' },
     narrative: {
       en: 'Under Richard I and his successors, the duchy stabilised. Normandy developed a distinctive identity — Latin-speaking, Christian, but with a Norse warrior ethos. By 1066, William had forged the most militarily effective polity in northern Europe.',
       fr: 'Sous Richard Ier et ses successeurs, le duché se stabilisa. La Normandie développa une identité distincte — latinophone, chrétienne, mais avec un ethos guerrier scandinave. En 1066, Guillaume avait forgé l\'entité politique la plus efficace militairement du nord de l\'Europe.',
+      it: 'Sotto Riccardo I e i suoi successori il ducato si stabilizzò. La Normandia sviluppò un\'identità distinta — di lingua latina, cristiana, ma con un ethos guerriero norreno. Entro il 1066 Guglielmo aveva forgiato l\'entità politica più efficace militarmente nel nord Europa.',
     },
   },
 ];
 
 export const VIKING_TIMELINE_MARKERS: { year: number; label: I18nString }[] = [
-  { year: 793, label: { en: 'Lindisfarne Raid', fr: 'Raid de Lindisfarne' } },
-  { year: 841, label: { en: 'Rouen Falls', fr: 'Chute de Rouen' } },
-  { year: 886, label: { en: 'Siege of Paris', fr: 'Siège de Paris' } },
-  { year: 911, label: { en: 'Treaty of Saint-Clair-sur-Epte', fr: 'Traité de Saint-Clair-sur-Epte' } },
-  { year: 1066, label: { en: 'Norman Conquest', fr: 'Conquête normande' } },
+  { year: 793, label: { en: 'Lindisfarne Raid', fr: 'Raid de Lindisfarne', it: 'Incursione a Lindisfarne' } },
+  { year: 841, label: { en: 'Rouen Falls', fr: 'Chute de Rouen', it: 'Caduta di Rouen' } },
+  { year: 886, label: { en: 'Siege of Paris', fr: 'Siège de Paris', it: 'Assedio di Parigi' } },
+  {
+    year: 911,
+    label: {
+      en: 'Treaty of Saint-Clair-sur-Epte',
+      fr: 'Traité de Saint-Clair-sur-Epte',
+      it: 'Trattato di Saint-Clair-sur-Epte',
+    },
+  },
+  { year: 1066, label: { en: 'Norman Conquest', fr: 'Conquête normande', it: 'Conquista normanna' } },
 ];
 
 export function getVikingPhaseForYear(year: number): VikingPhase | undefined {

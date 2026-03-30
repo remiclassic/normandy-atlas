@@ -3,10 +3,9 @@
 // Self-contained type system for the historical atlas engine.
 // ---------------------------------------------------------------------------
 
-export interface I18nString {
-  en: string;
-  fr: string;
-}
+export type AtlasLocale = 'en' | 'fr' | 'es' | 'it' | 'de' | 'pt' | 'da' | 'nl';
+
+export type I18nString = { en: string } & Partial<Record<Exclude<AtlasLocale, 'en'>, string>>;
 
 // --- Camera ---
 
@@ -338,14 +337,20 @@ export interface MigrationMetricDefinition {
   description: I18nString;
 }
 
+export type MigrationShareRowKind = 'metric' | 'callout';
+
 export interface MigrationShareRow {
   entityId: string;
   label: I18nString;
+  /** `callout` rows explain context without a % bar and are excluded from the ~100% validation sum. */
+  kind?: MigrationShareRowKind;
   percent?: number;
   percentRange?: [number, number];
   confidence: StatConfidence;
   note?: I18nString;
 }
+
+export type MigrationFlowTier = 'primary' | 'secondary';
 
 export interface MigrationFlowEdge {
   originRegionId: string;
@@ -353,6 +358,8 @@ export interface MigrationFlowEdge {
   colonyZoneId: string;
   weight: number;
   confidence: StatConfidence;
+  /** Thinner, lower-opacity arcs on the map — illustrative links, not primary census-weighted corridors. */
+  tier?: MigrationFlowTier;
 }
 
 export interface MigrationDataset {

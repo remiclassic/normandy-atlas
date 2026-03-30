@@ -125,6 +125,27 @@ export const atlasPlaces: Place[] = [
     },
   },
   {
+    id: 'saint-peter-port',
+    kind: 'port',
+    coordinates: [-2.535, 49.455],
+    regionId: 'channel-coast',
+    layer: 'europe',
+    eraStates: {
+      'new-france-foundations': {
+        visibility: 'normal',
+        label: 'Saint Peter Port (Guernsey)',
+        affiliationTags: ['Channel Islands', 'Norman world', 'not a mass embarkation port'],
+        pedagogyIndex: 3,
+      },
+      'royal-new-france': {
+        visibility: 'normal',
+        label: 'Saint Peter Port',
+        affiliationTags: ['Channel Islands', 'Norman world'],
+        pedagogyIndex: 2,
+      },
+    },
+  },
+  {
     id: 'mortagne-au-perche',
     kind: 'city',
     coordinates: [0.55, 48.52],

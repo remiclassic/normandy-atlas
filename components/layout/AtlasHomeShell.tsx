@@ -11,29 +11,49 @@ import StoryModeBar from '@/components/story/StoryModeBar';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreditsIconButton } from '@/components/layout/CreditsPanel';
+import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
+import { useHydrateLocale, useLocale } from '@/hooks/use-atlas';
+import { t } from '@/lib/ui-strings';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 /**
  * Full-width top chrome with branding + era controls; map and detail panel below.
  */
 export default function AtlasHomeShell() {
+  useHydrateLocale();
+  const locale = useLocale();
   const [creditsOpen, setCreditsOpen] = useState(false);
   const openCredits = useCallback(() => setCreditsOpen(true), []);
   const closeCredits = useCallback(() => setCreditsOpen(false), []);
 
+  const [normanOverviewOpen, setNormanOverviewOpen] = useState(false);
+  const openNormanOverview = useCallback(() => setNormanOverviewOpen(true), []);
+  const closeNormanOverview = useCallback(() => setNormanOverviewOpen(false), []);
+
   const leadingSlot = useMemo(
     () => (
-      <div className="flex items-center gap-0.5">
+      <div className="flex items-center gap-1">
         <ReplayTourButton />
         <ChromeIconTooltip
-          label="Credits & about"
-          hint="Creator, vision, links, and how to support this project."
+          label={t('normanOverview.tooltip.label', locale)}
+          hint={t('normanOverview.tooltip.hint', locale)}
         >
-          <CreditsIconButton onOpen={openCredits} />
+          <NormanOverviewIconButton
+            onOpen={openNormanOverview}
+            ariaLabel={t('normanOverview.aria.open', locale)}
+          />
         </ChromeIconTooltip>
+        <ChromeIconTooltip
+          label={t('credits.tooltip.label', locale)}
+          hint={t('credits.tooltip.hint', locale)}
+        >
+          <CreditsIconButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
+        </ChromeIconTooltip>
+        <LanguageSwitcher />
       </div>
     ),
-    [openCredits],
+    [openCredits, openNormanOverview, locale],
   );
 
   return (
@@ -45,7 +65,7 @@ export default function AtlasHomeShell() {
               Norman Atlas
             </h1>
             <p className="text-[8px] font-medium uppercase leading-snug tracking-[0.18em] text-text-dim sm:text-[9px] sm:tracking-[0.2em]">
-              A living map of people, movement, and time
+              {t('header.tagline', locale)}
             </p>
           </div>
 
@@ -73,7 +93,8 @@ export default function AtlasHomeShell() {
       </div>
 
       <CreditsModal open={creditsOpen} onClose={closeCredits} />
-      <AtlasWelcomeGate />
+      <NormanOverviewModal open={normanOverviewOpen} onClose={closeNormanOverview} />
+      <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
     </div>
   );
 }

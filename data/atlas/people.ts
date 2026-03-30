@@ -16,14 +16,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Frankish king crowned emperor in 800; administered Neustria from the Île-de-France heartland',
       fr: 'Roi franc couronné empereur en 800 ; administrait la Neustrie depuis le cœur de l\'Île-de-France',
+      it: 'Re franco incoronato imperatore nell\'800; amministrò la Neustria dal cuore dell\'Île-de-France',
     },
     bio: {
       en: 'United most of western Europe under Frankish rule, reorganising administration, the Church, and trade networks. Under his reign the Seine corridor became a critical axis linking the royal heartland to Channel ports like Quentovic.',
       fr: 'Unifia la majeure partie de l\'Europe occidentale sous domination franque, réorganisant l\'administration, l\'Église et les réseaux commerciaux. Sous son règne, le corridor de la Seine devint un axe essentiel reliant le cœur royal aux ports de la Manche comme Quentovic.',
+      it: 'Unificò gran parte dell\'Europa occidentale sotto il dominio franco, riorganizzando amministrazione, Chiesa e reti commerciali. Sotto il suo regno il corridoio della Senna divenne un asse cruciale tra il cuore del regno e i porti della Manica come Quentovic.',
     },
     legacy: {
       en: 'His empire set the political geography that Viking raiders would later exploit: a rich, monastery-lined river corridor defended by a single centralised authority that could not hold after his death.',
       fr: 'Son empire établit la géographie politique que les raiders vikings exploiteraient plus tard : un riche corridor fluvial bordé de monastères, défendu par une autorité centralisée unique qui ne put tenir après sa mort.',
+      it: 'Il suo impero fissò la geografia politica che i predoni vichinghi avrebbero sfruttato: un ricco corridoio fluviale costellato di monasteri, difeso da un\'autorità centralizzata che dopo la sua morte non tenne più.',
     },
   },
   {
@@ -40,14 +43,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Son of Charlemagne; sole emperor from 814, his reign ended in civil war',
       fr: 'Fils de Charlemagne ; seul empereur à partir de 814, son règne s\'acheva dans la guerre civile',
+      it: 'Figlio di Carlo Magno; unico imperatore dal 814, il suo regno si concluse nella guerra civile',
     },
     bio: {
       en: 'Maintained the empire intact for two decades but faced repeated revolts by his own sons. The resulting civil wars weakened frontier defences precisely as Norse raids intensified along the Channel and Seine.',
       fr: 'Maintint l\'empire intact pendant deux décennies mais fit face à des révoltes répétées de ses propres fils. Les guerres civiles qui en résultèrent affaiblirent les défenses frontalières au moment même où les raids scandinaves s\'intensifiaient le long de la Manche et de la Seine.',
+      it: 'Mantenuto l\'impero intatto per due decenni ma affrontò ripetute rivolte dei figli. Le guerre civili ne indebolirono le frontiere proprio mentre i raid norreni si intensificavano lungo Manica e Senna.',
     },
     legacy: {
       en: 'His death in 840 and the Treaty of Verdun (843) shattered Carolingian unity, directly enabling the conditions under which Rollo would carve out Normandy seventy years later.',
       fr: 'Sa mort en 840 et le traité de Verdun (843) brisèrent l\'unité carolingienne, créant directement les conditions dans lesquelles Rollon taillerait la Normandie soixante-dix ans plus tard.',
+      it: 'La sua morte nell\'840 e il trattato di Verdun (843) frantumarono l\'unità carolingia, aprendo le condizioni in cui Rollone avrebbe forgiato la Normandia settant\'anni dopo.',
     },
   },
   {
@@ -64,14 +70,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Eldest son of Louis the Pious; his wars of succession fragmented the empire',
       fr: 'Fils aîné de Louis le Pieux ; ses guerres de succession fragmentèrent l\'empire',
+      it: 'Figlio maggiore di Ludovico il Pio; le sue guerre di successione frammentarono l\'impero',
     },
     bio: {
       en: 'Repeatedly rebelled against his father and fought his brothers for control of the Frankish empire. The prolonged succession crisis diverted military resources from coastal defence, leaving the Seine valley exposed.',
       fr: 'Se révolta à plusieurs reprises contre son père et combattit ses frères pour le contrôle de l\'empire franc. La crise de succession prolongée détourna les ressources militaires de la défense côtière, laissant la vallée de la Seine exposée.',
+      it: 'Si ribellò più volte al padre e combatté i fratelli per il controllo dell\'impero franco. La crisi di successione prolungata distolse risorse militari dalla difesa costiera, lasciando esposta la valle della Senna.',
     },
     legacy: {
       en: 'The partition he helped cause created the political fragmentation that made the lower Seine a vacuum of authority — the precondition for Viking settlement.',
       fr: 'La partition qu\'il contribua à provoquer créa la fragmentation politique qui fit de la basse Seine un vide d\'autorité — la condition préalable à l\'implantation viking.',
+      it: 'La spartizione cui contribuì creò la frammentazione politica che fece della bassa Senna un vuoto di autorità — premessa dell\'insediamento vichingo.',
     },
   },
   // ──────────── Exploration-era figures ────────────
@@ -90,14 +99,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Brouage, Saintonge; sailed repeatedly from Honfleur',
       fr: 'Né à Brouage, Saintonge ; embarqué à Honfleur à répétition',
+      it: 'Nato a Brouage, Saintonge; salpò ripetutamente da Honfleur',
     },
     bio: {
       en: 'Navigator and cartographer who founded Québec in 1608 and shaped the colony for nearly three decades. His maps and writings remain primary sources for early New France.',
       fr: 'Navigateur et cartographe qui fonda Québec en 1608 et façonna la colonie pendant près de trois décennies. Ses cartes et écrits restent des sources primaires sur la Nouvelle-France.',
+      it: 'Navigatore e cartografo che fondò Québec nel 1608 e plasmò la colonia per quasi tre decenni. Mappe e scritti restano fonti primarie sulla Nuova Francia.',
     },
     legacy: {
       en: 'Called "the Father of New France"; his alliances with Huron-Wendat and Algonquin nations defined the colony\'s diplomacy.',
       fr: 'Surnommé « le père de la Nouvelle-France » ; ses alliances avec les Hurons-Wendats et les Algonquins ont défini la diplomatie de la colonie.',
+      it: 'Detto «padre della Nuova Francia»; le alleanze con Huron-Wendat e Algonchini definirono la diplomazia coloniale.',
     },
   },
   {
@@ -115,14 +127,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Saint-Malo, Brittany; sailed from the Breton-Norman maritime sphere',
       fr: 'Né à Saint-Malo, Bretagne ; naviguait dans la sphère maritime brétonne-normande',
+      it: 'Nato a Saint-Malo, Bretagna; navigava nella sfera marittima bretone-normanna',
     },
     bio: {
       en: 'First European explorer to chart the St. Lawrence River (1534–1542). His voyages opened France\'s claim to North America.',
       fr: 'Premier explorateur européen à cartographier le fleuve Saint-Laurent (1534-1542). Ses voyages ouvrirent la revendication française sur l\'Amérique du Nord.',
+      it: 'Primo esploratore europeo a cartografare il fiume San Lorenzo (1534–1542). I suoi viaggi aprirono la rivendicazione francese sul Nord America.',
     },
     legacy: {
       en: 'Anchor figure for the Age of Exploration; his contact with Stadacona and Hochelaga marks the earliest sustained French engagement with the St. Lawrence region.',
       fr: 'Figure de proue de l\'Âge des explorations ; son contact avec Stadaconé et Hochelaga marque le premier engagement français durable dans la région du Saint-Laurent.',
+      it: 'Figura di riferimento dell\'età delle esplorazioni; il contatto con Stadacona e Hochelaga segna il primo impegno francese duraturo nella regione del San Lorenzo.',
     },
   },
   {
@@ -140,14 +155,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Royan, Saintonge; held royal monopoly on fur trade',
       fr: 'Né à Royan, Saintonge ; détenteur du monopole royal de la traite des fourrures',
+      it: 'Nato a Royan, Saintonge; deteneva il monopolio reale della traite des fourrures',
     },
     bio: {
       en: 'Held the royal fur-trade monopoly that financed the 1604 Acadian venture and Champlain\'s founding of Québec. The commercial engine behind early colonization.',
       fr: 'Détenait le monopole royal de la traite des fourrures qui finança l\'entreprise acadienne de 1604 et la fondation de Québec par Champlain.',
+      it: 'Deteneva il monopolio reale che finanziò l\'impresa acadiana del 1604 e la fondazione di Québec da parte di Champlain. Motore commerciale della prima colonizzazione.',
     },
     legacy: {
       en: 'Often overshadowed by Champlain, but without Dugua\'s capital and political connections, permanent settlement might not have happened when it did.',
       fr: 'Souvent éclipsé par Champlain, mais sans le capital et les connexions politiques de Dugua, la colonisation permanente n\'aurait peut-être pas eu lieu à ce moment.',
+      it: 'Spesso oscurato da Champlain, ma senza il capitale e le connessioni politiche di Dugua l\'insediamento permanente forse non sarebbe avvenuto allora.',
     },
   },
   {
@@ -165,14 +183,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Champagne; sailed from Dieppe via Norman port networks',
       fr: 'Né en Champagne ; embarqué depuis Dieppe via le réseau portuaire normand',
+      it: 'Nato in Champagne; imbarcato a Dieppe via le reti portuali normanne',
     },
     bio: {
       en: 'Picard nobleman who led the colonization of Port-Royal in Acadia (1606). His ventures tied Norman maritime infrastructure to the Acadian frontier.',
       fr: 'Noble picard qui dirigea la colonisation de Port-Royal en Acadie (1606). Ses entreprises liaient l\'infrastructure maritime normande à la frontière acadienne.',
+      it: 'Nobile picardo che guidò la colonizzazione di Port-Royal in Acadia (1606). Le sue imprese collegarono l\'infrastruttura marittima normanna alla frontiera acadiana.',
     },
     legacy: {
       en: 'Illustrates how non-Norman nobles channeled through Normandy\'s Atlantic ports to reach the New World.',
       fr: 'Illustre comment des nobles non normands passaient par les ports atlantiques de Normandie pour atteindre le Nouveau Monde.',
+      it: 'Mostra come nobili non normanni passassero dai porti atlantici normanni per raggiungere il Nuovo Mondo.',
     },
   },
   {
@@ -190,14 +211,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Saint-Malo maritime merchant; Champlain\'s senior partner on multiple voyages',
       fr: 'Marchand maritime de Saint-Malo ; associé principal de Champlain sur plusieurs voyages',
+      it: 'Mercante marittimo di Saint-Malo; socio principale di Champlain in più viaggi',
     },
     bio: {
       en: 'Veteran mariner who made repeated crossings before Champlain and continued as his co-commander. A bridge between the fishing economy and formal colonization.',
       fr: 'Marin vétéran ayant effectué des traversées répétées avant Champlain et continué comme co-commandant. Un pont entre l\'économie de pêche et la colonisation formelle.',
+      it: 'Marinaio veterano con traversate ripetute prima di Champlain e co-comandante. Ponte tra economia della pesca e colonizzazione formale.',
     },
     legacy: {
       en: 'Represents the Breton-Norman merchant class that underwrote Atlantic expansion.',
       fr: 'Représente la classe marchande bréto-normande qui finançait l\'expansion atlantique.',
+      it: 'Rappresenta la borghesia mercantile bretone-normanna che finanziava l\'espansione atlantica.',
     },
   },
   {
@@ -215,14 +239,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Portuguese-born (João Afonso), naturalized French; worked from La Rochelle / Norman ports',
       fr: 'Né portugais (João Afonso), naturalisé français ; opérait depuis La Rochelle / ports normands',
+      it: 'Nato portoghese (João Afonso), naturalizzato francese; operò da La Rochelle e porti normanni',
     },
     bio: {
       en: 'Portuguese-born pilot who navigated Roberval\'s 1542 expedition to the St. Lawrence. One of the earliest documented navigators of the Gulf.',
       fr: 'Pilote d\'origine portugaise qui navigua l\'expédition de Roberval au Saint-Laurent en 1542. L\'un des premiers navigateurs documentés du golfe.',
+      it: 'Pilota di origine portoghese che guidò la spedizione di Roberval sul San Lorenzo nel 1542. Tra i primi navigatori documentati del golfo.',
     },
     legacy: {
       en: 'Shows the multinational character of early French Atlantic ventures.',
       fr: 'Montre le caractère multinational des premières entreprises atlantiques françaises.',
+      it: 'Illustra il carattere multinazionale delle prime imprese atlantiche francesi.',
     },
   },
 
@@ -242,14 +269,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Rouen, Normandy; documented baptismal records',
       fr: 'Rouen, Normandie ; registres de baptême documentés',
+      it: 'Rouen, Normandia; registri battesimali documentati',
     },
     bio: {
       en: 'Arrived in Québec around 1640. Captured by the Iroquois in 1641, he lived among them and became one of the colony\'s most important interpreters and frontier diplomats.',
       fr: 'Arrivé à Québec vers 1640. Capturé par les Iroquois en 1641, il vécut parmi eux et devint l\'un des interprètes et diplomates de frontière les plus importants de la colonie.',
+      it: 'Arrivato a Québec verso il 1640. Catturato dagli Irochesi nel 1641, visse tra loro e divenne uno degli interpreti e diplomatici di frontiera più importanti della colonia.',
     },
     legacy: {
       en: 'A bridge between Norman origins, colonial settlement, and Indigenous diplomacy. Ancestor of a vast Québec lineage.',
       fr: 'Un pont entre origines normandes, colonisation et diplomatie autochtone. Ancêtre d\'une vaste lignée québécoise.',
+      it: 'Ponte tra origini normanne, insediamento coloniale e diplomazia indigena. Antenato di un vasto lignaggio québécois.',
     },
   },
   {
@@ -267,14 +297,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Paris apothecary; recruited through Rouen trading networks',
       fr: 'Apothicaire parisien ; recruté via les réseaux commerciaux de Rouen',
+      it: 'Apotecario parigino; reclutato attraverso le reti commerciali di Rouen',
     },
     bio: {
       en: 'Considered the first French farmer in Canada, arriving in 1617 with his family. He grew crops on the heights above Québec, proving the land could sustain European agriculture.',
       fr: 'Considéré comme le premier agriculteur français au Canada, arrivé en 1617 avec sa famille. Il cultiva les hauteurs au-dessus de Québec, prouvant que la terre pouvait soutenir l\'agriculture européenne.',
+      it: 'Considerato il primo agricoltore francese in Canada, arrivato nel 1617 con la famiglia. Coltivò le alture sopra Québec, dimostrando che la terra poteva sostenere l\'agricoltura europea.',
     },
     legacy: {
       en: 'Foundational figure in Québec genealogy; his descendants number in the millions across North America.',
       fr: 'Figure fondatrice de la généalogie québécoise ; ses descendants se comptent par millions en Amérique du Nord.',
+      it: 'Figura fondativa della genealogia québécoise; i suoi discendenti si contano a milioni in Nord America.',
     },
   },
   {
@@ -292,14 +325,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Mortagne-au-Perche; key recruiter for the Perche-to-Québec corridor',
       fr: 'Mortagne-au-Perche ; recruteur clé du corridor Perche-Québec',
+      it: 'Mortagne-au-Perche; reclutatore chiave del corridoio Perche–Québec',
     },
     bio: {
       en: 'Seigneur of Beauport who organized the single most important early recruitment wave from Perche to New France (1634). His personal networks brought dozens of families across the Atlantic.',
       fr: 'Seigneur de Beauport qui organisa la vague de recrutement la plus importante du Perche vers la Nouvelle-France (1634). Ses réseaux personnels amenèrent des dizaines de familles à travers l\'Atlantique.',
+      it: 'Signore di Beauport che organizzò la più importante ondata di reclutamento dal Perche verso la Nuova Francia (1634). Le sue reti personali portarono decine di famiglie oltreoceano.',
     },
     legacy: {
       en: 'Embodies the seigneurial recruitment model and the Perche founder effect in Québec genealogy.',
       fr: 'Incarne le modèle de recrutement seigneurial et l\'effet fondateur du Perche dans la généalogie québécoise.',
+      it: 'Incarne il modello di reclutamento signorile e l\'effetto fondatore del Perche nella genealogia québécoise.',
     },
   },
   {
@@ -317,14 +353,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Cherbourg region, Normandy; assigned to Caen as nearest atlas place',
       fr: 'Région de Cherbourg, Normandie ; attribué à Caen comme lieu atlas le plus proche',
+      it: 'Regione di Cherbourg, Normandia; assegnato a Caen come luogo atlas più vicino',
     },
     bio: {
       en: 'Arrived in Québec around 1618, lived among the Algonquin and Nipissing, and became the first known European to reach Lake Michigan (1634).',
       fr: 'Arrivé à Québec vers 1618, vécut parmi les Algonquins et les Nipissingues, et fut le premier Européen connu à atteindre le lac Michigan (1634).',
+      it: 'Arrivato a Québec verso il 1618, visse tra Algonchini e Nipissing e fu il primo europeo noto a raggiungere il lago Michigan (1634).',
     },
     legacy: {
       en: 'His western explorations extended New France\'s knowledge far beyond the St. Lawrence corridor.',
       fr: 'Ses explorations occidentales étendirent les connaissances de la Nouvelle-France bien au-delà du corridor du Saint-Laurent.',
+      it: 'Le sue esplorazioni occidentali estesero la conoscenza della Nuova Francia ben oltre il corridoio del San Lorenzo.',
     },
   },
   {
@@ -342,14 +381,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Rouen area, Normandy; one of the earliest permanent residents of Québec',
       fr: 'Région de Rouen, Normandie ; l\'un des premiers résidents permanents de Québec',
+      it: 'Regione di Rouen, Normandia; tra i primi residenti permanenti di Québec',
     },
     bio: {
       en: 'Among the very first Europeans to winter in Québec (arriving c. 1613). Became a skilled interpreter of Algonquin and Montagnais languages.',
       fr: 'Parmi les tout premiers Européens à hiverner à Québec (arrivé vers 1613). Devint un interprète habile des langues algonquine et montagnaise.',
+      it: 'Tra i primissimi europei a svernare a Québec (arrivo ca. 1613). Divenne interprete esperto delle lingue algonchina e montagnaise.',
     },
     legacy: {
       en: 'Represents the earliest wave of Norman-linked settlers who bridged European trade and Indigenous societies.',
       fr: 'Représente la première vague de colons liés à la Normandie qui firent le pont entre le commerce européen et les sociétés autochtones.',
+      it: 'Rappresenta la prima ondata di coloni legati alla Normandia che fecero da ponte tra commercio europeo e società indigene.',
     },
   },
   {
@@ -367,14 +409,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Champigny-sur-Marne, near Paris',
       fr: 'Né à Champigny-sur-Marne, près de Paris',
+      it: 'Nato a Champigny-sur-Marne, presso Parigi',
     },
     bio: {
       en: 'Sent by Champlain to live among the Huron-Wendat (1610), becoming perhaps the first European to see the Great Lakes. Killed in 1633 under disputed circumstances.',
       fr: 'Envoyé par Champlain vivre parmi les Hurons-Wendats (1610), devenant peut-être le premier Européen à voir les Grands Lacs. Tué en 1633 dans des circonstances disputées.',
+      it: 'Mandato da Champlain a vivere tra gli Huron-Wendat (1610), forse il primo europeo a vedere i Grandi Laghi. Ucciso nel 1633 in circostanze controverse.',
     },
     legacy: {
       en: 'Embodies the cultural boundary-crossing that defined New France\'s frontier.',
       fr: 'Incarne le franchissement de frontières culturelles qui définissait la frontière de la Nouvelle-France.',
+      it: 'Incarne il superamento dei confini culturali che definiva la frontiera della Nuova Francia.',
     },
   },
   {
@@ -392,14 +437,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Normandy; documented through Rouen port departure records',
       fr: 'Normandie ; documenté par les registres de départ du port de Rouen',
+      it: 'Normandia; documentato tramite registri di partenza del porto di Rouen',
     },
     bio: {
       en: 'Early settler whose daughter, Hélène Desportes (born c. 1620), is considered the first child of European descent born in New France.',
       fr: 'Colon précoce dont la fille, Hélène Desportes (née vers 1620), est considérée comme la première enfant d\'ascendance européenne née en Nouvelle-France.',
+      it: 'Colon precoci; la figlia Hélène Desportes (nata ca. 1620) è considerata la prima bambina di ascendenza europea nata in Nuova Francia.',
     },
     legacy: {
       en: 'The Desportes family illustrates the transition from trading-post to permanent settlement.',
       fr: 'La famille Desportes illustre la transition du poste de traite à la colonisation permanente.',
+      it: 'La famiglia Desportes illustra il passaggio dal posto di scambio all\'insediamento permanente.',
     },
   },
   {
@@ -417,14 +465,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Mortagne-au-Perche; recruited by Robert Giffard',
       fr: 'Mortagne-au-Perche ; recruté par Robert Giffard',
+      it: 'Mortagne-au-Perche; reclutato da Robert Giffard',
     },
     bio: {
       en: 'Master carpenter recruited by Giffard in 1634. Settled at Beauport and helped build the colony\'s earliest structures. One of the most prolific progenitors in Québec genealogy.',
       fr: 'Maître charpentier recruté par Giffard en 1634. Installé à Beauport, il aida à construire les premières structures de la colonie. L\'un des progéniteurs les plus prolifiques de la généalogie québécoise.',
+      it: 'Maestro carpentiere reclutato da Giffard nel 1634. Stabilitosi a Beauport, contribuì alle prime strutture della colonia. Tra i progenitori più prolifici della genealogia québécoise.',
     },
     legacy: {
       en: 'An estimated 4+ million North Americans descend from Zacharie Cloutier.',
       fr: 'On estime que plus de 4 millions de Nord-Américains descendent de Zacharie Cloutier.',
+      it: 'Si stima che oltre 4 milioni di nordamericani discendano da Zacharie Cloutier.',
     },
   },
   {
@@ -442,14 +493,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Tourouvre, Perche (near Mortagne); recruited by Giffard',
       fr: 'Tourouvre, Perche (près de Mortagne) ; recruté par Giffard',
+      it: 'Tourouvre, Perche (presso Mortagne); reclutato da Giffard',
     },
     bio: {
       en: 'Stonemason from Tourouvre who arrived with Giffard\'s 1634 recruitment. His family became deeply rooted at Beauport and Château-Richer.',
       fr: 'Maçon de Tourouvre arrivé avec le recrutement de Giffard en 1634. Sa famille s\'enracina profondément à Beauport et Château-Richer.',
+      it: 'Muratore di Tourouvre arrivato con il reclutamento del 1634. La sua famiglia si radicò a Beauport e Château-Richer.',
     },
     legacy: {
       en: 'Part of the Perche cluster that shaped the founding population of the Côte-de-Beaupré.',
       fr: 'Fait partie du noyau percheron qui forma la population fondatrice de la Côte-de-Beaupré.',
+      it: 'Parte del nucleo percheron che plasmò la popolazione fondatrice della Côte-de-Beaupré.',
     },
   },
   {
@@ -467,14 +521,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Normandy; associated with Honfleur departure networks',
       fr: 'Normandie ; associé aux réseaux de départ de Honfleur',
+      it: 'Normandia; associato alle reti di partenza di Honfleur',
     },
     bio: {
       en: 'Arrived in Québec c. 1634. Established a farm along the Beaupré coast and became part of the core settler community.',
       fr: 'Arrivé à Québec vers 1634. Établit une ferme le long de la côte de Beaupré et intégra le noyau de la communauté de colons.',
+      it: 'Arrivato a Québec ca. 1634. Stabilì una ferma lungo la costa di Beaupré e entrò nel nucleo della comunità di coloni.',
     },
     legacy: {
       en: 'The Langlois surname became one of the most common in Québec, a marker of Norman settler diffusion.',
       fr: 'Le nom Langlois devint l\'un des plus courants au Québec, marqueur de la diffusion des colons normands.',
+      it: 'Il cognome Langlois divenne uno dei più comuni in Québec, segno della diffusione dei coloni normanni.',
     },
   },
 
@@ -494,14 +551,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Probable Rouen-area origin; married Guillemette Hébert, daughter of Louis',
       fr: 'Origine probable de la région de Rouen ; épousa Guillemette Hébert, fille de Louis',
+      it: 'Probabile origine dalla regione di Rouen; sposò Guillemette Hébert, figlia di Louis',
     },
     bio: {
       en: 'Son-in-law of Louis Hébert and one of the earliest permanent settlers. After Hébert\'s death he became the leading farmer in the colony and first Canadian-born seigneur.',
       fr: 'Gendre de Louis Hébert et l\'un des premiers colons permanents. Après la mort d\'Hébert, il devint le principal agriculteur de la colonie et premier seigneur né au Canada.',
+      it: 'Genero di Louis Hébert e tra i primi coloni permanenti. Dopo la morte di Hébert divenne il principale agricoltore della colonia e primo signore nato in Canada.',
     },
     legacy: {
       en: 'First resident to hold a plough in New France; his family anchored the colony through its most precarious decades.',
       fr: 'Premier résident à tenir une charrue en Nouvelle-France ; sa famille ancra la colonie durant ses décennies les plus précaires.',
+      it: 'Primo residente a tenere l\'aratro in Nuova Francia; la sua famiglia ancorò la colonia nei decenni più precari.',
     },
   },
   {
@@ -519,14 +579,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Île-de-France region; the Plains of Abraham in Québec bear his name',
       fr: 'Région d\'Île-de-France ; les Plaines d\'Abraham à Québec portent son nom',
+      it: 'Regione dell\'Île-de-France; le pianure d\'Abraham a Québec portano il suo nome',
     },
     bio: {
       en: 'River pilot and early settler. The land he farmed on the heights of Québec later became famous as the Plains of Abraham, site of the decisive 1759 battle.',
       fr: 'Pilote fluvial et colon précoce. La terre qu\'il cultivait sur les hauteurs de Québec devint célèbre sous le nom de Plaines d\'Abraham, site de la bataille décisive de 1759.',
+      it: 'Pilota fluviale e colon precoce. La terra che coltivò sulle alture di Québec divenne celebre come pianure d\'Abraham, teatro della battaglia decisiva del 1759.',
     },
     legacy: {
       en: 'His name is inscribed on one of the most famous battlefields in North American history.',
       fr: 'Son nom est inscrit sur l\'un des champs de bataille les plus célèbres de l\'histoire nord-américaine.',
+      it: 'Il suo nome è legato a uno dei campi di battaglia più noti della storia nordamericana.',
     },
   },
   {
@@ -544,14 +607,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Mortagne-au-Perche; arrived as a child in 1635',
       fr: 'Né à Mortagne-au-Perche ; arrivé enfant en 1635',
+      it: 'Nato a Mortagne-au-Perche; arrivato bambino nel 1635',
     },
     bio: {
       en: 'Governor of Trois-Rivières and author of the first published description of New France (1664). He personally went to Paris to petition Louis XIV for reinforcements, resulting in the Carignan-Salières Regiment.',
       fr: 'Gouverneur de Trois-Rivières et auteur de la première description publiée de la Nouvelle-France (1664). Il se rendit en personne à Paris pour demander des renforts à Louis XIV, ce qui aboutit au régiment de Carignan-Salières.',
+      it: 'Governatore di Trois-Rivières e autore della prima descrizione pubblicata della Nuova Francia (1664). Si recò a Parigi per chiedere rinforzi a Luigi XIV, ottenendo il reggimento Carignan-Salières.',
     },
     legacy: {
       en: 'His writings and advocacy directly led to royal intervention that transformed New France from a tenuous outpost into a crown colony.',
       fr: 'Ses écrits et son plaidoyer menèrent directement à l\'intervention royale qui transforma la Nouvelle-France d\'un avant-poste précaire en colonie de la Couronne.',
+      it: 'Scritti e azione politica portarono direttamente all\'intervento reale che trasformò la Nuova Francia da avamposto fragile in colonia della Corona.',
     },
   },
   {
@@ -569,14 +635,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Rouen, Normandy',
       fr: 'Né à Rouen, Normandie',
+      it: 'Nato a Rouen, Normandia',
     },
     bio: {
       en: 'Surveyor and engineer who mapped Québec\'s early seigneuries and explored as far north as Hudson Bay (1657). Also served as attorney general of the colony.',
       fr: 'Arpenteur et ingénieur qui cartographia les premières seigneuries de Québec et explora jusqu\'à la baie d\'Hudson (1657). Servit aussi comme procureur général de la colonie.',
+      it: 'Geometra e ingegnere che mappò le prime signorie di Québec ed esplorò fino alla baia di Hudson (1657). Servì anche come procuratore generale della colonia.',
     },
     legacy: {
       en: 'His surveys shaped the physical layout of New France\'s seigneurial landscape.',
       fr: 'Ses arpentages façonnèrent le tracé physique du paysage seigneurial de la Nouvelle-France.',
+      it: 'I suoi rilievi plasmarono il disegno fisico del paesaggio signorile della Nuova Francia.',
     },
   },
   {
@@ -594,14 +663,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'La Ferté-Vidame area, Perche; part of Giffard\'s recruitment zone',
       fr: 'Région de La Ferté-Vidame, Perche ; zone de recrutement de Giffard',
+      it: 'Regione di La Ferté-Vidame, Perche; zona di reclutamento di Giffard',
     },
     bio: {
       en: 'Merchant and seigneur who arrived with the Perche wave in the 1630s. The Juchereau family became one of the most influential in New France, eventually ennobled.',
       fr: 'Marchand et seigneur arrivé avec la vague percheronne dans les années 1630. La famille Juchereau devint l\'une des plus influentes de la Nouvelle-France, finalement anoblie.',
+      it: 'Mercante e signore arrivato con l\'ondata percherona negli anni 1630. La famiglia Juchereau divenne tra le più influenti della Nuova Francia, poi nobilitata.',
     },
     legacy: {
       en: 'Founder of a dynasty that stretched from the fur trade to the colonial aristocracy.',
       fr: 'Fondateur d\'une dynastie s\'étendant du commerce des fourrures à l\'aristocratie coloniale.',
+      it: 'Fondatore di una dinastia che si estese dal commercio delle pellicce all\'aristocrazia coloniale.',
     },
   },
   {
@@ -619,14 +691,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born in Québec; Norman paternal ancestry claimed but not firmly documented',
       fr: 'Né à Québec ; ascendance paternelle normande revendiquée mais pas fermement documentée',
+      it: 'Nato a Québec; ascendenza paterna normanna rivendicata ma non solidamente documentata',
     },
     bio: {
       en: 'Born in Québec, he co-led (with Marquette) the 1673 expedition that mapped the Mississippi as far as the Arkansas River, confirming it flowed to the Gulf of Mexico.',
       fr: 'Né à Québec, il co-dirigea (avec Marquette) l\'expédition de 1673 qui cartographia le Mississippi jusqu\'à la rivière Arkansas, confirmant qu\'il se jetait dans le golfe du Mexique.',
+      it: 'Nato a Québec, co-guidò con Marquette la spedizione del 1673 che mappò il Mississippi fino al fiume Arkansas, confermandone la foce nel golfo del Messico.',
     },
     legacy: {
       en: 'A second-generation New France native whose career illustrates the colony producing its own explorers.',
       fr: 'Un natif de Nouvelle-France de deuxième génération dont la carrière illustre la colonie produisant ses propres explorateurs.',
+      it: 'Nativo di Nuova Francia di seconda generazione: la sua carriera mostra la colonia che forma i propri esploratori.',
     },
   },
   {
@@ -644,14 +719,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Randonnai, Perche; arrived 1647',
       fr: 'Né à Randonnai, Perche ; arrivé en 1647',
+      it: 'Nato a Randonnai, Perche; arrivato nel 1647',
     },
     bio: {
       en: 'Settled on the Côte-de-Beaupré and married Ozanne Achon. The Tremblay surname became one of the most common in Québec — virtually all trace back to Pierre.',
       fr: 'Installé sur la Côte-de-Beaupré, épousa Ozanne Achon. Le nom Tremblay devint l\'un des plus courants au Québec — presque tous remontent à Pierre.',
+      it: 'Stabilitosi sulla Côte-de-Beaupré, sposò Ozanne Achon. Il cognome Tremblay divenne uno dei più comuni in Québec — quasi tutti risalgono a Pierre.',
     },
     legacy: {
       en: 'Textbook example of the Perche founder effect: one man\'s descendants permeate an entire society.',
       fr: 'Exemple classique de l\'effet fondateur percheron : les descendants d\'un seul homme imprègnent toute une société.',
+      it: 'Esempio tipico dell\'effetto fondatore percheron: un antenato, migliaia di discendenti.',
     },
   },
   {
@@ -669,14 +747,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Mortagne-au-Perche area; part of the Giffard recruitment corridor',
       fr: 'Région de Mortagne-au-Perche ; corridor de recrutement de Giffard',
+      it: 'Zona di Mortagne-au-Perche; parte del corridoio di reclutamento di Giffard',
     },
     bio: {
       en: 'Arrived with the Perche contingent in the 1630s and settled on the Beaupré coast. Ancestor of the vast Côté lineage.',
       fr: 'Arrivé avec le contingent percheron dans les années 1630, installé sur la côte de Beaupré. Ancêtre de la vaste lignée Côté.',
+      it: 'Arrivato con il contingente percherono negli anni 1630, stabilitosi sulla costa di Beaupré. Antenato del vasto lignaggio Côté.',
     },
     legacy: {
       en: 'Côté is among the most frequent Québec surnames, overwhelmingly tracing to this single ancestor.',
       fr: 'Côté est parmi les noms les plus fréquents au Québec, remontant de façon écrasante à ce seul ancêtre.',
+      it: 'Côté è tra i cognomi più frequenti in Québec, risalendo in schiacciante maggioranza a questo unico antenato.',
     },
   },
   {
@@ -694,14 +775,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Châlons-en-Champagne; administered New France from Paris\'s colonial apparatus',
       fr: 'Né à Châlons-en-Champagne ; administra la Nouvelle-France depuis l\'appareil colonial parisien',
+      it: 'Nato a Châlons-en-Champagne; amministrò la Nuova Francia dall\'apparato coloniale parigino',
     },
     bio: {
       en: 'First intendant of New France (1665–1668, 1670–1672). Organized the Filles du Roi migration, promoted industry, and conducted the first Canadian census (1666).',
       fr: 'Premier intendant de la Nouvelle-France (1665-1668, 1670-1672). Organisa la migration des Filles du Roi, promut l\'industrie et réalisa le premier recensement canadien (1666).',
+      it: 'Primo intendente della Nuova Francia (1665–1668, 1670–1672). Organizzò la migrazione delle Filles du Roi, promosse l\'industria e condusse il primo censimento canadese (1666).',
     },
     legacy: {
       en: 'Transformed New France from a fur-trade outpost into an organized crown colony with planned demographic growth.',
       fr: 'Transforma la Nouvelle-France d\'un poste de traite en une colonie organisée de la Couronne avec une croissance démographique planifiée.',
+      it: 'Trasformò la Nuova Francia da avamposto della traite in colonia organizzata della Corona con crescita demografica pianificata.',
     },
   },
 
@@ -721,14 +805,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Paris; wife of Louis Hébert, arrived 1617',
       fr: 'Paris ; épouse de Louis Hébert, arrivée en 1617',
+      it: 'Parigi; moglie di Louis Hébert, arrivata nel 1617',
     },
     bio: {
       en: 'Wife of Louis Hébert and the first European woman to make a permanent home in Québec. After Hébert\'s death she remained, taught Indigenous children, and anchored the fragile community.',
       fr: 'Épouse de Louis Hébert et première femme européenne à s\'établir de façon permanente à Québec. Après la mort d\'Hébert, elle resta, enseigna aux enfants autochtones et ancra la communauté fragile.',
+      it: 'Moglie di Louis Hébert e prima donna europea a stabilirsi in modo permanente a Québec. Dopo la morte di Hébert rimase, insegnò ai bambini indigeni e tenne unita la comunità fragile.',
     },
     legacy: {
       en: 'Symbol of female resilience in the founding generation.',
       fr: 'Symbole de la résilience féminine dans la génération fondatrice.',
+      it: 'Simbolo della resilienza femminile nella generazione fondatrice.',
     },
   },
   {
@@ -746,14 +833,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Troyes, Champagne; recruited through the Société Notre-Dame de Montréal',
       fr: 'Née à Troyes, Champagne ; recrutée par la Société Notre-Dame de Montréal',
+      it: 'Nata a Troyes, Champagne; reclutata dalla Société Notre-Dame de Montréal',
     },
     bio: {
       en: 'Founded the Congrégation de Notre-Dame in Montréal (1658), the first uncloistered religious community for women in New France. Built schools across the colony.',
       fr: 'Fonda la Congrégation de Notre-Dame à Montréal (1658), la première communauté religieuse non cloîtrée pour femmes en Nouvelle-France. Construisit des écoles à travers la colonie.',
+      it: 'Fondò la Congrégation de Notre-Dame a Montréal (1658), prima comunità religiosa femminile non claustrale in Nuova Francia. Costruì scuole in tutta la colonia.',
     },
     legacy: {
       en: 'Canonized as a saint in 1982. Her educational model shaped colonial society for over a century.',
       fr: 'Canonisée en 1982. Son modèle éducatif façonna la société coloniale pendant plus d\'un siècle.',
+      it: 'Canonizzata santa nel 1982. Il suo modello educativo plasmò la società coloniale per oltre un secolo.',
     },
   },
   {
@@ -771,14 +861,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Noble family, Île-de-France; arrived as a Fille du Roi',
       fr: 'Famille noble, Île-de-France ; arrivée comme Fille du Roi',
+      it: 'Famiglia nobile, Île-de-France; arrivata come Fille du Roi',
     },
     bio: {
       en: 'One of the few noblewomen among the Filles du Roi. Married Jacques Miville in 1669. Her documented lineage makes her important for genealogical research.',
       fr: 'L\'une des rares femmes nobles parmi les Filles du Roi. Épousa Jacques Miville en 1669. Sa lignée documentée la rend importante pour la recherche généalogique.',
+      it: 'Tra le poche nobili tra le Filles du Roi. Sposò Jacques Miville nel 1669. La sua lignée documentata è importante per la ricerca genealogica.',
     },
     legacy: {
       en: 'Demonstrates that the Filles du Roi included a social range wider than often assumed.',
       fr: 'Démontre que les Filles du Roi comprenaient un éventail social plus large qu\'on ne le suppose souvent.',
+      it: 'Mostra che le Filles du Roi comprendevano uno spettro sociale più ampio del solito supposto.',
     },
   },
   {
@@ -796,14 +889,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Langres, Champagne; recruited through Parisian devotional networks',
       fr: 'Née à Langres, Champagne ; recrutée par les réseaux dévots parisiens',
+      it: 'Nata a Langres, Champagne; reclutata dalle reti devozionali parigine',
     },
     bio: {
       en: 'Co-founded Ville-Marie (Montréal) in 1642 and established the Hôtel-Dieu hospital. During the Iroquois wars she held the settlement together while Maisonneuve sought reinforcements.',
       fr: 'Co-fonda Ville-Marie (Montréal) en 1642 et établit l\'Hôtel-Dieu. Pendant les guerres iroquoises, elle maintint l\'établissement en l\'absence de Maisonneuve parti chercher des renforts.',
+      it: 'Co-fondò Ville-Marie (Montréal) nel 1642 e istituì l\'Hôtel-Dieu. Durante le guerre irochesi tenne l\'insediamento mentre Maisonneuve cercava rinforzi.',
     },
     legacy: {
       en: 'Recognized as a co-founder of Montréal; her hospital endures to this day.',
       fr: 'Reconnue comme co-fondatrice de Montréal ; son hôpital existe encore aujourd\'hui.',
+      it: 'Riconosciuta co-fondatrice di Montréal; il suo ospedale esiste ancora oggi.',
     },
   },
   {
@@ -821,14 +917,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Paris region; arrived as a Fille du Roi c. 1665',
       fr: 'Région parisienne ; arrivée comme Fille du Roi vers 1665',
+      it: 'Regione parigina; arrivata come Fille du Roi ca. 1665',
     },
     bio: {
       en: 'Arrived during the earliest Filles du Roi wave and married Jean François Gloria. Represents the crown-organized migration that tripled the colony\'s female population.',
       fr: 'Arrivée lors de la première vague des Filles du Roi, épousa Jean François Gloria. Représente la migration organisée par la Couronne qui tripla la population féminine de la colonie.',
+      it: 'Arrivata nella prima ondata delle Filles du Roi, sposò Jean François Gloria. Rappresenta la migrazione organizzata dalla Corona che triplicò la popolazione femminile coloniale.',
     },
     legacy: {
       en: 'Part of the demographic transformation engineered by Talon and Colbert.',
       fr: 'Partie de la transformation démographique orchestrée par Talon et Colbert.',
+      it: 'Parte della trasformazione demografica orchestrata da Talon e Colbert.',
     },
   },
   {
@@ -846,14 +945,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Born Tours; sailed from Dieppe, 1639',
       fr: 'Née à Tours ; embarquée depuis Dieppe, 1639',
+      it: 'Nata a Tours; salpata da Dieppe nel 1639',
     },
     bio: {
       en: 'Ursuline nun who founded the first girls\' school in North America (Québec, 1639). Her extensive correspondence is one of the richest primary sources for early New France.',
       fr: 'Ursuline qui fonda la première école de filles en Amérique du Nord (Québec, 1639). Sa correspondance abondante est l\'une des sources primaires les plus riches sur la Nouvelle-France.',
+      it: 'Monaca ursulina che fondò la prima scuola femminile in Nord America (Québec, 1639). La sua corrispondenza è tra le fonti primarie più ricche sulla Nuova Francia.',
     },
     legacy: {
       en: 'Canonized in 2014; her letters document Indigenous languages, colonial society, and spiritual life.',
       fr: 'Canonisée en 2014 ; ses lettres documentent les langues autochtones, la société coloniale et la vie spirituelle.',
+      it: 'Canonizzata nel 2014; le lettere documentano lingue indigene, società coloniale e vita spirituale.',
     },
   },
 
@@ -873,14 +975,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Norman surname; precise parish uncertain',
       fr: 'Patronyme normand ; paroisse précise incertaine',
+      it: 'Cognome normanno; parrocchia precisa incerta',
     },
     bio: {
       en: 'Arrived with the Carignan-Salières Regiment (1665) and chose to stay after discharge. Married and settled along the St. Lawrence.',
       fr: 'Arrivé avec le régiment de Carignan-Salières (1665), choisit de rester après sa démobilisation. Marié et installé le long du Saint-Laurent.',
+      it: 'Arrivato con il reggimento Carignan-Salières (1665) e scelto di restare dopo la congedo. Sposato, stabilitosi lungo il San Lorenzo.',
     },
     legacy: {
       en: 'Represents the military-to-settler pathway that the crown used to populate the colony.',
       fr: 'Représente le cheminement militaire-colon que la Couronne utilisa pour peupler la colonie.',
+      it: 'Rappresenta il percorso da soldato a colono usato dalla Corona per popolare la colonia.',
     },
   },
   {
@@ -898,14 +1003,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Tourouvre, Perche; probable Gagnon patriarch of Québec',
       fr: 'Tourouvre, Perche ; patriarche probable des Gagnon du Québec',
+      it: 'Tourouvre, Perche; probabile patriarca dei Gagnon del Québec',
     },
     bio: {
       en: 'Settled at Château-Richer after military service. The Gagnon surname became one of the most common in Québec, nearly all tracing to this settler.',
       fr: 'Installé à Château-Richer après son service militaire. Le nom Gagnon devint l\'un des plus courants au Québec, remontant presque tous à ce colon.',
+      it: 'Stabilitosi a Château-Richer dopo il servizio militare. Il cognome Gagnon divenne uno dei più comuni in Québec, quasi tutti risalgono a questo colono.',
     },
     legacy: {
       en: 'Another Perche founder-effect example — a single ancestor behind hundreds of thousands of descendants.',
       fr: 'Autre exemple d\'effet fondateur percheron — un seul ancêtre derrière des centaines de milliers de descendants.',
+      it: 'Altro esempio di effetto fondatore percheron: un antenato, centinaia di migliaia di discendenti.',
     },
   },
   {
@@ -923,14 +1031,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Norman surname; likely Honfleur / lower Seine area',
       fr: 'Patronyme normand ; probablement région de Honfleur / basse Seine',
+      it: 'Cognome normanno; probabile area di Honfleur / bassa Senna',
     },
     bio: {
       en: 'Soldier who stayed in New France after the regiment disbanded. Part of the wave that nearly doubled the colony\'s male population in the late 1660s.',
       fr: 'Soldat qui resta en Nouvelle-France après la dissolution du régiment. Partie de la vague qui doubla presque la population masculine de la colonie à la fin des années 1660.',
+      it: 'Soldato che restò in Nuova Francia dopo lo scioglimento del reggimento. Parte dell\'ondata che quasi raddoppiò la popolazione maschile coloniale alla fine degli anni 1660.',
     },
     legacy: {
       en: 'The military settler wave — incentivized with land grants — permanently altered New France\'s demographics.',
       fr: 'La vague de soldats-colons — encouragée par des concessions de terres — modifia définitivement la démographie de la Nouvelle-France.',
+      it: 'L\'ondata di soldati-coloni — incentivata con concessioni — modificò in modo duraturo la demografia della Nuova Francia.',
     },
   },
   {
@@ -948,14 +1059,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Normandy-Perche border region',
       fr: 'Région frontalière Normandie-Perche',
+      it: 'Regione di confine Normandia-Perche',
     },
     bio: {
       en: 'Father of Pierre Boucher, governor of Trois-Rivières. Part of the Perche settler stream that provided so many of New France\'s founding families.',
       fr: 'Père de Pierre Boucher, gouverneur de Trois-Rivières. Partie du flux de colons percherons qui fournirent tant de familles fondatrices de la Nouvelle-France.',
+      it: 'Padre di Pierre Boucher, governatore di Trois-Rivières. Parte del flusso percheron che fornì molte famiglie fondatrici.',
     },
     legacy: {
       en: 'The Boucher dynasty became one of the most influential families in New France across multiple generations.',
       fr: 'La dynastie Boucher devint l\'une des familles les plus influentes de la Nouvelle-France sur plusieurs générations.',
+      it: 'La dinastia Boucher divenne tra le più influenti della Nuova Francia per più generazioni.',
     },
   },
   {
@@ -973,14 +1087,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Probable Norman origin; precise parish not confirmed',
       fr: 'Origine normande probable ; paroisse précise non confirmée',
+      it: 'Origine normanna probabile; parrocchia non confermata',
     },
     bio: {
       en: 'Carignan-Salières soldier who took a land grant and remained in the colony. Typical of the hundreds of soldiers who became the backbone of the settled population.',
       fr: 'Soldat du régiment de Carignan-Salières qui accepta une concession de terre et resta dans la colonie. Typique des centaines de soldats qui devinrent l\'ossature de la population établie.',
+      it: 'Soldato del Carignan-Salières che accettò una concessione e rimase nella colonia. Tipico dei centinaia di soldati che divennero spina dorsale della popolazione stabile.',
     },
     legacy: {
       en: 'Part of the military-demographic strategy that transformed New France in the 1660s.',
       fr: 'Partie de la stratégie militaro-démographique qui transforma la Nouvelle-France dans les années 1660.',
+      it: 'Parte della strategia militaro-demografica che trasformò la Nuova Francia negli anni 1660.',
     },
   },
   {
@@ -998,14 +1115,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Precise origin uncertain; sailed through La Rochelle',
       fr: 'Origine précise incertaine ; embarqué par La Rochelle',
+      it: 'Origine precisa incerta; salpò da La Rochelle',
     },
     bio: {
       en: 'Soldier who settled in the Trois-Rivières region after discharge. His descendants spread through the Mauricie and beyond.',
       fr: 'Soldat installé dans la région de Trois-Rivières après sa démobilisation. Ses descendants se répandirent dans la Mauricie et au-delà.',
+      it: 'Soldato stabilitosi nella regione di Trois-Rivières dopo il congedo. I discendenti si diffusero nella Mauricie e oltre.',
     },
     legacy: {
       en: 'Illustrates the geographic dispersal pattern of military settlers away from Québec City.',
       fr: 'Illustre le patron de dispersion géographique des soldats-colons loin de Québec.',
+      it: 'Illustra la dispersione geografica dei soldati-coloni lontano da Québec.',
     },
   },
   {
@@ -1023,14 +1143,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Norman surname; precise origin not confirmed',
       fr: 'Patronyme normand ; origine précise non confirmée',
+      it: 'Cognome normanno; origine precisa non confermata',
     },
     bio: {
       en: 'Among the Carignan-Salières soldiers who accepted land grants after the regiment\'s campaign against the Mohawk (1666).',
       fr: 'Parmi les soldats du régiment de Carignan-Salières ayant accepté des concessions de terre après la campagne contre les Mohawks (1666).',
+      it: 'Tra i soldati del Carignan-Salières che accettarono concessioni dopo la campagna contro i Mohawk (1666).',
     },
     legacy: {
       en: 'Part of the cohort that anchored the colony\'s defense and farming population simultaneously.',
       fr: 'Partie de la cohorte qui ancra simultanément la défense et la population agricole de la colonie.',
+      it: 'Parte della coorte che ancorò insieme difesa e popolazione agricola della colonia.',
     },
   },
   {
@@ -1048,14 +1171,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Dieppe area, Normandy; regional attribution from surname geography',
       fr: 'Région de Dieppe, Normandie ; attribution régionale par géographie du patronyme',
+      it: 'Zona di Dieppe, Normandia; attribuzione regionale dal cognome',
     },
     bio: {
       en: 'Settled on the Beaupré coast after his military service. Ancestor of a widespread Québec lineage.',
       fr: 'Installé sur la côte de Beaupré après son service militaire. Ancêtre d\'une vaste lignée québécoise.',
+      it: 'Stabilitosi sulla costa di Beaupré dopo il servizio militare. Antenato di un vasto lignaggio québécoise.',
     },
     legacy: {
       en: 'The Racine surname clusters along the Beaupré coast, reflecting the military land-grant pattern.',
       fr: 'Le nom Racine se concentre le long de la côte de Beaupré, reflétant le patron des concessions militaires.',
+      it: 'Il cognome Racine si concentra lungo la costa di Beaupré, riflettendo lo schema delle concessioni militari.',
     },
   },
   {
@@ -1073,14 +1199,17 @@ export const atlasPeople: Person[] = [
     originLabel: {
       en: 'Norman surname; precise documentation lacking',
       fr: 'Patronyme normand ; documentation précise manquante',
+      it: 'Cognome normanno; documentazione precisa scarsa',
     },
     bio: {
       en: 'Carignan-Salières veteran who remained in New France. The Dufresne name became common across the colony\'s seigneuries.',
       fr: 'Vétéran du régiment de Carignan-Salières resté en Nouvelle-France. Le nom Dufresne devint courant dans les seigneuries de la colonie.',
+      it: 'Veterano del Carignan-Salières rimasto in Nuova Francia. Il nome Dufresne divenne comune nelle signorie della colonia.',
     },
     legacy: {
       en: 'Represents the many soldiers whose individual stories are poorly documented but whose collective impact was transformative.',
       fr: 'Représente les nombreux soldats dont les histoires individuelles sont mal documentées mais dont l\'impact collectif fut transformateur.',
+      it: 'Rappresenta i molti soldati le cui storie individuali sono poco documentate ma il cui impatto collettivo fu trasformativo.',
     },
   },
 ];

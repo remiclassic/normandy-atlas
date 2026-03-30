@@ -20,6 +20,7 @@ import {
   type EraItem,
 } from '@/lib/era-selector-model';
 import { EraGlyph } from '@/lib/era-selector-icons';
+import EraIconStrip, { EraIconDots } from './EraIconStrip';
 
 const JUMP_PANEL_WIDTH_PX = 288; // matches w-72
 const TOOLTIP_WIDTH = 240;
@@ -81,11 +82,13 @@ const EraIcon = memo(function EraIcon({
   isActive,
   disabled,
   onSelect,
+  atlasMode,
 }: {
   item: EraItem;
   isActive: boolean;
   disabled: boolean;
   onSelect: (id: string) => void;
+  atlasMode: boolean;
 }) {
   const btnRef = useRef<HTMLButtonElement>(null);
   const [hovered, setHovered] = useState(false);
@@ -150,6 +153,8 @@ const EraIcon = memo(function EraIcon({
             />
           )}
         </AnimatePresence>
+
+        {!isActive && <EraIconDots eraId={item.id} atlasMode={atlasMode} />}
       </button>
 
       <AnimatePresence>
@@ -177,7 +182,8 @@ function JumpPanel({
   containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const atlasMode = useMapStore((s) => s.atlasMode);
-  const model = useMemo(() => getEraSelectorModel(atlasMode), [atlasMode]);
+  const locale = useMapStore((s) => s.locale);
+  const model = useMemo(() => getEraSelectorModel(atlasMode, locale), [atlasMode, locale]);
   const panelRef = useRef<HTMLDivElement>(null);
   const [fixedStyle, setFixedStyle] = useState<React.CSSProperties | null>(null);
 
@@ -296,13 +302,14 @@ function JumpPanel({
                     `}
                   >
                     <EraGlyph id={item.id} className="h-3.5 w-3.5 flex-shrink-0 opacity-60" />
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <span className="block truncate text-[12px] font-medium leading-tight">
                         {item.label}
                       </span>
                       <span className="block text-[10px] leading-tight opacity-50">
                         {formatYear(item.yearRange[0])} – {formatYear(item.yearRange[1])}
                       </span>
+                      <EraIconStrip eraId={item.id} atlasMode={atlasMode} maxIcons={6} />
                     </div>
                     {active && (
                       <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold/70" />
@@ -336,12 +343,13 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
   const selectFeature = useMapStore((s) => s.selectFeature);
   const atlasMode = useMapStore((s) => s.atlasMode);
   const storyMode = useMapStore((s) => s.storyMode);
+  const locale = useMapStore((s) => s.locale);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const jumpContainerRef = useRef<HTMLDivElement>(null);
   const [jumpOpen, setJumpOpen] = useState(false);
 
-  const model = useMemo(() => getEraSelectorModel(atlasMode), [atlasMode]);
+  const model = useMemo(() => getEraSelectorModel(atlasMode, locale), [atlasMode, locale]);
   const { groups, flatIds, byId } = model;
   const activeItem = byId.get(currentEra);
   const activeIndex = flatIds.indexOf(currentEra);
@@ -538,6 +546,7 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
                   isActive={item.id === currentEra}
                   disabled={storyMode}
                   onSelect={handleSelect}
+                  atlasMode={atlasMode}
                 />
               </div>
             ))}

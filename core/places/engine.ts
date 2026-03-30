@@ -1,5 +1,6 @@
 import { atlasPlaces } from '@/data/atlas/places';
 import type { Place, PlaceEraState, PlaceWithState } from '@/core/types';
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 const placeMap = new Map<string, Place>(atlasPlaces.map((p) => [p.id, p]));
 
@@ -65,6 +66,11 @@ export function buildPlacesGeoJson(places: PlaceWithState[]): GeoJSON.FeatureCol
           layer: p.layer,
           visibility: p.currentState.visibility,
           pedagogyIndex: p.currentState.pedagogyIndex,
+          atlasIcon: getFeatureIconType({
+            kind: p.kind,
+            tags: p.currentState.affiliationTags,
+            label: p.currentState.label,
+          }),
         },
         geometry: {
           type: 'Point' as const,

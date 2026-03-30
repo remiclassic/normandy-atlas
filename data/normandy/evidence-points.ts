@@ -2,6 +2,8 @@
 // Each site carries a dateRange (clamped to the Viking Age where applicable),
 // certainty level, and optional bibliographic stub.
 
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
+
 export type EvidenceKind = 'burial' | 'weapon' | 'fortification';
 
 export interface EvidencePoint {
@@ -59,6 +61,7 @@ export function buildEvidenceGeoJson(): GeoJSON.FeatureCollection {
         certainty: p.certainty,
         sources: p.sources ?? '',
         vikingEra: p.dateRange[0] <= 1000 ? 1 : 0,
+        atlasIcon: getFeatureIconType({ evidenceKind: p.kind }),
       },
       geometry: {
         type: 'Point' as const,

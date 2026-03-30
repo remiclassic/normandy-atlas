@@ -4,6 +4,7 @@ import {
   normanNodesGeoJson,
 } from '@/data/norman-expansion';
 import type { MapDataTheme } from './map-layers';
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 // ---------------------------------------------------------------------------
 // Source IDs
@@ -303,72 +304,51 @@ function addInfluenceLayers(map: MaplibreMap, theme: MapDataTheme) {
 // Node layers (settlement hubs)
 // ---------------------------------------------------------------------------
 
+function enrichNodesWithIcon(): GeoJSON.FeatureCollection {
+  return {
+    type: 'FeatureCollection',
+    features: (normanNodesGeoJson as unknown as GeoJSON.FeatureCollection).features.map((f) => ({
+      ...f,
+      properties: {
+        ...f.properties,
+        atlasIcon: getFeatureIconType({ siteKind: f.properties?.siteKind }),
+      },
+    })),
+  };
+}
+
 function addNodeLayers(map: MaplibreMap, theme: MapDataTheme) {
   safeAddSource(map, NORMAN_NODES_SOURCE, {
     type: 'geojson',
-    data: normanNodesGeoJson as unknown as GeoJSON.FeatureCollection,
+    data: enrichNodesWithIcon(),
     promoteId: 'id',
   });
 
+  const imgTheme = theme === 'parchment' ? 'parchment' : 'dark';
+
   safeAddLayer(map, {
     id: NORMAN_NODES_CIRCLES,
-    type: 'circle',
+    type: 'symbol',
     source: NORMAN_NODES_SOURCE,
+    layout: {
+      'icon-image': ['concat', 'atlas-icon-', ['get', 'atlasIcon'], `-${imgTheme}`],
+      'icon-size': [
+        'interpolate', ['linear'], ['zoom'],
+        3, 0.45,
+        6, 0.6,
+        10, 0.8,
+      ],
+      'icon-allow-overlap': true,
+      visibility: 'none',
+    },
     paint: {
-      // Single zoom interpolate only — MapLibre forbids multiple interpolate/step on zoom in one expression.
-      'circle-radius': [
-        'interpolate',
-        ['linear'],
-        ['zoom'],
-        3,
-        [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false],
-          7,
-          ['boolean', ['feature-state', 'hover'], false],
-          5.5,
-          4,
-        ],
-        6,
-        [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false],
-          9,
-          ['boolean', ['feature-state', 'hover'], false],
-          7.5,
-          6,
-        ],
-        10,
-        [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false],
-          12,
-          ['boolean', ['feature-state', 'hover'], false],
-          10.5,
-          9,
-        ],
-      ],
-      'circle-color': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], '#f080c0',
-        ['boolean', ['feature-state', 'hover'], false], '#e878b4',
-        NODE_COLOR,
-      ],
-      'circle-opacity': [
+      'icon-opacity': [
         'case',
         ['boolean', ['feature-state', 'selected'], false], 1,
         ['boolean', ['feature-state', 'hover'], false], 0.95,
         0.8,
       ],
-      'circle-stroke-width': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], 2.5,
-        ['boolean', ['feature-state', 'hover'], false], 2,
-        1.5,
-      ],
-      'circle-stroke-color': nodeCircleStrokeColor(theme),
     },
-    layout: { visibility: 'none' },
   });
 
   safeAddLayer(map, {

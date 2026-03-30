@@ -1,18 +1,36 @@
 'use client';
 
-import { memo, useCallback, useRef, useState, useEffect } from 'react';
+import { memo, useCallback, useRef, useState, useEffect, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, isOnboardingDone } from '@/lib/store';
+import { useLocale } from '@/hooks/use-atlas';
+import { t } from '@/lib/ui-strings';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import GuidedAtlasOverlay from './GuidedAtlasOverlay';
 
-function IntroScreen({ onEnter }: { onEnter: () => void }) {
+function IntroScreen({
+  onEnter,
+  onOpenNormanOverview,
+}: {
+  onEnter: () => void;
+  onOpenNormanOverview: () => void;
+}) {
   const clickedRef = useRef(false);
+  const locale = useLocale();
 
   const handleClick = useCallback(() => {
     if (clickedRef.current) return;
     clickedRef.current = true;
     onEnter();
   }, [onEnter]);
+
+  const handleOpenOverview = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      onOpenNormanOverview();
+    },
+    [onOpenNormanOverview],
+  );
 
   return (
     <motion.div
@@ -22,6 +40,16 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
       className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
       style={{ background: '#08090f' }}
     >
+      {/* Language switcher — top-right */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 2.2 }}
+        className="absolute top-5 right-5 z-20"
+      >
+        <LanguageSwitcher />
+      </motion.div>
+
       {/* Warm base gradient */}
       <div
         className="absolute inset-0"
@@ -107,7 +135,7 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="text-[clamp(0.9rem,2vw,1.25rem)] font-light tracking-[0.12em] text-gold/80"
         >
-          A living map of people, movement, and time
+          {t('intro.tagline', locale)}
         </motion.p>
 
         <motion.div
@@ -116,12 +144,21 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
           transition={{ duration: 1.2, delay: 1.2 }}
           className="mt-1 max-w-md"
         >
-          <p className="text-[clamp(0.75rem,1.4vw,0.9rem)] leading-relaxed text-text-muted/70">
-            From the first settlers of Neolithic Normandy
-            <br />
-            to the global legacy of the Normans
+          <p className="text-[clamp(0.75rem,1.4vw,0.9rem)] leading-relaxed text-text-muted/70 whitespace-pre-line">
+            {t('intro.subtitle', locale)}
           </p>
         </motion.div>
+
+        <motion.button
+          type="button"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.45 }}
+          onClick={handleOpenOverview}
+          className="mt-4 max-w-md underline text-[clamp(0.7rem,1.2vw,0.8rem)] font-medium uppercase tracking-[0.14em] text-gold/55 underline-offset-[5px] decoration-gold/25 hover:text-gold/85 hover:decoration-gold/45 cursor-pointer bg-transparent border-0 text-center"
+        >
+          {t('intro.normanOverviewLink', locale)}
+        </motion.button>
 
         <motion.button
           initial={{ opacity: 0 }}
@@ -130,14 +167,18 @@ function IntroScreen({ onEnter }: { onEnter: () => void }) {
           onClick={handleClick}
           className="mt-8 group relative px-8 py-3 text-[15px] font-medium tracking-[0.15em] uppercase text-gold border border-gold/30 bg-transparent transition-all duration-500 hover:border-gold/60 hover:bg-gold/[0.04] hover:shadow-[0_0_30px_rgba(196,169,98,0.12)] cursor-pointer"
         >
-          Enter Atlas
+          {t('intro.enter', locale)}
         </motion.button>
       </div>
     </motion.div>
   );
 }
 
-const AtlasWelcomeGate = memo(function AtlasWelcomeGate() {
+const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
+  onOpenNormanOverview,
+}: {
+  onOpenNormanOverview: () => void;
+}) {
   const phase = useMapStore((s) => s.onboardingPhase);
   const setPhase = useMapStore((s) => s.setOnboardingPhase);
   const [hydrated, setHydrated] = useState(false);
@@ -168,7 +209,13 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate() {
   return (
     <>
       <AnimatePresence onExitComplete={onIntroExitComplete}>
-        {phase === 'intro' && <IntroScreen key="intro" onEnter={handleEnter} />}
+        {phase === 'intro' && (
+          <IntroScreen
+            key="intro"
+            onEnter={handleEnter}
+            onOpenNormanOverview={onOpenNormanOverview}
+          />
+        )}
       </AnimatePresence>
       <AnimatePresence>
         {phase === 'guided' && (

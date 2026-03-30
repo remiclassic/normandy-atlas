@@ -1,6 +1,7 @@
 import type { Map as MaplibreMap, GeoJSONSource } from 'maplibre-gl';
 import type { RegionFeatureCollection } from '@/types';
 import { settlements } from '@/data/settlements';
+import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 export const REGION_SOURCE = 'regions';
 export const SETTLEMENT_SOURCE = 'settlements';
@@ -143,7 +144,8 @@ export function addRegionLayers(
 
 export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
   const label = regionLabelTheme[theme];
-  const defaultStroke = theme === 'parchment' ? 'rgba(58, 48, 40, 0.45)' : 'rgba(10, 12, 18, 0.5)';
+  const imgTheme = theme === 'parchment' ? 'parchment' : 'dark';
+
   const geojson: GeoJSON.FeatureCollection = {
     type: 'FeatureCollection',
     features: settlements.map((s) => ({
@@ -153,6 +155,7 @@ export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dar
         name: s.name,
         regionId: s.regionId,
         category: s.category ?? 'other',
+        atlasIcon: getFeatureIconType({ category: s.category, label: s.name }),
       },
       geometry: {
         type: 'Point' as const,
@@ -169,36 +172,26 @@ export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dar
 
   map.addLayer({
     id: 'settlements-circles',
-    type: 'circle',
+    type: 'symbol',
     source: SETTLEMENT_SOURCE,
-    paint: {
-      'circle-radius': [
-        'interpolate', ['linear'], ['zoom'],
-        4, ['case', ['boolean', ['feature-state', 'selected'], false], 5, ['boolean', ['feature-state', 'hover'], false], 3.5, 2],
-        8, ['case', ['boolean', ['feature-state', 'selected'], false], 7, ['boolean', ['feature-state', 'hover'], false], 5.5, 4.5],
-        12, ['case', ['boolean', ['feature-state', 'selected'], false], 9, ['boolean', ['feature-state', 'hover'], false], 8, 7],
-      ],
-      'circle-color': '#d4c9a8',
-      'circle-opacity': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], 0.95,
-        ['boolean', ['feature-state', 'hover'], false], 0.85,
-        0.6,
-      ],
-      'circle-stroke-width': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], 2,
-        1.5,
-      ],
-      'circle-stroke-color': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], '#c4a962',
-        defaultStroke,
-      ],
-      'circle-blur': 0.1,
-    },
     layout: {
+      'icon-image': ['concat', 'atlas-icon-', ['get', 'atlasIcon'], `-${imgTheme}`],
+      'icon-size': [
+        'interpolate', ['linear'], ['zoom'],
+        4, 0.35,
+        8, 0.55,
+        12, 0.7,
+      ],
+      'icon-allow-overlap': true,
       visibility: 'none',
+    },
+    paint: {
+      'icon-opacity': [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false], 1,
+        ['boolean', ['feature-state', 'hover'], false], 0.9,
+        0.7,
+      ],
     },
   });
 
@@ -213,7 +206,7 @@ export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dar
         'case',
         ['boolean', ['feature-state', 'selected'], false], 0.12,
         ['boolean', ['feature-state', 'hover'], false], 0.08,
-        0.06,
+        0.03,
       ],
       'circle-blur': 1,
     },

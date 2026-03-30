@@ -6,6 +6,7 @@ import { useMapStore, DEEP_TIME_ERA_IDS, COLONIAL_ERA_IDS, VIKING_MOVEMENT_ERA_I
 import { getEraRange } from '@/core/era/engine';
 import { NEW_FRANCE_PHASES, COLONIAL_SIM_YEAR_RANGE, getPhaseForYear } from '@/data/atlas/new-france-timeline';
 import { VIKING_PHASES, getVikingPhaseForYear } from '@/data/atlas/viking-timeline-phases';
+import { pickI18n } from '@/lib/locale';
 
 function formatYear(y: number): string {
   if (y < 0) return `${Math.abs(y)} BC`;
@@ -55,6 +56,7 @@ export default function AtlasEraYearSlider() {
   const eraId = useMapStore((s) => s.eraId);
   const atlasSimYear = useMapStore((s) => s.atlasSimYear);
   const setAtlasSimYear = useMapStore((s) => s.setAtlasSimYear);
+  const locale = useMapStore((s) => s.locale);
 
   const isDeepTime = DEEP_TIME_ERA_IDS.has(eraId);
   const isColonial = COLONIAL_ERA_IDS.has(eraId);
@@ -67,10 +69,10 @@ export default function AtlasEraYearSlider() {
   }, [eraId, isColonial]);
 
   const phaseLabel = useMemo(() => {
-    if (isColonial) return getPhaseForYear(atlasSimYear)?.label.en ?? null;
-    if (isViking) return getVikingPhaseForYear(atlasSimYear)?.label.en ?? null;
-    return null;
-  }, [isColonial, isViking, atlasSimYear]);
+    const phase = isColonial ? getPhaseForYear(atlasSimYear) : isViking ? getVikingPhaseForYear(atlasSimYear) : null;
+    if (!phase) return null;
+    return pickI18n(phase.label, locale);
+  }, [isColonial, isViking, atlasSimYear, locale]);
 
   const ticks = useMemo(() => {
     if (!range) return [];

@@ -68,9 +68,9 @@ export const regionRecords: RegionRecord[] = [
       'age-of-exploration':
         'Norman ports like Honfleur and Dieppe sent ships across the Atlantic. The region\'s maritime tradition fed France\'s age of exploration.',
       'new-france-foundations':
-        'Normandy\'s ports — Dieppe, Honfleur, and Rouen — were the departure points for settlers, traders, and missionaries heading to New France. The region supplied both ships and people to the fledgling colony.',
+        'Normandy\'s mainland ports — Dieppe, Honfleur, and Rouen — were key departure points for settlers, traders, and missionaries heading to New France. The Channel Islands shared Norman culture and kinship ties but were not major documented embarkation harbours for colonial traffic, which ran through French Atlantic ports.',
       'royal-new-france':
-        'Normandy continued to supply settlers and maritime expertise to New France. Norman surnames became deeply embedded in the colonial population along the St. Lawrence.',
+        'Normandy continued to supply settlers and maritime expertise to New France. Norman surnames became deeply embedded along the St. Lawrence. The wider Norman world included the Channel Islands culturally, yet mass, recorded sailings to the colony still left from mainland harbours.',
     },
     article: {
       duchy: `The Duchy of Normandy reached its apex in the 11th century. William the Bastard, later the Conqueror, unified fractious Norman barons and launched the most famous amphibious invasion of the medieval world in 1066.
@@ -80,7 +80,7 @@ The duchy's administrative innovations — the Exchequer, itinerant justices, de
 Norman society was militaristic, pious, and ambitious. Knights held land in return for military service, monasteries served as centers of learning, and the ducal court attracted scholars, builders, and adventurers from across Christendom.
 
 After the Conquest, Normandy and England were governed as a single cross-Channel realm, though tensions between continental and insular interests would eventually pull them apart. Philip II of France seized the duchy in 1204, ending its independence.`,
-      'new-france-foundations': `By the 17th century, Normandy was a French province — not the medieval duchy — but it kept dense river-and-port ties to the Atlantic. Rouen, Dieppe, and Honfleur were routine points of embarkation for ships bound for Canada, and Norman mariners, merchants, and clerics were heavily involved in the early fur trade and missions.
+      'new-france-foundations': `By the 17th century, Normandy was a French province — not the medieval duchy — but it kept dense river-and-port ties to the Atlantic. Rouen, Dieppe, and Honfleur were routine points of embarkation for ships bound for Canada, and Norman mariners, merchants, and clerics were heavily involved in the early fur trade and missions. The Channel Islands (Guernsey, Jersey, and smaller isles) remained culturally Norman, but Saint Peter Port and similar insular harbours were not the main documented terminals for New France — that traffic concentrated on Dieppe, Honfleur, La Rochelle, and Saint-Malo.
 
 Recruitment did not pick settlers at random from all of France. Seigneurs, family chains, and parish networks often drew people from northwestern France into the same colonial neighbourhoods. That is one reason Norman and near-Norman surnames show up so often in Québec founding families: the colony was small, and repeated regional channels left an outsized mark compared with France as a whole.
 

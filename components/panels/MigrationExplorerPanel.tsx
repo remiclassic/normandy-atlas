@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
+import { pickI18n } from '@/lib/locale';
 import {
   isMigrationEra,
   resolveDataset,
@@ -52,14 +53,30 @@ const ConfidenceDot = memo(function ConfidenceDot({ level }: { level: StatConfid
   );
 });
 
-const ShareBar = memo(function ShareBar({ row }: { row: MigrationShareRow }) {
+const ShareBar = memo(function ShareBar({ row, locale }: { row: MigrationShareRow; locale: import('@/core/types').AtlasLocale }) {
+  if (row.kind === 'callout') {
+    return (
+      <div className="py-2 px-2 rounded-md border border-gold/15 bg-gold/[0.04] space-y-1">
+        <div className="flex items-start gap-1.5 text-[11px] leading-snug text-text/88">
+          <span className="shrink-0 mt-0.5 text-gold/70" aria-hidden>
+            ◆
+          </span>
+          <span className="font-medium min-w-0">{pickI18n(row.label, locale)}</span>
+        </div>
+        {row.note && (
+          <p className="text-[10px] leading-relaxed text-text-dim/75 pl-4">{pickI18n(row.note, locale)}</p>
+        )}
+      </div>
+    );
+  }
+
   const pct = row.percent ?? 0;
   return (
     <div className="group py-1.5">
       <div className="flex items-center justify-between gap-2 text-[11px] leading-tight mb-0.5">
         <span className="flex items-center gap-1.5 text-text/85 min-w-0 truncate">
           <ConfidenceDot level={row.confidence} />
-          {row.label.en}
+          {pickI18n(row.label, locale)}
         </span>
         <span className="shrink-0 tabular-nums text-text-muted font-medium">
           {pct}%
@@ -75,7 +92,7 @@ const ShareBar = memo(function ShareBar({ row }: { row: MigrationShareRow }) {
       </div>
       {row.note && (
         <p className="mt-0.5 text-[10px] leading-snug text-text-dim/70 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-          {row.note.en}
+          {pickI18n(row.note, locale)}
         </p>
       )}
     </div>
@@ -84,8 +101,10 @@ const ShareBar = memo(function ShareBar({ row }: { row: MigrationShareRow }) {
 
 const MethodologyDrawer = memo(function MethodologyDrawer({
   dataset,
+  locale,
 }: {
   dataset: MigrationDataset;
+  locale: import('@/core/types').AtlasLocale;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -113,7 +132,7 @@ const MethodologyDrawer = memo(function MethodologyDrawer({
           >
             <div className="px-4 pb-3 space-y-2">
               <p className="text-[11px] leading-relaxed text-text/70">
-                {dataset.metricDefinition.description.en}
+                {pickI18n(dataset.metricDefinition.description, locale)}
               </p>
 
               <div className="space-y-0.5">
@@ -163,10 +182,12 @@ const CohortSelect = memo(function CohortSelect({
   cohorts,
   value,
   onChange,
+  locale,
 }: {
   cohorts: CohortOption[];
   value: MigrationCohortId;
   onChange: (id: MigrationCohortId) => void;
+  locale: import('@/core/types').AtlasLocale;
 }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -212,7 +233,7 @@ const CohortSelect = memo(function CohortSelect({
         className="flex w-full items-center justify-between gap-2 rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1.5 text-left text-[11px] text-text/80 outline-none transition-colors focus-visible:border-gold/30"
       >
         <span className="min-w-0 truncate">
-          {current?.label.en}
+          {current ? pickI18n(current.label, locale) : ''}
           {current && !current.available ? ' (no data)' : ''}
         </span>
         <svg
@@ -263,7 +284,7 @@ const CohortSelect = memo(function CohortSelect({
                           : 'text-text/85 hover:bg-white/[0.06]'
                     }`}
                   >
-                    {c.label.en}
+                    {pickI18n(c.label, locale)}
                     {c.available ? '' : ' (no data)'}
                   </button>
                 </li>
@@ -283,6 +304,7 @@ const CohortSelect = memo(function CohortSelect({
 export default function MigrationExplorerPanel() {
   const eraId = useMapStore((s) => s.eraId);
   const atlasMode = useMapStore((s) => s.atlasMode);
+  const locale = useMapStore((s) => s.locale);
   const explorerOpen = useMapStore((s) => s.migrationExplorerOpen);
   const mapMode = useMapStore((s) => s.migrationMapMode);
   const branch = useMapStore((s) => s.migrationBranch);
@@ -356,7 +378,7 @@ export default function MigrationExplorerPanel() {
                 </span>
               )}
               <p className="mt-2.5 text-[11px] leading-relaxed text-text-dim/80">
-                Shares show estimated regional contributions to immigrant cohorts. Norman and northwestern lines often stand out in French Canadian trees because Channel and Seine ports fed the colony and a small founder population amplified certain origins — not because every migrant was born where they boarded. Open Methodology for caveats.
+                Shares show estimated regional contributions to immigrant cohorts. Norman and northwestern lines often stand out in French Canadian trees because Channel and Seine ports fed the colony and a small founder population amplified certain origins — not because every migrant was born where they boarded. The Channel Islands were part of the Norman cultural world but were not major documented embarkation harbours for New France; mainland French ports carried almost all structured traffic. Open Methodology for caveats.
               </p>
             </div>
 
@@ -400,7 +422,7 @@ export default function MigrationExplorerPanel() {
 
             {/* Custom listbox — native select popups use OS colors (poor contrast here) */}
             <div className="px-4 pb-2">
-              <CohortSelect cohorts={cohorts} value={cohortId} onChange={setCohortId} />
+              <CohortSelect cohorts={cohorts} value={cohortId} onChange={setCohortId} locale={locale} />
             </div>
 
             {/* Divider */}
@@ -411,11 +433,11 @@ export default function MigrationExplorerPanel() {
               {dataset ? (
                 <>
                   <span className="text-[9px] uppercase tracking-[0.12em] text-text-dim/60 font-semibold">
-                    {dataset.metricDefinition.label.en}
+                    {pickI18n(dataset.metricDefinition.label, locale)}
                   </span>
                   <div className="mt-1 space-y-0.5">
                     {rows.map((row) => (
-                      <ShareBar key={row.entityId} row={row} />
+                      <ShareBar key={row.entityId} row={row} locale={locale} />
                     ))}
                   </div>
                 </>
@@ -453,7 +475,7 @@ export default function MigrationExplorerPanel() {
             </div>
 
             {/* Methodology */}
-            {dataset && <MethodologyDrawer dataset={dataset} />}
+            {dataset && <MethodologyDrawer dataset={dataset} locale={locale} />}
           </motion.div>
         )}
       </AnimatePresence>

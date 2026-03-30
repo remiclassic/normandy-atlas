@@ -48,6 +48,8 @@ import type { NormanExpansionRoute } from '@/data/norman-expansion';
 import MapTooltip from './MapTooltip';
 import type { TooltipData } from './MapTooltip';
 import { NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
+import { pickI18n } from '@/lib/locale';
+import { registerAtlasMapIcons } from '@/lib/atlas/mapIcons';
 
 import {
   getActiveSegments,
@@ -97,10 +99,11 @@ function pickAtlasRouteSegment(
 }
 
 function atlasRouteTooltipFields(seg: ResolvedSegment): Pick<TooltipData, 'title' | 'subtitle' | 'detail'> {
+  const locale = useMapStore.getState().locale;
   return {
-    title: seg.segmentTooltip?.en ?? seg.id.replace(/^seg-/, '').replace(/-/g, ' '),
-    subtitle: seg.journeyId ? getJourney(seg.journeyId)?.name.en : undefined,
-    detail: seg.segmentDetail?.en,
+    title: seg.segmentTooltip ? pickI18n(seg.segmentTooltip, locale) : seg.id.replace(/^seg-/, '').replace(/-/g, ' '),
+    subtitle: seg.journeyId ? pickI18n(getJourney(seg.journeyId)?.name ?? { en: '' }, locale) || undefined : undefined,
+    detail: seg.segmentDetail ? pickI18n(seg.segmentDetail, locale) : undefined,
   };
 }
 
@@ -156,6 +159,7 @@ interface FlowArcDatum {
   target: [number, number];
   weight: number;
   hop: 'origin_to_port' | 'port_to_colony';
+  tier: 'primary' | 'secondary';
 }
 
 const FLOW_ORIGIN_COLOR: [number, number, number, number] = [196, 169, 98, 160];
@@ -163,29 +167,74 @@ const FLOW_ORIGIN_TARGET: [number, number, number, number] = [196, 169, 98, 80];
 const FLOW_COLONY_COLOR: [number, number, number, number] = [91, 127, 165, 160];
 const FLOW_COLONY_TARGET: [number, number, number, number] = [91, 127, 165, 80];
 
+const FLOW_ORIGIN_COLOR_SECONDARY: [number, number, number, number] = [196, 169, 98, 88];
+const FLOW_ORIGIN_TARGET_SECONDARY: [number, number, number, number] = [196, 169, 98, 44];
+const FLOW_COLONY_COLOR_SECONDARY: [number, number, number, number] = [91, 127, 165, 88];
+const FLOW_COLONY_TARGET_SECONDARY: [number, number, number, number] = [91, 127, 165, 44];
+
 function buildMigrationFlowLayers(arcs: ResolvedFlowArc[]): ArcLayer<FlowArcDatum>[] {
   if (arcs.length === 0) return [];
 
-  const data: FlowArcDatum[] = [];
+  const primary: FlowArcDatum[] = [];
+  const secondary: FlowArcDatum[] = [];
   for (const arc of arcs) {
-    data.push({ source: arc.originCoords, target: arc.portCoords, weight: arc.weight, hop: 'origin_to_port' });
-    data.push({ source: arc.portCoords, target: arc.colonyCoords, weight: arc.weight, hop: 'port_to_colony' });
+    const bucket = arc.tier === 'secondary' ? secondary : primary;
+    bucket.push({
+      source: arc.originCoords,
+      target: arc.portCoords,
+      weight: arc.weight,
+      hop: 'origin_to_port',
+      tier: arc.tier,
+    });
+    bucket.push({
+      source: arc.portCoords,
+      target: arc.colonyCoords,
+      weight: arc.weight,
+      hop: 'port_to_colony',
+      tier: arc.tier,
+    });
   }
 
-  return [
+  const makeLayer = (
+    id: string,
+    data: FlowArcDatum[],
+    opts: { widthScale: number; widthMin: number; widthMax: number },
+  ) =>
     new ArcLayer<FlowArcDatum>({
-      id: 'migration-flow-arcs',
+      id,
       data,
       getSourcePosition: (d) => d.source,
       getTargetPosition: (d) => d.target,
-      getSourceColor: (d) => (d.hop === 'origin_to_port' ? FLOW_ORIGIN_COLOR : FLOW_COLONY_COLOR),
-      getTargetColor: (d) => (d.hop === 'origin_to_port' ? FLOW_ORIGIN_TARGET : FLOW_COLONY_TARGET),
-      getWidth: (d) => Math.max(1.5, d.weight * 1.2),
+      getSourceColor: (d) => {
+        const sec = d.tier === 'secondary';
+        if (d.hop === 'origin_to_port') {
+          return sec ? FLOW_ORIGIN_COLOR_SECONDARY : FLOW_ORIGIN_COLOR;
+        }
+        return sec ? FLOW_COLONY_COLOR_SECONDARY : FLOW_COLONY_COLOR;
+      },
+      getTargetColor: (d) => {
+        const sec = d.tier === 'secondary';
+        if (d.hop === 'origin_to_port') {
+          return sec ? FLOW_ORIGIN_TARGET_SECONDARY : FLOW_ORIGIN_TARGET;
+        }
+        return sec ? FLOW_COLONY_TARGET_SECONDARY : FLOW_COLONY_TARGET;
+      },
+      getWidth: (d) => Math.max(opts.widthMin, d.weight * opts.widthScale),
       greatCircle: true,
-      widthMinPixels: 1.5,
-      widthMaxPixels: 6,
-    }),
-  ];
+      widthMinPixels: opts.widthMin,
+      widthMaxPixels: opts.widthMax,
+    });
+
+  const layers: ArcLayer<FlowArcDatum>[] = [];
+  if (primary.length > 0) {
+    layers.push(makeLayer('migration-flow-arcs-primary', primary, { widthScale: 1.2, widthMin: 1.5, widthMax: 6 }));
+  }
+  if (secondary.length > 0) {
+    layers.push(
+      makeLayer('migration-flow-arcs-secondary', secondary, { widthScale: 0.55, widthMin: 0.75, widthMax: 2.5 }),
+    );
+  }
+  return layers;
 }
 
 const pathStyleExt = new PathStyleExtension({ dash: true, offset: true });
@@ -486,9 +535,9 @@ export default function MapCanvas() {
         updateSettlementSource(map, getSettlementsGeoJsonForEra(state.eraId));
       }
 
-      addAllNormandyLayers(map);
+      addAllNormandyLayers(map, theme);
       addAllNormanExpansionLayers(map, theme);
-      addAllPrehistoryLayers(map);
+      addAllPrehistoryLayers(map, theme);
       addNewFranceTerritoryLayers(map);
       applyParchmentOverlayLabelStyles(map, theme);
       setExpansionYearFilter(map, state.normandySimYear);
@@ -567,8 +616,10 @@ export default function MapCanvas() {
 
       mapRef.current = map;
 
-      map.on('load', () => {
+      map.on('load', async () => {
         if (!map) return;
+        const theme = useMapStore.getState().basemapMode === 'parchment' ? 'parchment' : 'dark';
+        await registerAtlasMapIcons(map, theme);
         rebuildMapDataLayersRef.current(map);
 
         if (!interactionsAttachedRef.current) {
@@ -1131,8 +1182,10 @@ export default function MapCanvas() {
         readyRef.current = false;
         showTooltip(null);
 
-        const finishStyleSwitch = () => {
+        const finishStyleSwitch = async () => {
           try {
+            const t = useMapStore.getState().basemapMode === 'parchment' ? 'parchment' : 'dark';
+            await registerAtlasMapIcons(map, t as 'dark' | 'parchment');
             rebuildMapDataLayersRef.current(map);
           } catch (err) {
             console.error('[MapCanvas] style.load rebuild failed:', err);
