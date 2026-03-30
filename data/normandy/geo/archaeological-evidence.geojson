@@ -1,0 +1,404 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-pitres",
+        "kind": "burial",
+        "label": "Pîtres",
+        "note": "Carolingian fortification site with nearby Scandinavian-era burials.",
+        "dateStart": 860,
+        "dateEnd": 920,
+        "certainty": "confirmed",
+        "sources": "Renoux 1991; Le Maho 2006",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.22,
+          49.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-rouen-cathedral",
+        "kind": "burial",
+        "label": "Rouen Cathedral",
+        "note": "Rollo's traditional burial place (baptized Robert I). Heart of Danish political power in Normandy.",
+        "dateStart": 911,
+        "dateEnd": 932,
+        "certainty": "confirmed",
+        "sources": "Dudo of Saint-Quentin; Musset 1954",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1,
+          49.44
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-envermeu",
+        "kind": "burial",
+        "label": "Envermeu",
+        "note": "Scandinavian boat-grave site in Pays de Caux. One of the clearest Norse burial rites found in Normandy.",
+        "dateStart": 880,
+        "dateEnd": 950,
+        "certainty": "confirmed",
+        "sources": "Lorren 1977",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.28,
+          49.88
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-herouvillette",
+        "kind": "burial",
+        "label": "Hérouvillette",
+        "note": "Viking-era inhumation near Caen with Scandinavian grave goods.",
+        "dateStart": 850,
+        "dateEnd": 950,
+        "certainty": "confirmed",
+        "sources": "Decaens 1971",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.28,
+          49.22
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-reville",
+        "kind": "burial",
+        "label": "Réville",
+        "note": "Nordic-style burial on the Cotentin coast, indicating Norwegian settlement.",
+        "dateStart": 870,
+        "dateEnd": 950,
+        "certainty": "confirmed",
+        "sources": "Renaud 2000",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25,
+          49.62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-isigny",
+        "kind": "burial",
+        "label": "Isigny-sur-Mer",
+        "note": "Early medieval graves with Norse cultural markers at the Bessin-Cotentin border.",
+        "dateStart": 880,
+        "dateEnd": 960,
+        "certainty": "probable",
+        "sources": "Musset 1976",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.1,
+          49.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-wpn-seine-dredge",
+        "kind": "weapon",
+        "label": "Seine dredge finds",
+        "note": "Viking-type swords and axes recovered from the Seine riverbed near Rouen.",
+        "dateStart": 850,
+        "dateEnd": 950,
+        "certainty": "confirmed",
+        "sources": "Pedersen 2008",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.85,
+          49.44
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-wpn-caudebec",
+        "kind": "weapon",
+        "label": "Caudebec-en-Caux",
+        "note": "Spearheads and scramasax finds along the Seine.",
+        "dateStart": 860,
+        "dateEnd": 940,
+        "certainty": "confirmed",
+        "sources": "Le Maho 2006",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.53,
+          49.52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-wpn-barfleur",
+        "kind": "weapon",
+        "label": "Barfleur",
+        "note": "Maritime weapon deposits found along the Cotentin coast.",
+        "dateStart": 870,
+        "dateEnd": 960,
+        "certainty": "probable",
+        "sources": "",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.26,
+          49.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-wpn-bayeux",
+        "kind": "weapon",
+        "label": "Bayeux",
+        "note": "Scattered Norse weaponry finds in the Bessin.",
+        "dateStart": 880,
+        "dateEnd": 950,
+        "certainty": "probable",
+        "sources": "Musset 1976",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.7,
+          49.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-rouen-castle",
+        "kind": "fortification",
+        "label": "Rouen ducal castle",
+        "note": "Seat of Norman ducal power from the early 10th century.",
+        "dateStart": 911,
+        "dateEnd": 1000,
+        "certainty": "confirmed",
+        "sources": "Le Maho 2001",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.09,
+          49.43
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-falaise",
+        "kind": "fortification",
+        "label": "Falaise Castle",
+        "note": "Birthplace of William the Conqueror; early motte-and-bailey. Post-Viking era construction.",
+        "dateStart": 1000,
+        "dateEnd": 1060,
+        "certainty": "confirmed",
+        "sources": "Impey 2002",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.2,
+          48.89
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-avranches",
+        "kind": "fortification",
+        "label": "Avranches",
+        "note": "Frontier stronghold at the Avranchin border.",
+        "dateStart": 933,
+        "dateEnd": 1000,
+        "certainty": "probable",
+        "sources": "",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.35,
+          48.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-cherbourg",
+        "kind": "fortification",
+        "label": "Cherbourg",
+        "note": "Coastal fortification in the northern Cotentin.",
+        "dateStart": 933,
+        "dateEnd": 1000,
+        "certainty": "probable",
+        "sources": "",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.62,
+          49.63
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-caen",
+        "kind": "fortification",
+        "label": "Caen Castle",
+        "note": "Major ducal castle built by William the Conqueror, c. 1060. Post-Viking era.",
+        "dateStart": 1050,
+        "dateEnd": 1080,
+        "certainty": "confirmed",
+        "sources": "Baylé 2001",
+        "vikingEra": 0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.37,
+          49.18
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-arques",
+        "kind": "fortification",
+        "label": "Arques-la-Bataille",
+        "note": "Early Norman fortification in the Pays de Caux.",
+        "dateStart": 1000,
+        "dateEnd": 1050,
+        "certainty": "confirmed",
+        "sources": "",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.14,
+          49.88
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-bur-jumieges",
+        "kind": "burial",
+        "label": "Jumièges",
+        "note": "Abbey refounded under ducal patronage. Scandinavian finds in the vicinity; key ecclesiastical site of early Norman power.",
+        "dateStart": 860,
+        "dateEnd": 960,
+        "certainty": "confirmed",
+        "sources": "Le Maho 2006; Musset 1954",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.82,
+          49.43
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-fort-fecamp",
+        "kind": "fortification",
+        "label": "Fécamp",
+        "note": "Ducal palace and fortified site on the Caux coast. Center of Norman comital/ducal power before Rouen's dominance.",
+        "dateStart": 920,
+        "dateEnd": 1000,
+        "certainty": "confirmed",
+        "sources": "Renoux 1991",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.38,
+          49.76
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ev-wpn-la-hague",
+        "kind": "weapon",
+        "label": "La Hague",
+        "note": "Norse weapon and metalwork finds at the northwestern tip of the Cotentin, indicating sustained Norwegian maritime presence.",
+        "dateStart": 870,
+        "dateEnd": 960,
+        "certainty": "confirmed",
+        "sources": "Renaud 2000; Ridel 2009",
+        "vikingEra": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.9,
+          49.72
+        ]
+      }
+    }
+  ]
+}

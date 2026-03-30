@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #0a0c12;
+  --color-background-warm: #0e1018;
+  --color-foreground: #e8e6e1;
+  --color-surface: #13161f;
+  --color-surface-hover: #1a1e2b;
+  --color-surface-bright: #242938;
+  --color-surface-glass: rgba(16, 19, 28, 0.82);
+  --color-border: #1e2232;
+  --color-border-bright: #2e3348;
+  --color-border-glow: rgba(196, 169, 98, 0.15);
+  --color-text: #e8e6e1;
+  --color-text-muted: #9a968e;
+  --color-text-dim: #5e5a52;
+  --color-gold: #c4a962;
+  --color-gold-bright: #dcc577;
+  --color-gold-muted: #8a7a45;
+  --color-gold-glow: rgba(196, 169, 98, 0.12);
+  --color-blue: #5b7fa5;
+  --color-blue-bright: #7ba0c5;
+  --color-parchment: #d4c9a8;
+  --color-ember: #a85c3b;
+  --color-ember-glow: rgba(168, 92, 59, 0.15);
+
+  --shadow-panel: 0 8px 40px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-glow-gold: 0 0 20px rgba(196, 169, 98, 0.08), 0 0 60px rgba(196, 169, 98, 0.04);
+  --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-background-warm: var(--color-background-warm);
+  --color-foreground: var(--color-foreground);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-surface-bright: var(--color-surface-bright);
+  --color-surface-glass: var(--color-surface-glass);
+  --color-border: var(--color-border);
+  --color-border-bright: var(--color-border-bright);
+  --color-border-glow: var(--color-border-glow);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-dim: var(--color-text-dim);
+  --color-gold: var(--color-gold);
+  --color-gold-bright: var(--color-gold-bright);
+  --color-gold-muted: var(--color-gold-muted);
+  --color-gold-glow: var(--color-gold-glow);
+  --color-blue: var(--color-blue);
+  --color-blue-bright: var(--color-blue-bright);
+  --color-parchment: var(--color-parchment);
+  --color-ember: var(--color-ember);
+  --color-ember-glow: var(--color-ember-glow);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-crimson);
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Cinematic vignette overlay */
+.vignette-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background:
+    radial-gradient(ellipse at center, transparent 50%, rgba(10, 12, 18, 0.45) 100%),
+    linear-gradient(to bottom, rgba(10, 12, 18, 0.5) 0%, transparent 8%, transparent 92%, rgba(10, 12, 18, 0.6) 100%);
+}
+
+/* Glass panel base */
+.glass-panel {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-panel);
+}
+
+.glass-panel-elevated {
+  background: rgba(16, 19, 28, 0.88);
+  backdrop-filter: blur(24px) saturate(1.15);
+  -webkit-backdrop-filter: blur(24px) saturate(1.15);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Gold accent glow */
+.glow-gold {
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* MapLibre overrides for premium look */
+.maplibregl-ctrl-attrib {
+  background: transparent !important;
+  font-size: 10px !important;
+  color: rgba(154, 150, 142, 0.3) !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: rgba(154, 150, 142, 0.3) !important;
+}
+
+.maplibregl-ctrl-group {
+  background: rgba(16, 19, 28, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(30, 34, 50, 0.8) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(30, 34, 50, 0.3) !important;
+  overflow: hidden;
+}
+
+.maplibregl-ctrl-group button {
+  width: 36px !important;
+  height: 36px !important;
+  border-bottom: 1px solid rgba(30, 34, 50, 0.5) !important;
+  transition: background 0.15s ease !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.maplibregl-ctrl-group button:last-child {
+  border-bottom: none !important;
+}
+
+.maplibregl-ctrl-group button + button {
+  border-top: none !important;
+}
+
+.maplibregl-ctrl-group button span {
+  filter: invert(0.7) !important;
+}
+
+/* Scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(30, 34, 50, 0.5);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 51, 72, 0.7);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Section divider with subtle gradient */
+.divider-fade {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent
+  );
+}
+
+/* Gold thin accent line */
+.accent-line-gold {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(196, 169, 98, 0.25) 30%,
+    rgba(196, 169, 98, 0.25) 70%,
+    transparent
+  );
+}

@@ -1,0 +1,1435 @@
+'use client';
+
+import { useMemo, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useMapStore } from '@/lib/store';
+import { getRegionRecord } from '@/data/regions-content';
+import { getSettlement } from '@/data/settlements';
+import { getEra } from '@/data/eras';
+import { eventRecords } from '@/data/events';
+import { routeRecords } from '@/data/routes';
+import { evidencePoints } from '@/data/normandy/evidence-points';
+import { getNormanSiteArticle } from '@/data/norman-expansion/site-articles';
+import { normanNodesGeoJson } from '@/data/norman-expansion';
+import { getPlace, getAtlasEra, getAtlasRegion, getPeopleForPlace, getPeopleForRegion, getPeopleForEra, getPerson, getVisibleRegions, getVisiblePlaces, resolveDataset, getShareForEntity, getSegment, getJourney } from '@/core';
+import type { Person, PlaceKind, MigrationChannel, AtlasEra, MigrationShareRow, StatConfidence, RouteSegment, Journey } from '@/core/types';
+import type { SettlementCategory, NormanSiteKind } from '@/types';
+import {
+  getMigrationChannelBadge,
+  getOriginDisplayLine,
+  getAvailableFilters,
+  filterPeopleByChannel,
+  BADGE_CLASSES,
+} from '@/lib/person-display';
+
+const CATEGORY_LABELS: Record<SettlementCategory, string> = {
+  city: 'City',
+  fort: 'Fort',
+  mission: 'Mission',
+  colony: 'Colony',
+  port: 'Port',
+  trading_post: 'Trading Post',
+  other: 'Settlement',
+};
+
+function CloseButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+      aria-label="Close panel"
+    >
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </button>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50 mb-3">
+      {children}
+    </h3>
+  );
+}
+
+function ContentFade({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function FactRow({ label, value }: { label: string; value: string }) {
+  if (!value) return null;
+  return (
+    <div className="flex items-start gap-4">
+      <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-text-dim w-16 flex-shrink-0 pt-0.5">
+        {label}
+      </span>
+      <span className="text-sm text-text/90">{value}</span>
+    </div>
+  );
+}
+
+function EventList({ eventIds }: { eventIds: string[] }) {
+  const events = useMemo(
+    () => eventRecords.filter((e) => eventIds.includes(e.id)),
+    [eventIds],
+  );
+  if (events.length === 0) return null;
+
+  return (
+    <>
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.22}>
+        <div className="px-7 py-5 pb-8">
+          <SectionLabel>Key Events</SectionLabel>
+          <div className="space-y-3.5">
+            {events.map((ev) => (
+              <div key={ev.id} className="flex gap-4 group">
+                <span className="text-[12px] font-mono text-gold/50 flex-shrink-0 pt-0.5 w-10 text-right tabular-nums">
+                  {ev.year}
+                </span>
+                <div className="border-l border-border pl-4">
+                  <p className="text-[13px] font-medium text-text/90 leading-snug">{ev.title}</p>
+                  <p className="text-[12px] text-text-muted mt-1 leading-relaxed">{ev.summary}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function RegionDetail({ id, eraId }: { id: string; eraId: string }) {
+  const region = useMemo(() => getRegionRecord(id), [id]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+
+  const eraName = useMemo(() => {
+    if (!region) return null;
+    return region.historicalNames.find((n) => n.eraId === eraId)?.name ?? region.slug;
+  }, [region, eraId]);
+
+  const summary = region?.summary[eraId] ?? Object.values(region?.summary ?? {})[0] ?? '';
+  const article = region?.article[eraId] ?? Object.values(region?.article ?? {})[0] ?? '';
+  const ruler = region?.ruler[eraId] ?? '';
+  const politicalEntity = region?.politicalEntity[eraId] ?? '';
+
+  if (!region) return <AtlasRegionDetail id={id} eraId={eraId} />;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              {eraLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {eraName}
+          </h2>
+        </ContentFade>
+
+        {politicalEntity && (
+          <ContentFade delay={0.08}>
+            <p className="text-sm text-text-muted/80">{politicalEntity}</p>
+          </ContentFade>
+        )}
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Ruler" value={ruler} />
+          {region.notableSettlements.length > 0 && (
+            <FactRow label="Cities" value={region.notableSettlements.join(' · ')} />
+          )}
+        </div>
+      </ContentFade>
+
+      <div className="divider-fade mx-7" />
+
+      <ContentFade delay={0.14}>
+        <div className="px-7 py-5">
+          <p className="text-[14px] leading-[1.75] text-text/85">{summary}</p>
+        </div>
+      </ContentFade>
+
+      {article && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <SectionLabel>History</SectionLabel>
+              <div className="text-[13px] leading-[1.8] text-text-muted space-y-4">
+                {article.split('\n\n').map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <EventList eventIds={region.relatedEventIds} />
+
+      <RegionPeopleSection regionId={id} eraId={eraId} />
+    </>
+  );
+}
+
+function SettlementDetail({ id, eraId }: { id: string; eraId: string }) {
+  const settlement = useMemo(() => getSettlement(id), [id]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+
+  const displayName = useMemo(() => {
+    if (!settlement) return '';
+    const eraName = settlement.historicalNames.find((n) => n.eraId === eraId)?.name;
+    return eraName ?? settlement.name;
+  }, [settlement, eraId]);
+
+  const relatedRoutes = useMemo(() => {
+    if (!settlement?.relatedRouteIds?.length) return [];
+    return routeRecords.filter((r) => settlement.relatedRouteIds!.includes(r.id));
+  }, [settlement]);
+
+  if (!settlement) return <AtlasPlaceDetail id={id} eraId={eraId} />;
+
+  const cat = settlement.category ?? 'other';
+  const bodyText = settlement.summary ?? settlement.description;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              {eraLabel}
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-blue/70 bg-blue/[0.06] px-2.5 py-1 rounded-md border border-blue/10">
+              {CATEGORY_LABELS[cat]}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {displayName}
+          </h2>
+          {displayName !== settlement.name && (
+            <p className="text-[13px] text-text-dim">{settlement.name}</p>
+          )}
+        </ContentFade>
+
+        {settlement.colonialAffiliation && (
+          <ContentFade delay={0.08}>
+            <p className="text-sm text-text-muted/80 mt-1">{settlement.colonialAffiliation} colony</p>
+          </ContentFade>
+        )}
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          {settlement.foundingYear && (
+            <FactRow label="Founded" value={String(settlement.foundingYear)} />
+          )}
+          {settlement.colonialAffiliation && (
+            <FactRow label="Affiliation" value={settlement.colonialAffiliation} />
+          )}
+          {settlement.regionId && (
+            <FactRow label="Region" value={settlement.regionId.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())} />
+          )}
+        </div>
+      </ContentFade>
+
+      <div className="divider-fade mx-7" />
+
+      <ContentFade delay={0.14}>
+        <div className="px-7 py-5">
+          <p className="text-[14px] leading-[1.75] text-text/85">{bodyText}</p>
+        </div>
+      </ContentFade>
+
+      {settlement.historicalNotes && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <SectionLabel>History</SectionLabel>
+              <div className="text-[13px] leading-[1.8] text-text-muted space-y-4">
+                {settlement.historicalNotes.split('\n\n').map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {relatedRoutes.length > 0 && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.22}>
+            <div className="px-7 py-5">
+              <SectionLabel>Related Routes</SectionLabel>
+              <div className="space-y-2.5">
+                {relatedRoutes.map((r) => (
+                  <div key={r.id} className="text-[13px]">
+                    <p className="font-medium text-text/90 leading-snug">{r.title}</p>
+                    <p className="text-[12px] text-text-muted mt-0.5 leading-relaxed line-clamp-2">{r.summary}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <EventList eventIds={settlement.relatedEventIds ?? []} />
+
+      <PeopleList placeId={id} eraId={eraId} />
+    </>
+  );
+}
+
+const PLACE_KIND_LABELS: Record<PlaceKind, string> = {
+  port: 'Port',
+  city: 'City',
+  settlement: 'Settlement',
+  abstract_node: 'Waypoint',
+  fort: 'Fort',
+  megalith: 'Megalithic Site',
+  hillfort: 'Hillfort / Oppidum',
+};
+
+const CONFIDENCE_LABELS: Record<string, string> = {
+  documented: 'Documented origin',
+  network: 'Regional network ties',
+  uncertain: 'Uncertain attribution',
+};
+
+function ChannelFilterBar({
+  people,
+  activeFilter,
+  onFilterChange,
+}: {
+  people: Person[];
+  activeFilter: MigrationChannel | null;
+  onFilterChange: (ch: MigrationChannel | null) => void;
+}) {
+  const filters = useMemo(() => getAvailableFilters(people), [people]);
+
+  if (filters.length <= 1) return null;
+
+  return (
+    <div className="flex items-center gap-1.5 flex-wrap mb-3">
+      <button
+        onClick={() => onFilterChange(null)}
+        className={`text-[9px] font-semibold uppercase tracking-[0.12em] px-2 py-[3px] rounded border transition-all duration-150 ${
+          activeFilter === null
+            ? 'text-parchment/80 bg-white/[0.08] border-white/[0.12]'
+            : 'text-text-dim/50 bg-transparent border-transparent hover:bg-white/[0.04] hover:border-white/[0.06]'
+        }`}
+      >
+        All ({people.length})
+      </button>
+      {filters.map((f) => (
+        <button
+          key={f.channel}
+          onClick={() => onFilterChange(activeFilter === f.channel ? null : f.channel)}
+          className={`text-[9px] font-semibold uppercase tracking-[0.12em] px-2 py-[3px] rounded border transition-all duration-150 ${
+            activeFilter === f.channel
+              ? BADGE_CLASSES[f.tone]
+              : 'text-text-dim/50 bg-transparent border-transparent hover:bg-white/[0.04] hover:border-white/[0.06]'
+          }`}
+        >
+          {f.label} ({f.count})
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function PeopleList({ placeId, eraId }: { placeId: string; eraId: string }) {
+  const people = useMemo(() => getPeopleForPlace(placeId, eraId), [placeId, eraId]);
+  const [activeFilter, setActiveFilter] = useState<MigrationChannel | null>(null);
+  const filtered = useMemo(() => filterPeopleByChannel(people, activeFilter), [people, activeFilter]);
+
+  if (people.length === 0) return null;
+
+  return (
+    <>
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.26}>
+        <div className="px-7 py-5 pb-8">
+          <SectionLabel>Notable Figures</SectionLabel>
+          <ChannelFilterBar
+            people={people}
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+          <div className="space-y-4">
+            {filtered.length > 0 ? (
+              filtered.map((p) => (
+                <PersonCard key={p.id} person={p} eraId={eraId} />
+              ))
+            ) : (
+              <p className="text-[12px] text-text-dim/50 italic py-2">No figures match this filter.</p>
+            )}
+          </div>
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function PersonCard({ person, eraId }: { person: Person; eraId?: string }) {
+  const lifespan = `${person.birthYear}–${person.deathYear}`;
+  const roleStr = person.roles.join(' · ');
+  const badge = useMemo(() => getMigrationChannelBadge(person.migrationChannel), [person.migrationChannel]);
+  const originLine = useMemo(() => getOriginDisplayLine(person, eraId), [person, eraId]);
+
+  return (
+    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 space-y-2">
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <p className="text-[14px] font-medium text-parchment leading-snug">
+            {person.displayName}
+          </p>
+          <p className="text-[11px] text-text-dim mt-0.5">{roleStr}</p>
+        </div>
+        <span className="text-[11px] font-mono text-gold/50 flex-shrink-0 tabular-nums pt-0.5">
+          {lifespan}
+        </span>
+      </div>
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className={`inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border ${BADGE_CLASSES[badge.tone]}`}>
+          {badge.label}
+        </span>
+        {originLine && (
+          <span className="text-[11px] text-text-muted/70 italic">{originLine}</span>
+        )}
+      </div>
+      <p className="text-[12px] text-text-muted leading-relaxed">{person.bio.en}</p>
+    </div>
+  );
+}
+
+function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: string }) {
+  const lifespan = `${person.birthYear}–${person.deathYear}`;
+  const roleStr = person.roles.join(' · ');
+  const confidence = person.confidence ? CONFIDENCE_LABELS[person.confidence] : null;
+  const badge = useMemo(() => getMigrationChannelBadge(person.migrationChannel), [person.migrationChannel]);
+  const originLine = useMemo(() => getOriginDisplayLine(person, eraId), [person, eraId]);
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <h3 className="text-[20px] font-display font-bold text-parchment leading-tight tracking-[-0.01em]">
+          {person.displayName}
+        </h3>
+        <p className="text-[12px] text-text-dim mt-1">{roleStr}</p>
+        <div className="flex items-center gap-2 flex-wrap mt-2">
+          <span className={`inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border ${BADGE_CLASSES[badge.tone]}`}>
+            {badge.label}
+          </span>
+          {originLine && (
+            <span className="text-[11px] text-text-muted/70 italic">{originLine}</span>
+          )}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <FactRow label="Lifespan" value={lifespan} />
+      </div>
+
+      {person.originLabel && (
+        <p className="text-[12px] text-text-muted/70 italic leading-relaxed">
+          {person.originLabel.en}
+        </p>
+      )}
+
+      <div className="divider-fade" />
+
+      <div>
+        <SectionLabel>Biography</SectionLabel>
+        <p className="text-[13px] leading-[1.75] text-text/85">{person.bio.en}</p>
+      </div>
+
+      {person.legacy.en && (
+        <div>
+          <SectionLabel>Legacy</SectionLabel>
+          <p className="text-[13px] leading-[1.75] text-text-muted">{person.legacy.en}</p>
+        </div>
+      )}
+
+      {confidence && (
+        <div className="pt-1">
+          <span className={`inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border ${
+            person.confidence === 'documented'
+              ? 'text-green-400/60 bg-green-400/[0.04] border-green-400/10'
+              : person.confidence === 'network'
+                ? 'text-yellow-400/60 bg-yellow-400/[0.04] border-yellow-400/10'
+                : 'text-text-dim/50 bg-white/[0.02] border-white/[0.06]'
+          }`}>
+            {confidence}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: string }) {
+  const allPeople = useMemo(() => getPeopleForRegion(regionId, eraId), [regionId, eraId]);
+  const [activeFilter, setActiveFilter] = useState<MigrationChannel | null>(null);
+  const filtered = useMemo(() => filterPeopleByChannel(allPeople, activeFilter), [allPeople, activeFilter]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleFilterChange = useCallback((ch: MigrationChannel | null) => {
+    setActiveFilter(ch);
+    setActiveIndex(0);
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((i) => (i <= 0 ? filtered.length - 1 : i - 1));
+  }, [filtered.length]);
+
+  const goNext = useCallback(() => {
+    setActiveIndex((i) => (i >= filtered.length - 1 ? 0 : i + 1));
+  }, [filtered.length]);
+
+  if (allPeople.length === 0) return null;
+
+  const safeIndex = Math.min(activeIndex, filtered.length - 1);
+  const current = filtered[safeIndex];
+
+  return (
+    <>
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.26}>
+        <div className="px-7 py-5 pb-8">
+          <div className="flex items-center justify-between mb-4">
+            <SectionLabel>Notable Figures</SectionLabel>
+            {filtered.length > 1 && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={goPrev}
+                  className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                  aria-label="Previous person"
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M6.5 2L3.5 5L6.5 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <span className="text-[11px] font-mono text-text-dim/60 tabular-nums min-w-[3ch] text-center">
+                  {safeIndex + 1}/{filtered.length}
+                </span>
+                <button
+                  onClick={goNext}
+                  className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                  aria-label="Next person"
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M3.5 2L6.5 5L3.5 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+
+          <ChannelFilterBar
+            people={allPeople}
+            activeFilter={activeFilter}
+            onFilterChange={handleFilterChange}
+          />
+
+          {current ? (
+            <>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-5"
+                >
+                  <PersonDetailExpanded person={current} eraId={eraId} />
+                </motion.div>
+              </AnimatePresence>
+
+              {filtered.length > 1 && (
+                <div className="flex justify-center gap-1 mt-4">
+                  {filtered.map((p, i) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setActiveIndex(i)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                        i === safeIndex
+                          ? 'bg-gold/60 scale-125'
+                          : 'bg-white/[0.12] hover:bg-white/[0.2]'
+                      }`}
+                      aria-label={`Go to ${p.displayName}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="text-[12px] text-text-dim/50 italic py-2">No figures match this filter.</p>
+          )}
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function resolveEraLabel(eraId: string): string | undefined {
+  const legacy = getEra(eraId);
+  if (legacy) return legacy.label;
+  const atlas = getAtlasEra(eraId);
+  return atlas?.label.en;
+}
+
+const CONFIDENCE_DOT: Record<StatConfidence, string> = {
+  high: 'bg-emerald-400/70',
+  medium: 'bg-amber-400/70',
+  low: 'bg-red-400/50',
+};
+
+function MigrationShareSnippet({ entityId, eraId, mode }: { entityId: string; eraId: string; mode: 'origins' | 'ports' | 'colonies' }) {
+  const branch = useMapStore((s) => s.migrationBranch);
+  const cohortId = useMapStore((s) => s.migrationCohortId);
+  const explorerOpen = useMapStore((s) => s.migrationExplorerOpen);
+
+  const share = useMemo(() => {
+    if (!explorerOpen) return null;
+    const ds = resolveDataset({ eraId, branch, cohortId });
+    if (!ds) return null;
+    return getShareForEntity(ds, mode, entityId);
+  }, [explorerOpen, eraId, branch, cohortId, entityId, mode]);
+
+  if (!share || share.percent == null) return null;
+
+  return (
+    <div className="px-7 py-3">
+      <div className="rounded-lg bg-gold/[0.05] border border-gold/10 px-3 py-2">
+        <span className="text-[9px] uppercase tracking-[0.12em] text-gold/60 font-semibold block mb-1">
+          Migration estimate
+        </span>
+        <div className="flex items-center gap-2">
+          <span className={`h-1.5 w-1.5 rounded-full ${CONFIDENCE_DOT[share.confidence]}`} />
+          <span className="text-[14px] font-display font-bold text-parchment tabular-nums">
+            {share.percent}%
+          </span>
+          <span className="text-[11px] text-text-dim/70">
+            of {mode === 'origins' ? 'immigrants' : mode === 'ports' ? 'embarkations' : 'settlement'}
+          </span>
+        </div>
+        {share.note && (
+          <p className="text-[10px] text-text-dim/60 leading-snug mt-1">{share.note.en}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function AtlasPlaceDetail({ id, eraId }: { id: string; eraId: string }) {
+  const place = useMemo(() => getPlace(id), [id]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+
+  if (!place) return null;
+
+  const state = place.eraStates[eraId];
+  const displayName = state?.label ?? id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  const kindLabel = PLACE_KIND_LABELS[place.kind] ?? place.kind;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            {eraLabel && (
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+                </svg>
+                {eraLabel}
+              </span>
+            )}
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-blue/70 bg-blue/[0.06] px-2.5 py-1 rounded-md border border-blue/10">
+              {kindLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {displayName}
+          </h2>
+        </ContentFade>
+
+        {state?.affiliationTags && state.affiliationTags.length > 0 && (
+          <ContentFade delay={0.08}>
+            <p className="text-sm text-text-muted/80 mt-1">{state.affiliationTags.join(' · ')}</p>
+          </ContentFade>
+        )}
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Region" value={place.regionId.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())} />
+          <FactRow label="Layer" value={place.layer.charAt(0).toUpperCase() + place.layer.slice(1)} />
+        </div>
+      </ContentFade>
+
+      <MigrationShareSnippet entityId={id} eraId={eraId} mode="ports" />
+
+      <PeopleList placeId={id} eraId={eraId} />
+    </>
+  );
+}
+
+function AtlasRegionDetail({ id, eraId }: { id: string; eraId: string }) {
+  const atlasRegion = useMemo(() => getAtlasRegion(id), [id]);
+  const eraLabel = useMemo(() => resolveEraLabel(eraId), [eraId]);
+
+  if (!atlasRegion) return null;
+
+  const state = atlasRegion.eraStates[eraId];
+  const displayName = atlasRegion.name.en;
+  const fillIntent = state?.fillIntent;
+  const borderStyle = state?.borderStyle;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            {eraLabel && (
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+                </svg>
+                {eraLabel}
+              </span>
+            )}
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+              Region
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {displayName}
+          </h2>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Layer" value={atlasRegion.layer.charAt(0).toUpperCase() + atlasRegion.layer.slice(1)} />
+          {fillIntent && <FactRow label="Role" value={fillIntent.charAt(0).toUpperCase() + fillIntent.slice(1)} />}
+          {borderStyle && <FactRow label="Borders" value={borderStyle.charAt(0).toUpperCase() + borderStyle.slice(1)} />}
+        </div>
+      </ContentFade>
+
+      {atlasRegion.narrativeByEra?.[eraId] && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.14}>
+            <div className="px-7 py-5">
+              <p className="text-[14px] leading-[1.75] text-text/85">
+                {atlasRegion.narrativeByEra[eraId].en}
+              </p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <MigrationShareSnippet entityId={id} eraId={eraId} mode="origins" />
+
+      <RegionPeopleSection regionId={id} eraId={eraId} />
+    </>
+  );
+}
+
+const NORMAN_SITE_KIND_LABELS: Record<NormanSiteKind, string> = {
+  city: 'City',
+  castle: 'Castle',
+  fortress: 'Fortress',
+  port: 'Port',
+  crusader: 'Crusader State',
+  monastery: 'Monastery',
+  battlefield: 'Battlefield',
+};
+
+function NormanSiteDetail({ id }: { id: string }) {
+  const node = useMemo(
+    () => normanNodesGeoJson.features.find((f) => f.properties.id === id),
+    [id],
+  );
+  const article = useMemo(() => getNormanSiteArticle(id), [id]);
+
+  if (!node) return null;
+
+  const { name, role, date, siteKind } = node.properties;
+  const kindLabel = NORMAN_SITE_KIND_LABELS[siteKind] ?? siteKind;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#e060a0]/70 bg-[#e060a0]/[0.06] px-2.5 py-1 rounded-md border border-[#e060a0]/15">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              Norman Expansion
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-[#e8b8d0]/70 bg-[#e8b8d0]/[0.06] px-2.5 py-1 rounded-md border border-[#e8b8d0]/10">
+              {kindLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {name}
+          </h2>
+          <p className="text-[13px] text-text-muted">{role}</p>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Period" value={date} />
+        </div>
+      </ContentFade>
+
+      {article && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.14}>
+            <div className="px-7 py-5">
+              <p className="text-[14px] leading-[1.75] text-text/85">{article.overview}</p>
+            </div>
+          </ContentFade>
+
+          {article.significance && article.significance.length > 0 && (
+            <>
+              <div className="divider-fade mx-7" />
+              <ContentFade delay={0.18}>
+                <div className="px-7 py-5">
+                  <SectionLabel>Significance</SectionLabel>
+                  <ul className="space-y-1.5">
+                    {article.significance.map((s, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[13px] text-text-muted leading-relaxed">
+                        <span className="text-[#e060a0]/50 mt-1.5 flex-shrink-0">&#x2022;</span>
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ContentFade>
+            </>
+          )}
+
+          {article.architecture && article.architecture.length > 0 && (
+            <>
+              <div className="divider-fade mx-7" />
+              <ContentFade delay={0.22}>
+                <div className="px-7 py-5">
+                  <SectionLabel>Architecture</SectionLabel>
+                  <ul className="space-y-1.5">
+                    {article.architecture.map((a, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[13px] text-text-muted leading-relaxed">
+                        <span className="text-gold/40 mt-1.5 flex-shrink-0">&#x2022;</span>
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ContentFade>
+            </>
+          )}
+
+          {article.timeline && article.timeline.length > 0 && (
+            <>
+              <div className="divider-fade mx-7" />
+              <ContentFade delay={0.26}>
+                <div className="px-7 py-5 pb-8">
+                  <SectionLabel>Timeline</SectionLabel>
+                  <div className="space-y-3.5">
+                    {article.timeline.map((entry, i) => (
+                      <div key={i} className="flex gap-4 group">
+                        <span className="text-[12px] font-mono text-[#e060a0]/50 flex-shrink-0 pt-0.5 w-10 text-right tabular-nums">
+                          {entry.year}
+                        </span>
+                        <div className="border-l border-[#e060a0]/15 pl-4">
+                          <p className="text-[13px] text-text-muted leading-relaxed">{entry.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ContentFade>
+            </>
+          )}
+
+          {article.sources && article.sources.length > 0 && (
+            <>
+              <div className="divider-fade mx-7" />
+              <ContentFade delay={0.3}>
+                <div className="px-7 py-5 pb-8">
+                  <SectionLabel>Sources</SectionLabel>
+                  <ul className="space-y-1">
+                    {article.sources.map((src, i) => (
+                      <li key={i} className="text-[11px] text-text-dim/70 leading-relaxed italic">
+                        {src}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ContentFade>
+            </>
+          )}
+        </>
+      )}
+    </>
+  );
+}
+
+const EVIDENCE_KIND_LABELS: Record<string, string> = {
+  burial: 'Burial Site',
+  weapon: 'Weapon Find',
+  fortification: 'Fortification',
+};
+
+function EvidenceDetail({ id }: { id: string }) {
+  const evidence = useMemo(() => evidencePoints.find((p) => p.id === id), [id]);
+  if (!evidence) return null;
+
+  const dateLabel = `${evidence.dateRange[0]}–${evidence.dateRange[1]} AD`;
+  const certaintyLabel = evidence.certainty === 'confirmed' ? 'Confirmed' : 'Probable';
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              Archaeological
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-ember/70 bg-ember/[0.06] px-2.5 py-1 rounded-md border border-ember/10">
+              {EVIDENCE_KIND_LABELS[evidence.kind] ?? evidence.kind}
+            </span>
+            <span className={`inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-md border ${
+              evidence.certainty === 'confirmed'
+                ? 'text-green-400/70 bg-green-400/[0.06] border-green-400/10'
+                : 'text-yellow-400/70 bg-yellow-400/[0.06] border-yellow-400/10'
+            }`}>
+              {certaintyLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {evidence.label}
+          </h2>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Date" value={dateLabel} />
+          <FactRow label="Status" value={certaintyLabel} />
+          {evidence.sources && <FactRow label="Sources" value={evidence.sources} />}
+        </div>
+      </ContentFade>
+
+      <div className="divider-fade mx-7" />
+
+      <ContentFade delay={0.14}>
+        <div className="px-7 py-5">
+          <p className="text-[14px] leading-[1.75] text-text/85">{evidence.note}</p>
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
+  const place = useMemo(() => getPlace(id), [id]);
+  if (!place) return null;
+
+  const state = place.eraStates[eraId] ?? Object.values(place.eraStates)[0];
+  if (!state) return null;
+
+  const kindLabel = PLACE_KIND_LABELS[place.kind] ?? 'Archaeological Site';
+  const tags = state.affiliationTags;
+  const region = getAtlasRegion(place.regionId);
+  const regionNarrative = region?.narrativeByEra?.[eraId];
+  const era = getAtlasEra(eraId);
+  const eraLabel = era ? era.label.en : eraId;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              {kindLabel}
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+              {eraLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {state.label}
+          </h2>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          {tags.length > 0 && <FactRow label="Tags" value={tags.join(', ')} />}
+          {region && <FactRow label="Region" value={region.name.en} />}
+        </div>
+      </ContentFade>
+
+      {regionNarrative && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.14}>
+            <div className="px-7 py-5">
+              <SectionLabel>Context</SectionLabel>
+              <p className="text-[14px] leading-[1.75] text-text/85">{regionNarrative.en}</p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.18}>
+        <div className="px-7 py-5">
+          <p className="text-[11px] text-text-dim/50 italic leading-relaxed">
+            Boundaries and attributions for pre-Roman sites are approximate, based on archaeological synthesis and scholarly interpretation.
+          </p>
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function AtlasPersonDetail({ personId, eraId }: { personId: string; eraId: string }) {
+  const person = useMemo(() => getPerson(personId), [personId]);
+  if (!person) {
+    return (
+      <ContentFade>
+        <div className="px-7 pt-8">
+          <p className="text-[13px] text-text-muted">Person not found.</p>
+        </div>
+      </ContentFade>
+    );
+  }
+
+  return (
+    <>
+      <ContentFade>
+        <div className="px-7 pt-8 pb-2">
+          <PersonDetailExpanded person={person} eraId={eraId} />
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+function EraInfoDetail({ eraId }: { eraId: string }) {
+  const era = useMemo(() => getAtlasEra(eraId), [eraId]);
+  const people = useMemo(() => getPeopleForEra(eraId), [eraId]);
+  const regions = useMemo(() => getVisibleRegions(eraId), [eraId]);
+  const places = useMemo(() => getVisiblePlaces(eraId), [eraId]);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const goPrev = useCallback(() => {
+    setActiveIndex((i) => (i <= 0 ? people.length - 1 : i - 1));
+  }, [people.length]);
+
+  const goNext = useCallback(() => {
+    setActiveIndex((i) => (i >= people.length - 1 ? 0 : i + 1));
+  }, [people.length]);
+
+  if (!era) return null;
+
+  const rangeLabel = `${era.range.start} – ${era.range.end}`;
+  const safeIndex = Math.min(activeIndex, people.length - 1);
+  const currentPerson = people[safeIndex];
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              Era Overview
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+              {rangeLabel}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {era.label.en}
+          </h2>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      {era.summary && (
+        <ContentFade delay={0.1}>
+          <div className="px-7 py-5">
+            <p className="text-[14px] leading-[1.75] text-text/85">{era.summary.en}</p>
+          </div>
+        </ContentFade>
+      )}
+
+      {places.length > 0 && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.14}>
+            <div className="px-7 py-5">
+              <SectionLabel>Key Places</SectionLabel>
+              <div className="flex flex-wrap gap-2">
+                {places.filter((p) => p.currentState.visibility !== 'faded').map((p) => (
+                  <span
+                    key={p.id}
+                    className="inline-flex items-center text-[11px] text-text-muted/80 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]"
+                  >
+                    {p.currentState.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {regions.length > 0 && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <SectionLabel>Regions</SectionLabel>
+              <div className="space-y-4">
+                {regions.map((r) => {
+                  const narrative = r.narrativeByEra?.[eraId];
+                  return (
+                    <div key={r.id}>
+                      <h4 className="text-[13px] font-semibold text-parchment/90 mb-1">{r.name.en}</h4>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        {r.currentState.fillIntent && (
+                          <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-text-dim/50 bg-white/[0.02] px-2 py-0.5 rounded border border-white/[0.06]">
+                            {r.currentState.fillIntent}
+                          </span>
+                        )}
+                      </div>
+                      {narrative && (
+                        <p className="text-[12px] leading-[1.7] text-text-muted/80">{narrative.en}</p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {people.length > 0 && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.22}>
+            <div className="px-7 py-5 pb-8">
+              <div className="flex items-center justify-between mb-4">
+                <SectionLabel>Notable Figures</SectionLabel>
+                {people.length > 1 && (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={goPrev}
+                      className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                      aria-label="Previous person"
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M6.5 2L3.5 5L6.5 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    <span className="text-[11px] font-mono text-text-dim/60 tabular-nums min-w-[3ch] text-center">
+                      {safeIndex + 1}/{people.length}
+                    </span>
+                    <button
+                      onClick={goNext}
+                      className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                      aria-label="Next person"
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M3.5 2L6.5 5L3.5 8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {currentPerson && (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentPerson.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-5"
+                  >
+                    <PersonDetailExpanded person={currentPerson} eraId={eraId} />
+                  </motion.div>
+                </AnimatePresence>
+              )}
+
+              {people.length > 1 && (
+                <div className="flex justify-center gap-1 mt-4">
+                  {people.map((p, i) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setActiveIndex(i)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                        i === safeIndex
+                          ? 'bg-gold/60 scale-125'
+                          : 'bg-white/[0.12] hover:bg-white/[0.2]'
+                      }`}
+                      aria-label={`Go to ${p.displayName}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </ContentFade>
+        </>
+      )}
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Atlas Route Detail
+// ---------------------------------------------------------------------------
+
+const SEGMENT_KIND_LABELS: Record<string, string> = {
+  migration: 'Migration',
+  trade: 'Trade',
+  exploration: 'Exploration',
+  military: 'Military',
+  invasion: 'Invasion',
+  expansion: 'Expansion',
+  settlement: 'Settlement',
+  settlement_corridor: 'Settlement Corridor',
+  river_corridor: 'River Corridor',
+  raid: 'Raid',
+  incursion: 'Incursion',
+  maritime_corridor: 'Maritime Corridor',
+};
+
+const EVIDENCE_LABELS: Record<string, string> = {
+  documentary_cluster: 'High confidence — documentary sources',
+  synthesis: 'Medium confidence — historical synthesis',
+  archaeological: 'High confidence — archaeological evidence',
+  tradition: 'Low confidence — oral tradition',
+};
+
+function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: string }) {
+  const segment = useMemo(() => getSegment(segmentId), [segmentId]);
+  const journey = useMemo(
+    () => (segment?.journeyId ? getJourney(segment.journeyId) : undefined),
+    [segment?.journeyId],
+  );
+  const fromPlace = useMemo(() => (segment ? getPlace(segment.fromPlaceId) : undefined), [segment]);
+  const toPlace = useMemo(() => (segment ? getPlace(segment.toPlaceId) : undefined), [segment]);
+
+  if (!segment) {
+    return (
+      <div className="px-6 py-8 text-center text-[13px] text-text-dim/60">
+        Route segment not found.
+      </div>
+    );
+  }
+
+  const fromLabel = fromPlace?.eraStates[eraId]?.label ?? segment.fromPlaceId;
+  const toLabel = toPlace?.eraStates[eraId]?.label ?? segment.toPlaceId;
+
+  return (
+    <>
+      <div className="px-6 pt-5 pb-3 space-y-2">
+        <div className="flex items-center gap-2">
+          <span className="text-[9px] uppercase tracking-[0.14em] font-semibold text-cyan-400/80">
+            {SEGMENT_KIND_LABELS[segment.kind] ?? segment.kind}
+          </span>
+          <span className="text-[9px] uppercase tracking-[0.12em] text-text-dim/50">
+            {EVIDENCE_LABELS[segment.evidence] ?? segment.evidence}
+          </span>
+        </div>
+
+        <h2 className="text-[18px] font-display font-bold text-parchment leading-tight tracking-wide">
+          {segment.segmentTooltip?.en ?? `${fromLabel} → ${toLabel}`}
+        </h2>
+
+        {segment.yearRange && (
+          <span className="inline-flex items-center gap-1.5 text-[10px] text-text-dim/70 bg-white/[0.03] px-2 py-0.5 rounded-md border border-white/[0.06]">
+            {segment.yearRange[0]}–{segment.yearRange[1]}
+          </span>
+        )}
+      </div>
+
+      <ContentFade>
+        <div className="px-6 space-y-4 pb-6">
+          <div className="flex items-center gap-3 text-[12px] text-text/70">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-gold/50" />
+              {fromLabel}
+            </span>
+            <span className="text-text-dim/40">→</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-400/50" />
+              {toLabel}
+            </span>
+          </div>
+
+          {segment.segmentDetail && (
+            <p className="text-[13px] leading-relaxed text-text/75">
+              {segment.segmentDetail.en}
+            </p>
+          )}
+
+          {segment.normanRelated && (
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold/[0.06] border border-gold/[0.12]">
+              <span className="w-2 h-2 rounded-full bg-gold/60" />
+              <span className="text-[11px] text-gold/80">Connected to Norman origins</span>
+            </div>
+          )}
+
+          {journey && (
+            <div className="space-y-1 pt-2 border-t border-white/[0.06]">
+              <span className="text-[9px] uppercase tracking-[0.14em] font-semibold text-text-dim/60">
+                Part of journey
+              </span>
+              <h3 className="text-[13px] font-medium text-text/85">
+                {journey.name.en}
+              </h3>
+              <p className="text-[12px] leading-relaxed text-text/60">
+                {journey.summary.en}
+              </p>
+            </div>
+          )}
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+export default function HistoricalDetailPanel() {
+  const selectedId = useMapStore((s) => s.selectedFeatureId);
+  const selectionKind = useMapStore((s) => s.selectionKind);
+  const detailOpen = useMapStore((s) => s.detailPanelOpen);
+  const eraId = useMapStore((s) => s.eraId);
+  const closeDetail = useMapStore((s) => s.closeDetail);
+
+  const show = detailOpen && selectedId;
+
+  return (
+    <AnimatePresence mode="wait">
+      {show && (
+        <motion.aside
+          key={`${selectionKind}-${selectedId}`}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 16 }}
+          transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+          className="z-30 flex h-full w-[min(420px,100vw)] max-md:absolute max-md:right-0 max-md:top-0 max-md:min-h-0 max-md:max-h-full flex-col border-l border-white/[0.08] max-md:shadow-[-12px_0_48px_rgba(0,0,0,0.55)] md:w-[min(420px,90vw)] md:shrink-0 md:shadow-[inset_1px_0_0_rgba(255,255,255,0.04)]"
+          style={{
+            background: 'rgba(13, 15, 22, 0.96)',
+            backdropFilter: 'blur(40px) saturate(1.2)',
+            WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
+          }}
+        >
+          <CloseButton onClick={closeDetail} />
+
+          <div className="flex-1 overflow-y-auto scrollbar-thin pb-6 pt-1">
+            {selectionKind === 'atlas-person' ? (
+              <AtlasPersonDetail personId={selectedId!} eraId={eraId} />
+            ) : selectionKind === 'era-info' ? (
+              <EraInfoDetail eraId={selectedId!} />
+            ) : selectionKind === 'evidence' ? (
+              <EvidenceDetail id={selectedId!} />
+            ) : selectionKind === 'norman-site' ? (
+              <NormanSiteDetail id={selectedId!} />
+            ) : selectionKind === 'prehistoric-site' ? (
+              <PrehistoricSiteDetail id={selectedId!} eraId={eraId} />
+            ) : selectionKind === 'atlas-route' ? (
+              <AtlasRouteDetail segmentId={selectedId!} eraId={eraId} />
+            ) : selectionKind === 'settlement' ? (
+              <SettlementDetail id={selectedId!} eraId={eraId} />
+            ) : (
+              <RegionDetail id={selectedId!} eraId={eraId} />
+            )}
+          </div>
+        </motion.aside>
+      )}
+    </AnimatePresence>
+  );
+}

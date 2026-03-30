@@ -1,0 +1,779 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-01",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 5,
+        "rationale": "Rouen — ducal capital, dense toponymy and archaeology"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1,
+          49.44
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-02",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 5,
+        "rationale": "Jumièges corridor — abbey refoundation, boat-grave evidence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.82,
+          49.43
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-03",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 5,
+        "rationale": "Caudebec — weapon finds, river-corridor settlement"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.5,
+          49.48
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-04",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 4,
+        "rationale": "Pitres / Pont-de-l'Arche — Carolingian fort site, Scandinavian burials"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.3,
+          49.42
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-05",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 4,
+        "rationale": "Seine north bank — dense -tot/-bec names along river"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.9,
+          49.52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-06",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 4,
+        "rationale": "Oissel — documented Viking winter camp 9th century"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.05,
+          49.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-07",
+        "density": "very_high",
+        "presence": "confirmed",
+        "cluster": "Lower Seine",
+        "weight": 4,
+        "rationale": "Routot area — dense -tot names, river-adjacent"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.65,
+          49.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-08",
+        "density": "very_high",
+        "presence": "probable",
+        "cluster": "Lower Seine",
+        "weight": 3,
+        "rationale": "Upper Andelle — scattered Norse toponymy near Epte frontier"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.45,
+          49.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-09",
+        "density": "very_high",
+        "presence": "probable",
+        "cluster": "Lower Seine",
+        "weight": 3,
+        "rationale": "Risle mouth — estuary settlement zone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.35,
+          49.44
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-seine-10",
+        "density": "very_high",
+        "presence": "probable",
+        "cluster": "Lower Seine",
+        "weight": 3,
+        "rationale": "Pays de Bray edge — scattered evidence near Dieppe hinterland"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.18,
+          49.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-01",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 5,
+        "rationale": "Fécamp hinterland — dense -tot cluster"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.52,
+          49.78
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-02",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 5,
+        "rationale": "Central Caux plateau — highest -tot density in Normandy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.7,
+          49.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-03",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 4,
+        "rationale": "Étretat hinterland — coastal toponymy cluster"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.35,
+          49.72
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-04",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 4,
+        "rationale": "Eastern Caux — -tot/-bec names near Dieppe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.88,
+          49.85
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-05",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 5,
+        "rationale": "Yvetot area — eponymous -tot site, dense settlement"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.55,
+          49.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-06",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 4,
+        "rationale": "Le Havre hinterland — coastal naming pattern"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.2,
+          49.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-07",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Pays de Caux",
+        "weight": 3,
+        "rationale": "Sassetot area — secondary -tot cluster"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.45,
+          49.82
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-08",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Pays de Caux",
+        "weight": 4,
+        "rationale": "Robertot / Écalletot area — multiple -tot names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.68,
+          49.75
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-09",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Pays de Caux",
+        "weight": 3,
+        "rationale": "Arques hinterland — Scandinavian names near coast"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.05,
+          49.88
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-caux-10",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Pays de Caux",
+        "weight": 3,
+        "rationale": "Bolbec area — -bec stream names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.3,
+          49.62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-01",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 5,
+        "rationale": "Cherbourg area — coastal Norwegian settlement"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.62,
+          49.62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-02",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 4,
+        "rationale": "East Cotentin coast — confirmed Norse place names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.45,
+          49.55
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-03",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 4,
+        "rationale": "West Cotentin — maritime settlement cluster"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.75,
+          49.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-04",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 3,
+        "rationale": "Barfleur hinterland — Norse harbor settlement"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.3,
+          49.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-05",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 4,
+        "rationale": "Central Cotentin — Norwegian farming settlement"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55,
+          49.4
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-06",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Cotentin",
+        "weight": 3,
+        "rationale": "La Hague — maritime Norse presence, Gaelic-Norse influence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.8,
+          49.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-07",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Cotentin",
+        "weight": 3,
+        "rationale": "SE Cotentin — transitional zone with Bessin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.2,
+          49.48
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-08",
+        "density": "high",
+        "presence": "confirmed",
+        "cluster": "Cotentin",
+        "weight": 4,
+        "rationale": "La Hague tip — confirmed Norwegian cemetery at Réville"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.88,
+          49.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-cot-09",
+        "density": "high",
+        "presence": "probable",
+        "cluster": "Cotentin",
+        "weight": 3,
+        "rationale": "Coutances area — mixed Norse-Frankish zone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.4,
+          49.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-01",
+        "density": "medium",
+        "presence": "confirmed",
+        "cluster": "Bessin",
+        "weight": 3,
+        "rationale": "Bayeux — attested Norse presence, cathedral foundation"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.7,
+          49.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-02",
+        "density": "medium",
+        "presence": "probable",
+        "cluster": "Bessin",
+        "weight": 2,
+        "rationale": "Coastal Bessin — scattered Scandinavian names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5,
+          49.25
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-03",
+        "density": "medium",
+        "presence": "probable",
+        "cluster": "Bessin",
+        "weight": 3,
+        "rationale": "Isigny area — Norse burial markers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.87,
+          49.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-04",
+        "density": "medium",
+        "presence": "confirmed",
+        "cluster": "Bessin",
+        "weight": 2,
+        "rationale": "Caen area — Viking-era inhumation at Hérouvillette"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.37,
+          49.18
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-05",
+        "density": "medium",
+        "presence": "probable",
+        "cluster": "Bessin",
+        "weight": 2,
+        "rationale": "Inland Bessin — Anglo-Scandinavian settler names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6,
+          49.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-bes-06",
+        "density": "medium",
+        "presence": "probable",
+        "cluster": "Bessin",
+        "weight": 2,
+        "rationale": "Orne estuary — river-corridor scatter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.25,
+          49.28
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-01",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Southern interior — rare isolated names"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.2,
+          48.85
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-02",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Falaise hinterland — sparse scatter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.15,
+          48.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-03",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Hiémois south — minimal Scandinavian presence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.5,
+          48.78
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-04",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Bocage — deep interior, no significant Norse trace"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5,
+          48.65
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-05",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Lieuvin — southern edge of Scandinavian zone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.85,
+          49.1
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-06",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Southern Bocage — Frankish-dominant zone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.7,
+          48.55
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-07",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Avranches — frontier zone, thin Norse layer"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.35,
+          48.68
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dp-south-08",
+        "density": "low",
+        "presence": "probable",
+        "cluster": "Interior",
+        "weight": 1,
+        "rationale": "Vexin frontier — Epte boundary, mainly Frankish"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.5,
+          49.2
+        ]
+      }
+    }
+  ]
+}

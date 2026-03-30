@@ -1,0 +1,156 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone-celtic-norwegian",
+        "name": "Celtic-Norwegian Zone",
+        "color": "#3a8fc4",
+        "note": "Norwegian settlers dominated the Cotentin coast, with strong links to Norse communities in Ireland, Scotland, and the Hebrides. Gaelic-Norse cultural elements distinguish this zone from the Danish-settled east.",
+        "characteristics": [
+          "Norwegian settlers via the Irish Sea",
+          "Gaelic-Scandinavian mixed culture",
+          "Distinct place-name patterns (hogue, mare)",
+          "Maritime and pastoral economy",
+          "Links to Orkney, Hebrides, and Dublin Norse"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -0.92,
+              49.22
+            ],
+            [
+              -1,
+              49.55
+            ],
+            [
+              -1.3,
+              49.7
+            ],
+            [
+              -1.78,
+              49.65
+            ],
+            [
+              -1.9,
+              49.45
+            ],
+            [
+              -1.85,
+              49.18
+            ],
+            [
+              -1.65,
+              48.92
+            ],
+            [
+              -1.4,
+              48.72
+            ],
+            [
+              -1.1,
+              48.65
+            ],
+            [
+              -0.92,
+              48.78
+            ],
+            [
+              -0.92,
+              49
+            ],
+            [
+              -0.92,
+              49.22
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zone-danish",
+        "name": "Danish Zone",
+        "color": "#c44040",
+        "note": "Rollo's Danes controlled the Seine valley and Pays de Caux from the 911 treaty onward. The political, ecclesiastical, and economic core of early Normandy. Post-911 Anglo-Scandinavian migrants from the Danelaw augmented the Danish population, especially in Bessin and the southern lowlands.",
+        "characteristics": [
+          "Danish Viking political control",
+          "Strong river-based settlement along the Seine",
+          "Dense -tot/-bec/-dalle toponymy (Pays de Caux)",
+          "Ducal capital at Rouen",
+          "Key sites: Jumièges, Fécamp, Rouen",
+          "Anglo-Scandinavian Danelaw migrants in Bessin"
+        ]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0,
+              49.75
+            ],
+            [
+              0.5,
+              49.82
+            ],
+            [
+              1.08,
+              49.93
+            ],
+            [
+              1.6,
+              49.7
+            ],
+            [
+              1.6,
+              49.25
+            ],
+            [
+              1.35,
+              49.1
+            ],
+            [
+              0.8,
+              49.08
+            ],
+            [
+              0.3,
+              49.08
+            ],
+            [
+              -0.2,
+              49.1
+            ],
+            [
+              -0.6,
+              49.15
+            ],
+            [
+              -0.8,
+              49.3
+            ],
+            [
+              -0.55,
+              49.35
+            ],
+            [
+              -0.1,
+              49.42
+            ],
+            [
+              0,
+              49.75
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

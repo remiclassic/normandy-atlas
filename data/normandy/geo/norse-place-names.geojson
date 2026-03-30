@@ -1,0 +1,566 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-yvetot",
+        "name": "Yvetot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.76,
+          49.62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-criquetot",
+        "name": "Criquetot-l'Esneval",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.28,
+          49.64
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-ecalletot",
+        "name": "Écalletot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.55,
+          49.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-routot",
+        "name": "Routot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.73,
+          49.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-lanquetot",
+        "name": "Lanquetot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.55,
+          49.55
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-sassetot",
+        "name": "Sassetot-le-Mauconduit",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.36,
+          49.78
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-etaintot",
+        "name": "Étaintot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.9,
+          49.55
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-robertot",
+        "name": "Robertot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.72,
+          49.72
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-appetot",
+        "name": "Appétot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.48,
+          49.42
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-tournetot",
+        "name": "Tournétot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.58,
+          49.62
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-gonnetot",
+        "name": "Gonnetot",
+        "suffix": "tot",
+        "etymology": "ON topt — farmstead, homestead plot",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.85,
+          49.78
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-caudebec",
+        "name": "Caudebec-en-Caux",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.53,
+          49.52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-bolbec",
+        "name": "Bolbec",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.47,
+          49.57
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-houlbec",
+        "name": "Houlbec-Cocherel",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.35,
+          49.06
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-orbec",
+        "name": "Orbec",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-hiemois"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.41,
+          49.02
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-foulbec",
+        "name": "Foulbec",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.42,
+          49.38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-clarbec",
+        "name": "Clarbec",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-bessin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.08,
+          49.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-elbeuf",
+        "name": "Elbeuf (Wellebou)",
+        "suffix": "bec",
+        "etymology": "ON bekkr — stream, brook",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.01,
+          49.29
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-dieppedalle",
+        "name": "Dieppedalle",
+        "suffix": "dalle",
+        "etymology": "ON dalr — valley",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.52,
+          49.53
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-oudalle",
+        "name": "Oudalle",
+        "suffix": "dalle",
+        "etymology": "ON dalr — valley",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.27,
+          49.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-breaute-dalle",
+        "name": "Bréauté (La Dalle)",
+        "suffix": "dalle",
+        "etymology": "ON dalr — valley",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.38,
+          49.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-longuedalle",
+        "name": "Longuedalle",
+        "suffix": "dalle",
+        "etymology": "ON dalr — valley",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.6,
+          49.65
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-la-hogue",
+        "name": "La Hougue",
+        "suffix": "hogue",
+        "etymology": "ON haugr — mound, burial hill",
+        "regionId": "region-cotentin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25,
+          49.58
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-haguenau",
+        "name": "La Hague",
+        "suffix": "hogue",
+        "etymology": "ON haugr — mound, burial hill",
+        "regionId": "region-cotentin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.9,
+          49.72
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-hougue-bie",
+        "name": "La Hougue (Bie)",
+        "suffix": "hogue",
+        "etymology": "ON haugr — mound, burial hill",
+        "regionId": "region-cotentin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.18,
+          49.52
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-lethuit",
+        "name": "Le Thuit-Signol",
+        "suffix": "thuit",
+        "etymology": "ON þveit — clearing, assart",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1,
+          49.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-bourgtheroulde",
+        "name": "Bourg-Achard (Le Thuit)",
+        "suffix": "thuit",
+        "etymology": "ON þveit — clearing, assart",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.82,
+          49.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-thuit-hebert",
+        "name": "Le Thuit-Hébert",
+        "suffix": "thuit",
+        "etymology": "ON þveit — clearing, assart",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.9,
+          49.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-la-londe",
+        "name": "La Londe",
+        "suffix": "londe",
+        "etymology": "ON lundr — grove, sacred wood",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.95,
+          49.34
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-londe-rouvray",
+        "name": "La Londe (forêt de Rouvray)",
+        "suffix": "londe",
+        "etymology": "ON lundr — grove, sacred wood",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.05,
+          49.36
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-etretat-mare",
+        "name": "La Mare (Étretat)",
+        "suffix": "mare",
+        "etymology": "ON marr — pond, lake, wetland",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.2,
+          49.71
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-longuemare",
+        "name": "Longuemare",
+        "suffix": "mare",
+        "etymology": "ON marr — pond, lake, wetland",
+        "regionId": "region-pays-de-caux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.65,
+          49.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "top-ymare",
+        "name": "Ymare",
+        "suffix": "mare",
+        "etymology": "ON marr — pond, lake, wetland",
+        "regionId": "region-roumois-seine"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.12,
+          49.38
+        ]
+      }
+    }
+  ]
+}
