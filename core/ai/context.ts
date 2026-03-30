@@ -4,11 +4,16 @@ import { getActiveSegments } from '@/core/routes/engine';
 import { getVisibleRegions } from '@/core/regions/engine';
 import { getPeopleForEra, getPeopleForPlace } from '@/core/people/engine';
 import { atlasContract } from '@/data/atlas/methodology';
+import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
+import { VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import type { AIContext, MigrationCohortId, MigrationBranchId, MigrationMapMode } from '@/core/types';
 
 interface AIContextInput {
   eraId: string;
   selectedPlaceIds: string[];
+  /** Align route list with map when provided (colonial / Viking movement eras). */
+  atlasSimYear?: number;
+  explorationRoutesYearStrict?: boolean;
   migration?: {
     cohortId: MigrationCohortId;
     branch: MigrationBranchId;
@@ -45,7 +50,20 @@ export function buildAIContext(input: AIContextInput): AIContext {
     })
     .filter((x): x is NonNullable<typeof x> => x !== null);
 
-  const visibleRoutes = getActiveSegments(input.eraId).map((seg) => ({
+  const simYearForRoutes =
+    input.atlasSimYear != null && isColonialEra(input.eraId)
+      ? colonialYearFromEra(input.eraId, input.atlasSimYear)
+      : input.atlasSimYear != null && VIKING_MOVEMENT_ERA_IDS.has(input.eraId)
+        ? input.atlasSimYear
+        : undefined;
+
+  const visibleRoutes = getActiveSegments(
+    input.eraId,
+    simYearForRoutes,
+    input.explorationRoutesYearStrict != null || simYearForRoutes != null
+      ? { explorationYearStrict: input.explorationRoutesYearStrict === true }
+      : undefined,
+  ).map((seg) => ({
     id: seg.id,
     kind: seg.kind,
     fromPlaceId: seg.fromPlaceId,

@@ -37,6 +37,7 @@ export {
   getActiveJourneys,
   getAllJourneys,
   isOceanCrossing,
+  type GetActiveSegmentsOptions,
 } from './routes/engine';
 
 export {

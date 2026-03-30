@@ -199,9 +199,31 @@ export const atlasPlaces: Place[] = [
     regionId: 'new-france',
     layer: 'americas',
     eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Stadacona', affiliationTags: ['St. Lawrence Iroquoians'], pedagogyIndex: 4 },
       'new-france-foundations': { visibility: 'emphasized', label: 'Québec', affiliationTags: ['New France'], pedagogyIndex: 5 },
       'royal-new-france': { visibility: 'emphasized', label: 'Québec', affiliationTags: ['New France'], pedagogyIndex: 5 },
       'atlantic-imprint': { visibility: 'normal', label: 'Québec', affiliationTags: ['New France'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'pointe-levis',
+    kind: 'settlement',
+    coordinates: [-71.17, 46.74],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'new-france-foundations': {
+        visibility: 'normal',
+        label: 'Pointe-Lévy (seigneury of Lauzon)',
+        affiliationTags: ['New France', 'habitant'],
+        pedagogyIndex: 4,
+      },
+      'royal-new-france': {
+        visibility: 'normal',
+        label: 'Pointe-Lévy / Lévis shore',
+        affiliationTags: ['New France'],
+        pedagogyIndex: 3,
+      },
     },
   },
   {
@@ -211,6 +233,7 @@ export const atlasPlaces: Place[] = [
     regionId: 'new-france',
     layer: 'americas',
     eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Hochelaga', affiliationTags: ['St. Lawrence Iroquoians'], pedagogyIndex: 4 },
       'new-france-foundations': { visibility: 'normal', label: 'Montréal', affiliationTags: ['New France'], pedagogyIndex: 4 },
       'royal-new-france': { visibility: 'emphasized', label: 'Montréal', affiliationTags: ['New France'], pedagogyIndex: 5 },
     },
@@ -861,6 +884,113 @@ export const atlasPlaces: Place[] = [
     layer: 'europe',
     eraStates: {
       'norman-expansion': { visibility: 'normal', label: 'Bari', affiliationTags: ['Norman Italy'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Cartier-era waypoints ---
+  {
+    id: 'gaspe-peninsula',
+    kind: 'abstract_node',
+    coordinates: [-64.48, 48.83],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Gaspé', affiliationTags: ['Cartier landfall', 'Mi\'kmaq territory'], pedagogyIndex: 4 },
+      'new-france-foundations': { visibility: 'faded', label: 'Gaspé', affiliationTags: ['Gulf of St. Lawrence'], pedagogyIndex: 3 },
+    },
+  },
+  // --- Verrazzano-era waypoints ---
+  {
+    id: 'atlantic-coast-carolina',
+    kind: 'abstract_node',
+    coordinates: [-78.0, 34.0],
+    regionId: 'atlantic-basin',
+    layer: 'americas',
+    eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Cape Fear Coast', affiliationTags: ['Verrazzano landfall'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'new-york-harbor',
+    kind: 'abstract_node',
+    coordinates: [-74.0, 40.7],
+    regionId: 'atlantic-basin',
+    layer: 'americas',
+    eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Angoulême (New York)', affiliationTags: ['Verrazzano', 'Atlantic coast'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Couture-era waypoints ---
+  {
+    id: 'mohawk-territory',
+    kind: 'abstract_node',
+    coordinates: [-74.0, 42.9],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'new-france-foundations': { visibility: 'normal', label: 'Mohawk Territory', affiliationTags: ['Iroquois Confederacy'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'lake-mistassini',
+    kind: 'abstract_node',
+    coordinates: [-73.8, 50.8],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'new-france-foundations': { visibility: 'normal', label: 'Lake Mistassini', affiliationTags: ['Cree territory', 'northern exploration'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Hennepin-era waypoints ---
+  {
+    id: 'fort-crevecoeur',
+    kind: 'fort',
+    coordinates: [-89.6, 40.7],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Fort Crèvecoeur', affiliationTags: ['La Salle', 'New France'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'falls-st-anthony',
+    kind: 'abstract_node',
+    coordinates: [-93.26, 44.98],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Falls of St. Anthony', affiliationTags: ['Hennepin', 'upper Mississippi'], pedagogyIndex: 4 },
+    },
+  },
+  // --- d'Iberville-era waypoints ---
+  {
+    id: 'biloxi',
+    kind: 'fort',
+    coordinates: [-88.89, 30.40],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Fort Maurepas (Biloxi)', affiliationTags: ['Louisiana', 'd\'Iberville'], pedagogyIndex: 4 },
+    },
+  },
+  // --- La Vérendrye-era waypoints ---
+  {
+    id: 'lake-winnipeg',
+    kind: 'abstract_node',
+    coordinates: [-96.8, 52.0],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'atlantic-imprint': { visibility: 'normal', label: 'Lake Winnipeg', affiliationTags: ['La Vérendrye', 'western exploration'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'mandan-country',
+    kind: 'abstract_node',
+    coordinates: [-101.0, 47.3],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'atlantic-imprint': { visibility: 'normal', label: 'Mandan Country', affiliationTags: ['La Vérendrye', 'upper Missouri'], pedagogyIndex: 4 },
     },
   },
 ];

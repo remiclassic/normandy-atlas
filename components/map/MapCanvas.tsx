@@ -72,11 +72,12 @@ import {
   getBeatCount,
   getJourney,
 } from '@/core';
+import { NORMAN_ROUTE_COLOR } from '@/core/presentation/styles';
 import type { ResolvedSegment, MigrationOverlayContext, MigrationDataset } from '@/core/types';
 import type { ResolvedFlowArc } from '@/core/migration/engine';
 import type { RouteRecord } from '@/types';
 
-const ATLAS_ROUTE_LAYER_IDS = ['atlas-route-polylines', 'atlas-route-arcs', 'atlas-route-paths'] as const;
+const ATLAS_ROUTE_LAYER_IDS = ['atlas-route-polylines', 'atlas-route-polylines-norman', 'atlas-route-arcs', 'atlas-route-paths'] as const;
 
 function pickAtlasRouteSegment(
   overlay: MapboxOverlay,
@@ -100,9 +101,12 @@ function pickAtlasRouteSegment(
 
 function atlasRouteTooltipFields(seg: ResolvedSegment): Pick<TooltipData, 'title' | 'subtitle' | 'detail'> {
   const locale = useMapStore.getState().locale;
+  const journeyName = seg.journeyId ? pickI18n(getJourney(seg.journeyId)?.name ?? { en: '' }, locale) || undefined : undefined;
+  const normanNote = seg.normanOriginNote ? pickI18n(seg.normanOriginNote, locale) : undefined;
+  const subtitle = normanNote ? (journeyName ? `${journeyName} · ${normanNote}` : normanNote) : journeyName;
   return {
     title: seg.segmentTooltip ? pickI18n(seg.segmentTooltip, locale) : seg.id.replace(/^seg-/, '').replace(/-/g, ' '),
-    subtitle: seg.journeyId ? pickI18n(getJourney(seg.journeyId)?.name ?? { en: '' }, locale) || undefined : undefined,
+    subtitle,
     detail: seg.segmentDetail ? pickI18n(seg.segmentDetail, locale) : undefined,
   };
 }
@@ -255,9 +259,12 @@ function buildAtlasDeckLayers(
   const layers: (ArcLayer<ResolvedSegment> | PathLayer<ResolvedSegment>)[] = [];
 
   const getStyle = (seg: ResolvedSegment) => {
-    if (!activeJourneyId) return getRouteStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
-    if (seg.journeyId === activeJourneyId) return getRouteHighlightStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
-    return getRouteDimStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
+    let style;
+    if (!activeJourneyId) style = getRouteStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
+    else if (seg.journeyId === activeJourneyId) style = getRouteHighlightStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
+    else style = getRouteDimStyleWithEvidence(seg.kind, seg.weight, seg.evidence);
+    if (seg.normanRelated) return { ...style, color: NORMAN_ROUTE_COLOR };
+    return style;
   };
 
   if (arcSegments.length > 0) {
@@ -305,7 +312,10 @@ function buildAtlasDeckLayers(
   }
 
   if (polylineSegments.length > 0) {
-    // Glow layer — wider, low-opacity duplicate for the energy-line effect
+    const normanPolylines = polylineSegments.filter((s) => s.normanRelated);
+    const regularPolylines = polylineSegments.filter((s) => !s.normanRelated);
+
+    // Glow layer — all polylines (color already gold for Norman via getStyle)
     layers.push(
       new PathLayer<ResolvedSegment>({
         id: 'atlas-route-polylines-glow',
@@ -324,32 +334,62 @@ function buildAtlasDeckLayers(
       }),
     );
 
-    layers.push(
-      new PathLayer<ResolvedSegment>({
-        id: 'atlas-route-polylines',
-        pickable: true,
-        data: polylineSegments,
-        getPath: (d) => d.pathCoordinates!,
-        getColor: (d) => {
-          const s = getStyle(d);
-          return [...s.color, Math.round(s.opacity * 235)] as [number, number, number, number];
-        },
-        getWidth: (d) => Math.max(2, getStyle(d).width * 1.05),
-        widthMinPixels: 2,
-        widthMaxPixels: 7,
-        jointRounded: false,
-        capRounded: false,
-        ...(flowAnimation
-          ? {
-              extensions: [pathStyleExt],
-              getDashArray: [12, 6],
-              getOffset: dashOffset,
-              dashJustified: true,
-              dashGapPickable: true,
-            }
-          : {}),
-      }),
-    );
+    if (regularPolylines.length > 0) {
+      layers.push(
+        new PathLayer<ResolvedSegment>({
+          id: 'atlas-route-polylines',
+          pickable: true,
+          data: regularPolylines,
+          getPath: (d) => d.pathCoordinates!,
+          getColor: (d) => {
+            const s = getStyle(d);
+            return [...s.color, Math.round(s.opacity * 235)] as [number, number, number, number];
+          },
+          getWidth: (d) => Math.max(2, getStyle(d).width * 1.05),
+          widthMinPixels: 2,
+          widthMaxPixels: 7,
+          jointRounded: false,
+          capRounded: false,
+          ...(flowAnimation
+            ? {
+                extensions: [pathStyleExt],
+                getDashArray: [12, 6],
+                getOffset: dashOffset,
+                dashJustified: true,
+                dashGapPickable: true,
+              }
+            : {}),
+        }),
+      );
+    }
+
+    // Norman-origin polylines — gold color (via getStyle) + always-dashed
+    if (normanPolylines.length > 0) {
+      layers.push(
+        new PathLayer<ResolvedSegment>({
+          id: 'atlas-route-polylines-norman',
+          pickable: true,
+          data: normanPolylines,
+          getPath: (d) => d.pathCoordinates!,
+          getColor: (d) => {
+            const s = getStyle(d);
+            return [...s.color, Math.round(s.opacity * 235)] as [number, number, number, number];
+          },
+          getWidth: (d) => Math.max(2, getStyle(d).width * 1.15),
+          widthMinPixels: 2,
+          widthMaxPixels: 7,
+          jointRounded: false,
+          capRounded: false,
+          ...{
+            extensions: [pathStyleExt],
+            getDashArray: [8, 4],
+            getOffset: flowAnimation ? dashOffset : 0,
+            dashJustified: true,
+            dashGapPickable: true,
+          },
+        }),
+      );
+    }
   }
 
   return layers;
@@ -460,7 +500,16 @@ export default function MapCanvas() {
   const syncOverlay = useCallback((eraId: string, layersState: Record<string, boolean>) => {
     if (!overlayRef.current) return;
     const routesVisible = layersState['routes'] ?? true;
-    const { atlasMode, activeJourneyId, atlasSimYear, migrationExplorerOpen, migrationFlowEnabled, migrationBranch, migrationCohortId } = useMapStore.getState();
+    const {
+      atlasMode,
+      activeJourneyId,
+      atlasSimYear,
+      explorationRoutesYearStrict,
+      migrationExplorerOpen,
+      migrationFlowEnabled,
+      migrationBranch,
+      migrationCohortId,
+    } = useMapStore.getState();
 
     const normanExpRoutesVisible = layersState['norman-expansion-routes'] ?? false;
     const normanExpDeckLayers = buildNormanExpansionDeckLayers(normanExpansionRoutes, normanExpRoutesVisible);
@@ -479,7 +528,9 @@ export default function MapCanvas() {
         : VIKING_MOVEMENT_ERA_IDS.has(eraId)
           ? atlasSimYear
           : undefined;
-      const segments = getActiveSegments(eraId, simYear);
+      const segments = getActiveSegments(eraId, simYear, {
+        explorationYearStrict: explorationRoutesYearStrict,
+      });
       const flowOn = layersState['route-flow-animation'] ?? false;
       const dashOff = flowOn ? ((Date.now() / 40) % 18) / 18 : 0;
       overlayRef.current.setProps({
@@ -809,9 +860,7 @@ export default function MapCanvas() {
               y: e.point.y,
               ...atlasRouteTooltipFields(seg),
             });
-            if (seg.segmentDetail) {
-              selectFeature(seg.id, 'atlas-route');
-            }
+            selectFeature(seg.id, 'atlas-route');
             return;
           }
         }
@@ -1074,6 +1123,16 @@ export default function MapCanvas() {
   useEffect(() => {
     return useMapStore.subscribe(
       (s) => s.activeJourneyId,
+      () => {
+        const { eraId, layers } = useMapStore.getState();
+        syncOverlay(eraId, layers);
+      },
+    );
+  }, [syncOverlay]);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.explorationRoutesYearStrict,
       () => {
         const { eraId, layers } = useMapStore.getState();
         syncOverlay(eraId, layers);

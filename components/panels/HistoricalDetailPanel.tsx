@@ -22,6 +22,7 @@ import {
   filterPeopleByChannel,
   BADGE_CLASSES,
 } from '@/lib/person-display';
+import { t } from '@/lib/ui-strings';
 
 const CATEGORY_LABELS: Record<SettlementCategory, string> = {
   city: 'City',
@@ -1313,6 +1314,12 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
   const fromPlace = useMemo(() => (segment ? getPlace(segment.fromPlaceId) : undefined), [segment]);
   const toPlace = useMemo(() => (segment ? getPlace(segment.toPlaceId) : undefined), [segment]);
 
+  const onFollowCoutureStory = useCallback(() => {
+    const { startStory, closeDetail } = useMapStore.getState();
+    startStory('guillaume-couture');
+    closeDetail();
+  }, []);
+
   if (!segment) {
     return (
       <div className="px-6 py-8 text-center text-[13px] text-text-dim/60">
@@ -1370,7 +1377,9 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
           {segment.normanRelated && (
             <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gold/[0.06] border border-gold/[0.12]">
               <span className="w-2 h-2 rounded-full bg-gold/60" />
-              <span className="text-[11px] text-gold/80">Connected to Norman origins</span>
+              <span className="text-[11px] text-gold/80">
+                {segment.normanOriginNote ? pickI18n(segment.normanOriginNote, locale) : 'Connected to Norman origins'}
+              </span>
             </div>
           )}
 
@@ -1385,6 +1394,40 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
               <p className="text-[12px] leading-relaxed text-text/60">
                 {pickI18n(journey.summary, locale)}
               </p>
+            </div>
+          )}
+
+          {journey?.id === 'journey-couture' && (journey.surnameNote || journey.longForm) && (
+            <div className="space-y-4 pt-4 border-t border-white/[0.08]">
+              {journey.surnameNote && (
+                <div className="space-y-2">
+                  <SectionLabel>{t('coutureStory.surnameHeading', locale)}</SectionLabel>
+                  <p className="text-[12px] leading-relaxed text-text/72 whitespace-pre-line">
+                    {pickI18n(journey.surnameNote, locale)}
+                  </p>
+                </div>
+              )}
+              {journey.longForm && (
+                <div className="space-y-2">
+                  <SectionLabel>{t('coutureStory.fullStoryHeading', locale)}</SectionLabel>
+                  <div className="space-y-3">
+                    {pickI18n(journey.longForm, locale)
+                      .split(/\n\n+/)
+                      .map((paragraph, i) => (
+                        <p key={i} className="text-[12px] leading-relaxed text-text/75">
+                          {paragraph}
+                        </p>
+                      ))}
+                  </div>
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={onFollowCoutureStory}
+                className="w-full rounded-xl border border-gold/25 bg-gold/[0.08] px-4 py-3 text-[13px] font-medium text-gold/95 hover:bg-gold/[0.12] hover:border-gold/35 transition-colors"
+              >
+                {t('coutureStory.followMap', locale)}
+              </button>
             </div>
           )}
         </div>

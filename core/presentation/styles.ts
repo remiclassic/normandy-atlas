@@ -27,6 +27,9 @@ const ROUTE_COLORS: Record<SegmentKind, [number, number, number]> = {
   maritime_corridor: [42, 190, 200],
 };
 
+/** Gold/amber override for Norman-origin exploration segments. */
+export const NORMAN_ROUTE_COLOR: [number, number, number] = [212, 175, 55];
+
 const BASE_ROUTE_WIDTH = 2;
 
 export function getRouteStyle(kind: SegmentKind, weight: number): RouteVisualStyle {

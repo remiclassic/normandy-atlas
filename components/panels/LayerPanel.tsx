@@ -1,10 +1,12 @@
 'use client';
 
-import { memo, useCallback, useState } from 'react';
+import { Fragment, memo, useCallback, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
 import type { BasemapMode, NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
 import { layerConfigs } from '@/data/layers';
+import { useLocale } from '@/hooks/use-atlas';
+import { t } from '@/lib/ui-strings';
 
 const LAYER_ICONS: Record<string, React.ReactNode> = {
   'regions-fill': (
@@ -126,12 +128,125 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
+const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
+  const locale = useLocale();
+  const strict = useMapStore((s) => s.explorationRoutesYearStrict);
+  const setStrict = useMapStore((s) => s.setExplorationRoutesYearStrict);
+
+  return (
+    <div className="px-3 pb-2 pt-0.5">
+      <button
+        type="button"
+        onClick={() => setStrict(!strict)}
+        className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-white/[0.03]"
+      >
+        <span
+          className={`flex h-[18px] w-7 shrink-0 items-center justify-center transition-all duration-200 ${
+            strict ? 'text-gold/80' : 'text-text-dim group-hover:text-text-muted'
+          }`}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+            <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.1" />
+            <path d="M7 3.5V7l2.5 1.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" />
+          </svg>
+        </span>
+        <span className="min-w-0 pt-0.5 space-y-1">
+          <span
+            className={`block text-left transition-colors duration-200 ${
+              strict ? 'text-text' : 'text-text-dim group-hover:text-text-muted'
+            }`}
+          >
+            {t('layers.explorationYearStrict.label', locale)}
+          </span>
+          <span className="block text-[10px] leading-snug text-text-dim/75 font-normal">
+            {t('layers.explorationYearStrict.hint', locale)}
+          </span>
+        </span>
+        <span className="flex h-[18px] shrink-0 items-center justify-end">
+          <span
+            className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
+              strict
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]'
+                : 'border border-white/[0.12] bg-white/[0.05]'
+            }`}
+          >
+            <span
+              className={`absolute top-0.5 h-3 w-3 rounded-full bg-white/90 shadow-sm transition-transform duration-200 ${
+                strict ? 'translate-x-3.5' : 'translate-x-0.5'
+              }`}
+            />
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+});
+
 const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] = [
   { key: 'atlas', label: 'Atlas', categories: ['borders', 'labels', 'routes', 'settlements', 'events', 'terrain', 'claims'] },
   { key: 'prehistory', label: 'Pre-Roman', categories: ['prehistory'] },
   { key: 'norman-expansion', label: 'Norman Expansion (911–1204+)', categories: ['norman-expansion'] },
   { key: 'normandy', label: 'Viking Normandy', categories: ['normandy'] },
 ];
+
+const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy'] as const;
+type LayerPanelSectionKey = (typeof LAYER_PANEL_SECTION_KEYS)[number];
+
+function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
+  return {
+    basemap: true,
+    atlas: true,
+    prehistory: true,
+    'norman-expansion': true,
+    normandy: true,
+  };
+}
+
+const SectionChevron = memo(function SectionChevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      className={`shrink-0 text-text-dim transition-transform duration-200 ${open ? 'rotate-90' : ''}`}
+      aria-hidden
+    >
+      <path
+        d="M3.5 1.5L7 5l-3.5 3.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+});
+
+const CollapsibleSectionHeader = memo(function CollapsibleSectionHeader({
+  sectionKey,
+  label,
+  open,
+  onToggle,
+}: {
+  sectionKey: LayerPanelSectionKey;
+  label: string;
+  open: boolean;
+  onToggle: (key: LayerPanelSectionKey) => void;
+}) {
+  const handleClick = useCallback(() => onToggle(sectionKey), [onToggle, sectionKey]);
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-expanded={open}
+      className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors duration-150 hover:bg-white/[0.03]"
+    >
+      <SectionChevron open={open} />
+      <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-dim">{label}</span>
+    </button>
+  );
+});
 
 const LayerToggle = memo(function LayerToggle({
   id,
@@ -372,6 +487,7 @@ const NormanNodePeriodControl = memo(function NormanNodePeriodControl() {
 
 export default function LayerPanel() {
   const [open, setOpen] = useState(false);
+  const [sectionOpen, setSectionOpen] = useState(makeAllSectionsOpen);
   const layers = useMapStore((s) => s.layers);
   const toggleLayer = useMapStore((s) => s.toggleLayer);
 
@@ -379,6 +495,10 @@ export default function LayerPanel() {
     (id: string) => toggleLayer(id),
     [toggleLayer],
   );
+
+  const toggleSection = useCallback((key: LayerPanelSectionKey) => {
+    setSectionOpen((prev) => ({ ...prev, [key]: !prev[key] }));
+  }, []);
 
   return (
     <div className="relative">
@@ -445,8 +565,21 @@ export default function LayerPanel() {
 
             <div className="accent-line-gold mx-3 my-1" />
 
-            <BasemapToggle />
-            <ModernBasemapOverlaysToggle />
+            <div className="px-1 pt-0.5">
+              <CollapsibleSectionHeader
+                sectionKey="basemap"
+                label="Basemap"
+                open={sectionOpen.basemap}
+                onToggle={toggleSection}
+              />
+              {sectionOpen.basemap && (
+                <div className="pb-1">
+                  <BasemapToggle />
+                  <ModernBasemapOverlaysToggle />
+                </div>
+              )}
+            </div>
+
             <div className="accent-line-gold mx-3 my-1" />
 
             <div className="py-1 pb-2 max-h-[60vh] overflow-y-auto scrollbar-thin">
@@ -455,38 +588,48 @@ export default function LayerPanel() {
                   section.categories.includes(cfg.category),
                 );
                 if (sectionLayers.length === 0) return null;
+                const key = section.key as LayerPanelSectionKey;
+                const expanded = sectionOpen[key];
                 return (
                   <div key={section.key}>
-                    {section.key !== 'atlas' && (
-                      <>
-                        <div className="accent-line-gold mx-3 mt-2 mb-0" />
-                        <div className="px-3.5 pt-2.5 pb-1.5">
-                          <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-dim">
-                            {section.label}
-                          </span>
-                          {section.key === 'norman-expansion' && (
-                            <p className="text-[10px] text-text-dim/80 leading-snug mt-1 normal-case tracking-normal font-normal">
-                              Turn on <span className="text-text-muted">Norman sites &amp; castles</span> to show keeps,
-                              ports, and crusader hubs. Use the timeline era <span className="text-text-muted">Norman
-                              Expansion</span> or <span className="text-text-muted">Norman Origins</span> to enable them
-                              automatically.
-                            </p>
-                          )}
-                        </div>
-                        <div className="accent-line-gold mx-3 mb-0.5" />
-                      </>
-                    )}
-                    {section.key === 'norman-expansion' && <NormanPresetBar />}
-                    {section.key === 'norman-expansion' && <NormanNodePeriodControl />}
-                    {sectionLayers.map((cfg) => (
-                      <LayerToggle
-                        key={cfg.id}
-                        id={cfg.id}
-                        label={cfg.label}
-                        isOn={layers[cfg.id] ?? cfg.defaultOn}
-                        onToggle={handleToggle}
+                    {section.key !== 'atlas' && <div className="accent-line-gold mx-3 mt-2 mb-0" />}
+                    <div className="px-1">
+                      <CollapsibleSectionHeader
+                        sectionKey={key}
+                        label={section.label}
+                        open={expanded}
+                        onToggle={toggleSection}
                       />
-                    ))}
+                      {expanded && (
+                        <div className="pb-0.5">
+                          {section.key === 'norman-expansion' && (
+                            <div className="px-3.5 pb-2 pt-0">
+                              <p className="text-[10px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
+                                Turn on <span className="text-text-muted">Norman sites &amp; castles</span> to show keeps,
+                                ports, and crusader hubs. Use the timeline era{' '}
+                                <span className="text-text-muted">Norman Expansion</span> or{' '}
+                                <span className="text-text-muted">Norman Origins</span> to enable them automatically.
+                              </p>
+                            </div>
+                          )}
+                          {section.key === 'norman-expansion' && <NormanPresetBar />}
+                          {section.key === 'norman-expansion' && <NormanNodePeriodControl />}
+                          {sectionLayers.map((cfg) => (
+                            <Fragment key={cfg.id}>
+                              <LayerToggle
+                                id={cfg.id}
+                                label={cfg.label}
+                                isOn={layers[cfg.id] ?? cfg.defaultOn}
+                                onToggle={handleToggle}
+                              />
+                              {section.key === 'atlas' && cfg.id === 'route-flow-animation' && (
+                                <ExplorationYearStrictRow />
+                              )}
+                            </Fragment>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
               })}

@@ -281,7 +281,38 @@ export const atlasJourneys: Journey[] = [
       it: 'I coloni norvegesi colonizzarono l\'Islanda (ca. 870), poi la Groenlandia (ca. 985) e raggiunsero brevemente il Nord America (ca. 1000). Questa spinta verso ovest attraverso l\'Atlantico aperto segna il limite più lontano dell\'espansione vichinga.',
     },
   },
+  // --- Age of Exploration journeys ---
+  {
+    id: 'journey-verrazzano',
+    name: { en: 'Verrazzano\'s Voyage (1524)', fr: 'Voyage de Verrazzano (1524)', it: 'Viaggio di Verrazzano (1524)' },
+    eraIds: ['age-of-exploration'],
+    segmentIds: [
+      'seg-verrazzano-dieppe-atlantic',
+      'seg-verrazzano-coast-north',
+      'seg-verrazzano-new-england',
+    ],
+    summary: {
+      en: 'Giovanni da Verrazzano, sailing for King Francis I, crossed the Atlantic from Dieppe in 1524 and charted the North American coast from Cape Fear to Newfoundland — the first continuous description of the Atlantic seaboard. He entered New York harbor, explored Narragansett Bay, and returned to France having established France\'s earliest claim to the continent.',
+      fr: 'Giovanni da Verrazzano, naviguant pour le roi François Ier, traversa l\'Atlantique depuis Dieppe en 1524 et cartographia la côte nord-américaine de Cape Fear à Terre-Neuve — la première description continue du littoral atlantique. Il entra dans la baie de New York, explora la baie de Narragansett et rentra en France après avoir établi la plus ancienne revendication française sur le continent.',
+      it: 'Giovanni da Verrazzano, al servizio del re Francesco I, attraversò l\'Atlantico da Dieppe nel 1524 e cartografò la costa nordamericana da Cape Fear a Terranova — la prima descrizione continua del litorale atlantico. Entrò nella baia di New York, esplorò la baia di Narragansett e tornò in Francia, stabilendo la più antica rivendicazione francese sul continente.',
+    },
+  },
   // --- New France exploration journeys ---
+  {
+    id: 'journey-cartier',
+    name: { en: 'Cartier\'s Voyages (1534–1542)', fr: 'Voyages de Cartier (1534–1542)', it: 'Viaggi di Cartier (1534–1542)' },
+    eraIds: ['age-of-exploration'],
+    segmentIds: [
+      'seg-cartier-atlantic',
+      'seg-cartier-gulf-stadacona',
+      'seg-cartier-stadacona-hochelaga',
+    ],
+    summary: {
+      en: 'Jacques Cartier sailed from Saint-Malo in Brittany on three voyages (1534, 1535–36, 1541–42), charting the Gulf of St. Lawrence and navigating upriver to Stadacona and Hochelaga. He opened France\'s claim to North America and established the first sustained European contact with the St. Lawrence Iroquoians.',
+      fr: 'Jacques Cartier quitta Saint-Malo en Bretagne pour trois voyages (1534, 1535–36, 1541–42), cartographiant le golfe du Saint-Laurent et remontant le fleuve jusqu\'à Stadacona et Hochelaga. Il ouvrit la revendication française en Amérique du Nord et établit le premier contact européen durable avec les Iroquoiens du Saint-Laurent.',
+      it: 'Jacques Cartier salpò da Saint-Malo in Bretagna per tre viaggi (1534, 1535–36, 1541–42), cartografando il golfo di San Lorenzo e risalendo il fiume fino a Stadacona e Hochelaga. Aprì la rivendicazione francese in Nord America e stabilì il primo contatto europeo prolungato con gli Irochesi del San Lorenzo.',
+    },
+  },
   {
     id: 'journey-champlain-great-lakes',
     name: { en: 'Champlain\'s Great Lakes Exploration', fr: 'Exploration des Grands Lacs par Champlain', it: 'Esplorazione dei Grandi Laghi di Champlain' },
@@ -341,6 +372,96 @@ export const atlasJourneys: Journey[] = [
       en: 'René-Robert Cavelier de La Salle, a Rouennais, descended the full Mississippi to the Gulf of Mexico in 1682 and claimed the entire basin for France as "Louisiana." This single act transformed New France from a riverine colony into a continental empire — at least on paper.',
       fr: 'René-Robert Cavelier de La Salle, un Rouennais, descendit tout le Mississippi jusqu\'au golfe du Mexique en 1682 et revendiqua l\'ensemble du bassin pour la France sous le nom de « Louisiane ».',
       it: 'René-Robert Cavelier de La Salle, originario di Rouen, percorse l\'intero Mississippi fino al golfo del Messico nel 1682 e rivendicò per la Francia l\'intero bacino con il nome di «Louisiana». Questo atto trasformò la Nuova Francia da colonia fluviale in impero continentale — almeno sulla carta.',
+    },
+  },
+  {
+    id: 'journey-nicolet',
+    name: { en: 'Jean Nicolet — Lake Michigan (1634)', fr: 'Jean Nicolet — Lac Michigan (1634)', it: 'Jean Nicolet — Lago Michigan (1634)' },
+    eraIds: ['new-france-foundations'],
+    segmentIds: [
+      'seg-nicolet-troisrivieres-huron',
+      'seg-nicolet-huron-greenbay',
+    ],
+    summary: {
+      en: 'Jean Nicolet, a Norman from Cherbourg, was sent by Champlain in 1634 to find the "People of the Sea." He became the first European to pass through the Straits of Mackinac and enter Lake Michigan, reaching Green Bay and the Ho-Chunk (Winnebago) people. His journey extended French knowledge far beyond the Great Lakes.',
+      fr: 'Jean Nicolet, un Normand de Cherbourg, fut envoyé par Champlain en 1634 pour trouver les « Gens de Mer ». Il devint le premier Européen à traverser le détroit de Mackinac et à entrer dans le lac Michigan, atteignant la Baie des Puants et le peuple Ho-Chunk (Winnebago).',
+      it: 'Jean Nicolet, normanno di Cherbourg, fu inviato da Champlain nel 1634 alla ricerca dei «Popoli del Mare». Divenne il primo europeo ad attraversare lo stretto di Mackinac e a entrare nel lago Michigan, raggiungendo Green Bay e il popolo Ho-Chunk (Winnebago).',
+    },
+  },
+  {
+    id: 'journey-couture',
+    name: {
+      en: 'Guillaume Couture — Interpreter, diplomat, explorer (1618–1701)',
+      fr: 'Guillaume Couture — Interprète, diplomate, explorateur (1618–1701)',
+      es: 'Guillaume Couture — Intérprete, diplomático, explorador (1618–1701)',
+      it: 'Guillaume Couture — Interprete, diplomatico, esploratore (1618–1701)',
+    },
+    eraIds: ['new-france-foundations'],
+    segmentIds: [
+      'seg-couture-quebec-huronia',
+      'seg-couture-iroquois-captivity',
+      'seg-couture-saguenay-mistassini',
+    ],
+    summary: {
+      en: 'From Rouen to the Mohawk towns and back: a Jesuit donné who became one of New France\'s indispensable interpreters — Huronia, captivity, Pointe-Lévy, the Long Sault, and the 1663 push to Mistassini.',
+      fr: 'De Rouen aux villages mohawks et retour : un donné jésuite devenu l\'un des interprètes indispensables de la Nouvelle-France — Huronie, captivité, Pointe-Lévy, Long-Sault et la poussée de 1663 vers le Mistassini.',
+      es: 'De Rouen a los pueblos mohawk y de vuelta: un donné jesuita que se convirtió en uno de los intérpretes indispensables de Nueva Francia — Huronia, cautiverio, Pointe-Lévy, Long Sault y la expedición de 1663 al Mistassini.',
+      it: 'Da Rouen ai villaggi mohawk e ritorno: un donné gesuita divenuto uno degli interpreti indispensabili della Nuova Francia — Huronia, prigionia, Pointe-Lévy, Long Sault e la spedizione del 1663 verso il Mistassini.',
+    },
+    surnameNote: {
+      en: 'Couture: from Old French, meaning cultivated land or cleared farmland — a name tied to rural settlement and toponyms, not to the sewing trade.\n\nIn Norman and northern French usage, Couture as a surname usually belongs to the world of place and land. Old French couture here continues Latin cultura (cultivation, care of soil): enclosed or worked fields, plots brought into production. The word appears in field names, rural designations, and early records; families could take the name from living “by the cultivated ground” or from a local toponym.\n\nThere is a second, unrelated word: Old French couture from Latin consūtūra (a seam), whence “sewing.” That occupational branch exists in French surnames, but it is a different root and is not the usual reading for Norman rural lines that fed colonial recruitment — including the line that crossed to New France.\n\nFor this atlas, the name underscores territory shaped for settlement: Norman expansion, the seigneurial ribbon along the St. Lawrence, and a life spent turning frontier into habitation.',
+      fr: 'Couture : en vieux français, terre cultivée ou terre défrichée et mise en valeur — un nom lié à l\'habitat rural et aux lieux-dits, et non au métier de couturier.\n\nEn Normandie et dans le nord de la France, le patronyme Couture relève le plus souvent du monde du lieu et de la terre. Ici, le vieux français couture prolonge le latin cultura (culture du sol) : champs clos, parcelles en culture, terres préparées pour l\'agriculture. Le mot apparaît dans les noms de champs, les désignations rurales et les registres ; une famille pouvait le porter en raison d\'un toponyme ou d\'une situation « près de la couture » (terrain travaillé).\n\nIl existe un second mot, sans lien : vieux français couture issu du latin consūtūra (couture, suture), d\'où le sens « couture » textile. Cette branche patronymique artisanale est réelle, mais la racine est différente ; pour les lignées normandes du Canada, la lecture « terre et peuplement » correspond mieux au contexte rural et colonial de l\'atlas.\n\nIci, le nom rejoint l\'idée de territoire façonné pour s\'y installer : expansion normande, ruban seigneurial du Saint-Laurent, et une vie à faire tenir ensemble frontière et terre labourée.',
+      es: 'Couture: en antiguo francés, tierra cultivada o terreno aclarado y dedicado al cultivo — un apellido ligado al asentamiento rural y a los topónimos, no al oficio de la costura.\n\nEn Normandía y el norte de Francia, Couture suele pertenecer al mundo del lugar y de la tierra. Aquí el antiguo francés couture continúa el latín cultura (cultivo del suelo): campos cerrados, parcelles productivas. La palabra aparece en nombres de campo y registros rurales; la familia podía tomar el nombre de un topónimo o de vivir «junto a la tierra labrada».\n\nExiste una segunda palabra, sin parentesco: antiguo francés couture del latín consūtūra (costura), de donde «costura» textil. Esa rama patronímica artesanal es distinta; para los linajes normandos de Nueva Francia encaja mejor la lectura de tierra y colonización.\n\nEn este atlas, el nombre refuerza el territorio moldeado para el asentamiento: expansión normanda, franja señorial del San Lorenzo y una vida en la frontera hecha hábitat.',
+      it: 'Couture: in antico francese, terra coltivata o terreno bonificato e messo a coltura — un cognome legato all\'insediamento rurale e ai toponimi, non al mestiere del sarto.\n\nIn Normandia e nel nord della Francia, Couture appartiene di solito al mondo del luogo e della terra. Qui l\'antico francese couture prosegue il latino cultura (coltivazione del suolo): campi recintati, appezzamenti resi produttivi. La parola compare in microtoponimi e designazioni rurali; la famiglia poteva assumere il nome da un toponimo o dalla vicinanza alla «couture» (terreno lavorato).\n\nEsiste una seconda parola, non imparentata: antico francese couture dal latino consūtūra (cucitura), da cui il senso «cucito» tessile. Quel ramo patronimico artigiano ha radice diversa; per le linee normanne del Canada la lettura «terra e popolamento» si adatta meglio al contesto rurale e coloniale dell\'atlante.\n\nQui il nome richiama il territorio plasmato per l\'abitare: espansione normanna, nastro signorile del San Lorenzo e una vita di frontiera fatta dimora.',
+    },
+    longForm: {
+      en: 'Guillaume Couture (1618–1701) is one of the most documented bridge figures between Norman recruitment networks, the Jesuit missions, and the Indigenous diplomacies of the mid-17th-century St. Lawrence.\n\nHe was baptised on 14 January 1618 at Rouen — a great Norman river port already tied to Canada through merchants, clerics, and royal charters. Around 1640 he arrived in the colony as a donné: a lay associate who worked for the Jesuits without priestly vows. Trained as a carpenter, he was sent in 1641 toward the Huron (Wendat) missions, travelling the Ottawa–Mattawa route toward the upper Great Lakes world that French sources called Huronia.\n\nIn August 1642, while returning toward the French settlements with Father Isaac Jogues and others, he was taken by a Mohawk war party. Tortured according to Iroquois ritual practice for enemies, he survived when many did not. Adopted into a Mohawk family, he learned their language and protocols from the inside — a rare depth of exposure for a French layman. In 1645 he returned to Trois-Rivières escorting peace overtures, beginning a long second career as interpreter, militiaman, and negotiator on a frontier where words could matter as much as muskets.\n\nHe was not “seigneur of Lauzon.” The seigneury belonged to Charles de Lauzon. Couture received a concession on the Pointe-Lévy shore opposite Québec — among the early habitant foundations of what later became Lévis. There he farmed, raised a family, and remained a man the governor and missionaries called on when Indigenous alliances frayed.\n\nIn 1660 he volunteered for Dollard des Ormeaux’s sortie up the Ottawa River; the siege at the Long Sault became a foundational legend of French Canada. In 1663 he led the canoe expedition up the Saguenay to Lake Mistassini, extending French geographic knowledge deep into the subarctic interior.\n\nHe died in April 1701 and was buried at Québec. His descendants are counted in the tens of thousands across North America — a demographic echo of the small founder population of Canada.\n\nSources: Dictionary of Canadian Biography (biographi.ca); Jesuit Relations and allied documentary corpora; standard histories of New France for the Long Sault and Mistassini expeditions.',
+      fr: 'Guillaume Couture (1618–1701) est l\'une des figures les mieux documentées entre les réseaux normands de recrutement, les missions jésuites et les diplomacies autochtones du Saint-Laurent au milieu du XVIIe siècle.\n\nBaptisé le 14 janvier 1618 à Rouen — grand port fluvial normand déjà lié au Canada par marchands, clercs et lettres royales —, il arriva vers 1640 dans la colonie comme donné : auxiliaire laïc des Jésuites sans vœux sacerdotaux. Charpentier de formation, il fut envoyé en 1641 vers les missions huronnes (Wendat), suivant la route Outaouais–Mattawa vers le monde des Grands Lacs que les sources françaises appelaient la Huronie.\n\nEn août 1642, au retour vers les établissements français avec le père Isaac Jogues et d\'autres, il fut pris par un parti de guerre mohawk. Torturé selon les rites iroquois réservés aux ennemis, il survécut là où d\'autres périrent. Adopté dans une famille mohawk, il en apprit la langue et les protocoles de l\'intérieur — une rare profondeur pour un laïque français. En 1645 il revint à Trois-Rivières en escortant des ouvertures de paix, entamant une longue seconde carrière d\'interprète, milicien et négociateur sur une frontière où la parole pouvait peser autant que le mousquet.\n\nIl n\'était pas « seigneur de Lauzon » : la seigneurie relevait de Charles de Lauzon. Couture obtint une concession sur la rive de la Pointe-Lévy en face de Québec — parmi les premières fondations d\'habitants de ce qui deviendra Lévis. Il y cultiva la terre, fonda une famille, et resta l\'homme qu\'on sollicitait lorsque les alliances autochtones se tendaient.\n\nEn 1660, il s\'engagea dans la sortie de Dollard des Ormeaux vers l\'Outaouais ; le siège du Long-Sault devint une légende fondatrice du Canada français. En 1663, il mena l\'expédition en canot par le Saguenay jusqu\'au lac Mistassini, prolongeant la connaissance géographique française vers l\'intérieur subarctique.\n\nIl mourut en avril 1701 et fut inhumé à Québec. Ses descendants se comptent par dizaines de milliers en Amérique du Nord — écho démographique de la mince population fondatrice du Canada.\n\nSources : Dictionnaire biographique du Canada (biographi.ca) ; Relations des Jésuites et corpus documentaires connexes ; histoires classiques de la Nouvelle-France pour le Long-Sault et le Mistassini.',
+      it: 'Guillaume Couture (1618–1701) è una delle figure meglio documentate tra le reti normanne di reclutamento, le missioni gesuite e le diplomazie indigene del San Lorenzo a metà Seicento.\n\nBattezzato il 14 gennaio 1618 a Rouen — grande porto fluviale normanno già legato al Canada da mercanti, chierici e carteggi reali —, giunse verso il 1640 nella colonia come donné, associato laico dei Gesuiti senza voti sacerdotali. Falegname, nel 1641 fu inviato verso le missioni huron (Wendat), lungo la rotta Ottawa–Mattawa verso i Grandi Laghi che le fonti francesi chiamavano Huronia.\n\nNell\'agosto 1642, al ritorno verso gli insediamenti francesi con padre Isaac Jogues e altri, fu catturato da un gruppo di guerra mohawk. Torturato secondo il rituale irochese per i nemici, sopravvisse dove altri morirono. Adottato in una famiglia mohawk, ne apprese lingua e protocolli dall\'interno — rara profondità per un laico francese. Nel 1645 tornò a Trois-Rivières scortando aperture di pace, iniziando una lunga seconda carriera di interprete, miliziano e negoziatore su una frontiera dove le parole pesavano quanto i moschetti.\n\nNon era «signore di Lauzon»: la signoria spettava a Charles de Lauzon. Couture ricevette una concessione sulla riva di Pointe-Lévy di fronte a Québec — tra le prime fondazioni di habitant di ciò che divenne Lévis. Coltivò la terra, fondò una famiglia e restò l\'uomo che governatori e missionari chiamavano quando le alleanze indigene si incrinavano.\n\nNel 1660 si offrì volontario per la sortita di Dollard des Ormeaux verso l\'Ottawa; l\'assedio del Long Sault divenne una leggenda fondativa del Canada francese. Nel 1663 guidò la spedizione in canoa per il Saguenay fino al lago Mistassini, estendendo la conoscenza geografica francese nell\'interno subartico.\n\nMorì nell\'aprile 1701 e fu sepolto a Québec. I suoi discendenti si contano a decine di migliaia in Nord America — eco demografica della piccola popolazione fondatrice del Canada.\n\nFonti: Dictionary of Canadian Biography (biographi.ca); Relations des Jésuites e corpora documentali affini; storie standard della Nuova Francia per Long Sault e Mistassini.',
+      es: 'Guillaume Couture (1618–1701) es uno de los personajes mejor documentados entre las redes normandas de reclutamiento, las misiones jesuitas y las diplomacias indígenas del San Lorenzo a mediados del siglo XVII.\n\nBautizado el 14 de enero de 1618 en Rouen —gran puerto fluvial normando ya vinculado a Canadá por mercaderes, clérigos y patentes reales—, llegó hacia 1640 a la colonia como donné: asociado laico de los jesuitas sin votos sacerdotales. Carpintero de formación, en 1641 fue enviado hacia las misiones huronas (wendat), por la ruta Ottawa–Mattawa hacia los Grandes Lagos que las fuentes francesas llamaban Huronia.\n\nEn agosto de 1642, al volver hacia los establecimientos franceses con el padre Isaac Jogues y otros, fue capturado por una partida mohawk. Torturado según el ritual iroqués para enemigos, sobrevivió donde otros perecieron. Adoptado en una familia mohawk, aprendió su idioma y protocolos desde dentro — rara profundidad para un laico francés. En 1645 regresó a Trois-Rivières escoltando gestiones de paz, iniciando una larga segunda carrera como intérprete, miliciano y negociador en una frontera donde las palabras pesaban tanto como los mosquetes.\n\nNo fue «señor de Lauzon»: la señorío correspondía a Charles de Lauzon. Couture recibió una concesión en la orilla de Pointe-Lévy frente a Québec — entre los primeros asentamientos de habitants de lo que sería Lévis. Allí cultivó la tierra, fundó familia y siguió siendo el hombre al que gobernadores y misioneros recurrirían cuando las alianzas indígenas se tensaban.\n\nEn 1660 se ofreció para la salida de Dollard des Ormeaux río Ottawa; el asedio de Long Sault se convirtió en leyenda fundacional del Canadá francés. En 1663 encabezó la expedición en canoa por el Saguenay hasta el lago Mistassini, ampliando el conocimiento geográfico francés hacia el interior subártico.\n\nMurió en abril de 1701 y fue enterrado en Québec. Sus descendientes se cuentan por decenas de miles en América del Norte — eco demográfico de la escasa población fundadora del Canadá.\n\nFuentes: Dictionary of Canadian Biography (biographi.ca); Relaciones jesuitas y corpus documentales afines; historias estándar de Nueva Francia para Long Sault y Mistassini.',
+    },
+  },
+  {
+    id: 'journey-hennepin',
+    name: { en: 'Hennepin — Upper Mississippi (1680)', fr: 'Hennepin — Haut Mississippi (1680)', it: 'Hennepin — Alto Mississippi (1680)' },
+    eraIds: ['royal-new-france'],
+    segmentIds: [
+      'seg-hennepin-illinois-mississippi',
+      'seg-hennepin-upper-mississippi',
+    ],
+    summary: {
+      en: 'Father Louis Hennepin, a Récollet friar, was sent by La Salle to explore the upper Mississippi in 1680. Captured by the Sioux, he was carried into present-day Minnesota where he reached and named the Falls of St. Anthony (modern Minneapolis). Rescued by Dulhut, he returned to publish accounts that became bestsellers in Europe.',
+      fr: 'Le père Louis Hennepin, un frère récollet, fut envoyé par La Salle pour explorer le haut Mississippi en 1680. Capturé par les Sioux, il fut emmené dans l\'actuel Minnesota où il atteignit et nomma les chutes Saint-Antoine (l\'actuelle Minneapolis). Secouru par Dulhut, il rentra pour publier des récits devenus des succès de librairie en Europe.',
+      it: 'Padre Louis Hennepin, frate recolletto, fu inviato da La Salle a esplorare l\'alto Mississippi nel 1680. Catturato dai Sioux, fu condotto nell\'odierno Minnesota dove raggiunse e battezzò le cascate di Sant\'Antonio (l\'odierna Minneapolis). Liberato da Dulhut, tornò per pubblicare resoconti che divennero bestseller in Europa.',
+    },
+  },
+  {
+    id: 'journey-iberville',
+    name: { en: 'd\'Iberville — Louisiana Founding (1699)', fr: 'd\'Iberville — Fondation de la Louisiane (1699)', it: 'd\'Iberville — Fondazione della Louisiana (1699)' },
+    eraIds: ['royal-new-france'],
+    segmentIds: [
+      'seg-iberville-atlantic-gulf',
+      'seg-iberville-mississippi-mouth',
+    ],
+    summary: {
+      en: 'Pierre Le Moyne d\'Iberville, born in Montréal to Norman parents from Dieppe and Rouen, sailed from France to the Gulf Coast in 1699, located the Mississippi\'s mouth from the sea, and founded Fort Maurepas at Biloxi — the first permanent French settlement in Louisiana. His expedition completed the French circuit from the St. Lawrence to the Gulf.',
+      fr: 'Pierre Le Moyne d\'Iberville, né à Montréal de parents normands de Dieppe et Rouen, navigua de France à la côte du Golfe en 1699, localisa l\'embouchure du Mississippi depuis la mer et fonda Fort Maurepas à Biloxi — le premier établissement français permanent en Louisiane.',
+      it: 'Pierre Le Moyne d\'Iberville, nato a Montréal da genitori normanni di Dieppe e Rouen, salpò dalla Francia alla costa del Golfo nel 1699, individuò la foce del Mississippi dal mare e fondò Fort Maurepas a Biloxi — il primo insediamento francese permanente in Louisiana.',
+    },
+  },
+  {
+    id: 'journey-verendrye',
+    name: { en: 'La Vérendrye — Western Prairies (1731–1743)', fr: 'La Vérendrye — Prairies de l\'Ouest (1731–1743)', it: 'La Vérendrye — Praterie occidentali (1731–1743)' },
+    eraIds: ['atlantic-imprint'],
+    segmentIds: [
+      'seg-verendrye-montreal-superior',
+      'seg-verendrye-superior-winnipeg',
+      'seg-verendrye-winnipeg-mandan',
+    ],
+    summary: {
+      en: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, pushed French exploration to its continental maximum. From 1731 he established a chain of trading posts from Lake Superior to Lake Winnipeg, reached the Mandan villages on the upper Missouri in 1738, and his sons may have sighted the Rocky Mountain foothills in 1742–1743. No European had ever traveled so far west from the St. Lawrence.',
+      fr: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, porta l\'exploration française à son maximum continental. À partir de 1731, il établit une chaîne de postes de traite du lac Supérieur au lac Winnipeg, atteignit les villages mandans du haut Missouri en 1738, et ses fils aperçurent peut-être les contreforts des Rocheuses en 1742–1743.',
+      it: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, spinse l\'esplorazione francese al suo massimo continentale. Dal 1731 stabilì una catena di posti di commercio dal lago Superiore al lago Winnipeg, raggiunse i villaggi Mandan sull\'alto Missouri nel 1738, e i suoi figli nel 1742–1743 avvistarono forse le prime propaggini delle Montagne Rocciose.',
     },
   },
 ];

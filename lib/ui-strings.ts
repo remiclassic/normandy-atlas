@@ -99,6 +99,19 @@ const STRINGS = {
     it: 'Una mappa viva di persone, movimenti e tempo',
   },
 
+  'layers.explorationYearStrict.label': {
+    en: 'Match exploration routes to timeline year',
+    fr: 'Aligner les routes d\'exploration sur l\'année de la frise',
+    es: 'Alinear rutas de exploración con el año de la línea de tiempo',
+    it: 'Allinea le rotte di esplorazione all\'anno della cronologia',
+  },
+  'layers.explorationYearStrict.hint': {
+    en: 'When on, explorer lines only appear if the year slider falls within each segment’s range. When off, all exploration routes for this era stay visible together.',
+    fr: 'Activé : les lignes d\'explorateurs n\'apparaissent que si l\'année de la frise tombe dans la plage de chaque segment. Désactivé : toutes les routes d\'exploration de l\'ère restent visibles.',
+    es: 'Activado: las líneas solo aparecen si el año cae en el rango de cada tramo. Desactivado: todas las rutas de exploración de la era permanecen visibles.',
+    it: 'Attivo: le linee compaiono solo se l\'anno rientra nell\'intervallo di ogni segmento. Spento: tutte le rotte di esplorazione dell\'era restano visibili.',
+  },
+
   // --- Guided tour ---
   'tour.step1.title': {
     en: 'A living historical system',
@@ -477,6 +490,24 @@ const STRINGS = {
     fr: 'Cet atlas évolue en continu. De nouvelles époques, une meilleure précision historique et des couches de données plus riches seront ajoutées. Si vous explorez cela maintenant, vous êtes en avance — et cela fait partie du parcours.',
     es: 'Este atlas evoluciona sin cesar. Con el tiempo se añadirán nuevas épocas, mayor rigor histórico y capas de datos más ricas. Si lo explora ahora, llega pronto — y eso forma parte del camino.',
     it: 'Questo atlante evolve continuamente. Nel tempo si aggiungeranno nuove epoche, maggiore accuratezza storica e strati di dati più ricchi. Se lo stai esplorando ora sei in anticipo — e fa parte del percorso.',
+  },
+  'coutureStory.surnameHeading': {
+    en: 'The name Couture',
+    fr: 'Le nom Couture',
+    es: 'El apellido Couture',
+    it: 'Il cognome Couture',
+  },
+  'coutureStory.fullStoryHeading': {
+    en: 'His life in full',
+    fr: 'Sa vie, en bref',
+    es: 'Su vida, en detalle',
+    it: 'La sua vita',
+  },
+  'coutureStory.followMap': {
+    en: 'Follow his story on the map',
+    fr: 'Suivre son parcours sur la carte',
+    es: 'Seguir su historia en el mapa',
+    it: 'Segui la sua storia sulla mappa',
   },
 } as const satisfies StringTable;
 

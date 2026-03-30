@@ -682,6 +682,255 @@ export const atlasStoryBeats: StoryBeat[] = [
     anchorYear: 1760,
   },
 
+  // ── Guillaume Couture guided arc ──────────────────────────────────
+  {
+    id: 'gc-beat-couture-rouen',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'places',
+      center: [1.1, 49.44],
+      zoom: 7.2,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Normandy — baptism at Rouen',
+      body: {
+        en: 'Guillaume Couture was baptised on 14 January 1618 at Rouen, the Norman capital on the lower Seine — the same river corridor that would later feed recruits and artisans toward Atlantic Canada.',
+        fr: 'Guillaume Couture fut baptisé le 14 janvier 1618 à Rouen, capitale normande sur la basse Seine — le même corridor fluvial qui alimentera plus tard recrues et artisans vers le Canada atlantique.',
+      },
+    },
+    anchorYear: 1618,
+  },
+  {
+    id: 'gc-beat-couture-atlantic',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'bbox',
+      center: [-24.0, 47.0],
+      zoom: 2.65,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['dieppe', 'honfleur', 'mid-atlantic-passage', 'quebec-city'],
+      regionIds: ['atlantic-basin', 'new-france'],
+      routeSegmentIds: ['seg-dieppe-atlantic', 'seg-atlantic-quebec'],
+    },
+    presentation: {
+      routeHighlightMode: 'kind',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Crossing to Canada',
+      body: {
+        en: 'Around 1640 he crossed as a Jesuit donné — a lay helper bound for the missions. The voyage from Norman ports to Québec took weeks and marked the hinge between European apprenticeship and American survival.',
+        fr: 'Vers 1640, il traversa comme donné jésuite — auxiliaire laïc destiné aux missions. Le voyage des ports normands à Québec durait des semaines et marquait le pivot entre apprentissage européen et survie américaine.',
+      },
+    },
+    anchorYear: 1639,
+  },
+  {
+    id: 'gc-beat-couture-quebec',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'places',
+      center: [-71.21, 46.81],
+      zoom: 6.2,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'tadoussac'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The fragile colony',
+      body: {
+        en: 'Québec was still a thin French foothold on the St. Lawrence. As carpenter and donné, Couture entered a world where alliances with Indigenous nations were not optional — they were the condition of existence.',
+        fr: 'Québec n\'était encore qu\'un faible pied français sur le Saint-Laurent. Charpentier et donné, Couture entrait dans un monde où les alliances avec les nations autochtones n\'étaient pas un luxe — elles étaient la condition de la survie.',
+      },
+    },
+    anchorYear: 1640,
+  },
+  {
+    id: 'gc-beat-couture-huronia',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'bbox',
+      center: [-76.5, 45.0],
+      zoom: 4.6,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'montreal', 'lake-huron-node'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-couture-quebec-huronia'],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Toward Huronia',
+      body: {
+        en: 'In 1641 he travelled the Ottawa River corridor toward the Wendat (Huron) missions. There he learned languages and skills that would make him one of the colony\'s most effective interpreters.',
+        fr: 'En 1641, il suivit le corridor de l\'Outaouais vers les missions wendates (huronnes). Il y apprit langues et savoir-faire qui feraient de lui l\'un des interprètes les plus efficaces de la colonie.',
+      },
+    },
+    anchorYear: 1641,
+  },
+  {
+    id: 'gc-beat-couture-captivity',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'bbox',
+      center: [-73.5, 43.5],
+      zoom: 5.4,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['trois-rivieres', 'mohawk-territory'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-couture-iroquois-captivity'],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Captured — August 1642',
+      body: {
+        en: 'Returning with Isaac Jogues, he was seized by a Mohawk war party, tortured, and adopted. He became the first French layman to live credibly in Haudenosaunee towns — knowledge the colony would desperately need.',
+        fr: 'Au retour avec Isaac Jogues, il fut pris par un parti mohawk, torturé puis adopté. Il devint le premier laïque français à vivre crédiblement dans les villages haudenosaunee — un savoir dont la colonie aurait désespérément besoin.',
+      },
+    },
+    anchorYear: 1642,
+  },
+  {
+    id: 'gc-beat-couture-diplomacy',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'places',
+      center: [-71.35, 46.62],
+      zoom: 6.4,
+      durationMs: 1900,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'pointe-levis', 'trois-rivieres'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Interpreter between worlds',
+      body: {
+        en: 'After 1645 he escorted peace overtures and negotiated along the river. On the Lauzon seigneury he held a concession at Pointe-Lévy — not as seigneur, but as habitant opposite Québec, rooted in the land.',
+        fr: 'Après 1645, il escorta des ouvertures de paix et négocia le long du fleuve. Sur la seigneurie de Lauzon, il détenait une concession à la Pointe-Lévy — non comme seigneur, mais comme habitant en face de Québec, enraciné dans la terre.',
+      },
+    },
+    anchorYear: 1645,
+  },
+  {
+    id: 'gc-beat-couture-long-sault',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'bbox',
+      center: [-75.0, 45.35],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['montreal', 'trois-rivieres'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'The Long Sault — 1660',
+      body: {
+        en: 'He volunteered for Dollard des Ormeaux\'s Ottawa sortie. The siege at the Long Sault became one of French Canada\'s founding military stories — and Couture was there as interpreter and fighter.',
+        fr: 'Il s\'engagea dans la sortie de Dollard des Ormeaux vers l\'Outaouais. Le siège du Long-Sault devint l\'une des histoires militaires fondatrices du Canada français — Couture y fut comme interprète et combattant.',
+      },
+    },
+    anchorYear: 1660,
+  },
+  {
+    id: 'gc-beat-couture-north-legacy',
+    eraId: 'new-france-foundations',
+    arcId: 'guillaume-couture',
+    camera: {
+      target: 'bbox',
+      center: [-72.5, 49.5],
+      zoom: 4.2,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'lake-mistassini'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-couture-saguenay-mistassini'],
+      journeyIds: ['journey-couture'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'North to Mistassini — legacy',
+      body: {
+        en: 'In 1663 he led canoes up the Saguenay to Lake Mistassini, among the deepest French probes of the subarctic. He died in 1701 at Québec; his descendants still carry the Norman–St. Lawrence story across North America.',
+        fr: 'En 1663, il mena des canots par le Saguenay jusqu\'au lac Mistassini, parmi les plus profondes incursions françaises dans le subarctique. Il mourut en 1701 à Québec ; ses descendants portent encore l\'histoire normande et laurentienne à travers l\'Amérique du Nord.',
+      },
+    },
+    anchorYear: 1663,
+  },
+
   // ── Neolithic Normandy Arc beats ─────────────────────────────────
   {
     id: 'neo-arc-first-farmers',

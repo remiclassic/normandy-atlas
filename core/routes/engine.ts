@@ -29,12 +29,28 @@ export function getSegment(segmentId: string): RouteSegment | undefined {
   return segmentMap.get(segmentId);
 }
 
-export function getActiveSegments(eraId: string, simYear?: number): ResolvedSegment[] {
+export interface GetActiveSegmentsOptions {
+  /**
+   * When true, `yearRange` on exploration segments filters by simulation year (strict timeline).
+   * When false (default), exploration routes show for the whole era; other kinds still respect `yearRange`.
+   */
+  explorationYearStrict?: boolean;
+}
+
+export function getActiveSegments(
+  eraId: string,
+  simYear?: number,
+  options?: GetActiveSegmentsOptions,
+): ResolvedSegment[] {
+  const explorationStrict = options?.explorationYearStrict === true;
   const results: ResolvedSegment[] = [];
   for (const seg of atlasRouteSegments) {
     if (!seg.eraIds.includes(eraId)) continue;
     if (simYear != null && seg.yearRange) {
-      if (simYear < seg.yearRange[0] || simYear > seg.yearRange[1]) continue;
+      const skipYearForExploration = seg.kind === 'exploration' && !explorationStrict;
+      if (!skipYearForExploration) {
+        if (simYear < seg.yearRange[0] || simYear > seg.yearRange[1]) continue;
+      }
     }
     const resolved = resolveSegment(seg);
     if (resolved) results.push(resolved);

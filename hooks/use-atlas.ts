@@ -1,7 +1,8 @@
 'use client';
 
 import { useMemo, useEffect } from 'react';
-import { useMapStore } from '@/lib/store';
+import { useMapStore, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
+import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
 import type { AtlasLocale, I18nString } from '@/core/types';
 import {
@@ -73,10 +74,19 @@ export function useAtlasPlacesGeoJson(): GeoJSON.FeatureCollection {
 export function useActiveSegments(): ResolvedSegment[] {
   const eraId = useMapStore((s) => s.eraId);
   const atlasMode = useMapStore((s) => s.atlasMode);
-  return useMemo(
-    () => (atlasMode ? getActiveSegments(eraId) : []),
-    [eraId, atlasMode],
-  );
+  const atlasSimYear = useMapStore((s) => s.atlasSimYear);
+  const explorationRoutesYearStrict = useMapStore((s) => s.explorationRoutesYearStrict);
+  return useMemo(() => {
+    if (!atlasMode) return [];
+    const simYear = isColonialEra(eraId)
+      ? colonialYearFromEra(eraId, atlasSimYear)
+      : VIKING_MOVEMENT_ERA_IDS.has(eraId)
+        ? atlasSimYear
+        : undefined;
+    return getActiveSegments(eraId, simYear, {
+      explorationYearStrict: explorationRoutesYearStrict,
+    });
+  }, [eraId, atlasMode, atlasSimYear, explorationRoutesYearStrict]);
 }
 
 export function useActiveJourneys(): ResolvedJourney[] {

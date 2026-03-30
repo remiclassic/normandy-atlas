@@ -97,6 +97,11 @@ interface MapStore {
   migrationFlowEnabled: boolean;
   /** When true, Carto basemap shows cities, countries, roads, water names, and admin boundaries. */
   modernBasemapOverlays: boolean;
+  /**
+   * When true, exploration route segments respect `yearRange` vs simulation year.
+   * When false (default), exploration lines stay visible for the whole era (easier to compare routes).
+   */
+  explorationRoutesYearStrict: boolean;
 
   locale: AtlasLocale;
   onboardingPhase: OnboardingPhase;
@@ -127,6 +132,7 @@ interface MapStore {
   setMigrationCohortId: (cohortId: MigrationCohortId) => void;
   setMigrationFlowEnabled: (enabled: boolean) => void;
   setModernBasemapOverlays: (visible: boolean) => void;
+  setExplorationRoutesYearStrict: (strict: boolean) => void;
   setOnboardingPhase: (phase: OnboardingPhase) => void;
 }
 
@@ -166,6 +172,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   migrationCohortId: 'all_immigrants' as MigrationCohortId,
   migrationFlowEnabled: false,
   modernBasemapOverlays: false,
+  explorationRoutesYearStrict: false,
   locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
 
@@ -281,6 +288,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   setMigrationFlowEnabled: (enabled) => set({ migrationFlowEnabled: enabled }),
 
   setModernBasemapOverlays: (visible) => set({ modernBasemapOverlays: visible }),
+
+  setExplorationRoutesYearStrict: (strict) => set({ explorationRoutesYearStrict: strict }),
 
   setOnboardingPhase: (phase) => {
     try {

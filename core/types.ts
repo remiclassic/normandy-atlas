@@ -124,6 +124,8 @@ export interface RouteSegment {
   yearRange?: [number, number];
   /** Whether this segment is linked to Norman origins (for Norman-lens filtering). */
   normanRelated?: boolean;
+  /** Specific note about the Norman-origin connection (birthplace, affiliation). */
+  normanOriginNote?: I18nString;
 }
 
 export interface ResolvedSegment extends RouteSegment {
@@ -139,6 +141,10 @@ export interface Journey {
   eraIds: string[];
   segmentIds: string[];
   summary: I18nString;
+  /** Optional long article for detail panels (e.g. guided biography). */
+  longForm?: I18nString;
+  /** Optional etymology / name sidebar (kept separate from longForm for layout). */
+  surnameNote?: I18nString;
 }
 
 export interface ResolvedJourney extends Journey {

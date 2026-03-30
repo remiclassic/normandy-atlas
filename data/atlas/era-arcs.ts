@@ -35,6 +35,24 @@ export const atlasEraArcs: EraArcEntry[] = [
     },
   },
   {
+    arcId: 'guillaume-couture',
+    eraIds: ['new-france-foundations'],
+    label: {
+      en: 'Guillaume Couture — life on the map',
+      fr: 'Guillaume Couture — le parcours sur la carte',
+      es: 'Guillaume Couture — la vida en el mapa',
+      it: 'Guillaume Couture — il percorso sulla mappa',
+    },
+    style: {
+      text: 'text-amber-200/85',
+      textHover: 'hover:text-amber-100',
+      border: 'border-amber-400/20',
+      borderHover: 'hover:border-amber-400/35',
+      iconBg: 'bg-amber-400/12',
+      iconBgHover: 'group-hover:bg-amber-400/18',
+    },
+  },
+  {
     arcId: 'neolithic-normandy',
     eraIds: ['neolithic-normandy'],
     label: {
