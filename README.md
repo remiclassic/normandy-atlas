@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Normandy Atlas** — interactive historical map of Normandy and the Norman world (Next.js, MapLibre, deck.gl).
+
+**Live site:** [https://remiclassic.github.io/normandy-atlas/](https://remiclassic.github.io/normandy-atlas/)
 
 ## Getting Started
 
@@ -14,7 +16,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/normandy-atlas](http://localhost:3000/normandy-atlas) (this app uses a [`basePath`](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath) for GitHub Pages).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
