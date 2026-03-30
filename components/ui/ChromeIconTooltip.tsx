@@ -93,7 +93,7 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
                 exit={{ opacity: 0, y: -4, scale: 0.96 }}
                 transition={{ duration: 0.12 }}
                 role="tooltip"
-                className="pointer-events-none fixed z-[9999] rounded-lg border border-white/[0.08] px-3.5 py-2.5"
+                className="pointer-events-none fixed z-[9999] rounded-lg border border-chrome-border-strong bg-chrome-popover px-3.5 py-2.5"
                 style={{
                   left: Math.max(
                     8,
@@ -104,9 +104,9 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
                   ),
                   top: rect.bottom + 8,
                   width: TOOLTIP_WIDTH,
-                  background: 'rgba(13, 15, 22, 0.97)',
                   backdropFilter: 'blur(24px) saturate(1.2)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
+                  boxShadow:
+                    '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
                 }}
               >
                 <p className="text-[12px] font-semibold leading-tight text-parchment">{label}</p>

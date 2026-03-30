@@ -132,7 +132,7 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
             )}
           </mask>
         </defs>
-        <rect width="100%" height="100%" fill="rgba(10,12,18,0.62)" mask={`url(#${MASK_ID})`} />
+        <rect width="100%" height="100%" fill="var(--color-guided-overlay)" mask={`url(#${MASK_ID})`} />
         {rect && (
           <rect
             x={rect.x - GLOW_PAD}
@@ -140,7 +140,7 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
             width={rect.width + GLOW_PAD * 2}
             height={rect.height + GLOW_PAD * 2}
             fill="none"
-            stroke="rgba(196,169,98,0.18)"
+            stroke="var(--color-guided-stroke)"
             strokeWidth="1"
           />
         )}

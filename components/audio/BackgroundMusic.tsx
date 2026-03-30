@@ -3,6 +3,11 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
+export type BackgroundMusicProps = {
+  /** Default: fixed bottom-right. Set false to place the control in header chrome. */
+  floating?: boolean;
+};
+
 const STORAGE_KEY = 'norman-atlas-bg-music-muted';
 const AUDIO_SRC = '/audio/crown-of-salt-and-iron.mp3';
 const DEFAULT_VOLUME = 0.35;
@@ -28,7 +33,7 @@ function writeStoredMuted(value: boolean) {
  * Site-wide ambient loop: autoplay with browser-safe unlock on first gesture,
  * mute toggle persisted in localStorage.
  */
-export const BackgroundMusic = memo(function BackgroundMusic() {
+export const BackgroundMusic = memo(function BackgroundMusic({ floating = true }: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const mutedRef = useRef(false);
   const [muted, setMuted] = useState(false);
@@ -123,7 +128,15 @@ export const BackgroundMusic = memo(function BackgroundMusic() {
       <button
         type="button"
         onClick={handleControlClick}
-        className="fixed bottom-5 right-5 z-[60] flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-background/70 text-text-dim shadow-elevated backdrop-blur-md transition-colors duration-200 hover:border-white/[0.12] hover:bg-white/[0.06] hover:text-gold/80"
+        className={
+          floating
+            ? 'fixed bottom-5 right-5 z-[60] flex h-9 w-9 items-center justify-center rounded-lg border border-chrome-border bg-background/70 text-text-dim shadow-atlas-elevated backdrop-blur-md transition-colors duration-200 hover:border-chrome-border-strong hover:bg-chrome-fill-hover hover:text-gold/80'
+            : `relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border backdrop-blur-sm transition-all duration-200 ${
+                !muted && !audioPaused
+                  ? 'border-gold/35 bg-chrome-fill-pressed text-gold/85 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft)] hover:border-gold/45 hover:text-gold'
+                  : 'border-chrome-border-strong bg-chrome-fill-badge text-text-muted hover:border-chrome-border hover:bg-chrome-fill-hover hover:text-text'
+              }`
+        }
         aria-label={
           muted
             ? 'Unmute background music'
@@ -134,9 +147,9 @@ export const BackgroundMusic = memo(function BackgroundMusic() {
         aria-pressed={muted}
       >
         {muted ? (
-          <VolumeX className="h-[18px] w-[18px]" strokeWidth={1.5} aria-hidden />
+          <VolumeX className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
         ) : (
-          <Volume2 className="h-[18px] w-[18px]" strokeWidth={1.5} aria-hidden />
+          <Volume2 className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
         )}
       </button>
     </>

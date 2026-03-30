@@ -106,13 +106,13 @@ export default function NormandyTimelineSlider() {
           transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
           className="overflow-hidden"
         >
-          <div className="flex items-center gap-4 border-t border-white/[0.06] px-4 py-2.5 pointer-events-auto sm:gap-5 sm:px-6">
+          <div className="flex items-center gap-4 border-t border-chrome-border px-4 py-2.5 pointer-events-auto sm:gap-5 sm:px-6">
             <span className="flex-shrink-0 text-[9px] font-semibold uppercase tracking-[0.16em] text-gold/45 sm:text-[10px]">
               Expansion
             </span>
 
             <div className="relative min-h-[44px] min-w-0 flex-1 pt-0.5">
-              <div className="absolute top-[5px] right-0 left-0 h-[3px] rounded-full bg-white/[0.05]" />
+              <div className="absolute top-[5px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised" />
 
               <div
                 className="absolute top-[5px] left-0 h-[3px] rounded-full bg-gold/30 transition-all duration-200"

@@ -41,7 +41,7 @@ function LanguageSwitcher() {
         onClick={toggle}
         aria-label="Select language"
         aria-expanded={open}
-        className="flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-parchment/80 backdrop-blur-sm transition-all duration-200 hover:border-gold/30 hover:text-parchment"
+        className="flex items-center gap-1.5 rounded-full border border-chrome-border-strong bg-chrome-fill px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-parchment/80 backdrop-blur-sm transition-all duration-200 hover:border-gold/30 hover:text-parchment"
       >
         <svg
           width="14"
@@ -73,7 +73,7 @@ function LanguageSwitcher() {
             transition={{ duration: 0.15 }}
             role="listbox"
             aria-label="Languages"
-            className="absolute right-0 top-full mt-1.5 z-50 min-w-[130px] overflow-hidden rounded-lg border border-white/[0.1] bg-[#12131a]/95 backdrop-blur-md shadow-lg"
+            className="absolute right-0 top-full mt-1.5 z-50 min-w-[130px] overflow-hidden rounded-lg border border-chrome-border bg-chrome-popover backdrop-blur-md shadow-atlas-popover"
           >
             {ENABLED_UI_LOCALES.map((code) => (
               <li key={code} role="option" aria-selected={code === locale}>
@@ -83,7 +83,7 @@ function LanguageSwitcher() {
                   className={`flex w-full items-center gap-2 px-3 py-2 text-[12px] transition-colors duration-150 ${
                     code === locale
                       ? 'bg-gold/[0.08] text-gold'
-                      : 'text-text-muted hover:bg-white/[0.04] hover:text-parchment'
+                      : 'text-text-muted hover:bg-chrome-fill hover:text-parchment'
                   }`}
                 >
                   <span className="w-5 text-[10px] font-semibold uppercase tracking-wide opacity-50">

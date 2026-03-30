@@ -1,18 +1,27 @@
 import type { I18nString } from '@/core/types';
+import type { UiTheme } from '@/lib/ui-theme';
+
+export interface EraArcChromeStyle {
+  text: string;
+  textHover: string;
+  border: string;
+  borderHover: string;
+  iconBg: string;
+  iconBgHover: string;
+}
 
 export interface EraArcEntry {
   arcId: string;
   eraIds: string[];
   label: I18nString;
-  /** Pre-built Tailwind classes for the arc button. */
-  style: {
-    text: string;
-    textHover: string;
-    border: string;
-    borderHover: string;
-    iconBg: string;
-    iconBgHover: string;
-  };
+  /** Pre-built Tailwind classes for the arc button (dark UI). */
+  style: EraArcChromeStyle;
+  /** Saturated / darker hues for light UI + parchment map behind the bar. */
+  styleLight: EraArcChromeStyle;
+}
+
+export function arcChromeStyle(entry: EraArcEntry, uiTheme: UiTheme): EraArcChromeStyle {
+  return uiTheme === 'light' ? entry.styleLight : entry.style;
 }
 
 export const atlasEraArcs: EraArcEntry[] = [
@@ -33,6 +42,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-cyan-400/10',
       iconBgHover: 'group-hover:bg-cyan-400/15',
     },
+    styleLight: {
+      text: 'text-cyan-950/90',
+      textHover: 'hover:text-cyan-950',
+      border: 'border-cyan-800/35',
+      borderHover: 'hover:border-cyan-800/50',
+      iconBg: 'bg-cyan-800/20',
+      iconBgHover: 'group-hover:bg-cyan-800/28',
+    },
   },
   {
     arcId: 'guillaume-couture',
@@ -50,6 +67,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-amber-400/35',
       iconBg: 'bg-amber-400/12',
       iconBgHover: 'group-hover:bg-amber-400/18',
+    },
+    styleLight: {
+      text: 'text-amber-950/92',
+      textHover: 'hover:text-amber-950',
+      border: 'border-amber-900/40',
+      borderHover: 'hover:border-amber-900/55',
+      iconBg: 'bg-amber-900/22',
+      iconBgHover: 'group-hover:bg-amber-900/30',
     },
   },
   {
@@ -69,6 +94,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-teal-400/10',
       iconBgHover: 'group-hover:bg-teal-400/15',
     },
+    styleLight: {
+      text: 'text-teal-950/90',
+      textHover: 'hover:text-teal-950',
+      border: 'border-teal-800/35',
+      borderHover: 'hover:border-teal-800/50',
+      iconBg: 'bg-teal-800/20',
+      iconBgHover: 'group-hover:bg-teal-800/28',
+    },
   },
   {
     arcId: 'bronze-age-channel',
@@ -86,6 +119,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-yellow-400/25',
       iconBg: 'bg-yellow-400/10',
       iconBgHover: 'group-hover:bg-yellow-400/15',
+    },
+    styleLight: {
+      text: 'text-yellow-950/88',
+      textHover: 'hover:text-yellow-950',
+      border: 'border-yellow-800/38',
+      borderHover: 'hover:border-yellow-800/52',
+      iconBg: 'bg-yellow-800/22',
+      iconBgHover: 'group-hover:bg-yellow-800/30',
     },
   },
   {
@@ -105,6 +146,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-lime-400/10',
       iconBgHover: 'group-hover:bg-lime-400/15',
     },
+    styleLight: {
+      text: 'text-lime-950/88',
+      textHover: 'hover:text-lime-950',
+      border: 'border-lime-800/38',
+      borderHover: 'hover:border-lime-800/52',
+      iconBg: 'bg-lime-800/22',
+      iconBgHover: 'group-hover:bg-lime-800/30',
+    },
   },
   {
     arcId: 'roman-gaul',
@@ -122,6 +171,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-rose-400/25',
       iconBg: 'bg-rose-400/10',
       iconBgHover: 'group-hover:bg-rose-400/15',
+    },
+    styleLight: {
+      text: 'text-rose-950/90',
+      textHover: 'hover:text-rose-950',
+      border: 'border-rose-800/38',
+      borderHover: 'hover:border-rose-800/52',
+      iconBg: 'bg-rose-800/22',
+      iconBgHover: 'group-hover:bg-rose-800/30',
     },
   },
   {
@@ -141,6 +198,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-stone-400/10',
       iconBgHover: 'group-hover:bg-stone-400/15',
     },
+    styleLight: {
+      text: 'text-stone-900/92',
+      textHover: 'hover:text-stone-950',
+      border: 'border-stone-600/40',
+      borderHover: 'hover:border-stone-600/55',
+      iconBg: 'bg-stone-600/18',
+      iconBgHover: 'group-hover:bg-stone-600/26',
+    },
   },
   {
     arcId: 'neustria',
@@ -158,6 +223,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-emerald-400/25',
       iconBg: 'bg-emerald-400/10',
       iconBgHover: 'group-hover:bg-emerald-400/15',
+    },
+    styleLight: {
+      text: 'text-emerald-950/90',
+      textHover: 'hover:text-emerald-950',
+      border: 'border-emerald-800/38',
+      borderHover: 'hover:border-emerald-800/52',
+      iconBg: 'bg-emerald-800/22',
+      iconBgHover: 'group-hover:bg-emerald-800/30',
     },
   },
   {
@@ -177,6 +250,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-violet-400/10',
       iconBgHover: 'group-hover:bg-violet-400/15',
     },
+    styleLight: {
+      text: 'text-violet-950/90',
+      textHover: 'hover:text-violet-950',
+      border: 'border-violet-800/38',
+      borderHover: 'hover:border-violet-800/52',
+      iconBg: 'bg-violet-800/22',
+      iconBgHover: 'group-hover:bg-violet-800/30',
+    },
   },
   {
     arcId: 'viking-age',
@@ -194,6 +275,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-red-400/25',
       iconBg: 'bg-red-400/10',
       iconBgHover: 'group-hover:bg-red-400/15',
+    },
+    styleLight: {
+      text: 'text-red-950/90',
+      textHover: 'hover:text-red-950',
+      border: 'border-red-800/38',
+      borderHover: 'hover:border-red-800/52',
+      iconBg: 'bg-red-800/22',
+      iconBgHover: 'group-hover:bg-red-800/30',
     },
   },
   {
@@ -213,6 +302,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       iconBg: 'bg-amber-400/10',
       iconBgHover: 'group-hover:bg-amber-400/15',
     },
+    styleLight: {
+      text: 'text-amber-950/90',
+      textHover: 'hover:text-amber-950',
+      border: 'border-amber-900/38',
+      borderHover: 'hover:border-amber-900/52',
+      iconBg: 'bg-amber-900/22',
+      iconBgHover: 'group-hover:bg-amber-900/30',
+    },
   },
   {
     arcId: 'norman-expansion',
@@ -230,6 +327,14 @@ export const atlasEraArcs: EraArcEntry[] = [
       borderHover: 'hover:border-orange-400/25',
       iconBg: 'bg-orange-400/10',
       iconBgHover: 'group-hover:bg-orange-400/15',
+    },
+    styleLight: {
+      text: 'text-orange-950/90',
+      textHover: 'hover:text-orange-950',
+      border: 'border-orange-800/38',
+      borderHover: 'hover:border-orange-800/52',
+      iconBg: 'bg-orange-800/22',
+      iconBgHover: 'group-hover:bg-orange-800/30',
     },
   },
 ];

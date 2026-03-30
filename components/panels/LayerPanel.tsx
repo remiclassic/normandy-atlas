@@ -3,7 +3,7 @@
 import { Fragment, memo, useCallback, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
-import type { BasemapMode, NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
+import type { NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
 import { layerConfigs } from '@/data/layers';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
@@ -138,7 +138,7 @@ const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
       <button
         type="button"
         onClick={() => setStrict(!strict)}
-        className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-white/[0.03]"
+        className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-chrome-fill-badge"
       >
         <span
           className={`flex h-[18px] w-7 shrink-0 items-center justify-center transition-all duration-200 ${
@@ -166,12 +166,12 @@ const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
           <span
             className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
               strict
-                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]'
-                : 'border border-white/[0.12] bg-white/[0.05]'
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)]'
+                : 'border border-chrome-border-strong bg-chrome-fill-raised'
             }`}
           >
             <span
-              className={`absolute top-0.5 h-3 w-3 rounded-full bg-white/90 shadow-sm transition-transform duration-200 ${
+              className={`absolute top-0.5 h-3 w-3 rounded-full bg-background shadow-sm transition-transform duration-200 ${
                 strict ? 'translate-x-3.5' : 'translate-x-0.5'
               }`}
             />
@@ -240,7 +240,7 @@ const CollapsibleSectionHeader = memo(function CollapsibleSectionHeader({
       type="button"
       onClick={handleClick}
       aria-expanded={open}
-      className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors duration-150 hover:bg-white/[0.03]"
+      className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left transition-colors duration-150 hover:bg-chrome-fill-badge"
     >
       <SectionChevron open={open} />
       <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-dim">{label}</span>
@@ -263,7 +263,7 @@ const LayerToggle = memo(function LayerToggle({
     <button
       type="button"
       onClick={() => onToggle(id)}
-      className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-white/[0.03]"
+      className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-chrome-fill-badge"
     >
       <span
         className={`flex h-[18px] w-7 shrink-0 items-center justify-center transition-all duration-200 ${
@@ -289,15 +289,15 @@ const LayerToggle = memo(function LayerToggle({
         <span
           className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
             isOn
-              ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]'
-              : 'border border-white/[0.12] bg-white/[0.05]'
+              ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)]'
+              : 'border border-chrome-border-strong bg-chrome-fill-raised'
           }`}
         >
           <motion.span
             animate={{ x: isOn ? 16 : 2 }}
             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
-              isOn ? 'bg-parchment' : 'bg-white/35'
+              isOn ? 'bg-parchment' : 'bg-text-muted/35'
             }`}
           />
         </span>
@@ -306,36 +306,50 @@ const LayerToggle = memo(function LayerToggle({
   );
 });
 
-const BasemapToggle = memo(function BasemapToggle() {
+const ParchmentWaterAtmosphereToggle = memo(function ParchmentWaterAtmosphereToggle() {
+  const locale = useLocale();
   const basemapMode = useMapStore((s) => s.basemapMode);
-  const setBasemapMode = useMapStore((s) => s.setBasemapMode);
+  const on = useMapStore((s) => s.parchmentWaterAtmosphere);
+  const flip = useCallback(() => {
+    const s = useMapStore.getState();
+    s.setParchmentWaterAtmosphere(!s.parchmentWaterAtmosphere);
+  }, []);
 
-  const handleSwitch = useCallback(
-    (mode: BasemapMode) => setBasemapMode(mode),
-    [setBasemapMode],
-  );
+  if (basemapMode !== 'parchment') return null;
 
   return (
-    <div className="px-3.5 py-2">
-      <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-text-dim block mb-1.5">
-        Basemap
-      </span>
-      <div className="flex gap-1.5">
-        {([['dark', 'Dark Atlas'], ['parchment', 'Parchment']] as const).map(([mode, label]) => (
-          <button
-            key={mode}
-            type="button"
-            onClick={() => handleSwitch(mode)}
-            className={`flex-1 py-1 px-2 rounded-md text-[11px] font-medium transition-all duration-150 ${
-              basemapMode === mode
-                ? 'bg-gold/20 text-parchment border border-gold/30'
-                : 'bg-white/[0.03] text-text-dim border border-transparent hover:bg-white/[0.06] hover:text-text-muted'
+    <div className="px-3.5 pb-2 pt-0 border-t border-chrome-border-strong/40 mt-1">
+      <button
+        type="button"
+        onClick={flip}
+        className="group grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-x-2 rounded-md px-0 py-1 text-left transition-colors duration-150 hover:bg-chrome-fill-badge"
+      >
+        <div className="min-w-0">
+          <span className="text-[11px] font-medium text-text block leading-snug">
+            {t('layers.parchmentWater.label', locale)}
+          </span>
+          <span className="text-[9px] text-text-dim/90 leading-snug block mt-0.5 normal-case tracking-normal font-normal">
+            {t('layers.parchmentWater.hint', locale)}
+          </span>
+        </div>
+        <span className="flex h-[18px] shrink-0 items-center justify-end">
+          <span
+            className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
+              on
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)]'
+                : 'border border-chrome-border-strong bg-chrome-fill-raised'
             }`}
           >
-            {label}
-          </button>
-        ))}
-      </div>
+            <motion.span
+              animate={{ x: on ? 16 : 2 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+              className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
+                on ? 'bg-parchment' : 'bg-text-muted/35'
+              }`}
+            />
+          </span>
+        </span>
+      </button>
     </div>
   );
 });
@@ -352,7 +366,7 @@ const ModernBasemapOverlaysToggle = memo(function ModernBasemapOverlaysToggle() 
       <button
         type="button"
         onClick={flip}
-        className="group grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-x-2 rounded-md px-0 py-1 text-left transition-colors duration-150 hover:bg-white/[0.03]"
+        className="group grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-x-2 rounded-md px-0 py-1 text-left transition-colors duration-150 hover:bg-chrome-fill-badge"
       >
         <div className="min-w-0">
           <span className="text-[11px] font-medium text-text block leading-snug">Modern labels &amp; borders</span>
@@ -364,15 +378,15 @@ const ModernBasemapOverlaysToggle = memo(function ModernBasemapOverlaysToggle() 
           <span
             className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
               on
-                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]'
-                : 'border border-white/[0.12] bg-white/[0.05]'
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)]'
+                : 'border border-chrome-border-strong bg-chrome-fill-raised'
             }`}
           >
             <motion.span
               animate={{ x: on ? 16 : 2 }}
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
               className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
-                on ? 'bg-parchment' : 'bg-white/35'
+                on ? 'bg-parchment' : 'bg-text-muted/35'
               }`}
             />
           </span>
@@ -401,7 +415,7 @@ const NormanPresetBar = memo(function NormanPresetBar() {
           key={p.id}
           type="button"
           onClick={() => handleClick(p.id)}
-          className="flex-1 py-0.5 px-1.5 rounded-md text-[10px] font-medium bg-white/[0.03] text-text-dim border border-transparent hover:bg-white/[0.06] hover:text-text-muted transition-all duration-150"
+          className="flex-1 py-0.5 px-1.5 rounded-md text-[10px] font-medium bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover hover:text-text-muted transition-all duration-150"
         >
           {p.label}
         </button>
@@ -469,7 +483,7 @@ const NormanNodePeriodControl = memo(function NormanNodePeriodControl() {
           step={10}
           value={period.min}
           onChange={handleMinChange}
-          className="w-full h-1 appearance-none bg-white/10 rounded-full accent-[#e060a0] cursor-pointer [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#e060a0]"
+          className="w-full h-1 appearance-none bg-chrome-shade-strong rounded-full accent-[#e060a0] cursor-pointer [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#e060a0]"
         />
         <input
           type="range"
@@ -478,7 +492,7 @@ const NormanNodePeriodControl = memo(function NormanNodePeriodControl() {
           step={10}
           value={period.max}
           onChange={handleMaxChange}
-          className="w-full h-1 appearance-none bg-white/10 rounded-full accent-[#e060a0] cursor-pointer [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#e060a0]"
+          className="w-full h-1 appearance-none bg-chrome-shade-strong rounded-full accent-[#e060a0] cursor-pointer [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-[#e060a0]"
         />
       </div>
     </div>
@@ -574,8 +588,8 @@ export default function LayerPanel() {
               />
               {sectionOpen.basemap && (
                 <div className="pb-1">
-                  <BasemapToggle />
                   <ModernBasemapOverlaysToggle />
+                  <ParchmentWaterAtmosphereToggle />
                 </div>
               )}
             </div>

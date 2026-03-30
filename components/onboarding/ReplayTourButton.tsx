@@ -23,7 +23,7 @@ const ReplayTourButton = memo(function ReplayTourButton() {
       <button
         type="button"
         onClick={handleReplay}
-        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-white/[0.04] hover:text-gold/70"
+        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
         aria-label="Replay guided tour"
       >
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>

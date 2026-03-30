@@ -38,7 +38,7 @@ function CloseButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+      className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
       aria-label="Close panel"
     >
       <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -353,8 +353,8 @@ function ChannelFilterBar({
         onClick={() => onFilterChange(null)}
         className={`text-[9px] font-semibold uppercase tracking-[0.12em] px-2 py-[3px] rounded border transition-all duration-150 ${
           activeFilter === null
-            ? 'text-parchment/80 bg-white/[0.08] border-white/[0.12]'
-            : 'text-text-dim/50 bg-transparent border-transparent hover:bg-white/[0.04] hover:border-white/[0.06]'
+            ? 'text-parchment/80 bg-chrome-fill-active border-chrome-border-strong'
+            : 'text-text-dim/50 bg-transparent border-transparent hover:bg-chrome-fill hover:border-chrome-border'
         }`}
       >
         All ({people.length})
@@ -366,7 +366,7 @@ function ChannelFilterBar({
           className={`text-[9px] font-semibold uppercase tracking-[0.12em] px-2 py-[3px] rounded border transition-all duration-150 ${
             activeFilter === f.channel
               ? BADGE_CLASSES[f.tone]
-              : 'text-text-dim/50 bg-transparent border-transparent hover:bg-white/[0.04] hover:border-white/[0.06]'
+              : 'text-text-dim/50 bg-transparent border-transparent hover:bg-chrome-fill hover:border-chrome-border'
           }`}
         >
           {f.label} ({f.count})
@@ -417,7 +417,7 @@ function PersonCard({ person, eraId }: { person: Person; eraId?: string }) {
   const originLine = useMemo(() => getOriginDisplayLine(person, eraId, locale), [person, eraId, locale]);
 
   return (
-    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 space-y-2">
+    <div className="rounded-lg border border-chrome-border bg-chrome-fill-badge p-4 space-y-2">
       <div className="flex items-start justify-between gap-2">
         <div>
           <p className="text-[14px] font-medium text-parchment leading-snug">
@@ -498,7 +498,7 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
               ? 'text-green-400/60 bg-green-400/[0.04] border-green-400/10'
               : person.confidence === 'network'
                 ? 'text-yellow-400/60 bg-yellow-400/[0.04] border-yellow-400/10'
-                : 'text-text-dim/50 bg-white/[0.02] border-white/[0.06]'
+                : 'text-text-dim/50 bg-chrome-fill-badge border-chrome-border'
           }`}>
             {confidence}
           </span>
@@ -543,7 +543,7 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
               <div className="flex items-center gap-2">
                 <button
                   onClick={goPrev}
-                  className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                  className="w-7 h-7 flex items-center justify-center rounded-md bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
                   aria-label="Previous person"
                 >
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -555,7 +555,7 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
                 </span>
                 <button
                   onClick={goNext}
-                  className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                  className="w-7 h-7 flex items-center justify-center rounded-md bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
                   aria-label="Next person"
                 >
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -581,7 +581,7 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-5"
+                  className="rounded-lg border border-chrome-border bg-chrome-fill-badge p-5"
                 >
                   <PersonDetailExpanded person={current} eraId={eraId} />
                 </motion.div>
@@ -596,7 +596,7 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
                       className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                         i === safeIndex
                           ? 'bg-gold/60 scale-125'
-                          : 'bg-white/[0.12] hover:bg-white/[0.2]'
+                          : 'bg-chrome-fill-pressed hover:bg-chrome-fill-active'
                       }`}
                       aria-label={`Go to ${p.displayName}`}
                     />
@@ -748,7 +748,7 @@ function AtlasRegionDetail({ id, eraId }: { id: string; eraId: string }) {
                 {eraLabel}
               </span>
             )}
-            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-chrome-fill-badge px-2.5 py-1 rounded-md border border-chrome-border">
               Region
             </span>
           </div>
@@ -1027,7 +1027,7 @@ function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
             <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
               {kindLabel}
             </span>
-            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-chrome-fill-badge px-2.5 py-1 rounded-md border border-chrome-border">
               {eraLabel}
             </span>
           </div>
@@ -1130,7 +1130,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
               </svg>
               Era Overview
             </span>
-            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]">
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/60 bg-chrome-fill-badge px-2.5 py-1 rounded-md border border-chrome-border">
               {rangeLabel}
             </span>
           </div>
@@ -1163,7 +1163,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                 {places.filter((p) => p.currentState.visibility !== 'faded').map((p) => (
                   <span
                     key={p.id}
-                    className="inline-flex items-center text-[11px] text-text-muted/80 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.06]"
+                    className="inline-flex items-center text-[11px] text-text-muted/80 bg-chrome-fill-badge px-2.5 py-1 rounded-md border border-chrome-border"
                   >
                     {p.currentState.label}
                   </span>
@@ -1188,7 +1188,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                       <h4 className="text-[13px] font-semibold text-parchment/90 mb-1">{pickI18n(r.name, locale)}</h4>
                       <div className="flex items-center gap-2 mb-1.5">
                         {r.currentState.fillIntent && (
-                          <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-text-dim/50 bg-white/[0.02] px-2 py-0.5 rounded border border-white/[0.06]">
+                          <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-text-dim/50 bg-chrome-fill-badge px-2 py-0.5 rounded border border-chrome-border">
                             {r.currentState.fillIntent}
                           </span>
                         )}
@@ -1216,7 +1216,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={goPrev}
-                      className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                      className="w-7 h-7 flex items-center justify-center rounded-md bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
                       aria-label="Previous person"
                     >
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -1228,7 +1228,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                     </span>
                     <button
                       onClick={goNext}
-                      className="w-7 h-7 flex items-center justify-center rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-white/[0.06]"
+                      className="w-7 h-7 flex items-center justify-center rounded-md bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
                       aria-label="Next person"
                     >
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -1247,7 +1247,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-5"
+                    className="rounded-lg border border-chrome-border bg-chrome-fill-badge p-5"
                   >
                     <PersonDetailExpanded person={currentPerson} eraId={eraId} />
                   </motion.div>
@@ -1263,7 +1263,7 @@ function EraInfoDetail({ eraId }: { eraId: string }) {
                       className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                         i === safeIndex
                           ? 'bg-gold/60 scale-125'
-                          : 'bg-white/[0.12] hover:bg-white/[0.2]'
+                          : 'bg-chrome-fill-pressed hover:bg-chrome-fill-active'
                       }`}
                       aria-label={`Go to ${p.displayName}`}
                     />
@@ -1348,7 +1348,7 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
         </h2>
 
         {segment.yearRange && (
-          <span className="inline-flex items-center gap-1.5 text-[10px] text-text-dim/70 bg-white/[0.03] px-2 py-0.5 rounded-md border border-white/[0.06]">
+          <span className="inline-flex items-center gap-1.5 text-[10px] text-text-dim/70 bg-chrome-fill-badge px-2 py-0.5 rounded-md border border-chrome-border">
             {segment.yearRange[0]}–{segment.yearRange[1]}
           </span>
         )}
@@ -1384,7 +1384,7 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
           )}
 
           {journey && (
-            <div className="space-y-1 pt-2 border-t border-white/[0.06]">
+            <div className="space-y-1 pt-2 border-t border-chrome-border">
               <span className="text-[9px] uppercase tracking-[0.14em] font-semibold text-text-dim/60">
                 Part of journey
               </span>
@@ -1398,7 +1398,7 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
           )}
 
           {journey?.id === 'journey-couture' && (journey.surnameNote || journey.longForm) && (
-            <div className="space-y-4 pt-4 border-t border-white/[0.08]">
+            <div className="space-y-4 pt-4 border-t border-chrome-border-strong">
               {journey.surnameNote && (
                 <div className="space-y-2">
                   <SectionLabel>{t('coutureStory.surnameHeading', locale)}</SectionLabel>
@@ -1454,9 +1454,8 @@ export default function HistoricalDetailPanel() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 16 }}
           transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
-          className="z-30 flex h-full w-[min(420px,100vw)] max-md:absolute max-md:right-0 max-md:top-0 max-md:min-h-0 max-md:max-h-full flex-col border-l border-white/[0.08] max-md:shadow-[-12px_0_48px_rgba(0,0,0,0.55)] md:w-[min(420px,90vw)] md:shrink-0 md:shadow-[inset_1px_0_0_rgba(255,255,255,0.04)]"
+          className="z-30 flex h-full w-[min(420px,100vw)] max-md:absolute max-md:right-0 max-md:top-0 max-md:min-h-0 max-md:max-h-full flex-col border-l border-chrome-border-strong bg-chrome-popover max-md:shadow-atlas-detail-mobile md:w-[min(420px,90vw)] md:shrink-0 md:shadow-atlas-detail-desktop"
           style={{
-            background: 'rgba(13, 15, 22, 0.96)',
             backdropFilter: 'blur(40px) saturate(1.2)',
             WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
           }}

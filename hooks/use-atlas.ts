@@ -4,6 +4,7 @@ import { useMemo, useEffect } from 'react';
 import { useMapStore, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
+import { readStoredUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
 import type { AtlasLocale, I18nString } from '@/core/types';
 import {
   getVisiblePlaces,
@@ -37,6 +38,15 @@ export function useHydrateLocale(): void {
       setLocale(stored);
     }
   }, [setLocale]);
+}
+
+/** Sync UI theme from localStorage with Zustand (blocking script already set `data-ui-theme`). */
+export function useHydrateUiTheme(): void {
+  useEffect(() => {
+    const stored = readStoredUiTheme();
+    applyUiThemeToDocument(stored);
+    useMapStore.setState({ uiTheme: stored });
+  }, []);
 }
 
 export function useLocale(): AtlasLocale {

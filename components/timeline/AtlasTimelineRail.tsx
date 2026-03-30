@@ -121,7 +121,7 @@ const MarkerDot = memo(function MarkerDot({
         className={`relative h-[10px] w-[10px] rounded-full border-[1.5px] transition-all duration-200 ${
           isPast
             ? `${KIND_COLORS[marker.kind]} ${KIND_GLOW[marker.kind]}`
-            : 'bg-white/[0.08] border-white/[0.15]'
+            : 'bg-chrome-fill-active border-chrome-border-strong'
         } group-hover:scale-[1.6] group-focus-visible:scale-[1.6] group-focus-visible:ring-1 group-focus-visible:ring-gold/40`}
       />
     </button>
@@ -185,15 +185,15 @@ function MarkerTooltip({
       exit={{ opacity: 0, y: 6, scale: 0.95 }}
       transition={{ duration: 0.12 }}
       role="tooltip"
-      className="pointer-events-none fixed z-[9999] rounded-lg border border-white/[0.1] px-3.5 py-2.5"
+      className="pointer-events-none fixed z-[9999] rounded-lg border border-chrome-border bg-chrome-popover px-3.5 py-2.5"
       style={{
         left,
         top,
         width: tooltipW,
         transform: 'translateY(-100%)',
-        background: 'rgba(13, 15, 22, 0.97)',
         backdropFilter: 'blur(24px) saturate(1.2)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
+        boxShadow:
+          '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
       }}
     >
       <p className="text-[12px] font-semibold text-parchment leading-snug">
@@ -306,7 +306,7 @@ export default function AtlasTimelineRail() {
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: 'auto' }}
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-      className="overflow-hidden border-t border-white/[0.06]"
+      className="overflow-hidden border-t border-chrome-border"
       data-onboarding="timeline"
     >
       <div className="flex items-center gap-4 px-4 py-2.5 pointer-events-auto sm:gap-5 sm:px-6">
@@ -316,7 +316,7 @@ export default function AtlasTimelineRail() {
 
         <div className="relative min-h-[44px] min-w-0 flex-1 pt-2">
           {/* Background track */}
-          <div className="absolute top-[10px] right-0 left-0 h-[3px] rounded-full bg-white/[0.05]" />
+          <div className="absolute top-[10px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised" />
 
           {/* Elapsed fill */}
           <div

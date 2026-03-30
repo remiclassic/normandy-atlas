@@ -24,7 +24,7 @@ export const EraTooltip = memo(function EraTooltip({
         role="tooltip"
         className="
           pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2.5
-          z-50 w-56 rounded-lg glass-panel border border-white/[0.06]
+          z-50 w-56 rounded-lg glass-panel border border-chrome-border
           px-3.5 py-2.5 opacity-0 scale-95
           group-hover/tip:opacity-100 group-hover/tip:scale-100
           group-focus-within/tip:opacity-100 group-focus-within/tip:scale-100

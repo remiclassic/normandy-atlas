@@ -82,7 +82,7 @@ const ShareBar = memo(function ShareBar({ row, locale }: { row: MigrationShareRo
           {pct}%
         </span>
       </div>
-      <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+      <div className="h-1.5 w-full rounded-full bg-chrome-divider overflow-hidden">
         <motion.div
           className="h-full rounded-full bg-gold/50"
           initial={{ width: 0 }}
@@ -108,7 +108,7 @@ const MethodologyDrawer = memo(function MethodologyDrawer({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-t border-white/[0.06]">
+    <div className="border-t border-chrome-border">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
@@ -230,7 +230,7 @@ const CohortSelect = memo(function CohortSelect({
         aria-expanded={open}
         aria-controls="migration-cohort-listbox"
         onClick={toggle}
-        className="flex w-full items-center justify-between gap-2 rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1.5 text-left text-[11px] text-text/80 outline-none transition-colors focus-visible:border-gold/30"
+        className="flex w-full items-center justify-between gap-2 rounded-md border border-chrome-border-strong bg-chrome-fill px-2.5 py-1.5 text-left text-[11px] text-text/80 outline-none transition-colors focus-visible:border-gold/30"
       >
         <span className="min-w-0 truncate">
           {current ? pickI18n(current.label, locale) : ''}
@@ -263,7 +263,7 @@ const CohortSelect = memo(function CohortSelect({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 right-0 top-full z-50 mt-1 max-h-48 overflow-y-auto rounded-md border border-white/[0.1] bg-[rgba(16,18,26,0.98)] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl scrollbar-thin"
+            className="absolute left-0 right-0 top-full z-50 mt-1 max-h-48 overflow-y-auto rounded-md border border-chrome-border bg-chrome-popover py-1 shadow-atlas-popover backdrop-blur-xl scrollbar-thin"
           >
             {cohorts.map((c) => {
               const selected = c.id === value;
@@ -281,7 +281,7 @@ const CohortSelect = memo(function CohortSelect({
                         ? 'cursor-not-allowed text-text-dim/35'
                         : selected
                           ? 'bg-gold/20 text-parchment'
-                          : 'text-text/85 hover:bg-white/[0.06]'
+                          : 'text-text/85 hover:bg-chrome-fill-hover'
                     }`}
                   >
                     {pickI18n(c.label, locale)}
@@ -373,7 +373,7 @@ export default function MigrationExplorerPanel() {
                 Migration Patterns
               </h3>
               {dataset && (
-                <span className="inline-flex items-center gap-1.5 mt-1 text-[10px] text-text-dim/70 bg-white/[0.03] px-2 py-0.5 rounded-md border border-white/[0.06]">
+                <span className="inline-flex items-center gap-1.5 mt-1 text-[10px] text-text-dim/70 bg-chrome-fill-badge px-2 py-0.5 rounded-md border border-chrome-border">
                   {dataset.yearRange[0]}–{dataset.yearRange[1]}
                 </span>
               )}
@@ -392,7 +392,7 @@ export default function MigrationExplorerPanel() {
                   className={`flex-1 py-1 px-2 rounded-md text-[11px] font-medium transition-all duration-150 ${
                     mapMode === tab.id
                       ? 'bg-gold/20 text-parchment border border-gold/30'
-                      : 'bg-white/[0.03] text-text-dim border border-transparent hover:bg-white/[0.06] hover:text-text-muted'
+                      : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover hover:text-text-muted'
                   }`}
                 >
                   {tab.label}
@@ -411,7 +411,7 @@ export default function MigrationExplorerPanel() {
                     className={`flex-1 py-1 px-2 rounded-md text-[10px] font-medium transition-all duration-150 ${
                       branch === b
                         ? 'bg-blue/20 text-blue border border-blue/30'
-                        : 'bg-white/[0.03] text-text-dim border border-transparent hover:bg-white/[0.06]'
+                        : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover'
                     }`}
                   >
                     {BRANCH_LABELS[b]}
@@ -426,7 +426,7 @@ export default function MigrationExplorerPanel() {
             </div>
 
             {/* Divider */}
-            <div className="h-px bg-white/[0.06] mx-4" />
+            <div className="h-px bg-chrome-divider mx-4" />
 
             {/* Bar chart */}
             <div className="px-4 py-2">
@@ -468,7 +468,7 @@ export default function MigrationExplorerPanel() {
                   animate={{ x: flowEnabled ? 12 : 0 }}
                   transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
                   className={`absolute left-0.5 top-[3px] h-2.5 w-2.5 rounded-full shadow-sm ${
-                    flowEnabled ? 'bg-parchment' : 'bg-white/35'
+                    flowEnabled ? 'bg-parchment' : 'bg-text-muted/35'
                   }`}
                 />
               </button>

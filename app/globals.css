@@ -8,6 +8,7 @@
   --color-surface-hover: #1a1e2b;
   --color-surface-bright: #242938;
   --color-surface-glass: rgba(16, 19, 28, 0.82);
+  --color-surface-elevated: rgba(16, 19, 28, 0.88);
   --color-border: #1e2232;
   --color-border-bright: #2e3348;
   --color-border-glow: rgba(196, 169, 98, 0.15);
@@ -24,9 +25,105 @@
   --color-ember: #a85c3b;
   --color-ember-glow: rgba(168, 92, 59, 0.15);
 
+  --color-chrome-border: rgba(255, 255, 255, 0.08);
+  --color-chrome-border-strong: rgba(255, 255, 255, 0.12);
+  --color-chrome-fill: rgba(255, 255, 255, 0.04);
+  --color-chrome-fill-hover: rgba(255, 255, 255, 0.06);
+  --color-chrome-fill-active: rgba(255, 255, 255, 0.08);
+  --color-chrome-fill-raised: rgba(255, 255, 255, 0.05);
+  --color-chrome-fill-pressed: rgba(255, 255, 255, 0.12);
+  --color-chrome-fill-badge: rgba(255, 255, 255, 0.03);
+  --color-chrome-gradient-top: rgba(255, 255, 255, 0.08);
+  --color-chrome-gradient-bottom: rgba(255, 255, 255, 0.03);
+  --color-chrome-inset-highlight: rgba(255, 255, 255, 0.12);
+  --color-chrome-inset-soft: rgba(255, 255, 255, 0.06);
+  --color-chrome-popover: rgba(13, 15, 22, 0.96);
+  --color-chrome-tooltip-shadow: rgba(0, 0, 0, 0.5);
+  --color-chrome-tooltip-ring: rgba(255, 255, 255, 0.04);
+  --color-chrome-divider: rgba(255, 255, 255, 0.06);
+  --color-chrome-shade-strong: rgba(255, 255, 255, 0.04);
+  --color-guided-overlay: rgba(10, 12, 18, 0.62);
+  --color-guided-stroke: rgba(196, 169, 98, 0.18);
+
   --shadow-panel: 0 8px 40px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.3);
   --shadow-glow-gold: 0 0 20px rgba(196, 169, 98, 0.08), 0 0 60px rgba(196, 169, 98, 0.04);
   --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.55);
+  --shadow-popover: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --shadow-detail-mobile: -12px 0 48px rgba(0, 0, 0, 0.55);
+  --shadow-detail-desktop-inset: inset 1px 0 0 rgba(255, 255, 255, 0.04);
+
+  --welcome-bg-base: #08090f;
+  --welcome-gradient-1: rgba(30, 26, 18, 0.6);
+  --welcome-gradient-2: rgba(42, 36, 24, 0.3);
+  --welcome-gradient-stop-top: #08090f;
+  --welcome-gradient-stop-mid: #0c0e16;
+  --welcome-gradient-stop-bottom: #100e0a;
+  --welcome-vignette-outer: rgba(8, 9, 15, 0.9);
+  --welcome-vignette-inner: rgba(8, 9, 15, 0.5);
+}
+
+[data-ui-theme='light'] {
+  --color-background: #f0e6d4;
+  --color-background-warm: #ebe0cc;
+  --color-foreground: #2c2419;
+  --color-surface: #e8dcc8;
+  --color-surface-hover: #e0d2bc;
+  --color-surface-bright: #dccfb8;
+  --color-surface-glass: rgba(255, 252, 245, 0.88);
+  --color-surface-elevated: rgba(255, 250, 240, 0.94);
+  --color-border: rgba(60, 48, 36, 0.14);
+  --color-border-bright: rgba(60, 48, 36, 0.22);
+  --color-border-glow: rgba(140, 110, 55, 0.2);
+  --color-text: #2c2419;
+  --color-text-muted: #6b5c4a;
+  --color-text-dim: #9a8b78;
+  --color-gold: #9a7b2d;
+  --color-gold-bright: #b8923a;
+  --color-gold-muted: #7a6638;
+  --color-gold-glow: rgba(154, 123, 45, 0.14);
+  --color-blue: #4a6d8c;
+  --color-blue-bright: #5d82a3;
+  --color-parchment: #4a3f32;
+  --color-ember: #8b4a2e;
+  --color-ember-glow: rgba(139, 74, 46, 0.12);
+
+  --color-chrome-border: rgba(44, 36, 25, 0.1);
+  --color-chrome-border-strong: rgba(44, 36, 25, 0.14);
+  --color-chrome-fill: rgba(44, 36, 25, 0.04);
+  --color-chrome-fill-hover: rgba(44, 36, 25, 0.07);
+  --color-chrome-fill-active: rgba(44, 36, 25, 0.09);
+  --color-chrome-fill-raised: rgba(44, 36, 25, 0.06);
+  --color-chrome-fill-pressed: rgba(44, 36, 25, 0.12);
+  --color-chrome-fill-badge: rgba(44, 36, 25, 0.05);
+  --color-chrome-gradient-top: rgba(255, 255, 255, 0.45);
+  --color-chrome-gradient-bottom: rgba(44, 36, 25, 0.04);
+  --color-chrome-inset-highlight: rgba(255, 255, 255, 0.35);
+  --color-chrome-inset-soft: rgba(44, 36, 25, 0.06);
+  --color-chrome-popover: rgba(255, 250, 242, 0.97);
+  --color-chrome-tooltip-shadow: rgba(42, 34, 24, 0.12);
+  --color-chrome-tooltip-ring: rgba(44, 36, 25, 0.08);
+  --color-chrome-divider: rgba(44, 36, 25, 0.1);
+  --color-chrome-shade-strong: rgba(44, 36, 25, 0.06);
+  --color-guided-overlay: rgba(240, 230, 210, 0.72);
+  --color-guided-stroke: rgba(154, 123, 45, 0.35);
+
+  --shadow-panel: 0 8px 36px rgba(42, 34, 24, 0.08), 0 2px 10px rgba(42, 34, 24, 0.05);
+  --shadow-glow-gold: 0 0 24px rgba(154, 123, 45, 0.12), 0 0 48px rgba(154, 123, 45, 0.06);
+  --shadow-elevated: 0 12px 40px rgba(42, 34, 24, 0.1), 0 4px 14px rgba(42, 34, 24, 0.06);
+  --shadow-modal: 0 24px 64px rgba(42, 34, 24, 0.14);
+  --shadow-popover: 0 16px 40px rgba(42, 34, 24, 0.1);
+  --shadow-detail-mobile: -12px 0 40px rgba(42, 34, 24, 0.12);
+  --shadow-detail-desktop-inset: inset 1px 0 0 rgba(44, 36, 25, 0.08);
+
+  --welcome-bg-base: #ebe2d0;
+  --welcome-gradient-1: rgba(120, 95, 65, 0.12);
+  --welcome-gradient-2: rgba(90, 72, 52, 0.08);
+  --welcome-gradient-stop-top: #ebe2d0;
+  --welcome-gradient-stop-mid: #e5dac4;
+  --welcome-gradient-stop-bottom: #ddd2bc;
+  --welcome-vignette-outer: rgba(74, 61, 48, 0.2);
+  --welcome-vignette-inner: rgba(74, 61, 48, 0.12);
 }
 
 @theme inline {
@@ -37,6 +134,7 @@
   --color-surface-hover: var(--color-surface-hover);
   --color-surface-bright: var(--color-surface-bright);
   --color-surface-glass: var(--color-surface-glass);
+  --color-surface-elevated: var(--color-surface-elevated);
   --color-border: var(--color-border);
   --color-border-bright: var(--color-border-bright);
   --color-border-glow: var(--color-border-glow);
@@ -52,6 +150,25 @@
   --color-parchment: var(--color-parchment);
   --color-ember: var(--color-ember);
   --color-ember-glow: var(--color-ember-glow);
+  --color-chrome-border: var(--color-chrome-border);
+  --color-chrome-border-strong: var(--color-chrome-border-strong);
+  --color-chrome-fill: var(--color-chrome-fill);
+  --color-chrome-fill-hover: var(--color-chrome-fill-hover);
+  --color-chrome-fill-active: var(--color-chrome-fill-active);
+  --color-chrome-fill-raised: var(--color-chrome-fill-raised);
+  --color-chrome-fill-pressed: var(--color-chrome-fill-pressed);
+  --color-chrome-fill-badge: var(--color-chrome-fill-badge);
+  --color-chrome-gradient-top: var(--color-chrome-gradient-top);
+  --color-chrome-gradient-bottom: var(--color-chrome-gradient-bottom);
+  --color-chrome-inset-highlight: var(--color-chrome-inset-highlight);
+  --color-chrome-inset-soft: var(--color-chrome-inset-soft);
+  --color-chrome-popover: var(--color-chrome-popover);
+  --color-chrome-tooltip-shadow: var(--color-chrome-tooltip-shadow);
+  --color-chrome-tooltip-ring: var(--color-chrome-tooltip-ring);
+  --color-chrome-divider: var(--color-chrome-divider);
+  --color-chrome-shade-strong: var(--color-chrome-shade-strong);
+  --color-guided-overlay: var(--color-guided-overlay);
+  --color-guided-stroke: var(--color-guided-stroke);
   --font-sans: var(--font-inter);
   --font-display: var(--font-crimson);
 }
@@ -81,6 +198,12 @@ body {
     linear-gradient(to bottom, rgba(10, 12, 18, 0.5) 0%, transparent 8%, transparent 92%, rgba(10, 12, 18, 0.6) 100%);
 }
 
+[data-ui-theme='light'] .vignette-overlay {
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(74, 61, 48, 0.12) 100%),
+    linear-gradient(to bottom, rgba(74, 61, 48, 0.14) 0%, transparent 10%, transparent 90%, rgba(74, 61, 48, 0.16) 100%);
+}
+
 /* Glass panel base */
 .glass-panel {
   background: var(--color-surface-glass);
@@ -91,7 +214,7 @@ body {
 }
 
 .glass-panel-elevated {
-  background: rgba(16, 19, 28, 0.88);
+  background: var(--color-surface-elevated);
   backdrop-filter: blur(24px) saturate(1.15);
   -webkit-backdrop-filter: blur(24px) saturate(1.15);
   border: 1px solid var(--color-border);
@@ -170,7 +293,7 @@ body {
   color: rgba(74, 61, 50, 0.55) !important;
 }
 
-/* Scrollbar styles — dark theme (WebKit + Firefox) */
+/* Scrollbar styles — theme-aware (WebKit + Firefox) */
 .scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: rgba(46, 51, 72, 0.85) transparent;
@@ -193,12 +316,33 @@ body {
   background: rgba(46, 51, 72, 0.7);
 }
 
+[data-ui-theme='light'] .scrollbar-thin {
+  scrollbar-color: rgba(100, 86, 68, 0.45) transparent;
+}
+
+[data-ui-theme='light'] .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(100, 86, 68, 0.35);
+}
+
+[data-ui-theme='light'] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 61, 48, 0.5);
+}
+
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* React overlay tooltip on map canvas — follows UI theme (light/dark) */
+.map-atlas-tooltip {
+  background: var(--color-chrome-popover);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-chrome-border-strong);
+  box-shadow: var(--shadow-popover);
 }
 
 /* Section divider with subtle gradient */
@@ -243,6 +387,47 @@ body {
   animation: parchment-grain-shift 22s ease-in-out infinite;
 }
 
+/* Manuscript basemap — optional cool wash + noise drift (reads as slow sea motion) */
+@keyframes parchment-water-sheen {
+  0%,
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  40% {
+    transform: translate(-2.2%, 1.4%) scale(1.04);
+  }
+  70% {
+    transform: translate(1.5%, -1.1%) scale(1.02);
+  }
+}
+
+@keyframes parchment-water-noise-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-1.8%, 1.2%);
+  }
+}
+
+.parchment-water-sheen-motion {
+  animation: parchment-water-sheen 32s ease-in-out infinite;
+  will-change: transform;
+}
+
+.parchment-water-noise-motion {
+  animation: parchment-water-noise-drift 38s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parchment-water-sheen-motion,
+  .parchment-water-noise-motion {
+    animation: none;
+  }
+}
+
 /* Onboarding intro fog layers — GPU-accelerated CSS transforms, no React state */
 @keyframes onboarding-fog-1 {
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.14; }
@@ -262,4 +447,37 @@ body {
 .onboarding-fog-2 {
   animation: onboarding-fog-2 24s ease-in-out infinite;
   will-change: transform, opacity;
+}
+
+/* Theme-aware shadows (avoid @theme self-reference; vars come from :root / [data-ui-theme]) */
+.shadow-atlas-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+.shadow-atlas-modal {
+  box-shadow: var(--shadow-modal);
+}
+.shadow-atlas-popover {
+  box-shadow: var(--shadow-popover);
+}
+.shadow-atlas-detail-mobile {
+  box-shadow: var(--shadow-detail-mobile);
+}
+.shadow-atlas-detail-desktop {
+  box-shadow: var(--shadow-detail-desktop-inset);
+}
+
+/* Welcome gate — theme-aware base + gradients */
+.welcome-intro-root {
+  background: var(--welcome-bg-base);
+}
+.welcome-intro-gradients {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 55%, var(--welcome-gradient-1) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 45% 50%, var(--welcome-gradient-2) 0%, transparent 60%),
+    linear-gradient(
+      180deg,
+      var(--welcome-gradient-stop-top) 0%,
+      var(--welcome-gradient-stop-mid) 40%,
+      var(--welcome-gradient-stop-bottom) 100%
+    );
 }

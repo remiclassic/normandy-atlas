@@ -99,6 +99,70 @@ const STRINGS = {
     it: 'Una mappa viva di persone, movimenti e tempo',
   },
 
+  'theme.label': {
+    en: 'Interface',
+    fr: 'Interface',
+    es: 'Interfaz',
+    it: 'Interfaccia',
+  },
+  'theme.aria.dim': {
+    en: 'Dim color scheme',
+    fr: 'Couleurs tamisées',
+    es: 'Esquema de color suave',
+    it: 'Schema colori attenuato',
+  },
+  'theme.aria.bright': {
+    en: 'Parchment color scheme',
+    fr: 'Couleurs parchemin',
+    es: 'Esquema pergamino',
+    it: 'Schema colori pergamena',
+  },
+
+  'basemap.group': {
+    en: 'Map base',
+    fr: 'Fond de carte',
+    es: 'Base del mapa',
+    it: 'Base della mappa',
+  },
+  'basemap.aria.cartographic': {
+    en: 'Cartographic basemap',
+    fr: 'Fond cartographique',
+    es: 'Mapa cartográfico',
+    it: 'Basemap cartografico',
+  },
+  'basemap.aria.manuscript': {
+    en: 'Manuscript-style basemap',
+    fr: 'Fond style manuscrit',
+    es: 'Mapa estilo manuscrito',
+    it: 'Basemap stile manoscritto',
+  },
+
+  'terrain.label': {
+    en: 'Terrain',
+    fr: 'Relief',
+    es: 'Relieve',
+    it: 'Rilievo',
+  },
+  'terrain.aria.toggle': {
+    en: 'Toggle 3D terrain',
+    fr: 'Activer/désactiver le relief 3D',
+    es: 'Alternar terreno 3D',
+    it: 'Attiva/disattiva terreno 3D',
+  },
+
+  'layers.parchmentWater.label': {
+    en: 'Sea and atmosphere motion',
+    fr: 'Mouvement mer et atmosphère',
+    es: 'Movimiento del mar y atmósfera',
+    it: 'Movimento di mare e atmosfera',
+  },
+  'layers.parchmentWater.hint': {
+    en: 'Subtle cool drift over the map on manuscript style (not coast-accurate).',
+    fr: 'Léger voile froid animé sur la carte (style manuscrit ; pas calé sur les côtes).',
+    es: 'Velo frío sutil animado (estilo manuscrito; no coincide con la costa).',
+    it: 'Velatura fredda animata sullo stile manoscritto (non allineata alle coste).',
+  },
+
   'layers.explorationYearStrict.label': {
     en: 'Match exploration routes to timeline year',
     fr: 'Aligner les routes d\'exploration sur l\'année de la frise',
@@ -508,6 +572,24 @@ const STRINGS = {
     fr: 'Suivre son parcours sur la carte',
     es: 'Seguir su historia en el mapa',
     it: 'Segui la sua storia sulla mappa',
+  },
+  'flythrough.label': {
+    en: 'Cinematic Flythrough',
+    fr: 'Survol cinématique',
+    es: 'Sobrevuelo cinematográfico',
+    it: 'Sorvolo cinematico',
+  },
+  'flythrough.exit': {
+    en: 'Exit flythrough',
+    fr: 'Quitter le survol',
+    es: 'Salir del sobrevuelo',
+    it: 'Esci dal sorvolo',
+  },
+  'flythrough.playing': {
+    en: 'Flying along route...',
+    fr: 'Survol de la route...',
+    es: 'Sobrevolando la ruta...',
+    it: 'In volo sulla rotta...',
   },
 } as const satisfies StringTable;
 

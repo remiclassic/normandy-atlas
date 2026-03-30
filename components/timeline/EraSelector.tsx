@@ -49,14 +49,14 @@ function EraIconTooltip({
       exit={{ opacity: 0, y: -4, scale: 0.96 }}
       transition={{ duration: 0.12 }}
       role="tooltip"
-      className="pointer-events-none fixed z-[9999] rounded-lg border border-white/[0.08] px-3.5 py-2.5"
+      className="pointer-events-none fixed z-[9999] rounded-lg border border-chrome-border-strong bg-chrome-popover px-3.5 py-2.5"
       style={{
         left,
         top,
         width: TOOLTIP_WIDTH,
-        background: 'rgba(13, 15, 22, 0.97)',
         backdropFilter: 'blur(24px) saturate(1.2)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)',
+        boxShadow:
+          '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
       }}
     >
       <p className="text-[12px] font-semibold text-parchment leading-tight">
@@ -131,13 +131,13 @@ const EraIcon = memo(function EraIcon({
         {isActive && (
           <motion.div
             layoutId="era-icon-active"
-            className="absolute inset-0 rounded-md bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-gold/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+            className="absolute inset-0 rounded-md bg-gradient-to-b from-chrome-gradient-top to-chrome-gradient-bottom border border-gold/20 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft)]"
             transition={{ type: 'spring', stiffness: 380, damping: 28 }}
           />
         )}
 
         {!isActive && !disabled && (
-          <div className="absolute inset-0 rounded-md bg-white/0 hover:bg-white/[0.03] transition-colors duration-200" />
+          <div className="absolute inset-0 rounded-md bg-transparent hover:bg-chrome-fill-badge transition-colors duration-200" />
         )}
 
         <EraGlyph id={item.id} className="relative z-10 h-4 w-4" />
@@ -277,7 +277,7 @@ function JumpPanel({
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -4, scale: 0.97 }}
           transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="overflow-y-auto rounded-xl border border-white/[0.08] bg-[rgba(13,15,22,0.96)] py-1.5 shadow-[0_16px_48px_rgba(0,0,0,0.55)] backdrop-blur-xl scrollbar-thin"
+          className="overflow-y-auto rounded-xl border border-chrome-border-strong bg-chrome-popover py-1.5 shadow-atlas-popover backdrop-blur-xl scrollbar-thin"
         >
           {model.groups.map((group, gi) => (
             <div key={group.label || gi}>
@@ -298,7 +298,7 @@ function JumpPanel({
                     className={`
                       flex w-full items-center gap-2.5 px-3.5 py-1.5 text-left
                       transition-colors duration-150
-                      ${active ? 'bg-white/[0.05] text-parchment' : 'text-text-muted hover:bg-white/[0.03] hover:text-parchment'}
+                      ${active ? 'bg-chrome-fill-raised text-parchment' : 'text-text-muted hover:bg-chrome-fill-badge hover:text-parchment'}
                     `}
                   >
                     <EraGlyph id={item.id} className="h-3.5 w-3.5 flex-shrink-0 opacity-60" />
@@ -318,12 +318,12 @@ function JumpPanel({
                 );
               })}
               {gi < model.groups.length - 1 && (
-                <div className="mx-3 my-1 h-px bg-white/[0.06]" />
+                <div className="mx-3 my-1 h-px bg-chrome-divider" />
               )}
             </div>
           ))}
 
-          <div className="mt-1 border-t border-white/[0.06] px-3.5 pt-2 pb-1.5">
+          <div className="mt-1 border-t border-chrome-border px-3.5 pt-2 pb-1.5">
             <span className="text-[9px] text-text-dim/40">
               Alt + Left/Right to cycle &middot; Alt + Home/End to jump
             </span>
@@ -460,7 +460,7 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
             title={storyMode ? 'Exit story mode to change era' : isFirst ? 'First era' : `Previous: ${byId.get(flatIds[activeIndex - 1] ?? '')?.label ?? ''}`}
             className={`
             flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
-            ${storyMode || isFirst ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-white/[0.04] cursor-pointer'}
+            ${storyMode || isFirst ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
           `}
           >
             <ChevronLeft className="h-3.5 w-3.5" strokeWidth={2} />
@@ -487,13 +487,13 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
             title={storyMode ? 'Exit story mode to change era' : isLast ? 'Last era' : `Next: ${byId.get(flatIds[activeIndex + 1] ?? '')?.label ?? ''}`}
             className={`
             flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
-            ${storyMode || isLast ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-white/[0.04] cursor-pointer'}
+            ${storyMode || isLast ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
           `}
           >
             <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} />
           </button>
 
-          <div className="h-3.5 w-px flex-shrink-0 bg-white/[0.06]" />
+          <div className="h-3.5 w-px flex-shrink-0 bg-chrome-divider" />
 
           <div ref={jumpContainerRef} className="relative flex-shrink-0">
             <button
@@ -506,7 +506,7 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
               className={`
               relative flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md
               transition-colors duration-200
-              ${storyMode ? 'opacity-30 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-white/[0.04] cursor-pointer'}
+              ${storyMode ? 'opacity-30 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
             `}
             >
               <List className="h-3 w-3" strokeWidth={2} />
@@ -524,7 +524,7 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
       </div>
 
       {/* Thin separator */}
-      <div className="mx-1.5 h-px bg-white/[0.04]" />
+      <div className="mx-1.5 h-px bg-chrome-shade-strong" />
 
       {/* Row 2: single horizontal rail, centered — uses full bar width; scrolls on very small screens */}
       <div
@@ -552,7 +552,7 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
             ))}
 
             {gi < groups.length - 1 && (
-              <div className="mx-1 h-4 w-px flex-shrink-0 bg-white/[0.06] sm:mx-2" />
+              <div className="mx-1 h-4 w-px flex-shrink-0 bg-chrome-divider sm:mx-2" />
             )}
           </div>
         ))}

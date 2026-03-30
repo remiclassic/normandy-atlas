@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
 import { getStoryBeats, getBeat, getBeatCount } from '@/core';
-import { getArcEntriesForEra } from '@/data/atlas/era-arcs';
+import { arcChromeStyle, getArcEntriesForEra } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
@@ -19,6 +19,7 @@ export default function StoryModeBar() {
   const atlasMode = useMapStore((s) => s.atlasMode);
   const storyArc = useMapStore((s) => s.storyArc);
   const locale = useMapStore((s) => s.locale);
+  const uiTheme = useMapStore((s) => s.uiTheme);
   const startStory = useMapStore((s) => s.startStory);
   const stopStory = useMapStore((s) => s.stopStory);
   const nextStep = useMapStore((s) => s.nextStoryStep);
@@ -128,20 +129,23 @@ export default function StoryModeBar() {
               {t('story.explore', locale)}
             </button>
 
-            {arcEntries.map((entry) => (
+            {arcEntries.map((entry) => {
+              const st = arcChromeStyle(entry, uiTheme);
+              return (
               <button
                 key={entry.arcId}
                 onClick={() => handleStartArc(entry.arcId)}
-                className={`group flex items-center gap-2.5 rounded-full glass-panel px-5 py-3 text-[13px] font-medium transition-all duration-250 ${entry.style.text} ${entry.style.textHover} ${entry.style.border} ${entry.style.borderHover}`}
+                className={`group flex items-center gap-2.5 rounded-full glass-panel px-5 py-3 text-[13px] font-medium transition-all duration-250 ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
               >
-                <span className={`flex items-center justify-center w-6 h-6 rounded-full ${entry.style.iconBg} ${entry.style.iconBgHover} transition-colors duration-200`}>
+                <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
                   <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                     <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                   </svg>
                 </span>
                 {pickI18n(entry.label, locale)}
               </button>
-            ))}
+            );
+            })}
           </motion.div>
         )}
       </AnimatePresence>
@@ -157,7 +161,7 @@ export default function StoryModeBar() {
           >
             <div className="mx-auto max-w-2xl mb-6 px-4">
               <div className="rounded-2xl glass-panel-elevated overflow-hidden">
-                <div className="relative h-[2px] bg-white/[0.04]">
+                <div className="relative h-[2px] bg-chrome-shade-strong">
                   <motion.div
                     className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold/60 to-gold/40"
                     animate={{ width: `${progress}%` }}
@@ -178,7 +182,7 @@ export default function StoryModeBar() {
                             ? 'w-5 bg-gold/70'
                             : i < stepIndex
                               ? 'w-1.5 bg-gold/25'
-                              : 'w-1.5 bg-white/[0.06]'
+                              : 'w-1.5 bg-chrome-divider'
                         }`}
                       />
                     ))}
@@ -210,7 +214,7 @@ export default function StoryModeBar() {
                 <div className="flex items-center justify-between px-5 pb-4 pt-1">
                   <button
                     onClick={handleStop}
-                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-white/[0.03]"
+                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-chrome-fill-badge"
                   >
                     {t('story.exit', locale)}
                   </button>
@@ -218,7 +222,7 @@ export default function StoryModeBar() {
                     <button
                       onClick={prevStep}
                       disabled={isFirst}
-                      className="flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-white/[0.03]"
+                      className="flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-chrome-fill-badge"
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

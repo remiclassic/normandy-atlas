@@ -89,7 +89,7 @@ export const NormanOverviewIconButton = memo(function NormanOverviewIconButton({
     <button
       type="button"
       onClick={onOpen}
-      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-white/[0.04] hover:text-gold/70"
+      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
       aria-label={ariaLabel}
     >
       <BookOpen className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
@@ -145,14 +145,14 @@ export const NormanOverviewModal = memo(function NormanOverviewModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative max-h-[min(90vh,820px)] w-full max-w-2xl overflow-hidden rounded-2xl border border-white/[0.08] glass-panel-elevated shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
+            className="relative max-h-[min(90vh,820px)] w-full max-w-2xl overflow-hidden rounded-2xl border border-chrome-border-strong glass-panel-elevated shadow-atlas-modal"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               ref={closeRef}
               type="button"
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-lg border border-transparent bg-white/[0.04] text-text-dim transition-all duration-150 hover:border-white/[0.06] hover:bg-white/[0.08] hover:text-text-muted"
+              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-lg border border-transparent bg-chrome-fill text-text-dim transition-all duration-150 hover:border-chrome-border hover:bg-chrome-fill-active hover:text-text-muted"
               aria-label={t('normanOverview.aria.close', locale)}
             >
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>

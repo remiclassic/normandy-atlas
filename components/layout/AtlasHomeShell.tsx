@@ -8,20 +8,25 @@ import LayerPanel from '@/components/panels/LayerPanel';
 import MigrationExplorerPanel from '@/components/panels/MigrationExplorerPanel';
 import HistoricalDetailPanel from '@/components/panels/HistoricalDetailPanel';
 import StoryModeBar from '@/components/story/StoryModeBar';
+import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreditsIconButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
-import { useHydrateLocale, useLocale } from '@/hooks/use-atlas';
+import { useHydrateLocale, useHydrateUiTheme, useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import BasemapSwitcher from '@/components/ui/BasemapSwitcher';
+import { BackgroundMusic } from '@/components/audio/BackgroundMusic';
 
 /**
  * Full-width top chrome with branding + era controls; map and detail panel below.
  */
 export default function AtlasHomeShell() {
   useHydrateLocale();
+  useHydrateUiTheme();
   const locale = useLocale();
   const [creditsOpen, setCreditsOpen] = useState(false);
   const openCredits = useCallback(() => setCreditsOpen(true), []);
@@ -50,6 +55,9 @@ export default function AtlasHomeShell() {
         >
           <CreditsIconButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
         </ChromeIconTooltip>
+        <ThemeSwitcher />
+        <BasemapSwitcher />
+        <BackgroundMusic floating={false} />
         <LanguageSwitcher />
       </div>
     ),
@@ -58,9 +66,9 @@ export default function AtlasHomeShell() {
 
   return (
     <div className="flex h-screen w-screen flex-col overflow-hidden bg-background">
-      <header className="relative z-30 w-full shrink-0 border-b border-white/[0.06] bg-background/55 backdrop-blur-md pointer-events-none">
+      <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/55 backdrop-blur-md pointer-events-none">
         <div className="flex flex-col gap-2 px-4 py-2 pointer-events-auto sm:flex-row sm:items-center sm:gap-8 sm:px-5 sm:py-2.5">
-          <div className="flex shrink-0 flex-col gap-0.5 border-white/[0.06] sm:border-r sm:pr-8">
+          <div className="flex shrink-0 flex-col gap-0.5 border-chrome-border sm:border-r sm:pr-8">
             <h1 className="font-display text-[14px] font-bold leading-none tracking-wide text-parchment sm:text-[15px]">
               Norman Atlas
             </h1>
@@ -87,6 +95,7 @@ export default function AtlasHomeShell() {
             <MigrationExplorerPanel />
           </div>
           <StoryModeBar />
+          <CinematicFlythroughBar />
         </div>
 
         <HistoricalDetailPanel />

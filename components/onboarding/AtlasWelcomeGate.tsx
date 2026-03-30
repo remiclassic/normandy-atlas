@@ -6,6 +6,8 @@ import { useMapStore, isOnboardingDone } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import BasemapSwitcher from '@/components/ui/BasemapSwitcher';
 import GuidedAtlasOverlay from './GuidedAtlasOverlay';
 
 function IntroScreen({
@@ -37,29 +39,22 @@ function IntroScreen({
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.45, ease: [0.22, 0.94, 0.36, 1] }}
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-      style={{ background: '#08090f' }}
+      className="welcome-intro-root fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
     >
       {/* Language switcher — top-right */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.2 }}
-        className="absolute top-5 right-5 z-20"
+        className="absolute top-5 right-5 z-20 flex items-center gap-2"
       >
+        <ThemeSwitcher />
+        <BasemapSwitcher />
         <LanguageSwitcher />
       </motion.div>
 
-      {/* Warm base gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 55%, rgba(30,26,18,0.6) 0%, transparent 70%),' +
-            'radial-gradient(ellipse 60% 40% at 45% 50%, rgba(42,36,24,0.3) 0%, transparent 60%),' +
-            'linear-gradient(180deg, #08090f 0%, #0c0e16 40%, #100e0a 100%)',
-        }}
-      />
+      {/* Warm base gradient — tokens in globals.css (dark / light) */}
+      <div className="welcome-intro-gradients absolute inset-0" />
 
       {/* Fog layer 1 — slow drifting noise */}
       <div
@@ -111,10 +106,10 @@ function IntroScreen({
 
       {/* Deep vignette */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           boxShadow:
-            'inset 0 0 200px 80px rgba(8,9,15,0.9), inset 0 0 80px 30px rgba(8,9,15,0.5)',
+            'inset 0 0 200px 80px var(--welcome-vignette-outer), inset 0 0 80px 30px var(--welcome-vignette-inner)',
         }}
       />
 

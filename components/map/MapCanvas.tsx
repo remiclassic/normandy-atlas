@@ -9,6 +9,9 @@ import { PathStyleExtension } from '@deck.gl/extensions';
 import { motion, AnimatePresence } from 'motion/react';
 
 import { useMapStore, isOnboardingDone } from '@/lib/store';
+import { getFlythroughPreset } from '@/data/atlas/flythrough-presets';
+import { getJourneyPolyline } from '@/lib/flythrough-path';
+import { runMultiActFlythrough } from '@/lib/flythrough-camera';
 import { DARK_BASEMAP_URL, PARCHMENT_BASEMAP_URL } from './map-style';
 import { loadParchmentAtlasStyle } from './parchment-atlas-style';
 import ParchmentMapChrome from './ParchmentMapChrome';
@@ -36,6 +39,12 @@ import {
   SETTLEMENT_SOURCE,
 } from './map-layers';
 import { setCartoModernBasemapOverlaysVisible } from './basemap-modern-overlays';
+import {
+  ensureTerrainInfrastructure,
+  applyTerrainRuntimeState,
+  MAP_MAX_ZOOM_FLAT,
+} from './map-terrain';
+import TerrainToggle from './TerrainToggle';
 import { addAllNormandyLayers, setExpansionYearFilter, EVIDENCE_CIRCLES, EVIDENCE_ICONS, TOPONYMY_CIRCLES, TOPONYMY_LABELS, DENSITY_CIRCLES } from './normandy-layers';
 import { addAllNormanExpansionLayers, NORMAN_NODES_CIRCLES, NORMAN_NODES_SOURCE, setNormanNodePeriodFilter } from './norman-expansion-layers';
 import { applyParchmentOverlayLabelStyles } from './apply-parchment-overlay-labels';
@@ -487,6 +496,7 @@ export default function MapCanvas() {
   const tooltipRef = useRef<TooltipData | null>(null);
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const [eraTransition, setEraTransition] = useState(false);
+  const [mapBearing, setMapBearing] = useState(0);
 
   // Hoisted so the basemap-switch handler can also clear the tooltip
   const showTooltip = useCallback((data: TooltipData | null) => {
@@ -574,6 +584,8 @@ export default function MapCanvas() {
     const state = useMapStore.getState();
     const theme = state.basemapMode === 'parchment' ? 'parchment' : 'dark';
     try {
+      ensureTerrainInfrastructure(map);
+
       if (state.atlasMode) {
         const regionsGeoJson = getAtlasRegionsGeoJsonForEra(state.eraId);
         addRegionLayers(map, regionsGeoJson, state.eraId, theme);
@@ -607,6 +619,11 @@ export default function MapCanvas() {
 
       syncOverlay(state.eraId, state.layers);
       setCartoModernBasemapOverlaysVisible(map, state.modernBasemapOverlays);
+
+      applyTerrainRuntimeState(map, state.terrain3dEnabled, {
+        basemapMode: state.basemapMode,
+        skipCameraAnimation: true,
+      });
     } catch (err) {
       console.error('[MapCanvas] rebuild map layers failed:', err);
     }
@@ -647,7 +664,7 @@ export default function MapCanvas() {
         center: initialCenter,
         zoom: initialZoom,
         minZoom: 2,
-        maxZoom: 14,
+        maxZoom: MAP_MAX_ZOOM_FLAT,
         attributionControl: false,
         fadeDuration: 300,
       });
@@ -960,6 +977,15 @@ export default function MapCanvas() {
             loadState.selectFeature(loadState.eraId, 'era-info');
           }
         }
+
+        const syncMapBearing = () => {
+          if (cancelled || !map) return;
+          setMapBearing(map.getBearing());
+        };
+        map.on('rotate', syncMapBearing);
+        map.on('pitchend', syncMapBearing);
+        syncMapBearing();
+
         readyRef.current = true;
         tryRunOnboardingFly(map);
       });
@@ -1232,6 +1258,87 @@ export default function MapCanvas() {
     };
   }, [syncOverlay]);
 
+  // --- Cinematic flythrough controller ---
+  const flythroughAbortRef = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.cinematicFlythrough?.presetId ?? null,
+      (presetId) => {
+        // Abort any running flythrough first
+        if (flythroughAbortRef.current) {
+          flythroughAbortRef.current.abort();
+          flythroughAbortRef.current = null;
+        }
+
+        const map = mapRef.current;
+        if (!map || !readyRef.current || !presetId) {
+          // Re-enable interactions when stopping
+          try {
+            map?.dragPan.enable();
+            map?.dragRotate.enable();
+            map?.scrollZoom.enable();
+            map?.doubleClickZoom.enable();
+          } catch { /* map may not be ready */ }
+          return;
+        }
+
+        const preset = getFlythroughPreset(presetId);
+        if (!preset) { useMapStore.getState().stopCinematicFlythrough(); return; }
+
+        const polylines = preset.journeyIds
+          .map((jid) => getJourneyPolyline(jid))
+          .filter((p): p is NonNullable<typeof p> => p !== null);
+
+        if (polylines.length === 0) { useMapStore.getState().stopCinematicFlythrough(); return; }
+
+        // Set era + first journey for deck highlighting
+        useMapStore.getState().setEra(preset.defaultEraId);
+        useMapStore.getState().setActiveJourney(preset.journeyIds[0]);
+
+        // Disable user interaction during flythrough
+        map.dragPan.disable();
+        map.dragRotate.disable();
+        map.scrollZoom.disable();
+        map.doubleClickZoom.disable();
+
+        const abort = new AbortController();
+        flythroughAbortRef.current = abort;
+
+        const { setCinematicFlythroughProgress, setCinematicFlythroughAct, setActiveJourney, stopCinematicFlythrough } = useMapStore.getState();
+
+        runMultiActFlythrough(
+          map,
+          polylines,
+          { durationMs: polylines.length > 1 ? 40_000 : 50_000, interActPauseMs: 2500 },
+          (actIndex) => {
+            setCinematicFlythroughAct(actIndex);
+            if (preset.journeyIds[actIndex]) {
+              setActiveJourney(preset.journeyIds[actIndex]);
+              syncOverlay(useMapStore.getState().eraId, useMapStore.getState().layers);
+            }
+          },
+          (progress) => setCinematicFlythroughProgress(progress),
+          abort.signal,
+        ).then(() => {
+          stopCinematicFlythrough();
+        }).catch((err) => {
+          if (err instanceof DOMException && err.name === 'AbortError') return;
+          console.error('[MapCanvas] flythrough error:', err);
+          stopCinematicFlythrough();
+        }).finally(() => {
+          try {
+            map.dragPan.enable();
+            map.dragRotate.enable();
+            map.scrollZoom.enable();
+            map.doubleClickZoom.enable();
+            map.easeTo({ pitch: 0, bearing: 0, zoom: 5.8, duration: 1800 });
+          } catch { /* map may have been destroyed */ }
+        });
+      },
+    );
+  }, [syncOverlay]);
+
   useEffect(() => {
     return useMapStore.subscribe(
       (s) => s.basemapMode,
@@ -1282,6 +1389,18 @@ export default function MapCanvas() {
         const map = mapRef.current;
         if (!map || !readyRef.current) return;
         setCartoModernBasemapOverlaysVisible(map, on);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.terrain3dEnabled,
+      (enabled) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        const { basemapMode } = useMapStore.getState();
+        applyTerrainRuntimeState(map, enabled, { basemapMode });
       },
     );
   }, []);
@@ -1352,6 +1471,7 @@ export default function MapCanvas() {
   }, [syncOverlay]);
 
   const basemapMode = useMapStore((s) => s.basemapMode);
+  const parchmentWaterAtmosphere = useMapStore((s) => s.parchmentWaterAtmosphere);
 
   return (
     <>
@@ -1361,7 +1481,12 @@ export default function MapCanvas() {
         style={{ background: basemapMode === 'parchment' ? '#e8dcc8' : '#0a0c12' }}
       >
         <div ref={containerRef} className="absolute inset-0 z-0 h-full w-full" />
-        {basemapMode === 'parchment' ? <ParchmentMapChrome /> : null}
+        <div className="pointer-events-auto absolute top-3 right-3 z-20">
+          <TerrainToggle />
+        </div>
+        {basemapMode === 'parchment' ? (
+          <ParchmentMapChrome bearing={mapBearing} waterAtmosphere={parchmentWaterAtmosphere} />
+        ) : null}
       </div>
 
       <MapTooltip data={tooltip} />

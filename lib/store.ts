@@ -8,6 +8,8 @@ import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-fran
 import type { SelectionKind } from '@/types';
 import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocale } from '@/core/types';
 import { DEFAULT_LOCALE, readStoredLocale, persistLocale } from '@/lib/locale';
+import type { UiTheme } from '@/lib/ui-theme';
+import { DEFAULT_UI_THEME, persistUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -97,16 +99,28 @@ interface MapStore {
   migrationFlowEnabled: boolean;
   /** When true, Carto basemap shows cities, countries, roads, water names, and admin boundaries. */
   modernBasemapOverlays: boolean;
+  /** When true (manuscript basemap only), a subtle animated cool wash adds sea-like motion. */
+  parchmentWaterAtmosphere: boolean;
   /**
    * When true, exploration route segments respect `yearRange` vs simulation year.
    * When false (default), exploration lines stay visible for the whole era (easier to compare routes).
    */
   explorationRoutesYearStrict: boolean;
+  /** When true, 3D terrain (elevation + hillshade + fog) is active on the map. */
+  terrain3dEnabled: boolean;
+
+  /** Active cinematic flythrough preset, or null when not flying. */
+  cinematicFlythrough: { presetId: string; actIndex: number } | null;
+  /** Throttled progress [0–1] for the flythrough UI bar. */
+  cinematicFlythroughProgress: number;
 
   locale: AtlasLocale;
   onboardingPhase: OnboardingPhase;
+  /** App chrome only — map basemap uses `basemapMode`. */
+  uiTheme: UiTheme;
 
   setLocale: (locale: AtlasLocale) => void;
+  setUiTheme: (theme: UiTheme) => void;
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
   toggleLayer: (id: string) => void;
@@ -132,7 +146,13 @@ interface MapStore {
   setMigrationCohortId: (cohortId: MigrationCohortId) => void;
   setMigrationFlowEnabled: (enabled: boolean) => void;
   setModernBasemapOverlays: (visible: boolean) => void;
+  setParchmentWaterAtmosphere: (enabled: boolean) => void;
   setExplorationRoutesYearStrict: (strict: boolean) => void;
+  setTerrain3dEnabled: (enabled: boolean) => void;
+  startCinematicFlythrough: (presetId: string) => void;
+  stopCinematicFlythrough: () => void;
+  setCinematicFlythroughProgress: (progress: number) => void;
+  setCinematicFlythroughAct: (actIndex: number) => void;
   setOnboardingPhase: (phase: OnboardingPhase) => void;
 }
 
@@ -172,14 +192,26 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   migrationCohortId: 'all_immigrants' as MigrationCohortId,
   migrationFlowEnabled: false,
   modernBasemapOverlays: false,
+  parchmentWaterAtmosphere: false,
   explorationRoutesYearStrict: false,
+  terrain3dEnabled: false,
+  cinematicFlythrough: null,
+  cinematicFlythroughProgress: 0,
   locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
+  uiTheme: DEFAULT_UI_THEME,
 
   setLocale: (locale) => {
     persistLocale(locale);
     set({ locale });
   },
+
+  setUiTheme: (theme) => {
+    persistUiTheme(theme);
+    applyUiThemeToDocument(theme);
+    set({ uiTheme: theme });
+  },
+
   setAtlasMode: (enabled) =>
     set({
       atlasMode: enabled,
@@ -255,7 +287,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   openDetail: () => set({ detailPanelOpen: true }),
   closeDetail: () => set({ detailPanelOpen: false, selectedFeatureId: null, selectionKind: null }),
 
-  startStory: (arcId) => set({ storyMode: true, storyStepIndex: 0, storyArc: arcId ?? null, activeJourneyId: null }),
+  startStory: (arcId) => set({ storyMode: true, storyStepIndex: 0, storyArc: arcId ?? null, activeJourneyId: null, cinematicFlythrough: null, cinematicFlythroughProgress: 0 }),
   stopStory: () => set({ storyMode: false, storyArc: null, activeJourneyId: null }),
 
   nextStoryStep: () =>
@@ -289,7 +321,31 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
 
   setModernBasemapOverlays: (visible) => set({ modernBasemapOverlays: visible }),
 
+  setParchmentWaterAtmosphere: (enabled) => set({ parchmentWaterAtmosphere: enabled }),
+
   setExplorationRoutesYearStrict: (strict) => set({ explorationRoutesYearStrict: strict }),
+
+  setTerrain3dEnabled: (enabled) => set({ terrain3dEnabled: enabled }),
+
+  startCinematicFlythrough: (presetId) =>
+    set({
+      cinematicFlythrough: { presetId, actIndex: 0 },
+      cinematicFlythroughProgress: 0,
+      storyMode: false,
+      storyArc: null,
+    }),
+
+  stopCinematicFlythrough: () =>
+    set({ cinematicFlythrough: null, cinematicFlythroughProgress: 0, activeJourneyId: null }),
+
+  setCinematicFlythroughProgress: (progress) =>
+    set({ cinematicFlythroughProgress: progress }),
+
+  setCinematicFlythroughAct: (actIndex) =>
+    set((s) => s.cinematicFlythrough
+      ? { cinematicFlythrough: { ...s.cinematicFlythrough, actIndex } }
+      : s,
+    ),
 
   setOnboardingPhase: (phase) => {
     try {
