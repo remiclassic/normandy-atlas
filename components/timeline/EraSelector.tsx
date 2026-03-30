@@ -8,6 +8,7 @@ import {
   useLayoutEffect,
   useMemo,
   useState,
+  type ReactNode,
 } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -329,7 +330,7 @@ function JumpPanel({
 
 // ─── Main component ────────────────────────────────────────────────
 
-export default function EraSelector() {
+export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }) {
   const currentEra = useMapStore((s) => s.eraId);
   const setEra = useMapStore((s) => s.setEra);
   const selectFeature = useMapStore((s) => s.selectFeature);
@@ -443,6 +444,7 @@ export default function EraSelector() {
       {/* Row 1: prev / current label / next / jump — symmetric chrome, label centered */}
       <div className="grid min-w-0 grid-cols-[auto_1fr_auto] items-center gap-1 px-2 py-0.5 sm:px-2.5">
         <div className="flex items-center gap-1">
+          {leadingSlot}
           <button
             onClick={goPrev}
             disabled={storyMode || isFirst}

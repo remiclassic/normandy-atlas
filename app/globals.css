@@ -147,7 +147,35 @@ body {
   filter: invert(0.7) !important;
 }
 
-/* Scrollbar styles */
+/* Parchment basemap — lighter controls so they sit on manuscript tones */
+[data-basemap='parchment'] .maplibregl-ctrl-group {
+  background: rgba(232, 220, 194, 0.9) !important;
+  border: 1px solid rgba(74, 61, 50, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(42, 34, 24, 0.12), 0 0 0 1px rgba(74, 61, 50, 0.08) !important;
+}
+
+[data-basemap='parchment'] .maplibregl-ctrl-group button {
+  border-bottom-color: rgba(74, 61, 50, 0.15) !important;
+}
+
+[data-basemap='parchment'] .maplibregl-ctrl-group button span {
+  filter: invert(0.35) sepia(0.25) !important;
+}
+
+[data-basemap='parchment'] .maplibregl-ctrl-attrib {
+  color: rgba(74, 61, 50, 0.4) !important;
+}
+
+[data-basemap='parchment'] .maplibregl-ctrl-attrib a {
+  color: rgba(74, 61, 50, 0.55) !important;
+}
+
+/* Scrollbar styles — dark theme (WebKit + Firefox) */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(46, 51, 72, 0.85) transparent;
+}
+
 .scrollbar-thin::-webkit-scrollbar {
   width: 5px;
 }
@@ -195,4 +223,43 @@ body {
     rgba(196, 169, 98, 0.25) 70%,
     transparent
   );
+}
+
+/* Parchment basemap — film grain drift (CSS only, no React state) */
+@keyframes parchment-grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-1.2%, 0.7%);
+  }
+  66% {
+    transform: translate(0.6%, -0.9%);
+  }
+}
+
+.parchment-grain-motion {
+  animation: parchment-grain-shift 22s ease-in-out infinite;
+}
+
+/* Onboarding intro fog layers — GPU-accelerated CSS transforms, no React state */
+@keyframes onboarding-fog-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.14; }
+  50% { transform: translate(-3%, 1.5%) scale(1.04); opacity: 0.22; }
+}
+
+@keyframes onboarding-fog-2 {
+  0%, 100% { transform: translate(0, 0) scale(1.02); opacity: 0.08; }
+  50% { transform: translate(2%, -1%) scale(0.98); opacity: 0.16; }
+}
+
+.onboarding-fog-1 {
+  animation: onboarding-fog-1 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.onboarding-fog-2 {
+  animation: onboarding-fog-2 24s ease-in-out infinite;
+  will-change: transform, opacity;
 }

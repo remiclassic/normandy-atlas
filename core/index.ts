@@ -24,6 +24,7 @@ export {
   getRegionEraState,
   getVisibleRegions,
   getAtlasRegionsGeoJsonForEra,
+  getAtlasRegionsForColonialYear,
   getRegionsByLayer,
 } from './regions/engine';
 

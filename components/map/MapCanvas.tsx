@@ -8,8 +8,10 @@ import { ArcLayer, PathLayer } from '@deck.gl/layers';
 import { PathStyleExtension } from '@deck.gl/extensions';
 import { motion, AnimatePresence } from 'motion/react';
 
-import { useMapStore } from '@/lib/store';
+import { useMapStore, isOnboardingDone } from '@/lib/store';
 import { DARK_BASEMAP_URL, PARCHMENT_BASEMAP_URL } from './map-style';
+import { loadParchmentAtlasStyle } from './parchment-atlas-style';
+import ParchmentMapChrome from './ParchmentMapChrome';
 import { layerConfigs } from '@/data/layers';
 import { normanAtlanticStory } from '@/data/stories';
 import { flyToCamera } from '@/lib/geo';
@@ -33,11 +35,13 @@ import {
   REGION_SOURCE,
   SETTLEMENT_SOURCE,
 } from './map-layers';
+import { setCartoModernBasemapOverlaysVisible } from './basemap-modern-overlays';
 import { addAllNormandyLayers, setExpansionYearFilter, EVIDENCE_CIRCLES, EVIDENCE_ICONS, TOPONYMY_CIRCLES, TOPONYMY_LABELS, DENSITY_CIRCLES } from './normandy-layers';
 import { addAllNormanExpansionLayers, NORMAN_NODES_CIRCLES, NORMAN_NODES_SOURCE, setNormanNodePeriodFilter } from './norman-expansion-layers';
+import { applyParchmentOverlayLabelStyles } from './apply-parchment-overlay-labels';
 import { addAllPrehistoryLayers, PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES } from './prehistory-layers';
 import { addNewFranceTerritoryLayers, updateNewFranceTerritorySource } from './new-france-territory-layers';
-import { isColonialEra, colonialYearFromEra, getPhaseForYear } from '@/data/atlas/new-france-timeline';
+import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { getTerritoryForYear } from '@/data/atlas/new-france-territory-geo';
 import { normanExpansionRoutes } from '@/data/norman-expansion';
 import type { NormanExpansionRoute } from '@/data/norman-expansion';
@@ -48,6 +52,7 @@ import { NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import {
   getActiveSegments,
   getAtlasRegionsGeoJsonForEra,
+  getAtlasRegionsForColonialYear,
   getVisiblePlaces,
   buildPlacesGeoJson,
   isOceanCrossing,
@@ -76,7 +81,7 @@ function pickAtlasRouteSegment(
   map: maplibregl.Map,
   e: maplibregl.MapMouseEvent,
 ): ResolvedSegment | null {
-  const rect = map.getCanvas().getBoundingClientRect();
+  const rect = map!.getCanvas().getBoundingClientRect();
   const cx = e.originalEvent.clientX - rect.left;
   const cy = e.originalEvent.clientY - rect.top;
   const r = 14;
@@ -353,6 +358,30 @@ function buildNormanExpansionDeckLayers(
   return layers;
 }
 
+let onboardingEntranceFlyStarted = false;
+
+function resetOnboardingEntranceFly() {
+  onboardingEntranceFlyStarted = false;
+}
+
+/**
+ * Neolithic fly-in after Enter Atlas. Runs once per onboarding run.
+ * Allowed while phase is `flying` or `guided` so a slow map `load` still triggers the fly after the tutorial appears.
+ */
+function tryRunOnboardingFly(map: maplibregl.Map | null) {
+  if (!map || onboardingEntranceFlyStarted) return;
+  const { onboardingPhase, eraId } = useMapStore.getState();
+  if (onboardingPhase !== 'flying' && onboardingPhase !== 'guided') return;
+  const era = getAtlasEra(eraId);
+  if (!era?.defaultCamera) return;
+  onboardingEntranceFlyStarted = true;
+  flyToCamera(map, {
+    center: era.defaultCamera.center,
+    zoom: era.defaultCamera.zoom,
+    duration: 4000,
+  });
+}
+
 export default function MapCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -364,6 +393,8 @@ export default function MapCanvas() {
   const selectedNormanNodeRef = useRef<string | null>(null);
   const hoveredNormanNodeRef = useRef<string | null>(null);
   const readyRef = useRef(false);
+  const interactionsAttachedRef = useRef(false);
+  const rebuildMapDataLayersRef = useRef<(map: maplibregl.Map) => void>(() => {});
   const tooltipRef = useRef<TooltipData | null>(null);
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const [eraTransition, setEraTransition] = useState(false);
@@ -419,19 +450,17 @@ export default function MapCanvas() {
     const { atlasMode, atlasSimYear } = useMapStore.getState();
 
     if (atlasMode) {
-      const regionsGeoJson = getAtlasRegionsGeoJsonForEra(eraId);
-      updateRegionSource(map, regionsGeoJson);
-
-      const places = getVisiblePlaces(eraId);
-      const placesGeoJson = buildPlacesGeoJson(places);
-      updateSettlementSource(map, placesGeoJson);
-
       if (isColonialEra(eraId)) {
         const colYear = colonialYearFromEra(eraId, atlasSimYear);
+        updateRegionSource(map, getAtlasRegionsForColonialYear(eraId, colYear));
         updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
       } else {
+        updateRegionSource(map, getAtlasRegionsGeoJsonForEra(eraId));
         updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
       }
+
+      const places = getVisiblePlaces(eraId);
+      updateSettlementSource(map, buildPlacesGeoJson(places));
     } else {
       updateRegionSource(map, getRegionsGeoJsonForEra(eraId));
       updateSettlementSource(map, getSettlementsGeoJsonForEra(eraId));
@@ -441,54 +470,27 @@ export default function MapCanvas() {
     updateEraLabels(map, eraId);
   }, []);
 
-  useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
-
-    const { atlasMode, eraId: initialEra, basemapMode } = useMapStore.getState();
-    const atlasEra = atlasMode ? getAtlasEra(initialEra) : null;
-    const initialCenter = atlasEra
-      ? atlasEra.defaultCamera.center
-      : [0.0, 49.2] as [number, number];
-    const initialZoom = atlasEra ? atlasEra.defaultCamera.zoom : 5.8;
-    const initialStyle = basemapMode === 'parchment' ? PARCHMENT_BASEMAP_URL : DARK_BASEMAP_URL;
-
-    const map = new maplibregl.Map({
-      container: containerRef.current,
-      style: initialStyle,
-      center: initialCenter,
-      zoom: initialZoom,
-      minZoom: 2,
-      maxZoom: 14,
-      attributionControl: false,
-      fadeDuration: 300,
-    });
-
-    map.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'bottom-right');
-    map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
-
-    const overlay = new MapboxOverlay({ layers: [] });
-    map.addControl(overlay as unknown as maplibregl.IControl);
-    overlayRef.current = overlay;
-
-    map.on('load', () => {
-      const state = useMapStore.getState();
-
+  rebuildMapDataLayersRef.current = (map) => {
+    const state = useMapStore.getState();
+    const theme = state.basemapMode === 'parchment' ? 'parchment' : 'dark';
+    try {
       if (state.atlasMode) {
         const regionsGeoJson = getAtlasRegionsGeoJsonForEra(state.eraId);
-        addRegionLayers(map, regionsGeoJson, state.eraId);
-        addSettlementLayers(map);
+        addRegionLayers(map, regionsGeoJson, state.eraId, theme);
+        addSettlementLayers(map, theme);
         const places = getVisiblePlaces(state.eraId);
         updateSettlementSource(map, buildPlacesGeoJson(places));
       } else {
-        addRegionLayers(map, getRegionsGeoJsonForEra(state.eraId), state.eraId);
-        addSettlementLayers(map);
+        addRegionLayers(map, getRegionsGeoJsonForEra(state.eraId), state.eraId, theme);
+        addSettlementLayers(map, theme);
         updateSettlementSource(map, getSettlementsGeoJsonForEra(state.eraId));
       }
 
       addAllNormandyLayers(map);
-      addAllNormanExpansionLayers(map);
+      addAllNormanExpansionLayers(map, theme);
       addAllPrehistoryLayers(map);
       addNewFranceTerritoryLayers(map);
+      applyParchmentOverlayLabelStyles(map, theme);
       setExpansionYearFilter(map, state.normandySimYear);
 
       if (state.atlasMode && isColonialEra(state.eraId)) {
@@ -504,37 +506,97 @@ export default function MapCanvas() {
       setNormanNodePeriodFilter(map, state.normanNodePeriod);
 
       syncOverlay(state.eraId, state.layers);
+      setCartoModernBasemapOverlaysVisible(map, state.modernBasemapOverlays);
+    } catch (err) {
+      console.error('[MapCanvas] rebuild map layers failed:', err);
+    }
+  };
 
-      if (state.atlasMode) {
-        const initialAtlasEra = getAtlasEra(state.eraId);
-        if (initialAtlasEra?.summary) {
-          state.selectFeature(state.eraId, 'era-info');
+  useEffect(() => {
+    const containerEl = containerRef.current;
+    if (!containerEl || mapRef.current) return;
+
+    let cancelled = false;
+    let map: maplibregl.Map | null = null;
+    let resizeObserver: ResizeObserver | null = null;
+
+    const boot = async () => {
+      const { atlasMode, eraId: initialEra, basemapMode, onboardingPhase } = useMapStore.getState();
+      const atlasEra = atlasMode ? getAtlasEra(initialEra) : null;
+      const onboarding = onboardingPhase !== 'complete' && !isOnboardingDone();
+      const initialCenter: [number, number] = onboarding
+        ? [2.0, 48.5]
+        : atlasEra ? atlasEra.defaultCamera.center : [0.0, 49.2];
+      const initialZoom = onboarding ? 4.2 : atlasEra ? atlasEra.defaultCamera.zoom : 5.8;
+
+      let initialStyle: string | maplibregl.StyleSpecification = DARK_BASEMAP_URL;
+      if (basemapMode === 'parchment') {
+        try {
+          initialStyle = await loadParchmentAtlasStyle();
+        } catch (e) {
+          console.warn('[MapCanvas] Parchment style fetch failed, using Voyager URL', e);
+          initialStyle = PARCHMENT_BASEMAP_URL;
         }
       }
+
+      if (cancelled || !containerRef.current) return;
+
+      map = new maplibregl.Map({
+        container: containerRef.current,
+        style: initialStyle,
+        center: initialCenter,
+        zoom: initialZoom,
+        minZoom: 2,
+        maxZoom: 14,
+        attributionControl: false,
+        fadeDuration: 300,
+      });
+
+      map.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'bottom-right');
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+
+      const overlay = new MapboxOverlay({ layers: [] });
+      map.addControl(overlay as unknown as maplibregl.IControl);
+      overlayRef.current = overlay;
+
+      if (cancelled) {
+        map.remove();
+        overlayRef.current = null;
+        return;
+      }
+
+      mapRef.current = map;
+
+      map.on('load', () => {
+        if (!map) return;
+        rebuildMapDataLayersRef.current(map);
+
+        if (!interactionsAttachedRef.current) {
+          interactionsAttachedRef.current = true;
 
       map.on('mousemove', 'regions-fill', (e) => {
         if (!e.features?.length) return;
         const id = e.features[0].properties?.id as string;
 
         if (hoveredRegionRef.current && hoveredRegionRef.current !== id) {
-          setFeatureState(map, hoveredRegionRef.current, { hover: false }, REGION_SOURCE);
+          setFeatureState(map!, hoveredRegionRef.current, { hover: false }, REGION_SOURCE);
         }
         hoveredRegionRef.current = id;
-        setFeatureState(map, id, { hover: true }, REGION_SOURCE);
+        setFeatureState(map!, id, { hover: true }, REGION_SOURCE);
         if (!hoveredSettlementRef.current) {
           hoverFeature(id, 'region');
-          map.getCanvas().style.cursor = 'pointer';
+          map!.getCanvas().style.cursor = 'pointer';
         }
       });
 
       map.on('mouseleave', 'regions-fill', () => {
         if (hoveredRegionRef.current) {
-          setFeatureState(map, hoveredRegionRef.current, { hover: false }, REGION_SOURCE);
+          setFeatureState(map!, hoveredRegionRef.current, { hover: false }, REGION_SOURCE);
           hoveredRegionRef.current = null;
         }
         if (!hoveredSettlementRef.current) {
           hoverFeature(null);
-          map.getCanvas().style.cursor = '';
+          map!.getCanvas().style.cursor = '';
         }
       });
 
@@ -543,34 +605,34 @@ export default function MapCanvas() {
         const id = e.features[0].properties?.id as string;
 
         if (hoveredSettlementRef.current && hoveredSettlementRef.current !== id) {
-          setFeatureState(map, hoveredSettlementRef.current, { hover: false }, SETTLEMENT_SOURCE);
+          setFeatureState(map!, hoveredSettlementRef.current, { hover: false }, SETTLEMENT_SOURCE);
         }
         hoveredSettlementRef.current = id;
-        setFeatureState(map, id, { hover: true }, SETTLEMENT_SOURCE);
+        setFeatureState(map!, id, { hover: true }, SETTLEMENT_SOURCE);
         hoverFeature(id, 'settlement');
-        map.getCanvas().style.cursor = 'pointer';
+        map!.getCanvas().style.cursor = 'pointer';
       });
 
       map.on('mouseleave', 'settlements-circles', () => {
         if (hoveredSettlementRef.current) {
-          setFeatureState(map, hoveredSettlementRef.current, { hover: false }, SETTLEMENT_SOURCE);
+          setFeatureState(map!, hoveredSettlementRef.current, { hover: false }, SETTLEMENT_SOURCE);
           hoveredSettlementRef.current = null;
         }
         if (hoveredRegionRef.current) {
           hoverFeature(hoveredRegionRef.current, 'region');
         } else {
           hoverFeature(null);
-          map.getCanvas().style.cursor = '';
+          map!.getCanvas().style.cursor = '';
         }
       });
 
       const normandyHoverLayers = [EVIDENCE_CIRCLES, EVIDENCE_ICONS, TOPONYMY_CIRCLES, DENSITY_CIRCLES];
 
       map.on('mousemove', (e) => {
-        const validLayers = normandyHoverLayers.filter((lid) => map.getLayer(lid));
+        const validLayers = normandyHoverLayers.filter((lid) => map!.getLayer(lid));
         const features =
           validLayers.length > 0
-            ? map.queryRenderedFeatures(e.point, { layers: validLayers })
+            ? map!.queryRenderedFeatures(e.point, { layers: validLayers })
             : [];
 
         if (features.length > 0) {
@@ -616,26 +678,26 @@ export default function MapCanvas() {
               detail: props.rationale as string,
             });
           }
-          map.getCanvas().style.cursor = 'pointer';
+          map!.getCanvas().style.cursor = 'pointer';
           return;
         }
 
         const store = useMapStore.getState();
         if (store.atlasMode && (store.layers['routes'] ?? true) && overlayRef.current) {
-          const seg = pickAtlasRouteSegment(overlayRef.current, map, e);
+          const seg = pickAtlasRouteSegment(overlayRef.current, map!, e);
           if (seg) {
             showTooltip({
               x: e.point.x,
               y: e.point.y,
               ...atlasRouteTooltipFields(seg),
             });
-            map.getCanvas().style.cursor = 'pointer';
+            map!.getCanvas().style.cursor = 'pointer';
             return;
           }
         }
 
         if ((store.layers['norman-expansion-routes'] ?? false) && overlayRef.current) {
-          const rect = map.getCanvas().getBoundingClientRect();
+          const rect = map!.getCanvas().getBoundingClientRect();
           const cx = e.originalEvent.clientX - rect.left;
           const cy = e.originalEvent.clientY - rect.top;
           const r = 14;
@@ -643,33 +705,33 @@ export default function MapCanvas() {
           if (picks.length) {
             const d = picks[0].object as NormanExpansionRoute;
             showTooltip({ x: e.point.x, y: e.point.y, title: d.label, subtitle: d.subtitle });
-            map.getCanvas().style.cursor = 'pointer';
+            map!.getCanvas().style.cursor = 'pointer';
             return;
           }
         }
 
-        if (map.getLayer(NORMAN_NODES_CIRCLES)) {
-          const nodeFeats = map.queryRenderedFeatures(e.point, { layers: [NORMAN_NODES_CIRCLES] });
+        if (map!.getLayer(NORMAN_NODES_CIRCLES)) {
+          const nodeFeats = map!.queryRenderedFeatures(e.point, { layers: [NORMAN_NODES_CIRCLES] });
           if (nodeFeats.length) {
             const p = nodeFeats[0].properties!;
             const nodeId = p.id as string;
             if (hoveredNormanNodeRef.current && hoveredNormanNodeRef.current !== nodeId) {
-              setFeatureState(map, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
+              setFeatureState(map!, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
             }
             hoveredNormanNodeRef.current = nodeId;
-            setFeatureState(map, nodeId, { hover: true }, NORMAN_NODES_SOURCE);
+            setFeatureState(map!, nodeId, { hover: true }, NORMAN_NODES_SOURCE);
             showTooltip({ x: e.point.x, y: e.point.y, title: p.name as string, subtitle: p.role as string, detail: p.date as string });
-            map.getCanvas().style.cursor = 'pointer';
+            map!.getCanvas().style.cursor = 'pointer';
             return;
           } else if (hoveredNormanNodeRef.current) {
-            setFeatureState(map, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
+            setFeatureState(map!, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
             hoveredNormanNodeRef.current = null;
           }
         }
 
         if (tooltipRef.current) showTooltip(null);
         if (!hoveredSettlementRef.current && !hoveredRegionRef.current) {
-          map.getCanvas().style.cursor = '';
+          map!.getCanvas().style.cursor = '';
         }
       });
 
@@ -678,8 +740,8 @@ export default function MapCanvas() {
       map.on('mouseleave', DENSITY_CIRCLES, () => { if (tooltipRef.current) showTooltip(null); });
       map.on('mouseleave', NORMAN_NODES_CIRCLES, () => {
         if (tooltipRef.current) showTooltip(null);
-        if (hoveredNormanNodeRef.current && map.getSource(NORMAN_NODES_SOURCE)) {
-          setFeatureState(map, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
+        if (hoveredNormanNodeRef.current && map!.getSource(NORMAN_NODES_SOURCE)) {
+          setFeatureState(map!, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
           hoveredNormanNodeRef.current = null;
         }
       });
@@ -689,7 +751,7 @@ export default function MapCanvas() {
 
         const clickStore = useMapStore.getState();
         if (clickStore.atlasMode && (clickStore.layers['routes'] ?? true) && overlayRef.current) {
-          const seg = pickAtlasRouteSegment(overlayRef.current, map, e);
+          const seg = pickAtlasRouteSegment(overlayRef.current, map!, e);
           if (seg) {
             showTooltip({
               x: e.point.x,
@@ -705,21 +767,21 @@ export default function MapCanvas() {
 
         const clearPrev = () => {
           if (selectedRegionRef.current) {
-            setFeatureState(map, selectedRegionRef.current, { selected: false }, REGION_SOURCE);
+            setFeatureState(map!, selectedRegionRef.current, { selected: false }, REGION_SOURCE);
             selectedRegionRef.current = null;
           }
           if (selectedSettlementRef.current) {
-            setFeatureState(map, selectedSettlementRef.current, { selected: false }, SETTLEMENT_SOURCE);
+            setFeatureState(map!, selectedSettlementRef.current, { selected: false }, SETTLEMENT_SOURCE);
             selectedSettlementRef.current = null;
           }
-          if (selectedNormanNodeRef.current && map.getSource(NORMAN_NODES_SOURCE)) {
-            setFeatureState(map, selectedNormanNodeRef.current, { selected: false }, NORMAN_NODES_SOURCE);
+          if (selectedNormanNodeRef.current && map!.getSource(NORMAN_NODES_SOURCE)) {
+            setFeatureState(map!, selectedNormanNodeRef.current, { selected: false }, NORMAN_NODES_SOURCE);
             selectedNormanNodeRef.current = null;
           }
         };
 
-        if (map.getLayer(EVIDENCE_CIRCLES)) {
-          const evFeats = map.queryRenderedFeatures(e.point, { layers: [EVIDENCE_CIRCLES] });
+        if (map!.getLayer(EVIDENCE_CIRCLES)) {
+          const evFeats = map!.queryRenderedFeatures(e.point, { layers: [EVIDENCE_CIRCLES] });
           if (evFeats.length) {
             const id = evFeats[0].properties?.id as string;
             if (id) {
@@ -730,9 +792,9 @@ export default function MapCanvas() {
           }
         }
 
-        const prehistoryClickLayers = [PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES].filter((l) => map.getLayer(l));
+        const prehistoryClickLayers = [PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES].filter((l) => map!.getLayer(l));
         if (prehistoryClickLayers.length) {
-          const pFeats = map.queryRenderedFeatures(e.point, { layers: prehistoryClickLayers });
+          const pFeats = map!.queryRenderedFeatures(e.point, { layers: prehistoryClickLayers });
           if (pFeats.length) {
             const id = pFeats[0].properties?.id as string;
             if (id) {
@@ -743,42 +805,42 @@ export default function MapCanvas() {
           }
         }
 
-        if (map.getLayer('settlements-circles')) {
-          const sFeats = map.queryRenderedFeatures(e.point, { layers: ['settlements-circles'] });
+        if (map!.getLayer('settlements-circles')) {
+          const sFeats = map!.queryRenderedFeatures(e.point, { layers: ['settlements-circles'] });
           if (sFeats.length) {
             const id = sFeats[0].properties?.id as string;
             if (id) {
               clearPrev();
               selectedSettlementRef.current = id;
-              setFeatureState(map, id, { selected: true }, SETTLEMENT_SOURCE);
+              setFeatureState(map!, id, { selected: true }, SETTLEMENT_SOURCE);
               selectFeature(id, 'settlement');
               return;
             }
           }
         }
 
-        if (map.getLayer(NORMAN_NODES_CIRCLES)) {
-          const nFeats = map.queryRenderedFeatures(e.point, { layers: [NORMAN_NODES_CIRCLES] });
+        if (map!.getLayer(NORMAN_NODES_CIRCLES)) {
+          const nFeats = map!.queryRenderedFeatures(e.point, { layers: [NORMAN_NODES_CIRCLES] });
           if (nFeats.length) {
             const id = nFeats[0].properties?.id as string;
             if (id) {
               clearPrev();
               selectedNormanNodeRef.current = id;
-              setFeatureState(map, id, { selected: true }, NORMAN_NODES_SOURCE);
+              setFeatureState(map!, id, { selected: true }, NORMAN_NODES_SOURCE);
               selectFeature(id, 'norman-site');
               return;
             }
           }
         }
 
-        if (map.getLayer('regions-fill')) {
-          const rFeats = map.queryRenderedFeatures(e.point, { layers: ['regions-fill'] });
+        if (map!.getLayer('regions-fill')) {
+          const rFeats = map!.queryRenderedFeatures(e.point, { layers: ['regions-fill'] });
           if (rFeats.length) {
             const id = rFeats[0].properties?.id as string;
             if (id) {
               clearPrev();
               selectedRegionRef.current = id;
-              setFeatureState(map, id, { selected: true }, REGION_SOURCE);
+              setFeatureState(map!, id, { selected: true }, REGION_SOURCE);
               selectFeature(id, 'region');
               return;
             }
@@ -789,26 +851,40 @@ export default function MapCanvas() {
         selectFeature(null);
       });
 
-      readyRef.current = true;
-    });
+        }
 
-    mapRef.current = map;
-
-    const containerEl = containerRef.current;
-    const resizeObserver =
-      containerEl &&
-      new ResizeObserver(() => {
-        map.resize();
+        const loadState = useMapStore.getState();
+        if (loadState.atlasMode && (loadState.onboardingPhase === 'complete' || isOnboardingDone())) {
+          const initialAtlasEra = getAtlasEra(loadState.eraId);
+          if (initialAtlasEra?.summary) {
+            loadState.selectFeature(loadState.eraId, 'era-info');
+          }
+        }
+        readyRef.current = true;
+        tryRunOnboardingFly(map);
       });
-    if (containerEl && resizeObserver) {
-      resizeObserver.observe(containerEl);
-    }
+
+      if (containerRef.current) {
+        resizeObserver = new ResizeObserver(() => {
+          map?.resize();
+        });
+        resizeObserver.observe(containerRef.current);
+      }
+    };
+
+    void boot();
 
     return () => {
+      cancelled = true;
+      resetOnboardingEntranceFly();
       resizeObserver?.disconnect();
       readyRef.current = false;
-      map.remove();
-      mapRef.current = null;
+      interactionsAttachedRef.current = false;
+      const m = mapRef.current;
+      if (m) {
+        m.remove();
+        mapRef.current = null;
+      }
       overlayRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -827,7 +903,7 @@ export default function MapCanvas() {
         syncSources(eraId);
         syncOverlay(eraId, useMapStore.getState().layers);
 
-        const { atlasMode, selectFeature } = useMapStore.getState();
+        const { atlasMode, selectFeature, onboardingPhase } = useMapStore.getState();
         if (atlasMode) {
           const era = getAtlasEra(eraId);
           if (era?.defaultCamera) {
@@ -837,7 +913,7 @@ export default function MapCanvas() {
               duration: era.defaultCamera.durationMs,
             });
           }
-          if (era?.summary) {
+          if (era?.summary && onboardingPhase === 'complete') {
             selectFeature(eraId, 'era-info');
           }
         }
@@ -846,6 +922,16 @@ export default function MapCanvas() {
       },
     );
   }, [syncSources, syncOverlay]);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.onboardingPhase,
+      (phase) => {
+        if (phase === 'intro') resetOnboardingEntranceFly();
+        if (phase === 'flying' || phase === 'guided') tryRunOnboardingFly(mapRef.current);
+      },
+    );
+  }, []);
 
   useEffect(() => {
     return useMapStore.subscribe(
@@ -889,14 +975,14 @@ export default function MapCanvas() {
 
         if (prevId && prevId !== newId) {
           const prevSource = sourceForKind(prevKind);
-          if (prevSource && map.getSource(prevSource)) {
-            setFeatureState(map, prevId, { selected: false }, prevSource);
+          if (prevSource && map!.getSource(prevSource)) {
+            setFeatureState(map!, prevId, { selected: false }, prevSource);
           }
         }
         if (newId) {
           const source = sourceForKind(kind);
-          if (source && map.getSource(source)) {
-            setFeatureState(map, newId, { selected: true }, source);
+          if (source && map!.getSource(source)) {
+            setFeatureState(map!, newId, { selected: true }, source);
           }
           if (kind === 'region') selectedRegionRef.current = newId;
           else if (kind === 'norman-site') selectedNormanNodeRef.current = newId;
@@ -955,8 +1041,9 @@ export default function MapCanvas() {
     );
   }, []);
 
-  // Sim year → territory overlay + time-gated routes (colonial + Viking movement eras)
-  const lastColPhaseRef = useRef<string | null>(null);
+  // Sim year → territory overlay + region fills + time-gated routes
+  const lastTerritoryKeyRef = useRef<string | null>(null);
+  const lastRegionKeyRef = useRef<string | null>(null);
   useEffect(() => {
     return useMapStore.subscribe(
       (s) => s.atlasSimYear,
@@ -968,13 +1055,20 @@ export default function MapCanvas() {
 
         if (isColonialEra(eraId)) {
           const colYear = colonialYearFromEra(eraId, simYear);
-          const phase = getPhaseForYear(colYear);
-          const phaseId = phase?.id ?? null;
 
-          if (phaseId !== lastColPhaseRef.current) {
-            lastColPhaseRef.current = phaseId;
-            updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
+          const geojson = getTerritoryForYear(colYear);
+          const tKey = geojson.features.map((f) => f.properties.id).join(',');
+          if (tKey !== lastTerritoryKeyRef.current) {
+            lastTerritoryKeyRef.current = tKey;
+            updateNewFranceTerritorySource(map, geojson);
             syncOverlay(eraId, layers);
+          }
+
+          const regionsGeoJson = getAtlasRegionsForColonialYear(eraId, colYear);
+          const rKey = regionsGeoJson.features.map((f) => f.properties.id).join(',');
+          if (rKey !== lastRegionKeyRef.current) {
+            lastRegionKeyRef.current = rKey;
+            updateRegionSource(map, regionsGeoJson);
           }
         } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
           syncOverlay(eraId, layers);
@@ -1034,57 +1128,51 @@ export default function MapCanvas() {
       (mode) => {
         const map = mapRef.current;
         if (!map) return;
-        const styleUrl = mode === 'parchment' ? PARCHMENT_BASEMAP_URL : DARK_BASEMAP_URL;
         readyRef.current = false;
         showTooltip(null);
 
-        // diff: false guarantees a clean slate — no stale sources from the previous style
-        map.setStyle(styleUrl, { diff: false });
-        map.once('style.load', () => {
+        const finishStyleSwitch = () => {
           try {
-            const state = useMapStore.getState();
-
-            if (state.atlasMode) {
-              const regionsGeoJson = getAtlasRegionsGeoJsonForEra(state.eraId);
-              addRegionLayers(map, regionsGeoJson, state.eraId);
-              addSettlementLayers(map);
-              const places = getVisiblePlaces(state.eraId);
-              updateSettlementSource(map, buildPlacesGeoJson(places));
-            } else {
-              addRegionLayers(map, getRegionsGeoJsonForEra(state.eraId), state.eraId);
-              addSettlementLayers(map);
-              updateSettlementSource(map, getSettlementsGeoJsonForEra(state.eraId));
-            }
-
-            addAllNormandyLayers(map);
-            addAllNormanExpansionLayers(map);
-            addAllPrehistoryLayers(map);
-            addNewFranceTerritoryLayers(map);
-            setExpansionYearFilter(map, state.normandySimYear);
-            updateEraLabels(map, state.eraId);
-
-            if (state.atlasMode && isColonialEra(state.eraId)) {
-              const colYear = colonialYearFromEra(state.eraId, state.atlasSimYear);
-              updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
-            }
-
-            for (const cfg of layerConfigs) {
-              if (cfg.deckLayer) continue;
-              setLayerVisibility(map, cfg.mapLayerIds, state.layers[cfg.id] ?? cfg.defaultOn);
-            }
-
-            setNormanNodePeriodFilter(map, state.normanNodePeriod);
-
-            syncOverlay(state.eraId, state.layers);
+            rebuildMapDataLayersRef.current(map);
           } catch (err) {
             console.error('[MapCanvas] style.load rebuild failed:', err);
           } finally {
             readyRef.current = true;
           }
-        });
+        };
+
+        if (mode === 'dark') {
+          map.setStyle(DARK_BASEMAP_URL, { diff: false });
+          map.once('style.load', finishStyleSwitch);
+          return;
+        }
+
+        void loadParchmentAtlasStyle()
+          .then((style) => {
+            if (mapRef.current !== map) return;
+            map.setStyle(style, { diff: false });
+            map.once('style.load', finishStyleSwitch);
+          })
+          .catch((e) => {
+            console.warn('[MapCanvas] Parchment style failed, using Voyager URL', e);
+            if (mapRef.current !== map) return;
+            map.setStyle(PARCHMENT_BASEMAP_URL, { diff: false });
+            map.once('style.load', finishStyleSwitch);
+          });
       },
     );
-  }, [syncOverlay]);
+  }, [showTooltip]);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.modernBasemapOverlays,
+      (on) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        setCartoModernBasemapOverlaysVisible(map, on);
+      },
+    );
+  }, []);
 
   // --- Migration overlay subscription ---
   const prevPortIdsRef = useRef<string[]>([]);
@@ -1156,10 +1244,13 @@ export default function MapCanvas() {
   return (
     <>
       <div
-        ref={containerRef}
         className="absolute inset-0 w-full h-full"
+        data-basemap={basemapMode}
         style={{ background: basemapMode === 'parchment' ? '#e8dcc8' : '#0a0c12' }}
-      />
+      >
+        <div ref={containerRef} className="absolute inset-0 z-0 h-full w-full" />
+        {basemapMode === 'parchment' ? <ParchmentMapChrome /> : null}
+      </div>
 
       <MapTooltip data={tooltip} />
 

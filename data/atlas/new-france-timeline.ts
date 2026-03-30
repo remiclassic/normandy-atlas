@@ -93,6 +93,9 @@ export const COLONIAL_ERA_IDS = new Set([
   'atlantic-imprint',
 ]);
 
+/** Unified simulation range spanning all colonial eras (1608–1763). */
+export const COLONIAL_SIM_YEAR_RANGE = { start: 1608, end: 1763 } as const;
+
 export function isColonialEra(eraId: string): boolean {
   return COLONIAL_ERA_IDS.has(eraId);
 }

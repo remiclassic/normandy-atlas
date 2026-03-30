@@ -3,6 +3,7 @@ import {
   normanRealmsGeoJson,
   normanNodesGeoJson,
 } from '@/data/norman-expansion';
+import type { MapDataTheme } from './map-layers';
 
 // ---------------------------------------------------------------------------
 // Source IDs
@@ -63,12 +64,86 @@ const CRUSADER_COLOR = '#d06090';
 const INFLUENCE_COLOR = '#a868b8';
 const NODE_COLOR = '#e060a0';
 const HALO_BG = 'rgba(10, 12, 18, 0.9)';
+const PARCHMENT_INK = '#140e0c';
+const PARCHMENT_LABEL_HALO = 'rgba(255, 247, 235, 0.98)';
+const LABEL_FONT_DARK: string[] = ['Noto Sans Regular'];
+const LABEL_FONT_PARCHMENT: string[] = ['Open Sans Semibold', 'Noto Sans Regular'];
+
+function normanLabelFont(theme: MapDataTheme): string[] {
+  return theme === 'parchment' ? LABEL_FONT_PARCHMENT : LABEL_FONT_DARK;
+}
+
+function normanRealmLabelPaint(
+  theme: MapDataTheme,
+  variant: 'direct' | 'crusader' | 'influence',
+): Record<string, string | number> {
+  if (theme === 'parchment') {
+    return {
+      'text-color': PARCHMENT_INK,
+      'text-halo-color': PARCHMENT_LABEL_HALO,
+      'text-halo-width': 3,
+      'text-halo-blur': 0.45,
+      'text-opacity': variant === 'influence' ? 0.92 : 0.98,
+    };
+  }
+  const light: Record<typeof variant, Record<string, string | number>> = {
+    direct: {
+      'text-color': '#e8b0c8',
+      'text-halo-color': HALO_BG,
+      'text-halo-width': 2,
+      'text-opacity': 0.85,
+    },
+    crusader: {
+      'text-color': '#e0a0c0',
+      'text-halo-color': HALO_BG,
+      'text-halo-width': 2,
+      'text-opacity': 0.85,
+    },
+    influence: {
+      'text-color': '#c8a0d0',
+      'text-halo-color': HALO_BG,
+      'text-halo-width': 2,
+      'text-opacity': 0.75,
+    },
+  };
+  return light[variant];
+}
+
+function normanNodeLabelPaint(theme: MapDataTheme): Record<string, string | number> {
+  if (theme === 'parchment') {
+    return {
+      'text-color': PARCHMENT_INK,
+      'text-halo-color': PARCHMENT_LABEL_HALO,
+      'text-halo-width': 3.4,
+      'text-halo-blur': 0.5,
+      'text-opacity': 1,
+    };
+  }
+  return {
+    'text-color': '#e8b8d0',
+    'text-halo-color': HALO_BG,
+    'text-halo-width': 1.8,
+    'text-opacity': 0.85,
+  };
+}
+
+function nodeCircleStrokeColor(theme: MapDataTheme): maplibregl.ExpressionSpecification {
+  if (theme === 'parchment') {
+    return [
+      'case',
+      ['boolean', ['feature-state', 'selected'], false],
+      '#f0a0d0',
+      '#2a2018',
+    ];
+  }
+  return ['case', ['boolean', ['feature-state', 'selected'], false], '#f0a0d0', HALO_BG];
+}
 
 // ---------------------------------------------------------------------------
 // Direct territory layers
 // ---------------------------------------------------------------------------
 
-function addDirectTerritoryLayers(map: MaplibreMap) {
+function addDirectTerritoryLayers(map: MaplibreMap, theme: MapDataTheme) {
   safeAddSource(map, NORMAN_REALMS_SOURCE, {
     type: 'geojson',
     data: normanRealmsGeoJson as unknown as GeoJSON.FeatureCollection,
@@ -112,17 +187,12 @@ function addDirectTerritoryLayers(map: MaplibreMap) {
     layout: {
       'text-field': ['concat', ['get', 'name'], '\n', ['get', 'period']],
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 10, 6, 13, 9, 15],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': normanLabelFont(theme),
       'text-allow-overlap': false,
       'text-max-width': 12,
       visibility: 'none',
     },
-    paint: {
-      'text-color': '#e8b0c8',
-      'text-halo-color': HALO_BG,
-      'text-halo-width': 2,
-      'text-opacity': 0.85,
-    },
+    paint: normanRealmLabelPaint(theme, 'direct'),
   });
 }
 
@@ -130,7 +200,7 @@ function addDirectTerritoryLayers(map: MaplibreMap) {
 // Crusader territory layers
 // ---------------------------------------------------------------------------
 
-function addCrusaderLayers(map: MaplibreMap) {
+function addCrusaderLayers(map: MaplibreMap, theme: MapDataTheme) {
   safeAddLayer(map, {
     id: NORMAN_CRUSADER_FILL,
     type: 'fill',
@@ -168,17 +238,12 @@ function addCrusaderLayers(map: MaplibreMap) {
     layout: {
       'text-field': ['concat', ['get', 'name'], '\n', ['get', 'period']],
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 10, 6, 13, 9, 15],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': normanLabelFont(theme),
       'text-allow-overlap': false,
       'text-max-width': 12,
       visibility: 'none',
     },
-    paint: {
-      'text-color': '#e0a0c0',
-      'text-halo-color': HALO_BG,
-      'text-halo-width': 2,
-      'text-opacity': 0.85,
-    },
+    paint: normanRealmLabelPaint(theme, 'crusader'),
   });
 }
 
@@ -186,7 +251,7 @@ function addCrusaderLayers(map: MaplibreMap) {
 // Influence / feudal / participation layers — softer visual treatment
 // ---------------------------------------------------------------------------
 
-function addInfluenceLayers(map: MaplibreMap) {
+function addInfluenceLayers(map: MaplibreMap, theme: MapDataTheme) {
   safeAddLayer(map, {
     id: NORMAN_INFLUENCE_FILL,
     type: 'fill',
@@ -225,17 +290,12 @@ function addInfluenceLayers(map: MaplibreMap) {
     layout: {
       'text-field': ['concat', ['get', 'name'], '\n', ['get', 'period']],
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 9, 6, 12, 9, 14],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': normanLabelFont(theme),
       'text-allow-overlap': false,
       'text-max-width': 12,
       visibility: 'none',
     },
-    paint: {
-      'text-color': '#c8a0d0',
-      'text-halo-color': HALO_BG,
-      'text-halo-width': 2,
-      'text-opacity': 0.75,
-    },
+    paint: normanRealmLabelPaint(theme, 'influence'),
   });
 }
 
@@ -243,7 +303,7 @@ function addInfluenceLayers(map: MaplibreMap) {
 // Node layers (settlement hubs)
 // ---------------------------------------------------------------------------
 
-function addNodeLayers(map: MaplibreMap) {
+function addNodeLayers(map: MaplibreMap, theme: MapDataTheme) {
   safeAddSource(map, NORMAN_NODES_SOURCE, {
     type: 'geojson',
     data: normanNodesGeoJson as unknown as GeoJSON.FeatureCollection,
@@ -306,11 +366,7 @@ function addNodeLayers(map: MaplibreMap) {
         ['boolean', ['feature-state', 'hover'], false], 2,
         1.5,
       ],
-      'circle-stroke-color': [
-        'case',
-        ['boolean', ['feature-state', 'selected'], false], '#f0a0d0',
-        HALO_BG,
-      ],
+      'circle-stroke-color': nodeCircleStrokeColor(theme),
     },
     layout: { visibility: 'none' },
   });
@@ -322,19 +378,14 @@ function addNodeLayers(map: MaplibreMap) {
     layout: {
       'text-field': ['concat', ['get', 'name'], '\n', ['get', 'role']],
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 9, 6, 11, 10, 13],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': normanLabelFont(theme),
       'text-offset': [0, 1.4],
       'text-anchor': 'top',
       'text-allow-overlap': false,
       'text-max-width': 14,
       visibility: 'none',
     },
-    paint: {
-      'text-color': '#e8b8d0',
-      'text-halo-color': HALO_BG,
-      'text-halo-width': 1.8,
-      'text-opacity': 0.85,
-    },
+    paint: normanNodeLabelPaint(theme),
   });
 }
 
@@ -359,9 +410,9 @@ export function setNormanNodePeriodFilter(
 // Master initializer
 // ---------------------------------------------------------------------------
 
-export function addAllNormanExpansionLayers(map: MaplibreMap) {
-  addDirectTerritoryLayers(map);
-  addCrusaderLayers(map);
-  addInfluenceLayers(map);
-  addNodeLayers(map);
+export function addAllNormanExpansionLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
+  addDirectTerritoryLayers(map, theme);
+  addCrusaderLayers(map, theme);
+  addInfluenceLayers(map, theme);
+  addNodeLayers(map, theme);
 }

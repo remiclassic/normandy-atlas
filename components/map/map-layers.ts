@@ -5,7 +5,25 @@ import { settlements } from '@/data/settlements';
 export const REGION_SOURCE = 'regions';
 export const SETTLEMENT_SOURCE = 'settlements';
 
-export function addRegionLayers(map: MaplibreMap, geojson: RegionFeatureCollection, eraId: string) {
+/** Matches atlas basemap mode for label halos and ink-friendly contrast. */
+export type MapDataTheme = 'dark' | 'parchment';
+
+const regionLabelTheme = {
+  dark: { text: '#d4c9a8', halo: 'rgba(10, 12, 18, 0.9)' },
+  /** Near-black ink + opaque cream halo so labels read on colored region fills + parchment grain. */
+  parchment: { text: '#140e0c', halo: 'rgba(255, 247, 235, 0.98)' },
+} as const;
+
+const regionLabelFont = (theme: MapDataTheme): string[] =>
+  theme === 'parchment' ? ['Open Sans Semibold', 'Noto Sans Regular'] : ['Noto Sans Regular'];
+
+export function addRegionLayers(
+  map: MaplibreMap,
+  geojson: RegionFeatureCollection,
+  eraId: string,
+  theme: MapDataTheme = 'dark',
+) {
+  const label = regionLabelTheme[theme];
   map.addSource(REGION_SOURCE, {
     type: 'geojson',
     data: geojson,
@@ -101,15 +119,16 @@ export function addRegionLayers(map: MaplibreMap, geojson: RegionFeatureCollecti
     layout: {
       'text-field': ['coalesce', ['get', eraId, ['get', 'namesByEra']], ['get', 'name']],
       'text-size': ['interpolate', ['linear'], ['zoom'], 4, 10, 7, 14, 10, 18],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': regionLabelFont(theme),
       'text-letter-spacing': 0.12,
       'text-max-width': 8,
       'text-allow-overlap': false,
     },
     paint: {
-      'text-color': '#d4c9a8',
-      'text-halo-color': 'rgba(10, 12, 18, 0.9)',
-      'text-halo-width': 2.5,
+      'text-color': label.text,
+      'text-halo-color': label.halo,
+      'text-halo-width': theme === 'parchment' ? 3.2 : 2.5,
+      'text-halo-blur': theme === 'parchment' ? 0.4 : 0,
       'text-opacity': [
         'interpolate',
         ['linear'],
@@ -122,7 +141,9 @@ export function addRegionLayers(map: MaplibreMap, geojson: RegionFeatureCollecti
   });
 }
 
-export function addSettlementLayers(map: MaplibreMap) {
+export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
+  const label = regionLabelTheme[theme];
+  const defaultStroke = theme === 'parchment' ? 'rgba(58, 48, 40, 0.45)' : 'rgba(10, 12, 18, 0.5)';
   const geojson: GeoJSON.FeatureCollection = {
     type: 'FeatureCollection',
     features: settlements.map((s) => ({
@@ -172,7 +193,7 @@ export function addSettlementLayers(map: MaplibreMap) {
       'circle-stroke-color': [
         'case',
         ['boolean', ['feature-state', 'selected'], false], '#c4a962',
-        'rgba(10, 12, 18, 0.5)',
+        defaultStroke,
       ],
       'circle-blur': 0.1,
     },
@@ -208,16 +229,17 @@ export function addSettlementLayers(map: MaplibreMap) {
     layout: {
       'text-field': ['get', 'name'],
       'text-size': ['interpolate', ['linear'], ['zoom'], 6, 9, 10, 12],
-      'text-font': ['Noto Sans Regular'],
+      'text-font': regionLabelFont(theme),
       'text-offset': [0, 1.3],
       'text-anchor': 'top',
       visibility: 'none',
     },
     paint: {
-      'text-color': '#a89e82',
-      'text-halo-color': 'rgba(10, 12, 18, 0.85)',
-      'text-halo-width': 1.8,
-      'text-opacity': 0.75,
+      'text-color': theme === 'parchment' ? '#140e0c' : '#a89e82',
+      'text-halo-color': label.halo,
+      'text-halo-width': theme === 'parchment' ? 2.8 : 1.8,
+      'text-halo-blur': theme === 'parchment' ? 0.4 : 0,
+      'text-opacity': theme === 'parchment' ? 0.92 : 0.75,
     },
   });
 }

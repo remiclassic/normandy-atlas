@@ -4,7 +4,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, DEEP_TIME_ERA_IDS, COLONIAL_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { getEraRange } from '@/core/era/engine';
-import { NEW_FRANCE_PHASES, getPhaseForYear } from '@/data/atlas/new-france-timeline';
+import { NEW_FRANCE_PHASES, COLONIAL_SIM_YEAR_RANGE, getPhaseForYear } from '@/data/atlas/new-france-timeline';
 import { VIKING_PHASES, getVikingPhaseForYear } from '@/data/atlas/viking-timeline-phases';
 
 function formatYear(y: number): string {
@@ -61,7 +61,10 @@ export default function AtlasEraYearSlider() {
   const isViking = VIKING_MOVEMENT_ERA_IDS.has(eraId);
   const visible = isDeepTime || isColonial || isViking;
 
-  const range = useMemo(() => getEraRange(eraId), [eraId]);
+  const range = useMemo(() => {
+    if (isColonial) return COLONIAL_SIM_YEAR_RANGE;
+    return getEraRange(eraId);
+  }, [eraId, isColonial]);
 
   const phaseLabel = useMemo(() => {
     if (isColonial) return getPhaseForYear(atlasSimYear)?.label.en ?? null;

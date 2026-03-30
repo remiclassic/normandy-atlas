@@ -16,9 +16,9 @@ const crimson = Crimson_Pro({
 });
 
 export const metadata: Metadata = {
-  title: 'Normandy — Interactive Historical Map',
+  title: 'Norman Atlas — A Living Map of People, Movement, and Time',
   description:
-    'Explore the history of Normandy and the Norman world through an interactive, era-spanning map experience.',
+    'A dynamic historical atlas exploring the origins, movements, and global influence of the Normans. Navigate through time from Neolithic Normandy to the expansion of Norman culture across Europe and beyond.',
 };
 
 export default function RootLayout({

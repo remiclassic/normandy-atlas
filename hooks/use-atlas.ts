@@ -98,16 +98,19 @@ export function useCurrentStoryBeat(): StoryBeat | undefined {
   const stepIndex = useMapStore((s) => s.storyStepIndex);
   const storyMode = useMapStore((s) => s.storyMode);
   const atlasMode = useMapStore((s) => s.atlasMode);
+  const storyArc = useMapStore((s) => s.storyArc);
   return useMemo(
-    () => (storyMode && atlasMode ? getBeat(stepIndex) : undefined),
-    [stepIndex, storyMode, atlasMode],
+    () => (storyMode && atlasMode ? getBeat(stepIndex, storyArc) : undefined),
+    [stepIndex, storyMode, atlasMode, storyArc],
   );
 }
 
 export function useAtlasBeatCount(): number {
-  return useMemo(() => getBeatCount(), []);
+  const storyArc = useMapStore((s) => s.storyArc);
+  return useMemo(() => getBeatCount(storyArc), [storyArc]);
 }
 
 export function useAtlasStoryBeats(): StoryBeat[] {
-  return useMemo(() => getStoryBeats(), []);
+  const storyArc = useMapStore((s) => s.storyArc);
+  return useMemo(() => getStoryBeats(storyArc), [storyArc]);
 }

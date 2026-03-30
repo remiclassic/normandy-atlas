@@ -2,9 +2,10 @@
 
 import { useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useMapStore, COLONIAL_ERA_IDS } from '@/lib/store';
+import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
 import { getStoryBeats, getBeat, getBeatCount } from '@/core';
+import { getArcEntriesForEra } from '@/data/atlas/era-arcs';
 import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 
@@ -19,6 +20,7 @@ export default function StoryModeBar() {
   const prevStep = useMapStore((s) => s.prevStoryStep);
   const setEra = useMapStore((s) => s.setEra);
   const setActiveJourney = useMapStore((s) => s.setActiveJourney);
+  const setAtlasSimYear = useMapStore((s) => s.setAtlasSimYear);
 
   const atlasBeats = useMemo(() => getStoryBeats(storyArc), [storyArc]);
   const totalSteps = atlasMode ? atlasBeats.length : normanAtlanticStory.length;
@@ -49,10 +51,20 @@ export default function StoryModeBar() {
       setEra(currentBeat.eraId);
       const firstJourney = currentBeat.focus.journeyIds?.[0] ?? null;
       setActiveJourney(firstJourney);
+      if (currentBeat.anchorYear != null) {
+        setAtlasSimYear(currentBeat.anchorYear);
+      }
     } else if (currentLegacyStep) {
       setEra(currentLegacyStep.eraId);
     }
-  }, [currentBeat, currentLegacyStep, setEra, setActiveJourney, storyMode]);
+  }, [
+    currentBeat,
+    currentLegacyStep,
+    setEra,
+    setActiveJourney,
+    setAtlasSimYear,
+    storyMode,
+  ]);
 
   const handleStop = useCallback(() => {
     stopStory();
@@ -61,9 +73,9 @@ export default function StoryModeBar() {
 
   const isActive = storyMode && (currentBeat || currentLegacyStep);
   const eraId = useMapStore((s) => s.eraId);
-  const isColonialEra = COLONIAL_ERA_IDS.has(eraId);
 
-  const handleStartNewFrance = useCallback(() => startStory('new-france'), [startStory]);
+  const arcEntries = useMemo(() => getArcEntriesForEra(eraId), [eraId]);
+  const handleStartArc = useCallback((arcId: string) => startStory(arcId), [startStory]);
 
   return (
     <>
@@ -88,19 +100,20 @@ export default function StoryModeBar() {
               Explore the Story
             </button>
 
-            {isColonialEra && (
+            {arcEntries.map((entry) => (
               <button
-                onClick={handleStartNewFrance}
-                className="group flex items-center gap-2.5 rounded-full glass-panel px-5 py-3 text-[13px] font-medium text-cyan-300/80 hover:text-cyan-200 transition-all duration-250 border-cyan-400/15 hover:border-cyan-400/25"
+                key={entry.arcId}
+                onClick={() => handleStartArc(entry.arcId)}
+                className={`group flex items-center gap-2.5 rounded-full glass-panel px-5 py-3 text-[13px] font-medium transition-all duration-250 ${entry.style.text} ${entry.style.textHover} ${entry.style.border} ${entry.style.borderHover}`}
               >
-                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-cyan-400/10 group-hover:bg-cyan-400/15 transition-colors duration-200">
+                <span className={`flex items-center justify-center w-6 h-6 rounded-full ${entry.style.iconBg} ${entry.style.iconBgHover} transition-colors duration-200`}>
                   <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                     <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                   </svg>
                 </span>
-                New France Arc
+                {entry.label.en}
               </button>
-            )}
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

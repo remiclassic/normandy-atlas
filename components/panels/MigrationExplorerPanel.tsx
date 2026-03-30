@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import {
@@ -10,10 +10,12 @@ import {
   listBranchesForEra,
   getSharesForMode,
 } from '@/core';
+import type { CohortOption } from '@/core/migration/engine';
 import { MIGRATION_COHORT_LABELS } from '@/data/atlas/migration-datasets';
 import type {
   MigrationMapMode,
   MigrationBranchId,
+  MigrationCohortId,
   MigrationShareRow,
   MigrationDataset,
   StatConfidence,
@@ -157,6 +159,123 @@ const MethodologyDrawer = memo(function MethodologyDrawer({
   );
 });
 
+const CohortSelect = memo(function CohortSelect({
+  cohorts,
+  value,
+  onChange,
+}: {
+  cohorts: CohortOption[];
+  value: MigrationCohortId;
+  onChange: (id: MigrationCohortId) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocMouse = (e: MouseEvent) => {
+      if (rootRef.current?.contains(e.target as Node)) return;
+      setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onDocMouse);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDocMouse);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  const current = useMemo(() => cohorts.find((c) => c.id === value), [cohorts, value]);
+
+  const toggle = useCallback(() => setOpen((o) => !o), []);
+  const pick = useCallback(
+    (id: MigrationCohortId, available: boolean) => {
+      if (!available) return;
+      onChange(id);
+      setOpen(false);
+    },
+    [onChange],
+  );
+
+  return (
+    <div ref={rootRef} className="relative">
+      <button
+        type="button"
+        id="migration-cohort-trigger"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls="migration-cohort-listbox"
+        onClick={toggle}
+        className="flex w-full items-center justify-between gap-2 rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1.5 text-left text-[11px] text-text/80 outline-none transition-colors focus-visible:border-gold/30"
+      >
+        <span className="min-w-0 truncate">
+          {current?.label.en}
+          {current && !current.available ? ' (no data)' : ''}
+        </span>
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          className={`shrink-0 text-text-dim/60 transition-transform duration-150 ${open ? 'rotate-180' : ''}`}
+          aria-hidden
+        >
+          <path
+            d="M2 3.5L5 6.5L8 3.5"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            id="migration-cohort-listbox"
+            role="listbox"
+            aria-labelledby="migration-cohort-trigger"
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 right-0 top-full z-50 mt-1 max-h-48 overflow-y-auto rounded-md border border-white/[0.1] bg-[rgba(16,18,26,0.98)] py-1 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl scrollbar-thin"
+          >
+            {cohorts.map((c) => {
+              const selected = c.id === value;
+              const disabled = !c.available;
+              return (
+                <li key={c.id} role="presentation" className="px-0.5">
+                  <button
+                    type="button"
+                    role="option"
+                    aria-selected={selected}
+                    disabled={disabled}
+                    onClick={() => pick(c.id, c.available)}
+                    className={`w-full rounded px-2 py-1.5 text-left text-[11px] transition-colors ${
+                      disabled
+                        ? 'cursor-not-allowed text-text-dim/35'
+                        : selected
+                          ? 'bg-gold/20 text-parchment'
+                          : 'text-text/85 hover:bg-white/[0.06]'
+                    }`}
+                  >
+                    {c.label.en}
+                    {c.available ? '' : ' (no data)'}
+                  </button>
+                </li>
+              );
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+});
+
 // ---------------------------------------------------------------------------
 // Main panel
 // ---------------------------------------------------------------------------
@@ -198,7 +317,7 @@ export default function MigrationExplorerPanel() {
   if (!available) return null;
 
   return (
-    <div className="relative">
+    <div className="relative min-h-0 w-[310px]">
       {/* Trigger button */}
       <button
         type="button"
@@ -217,7 +336,6 @@ export default function MigrationExplorerPanel() {
         Migration Explorer
       </button>
 
-      {/* Panel */}
       <AnimatePresence>
         {explorerOpen && (
           <motion.div
@@ -225,7 +343,7 @@ export default function MigrationExplorerPanel() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.2 }}
-            className="glass-panel-elevated rounded-2xl w-[310px] max-h-[calc(100vh-260px)] overflow-y-auto"
+            className="absolute bottom-full left-0 z-30 mb-2 w-full max-h-[min(60vh,calc(100dvh-12rem))] overflow-y-auto rounded-2xl glass-panel-elevated scrollbar-thin"
           >
             {/* Header */}
             <div className="px-4 pt-4 pb-2">
@@ -237,6 +355,9 @@ export default function MigrationExplorerPanel() {
                   {dataset.yearRange[0]}–{dataset.yearRange[1]}
                 </span>
               )}
+              <p className="mt-2.5 text-[11px] leading-relaxed text-text-dim/80">
+                Shares show estimated regional contributions to immigrant cohorts. Norman and northwestern lines often stand out in French Canadian trees because Channel and Seine ports fed the colony and a small founder population amplified certain origins — not because every migrant was born where they boarded. Open Methodology for caveats.
+              </p>
             </div>
 
             {/* Mode tabs */}
@@ -277,19 +398,9 @@ export default function MigrationExplorerPanel() {
               </div>
             )}
 
-            {/* Cohort selector */}
+            {/* Custom listbox — native select popups use OS colors (poor contrast here) */}
             <div className="px-4 pb-2">
-              <select
-                value={cohortId}
-                onChange={(e) => setCohortId(e.target.value as typeof cohortId)}
-                className="w-full rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] text-text/80 px-2.5 py-1.5 outline-none focus:border-gold/30 transition-colors"
-              >
-                {cohorts.map((c) => (
-                  <option key={c.id} value={c.id} disabled={!c.available}>
-                    {c.label.en}{c.available ? '' : ' (no data)'}
-                  </option>
-                ))}
-              </select>
+              <CohortSelect cohorts={cohorts} value={cohortId} onChange={setCohortId} />
             </div>
 
             {/* Divider */}
@@ -321,7 +432,8 @@ export default function MigrationExplorerPanel() {
               <button
                 type="button"
                 onClick={() => setFlowEnabled(!flowEnabled)}
-                className="relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200"
+                aria-pressed={flowEnabled}
+                className="relative h-4 w-7 shrink-0 overflow-hidden rounded-full transition-colors duration-200"
                 style={{
                   borderWidth: 1,
                   borderStyle: 'solid',
@@ -330,9 +442,10 @@ export default function MigrationExplorerPanel() {
                 }}
               >
                 <motion.span
-                  animate={{ x: flowEnabled ? 16 : 2 }}
-                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                  className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
+                  initial={false}
+                  animate={{ x: flowEnabled ? 12 : 0 }}
+                  transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
+                  className={`absolute left-0.5 top-[3px] h-2.5 w-2.5 rounded-full shadow-sm ${
                     flowEnabled ? 'bg-parchment' : 'bg-white/35'
                   }`}
                 />

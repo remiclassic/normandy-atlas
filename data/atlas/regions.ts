@@ -261,6 +261,15 @@ export const atlasRegions: AtlasRegion[] = [
     },
   },
   {
+    id: 'ile-royale',
+    name: { en: 'Île Royale & Île Saint-Jean', fr: 'Île Royale & Île Saint-Jean' },
+    layer: 'americas',
+    geometryRef: 'region-ile-royale',
+    eraStates: {
+      'atlantic-imprint': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'polity' },
+    },
+  },
+  {
     id: 'atlantic-basin',
     name: { en: 'North Atlantic', fr: 'Atlantique Nord' },
     layer: 'atlantic',

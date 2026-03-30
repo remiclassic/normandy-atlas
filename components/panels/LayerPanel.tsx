@@ -225,6 +225,48 @@ const BasemapToggle = memo(function BasemapToggle() {
   );
 });
 
+const ModernBasemapOverlaysToggle = memo(function ModernBasemapOverlaysToggle() {
+  const on = useMapStore((s) => s.modernBasemapOverlays);
+  const flip = useCallback(() => {
+    const s = useMapStore.getState();
+    s.setModernBasemapOverlays(!s.modernBasemapOverlays);
+  }, []);
+
+  return (
+    <div className="px-3.5 pb-2 pt-0">
+      <button
+        type="button"
+        onClick={flip}
+        className="group grid w-full grid-cols-[minmax(0,1fr)_32px] items-center gap-x-2 rounded-md px-0 py-1 text-left transition-colors duration-150 hover:bg-white/[0.03]"
+      >
+        <div className="min-w-0">
+          <span className="text-[11px] font-medium text-text block leading-snug">Modern labels &amp; borders</span>
+          <span className="text-[9px] text-text-dim/90 leading-snug block mt-0.5 normal-case tracking-normal font-normal">
+            Cities, countries, roads, and political boundaries from the basemap
+          </span>
+        </div>
+        <span className="flex h-[18px] shrink-0 items-center justify-end">
+          <span
+            className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
+              on
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]'
+                : 'border border-white/[0.12] bg-white/[0.05]'
+            }`}
+          >
+            <motion.span
+              animate={{ x: on ? 16 : 2 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+              className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
+                on ? 'bg-parchment' : 'bg-white/35'
+              }`}
+            />
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+});
+
 const NORMAN_PRESETS: { id: NormanExpansionPreset; label: string }[] = [
   { id: 'conquest', label: 'Conquest' },
   { id: 'influence', label: 'Influence' },
@@ -404,6 +446,7 @@ export default function LayerPanel() {
             <div className="accent-line-gold mx-3 my-1" />
 
             <BasemapToggle />
+            <ModernBasemapOverlaysToggle />
             <div className="accent-line-gold mx-3 my-1" />
 
             <div className="py-1 pb-2 max-h-[60vh] overflow-y-auto scrollbar-thin">

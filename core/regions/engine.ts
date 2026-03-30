@@ -1,5 +1,6 @@
 import { atlasRegions } from '@/data/atlas/regions';
 import { atlasRegionsGeoJson } from '@/data/atlas/regions-geo';
+import { COLONIAL_ERA_IDS } from '@/data/atlas/new-france-timeline';
 import type { AtlasRegion, RegionEraState, RegionWithState } from '@/core/types';
 import type { RegionFeatureCollection } from '@/types';
 
@@ -30,6 +31,33 @@ export function getAtlasRegionsGeoJsonForEra(eraId: string): RegionFeatureCollec
     if (region.eraStates[eraId]) {
       visibleIds.add(region.id);
     }
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features: atlasRegionsGeoJson.features.filter((f) => visibleIds.has(f.properties.id)),
+  };
+}
+
+/**
+ * Year-aware variant for colonial eras.  Post-Utrecht (1713+) hides the full
+ * Acadia polygon and shows only Île Royale & Île Saint-Jean.
+ */
+export function getAtlasRegionsForColonialYear(eraId: string, year: number): RegionFeatureCollection {
+  if (!COLONIAL_ERA_IDS.has(eraId)) return getAtlasRegionsGeoJsonForEra(eraId);
+
+  const visibleIds = new Set<string>();
+  for (const region of atlasRegions) {
+    if (region.eraStates[eraId]) {
+      visibleIds.add(region.id);
+    }
+  }
+
+  if (year >= 1713) {
+    visibleIds.delete('acadia');
+    visibleIds.add('ile-royale');
+  } else {
+    visibleIds.delete('ile-royale');
   }
 
   return {

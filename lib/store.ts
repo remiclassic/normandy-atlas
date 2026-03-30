@@ -4,7 +4,7 @@ import { defaultEraId } from '@/data/eras';
 import { getDefaultLayerState, getAtlasLayerPreset } from '@/data/layers';
 import { getDefaultAtlasEraId, isValidAtlasEra, getEraRange } from '@/core/era/engine';
 import { isMigrationEra } from '@/core/migration/engine';
-import { COLONIAL_ERA_IDS } from '@/data/atlas/new-france-timeline';
+import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-france-timeline';
 import type { SelectionKind } from '@/types';
 import type { MigrationMapMode, MigrationBranchId, MigrationCohortId } from '@/core/types';
 
@@ -41,6 +41,8 @@ const NORMAN_EXPANSION_PRESET_MATRIX: Record<NormanExpansionPreset, Record<strin
 
 export type BasemapMode = 'dark' | 'parchment';
 
+export type OnboardingPhase = 'intro' | 'flying' | 'guided' | 'complete';
+
 export interface NormanNodePeriod {
   min: number;
   max: number;
@@ -61,6 +63,9 @@ function eraMidpoint(eraId: string): number {
 }
 
 function clampToEra(year: number, eraId: string): number {
+  if (COLONIAL_ERA_IDS.has(eraId)) {
+    return Math.max(COLONIAL_SIM_YEAR_RANGE.start, Math.min(COLONIAL_SIM_YEAR_RANGE.end, year));
+  }
   const r = getEraRange(eraId);
   if (!r) return year;
   return Math.max(r.start, Math.min(r.end, year));
@@ -89,6 +94,10 @@ interface MapStore {
   migrationBranch: MigrationBranchId;
   migrationCohortId: MigrationCohortId;
   migrationFlowEnabled: boolean;
+  /** When true, Carto basemap shows cities, countries, roads, water names, and admin boundaries. */
+  modernBasemapOverlays: boolean;
+
+  onboardingPhase: OnboardingPhase;
 
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
@@ -114,10 +123,20 @@ interface MapStore {
   setMigrationBranch: (branch: MigrationBranchId) => void;
   setMigrationCohortId: (cohortId: MigrationCohortId) => void;
   setMigrationFlowEnabled: (enabled: boolean) => void;
+  setModernBasemapOverlays: (visible: boolean) => void;
+  setOnboardingPhase: (phase: OnboardingPhase) => void;
 }
 
 function initialAtlasLayers(): Record<string, boolean> {
   return { ...getDefaultLayerState(), ...getAtlasLayerPreset(getDefaultAtlasEraId()) };
+}
+
+export const ONBOARDING_KEY = 'norman-atlas-onboarding-v1';
+
+/** Safe to call anywhere (SSR, client). Reads localStorage directly. */
+export function isOnboardingDone(): boolean {
+  if (typeof window === 'undefined') return false;
+  try { return localStorage.getItem(ONBOARDING_KEY) === 'done'; } catch { return false; }
 }
 
 export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
@@ -143,6 +162,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   migrationBranch: 'st_lawrence' as MigrationBranchId,
   migrationCohortId: 'all_immigrants' as MigrationCohortId,
   migrationFlowEnabled: false,
+  modernBasemapOverlays: false,
+  onboardingPhase: 'intro' as OnboardingPhase,
 
   setAtlasMode: (enabled) =>
     set({
@@ -165,7 +186,13 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
       const layers = s.atlasMode
         ? { ...getDefaultLayerState(), ...getAtlasLayerPreset(id) }
         : s.layers;
-      const atlasSimYear = eraMidpoint(id);
+      const enteringColonial = COLONIAL_ERA_IDS.has(id);
+      const wasColonial = COLONIAL_ERA_IDS.has(s.eraId);
+      const atlasSimYear = enteringColonial && wasColonial
+        ? s.atlasSimYear
+        : enteringColonial
+          ? eraMidpoint(id)
+          : eraMidpoint(id);
       const closeMigration = !isMigrationEra(id);
       return {
         eraId: id,
@@ -244,4 +271,14 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   setMigrationBranch: (branch) => set({ migrationBranch: branch }),
   setMigrationCohortId: (cohortId) => set({ migrationCohortId: cohortId }),
   setMigrationFlowEnabled: (enabled) => set({ migrationFlowEnabled: enabled }),
+
+  setModernBasemapOverlays: (visible) => set({ modernBasemapOverlays: visible }),
+
+  setOnboardingPhase: (phase) => {
+    try {
+      if (phase === 'complete') localStorage.setItem(ONBOARDING_KEY, 'done');
+      else localStorage.removeItem(ONBOARDING_KEY);
+    } catch { /* SSR / quota */ }
+    set({ onboardingPhase: phase });
+  },
 })));

@@ -563,6 +563,7 @@ export const atlasPlaces: Place[] = [
     eraStates: {
       'viking-age': { visibility: 'emphasized', label: 'Dublin (Dyflinn)', affiliationTags: ['Norse-Gaelic', 'longphort'], pedagogyIndex: 5 },
       'norman-origins': { visibility: 'normal', label: 'Dublin', affiliationTags: ['Norse-Gaelic'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'normal', label: 'Dublin', affiliationTags: ['Anglo-Norman'], pedagogyIndex: 4 },
     },
   },
   {
@@ -787,6 +788,58 @@ export const atlasPlaces: Place[] = [
     eraStates: {
       'new-france-foundations': { visibility: 'faded', label: 'Lake Huron', affiliationTags: ['exploration'], pedagogyIndex: 3 },
       'royal-new-france': { visibility: 'normal', label: 'Lake Huron', affiliationTags: ['exploration'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Norman Expansion anchor nodes ---
+  {
+    id: 'hastings',
+    kind: 'abstract_node',
+    coordinates: [0.57, 50.86],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'normal', label: 'Hastings', affiliationTags: ['Saxon', 'target'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'Hastings', affiliationTags: ['Norman', 'battle'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'london',
+    kind: 'city',
+    coordinates: [-0.13, 51.51],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'London', affiliationTags: ['Norman England', 'capital'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'palermo',
+    kind: 'city',
+    coordinates: [13.36, 38.12],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Palermo', affiliationTags: ['Kingdom of Sicily'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'antioch',
+    kind: 'abstract_node',
+    coordinates: [36.15, 36.20],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Antioch', affiliationTags: ['Crusader', 'Norman'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'bari',
+    kind: 'city',
+    coordinates: [16.87, 41.12],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Bari', affiliationTags: ['Norman Italy'], pedagogyIndex: 4 },
     },
   },
 ];

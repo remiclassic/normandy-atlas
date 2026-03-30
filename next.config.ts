@@ -8,7 +8,8 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig: NextConfig = {
   outputFileTracingRoot: projectRoot,
   output: "export",
-  basePath: "/normandy-atlas",
+  // GitHub Pages lives under /normandy-atlas; dev server uses "/" so localhost is not a 404.
+  basePath: process.env.NODE_ENV === "development" ? "" : "/normandy-atlas",
 };
 
 export default nextConfig;

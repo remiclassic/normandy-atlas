@@ -80,6 +80,14 @@ The duchy's administrative innovations — the Exchequer, itinerant justices, de
 Norman society was militaristic, pious, and ambitious. Knights held land in return for military service, monasteries served as centers of learning, and the ducal court attracted scholars, builders, and adventurers from across Christendom.
 
 After the Conquest, Normandy and England were governed as a single cross-Channel realm, though tensions between continental and insular interests would eventually pull them apart. Philip II of France seized the duchy in 1204, ending its independence.`,
+      'new-france-foundations': `By the 17th century, Normandy was a French province — not the medieval duchy — but it kept dense river-and-port ties to the Atlantic. Rouen, Dieppe, and Honfleur were routine points of embarkation for ships bound for Canada, and Norman mariners, merchants, and clerics were heavily involved in the early fur trade and missions.
+
+Recruitment did not pick settlers at random from all of France. Seigneurs, family chains, and parish networks often drew people from northwestern France into the same colonial neighbourhoods. That is one reason Norman and near-Norman surnames show up so often in Québec founding families: the colony was small, and repeated regional channels left an outsized mark compared with France as a whole.
+
+This is not the same as saying "French Canadians are Vikings." It means many lineages pass through early modern Normandy — a population already blended from Norse, Frankish, and broader French roots — on their way to the St. Lawrence.`,
+      'royal-new-france': `After 1663, royal policy flooded the colony with structured migration: the Filles du Roi, soldiers who stayed, engagés, and officials. La Rochelle and other western ports handled much of that traffic, but Normandy still supplied people and skills, and Norman place names and families remained conspicuous along the St. Lawrence.
+
+Historians and genealogists often note how a modest number of 17th-century immigrants became ancestors to very large modern French Canadian populations — a founder effect amplified by endogamy within Catholic parish society. Normandy appears prominently in that story because of maritime access and recruitment patterns, alongside Perche, Brittany, and the Centre-West, not because the colony was exclusively Norman.`,
     },
     notableSettlements: ['Rouen', 'Caen', 'Bayeux', 'Falaise', 'Honfleur'],
     relatedEventIds: ['treaty-saint-clair', 'battle-hastings'],
@@ -354,6 +362,7 @@ Yet the Conquest was also a cultural fusion. Norman French, Anglo-Saxon English,
     historicalNames: [
       { eraId: 'new-france-foundations', name: 'New France' },
       { eraId: 'royal-new-france', name: 'New France' },
+      { eraId: 'atlantic-imprint', name: 'New France' },
     ],
     eraVisibility: ['new-france-foundations', 'royal-new-france', 'atlantic-imprint'],
     politicalEntity: {
@@ -364,12 +373,15 @@ Yet the Conquest was also a cultural fusion. Norman French, Anglo-Saxon English,
     ruler: {
       'new-france-foundations': 'Governor of New France / Trading companies',
       'royal-new-france': 'Governor-General of New France',
+      'atlantic-imprint': 'Governor-General of New France',
     },
     summary: {
       'new-france-foundations':
         'Champlain founded Québec in 1608, anchoring a thin ribbon of French settlement along the St. Lawrence. The colony survived through the fur trade, alliances with Indigenous nations, and a trickle of settlers recruited from Normandy, Perche, and the Atlantic ports.',
       'royal-new-france':
         'Under royal control after 1663, New France grew rapidly. Jean Talon organized the Filles du Roi migration and the Carignan-Salières Regiment, tripling the colony\'s population. The seigneurial system and the Church defined colonial society.',
+      'atlantic-imprint':
+        'At its widest extent New France spanned a continental arc, yet the British conquest of 1759–1760 ended French rule. The people of the St. Lawrence remained; their language, parish registers, and family lines preserved a French Atlantic heritage drawn from many provinces, including a strong northwestern imprint.',
     },
     article: {
       'new-france-foundations': `New France began as a commercial venture, not a settlement colony. The fur trade drove everything — alliances, exploration, and the precarious finances that kept the colony alive.
@@ -378,7 +390,15 @@ Québec, Trois-Rivières, and Montréal formed a chain along the St. Lawrence, e
 
 The founding population was tiny — perhaps 3,000 people by 1663. Many came from Normandy, the Perche, and the Atlantic ports. Entire families were recruited by seigneurs like Robert Giffard, creating tight-knit parish communities that would shape Québec for centuries.
 
-Life was hard: the climate was brutal, the Iroquois wars threatened survival, and France's attention was often elsewhere. But the settlers who stayed forged a society that blended French institutions, Catholic faith, and the hard-won knowledge of the land.`,
+Life was hard: the climate was brutal, the Iroquois wars threatened survival, and France's attention was often elsewhere. But the settlers who stayed forged a society that blended French institutions, Catholic faith, and the hard-won knowledge of the land.
+
+Why do so many French Canadians today trace lineages through Normandy or neighbouring regions? The colony drew migrants from across France, but northwestern channels — ports, recruiters, and chain migration — fed the St. Lawrence disproportionately. A small founding pool meant those regional signals stayed visible in surnames and genealogy even though the French Atlantic world was always broader than any one province.`,
+      'royal-new-france': `Royal takeover after 1663 turned New France into a state project. Intendant Jean Talon promoted industry, censuses, and aggressive settlement; shiploads of Filles du Roi and demobilized soldiers from the Carignan-Salières Regiment reshaped demography. The seigneurial grid filled in along the river, and the Church anchored parish life from birth records to education.
+
+Embarkation increasingly ran through major royal ports — La Rochelle chief among them — while Normandy and Brittany still supplied large shares of migrants. The same structural fact holds: a limited immigrant base and parish endogamy magnified certain regional origins in modern French Canadian family trees. That helps explain why "Norman" roots feel common without meaning the colony was ethnically Norman in a medieval sense.`,
+      'atlantic-imprint': `The Seven Years' War stripped France of its North American empire, but it did not erase the society that 17th- and 18th-century migration had built. Parish registers, notarial acts, and family memory kept traceable paths back to embarkation ports and, behind them, to regions such as Normandy, Perche, Brittany, and the western river valleys.
+
+When people today speak of "Norman" ancestry in French Canada, they usually mean early modern northwestern France — maritime connections, repeated recruitment, and the demographic mathematics of a small colonial founder population — rather than a direct line to Rollo's war-band. The imprint is real; the shorthand is often oversimplified.`,
     },
     notableSettlements: ['Québec', 'Montréal', 'Trois-Rivières'],
     relatedEventIds: ['founding-quebec', 'founding-montreal'],
@@ -418,7 +438,9 @@ Life was hard: the climate was brutal, the Iroquois wars threatened survival, an
 
 The colony's society was shaped by the seigneurial land system, the Catholic Church, and the fur trade. Habitants farmed long, narrow lots along the St. Lawrence while coureurs des bois ventured deep into the interior.
 
-Quebec and Montreal anchored the colony — one as the administrative and military capital, the other as the commercial gateway to the interior.`,
+Quebec and Montreal anchored the colony — one as the administrative and military capital, the other as the commercial gateway to the interior.
+
+Most colonists arrived from Atlantic France before 1760; northwestern regions (including Normandy) and the western ports appear repeatedly in immigrant studies, so many present-day French Canadian lineages pass through those areas — a demographic pattern, not proof that the colony was ethnically homogeneous.`,
     },
     notableSettlements: ['Quebec City', 'Montreal', 'Trois-Rivières'],
     relatedEventIds: ['founding-quebec', 'founding-montreal', 'fall-of-quebec'],

@@ -138,4 +138,4 @@ export const atlasEras: AtlasEra[] = [
   },
 ];
 
-export const DEFAULT_ATLAS_ERA_ID = 'post-roman-gaul';
+export const DEFAULT_ATLAS_ERA_ID = 'neolithic-normandy';

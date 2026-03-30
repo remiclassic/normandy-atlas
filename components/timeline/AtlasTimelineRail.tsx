@@ -301,6 +301,7 @@ export default function AtlasTimelineRail() {
       animate={{ opacity: 1, height: 'auto' }}
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       className="overflow-hidden border-t border-white/[0.06]"
+      data-onboarding="timeline"
     >
       <div className="flex items-center gap-4 px-4 py-2.5 pointer-events-auto sm:gap-5 sm:px-6">
         <span className="flex-shrink-0 text-[9px] font-semibold uppercase tracking-[0.14em] text-gold/45 tabular-nums sm:text-[10px]">
