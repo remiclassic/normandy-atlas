@@ -194,7 +194,7 @@ export const CreditsModal = memo(function CreditsModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[75] flex items-center justify-center bg-[rgba(8,10,14,0.72)] p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[75] flex items-center justify-center bg-[rgba(8,10,14,0.72)] p-0 sm:p-4 backdrop-blur-sm"
           onClick={onClose}
         >
           <motion.div
@@ -205,17 +205,18 @@ export const CreditsModal = memo(function CreditsModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative max-h-[min(85vh,720px)] w-full max-w-lg overflow-hidden rounded-2xl border border-chrome-border-strong glass-panel-elevated shadow-atlas-modal"
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-chrome-border-strong glass-panel-elevated shadow-atlas-modal max-sm:rounded-none max-sm:border-0 max-sm:max-w-none max-sm:h-full"
+            style={{ maxHeight: 'min(85dvh, 720px)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               ref={closeRef}
               type="button"
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-lg border border-transparent bg-chrome-fill text-text-dim transition-all duration-150 hover:border-chrome-border hover:bg-chrome-fill-active hover:text-text-muted"
+              className="absolute top-4 right-4 z-10 flex h-10 w-10 sm:h-8 sm:w-8 items-center justify-center rounded-lg border border-transparent bg-chrome-fill text-text-dim transition-all duration-150 hover:border-chrome-border hover:bg-chrome-fill-active hover:text-text-muted touch-target"
               aria-label={t('credits.aria.close', locale)}
             >
-              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
                 <path
                   d="M1 1l12 12M13 1L1 13"
                   stroke="currentColor"
@@ -224,7 +225,7 @@ export const CreditsModal = memo(function CreditsModal({
                 />
               </svg>
             </button>
-            <div className="max-h-[min(85vh,720px)] overflow-y-auto scrollbar-thin">
+            <div className="overflow-y-auto scrollbar-thin h-full" style={{ maxHeight: 'min(85dvh, 720px)' }}>
               <CreditsScrollContent locale={locale} />
             </div>
           </motion.div>

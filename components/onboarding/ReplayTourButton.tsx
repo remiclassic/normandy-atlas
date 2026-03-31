@@ -4,7 +4,11 @@ import { memo, useCallback } from 'react';
 import { useMapStore } from '@/lib/store';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 
-const ReplayTourButton = memo(function ReplayTourButton() {
+const ReplayTourButton = memo(function ReplayTourButton({
+  fullWidth,
+}: {
+  fullWidth?: boolean;
+}) {
   const setPhase = useMapStore((s) => s.setOnboardingPhase);
   const phase = useMapStore((s) => s.onboardingPhase);
 
@@ -14,6 +18,24 @@ const ReplayTourButton = memo(function ReplayTourButton() {
   }, [setPhase, phase]);
 
   if (phase !== 'complete') return null;
+
+  if (fullWidth) {
+    return (
+      <button
+        type="button"
+        onClick={handleReplay}
+        className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 opacity-60">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+          <text x="8" y="11.5" textAnchor="middle" fill="currentColor" fontSize="9" fontFamily="sans-serif" fontWeight="600">
+            ?
+          </text>
+        </svg>
+        Replay guided tour
+      </button>
+    );
+  }
 
   return (
     <ChromeIconTooltip

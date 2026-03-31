@@ -309,22 +309,19 @@ export default function AtlasTimelineRail() {
       className="overflow-hidden border-t border-chrome-border"
       data-onboarding="timeline"
     >
-      <div className="flex items-center gap-4 px-4 py-2.5 pointer-events-auto sm:gap-5 sm:px-6">
+      <div className="flex items-center gap-3 px-3 py-2 pointer-events-auto sm:gap-5 sm:px-6 sm:py-2.5">
         <span className="flex-shrink-0 text-[9px] font-semibold uppercase tracking-[0.14em] text-gold/45 tabular-nums sm:text-[10px]">
           {formatYear(clampedYear)}
         </span>
 
         <div className="relative min-h-[44px] min-w-0 flex-1 pt-2">
-          {/* Background track */}
-          <div className="absolute top-[10px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised" />
+          <div className="absolute top-[10px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised sm:h-[3px]" />
 
-          {/* Elapsed fill */}
           <div
             className="absolute top-[10px] left-0 h-[3px] rounded-full bg-gold/30 transition-all duration-100"
             style={{ width: `${pct}%` }}
           />
 
-          {/* Markers */}
           {markers.map((m) => (
             <MarkerDot
               key={m.id}
@@ -338,7 +335,6 @@ export default function AtlasTimelineRail() {
             />
           ))}
 
-          {/* Tick labels */}
           <div className="absolute top-[20px] right-0 left-0">
             {ticks.map((t) => (
               <TickLabel
@@ -350,7 +346,6 @@ export default function AtlasTimelineRail() {
             ))}
           </div>
 
-          {/* Range input overlay */}
           <input
             type="range"
             min={min}
@@ -358,12 +353,12 @@ export default function AtlasTimelineRail() {
             step={step}
             value={clampedYear}
             onChange={handleSliderChange}
-            className="absolute top-0 left-0 z-10 h-8 w-full cursor-pointer opacity-0"
+            className="absolute top-0 left-0 z-10 h-10 w-full cursor-pointer opacity-0 touch-action-pan-x"
+            style={{ touchAction: 'pan-x' }}
             aria-label={`Timeline: ${formatYear(min)} to ${formatYear(max)}`}
             aria-valuetext={formatYear(clampedYear)}
           />
 
-          {/* Portal tooltip */}
           <AnimatePresence>
             {hoveredMarker && anchorRect && (
               <MarkerTooltip marker={hoveredMarker} anchorRect={anchorRect} locale={locale} />

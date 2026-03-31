@@ -108,6 +108,7 @@ export default function StoryModeBar() {
 
   return (
     <>
+      {/* Story / arc start buttons */}
       <AnimatePresence>
         {!storyMode && (
           <motion.div
@@ -115,11 +116,11 @@ export default function StoryModeBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 sm:flex-row px-3 w-full sm:w-auto max-w-[calc(100vw-24px)]"
           >
             <button
               onClick={() => startStory()}
-              className="group flex items-center gap-3 rounded-full glass-panel glow-gold px-6 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25"
+              className="group flex items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 w-full sm:w-auto touch-target"
             >
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-gold/10 group-hover:bg-gold/15 transition-colors duration-200">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -132,24 +133,25 @@ export default function StoryModeBar() {
             {arcEntries.map((entry) => {
               const st = arcChromeStyle(entry, uiTheme);
               return (
-              <button
-                key={entry.arcId}
-                onClick={() => handleStartArc(entry.arcId)}
-                className={`group flex items-center gap-2.5 rounded-full glass-panel px-5 py-3 text-[13px] font-medium transition-all duration-250 ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
-              >
-                <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                    <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
-                  </svg>
-                </span>
-                {pickI18n(entry.label, locale)}
-              </button>
-            );
+                <button
+                  key={entry.arcId}
+                  onClick={() => handleStartArc(entry.arcId)}
+                  className={`group flex items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-[12px] sm:text-[13px] font-medium transition-all duration-250 w-full sm:w-auto touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
+                >
+                  <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
+                    <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                      <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
+                    </svg>
+                  </span>
+                  <span className="truncate">{pickI18n(entry.label, locale)}</span>
+                </button>
+              );
             })}
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Active story bar */}
       <AnimatePresence>
         {isActive && (
           <motion.div
@@ -158,8 +160,9 @@ export default function StoryModeBar() {
             exit={{ opacity: 0, y: 48 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="absolute bottom-0 left-0 right-0 z-30"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
-            <div className="mx-auto max-w-2xl mb-6 px-4">
+            <div className="mx-auto max-w-2xl mb-3 sm:mb-6 px-3 sm:px-4">
               <div className="rounded-2xl glass-panel-elevated overflow-hidden">
                 <div className="relative h-[2px] bg-chrome-shade-strong">
                   <motion.div
@@ -169,27 +172,27 @@ export default function StoryModeBar() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between px-6 pt-3">
+                <div className="flex items-center justify-between px-4 pt-2.5 sm:px-6 sm:pt-3">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim">
                     {stepIndex + 1} / {totalSteps}
                   </span>
-                  <div className="flex gap-1">
+                  <div className="flex gap-1 overflow-hidden max-w-[40%]">
                     {Array.from({ length: totalSteps }, (_, i) => (
                       <div
                         key={i}
-                        className={`h-1 rounded-full transition-all duration-400 ${
+                        className={`h-1 rounded-full transition-all duration-400 flex-shrink-0 ${
                           i === stepIndex
-                            ? 'w-5 bg-gold/70'
+                            ? 'w-4 sm:w-5 bg-gold/70'
                             : i < stepIndex
-                              ? 'w-1.5 bg-gold/25'
-                              : 'w-1.5 bg-chrome-divider'
+                              ? 'w-1 sm:w-1.5 bg-gold/25'
+                              : 'w-1 sm:w-1.5 bg-chrome-divider'
                         }`}
                       />
                     ))}
                   </div>
                 </div>
 
-                <div className="px-6 pt-3 pb-4">
+                <div className="px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={stepId}
@@ -203,18 +206,18 @@ export default function StoryModeBar() {
                           {stepChapter}
                         </span>
                       )}
-                      <h3 className="text-lg font-display font-bold text-parchment mb-2 tracking-[-0.01em]">
+                      <h3 className="text-base sm:text-lg font-display font-bold text-parchment mb-1.5 sm:mb-2 tracking-[-0.01em]">
                         {stepTitle}
                       </h3>
-                      <p className="text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
+                      <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted line-clamp-4 sm:line-clamp-none">{stepBody}</p>
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
-                <div className="flex items-center justify-between px-5 pb-4 pt-1">
+                <div className="flex items-center justify-between px-3.5 pb-3 pt-1 sm:px-5 sm:pb-4">
                   <button
                     onClick={handleStop}
-                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-chrome-fill-badge"
+                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-chrome-fill-badge touch-target"
                   >
                     {t('story.exit', locale)}
                   </button>
@@ -222,7 +225,7 @@ export default function StoryModeBar() {
                     <button
                       onClick={prevStep}
                       disabled={isFirst}
-                      className="flex items-center justify-center w-9 h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-chrome-fill-badge"
+                      className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-chrome-fill-badge touch-target"
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -230,7 +233,7 @@ export default function StoryModeBar() {
                     </button>
                     <button
                       onClick={isLast ? handleStop : nextStep}
-                      className="flex items-center justify-center h-9 rounded-lg bg-gold/12 border border-gold/20 px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150"
+                      className="flex items-center justify-center h-10 sm:h-9 rounded-lg bg-gold/12 border border-gold/20 px-4 sm:px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150 touch-target"
                     >
                       {isLast ? t('story.finish', locale) : t('story.continue', locale)}
                       {!isLast && (

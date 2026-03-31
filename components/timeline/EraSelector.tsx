@@ -22,7 +22,7 @@ import {
 import { EraGlyph } from '@/lib/era-selector-icons';
 import EraIconStrip, { EraIconDots } from './EraIconStrip';
 
-const JUMP_PANEL_WIDTH_PX = 288; // matches w-72
+const JUMP_PANEL_WIDTH_PX = 288;
 const TOOLTIP_WIDTH = 240;
 
 // ─── Portal tooltip for era icons ───────────────────────────────────
@@ -174,12 +174,14 @@ function JumpPanel({
   onSelect,
   currentEra,
   containerRef,
+  fullScreen,
 }: {
   open: boolean;
   onClose: () => void;
   onSelect: (id: string) => void;
   currentEra: string;
   containerRef: React.RefObject<HTMLDivElement | null>;
+  fullScreen?: boolean;
 }) {
   const atlasMode = useMapStore((s) => s.atlasMode);
   const locale = useMapStore((s) => s.locale);
@@ -188,6 +190,18 @@ function JumpPanel({
   const [fixedStyle, setFixedStyle] = useState<React.CSSProperties | null>(null);
 
   const updatePosition = useCallback(() => {
+    if (fullScreen) {
+      setFixedStyle({
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 9999,
+        maxHeight: '100dvh',
+      });
+      return;
+    }
     const anchor = containerRef.current;
     if (!anchor || typeof window === 'undefined') return;
     const rect = anchor.getBoundingClientRect();
@@ -205,7 +219,7 @@ function JumpPanel({
       zIndex: 9999,
       maxHeight: Math.min(window.innerHeight * 0.6, maxH),
     });
-  }, [containerRef]);
+  }, [containerRef, fullScreen]);
 
   useLayoutEffect(() => {
     if (!open) {
@@ -234,7 +248,7 @@ function JumpPanel({
   }, [open, onClose]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || fullScreen) return;
     const handler = (e: MouseEvent) => {
       const target = e.target as Node;
       if (
@@ -246,7 +260,7 @@ function JumpPanel({
     };
     window.addEventListener('mousedown', handler);
     return () => window.removeEventListener('mousedown', handler);
-  }, [open, onClose, containerRef]);
+  }, [open, onClose, containerRef, fullScreen]);
 
   useEffect(() => {
     if (open && panelRef.current) {
@@ -267,68 +281,118 @@ function JumpPanel({
     return null;
   }
 
+  const panelContent = (
+    <>
+      {fullScreen && (
+        <div className="flex items-center justify-between px-4 pt-4 pb-2 border-b border-chrome-border sticky top-0 bg-chrome-popover/95 backdrop-blur-xl z-10">
+          <span className="text-[13px] font-display font-bold text-parchment">All Eras</span>
+          <button
+            onClick={onClose}
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all touch-target"
+            aria-label="Close"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+      )}
+      {model.groups.map((group, gi) => (
+        <div key={group.label || gi}>
+          {group.label && (
+            <div className={`px-3.5 pt-2.5 pb-1 ${fullScreen ? 'px-4' : ''}`}>
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50">
+                {group.label}
+              </span>
+            </div>
+          )}
+          {group.items.map((item) => {
+            const active = item.id === currentEra;
+            return (
+              <button
+                key={item.id}
+                data-era-jump
+                onClick={() => handleSelect(item.id)}
+                className={`
+                  flex w-full items-center gap-2.5 text-left
+                  transition-colors duration-150
+                  ${fullScreen ? 'px-4 py-3 min-h-[48px]' : 'px-3.5 py-1.5'}
+                  ${active ? 'bg-chrome-fill-raised text-parchment' : 'text-text-muted hover:bg-chrome-fill-badge hover:text-parchment'}
+                `}
+              >
+                <EraGlyph id={item.id} className={`flex-shrink-0 opacity-60 ${fullScreen ? 'h-4 w-4' : 'h-3.5 w-3.5'}`} />
+                <div className="min-w-0 flex-1">
+                  <span className={`block truncate font-medium leading-tight ${fullScreen ? 'text-[14px]' : 'text-[12px]'}`}>
+                    {item.label}
+                  </span>
+                  <span className={`block leading-tight opacity-50 ${fullScreen ? 'text-[12px]' : 'text-[10px]'}`}>
+                    {formatYear(item.yearRange[0])} – {formatYear(item.yearRange[1])}
+                  </span>
+                  <EraIconStrip eraId={item.id} atlasMode={atlasMode} maxIcons={6} />
+                </div>
+                {active && (
+                  <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold/70" />
+                )}
+              </button>
+            );
+          })}
+          {gi < model.groups.length - 1 && (
+            <div className="mx-3 my-1 h-px bg-chrome-divider" />
+          )}
+        </div>
+      ))}
+
+      {!fullScreen && (
+        <div className="mt-1 border-t border-chrome-border px-3.5 pt-2 pb-1.5">
+          <span className="text-[9px] text-text-dim/40">
+            Alt + Left/Right to cycle &middot; Alt + Home/End to jump
+          </span>
+        </div>
+      )}
+    </>
+  );
+
   return createPortal(
     <AnimatePresence>
       {open && fixedStyle && (
-        <motion.div
-          ref={panelRef}
-          style={fixedStyle}
-          initial={{ opacity: 0, y: -4, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -4, scale: 0.97 }}
-          transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="overflow-y-auto rounded-xl border border-chrome-border-strong bg-chrome-popover py-1.5 shadow-atlas-popover backdrop-blur-xl scrollbar-thin"
-        >
-          {model.groups.map((group, gi) => (
-            <div key={group.label || gi}>
-              {group.label && (
-                <div className="px-3.5 pt-2.5 pb-1">
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50">
-                    {group.label}
-                  </span>
-                </div>
-              )}
-              {group.items.map((item) => {
-                const active = item.id === currentEra;
-                return (
-                  <button
-                    key={item.id}
-                    data-era-jump
-                    onClick={() => handleSelect(item.id)}
-                    className={`
-                      flex w-full items-center gap-2.5 px-3.5 py-1.5 text-left
-                      transition-colors duration-150
-                      ${active ? 'bg-chrome-fill-raised text-parchment' : 'text-text-muted hover:bg-chrome-fill-badge hover:text-parchment'}
-                    `}
-                  >
-                    <EraGlyph id={item.id} className="h-3.5 w-3.5 flex-shrink-0 opacity-60" />
-                    <div className="min-w-0 flex-1">
-                      <span className="block truncate text-[12px] font-medium leading-tight">
-                        {item.label}
-                      </span>
-                      <span className="block text-[10px] leading-tight opacity-50">
-                        {formatYear(item.yearRange[0])} – {formatYear(item.yearRange[1])}
-                      </span>
-                      <EraIconStrip eraId={item.id} atlasMode={atlasMode} maxIcons={6} />
-                    </div>
-                    {active && (
-                      <div className="ml-auto h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold/70" />
-                    )}
-                  </button>
-                );
-              })}
-              {gi < model.groups.length - 1 && (
-                <div className="mx-3 my-1 h-px bg-chrome-divider" />
-              )}
-            </div>
-          ))}
-
-          <div className="mt-1 border-t border-chrome-border px-3.5 pt-2 pb-1.5">
-            <span className="text-[9px] text-text-dim/40">
-              Alt + Left/Right to cycle &middot; Alt + Home/End to jump
-            </span>
-          </div>
-        </motion.div>
+        fullScreen ? (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[9998] bg-black/40 backdrop-blur-sm"
+              onClick={onClose}
+            />
+            <motion.div
+              ref={panelRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              className="overflow-y-auto bg-chrome-popover scrollbar-thin"
+              style={{
+                ...fixedStyle,
+                paddingBottom: 'env(safe-area-inset-bottom)',
+              }}
+            >
+              {panelContent}
+            </motion.div>
+          </>
+        ) : (
+          <motion.div
+            ref={panelRef}
+            style={fixedStyle}
+            initial={{ opacity: 0, y: -4, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.97 }}
+            transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-y-auto rounded-xl border border-chrome-border-strong bg-chrome-popover py-1.5 shadow-atlas-popover backdrop-blur-xl scrollbar-thin"
+          >
+            {panelContent}
+          </motion.div>
+        )
       )}
     </AnimatePresence>,
     document.body,
@@ -337,7 +401,13 @@ function JumpPanel({
 
 // ─── Main component ────────────────────────────────────────────────
 
-export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }) {
+export default function EraSelector({
+  leadingSlot,
+  compact,
+}: {
+  leadingSlot?: ReactNode;
+  compact?: boolean;
+}) {
   const currentEra = useMapStore((s) => s.eraId);
   const setEra = useMapStore((s) => s.setEra);
   const selectFeature = useMapStore((s) => s.selectFeature);
@@ -393,7 +463,6 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
     selectFeature(id, 'era-info');
   }, [storyMode, setEra, selectFeature, flatIds]);
 
-  // Scroll active icon into view
   useEffect(() => {
     if (!scrollRef.current) return;
     const active = scrollRef.current.querySelector('[aria-current="step"]');
@@ -402,7 +471,6 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
     }
   }, [currentEra]);
 
-  // Global keyboard shortcuts (Alt+Arrow, Alt+Home/End)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (!e.altKey) return;
@@ -433,7 +501,6 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
     return () => window.removeEventListener('keydown', handler);
   }, [goPrev, goNext, goFirst, goLast]);
 
-  // Close jump menu when story mode activates
   useEffect(() => {
     if (storyMode) setJumpOpen(false);
   }, [storyMode]);
@@ -444,12 +511,71 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
 
   const closeJump = useCallback(() => setJumpOpen(false), []);
 
+  /* ── Compact mobile layout ─────────────────────────────────── */
+  if (compact) {
+    return (
+      <nav aria-label="Era timeline" className="flex min-w-0 items-center gap-1">
+        <button
+          onClick={goPrev}
+          disabled={storyMode || isFirst}
+          aria-label="Previous era"
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors touch-target ${
+            storyMode || isFirst ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill'
+          }`}
+        >
+          <ChevronLeft className="h-4 w-4" strokeWidth={2} />
+        </button>
+
+        <div ref={jumpContainerRef} className="min-w-0 flex-1 select-none text-center">
+          <button
+            onClick={toggleJump}
+            disabled={storyMode}
+            aria-expanded={jumpOpen}
+            aria-haspopup="true"
+            className="min-w-0 max-w-full px-2 py-1 rounded-lg hover:bg-chrome-fill transition-colors"
+          >
+            {activeItem && (
+              <>
+                <span className="block truncate text-[12px] font-semibold leading-tight text-parchment">
+                  {activeItem.label}
+                </span>
+                <span className="block text-[10px] text-text-dim/55 tabular-nums leading-tight mt-0.5">
+                  {formatYear(activeItem.yearRange[0])}–{formatYear(activeItem.yearRange[1])}
+                </span>
+              </>
+            )}
+          </button>
+
+          <JumpPanel
+            open={jumpOpen}
+            onClose={closeJump}
+            onSelect={handleSelect}
+            currentEra={currentEra}
+            containerRef={jumpContainerRef}
+            fullScreen
+          />
+        </div>
+
+        <button
+          onClick={goNext}
+          disabled={storyMode || isLast}
+          aria-label="Next era"
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors touch-target ${
+            storyMode || isLast ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill'
+          }`}
+        >
+          <ChevronRight className="h-4 w-4" strokeWidth={2} />
+        </button>
+      </nav>
+    );
+  }
+
+  /* ── Full desktop layout ────────────────────────────────────── */
   return (
     <nav
       aria-label="Era timeline — Alt+Left/Right to cycle"
       className="flex min-w-0 flex-col"
     >
-      {/* Row 1: prev / current label / next / jump — symmetric chrome, label centered */}
       <div className="grid min-w-0 grid-cols-[auto_1fr_auto] items-center gap-1 px-2 py-0.5 sm:px-2.5">
         <div className="flex items-center gap-1">
           {leadingSlot}
@@ -523,10 +649,8 @@ export default function EraSelector({ leadingSlot }: { leadingSlot?: ReactNode }
         </div>
       </div>
 
-      {/* Thin separator */}
       <div className="mx-1.5 h-px bg-chrome-shade-strong" />
 
-      {/* Row 2: single horizontal rail, centered — uses full bar width; scrolls on very small screens */}
       <div
         ref={scrollRef}
         className="flex w-full min-w-0 flex-nowrap items-center justify-center gap-x-1.5 overflow-x-auto px-1 py-1.5 scrollbar-thin sm:gap-x-2 sm:px-2"

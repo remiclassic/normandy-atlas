@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, type PanInfo } from 'motion/react';
+import { createPortal } from 'react-dom';
 import { useMapStore } from '@/lib/store';
+import { useIsMobile } from '@/hooks/use-responsive';
 import { pickI18n } from '@/lib/locale';
 import { getRegionRecord } from '@/data/regions-content';
 import { getSettlement } from '@/data/settlements';
@@ -38,10 +40,10 @@ function CloseButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border"
+      className="absolute top-4 right-4 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border touch-target z-10"
       aria-label="Close panel"
     >
-      <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     </button>
@@ -1436,14 +1438,126 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
   );
 }
 
+function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: string; selectionKind: string; eraId: string }) {
+  return (
+    <>
+      {selectionKind === 'atlas-person' ? (
+        <AtlasPersonDetail personId={selectedId} eraId={eraId} />
+      ) : selectionKind === 'era-info' ? (
+        <EraInfoDetail eraId={selectedId} />
+      ) : selectionKind === 'evidence' ? (
+        <EvidenceDetail id={selectedId} />
+      ) : selectionKind === 'norman-site' ? (
+        <NormanSiteDetail id={selectedId} />
+      ) : selectionKind === 'prehistoric-site' ? (
+        <PrehistoricSiteDetail id={selectedId} eraId={eraId} />
+      ) : selectionKind === 'atlas-route' ? (
+        <AtlasRouteDetail segmentId={selectedId} eraId={eraId} />
+      ) : selectionKind === 'settlement' ? (
+        <SettlementDetail id={selectedId} eraId={eraId} />
+      ) : (
+        <RegionDetail id={selectedId} eraId={eraId} />
+      )}
+    </>
+  );
+}
+
+function MobileDetailSheet({
+  show,
+  selectedId,
+  selectionKind,
+  eraId,
+  onClose,
+}: {
+  show: boolean;
+  selectedId: string | null;
+  selectionKind: string | null;
+  eraId: string;
+  onClose: () => void;
+}) {
+  const handleDragEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      if (info.offset.y > 100 || info.velocity.y > 500) {
+        onClose();
+      }
+    },
+    [onClose],
+  );
+
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
+    <AnimatePresence>
+      {show && selectedId && (
+        <>
+          <motion.div
+            key="detail-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-black/30"
+            onClick={onClose}
+          />
+          <motion.aside
+            key={`mobile-${selectionKind}-${selectedId}`}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            drag="y"
+            dragConstraints={{ top: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            className="atlas-bottom-sheet z-45"
+            style={{ maxHeight: '80dvh' }}
+          >
+            <div className="sheet-handle" />
+
+            <div className="flex items-center justify-end px-4 pb-1">
+              <button
+                onClick={onClose}
+                className="flex h-8 w-8 items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all touch-target"
+                aria-label="Close panel"
+              >
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="sheet-content scrollbar-thin pb-6">
+              <DetailContent selectedId={selectedId!} selectionKind={selectionKind ?? 'region'} eraId={eraId} />
+            </div>
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
+}
+
 export default function HistoricalDetailPanel() {
   const selectedId = useMapStore((s) => s.selectedFeatureId);
   const selectionKind = useMapStore((s) => s.selectionKind);
   const detailOpen = useMapStore((s) => s.detailPanelOpen);
   const eraId = useMapStore((s) => s.eraId);
   const closeDetail = useMapStore((s) => s.closeDetail);
+  const isMobile = useIsMobile();
 
-  const show = detailOpen && selectedId;
+  const show = detailOpen && !!selectedId;
+
+  if (isMobile) {
+    return (
+      <MobileDetailSheet
+        show={show}
+        selectedId={selectedId}
+        selectionKind={selectionKind}
+        eraId={eraId}
+        onClose={closeDetail}
+      />
+    );
+  }
 
   return (
     <AnimatePresence mode="wait">
@@ -1463,23 +1577,7 @@ export default function HistoricalDetailPanel() {
           <CloseButton onClick={closeDetail} />
 
           <div className="flex-1 overflow-y-auto scrollbar-thin pb-6 pt-1">
-            {selectionKind === 'atlas-person' ? (
-              <AtlasPersonDetail personId={selectedId!} eraId={eraId} />
-            ) : selectionKind === 'era-info' ? (
-              <EraInfoDetail eraId={selectedId!} />
-            ) : selectionKind === 'evidence' ? (
-              <EvidenceDetail id={selectedId!} />
-            ) : selectionKind === 'norman-site' ? (
-              <NormanSiteDetail id={selectedId!} />
-            ) : selectionKind === 'prehistoric-site' ? (
-              <PrehistoricSiteDetail id={selectedId!} eraId={eraId} />
-            ) : selectionKind === 'atlas-route' ? (
-              <AtlasRouteDetail segmentId={selectedId!} eraId={eraId} />
-            ) : selectionKind === 'settlement' ? (
-              <SettlementDetail id={selectedId!} eraId={eraId} />
-            ) : (
-              <RegionDetail id={selectedId!} eraId={eraId} />
-            )}
+            <DetailContent selectedId={selectedId!} selectionKind={selectionKind ?? 'region'} eraId={eraId} />
           </div>
         </motion.aside>
       )}

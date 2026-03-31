@@ -4,6 +4,8 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { pickI18n } from '@/lib/locale';
+import { useIsMobile } from '@/hooks/use-responsive';
+import BottomSheet from '@/components/ui/BottomSheet';
 import {
   isMigrationEra,
   resolveDataset,
@@ -301,6 +303,142 @@ const CohortSelect = memo(function CohortSelect({
 // Main panel
 // ---------------------------------------------------------------------------
 
+function MigrationExplorerContent({
+  dataset,
+  rows,
+  mapMode,
+  setMapMode,
+  branches,
+  branch,
+  setBranch,
+  cohorts,
+  cohortId,
+  setCohortId,
+  locale,
+  flowEnabled,
+  setFlowEnabled,
+}: {
+  dataset: MigrationDataset | null | undefined;
+  rows: MigrationShareRow[];
+  mapMode: MigrationMapMode;
+  setMapMode: (m: MigrationMapMode) => void;
+  branches: MigrationBranchId[];
+  branch: MigrationBranchId;
+  setBranch: (b: MigrationBranchId) => void;
+  cohorts: CohortOption[];
+  cohortId: MigrationCohortId;
+  setCohortId: (id: MigrationCohortId) => void;
+  locale: import('@/core/types').AtlasLocale;
+  flowEnabled: boolean;
+  setFlowEnabled: (v: boolean) => void;
+}) {
+  return (
+    <>
+      <div className="px-4 pt-4 pb-2">
+        <h3 className="text-[13px] font-display font-bold text-parchment tracking-wide">
+          Migration Patterns
+        </h3>
+        {dataset && (
+          <span className="inline-flex items-center gap-1.5 mt-1 text-[10px] text-text-dim/70 bg-chrome-fill-badge px-2 py-0.5 rounded-md border border-chrome-border">
+            {dataset.yearRange[0]}–{dataset.yearRange[1]}
+          </span>
+        )}
+        <p className="mt-2.5 text-[11px] leading-relaxed text-text-dim/80">
+          Shares show estimated regional contributions to immigrant cohorts. Norman and northwestern lines often stand out in French Canadian trees because Channel and Seine ports fed the colony and a small founder population amplified certain origins — not because every migrant was born where they boarded. The Channel Islands were part of the Norman cultural world but were not major documented embarkation harbours for New France; mainland French ports carried almost all structured traffic. Open Methodology for caveats.
+        </p>
+      </div>
+
+      <div className="flex gap-1 px-4 pb-2">
+        {MODE_TABS.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setMapMode(tab.id)}
+            className={`flex-1 py-1.5 px-2 rounded-md text-[11px] font-medium transition-all duration-150 touch-target ${
+              mapMode === tab.id
+                ? 'bg-gold/20 text-parchment border border-gold/30'
+                : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover hover:text-text-muted'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {branches.length > 1 && (
+        <div className="flex gap-1 px-4 pb-2">
+          {branches.map((b) => (
+            <button
+              key={b}
+              type="button"
+              onClick={() => setBranch(b)}
+              className={`flex-1 py-1.5 px-2 rounded-md text-[10px] font-medium transition-all duration-150 touch-target ${
+                branch === b
+                  ? 'bg-blue/20 text-blue border border-blue/30'
+                  : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover'
+              }`}
+            >
+              {BRANCH_LABELS[b]}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="px-4 pb-2">
+        <CohortSelect cohorts={cohorts} value={cohortId} onChange={setCohortId} locale={locale} />
+      </div>
+
+      <div className="h-px bg-chrome-divider mx-4" />
+
+      <div className="px-4 py-2">
+        {dataset ? (
+          <>
+            <span className="text-[9px] uppercase tracking-[0.12em] text-text-dim/60 font-semibold">
+              {pickI18n(dataset.metricDefinition.label, locale)}
+            </span>
+            <div className="mt-1 space-y-0.5">
+              {rows.map((row) => (
+                <ShareBar key={row.entityId} row={row} locale={locale} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <p className="text-[11px] text-text-dim/60 py-3 text-center">
+            No data available for this combination.
+          </p>
+        )}
+      </div>
+
+      <div className="px-4 py-1.5 flex items-center justify-between">
+        <span className="text-[11px] text-text-dim/80">Flow corridors</span>
+        <button
+          type="button"
+          onClick={() => setFlowEnabled(!flowEnabled)}
+          aria-pressed={flowEnabled}
+          className="relative h-5 w-9 shrink-0 overflow-hidden rounded-full transition-colors duration-200 touch-target"
+          style={{
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: flowEnabled ? 'rgba(196,169,98,0.55)' : 'rgba(255,255,255,0.12)',
+            background: flowEnabled ? 'rgba(196,169,98,0.3)' : 'rgba(255,255,255,0.05)',
+          }}
+        >
+          <motion.span
+            initial={false}
+            animate={{ x: flowEnabled ? 16 : 2 }}
+            transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
+            className={`absolute top-[3px] h-3 w-3 rounded-full shadow-sm ${
+              flowEnabled ? 'bg-parchment' : 'bg-text-muted/35'
+            }`}
+          />
+        </button>
+      </div>
+
+      {dataset && <MethodologyDrawer dataset={dataset} locale={locale} />}
+    </>
+  );
+}
+
 export default function MigrationExplorerPanel() {
   const eraId = useMapStore((s) => s.eraId);
   const atlasMode = useMapStore((s) => s.atlasMode);
@@ -315,6 +453,7 @@ export default function MigrationExplorerPanel() {
   const setBranch = useMapStore((s) => s.setMigrationBranch);
   const setCohortId = useMapStore((s) => s.setMigrationCohortId);
   const setFlowEnabled = useMapStore((s) => s.setMigrationFlowEnabled);
+  const isMobile = useIsMobile();
 
   const available = atlasMode && isMigrationEra(eraId);
 
@@ -335,16 +474,21 @@ export default function MigrationExplorerPanel() {
   );
 
   const handleToggle = useCallback(() => setOpen(!explorerOpen), [setOpen, explorerOpen]);
+  const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   if (!available) return null;
 
+  const contentProps = {
+    dataset, rows, mapMode, setMapMode, branches, branch, setBranch,
+    cohorts, cohortId, setCohortId, locale, flowEnabled, setFlowEnabled,
+  };
+
   return (
-    <div className="relative min-h-0 w-[310px]">
-      {/* Trigger button */}
+    <div className={`relative min-h-0 ${isMobile ? 'w-auto' : 'w-[310px]'}`}>
       <button
         type="button"
         onClick={handleToggle}
-        className={`flex items-center gap-2 rounded-xl glass-panel-elevated px-3.5 py-2.5 text-[13px] transition-all duration-200 mb-2 ${
+        className={`flex items-center gap-2 rounded-xl glass-panel-elevated px-3.5 py-2.5 text-[13px] transition-all duration-200 mb-2 touch-target ${
           explorerOpen
             ? 'text-text border-gold/25 shadow-[0_0_0_1px_rgba(196,169,98,0.12)]'
             : 'text-text-muted hover:text-text hover:border-gold/20'
@@ -358,127 +502,25 @@ export default function MigrationExplorerPanel() {
         Migration Explorer
       </button>
 
-      <AnimatePresence>
-        {explorerOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2 }}
-            className="absolute bottom-full left-0 z-30 mb-2 w-full max-h-[min(60vh,calc(100dvh-12rem))] overflow-y-auto rounded-2xl glass-panel-elevated scrollbar-thin"
-          >
-            {/* Header */}
-            <div className="px-4 pt-4 pb-2">
-              <h3 className="text-[13px] font-display font-bold text-parchment tracking-wide">
-                Migration Patterns
-              </h3>
-              {dataset && (
-                <span className="inline-flex items-center gap-1.5 mt-1 text-[10px] text-text-dim/70 bg-chrome-fill-badge px-2 py-0.5 rounded-md border border-chrome-border">
-                  {dataset.yearRange[0]}–{dataset.yearRange[1]}
-                </span>
-              )}
-              <p className="mt-2.5 text-[11px] leading-relaxed text-text-dim/80">
-                Shares show estimated regional contributions to immigrant cohorts. Norman and northwestern lines often stand out in French Canadian trees because Channel and Seine ports fed the colony and a small founder population amplified certain origins — not because every migrant was born where they boarded. The Channel Islands were part of the Norman cultural world but were not major documented embarkation harbours for New France; mainland French ports carried almost all structured traffic. Open Methodology for caveats.
-              </p>
-            </div>
-
-            {/* Mode tabs */}
-            <div className="flex gap-1 px-4 pb-2">
-              {MODE_TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setMapMode(tab.id)}
-                  className={`flex-1 py-1 px-2 rounded-md text-[11px] font-medium transition-all duration-150 ${
-                    mapMode === tab.id
-                      ? 'bg-gold/20 text-parchment border border-gold/30'
-                      : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover hover:text-text-muted'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Branch toggle */}
-            {branches.length > 1 && (
-              <div className="flex gap-1 px-4 pb-2">
-                {branches.map((b) => (
-                  <button
-                    key={b}
-                    type="button"
-                    onClick={() => setBranch(b)}
-                    className={`flex-1 py-1 px-2 rounded-md text-[10px] font-medium transition-all duration-150 ${
-                      branch === b
-                        ? 'bg-blue/20 text-blue border border-blue/30'
-                        : 'bg-chrome-fill-badge text-text-dim border border-transparent hover:bg-chrome-fill-hover'
-                    }`}
-                  >
-                    {BRANCH_LABELS[b]}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Custom listbox — native select popups use OS colors (poor contrast here) */}
-            <div className="px-4 pb-2">
-              <CohortSelect cohorts={cohorts} value={cohortId} onChange={setCohortId} locale={locale} />
-            </div>
-
-            {/* Divider */}
-            <div className="h-px bg-chrome-divider mx-4" />
-
-            {/* Bar chart */}
-            <div className="px-4 py-2">
-              {dataset ? (
-                <>
-                  <span className="text-[9px] uppercase tracking-[0.12em] text-text-dim/60 font-semibold">
-                    {pickI18n(dataset.metricDefinition.label, locale)}
-                  </span>
-                  <div className="mt-1 space-y-0.5">
-                    {rows.map((row) => (
-                      <ShareBar key={row.entityId} row={row} locale={locale} />
-                    ))}
-                  </div>
-                </>
-              ) : (
-                <p className="text-[11px] text-text-dim/60 py-3 text-center">
-                  No data available for this combination.
-                </p>
-              )}
-            </div>
-
-            {/* Flow toggle */}
-            <div className="px-4 py-1.5 flex items-center justify-between">
-              <span className="text-[11px] text-text-dim/80">Flow corridors</span>
-              <button
-                type="button"
-                onClick={() => setFlowEnabled(!flowEnabled)}
-                aria-pressed={flowEnabled}
-                className="relative h-4 w-7 shrink-0 overflow-hidden rounded-full transition-colors duration-200"
-                style={{
-                  borderWidth: 1,
-                  borderStyle: 'solid',
-                  borderColor: flowEnabled ? 'rgba(196,169,98,0.55)' : 'rgba(255,255,255,0.12)',
-                  background: flowEnabled ? 'rgba(196,169,98,0.3)' : 'rgba(255,255,255,0.05)',
-                }}
-              >
-                <motion.span
-                  initial={false}
-                  animate={{ x: flowEnabled ? 12 : 0 }}
-                  transition={{ type: 'tween', duration: 0.2, ease: 'easeOut' }}
-                  className={`absolute left-0.5 top-[3px] h-2.5 w-2.5 rounded-full shadow-sm ${
-                    flowEnabled ? 'bg-parchment' : 'bg-text-muted/35'
-                  }`}
-                />
-              </button>
-            </div>
-
-            {/* Methodology */}
-            {dataset && <MethodologyDrawer dataset={dataset} locale={locale} />}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isMobile ? (
+        <BottomSheet open={explorerOpen} onClose={handleClose} maxHeight="80dvh">
+          <MigrationExplorerContent {...contentProps} />
+        </BottomSheet>
+      ) : (
+        <AnimatePresence>
+          {explorerOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              transition={{ duration: 0.2 }}
+              className="absolute bottom-full left-0 z-30 mb-2 w-full max-h-[min(60vh,calc(100dvh-12rem))] overflow-y-auto rounded-2xl glass-panel-elevated scrollbar-thin"
+            >
+              <MigrationExplorerContent {...contentProps} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   );
 }

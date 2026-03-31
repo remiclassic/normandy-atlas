@@ -6,6 +6,8 @@ import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
 import type { NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
 import { layerConfigs } from '@/data/layers';
 import { useLocale } from '@/hooks/use-atlas';
+import { useIsMobile } from '@/hooks/use-responsive';
+import BottomSheet from '@/components/ui/BottomSheet';
 import { t } from '@/lib/ui-strings';
 
 const LAYER_ICONS: Record<string, React.ReactNode> = {
@@ -499,11 +501,115 @@ const NormanNodePeriodControl = memo(function NormanNodePeriodControl() {
   );
 });
 
+function LayerPanelContent({
+  sectionOpen,
+  toggleSection,
+  layers,
+  handleToggle,
+}: {
+  sectionOpen: Record<LayerPanelSectionKey, boolean>;
+  toggleSection: (key: LayerPanelSectionKey) => void;
+  layers: Record<string, boolean>;
+  handleToggle: (id: string) => void;
+}) {
+  return (
+    <>
+      <div className="px-3.5 pt-3 pb-1.5 flex items-center gap-2">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-gold/50">
+          <path
+            d="M8 1L1 5l7 4 7-4-7-4zM1 8l7 4 7-4M1 11l7 4 7-4"
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-dim">
+          Map Layers
+        </span>
+      </div>
+
+      <div className="accent-line-gold mx-3 my-1" />
+
+      <div className="px-1 pt-0.5">
+        <CollapsibleSectionHeader
+          sectionKey="basemap"
+          label="Basemap"
+          open={sectionOpen.basemap}
+          onToggle={toggleSection}
+        />
+        {sectionOpen.basemap && (
+          <div className="pb-1">
+            <ModernBasemapOverlaysToggle />
+            <ParchmentWaterAtmosphereToggle />
+          </div>
+        )}
+      </div>
+
+      <div className="accent-line-gold mx-3 my-1" />
+
+      <div className="py-1 pb-2">
+        {CATEGORY_SECTIONS.map((section) => {
+          const sectionLayers = layerConfigs.filter((cfg) =>
+            section.categories.includes(cfg.category),
+          );
+          if (sectionLayers.length === 0) return null;
+          const key = section.key as LayerPanelSectionKey;
+          const expanded = sectionOpen[key];
+          return (
+            <div key={section.key}>
+              {section.key !== 'atlas' && <div className="accent-line-gold mx-3 mt-2 mb-0" />}
+              <div className="px-1">
+                <CollapsibleSectionHeader
+                  sectionKey={key}
+                  label={section.label}
+                  open={expanded}
+                  onToggle={toggleSection}
+                />
+                {expanded && (
+                  <div className="pb-0.5">
+                    {section.key === 'norman-expansion' && (
+                      <div className="px-3.5 pb-2 pt-0">
+                        <p className="text-[10px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
+                          Turn on <span className="text-text-muted">Norman sites &amp; castles</span> to show keeps,
+                          ports, and crusader hubs. Use the timeline era{' '}
+                          <span className="text-text-muted">Norman Expansion</span> or{' '}
+                          <span className="text-text-muted">Norman Origins</span> to enable them automatically.
+                        </p>
+                      </div>
+                    )}
+                    {section.key === 'norman-expansion' && <NormanPresetBar />}
+                    {section.key === 'norman-expansion' && <NormanNodePeriodControl />}
+                    {sectionLayers.map((cfg) => (
+                      <Fragment key={cfg.id}>
+                        <LayerToggle
+                          id={cfg.id}
+                          label={cfg.label}
+                          isOn={layers[cfg.id] ?? cfg.defaultOn}
+                          onToggle={handleToggle}
+                        />
+                        {section.key === 'atlas' && cfg.id === 'route-flow-animation' && (
+                          <ExplorationYearStrictRow />
+                        )}
+                      </Fragment>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 export default function LayerPanel() {
   const [open, setOpen] = useState(false);
   const [sectionOpen, setSectionOpen] = useState(makeAllSectionsOpen);
   const layers = useMapStore((s) => s.layers);
   const toggleLayer = useMapStore((s) => s.toggleLayer);
+  const isMobile = useIsMobile();
 
   const handleToggle = useCallback(
     (id: string) => toggleLayer(id),
@@ -514,12 +620,14 @@ export default function LayerPanel() {
     setSectionOpen((prev) => ({ ...prev, [key]: !prev[key] }));
   }, []);
 
+  const handleClose = useCallback(() => setOpen(false), []);
+
   return (
     <div className="relative">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className={`flex items-center gap-2 rounded-xl glass-panel-elevated px-3.5 py-2.5 text-[13px] transition-all duration-200 ${
+        className={`flex items-center gap-2 rounded-xl glass-panel-elevated px-3.5 py-2.5 text-[13px] transition-all duration-200 touch-target ${
           open
             ? 'text-text border-gold/25 shadow-[0_0_0_1px_rgba(196,169,98,0.12)]'
             : 'text-text-muted hover:text-text hover:border-gold/20'
@@ -527,130 +635,44 @@ export default function LayerPanel() {
         aria-label="Toggle layers"
       >
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none" className="opacity-70">
-          <path
-            d="M8 1L1 5l7 4 7-4-7-4z"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M1 8l7 4 7-4"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.6"
-          />
-          <path
-            d="M1 11l7 4 7-4"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.35"
-          />
+          <path d="M8 1L1 5l7 4 7-4-7-4z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+          <path d="M1 8l7 4 7-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+          <path d="M1 11l7 4 7-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.35" />
         </svg>
         Layers
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute bottom-full mb-2 left-0 w-[248px] rounded-xl glass-panel-elevated overflow-hidden"
-          >
-            <div className="px-3.5 pt-3 pb-1.5 flex items-center gap-2">
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-gold/50">
-                <path
-                  d="M8 1L1 5l7 4 7-4-7-4zM1 8l7 4 7-4M1 11l7 4 7-4"
-                  stroke="currentColor"
-                  strokeWidth="1.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+      {isMobile ? (
+        <BottomSheet open={open} onClose={handleClose} maxHeight="75dvh">
+          <LayerPanelContent
+            sectionOpen={sectionOpen}
+            toggleSection={toggleSection}
+            layers={layers}
+            handleToggle={handleToggle}
+          />
+        </BottomSheet>
+      ) : (
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: 8, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.96 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute bottom-full mb-2 left-0 w-[248px] rounded-xl glass-panel-elevated overflow-hidden"
+            >
+              <div className="max-h-[60vh] overflow-y-auto scrollbar-thin">
+                <LayerPanelContent
+                  sectionOpen={sectionOpen}
+                  toggleSection={toggleSection}
+                  layers={layers}
+                  handleToggle={handleToggle}
                 />
-              </svg>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-dim">
-                Map Layers
-              </span>
-            </div>
-
-            <div className="accent-line-gold mx-3 my-1" />
-
-            <div className="px-1 pt-0.5">
-              <CollapsibleSectionHeader
-                sectionKey="basemap"
-                label="Basemap"
-                open={sectionOpen.basemap}
-                onToggle={toggleSection}
-              />
-              {sectionOpen.basemap && (
-                <div className="pb-1">
-                  <ModernBasemapOverlaysToggle />
-                  <ParchmentWaterAtmosphereToggle />
-                </div>
-              )}
-            </div>
-
-            <div className="accent-line-gold mx-3 my-1" />
-
-            <div className="py-1 pb-2 max-h-[60vh] overflow-y-auto scrollbar-thin">
-              {CATEGORY_SECTIONS.map((section) => {
-                const sectionLayers = layerConfigs.filter((cfg) =>
-                  section.categories.includes(cfg.category),
-                );
-                if (sectionLayers.length === 0) return null;
-                const key = section.key as LayerPanelSectionKey;
-                const expanded = sectionOpen[key];
-                return (
-                  <div key={section.key}>
-                    {section.key !== 'atlas' && <div className="accent-line-gold mx-3 mt-2 mb-0" />}
-                    <div className="px-1">
-                      <CollapsibleSectionHeader
-                        sectionKey={key}
-                        label={section.label}
-                        open={expanded}
-                        onToggle={toggleSection}
-                      />
-                      {expanded && (
-                        <div className="pb-0.5">
-                          {section.key === 'norman-expansion' && (
-                            <div className="px-3.5 pb-2 pt-0">
-                              <p className="text-[10px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
-                                Turn on <span className="text-text-muted">Norman sites &amp; castles</span> to show keeps,
-                                ports, and crusader hubs. Use the timeline era{' '}
-                                <span className="text-text-muted">Norman Expansion</span> or{' '}
-                                <span className="text-text-muted">Norman Origins</span> to enable them automatically.
-                              </p>
-                            </div>
-                          )}
-                          {section.key === 'norman-expansion' && <NormanPresetBar />}
-                          {section.key === 'norman-expansion' && <NormanNodePeriodControl />}
-                          {sectionLayers.map((cfg) => (
-                            <Fragment key={cfg.id}>
-                              <LayerToggle
-                                id={cfg.id}
-                                label={cfg.label}
-                                isOn={layers[cfg.id] ?? cfg.defaultOn}
-                                onToggle={handleToggle}
-                              />
-                              {section.key === 'atlas' && cfg.id === 'route-flow-animation' && (
-                                <ExplorationYearStrictRow />
-                              )}
-                            </Fragment>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   );
 }
