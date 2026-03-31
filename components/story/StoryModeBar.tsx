@@ -13,6 +13,7 @@ import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-b
 import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
 import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
+import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
 
 export default function StoryModeBar() {
   const storyMode = useMapStore((s) => s.storyMode);
@@ -98,10 +99,25 @@ export default function StoryModeBar() {
     storyMode,
   ]);
 
+  useEffect(() => {
+    if (!storyMode || !atlasMode) return;
+    persistStoryProgress(arcIdToProgressKey(storyArc), {
+      lastStep: stepIndex,
+      lastPlayedAt: Date.now(),
+    });
+  }, [storyMode, atlasMode, storyArc, stepIndex]);
+
   const handleStop = useCallback(() => {
     stopStory();
     setActiveJourney(null);
   }, [stopStory, setActiveJourney]);
+
+  const handleFinish = useCallback(() => {
+    if (atlasMode) {
+      markStoryArcCompleted(arcIdToProgressKey(storyArc), getBeatCount(storyArc));
+    }
+    handleStop();
+  }, [atlasMode, storyArc, handleStop]);
 
   const isActive = storyMode && (currentBeat || currentLegacyStep);
   const eraId = useMapStore((s) => s.eraId);
@@ -122,7 +138,7 @@ export default function StoryModeBar() {
             className={
               isMobile
                 ? 'relative z-20 w-full flex flex-col gap-3 pointer-events-auto'
-                : 'absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-row flex-wrap items-center justify-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)]'
+                : 'absolute bottom-6 left-1/2 -translate-x-1/2 z-40 flex flex-row flex-wrap items-center justify-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)] pointer-events-auto'
             }
           >
             <button
@@ -166,7 +182,7 @@ export default function StoryModeBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 48 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className={`z-30 left-0 right-0 ${
+            className={`z-40 left-0 right-0 pointer-events-auto ${
               isMobile
                 ? 'fixed bottom-0 pb-[env(safe-area-inset-bottom)]'
                 : 'absolute bottom-0 pb-[env(safe-area-inset-bottom)]'
@@ -242,7 +258,7 @@ export default function StoryModeBar() {
                       </svg>
                     </button>
                     <button
-                      onClick={isLast ? handleStop : nextStep}
+                      onClick={isLast ? handleFinish : nextStep}
                       className="flex items-center justify-center h-10 sm:h-9 rounded-lg bg-gold/12 border border-gold/20 px-4 sm:px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150 touch-target"
                     >
                       {isLast ? t('story.finish', locale) : t('story.continue', locale)}

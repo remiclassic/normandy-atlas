@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import { memo, useState, useCallback, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
@@ -19,8 +19,10 @@ const STEP_DEFS: StepDef[] = [
   { titleKey: 'tour.step1.title', bodyKey: 'tour.step1.body', placement: 'center' },
   { titleKey: 'tour.step2.title', bodyKey: 'tour.step2.body', anchor: 'map', placement: 'map-inset' },
   { titleKey: 'tour.step3.title', bodyKey: 'tour.step3.body', anchor: 'timeline', placement: 'below-anchor' },
-  { titleKey: 'tour.step4.title', bodyKey: 'tour.step4.body', anchor: 'map', placement: 'map-inset' },
-  { titleKey: 'tour.step5.title', bodyKey: 'tour.step5.body', anchor: 'layers', placement: 'beside-anchor' },
+  { titleKey: 'tour.step4.title', bodyKey: 'tour.step4.body', anchor: 'stories', placement: 'below-anchor' },
+  { titleKey: 'tour.step5.title', bodyKey: 'tour.step5.body', anchor: 'theme', placement: 'below-anchor' },
+  { titleKey: 'tour.step6.title', bodyKey: 'tour.step6.body', anchor: 'layers', placement: 'beside-anchor' },
+  { titleKey: 'tour.step7.title', bodyKey: 'tour.step7.body', placement: 'center' },
 ];
 
 interface Rect {
@@ -64,8 +66,8 @@ function useMeasureAnchor(anchor: string | undefined) {
 }
 
 const VIEW_MARGIN = 16;
-/** Approximate max height of step card (copy + actions); used to clamp vertical position. */
 const PANEL_EST_HEIGHT = 360;
+const PANEL_WIDTH = 340;
 
 function panelStyle(placement: StepDef['placement'], rect: Rect | null): React.CSSProperties {
   if (placement === 'center' || !rect) {
@@ -75,9 +77,12 @@ function panelStyle(placement: StepDef['placement'], rect: Rect | null): React.C
     return { left: rect.x + 28, top: rect.y + rect.height * 0.35, transform: 'translateY(-50%)' };
   }
   if (placement === 'below-anchor') {
-    return { left: '50%', top: rect.y + rect.height + 16, transform: 'translateX(-50%)' };
+    const vw = typeof window !== 'undefined' ? window.innerWidth : 1200;
+    const anchorCenterX = rect.x + rect.width / 2;
+    const idealLeft = anchorCenterX - PANEL_WIDTH / 2;
+    const clampedLeft = Math.max(VIEW_MARGIN, Math.min(idealLeft, vw - PANEL_WIDTH - VIEW_MARGIN));
+    return { left: clampedLeft, top: rect.y + rect.height + 16 };
   }
-  // beside-anchor — right of layers stack; clamp top so the card stays above the viewport bottom
   const vh = typeof window !== 'undefined' ? window.innerHeight : 900;
   const maxTop = vh - PANEL_EST_HEIGHT - VIEW_MARGIN;
   const topClamped = Math.max(VIEW_MARGIN, Math.min(rect.y, maxTop));
@@ -157,15 +162,32 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="absolute z-10 flex w-[340px] max-w-[90vw] flex-col overflow-hidden"
+          className={`absolute z-10 flex max-w-[90vw] flex-col overflow-hidden ${
+            isLast ? 'w-[380px]' : 'w-[340px]'
+          }`}
           style={panelStyle(step.placement, rect)}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="glass-panel-elevated flex max-h-full flex-col overflow-y-auto p-5">
+            {/* Progress dots */}
+            <div className="flex items-center gap-1.5 mb-3">
+              {STEP_DEFS.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-[3px] rounded-full transition-all duration-300 ${
+                    i <= stepIndex
+                      ? 'bg-gold/60 flex-[2]'
+                      : 'bg-text-dim/20 flex-1'
+                  }`}
+                />
+              ))}
+            </div>
             <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-gold/50 mb-2">
               {stepIndex + 1} / {STEP_DEFS.length}
             </p>
-            <h3 className="font-display text-[17px] font-semibold leading-snug text-parchment mb-2">
+            <h3 className={`font-display font-semibold leading-snug text-parchment mb-2 ${
+              isLast ? 'text-[19px]' : 'text-[17px]'
+            }`}>
               {step.title}
             </h3>
             <p className="text-[13px] leading-relaxed text-text-muted whitespace-pre-line">
@@ -189,7 +211,11 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
                 )}
                 <button
                   onClick={next}
-                  className="px-4 py-1.5 text-[11px] tracking-[0.08em] uppercase text-gold border border-gold/30 hover:border-gold/50 hover:bg-gold/[0.04] transition-all duration-200"
+                  className={`px-4 py-1.5 text-[11px] tracking-[0.08em] uppercase transition-all duration-200 ${
+                    isLast
+                      ? 'text-gold border border-gold/40 bg-gold/[0.06] hover:border-gold/60 hover:bg-gold/[0.1] hover:shadow-[0_0_20px_rgba(196,169,98,0.1)]'
+                      : 'text-gold border border-gold/30 hover:border-gold/50 hover:bg-gold/[0.04]'
+                  }`}
                 >
                   {isLast ? t('tour.begin', locale) : t('tour.next', locale)}
                 </button>

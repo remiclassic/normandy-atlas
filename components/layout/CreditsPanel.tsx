@@ -3,14 +3,20 @@
 import { memo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
-import { ScrollText } from 'lucide-react';
+import { Heart, ScrollText } from 'lucide-react';
 import type { AtlasLocale } from '@/core/types';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/remicouture/';
 
-const CreditsScrollContent = memo(function CreditsScrollContent({ locale }: { locale: AtlasLocale }) {
+const CreditsScrollContent = memo(function CreditsScrollContent({
+  locale,
+  onOpenSupport,
+}: {
+  locale: AtlasLocale;
+  onOpenSupport?: () => void;
+}) {
   return (
     <div className="px-6 pb-8 pt-14 sm:px-8 sm:pb-10">
       <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-gold/50 mb-1">
@@ -115,17 +121,19 @@ const CreditsScrollContent = memo(function CreditsScrollContent({ locale }: { lo
         <h3 className="font-display text-[15px] font-semibold text-parchment mb-3">
           {t('credits.supportTitle', locale)}
         </h3>
-        <p className="text-[13px] leading-relaxed text-text-muted mb-4">
+        <p className="text-[13px] leading-relaxed text-text-muted mb-5">
           {t('credits.supportIntro', locale)}
         </p>
-        <ul className="list-disc pl-5 text-[13px] leading-relaxed text-text-muted space-y-2">
-          <li>{t('credits.supportL1', locale)}</li>
-          <li>{t('credits.supportL2', locale)}</li>
-          <li>{t('credits.supportL3', locale)}</li>
-        </ul>
-        <p className="mt-4 text-[13px] leading-relaxed text-text-muted">
-          {t('credits.supportOutro', locale)}
-        </p>
+        {onOpenSupport && (
+          <button
+            type="button"
+            onClick={onOpenSupport}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-gold/25 bg-gold/5 px-4 py-2 text-[12px] font-semibold text-gold/90 transition-all duration-150 hover:border-gold/40 hover:bg-gold/10 hover:text-gold"
+          >
+            <Heart className="h-3 w-3" strokeWidth={2} aria-hidden />
+            {t('credits.supportCta', locale)}
+          </button>
+        )}
       </section>
 
       <section>
@@ -160,9 +168,11 @@ export const CreditsIconButton = memo(function CreditsIconButton({
 export const CreditsModal = memo(function CreditsModal({
   open,
   onClose,
+  onOpenSupport,
 }: {
   open: boolean;
   onClose: () => void;
+  onOpenSupport?: () => void;
 }) {
   const locale = useLocale();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -226,7 +236,7 @@ export const CreditsModal = memo(function CreditsModal({
               </svg>
             </button>
             <div className="overflow-y-auto scrollbar-thin h-full" style={{ maxHeight: 'min(85dvh, 720px)' }}>
-              <CreditsScrollContent locale={locale} />
+              <CreditsScrollContent locale={locale} onOpenSupport={onOpenSupport} />
             </div>
           </motion.div>
         </motion.div>

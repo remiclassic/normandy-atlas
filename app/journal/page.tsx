@@ -1,13 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState, useMemo, useCallback, memo } from 'react';
+import { useEffect, useRef, useState, useMemo, useDeferredValue, useCallback, memo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Search, Menu, X } from 'lucide-react';
+import { ArrowLeft, Search, Menu, X, MapPin, Map, ExternalLink } from 'lucide-react';
 import { useLocale } from '@/hooks/use-atlas';
 import { pickI18n } from '@/lib/locale';
 import { getAtlasEras } from '@/core/era/engine';
 import { atlasEraArcs } from '@/data/atlas/era-arcs';
-import { atlasGlossary, type GlossaryEntry } from '@/data/atlas/glossary';
+import { atlasGlossary } from '@/data/atlas/glossary';
+import { buildJournalIndex, type JournalIndexRow, type JournalCategory } from '@/lib/atlas-journal-index';
 import { journalSections } from '@/lib/atlas-journal-copy';
 import NormanNamesExplorer from '@/components/norman-names/NormanNamesExplorer';
 import type { AtlasLocale } from '@/core/types';
@@ -24,7 +25,11 @@ function useTocItems(locale: AtlasLocale): TocItem[] {
     { id: 'timeline', label: locale === 'fr' ? 'Chronologie' : 'Timeline' },
     { id: 'arcs', label: locale === 'fr' ? 'Arcs narratifs' : 'Story arcs' },
     { id: 'norman-surnames', label: locale === 'fr' ? 'Patronymes normands' : 'Norman surnames' },
-    { id: 'glossary', label: locale === 'fr' ? 'Glossaire' : 'Glossary' },
+    { id: 'index-concepts', label: locale === 'fr' ? 'Concepts' : 'Concepts' },
+    { id: 'index-places', label: locale === 'fr' ? 'Lieux' : 'Places' },
+    { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
+    { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
+    { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
     { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
   ], [locale]);
 }
@@ -179,6 +184,80 @@ const GlossarySection = memo(function GlossarySection({
   );
 });
 
+const CATEGORY_ICON: Record<JournalCategory, typeof MapPin> = {
+  concept: Search,
+  place: MapPin,
+  region: Map,
+  journey: ExternalLink,
+  segment: ExternalLink,
+  story: ExternalLink,
+};
+
+const IndexCard = memo(function IndexCard({
+  row,
+  locale,
+}: {
+  row: JournalIndexRow;
+  locale: AtlasLocale;
+}) {
+  const Icon = CATEGORY_ICON[row.category];
+  return (
+    <div
+      className="rounded-lg border px-4 py-3 flex gap-3 items-start"
+      style={{ borderColor: 'var(--color-border)' }}
+    >
+      <Icon
+        size={14}
+        className="mt-0.5 shrink-0"
+        style={{ color: 'var(--color-text-dim)' }}
+        aria-hidden
+      />
+      <div className="min-w-0 flex-1">
+        <p className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+          {row.title}
+        </p>
+        {row.excerpt && (
+          <p className="text-[12px] leading-relaxed mt-1" style={{ color: 'var(--color-text-muted)' }}>
+            {row.excerpt}
+          </p>
+        )}
+        <Link
+          href={row.mapLink}
+          className="inline-flex items-center gap-1 text-[11px] mt-1.5 underline underline-offset-2 transition-colors"
+          style={{ color: 'var(--color-gold)' }}
+        >
+          {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
+        </Link>
+      </div>
+    </div>
+  );
+});
+
+const IndexSection = memo(function IndexSection({
+  rows,
+  locale,
+  emptyLabel,
+}: {
+  rows: JournalIndexRow[];
+  locale: AtlasLocale;
+  emptyLabel?: string;
+}) {
+  if (rows.length === 0) {
+    return (
+      <p className="text-[13px] py-6 text-center" style={{ color: 'var(--color-text-dim)' }}>
+        {emptyLabel ?? (locale === 'fr' ? 'Aucun résultat.' : 'No results.')}
+      </p>
+    );
+  }
+  return (
+    <div className="space-y-3 mt-4">
+      {rows.map((row) => (
+        <IndexCard key={row.id} row={row} locale={locale} />
+      ))}
+    </div>
+  );
+});
+
 const TocNav = memo(function TocNav({
   items,
   activeId,
@@ -218,10 +297,29 @@ export default function JournalPage() {
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState('welcome');
   const [glossarySearch, setGlossarySearch] = useState('');
+  const [indexSearch, setIndexSearch] = useState('');
+  const deferredIndexSearch = useDeferredValue(indexSearch);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
+
+  const fullIndex = useMemo(() => buildJournalIndex(locale), [locale]);
+
+  const filteredByCategory = useMemo(() => {
+    const q = deferredIndexSearch.trim().toLowerCase();
+    const rows = q ? fullIndex.filter((r) => r.searchText.includes(q)) : fullIndex;
+    const grouped: Record<JournalCategory, JournalIndexRow[]> = {
+      concept: [], place: [], region: [], journey: [], segment: [], story: [],
+    };
+    for (const row of rows) grouped[row.category].push(row);
+    return grouped;
+  }, [fullIndex, deferredIndexSearch]);
 
   const handleGlossarySearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setGlossarySearch(e.target.value),
+    [],
+  );
+
+  const handleIndexSearchChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setIndexSearch(e.target.value),
     [],
   );
 
@@ -401,33 +499,127 @@ export default function JournalPage() {
 
             <SectionDivider />
 
-            {/* Glossary */}
-            <section>
-              <SectionHeading id="glossary">
-                {locale === 'fr' ? 'Glossaire' : 'Glossary'}
-              </SectionHeading>
-              <div className="mt-4">
-                <div className="relative max-w-md">
-                  <Search
-                    size={14}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                    style={{ color: 'var(--color-text-dim)' }}
-                  />
-                  <input
-                    type="text"
-                    value={glossarySearch}
-                    onChange={handleGlossarySearchChange}
-                    placeholder={locale === 'fr' ? 'Rechercher un terme\u2026' : 'Search terms\u2026'}
-                    className="w-full pl-9 pr-3 py-2 rounded-md text-[13px] outline-none border transition-colors"
-                    style={{
-                      background: 'var(--color-surface)',
-                      borderColor: 'var(--color-border)',
-                      color: 'var(--color-text)',
-                    }}
-                  />
-                </div>
+            {/* ── Atlas Index ── */}
+            <div className="mt-4 mb-6">
+              <div className="relative max-w-md">
+                <Search
+                  size={14}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                  style={{ color: 'var(--color-text-dim)' }}
+                />
+                <input
+                  type="text"
+                  value={indexSearch}
+                  onChange={handleIndexSearchChange}
+                  placeholder={locale === 'fr' ? 'Rechercher dans l\u2019index\u2026' : 'Search the atlas index\u2026'}
+                  className="w-full pl-9 pr-3 py-2 rounded-md text-[13px] outline-none border transition-colors"
+                  style={{
+                    background: 'var(--color-surface)',
+                    borderColor: 'var(--color-border)',
+                    color: 'var(--color-text)',
+                  }}
+                />
               </div>
-              <GlossarySection locale={locale} searchQuery={glossarySearch} />
+            </div>
+
+            {/* Concepts (glossary) */}
+            <section>
+              <SectionHeading id="index-concepts">
+                {locale === 'fr' ? 'Concepts & glossaire' : 'Concepts & Glossary'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Termes cl\u00e9s utilis\u00e9s dans l\u2019atlas. Cliquez sur « Voir aussi » pour explorer les liens entre les termes.'
+                  : 'Key terms used in the atlas. Click "See also" to explore connections between entries.'}
+              </Prose>
+              {deferredIndexSearch.trim() ? (
+                <IndexSection rows={filteredByCategory.concept} locale={locale} />
+              ) : (
+                <>
+                  <div className="mt-4">
+                    <div className="relative max-w-md">
+                      <Search
+                        size={14}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                        style={{ color: 'var(--color-text-dim)' }}
+                      />
+                      <input
+                        type="text"
+                        value={glossarySearch}
+                        onChange={handleGlossarySearchChange}
+                        placeholder={locale === 'fr' ? 'Rechercher un terme\u2026' : 'Search terms\u2026'}
+                        className="w-full pl-9 pr-3 py-2 rounded-md text-[13px] outline-none border transition-colors"
+                        style={{
+                          background: 'var(--color-surface)',
+                          borderColor: 'var(--color-border)',
+                          color: 'var(--color-text)',
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <GlossarySection locale={locale} searchQuery={glossarySearch} />
+                </>
+              )}
+            </section>
+
+            <SectionDivider />
+
+            {/* Places */}
+            <section>
+              <SectionHeading id="index-places">
+                {locale === 'fr' ? 'Lieux' : 'Places'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Tous les lieux repr\u00e9sent\u00e9s sur la carte \u2014 villes, ports, colonies et n\u0153uds abstraits. Chaque lien ouvre l\u2019\u00e9poque la plus pertinente.'
+                  : 'Every settlement, port, and node on the map. Each link opens the most relevant era.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory.place} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Regions */}
+            <section>
+              <SectionHeading id="index-regions">
+                {locale === 'fr' ? 'R\u00e9gions' : 'Regions'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'R\u00e9gions historiques et territoires tribaux, chacun avec un r\u00e9cit par \u00e9poque quand disponible.'
+                  : 'Historical regions and tribal territories, each with a per-era narrative when available.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory.region} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Journeys */}
+            <section>
+              <SectionHeading id="index-journeys">
+                {locale === 'fr' ? 'Routes & voyages' : 'Routes & Journeys'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Les grands itin\u00e9raires de la carte \u2014 invasions, explorations, corridors commerciaux et vagues migratoires.'
+                  : 'Major itineraries on the map \u2014 invasions, explorations, trade corridors, and migration waves.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory.journey} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Story */}
+            <section>
+              <SectionHeading id="index-story">
+                {locale === 'fr' ? 'R\u00e9cit \u2014 \u00e9tapes' : 'Story Beats'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Tous les moments narratifs du mode histoire, regroup\u00e9s chronologiquement. Chaque lien lance l\u2019\u00e9tape correspondante.'
+                  : 'Every narrative moment from story mode, in chronological order. Each link launches the corresponding step.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory.story} locale={locale} />
             </section>
 
             <SectionDivider />

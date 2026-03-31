@@ -60,7 +60,7 @@ export default function CinematicFlythroughBar() {
             className={
               isMobile
                 ? 'relative z-20 w-full flex flex-col gap-3 pointer-events-auto'
-                : 'absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex flex-row items-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)]'
+                : 'absolute bottom-20 left-1/2 -translate-x-1/2 z-40 flex flex-row items-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)] pointer-events-auto'
             }
           >
             {visiblePresets.map((p) => (
@@ -89,7 +89,7 @@ export default function CinematicFlythroughBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 48 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className={`z-30 left-0 right-0 ${
+            className={`z-40 left-0 right-0 pointer-events-auto ${
               isMobile
                 ? 'fixed bottom-0 pb-[env(safe-area-inset-bottom)]'
                 : 'absolute bottom-0 pb-[env(safe-area-inset-bottom)]'

@@ -44,6 +44,29 @@ export function getBeatCount(arcId?: string | null): number {
   return getStoryBeats(arcId).length;
 }
 
+/**
+ * Resolve a beat id to its arc and chronological step index.
+ * Searches the beat's own arc first; falls back to the full timeline.
+ */
+export function getStoryStepForBeatId(
+  beatId: string,
+): { arc: string | null; stepIndex: number } | undefined {
+  const beat = atlasStoryBeats.find((b) => b.id === beatId);
+  if (!beat) return undefined;
+
+  const arc = beat.arcId ?? null;
+  const beats = getStoryBeats(arc);
+  const idx = beats.findIndex((b) => b.id === beatId);
+  if (idx !== -1) return { arc, stepIndex: idx };
+
+  if (arc) {
+    const all = getStoryBeats(null);
+    const fallbackIdx = all.findIndex((b) => b.id === beatId);
+    if (fallbackIdx !== -1) return { arc: null, stepIndex: fallbackIdx };
+  }
+  return undefined;
+}
+
 export interface ResolvedStoryFocus {
   places: PlaceWithState[];
   regions: RegionWithState[];

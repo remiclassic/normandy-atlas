@@ -3,19 +3,23 @@
 import { useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
-import { Library } from 'lucide-react';
+import { Clapperboard, Heart, Library, Signpost } from 'lucide-react';
 import MapLoader from '@/components/map/MapLoader';
+import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
 import EraSelector from '@/components/timeline/EraSelector';
 import AtlasTimelineRail from '@/components/timeline/AtlasTimelineRail';
 import LayerPanel from '@/components/panels/LayerPanel';
 import MigrationExplorerPanel from '@/components/panels/MigrationExplorerPanel';
 import HistoricalDetailPanel from '@/components/panels/HistoricalDetailPanel';
 import StoryModeBar from '@/components/story/StoryModeBar';
+import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
 import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreditsIconButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
+import { RoadmapModal, RoadmapIconButton } from '@/components/layout/RoadmapModal';
+import { SupportModal } from '@/components/layout/SupportModal';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { useHydrateLocale, useHydrateUiTheme, useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
@@ -107,6 +111,23 @@ export default function AtlasHomeShell() {
   const openMobileMenu = useCallback(() => setMobileMenuOpen(true), []);
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
+  const [storyLibraryOpen, setStoryLibraryOpen] = useState(false);
+  const openStoryLibrary = useCallback(() => setStoryLibraryOpen(true), []);
+  const closeStoryLibrary = useCallback(() => setStoryLibraryOpen(false), []);
+
+  const [roadmapOpen, setRoadmapOpen] = useState(false);
+  const openRoadmap = useCallback(() => setRoadmapOpen(true), []);
+  const closeRoadmap = useCallback(() => setRoadmapOpen(false), []);
+
+  const [supportOpen, setSupportOpen] = useState(false);
+  const openSupport = useCallback(() => {
+    setCreditsOpen(false);
+    setNormanOverviewOpen(false);
+    setRoadmapOpen(false);
+    setSupportOpen(true);
+  }, []);
+  const closeSupport = useCallback(() => setSupportOpen(false), []);
+
   const handleCreditsFromMenu = useCallback(() => {
     closeMobileMenu();
     openCredits();
@@ -117,10 +138,40 @@ export default function AtlasHomeShell() {
     openNormanOverview();
   }, [closeMobileMenu, openNormanOverview]);
 
+  const handleStoriesFromMenu = useCallback(() => {
+    closeMobileMenu();
+    openStoryLibrary();
+  }, [closeMobileMenu, openStoryLibrary]);
+
+  const handleSupportFromMenu = useCallback(() => {
+    closeMobileMenu();
+    openSupport();
+  }, [closeMobileMenu, openSupport]);
+
+  const handleRoadmapFromMenu = useCallback(() => {
+    closeMobileMenu();
+    openRoadmap();
+  }, [closeMobileMenu, openRoadmap]);
+
   const desktopLeadingSlot = useMemo(
     () => (
       <div className="flex items-center gap-1">
         <ReplayTourButton />
+        <span data-onboarding="stories">
+          <ChromeIconTooltip
+            label={t('storyLibrary.tooltip.label', locale)}
+            hint={t('storyLibrary.tooltip.hint', locale)}
+          >
+            <button
+              type="button"
+              onClick={openStoryLibrary}
+              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-cyan-300/80"
+              aria-label={t('storyLibrary.aria.open', locale)}
+            >
+              <Clapperboard className="h-[15px] w-[15px]" strokeWidth={1.5} aria-hidden />
+            </button>
+          </ChromeIconTooltip>
+        </span>
         <ChromeIconTooltip
           label={t('normanOverview.tooltip.label', locale)}
           hint={t('normanOverview.tooltip.hint', locale)}
@@ -143,18 +194,26 @@ export default function AtlasHomeShell() {
           </Link>
         </ChromeIconTooltip>
         <ChromeIconTooltip
+          label={t('roadmap.tooltip.label', locale)}
+          hint={t('roadmap.tooltip.hint', locale)}
+        >
+          <RoadmapIconButton onOpen={openRoadmap} ariaLabel={t('roadmap.aria.open', locale)} />
+        </ChromeIconTooltip>
+        <ChromeIconTooltip
           label={t('credits.tooltip.label', locale)}
           hint={t('credits.tooltip.hint', locale)}
         >
           <CreditsIconButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
         </ChromeIconTooltip>
-        <ThemeSwitcher />
-        <BasemapSwitcher />
+        <span className="flex items-center gap-1" data-onboarding="theme">
+          <ThemeSwitcher />
+          <BasemapSwitcher />
+        </span>
         <BackgroundMusic floating={false} />
         <LanguageSwitcher />
       </div>
     ),
-    [openCredits, openNormanOverview, locale],
+    [locale, openCredits, openNormanOverview, openRoadmap, openStoryLibrary],
   );
 
   return (
@@ -174,6 +233,15 @@ export default function AtlasHomeShell() {
               </svg>
             </button>
 
+            <button
+              type="button"
+              onClick={openStoryLibrary}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-cyan-300/80 transition-colors touch-target"
+              aria-label={t('storyLibrary.aria.open', locale)}
+            >
+              <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
+            </button>
+
             <div className="min-w-0 flex-1">
               <EraSelector compact />
             </div>
@@ -190,6 +258,22 @@ export default function AtlasHomeShell() {
               </p>
             </div>
 
+            <ChromeIconTooltip
+              label={t('support.tooltip.label', locale)}
+              hint={t('support.tooltip.hint', locale)}
+            >
+              <button
+                type="button"
+                onClick={openSupport}
+                className="hidden shrink-0 items-center gap-1.5 rounded-lg border border-gold/20 bg-gold/5 px-3 py-1 text-[11px] font-semibold text-gold/80 transition-all duration-200 hover:border-gold/35 hover:bg-gold/10 hover:text-gold sm:inline-flex"
+                aria-label={t('support.aria.open', locale)}
+              >
+                <Heart className="h-3 w-3" strokeWidth={2} aria-hidden />
+                <span className="md:hidden">{t('support.headerButton', locale)}</span>
+                <span className="hidden md:inline">{t('support.headerButtonFull', locale)}</span>
+              </button>
+            </ChromeIconTooltip>
+
             <div className="min-w-0 flex-1">
               <EraSelector leadingSlot={desktopLeadingSlot} />
             </div>
@@ -203,6 +287,7 @@ export default function AtlasHomeShell() {
       <div className="relative flex min-h-0 min-w-0 flex-1">
         <div className="relative min-h-0 min-w-0 flex-1" data-onboarding="map">
           <MapLoader />
+          <MapDeepLinkSync />
           <div className="vignette-overlay absolute inset-0" aria-hidden />
 
           {/* Map overlay panels — repositioned for mobile */}
@@ -218,7 +303,7 @@ export default function AtlasHomeShell() {
             <MigrationExplorerPanel />
           </div>
           {/* Mobile: column stack (flythrough above story) to avoid overlapping pills; desktop: pass-through */}
-          <div className="pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
+          <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
             <CinematicFlythroughBar />
             <StoryModeBar />
           </div>
@@ -251,6 +336,22 @@ export default function AtlasHomeShell() {
               <Library className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} />
               {t('atlasJournal.tooltip.label', locale)}
             </Link>
+            <button
+              type="button"
+              onClick={handleRoadmapFromMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <Signpost className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+              {t('roadmap.mobileDrawer.label', locale)}
+            </button>
+            <button
+              type="button"
+              onClick={handleStoriesFromMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <Clapperboard className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+              {t('storyLibrary.tooltip.label', locale)}
+            </button>
             <ReplayTourButton fullWidth />
           </div>
 
@@ -282,6 +383,13 @@ export default function AtlasHomeShell() {
 
           <div className="space-y-2">
             <button
+              onClick={handleSupportFromMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-gold/80 hover:bg-gold/8 hover:text-gold transition-colors touch-target"
+            >
+              <Heart className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+              {t('support.mobileDrawer.label', locale)}
+            </button>
+            <button
               onClick={handleCreditsFromMenu}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
             >
@@ -296,8 +404,12 @@ export default function AtlasHomeShell() {
       </MobileMenuDrawer>
 
       {/* ─── Modals ─────────────────────────────────────────── */}
-      <CreditsModal open={creditsOpen} onClose={closeCredits} />
+      <StoryLibraryPanel open={storyLibraryOpen} onClose={closeStoryLibrary} />
+
+      <CreditsModal open={creditsOpen} onClose={closeCredits} onOpenSupport={openSupport} />
       <NormanOverviewModal open={normanOverviewOpen} onClose={closeNormanOverview} />
+      <RoadmapModal open={roadmapOpen} onClose={closeRoadmap} />
+      <SupportModal open={supportOpen} onClose={closeSupport} />
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
     </div>
   );
