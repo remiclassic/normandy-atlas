@@ -1,7 +1,19 @@
 import type { Metadata } from 'next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter, Crimson_Pro } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
+
+const META_PIXEL_INIT = `!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2017702515818757');
+fbq('track', 'PageView');`;
 
 const inter = Inter({
   variable: '--font-inter',
@@ -36,8 +48,24 @@ export default function RootLayout({
               "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
           }}
         />
+        <noscript>
+          <img
+            height={1}
+            width={1}
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=2017702515818757&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: META_PIXEL_INIT }}
+        />
+        {children}
+      </body>
       <GoogleAnalytics gaId="G-Q97Y9MCQ0T" />
     </html>
   );
