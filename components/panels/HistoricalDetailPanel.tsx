@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, type PanInfo } from 'motion/react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
@@ -27,6 +27,10 @@ import {
   BADGE_CLASSES,
 } from '@/lib/person-display';
 import { t } from '@/lib/ui-strings';
+import { emitProgressEvent } from '@/lib/progress';
+import type { AtlasEventType } from '@/lib/progress';
+import type { SelectionKind } from '@/types';
+import YdnaLineageDetail from './YdnaLineageDetail';
 
 const CATEGORY_LABELS: Record<SettlementCategory, string> = {
   city: 'City',
@@ -1487,6 +1491,8 @@ function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: strin
         <EvidenceDetail id={selectedId} />
       ) : selectionKind === 'norman-site' ? (
         <NormanSiteDetail id={selectedId} />
+      ) : selectionKind === 'nf-ydna-lineage' ? (
+        <YdnaLineageDetail id={selectedId} />
       ) : selectionKind === 'prehistoric-site' ? (
         <PrehistoricSiteDetail id={selectedId} eraId={eraId} />
       ) : selectionKind === 'atlas-route' ? (
@@ -1575,6 +1581,18 @@ function MobileDetailSheet({
   );
 }
 
+const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
+  settlement: 'place_open',
+  region: 'region_open',
+  'atlas-route': 'segment_open',
+  'atlas-journey': 'journey_open',
+  'atlas-person': 'place_open',
+  'prehistoric-site': 'place_open',
+  'norman-site': 'place_open',
+  'nf-ydna-lineage': 'place_open',
+  'evidence': 'place_open',
+};
+
 export default function HistoricalDetailPanel() {
   const selectedId = useMapStore((s) => s.selectedFeatureId);
   const selectionKind = useMapStore((s) => s.selectionKind);
@@ -1584,6 +1602,32 @@ export default function HistoricalDetailPanel() {
   const isMobile = useIsMobile();
 
   const show = detailOpen && !!selectedId;
+
+  const dwellStartRef = useRef<number>(0);
+  const lastEmittedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!show || !selectedId || !selectionKind) return;
+
+    const eventType = SELECTION_TO_EVENT[selectionKind];
+    if (!eventType) return;
+
+    dwellStartRef.current = Date.now();
+    const emitKey = `${selectionKind}:${selectedId}`;
+
+    if (lastEmittedRef.current !== emitKey) {
+      emitProgressEvent(eventType, selectedId, { eraId });
+      emitProgressEvent('era_visit', eraId, { eraId });
+      lastEmittedRef.current = emitKey;
+    }
+
+    return () => {
+      const dwell = Date.now() - dwellStartRef.current;
+      if (dwell > 1500 && eventType) {
+        emitProgressEvent(eventType, selectedId, { eraId, dwellMs: dwell });
+      }
+    };
+  }, [show, selectedId, selectionKind, eraId]);
 
   if (isMobile) {
     return (

@@ -3,7 +3,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
-import { Clapperboard, Heart, Library, Signpost } from 'lucide-react';
+import { Clapperboard, Heart, Library, Signpost, BookOpen } from 'lucide-react';
+import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
 import EraSelector from '@/components/timeline/EraSelector';
@@ -28,6 +29,12 @@ import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import BasemapSwitcher from '@/components/ui/BasemapSwitcher';
 import { BackgroundMusic } from '@/components/audio/BackgroundMusic';
+import AtlasLedgerPanel from '@/components/progress/AtlasLedgerPanel';
+import CuratorToast from '@/components/progress/CuratorToast';
+import MilestoneCelebrationModal from '@/components/progress/MilestoneCelebrationModal';
+import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
+import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
+import SessionGuard from '@/components/progress/SessionGuard';
 
 function MobileMenuDrawer({
   open,
@@ -119,6 +126,26 @@ export default function AtlasHomeShell() {
   const openRoadmap = useCallback(() => setRoadmapOpen(true), []);
   const closeRoadmap = useCallback(() => setRoadmapOpen(false), []);
 
+  const [ledgerOpen, setLedgerOpen] = useState(false);
+  const openLedger = useCallback(() => setLedgerOpen(true), []);
+
+  const ledgerAttentionActive = useMapStore((s) => s.ledgerAttentionActive);
+
+  const openLedgerAndEndCelebration = useCallback(() => {
+    useMapStore.getState().endLedgerCelebration();
+    openLedger();
+  }, [openLedger]);
+
+  /** Pulse sits beside the journal icon; stop it when opening the journal. */
+  const stopLedgerPulseOnJournalNavigate = useCallback(() => {
+    useMapStore.getState().endLedgerCelebration();
+  }, []);
+
+  const closeLedger = useCallback(() => {
+    useMapStore.getState().endLedgerCelebration();
+    setLedgerOpen(false);
+  }, []);
+
   const [supportOpen, setSupportOpen] = useState(false);
   const openSupport = useCallback(() => {
     setCreditsOpen(false);
@@ -152,6 +179,11 @@ export default function AtlasHomeShell() {
     closeMobileMenu();
     openRoadmap();
   }, [closeMobileMenu, openRoadmap]);
+
+  const handleLedgerFromMenu = useCallback(() => {
+    closeMobileMenu();
+    openLedgerAndEndCelebration();
+  }, [closeMobileMenu, openLedgerAndEndCelebration]);
 
   const desktopLeadingSlot = useMemo(
     () => (
@@ -187,11 +219,32 @@ export default function AtlasHomeShell() {
         >
           <Link
             href="/journal"
+            onClick={stopLedgerPulseOnJournalNavigate}
             className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
             aria-label={t('atlasJournal.aria.open', locale)}
           >
             <Library className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
           </Link>
+        </ChromeIconTooltip>
+        <ChromeIconTooltip
+          label={t('ledger.tooltip.label', locale)}
+          hint={t('ledger.tooltip.hint', locale)}
+        >
+          <motion.button
+            key={ledgerAttentionActive ? 'ledger-attention' : 'ledger-idle'}
+            type="button"
+            onClick={openLedgerAndEndCelebration}
+            animate={ledgerAttentionActive
+              ? { scale: [1, 1.2, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
+              : { scale: 1, color: 'var(--color-text-dim)' }}
+            transition={ledgerAttentionActive ? { duration: 0.8, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md transition-[background] duration-200 hover:bg-chrome-fill"
+            style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-dim)' }}
+            aria-label={t('ledger.aria.open', locale)}
+            data-ledger-entry
+          >
+            <BookOpen className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
+          </motion.button>
         </ChromeIconTooltip>
         <ChromeIconTooltip
           label={t('roadmap.tooltip.label', locale)}
@@ -211,9 +264,10 @@ export default function AtlasHomeShell() {
         </span>
         <BackgroundMusic floating={false} />
         <LanguageSwitcher />
+        <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
       </div>
     ),
-    [locale, openCredits, openNormanOverview, openRoadmap, openStoryLibrary],
+    [ledgerAttentionActive, locale, openCredits, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
   );
 
   return (
@@ -241,6 +295,8 @@ export default function AtlasHomeShell() {
             >
               <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
             </button>
+
+            <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
             <div className="min-w-0 flex-1">
               <EraSelector compact />
@@ -282,6 +338,37 @@ export default function AtlasHomeShell() {
 
         <AtlasTimelineRail />
       </header>
+
+      {/* ─── Mobile ledger attention chip (10s after accomplishments) ── */}
+      <AnimatePresence>
+        {isMobile && ledgerAttentionActive && (
+          <motion.div
+            initial={{ opacity: 0, y: -14, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed top-14 left-1/2 -translate-x-1/2 z-[82] pointer-events-auto"
+          >
+            <motion.button
+              type="button"
+              onClick={openLedgerAndEndCelebration}
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+              className="flex items-center gap-2 rounded-full border border-gold/30 bg-chrome-popover/95 backdrop-blur-lg px-4 py-2.5 shadow-[0_0_16px_rgba(212,175,55,0.2)]"
+            >
+              <motion.span
+                animate={{ rotate: [0, -8, 8, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 1.2, ease: 'easeInOut' }}
+              >
+                <BookOpen className="h-4 w-4 text-gold" strokeWidth={1.8} aria-hidden />
+              </motion.span>
+              <span className="text-[12px] font-semibold text-gold">
+                {t('ledger.affordance.mobile', locale)}
+              </span>
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ─── Main content ───────────────────────────────────── */}
       <div className="relative flex min-h-0 min-w-0 flex-1">
@@ -330,7 +417,10 @@ export default function AtlasHomeShell() {
             </button>
             <Link
               href="/journal"
-              onClick={closeMobileMenu}
+              onClick={() => {
+                stopLedgerPulseOnJournalNavigate();
+                closeMobileMenu();
+              }}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
             >
               <Library className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} />
@@ -351,6 +441,14 @@ export default function AtlasHomeShell() {
             >
               <Clapperboard className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
               {t('storyLibrary.tooltip.label', locale)}
+            </button>
+            <button
+              type="button"
+              onClick={handleLedgerFromMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <BookOpen className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+              {t('ledger.mobileDrawer.label', locale)}
             </button>
             <ReplayTourButton fullWidth />
           </div>
@@ -411,6 +509,11 @@ export default function AtlasHomeShell() {
       <RoadmapModal open={roadmapOpen} onClose={closeRoadmap} />
       <SupportModal open={supportOpen} onClose={closeSupport} />
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
+      <AtlasLedgerPanel open={ledgerOpen} onClose={closeLedger} />
+      <CuratorToast />
+      <MilestoneCelebrationModal />
+      <LedgerRecordedOverlay />
+      <SessionGuard />
     </div>
   );
 }

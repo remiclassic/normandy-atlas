@@ -1,4 +1,10 @@
-const STORAGE_KEY = 'norman-atlas-story-progress-v1';
+import { readProgress, updateProgress } from '@/lib/progress/storage';
+
+// ---------------------------------------------------------------------------
+// Thin wrappers over the unified progress-v2 blob.
+// External API is unchanged so callers (StoryModeBar, StoryLibrary) keep
+// working without modification.
+// ---------------------------------------------------------------------------
 
 /** Stable key for `storyArc === null` (full chronological timeline). */
 export const FULL_TIMELINE_PROGRESS_KEY = '__full__';
@@ -14,52 +20,35 @@ export interface StoryProgressRecord {
 }
 
 export function readStoryProgressMap(): Record<string, StoryProgressRecord> {
-  if (typeof window === 'undefined') return {};
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw) as unknown;
-    if (!parsed || typeof parsed !== 'object') return {};
-    return parsed as Record<string, StoryProgressRecord>;
-  } catch {
-    return {};
-  }
-}
-
-function writeStoryProgressMap(map: Record<string, StoryProgressRecord>): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
-  } catch {
-    /* quota */
-  }
+  return readProgress().story;
 }
 
 export function readStoryProgress(arcKey: string): StoryProgressRecord | undefined {
-  return readStoryProgressMap()[arcKey];
+  return readProgress().story[arcKey];
 }
 
 export function persistStoryProgress(
   arcKey: string,
   patch: Partial<StoryProgressRecord> & Pick<StoryProgressRecord, 'lastStep'>,
 ): void {
-  const map = readStoryProgressMap();
-  const prev = map[arcKey];
+  const progress = readProgress();
+  const prev = progress.story[arcKey];
   const done =
     patch.lastStep === 0 ? false : patch.completed ?? prev?.completed;
-  map[arcKey] = {
+  progress.story[arcKey] = {
     lastStep: patch.lastStep,
     lastPlayedAt: patch.lastPlayedAt ?? prev?.lastPlayedAt ?? Date.now(),
     completed: done,
   };
-  writeStoryProgressMap(map);
+  updateProgress(progress);
 }
 
 export function markStoryArcCompleted(arcKey: string, totalSteps: number): void {
-  const map = readStoryProgressMap();
-  map[arcKey] = {
+  const progress = readProgress();
+  progress.story[arcKey] = {
     lastStep: Math.max(0, totalSteps - 1),
     lastPlayedAt: Date.now(),
     completed: true,
   };
-  writeStoryProgressMap(map);
+  updateProgress(progress);
 }

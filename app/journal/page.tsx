@@ -11,6 +11,12 @@ import { atlasGlossary } from '@/data/atlas/glossary';
 import { buildJournalIndex, type JournalIndexRow, type JournalCategory } from '@/lib/atlas-journal-index';
 import { journalSections } from '@/lib/atlas-journal-copy';
 import NormanNamesExplorer from '@/components/norman-names/NormanNamesExplorer';
+import { useLedgerStats, useInferredRole, useProgress, type AtlasRole } from '@/hooks/useAtlasProgress';
+import { notifyProgressListeners } from '@/hooks/useAtlasProgress';
+import { atlasMilestones } from '@/data/atlas/milestones';
+import { atlasExpeditions } from '@/data/atlas/expeditions';
+import { exportProgressJSON, importProgressJSON, resetProgress, emitProgressEvent } from '@/lib/progress';
+import { t } from '@/lib/ui-strings';
 import type { AtlasLocale } from '@/core/types';
 
 interface TocItem {
@@ -22,6 +28,7 @@ function useTocItems(locale: AtlasLocale): TocItem[] {
   return useMemo(() => [
     { id: 'welcome', label: locale === 'fr' ? 'Accueil' : 'Welcome' },
     { id: 'how-to-use', label: locale === 'fr' ? 'Comment utiliser' : 'How to use' },
+    { id: 'your-ledger', label: locale === 'fr' ? 'Votre registre' : 'Your Ledger' },
     { id: 'timeline', label: locale === 'fr' ? 'Chronologie' : 'Timeline' },
     { id: 'arcs', label: locale === 'fr' ? 'Arcs narratifs' : 'Story arcs' },
     { id: 'norman-surnames', label: locale === 'fr' ? 'Patronymes normands' : 'Norman surnames' },
@@ -30,6 +37,7 @@ function useTocItems(locale: AtlasLocale): TocItem[] {
     { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
     { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
     { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
+    { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
     { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
   ], [locale]);
 }
@@ -66,6 +74,145 @@ const SectionLabel = memo(function SectionLabel({ children }: { children: React.
     >
       {children}
     </p>
+  );
+});
+
+const ROLE_LABELS: Record<AtlasRole, { en: string; fr: string }> = {
+  explorer: { en: 'Explorer', fr: 'Explorateur' },
+  historian: { en: 'Historian', fr: 'Historien' },
+  cartographer: { en: 'Cartographer', fr: 'Cartographe' },
+  chronicler: { en: 'Chronicler', fr: 'Chroniqueur' },
+};
+
+const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { locale: AtlasLocale }) {
+  const stats = useLedgerStats();
+  const role = useInferredRole();
+  const progress = useProgress();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const unlockedMilestones = useMemo(() =>
+    atlasMilestones.filter((m) => !!progress.milestones[m.id]),
+    [progress.milestones],
+  );
+
+  const handleExport = useCallback(() => {
+    const blob = new Blob([exportProgressJSON()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'norman-atlas-progress.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }, []);
+
+  const handleImport = useCallback(() => { fileInputRef.current?.click(); }, []);
+  const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        if (importProgressJSON(reader.result)) notifyProgressListeners();
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }, []);
+
+  const handleReset = useCallback(() => {
+    if (!confirm(t('ledger.reset.confirm', locale))) return;
+    resetProgress();
+    notifyProgressListeners();
+  }, [locale]);
+
+  const isEmpty = stats.places === 0 && stats.storiesCompleted === 0;
+
+  return (
+    <div className="mt-4 space-y-5">
+      {isEmpty ? (
+        <p className="text-[13px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+          {t('ledger.empty', locale)}
+        </p>
+      ) : (
+        <>
+          <div
+            className="rounded-lg border px-5 py-4"
+            style={{ borderColor: 'var(--color-border)' }}
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <p
+                className="text-[10px] font-medium uppercase tracking-[0.22em]"
+                style={{ color: 'var(--color-gold-muted)' }}
+              >
+                {t('ledger.coverage', locale)}
+              </p>
+              <span className="text-[10px] italic" style={{ color: 'var(--color-text-dim)' }}>
+                {pickI18n(ROLE_LABELS[role], locale)}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
+              {([
+                ['ledger.places', stats.places],
+                ['ledger.regions', stats.regions],
+                ['ledger.journeys', stats.journeys],
+                ['ledger.segments', stats.segments],
+                ['ledger.eras', stats.eras],
+                ['ledger.stories', stats.storiesCompleted],
+              ] as const).map(([key, val]) => (
+                <div key={key} className="flex items-center justify-between">
+                  <span className="text-[12px]" style={{ color: 'var(--color-text-muted)' }}>
+                    {t(key, locale)}
+                  </span>
+                  <span className="text-[13px] font-semibold tabular-nums" style={{ color: 'var(--color-parchment)' }}>
+                    {val}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {unlockedMilestones.length > 0 && (
+            <div>
+              <p
+                className="text-[10px] font-medium uppercase tracking-[0.22em] mb-2"
+                style={{ color: 'var(--color-gold-muted)' }}
+              >
+                {t('ledger.milestones', locale)} ({unlockedMilestones.length}/{atlasMilestones.length})
+              </p>
+              <div className="space-y-1.5">
+                {unlockedMilestones.map((m) => (
+                  <div
+                    key={m.id}
+                    className="flex items-center gap-2 rounded-lg border px-3 py-2"
+                    style={{ borderColor: 'var(--color-border)' }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--color-gold)' }} className="shrink-0">
+                      <path d="M3 7.5l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-[12px]" style={{ color: 'var(--color-parchment)' }}>
+                      {pickI18n(m.title, locale)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      <div className="flex flex-wrap items-center gap-2 pt-1">
+        <button onClick={handleExport} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+          {t('ledger.export', locale)}
+        </button>
+        <button onClick={handleImport} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+          {t('ledger.import', locale)}
+        </button>
+        <button onClick={handleReset} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+          {t('ledger.reset', locale)}
+        </button>
+        <input ref={fileInputRef} type="file" accept=".json" className="hidden" onChange={handleFileChange} />
+      </div>
+    </div>
   );
 });
 
@@ -350,11 +497,17 @@ export default function JournalPage() {
     if (!container) return;
 
     const sectionIds = tocItems.map((t) => t.id);
+    const emittedSections = new Set<string>();
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting && entry.intersectionRatio > 0) {
-            setActiveSection(entry.target.id);
+            const id = entry.target.id;
+            setActiveSection(id);
+            if (!emittedSections.has(id)) {
+              emittedSections.add(id);
+              emitProgressEvent('journal_section_view', id);
+            }
             break;
           }
         }
@@ -454,6 +607,21 @@ export default function JournalPage() {
                 <Prose>{pickI18n(howToUseCopy.body, locale)}</Prose>
               </section>
             )}
+
+            <SectionDivider />
+
+            {/* Your Ledger */}
+            <section>
+              <SectionHeading id="your-ledger">
+                {t('ledger.heading', locale)}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Votre registre personnel suit tout ce que vous avez exploré — lieux, routes, époques et récits. Il est stocké localement dans votre navigateur.'
+                  : 'Your personal ledger tracks everything you have explored — places, routes, eras, and stories. It is stored locally in your browser.'}
+              </Prose>
+              <JournalLedgerSection locale={locale} />
+            </section>
 
             <SectionDivider />
 
@@ -620,6 +788,58 @@ export default function JournalPage() {
                   : 'Every narrative moment from story mode, in chronological order. Each link launches the corresponding step.'}
               </Prose>
               <IndexSection rows={filteredByCategory.story} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Y-DNA Settler Lineages */}
+            <section>
+              <SectionHeading id="ydna-lineages">
+                {locale === 'fr' ? 'Lignées paternelles (ADN-Y)' : 'Paternal Lineages (Y-DNA)'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'L\u2019Atlas normand int\u00e8gre les r\u00e9sultats du projet de triangulation ADN-Y de Francog\u00e8ne, qui relie les tests d\u2019ADN-Y de descendants modernes \u00e0 des colons sp\u00e9cifiques de la Nouvelle-France. Plus de 670 lign\u00e9es sont repr\u00e9sent\u00e9es sur la carte, chacune color\u00e9e par haplogroupe majeur.'
+                  : 'The Norman Atlas integrates results from the Francogene Y-DNA triangulation project, which links modern descendant Y-DNA tests to specific New France settlers. Over 670 lineages are represented on the map, each colour-coded by major haplogroup.'}
+              </Prose>
+              <div className="mt-4 space-y-3">
+                <div>
+                  <SectionLabel>{locale === 'fr' ? 'Qu\u2019est-ce que l\u2019ADN-Y\u00a0?' : 'What is Y-DNA?'}</SectionLabel>
+                  <p className="text-[12px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                    {locale === 'fr'
+                      ? 'L\u2019ADN du chromosome Y est transmis de p\u00e8re en fils pratiquement sans changement \u00e0 chaque g\u00e9n\u00e9ration. En testant les descendants modernes, les g\u00e9n\u00e9ticiens peuvent d\u00e9duire l\u2019haplogroupe probable d\u2019un anc\u00eatre historique. Un haplogroupe (par ex. R1b, I1, G2) repr\u00e9sente une branche profonde de l\u2019arbre g\u00e9n\u00e9alogique paternel humain.'
+                      : 'Y-chromosome DNA is passed from father to son virtually unchanged each generation. By testing modern descendants, geneticists can infer the probable haplogroup of a historical ancestor. A haplogroup (e.g. R1b, I1, G2) represents a deep branch on the human paternal family tree.'}
+                  </p>
+                </div>
+                <div>
+                  <SectionLabel>{locale === 'fr' ? 'Avertissement' : 'Disclaimer'}</SectionLabel>
+                  <p className="text-[12px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                    {locale === 'fr'
+                      ? 'Les haplogroupes sont bas\u00e9s sur des tests d\u2019ADN-Y de descendants modernes, et non sur l\u2019ADN ancien des colons eux-m\u00eames. Les \u00e9v\u00e9nements de non-paternit\u00e9 ou les adoptions non document\u00e9es \u00e0 tout point de la lign\u00e9e peuvent rompre la cha\u00eene entre la personne historique et le descendant test\u00e9.'
+                      : 'Haplogroups are based on modern descendant Y-DNA testing, not on ancient DNA from the settlers themselves. Non-paternity events or undocumented adoptions at any point in the lineage can break the chain between the historical person and the tested descendant.'}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 mt-4">
+                  <Link
+                    href="/?era=new-france-foundations"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
+                    style={{ background: 'var(--color-chrome-fill)', color: 'var(--color-gold-muted)' }}
+                  >
+                    <Map size={12} />
+                    {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
+                  </Link>
+                  <a
+                    href="https://www.francogene.com/triangulation/y.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] transition-colors"
+                    style={{ color: 'var(--color-text-dim)' }}
+                  >
+                    <ExternalLink size={10} />
+                    Francogene
+                  </a>
+                </div>
+              </div>
             </section>
 
             <SectionDivider />

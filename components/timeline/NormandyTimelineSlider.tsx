@@ -1,15 +1,23 @@
 'use client';
 
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMANDY_ERA_IDS } from '@/lib/store';
+import { TimelineMarkerGlyph } from '@/lib/timeline-marker-icons';
+import type { TimelineMarkerKind } from '@/core/types';
 
-const STOPS: { year: number; label: string }[] = [
-  { year: 911, label: '911 — Rollo' },
-  { year: 924, label: '924 — Bessin' },
-  { year: 933, label: '933 — Cotentin' },
-  { year: 1050, label: '~1050 — Duchy' },
-  { year: 1066, label: '1066 — Hastings' },
+interface NormandyStop {
+  year: number;
+  label: string;
+  kind: TimelineMarkerKind;
+}
+
+const STOPS: NormandyStop[] = [
+  { year: 911, label: '911 — Rollo', kind: 'treaty' },
+  { year: 924, label: '924 — Bessin', kind: 'expansion' },
+  { year: 933, label: '933 — Cotentin', kind: 'expansion' },
+  { year: 1050, label: '~1050 — Duchy', kind: 'foundation' },
+  { year: 1066, label: '1066 — Hastings', kind: 'battle' },
 ];
 
 const MIN_YEAR = STOPS[0].year;
@@ -19,33 +27,57 @@ function yearToPercent(year: number): number {
   return ((year - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
 }
 
-const StopDot = memo(function StopDot({
-  year,
-  label,
+function snapToNearest(raw: number): number {
+  let nearest = STOPS[0].year;
+  let minDist = Infinity;
+  for (const stop of STOPS) {
+    const d = Math.abs(stop.year - raw);
+    if (d < minDist) {
+      minDist = d;
+      nearest = stop.year;
+    }
+  }
+  return nearest;
+}
+
+const KIND_STROKE: Record<TimelineMarkerKind, string> = {
+  battle: 'text-red-400/80',
+  treaty: 'text-blue-400/80',
+  person: 'text-gold/80',
+  foundation: 'text-emerald-400/80',
+  expansion: 'text-orange-400/80',
+  exploration: 'text-cyan-400/80',
+  migration: 'text-purple-400/80',
+  story: 'text-gold/80',
+};
+
+const StopIcon = memo(function StopIcon({
+  stop,
   isActive,
   onClick,
 }: {
-  year: number;
-  label: string;
+  stop: NormandyStop;
   isActive: boolean;
   onClick: (year: number) => void;
 }) {
-  const left = yearToPercent(year);
+  const left = yearToPercent(stop.year);
   return (
     <button
       type="button"
-      onClick={() => onClick(year)}
-      title={label}
+      onClick={() => onClick(stop.year)}
+      title={stop.label}
       className="group absolute top-0 flex -translate-x-1/2 flex-col items-center"
       style={{ left: `${left}%` }}
     >
       <span
-        className={`h-2.5 w-2.5 rounded-full border-2 transition-all duration-200 ${
+        className={`flex h-[20px] w-[20px] items-center justify-center rounded-md border transition-all duration-200 ${
           isActive
-            ? 'border-gold/60 bg-gold/80 shadow-[0_0_6px_rgba(196,169,98,0.4)]'
-            : 'border-white/10 bg-surface group-hover:border-white/20'
+            ? `${KIND_STROKE[stop.kind]} border-current/20 bg-current/10 drop-shadow-[0_0_4px_rgba(196,169,98,0.3)]`
+            : 'text-text-dim/40 border-chrome-border-strong/40 bg-chrome-fill-active/60 group-hover:text-text-dim/60'
         }`}
-      />
+      >
+        <TimelineMarkerGlyph kind={stop.kind} className="h-2.5 w-2.5" />
+      </span>
       <span
         className={`mt-2 text-[10px] tabular-nums leading-none transition-all duration-150 sm:text-[11px] ${
           isActive
@@ -53,7 +85,7 @@ const StopDot = memo(function StopDot({
             : 'text-text-dim/60 group-hover:text-text-dim/80'
         }`}
       >
-        {year}
+        {stop.year}
       </span>
     </button>
   );
@@ -67,6 +99,11 @@ export default function NormandyTimelineSlider() {
 
   const visible = NORMANDY_ERA_IDS.has(eraId) && expansionLayerOn;
 
+  const railRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const [previewYear, setPreviewYear] = useState<number | null>(null);
+  const rafId = useRef(0);
+
   const activeStopIndex = useMemo(() => {
     for (let i = STOPS.length - 1; i >= 0; i--) {
       if (normandySimYear >= STOPS[i].year) return i;
@@ -79,22 +116,58 @@ export default function NormandyTimelineSlider() {
     [setNormandySimYear],
   );
 
-  const handleSliderChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const raw = Number(e.target.value);
-      let nearest = STOPS[0].year;
-      let minDist = Infinity;
-      for (const stop of STOPS) {
-        const d = Math.abs(stop.year - raw);
-        if (d < minDist) {
-          minDist = d;
-          nearest = stop.year;
-        }
-      }
-      setNormandySimYear(nearest);
+  const yearFromClientX = useCallback((clientX: number): number => {
+    if (!railRef.current) return MIN_YEAR;
+    const rect = railRef.current.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+    return Math.round(MIN_YEAR + (pct / 100) * (MAX_YEAR - MIN_YEAR));
+  }, []);
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      if (e.button !== 0) return;
+      isDragging.current = true;
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        setPreviewYear(yearFromClientX(e.clientX));
+      });
     },
-    [setNormandySimYear],
+    [yearFromClientX],
   );
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!isDragging.current) return;
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        setPreviewYear(yearFromClientX(e.clientX));
+      });
+    },
+    [yearFromClientX],
+  );
+
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent) => {
+      if (!isDragging.current) return;
+      isDragging.current = false;
+      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+      const raw = yearFromClientX(e.clientX);
+      setNormandySimYear(snapToNearest(raw));
+      setPreviewYear(null);
+    },
+    [yearFromClientX, setNormandySimYear],
+  );
+
+  const handlePointerCancel = useCallback(() => {
+    isDragging.current = false;
+    setPreviewYear(null);
+  }, []);
+
+  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
+
+  const displayYear = previewYear ?? normandySimYear;
+  const fillPct = yearToPercent(displayYear);
 
   return (
     <AnimatePresence>
@@ -111,34 +184,29 @@ export default function NormandyTimelineSlider() {
               Expansion
             </span>
 
-            <div className="relative min-h-[44px] min-w-0 flex-1 pt-0.5">
+            <div
+              ref={railRef}
+              className="relative min-h-[44px] min-w-0 flex-1 pt-0.5 touch-none select-none cursor-pointer"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerCancel}
+            >
               <div className="absolute top-[5px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised" />
 
               <div
                 className="absolute top-[5px] left-0 h-[3px] rounded-full bg-gold/30 transition-all duration-200"
-                style={{ width: `${yearToPercent(normandySimYear)}%` }}
+                style={{ width: `${fillPct}%` }}
               />
 
               {STOPS.map((stop, i) => (
-                <StopDot
+                <StopIcon
                   key={stop.year}
-                  year={stop.year}
-                  label={stop.label}
+                  stop={stop}
                   isActive={i <= activeStopIndex}
                   onClick={handleStopClick}
                 />
               ))}
-
-              <input
-                type="range"
-                min={MIN_YEAR}
-                max={MAX_YEAR}
-                step={1}
-                value={normandySimYear}
-                onChange={handleSliderChange}
-                className="absolute top-0 left-0 z-10 h-8 w-full cursor-pointer opacity-0"
-                aria-label="Norman expansion timeline"
-              />
             </div>
           </div>
         </motion.div>

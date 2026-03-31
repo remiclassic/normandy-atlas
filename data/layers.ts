@@ -46,6 +46,10 @@ import {
   NORMAN_NODES_CIRCLES,
   NORMAN_NODES_LABELS,
 } from '@/components/map/norman-expansion-layers';
+import {
+  NF_YDNA_CIRCLES,
+  NF_YDNA_LABELS,
+} from '@/components/map/new-france-ydna-layers';
 
 export const layerConfigs: LayerConfig[] = [
   {
@@ -183,6 +187,14 @@ export const layerConfigs: LayerConfig[] = [
     defaultOn: false,
     mapLayerIds: [],
     deckLayer: true,
+    dependsOnEra: true,
+  },
+  {
+    id: 'new-france-ydna-lineages',
+    label: 'Paternal Lineages (Y-DNA)',
+    category: 'new-france',
+    defaultOn: false,
+    mapLayerIds: [NF_YDNA_CIRCLES, NF_YDNA_LABELS],
     dependsOnEra: true,
   },
   // --- Exploration & Colonial overlays ---
@@ -348,6 +360,7 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
   'new-france-foundations': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'new-france-ydna-lineages': false,
     'exploration-routes': true,
     'colonial-migration-flows': true,
     'forts-missions': true,
@@ -355,6 +368,7 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
   'royal-new-france': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'new-france-ydna-lineages': false,
     'exploration-routes': true,
     'colonial-migration-flows': true,
     'forts-missions': true,
@@ -363,6 +377,7 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
   'atlantic-imprint': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'new-france-ydna-lineages': false,
     'colonial-migration-flows': true,
     'forts-missions': true,
     'trade-routes': true,

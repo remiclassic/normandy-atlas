@@ -35,8 +35,12 @@ export default function MapDeepLinkSync() {
     const region = params.get('region');
     const segment = params.get('segment');
     const journey = params.get('journey');
+    const ydna = params.get('ydna');
 
-    if (place) selectFeature(place, 'settlement');
+    if (ydna) {
+      useMapStore.getState().setLayerVisibility('new-france-ydna-lineages', true);
+      selectFeature(ydna, 'nf-ydna-lineage');
+    } else if (place) selectFeature(place, 'settlement');
     else if (region) selectFeature(region, 'region');
     else if (segment) selectFeature(segment, 'atlas-route');
     else if (journey) selectFeature(journey, 'atlas-journey');

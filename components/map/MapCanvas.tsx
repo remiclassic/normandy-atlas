@@ -50,6 +50,7 @@ import { addAllNormanExpansionLayers, NORMAN_NODES_CIRCLES, NORMAN_NODES_SOURCE,
 import { applyParchmentOverlayLabelStyles } from './apply-parchment-overlay-labels';
 import { addAllPrehistoryLayers, PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES } from './prehistory-layers';
 import { addNewFranceTerritoryLayers, updateNewFranceTerritorySource } from './new-france-territory-layers';
+import { addNfYdnaLayers, NF_YDNA_CIRCLES, NF_YDNA_SOURCE, setYdnaYearFilter } from './new-france-ydna-layers';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { getTerritoryForYear } from '@/data/atlas/new-france-territory-geo';
 import { normanExpansionRoutes } from '@/data/norman-expansion';
@@ -490,6 +491,8 @@ export default function MapCanvas() {
   const selectedSettlementRef = useRef<string | null>(null);
   const selectedNormanNodeRef = useRef<string | null>(null);
   const hoveredNormanNodeRef = useRef<string | null>(null);
+  const selectedYdnaRef = useRef<string | null>(null);
+  const hoveredYdnaRef = useRef<string | null>(null);
   const readyRef = useRef(false);
   const interactionsAttachedRef = useRef(false);
   const rebuildMapDataLayersRef = useRef<(map: maplibregl.Map) => void>(() => {});
@@ -602,12 +605,14 @@ export default function MapCanvas() {
       addAllNormanExpansionLayers(map, theme);
       addAllPrehistoryLayers(map, theme);
       addNewFranceTerritoryLayers(map);
+      addNfYdnaLayers(map, theme);
       applyParchmentOverlayLabelStyles(map, theme);
       setExpansionYearFilter(map, state.normandySimYear);
 
       if (state.atlasMode && isColonialEra(state.eraId)) {
         const colYear = colonialYearFromEra(state.eraId, state.atlasSimYear);
         updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
+        setYdnaYearFilter(map, colYear);
       }
 
       for (const cfg of layerConfigs) {
@@ -848,6 +853,25 @@ export default function MapCanvas() {
           }
         }
 
+        if (map!.getLayer(NF_YDNA_CIRCLES)) {
+          const ydnaFeats = map!.queryRenderedFeatures(e.point, { layers: [NF_YDNA_CIRCLES] });
+          if (ydnaFeats.length) {
+            const p = ydnaFeats[0].properties!;
+            const fid = p.id as string;
+            if (hoveredYdnaRef.current && hoveredYdnaRef.current !== fid) {
+              setFeatureState(map!, hoveredYdnaRef.current, { hover: false }, NF_YDNA_SOURCE);
+            }
+            hoveredYdnaRef.current = fid;
+            setFeatureState(map!, fid, { hover: true }, NF_YDNA_SOURCE);
+            showTooltip({ x: e.point.x, y: e.point.y, title: p.displayLabel as string, subtitle: p.yMajor as string, detail: `m. ${p.marriageYear}` });
+            map!.getCanvas().style.cursor = 'pointer';
+            return;
+          } else if (hoveredYdnaRef.current) {
+            setFeatureState(map!, hoveredYdnaRef.current, { hover: false }, NF_YDNA_SOURCE);
+            hoveredYdnaRef.current = null;
+          }
+        }
+
         if (tooltipRef.current) showTooltip(null);
         if (!hoveredSettlementRef.current && !hoveredRegionRef.current) {
           map!.getCanvas().style.cursor = '';
@@ -862,6 +886,13 @@ export default function MapCanvas() {
         if (hoveredNormanNodeRef.current && map!.getSource(NORMAN_NODES_SOURCE)) {
           setFeatureState(map!, hoveredNormanNodeRef.current, { hover: false }, NORMAN_NODES_SOURCE);
           hoveredNormanNodeRef.current = null;
+        }
+      });
+      map.on('mouseleave', NF_YDNA_CIRCLES, () => {
+        if (tooltipRef.current) showTooltip(null);
+        if (hoveredYdnaRef.current && map!.getSource(NF_YDNA_SOURCE)) {
+          setFeatureState(map!, hoveredYdnaRef.current, { hover: false }, NF_YDNA_SOURCE);
+          hoveredYdnaRef.current = null;
         }
       });
 
@@ -894,6 +925,10 @@ export default function MapCanvas() {
           if (selectedNormanNodeRef.current && map!.getSource(NORMAN_NODES_SOURCE)) {
             setFeatureState(map!, selectedNormanNodeRef.current, { selected: false }, NORMAN_NODES_SOURCE);
             selectedNormanNodeRef.current = null;
+          }
+          if (selectedYdnaRef.current && map!.getSource(NF_YDNA_SOURCE)) {
+            setFeatureState(map!, selectedYdnaRef.current, { selected: false }, NF_YDNA_SOURCE);
+            selectedYdnaRef.current = null;
           }
         };
 
@@ -945,6 +980,20 @@ export default function MapCanvas() {
               selectedNormanNodeRef.current = id;
               setFeatureState(map!, id, { selected: true }, NORMAN_NODES_SOURCE);
               selectFeature(id, 'norman-site');
+              return;
+            }
+          }
+        }
+
+        if (map!.getLayer(NF_YDNA_CIRCLES)) {
+          const yFeats = map!.queryRenderedFeatures(e.point, { layers: [NF_YDNA_CIRCLES] });
+          if (yFeats.length) {
+            const id = yFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedYdnaRef.current = id;
+              setFeatureState(map!, id, { selected: true }, NF_YDNA_SOURCE);
+              selectFeature(id, 'nf-ydna-lineage');
               return;
             }
           }
@@ -1095,6 +1144,7 @@ export default function MapCanvas() {
         const sourceForKind = (k: typeof kind) => {
           if (k === 'settlement') return SETTLEMENT_SOURCE;
           if (k === 'norman-site') return NORMAN_NODES_SOURCE;
+          if (k === 'nf-ydna-lineage') return NF_YDNA_SOURCE;
           if (k === 'region') return REGION_SOURCE;
           return null;
         };
@@ -1112,11 +1162,13 @@ export default function MapCanvas() {
           }
           if (kind === 'region') selectedRegionRef.current = newId;
           else if (kind === 'norman-site') selectedNormanNodeRef.current = newId;
+          else if (kind === 'nf-ydna-lineage') selectedYdnaRef.current = newId;
           else selectedSettlementRef.current = newId;
         } else {
           selectedRegionRef.current = null;
           selectedSettlementRef.current = null;
           selectedNormanNodeRef.current = null;
+          selectedYdnaRef.current = null;
         }
       },
     );
@@ -1206,6 +1258,8 @@ export default function MapCanvas() {
             lastRegionKeyRef.current = rKey;
             updateRegionSource(map, regionsGeoJson);
           }
+
+          setYdnaYearFilter(map, colYear);
         } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
           syncOverlay(eraId, layers);
         }

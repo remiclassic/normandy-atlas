@@ -42,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`} suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="theme-restore"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html:
               "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",

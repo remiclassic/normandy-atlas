@@ -46,6 +46,12 @@ export type BasemapMode = 'dark' | 'parchment';
 
 export type OnboardingPhase = 'intro' | 'flying' | 'guided' | 'complete';
 
+/** `overlay` = story seal modal; icon pulse uses `ledgerAttentionActive` + 10s timer. */
+export type LedgerCelebrationPhase = 'idle' | 'overlay';
+
+const LEDGER_ATTENTION_MS = 10_000;
+let ledgerAttentionTimer: ReturnType<typeof setTimeout> | undefined;
+
 export interface NormanNodePeriod {
   min: number;
   max: number;
@@ -119,6 +125,14 @@ interface MapStore {
   /** App chrome only — map basemap uses `basemapMode`. */
   uiTheme: UiTheme;
 
+  ledgerCelebrationPhase: LedgerCelebrationPhase;
+  /** True while the Atlas Ledger chrome icon should pulse (auto-clears after 10s). */
+  ledgerAttentionActive: boolean;
+  startLedgerCelebration: () => void;
+  advanceLedgerCelebration: () => void;
+  endLedgerCelebration: () => void;
+  pulseLedgerAttention: () => void;
+
   setLocale: (locale: AtlasLocale) => void;
   setUiTheme: (theme: UiTheme) => void;
   setAtlasMode: (enabled: boolean) => void;
@@ -168,7 +182,28 @@ export function isOnboardingDone(): boolean {
   try { return localStorage.getItem(ONBOARDING_KEY) === 'done'; } catch { return false; }
 }
 
-export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
+export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
+  const stopLedgerAttention = () => {
+    if (ledgerAttentionTimer) {
+      clearTimeout(ledgerAttentionTimer);
+      ledgerAttentionTimer = undefined;
+    }
+    set({ ledgerAttentionActive: false });
+  };
+
+  const pulseLedgerAttention = () => {
+    if (ledgerAttentionTimer) {
+      clearTimeout(ledgerAttentionTimer);
+      ledgerAttentionTimer = undefined;
+    }
+    set({ ledgerAttentionActive: true });
+    ledgerAttentionTimer = setTimeout(() => {
+      ledgerAttentionTimer = undefined;
+      set({ ledgerAttentionActive: false });
+    }, LEDGER_ATTENTION_MS);
+  };
+
+  return {
   atlasMode: true,
   eraId: getDefaultAtlasEraId(),
   layers: initialAtlasLayers(),
@@ -200,6 +235,22 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
   locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
   uiTheme: DEFAULT_UI_THEME,
+  ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
+  ledgerAttentionActive: false,
+
+  startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
+
+  advanceLedgerCelebration: () => {
+    set({ storyMode: false, storyArc: null, activeJourneyId: null, ledgerCelebrationPhase: 'idle' });
+    pulseLedgerAttention();
+  },
+
+  endLedgerCelebration: () => {
+    set({ ledgerCelebrationPhase: 'idle' });
+    stopLedgerAttention();
+  },
+
+  pulseLedgerAttention,
 
   setLocale: (locale) => {
     persistLocale(locale);
@@ -354,4 +405,5 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => ({
     } catch { /* SSR / quota */ }
     set({ onboardingPhase: phase });
   },
-})));
+  };
+}));

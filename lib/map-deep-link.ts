@@ -9,6 +9,7 @@ export interface MapDeepLinkParams {
   region?: string;
   segment?: string;
   journey?: string;
+  ydna?: string;
   story?: string | null;
   step?: number;
 }
@@ -20,6 +21,7 @@ export function buildMapHref(params: MapDeepLinkParams): string {
   if (params.region) qs.set('region', params.region);
   if (params.segment) qs.set('segment', params.segment);
   if (params.journey) qs.set('journey', params.journey);
+  if (params.ydna) qs.set('ydna', params.ydna);
   if (params.story !== undefined) qs.set('story', params.story ?? '');
   if (params.step != null) qs.set('step', String(params.step));
   const str = qs.toString();

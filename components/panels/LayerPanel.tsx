@@ -128,6 +128,14 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
       <path d="M2 13C5 11 8 12 12 10" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.3" />
     </svg>
   ),
+  'new-france-ydna-lineages': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 1v4M7 5C4 5 3 8 3 10M7 5C10 5 11 8 11 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <circle cx="7" cy="1" r="1" fill="currentColor" opacity="0.6" />
+      <circle cx="3" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
+      <circle cx="11" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
+    </svg>
+  ),
 };
 
 const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
@@ -402,6 +410,36 @@ const ModernBasemapOverlaysToggle = memo(function ModernBasemapOverlaysToggle() 
   );
 });
 
+const HAPLO_LEGEND: { key: string; color: string }[] = [
+  { key: 'R1b', color: '#e05555' },
+  { key: 'I1',  color: '#4898e0' },
+  { key: 'G2',  color: '#3cb870' },
+  { key: 'J2',  color: '#8860d0' },
+  { key: 'I2',  color: '#3070b0' },
+  { key: 'R1a', color: '#d47040' },
+  { key: 'E1b', color: '#d0a030' },
+  { key: 'Other', color: '#889098' },
+];
+
+const YdnaLegend = memo(function YdnaLegend() {
+  return (
+    <div className="px-3.5 pb-2 pt-1">
+      <p className="text-[9px] text-text-dim/80 leading-snug mb-2 normal-case tracking-normal font-normal">
+        Settler dots are colour-coded by Y-DNA haplogroup.
+        Based on modern descendant testing via Francogene.
+      </p>
+      <div className="grid grid-cols-4 gap-x-3 gap-y-1">
+        {HAPLO_LEGEND.map((h) => (
+          <span key={h.key} className="flex items-center gap-1.5 text-[10px] text-text-dim">
+            <span className="inline-block w-2 h-2 rounded-full flex-shrink-0" style={{ background: h.color }} />
+            {h.key}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+});
+
 const NORMAN_PRESETS: { id: NormanExpansionPreset; label: string }[] = [
   { id: 'conquest', label: 'Conquest' },
   { id: 'influence', label: 'Influence' },
@@ -594,6 +632,9 @@ function LayerPanelContent({
                         />
                         {section.key === 'atlas' && cfg.id === 'route-flow-animation' && (
                           <ExplorationYearStrictRow />
+                        )}
+                        {cfg.id === 'new-france-ydna-lineages' && (layers[cfg.id] ?? cfg.defaultOn) && (
+                          <YdnaLegend />
                         )}
                       </Fragment>
                     ))}

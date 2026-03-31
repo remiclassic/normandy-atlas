@@ -22,6 +22,20 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Base Path & Share URLs
+
+This app uses `NEXT_BASE_PATH` at build time to set the Next.js `basePath` and `assetPrefix` (see `next.config.ts`). The gamification share feature (`lib/progress/share.ts`) builds public URLs using `NEXT_PUBLIC_BASE_PATH` at runtime.
+
+For GitHub Pages project-URL deployments (e.g. `remiclassic.github.io/normandy-atlas/`), both variables must be set to the same value in the Pages workflow:
+
+```yaml
+env:
+  NEXT_BASE_PATH: /normandy-atlas
+  NEXT_PUBLIC_BASE_PATH: /normandy-atlas
+```
+
+For custom-domain deployments where the site lives at the root, both can be left empty (the default).
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

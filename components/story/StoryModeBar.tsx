@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useEffect, useCallback } from 'react';
+import { useMemo, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
@@ -14,6 +14,7 @@ import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-b
 import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
+import { emitProgressEvent } from '@/lib/progress';
 
 export default function StoryModeBar() {
   const storyMode = useMapStore((s) => s.storyMode);
@@ -99,25 +100,52 @@ export default function StoryModeBar() {
     storyMode,
   ]);
 
+  const prevStepRef = useRef<number>(-1);
+  const prevEraRef = useRef<string>('');
+
+  useEffect(() => {
+    if (!storyMode) {
+      prevStepRef.current = -1;
+      prevEraRef.current = '';
+    }
+  }, [storyMode]);
+
   useEffect(() => {
     if (!storyMode || !atlasMode) return;
     persistStoryProgress(arcIdToProgressKey(storyArc), {
       lastStep: stepIndex,
       lastPlayedAt: Date.now(),
     });
-  }, [storyMode, atlasMode, storyArc, stepIndex]);
+    if (stepIndex !== prevStepRef.current) {
+      prevStepRef.current = stepIndex;
+      emitProgressEvent('story_step', arcIdToProgressKey(storyArc), {
+        eraId: currentBeat?.eraId,
+        step: stepIndex,
+      });
+    }
+    const eraId = currentBeat?.eraId ?? '';
+    if (eraId && eraId !== prevEraRef.current) {
+      prevEraRef.current = eraId;
+      emitProgressEvent('era_visit', eraId, { eraId });
+    }
+  }, [storyMode, atlasMode, storyArc, stepIndex, currentBeat?.eraId]);
 
   const handleStop = useCallback(() => {
     stopStory();
     setActiveJourney(null);
   }, [stopStory, setActiveJourney]);
 
+  const startLedgerCelebration = useMapStore((s) => s.startLedgerCelebration);
+  const celebrationPhase = useMapStore((s) => s.ledgerCelebrationPhase);
+  const celebrating = celebrationPhase === 'overlay';
+
   const handleFinish = useCallback(() => {
     if (atlasMode) {
       markStoryArcCompleted(arcIdToProgressKey(storyArc), getBeatCount(storyArc));
+      emitProgressEvent('story_arc_complete', arcIdToProgressKey(storyArc));
     }
-    handleStop();
-  }, [atlasMode, storyArc, handleStop]);
+    startLedgerCelebration();
+  }, [atlasMode, storyArc, startLedgerCelebration]);
 
   const isActive = storyMode && (currentBeat || currentLegacyStep);
   const eraId = useMapStore((s) => s.eraId);
@@ -243,14 +271,15 @@ export default function StoryModeBar() {
                 <div className="flex items-center justify-between px-3.5 pb-3 pt-1 sm:px-5 sm:pb-4">
                   <button
                     onClick={handleStop}
-                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-chrome-fill-badge touch-target"
+                    disabled={celebrating}
+                    className="text-[11px] text-text-dim hover:text-text-muted transition-colors px-2.5 py-1.5 rounded-md hover:bg-chrome-fill-badge touch-target disabled:opacity-40"
                   >
                     {t('story.exit', locale)}
                   </button>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={prevStep}
-                      disabled={isFirst}
+                      disabled={isFirst || celebrating}
                       className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-chrome-fill-badge touch-target"
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -259,7 +288,8 @@ export default function StoryModeBar() {
                     </button>
                     <button
                       onClick={isLast ? handleFinish : nextStep}
-                      className="flex items-center justify-center h-10 sm:h-9 rounded-lg bg-gold/12 border border-gold/20 px-4 sm:px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150 touch-target"
+                      disabled={celebrating}
+                      className="flex items-center justify-center h-10 sm:h-9 rounded-lg bg-gold/12 border border-gold/20 px-4 sm:px-5 text-[13px] font-medium text-gold hover:bg-gold/18 hover:border-gold/30 transition-all duration-150 touch-target disabled:opacity-40"
                     >
                       {isLast ? t('story.finish', locale) : t('story.continue', locale)}
                       {!isLast && (
