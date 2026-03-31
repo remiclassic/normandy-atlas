@@ -23,7 +23,10 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Build static export (project Pages URL)
+        env:
+          NEXT_BASE_PATH: /normandy-atlas
+        run: npm run build
       - name: Disable Jekyll (allow _next)
         run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
