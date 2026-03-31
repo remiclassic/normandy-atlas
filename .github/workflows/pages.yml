@@ -23,9 +23,9 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Build static export (project Pages URL)
-        env:
-          NEXT_BASE_PATH: /normandy-atlas
+      # Root export for custom domain (normanatlas.com). For github.io/repo only, add:
+      # env: { NEXT_BASE_PATH: /normandy-atlas }
+      - name: Build static export
         run: npm run build
       - name: Disable Jekyll (allow _next)
         run: touch out/.nojekyll
