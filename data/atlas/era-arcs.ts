@@ -26,6 +26,65 @@ export function arcChromeStyle(entry: EraArcEntry, uiTheme: UiTheme): EraArcChro
 
 export const atlasEraArcs: EraArcEntry[] = [
   {
+    arcId: 'normandy-to-new-world',
+    eraIds: [
+      'norman-origins',
+      'norman-expansion',
+      'age-of-exploration',
+      'new-france-foundations',
+      'royal-new-france',
+      'atlantic-imprint',
+    ],
+    label: {
+      en: 'Normandy to the New World',
+      fr: 'De la Normandie au Nouveau Monde',
+      es: 'De Normandía al Nuevo Mundo',
+      it: 'Dalla Normandia al Nuovo Mondo',
+    },
+    style: {
+      text: 'text-sky-300/80',
+      textHover: 'hover:text-sky-200',
+      border: 'border-sky-400/15',
+      borderHover: 'hover:border-sky-400/25',
+      iconBg: 'bg-sky-400/10',
+      iconBgHover: 'group-hover:bg-sky-400/15',
+    },
+    styleLight: {
+      text: 'text-sky-950/90',
+      textHover: 'hover:text-sky-950',
+      border: 'border-sky-800/35',
+      borderHover: 'hover:border-sky-800/50',
+      iconBg: 'bg-sky-800/20',
+      iconBgHover: 'group-hover:bg-sky-800/28',
+    },
+  },
+  {
+    arcId: 'age-of-exploration',
+    eraIds: ['age-of-exploration'],
+    label: {
+      en: 'Age of Exploration',
+      fr: 'Âge des explorations',
+      es: 'Era de los descubrimientos',
+      it: 'Età delle esplorazioni',
+    },
+    style: {
+      text: 'text-indigo-300/80',
+      textHover: 'hover:text-indigo-200',
+      border: 'border-indigo-400/15',
+      borderHover: 'hover:border-indigo-400/25',
+      iconBg: 'bg-indigo-400/10',
+      iconBgHover: 'group-hover:bg-indigo-400/15',
+    },
+    styleLight: {
+      text: 'text-indigo-950/90',
+      textHover: 'hover:text-indigo-950',
+      border: 'border-indigo-800/35',
+      borderHover: 'hover:border-indigo-800/50',
+      iconBg: 'bg-indigo-800/20',
+      iconBgHover: 'group-hover:bg-indigo-800/28',
+    },
+  },
+  {
     arcId: 'new-france',
     eraIds: ['new-france-foundations', 'royal-new-france', 'atlantic-imprint'],
     label: {

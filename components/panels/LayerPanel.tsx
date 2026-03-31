@@ -189,9 +189,11 @@ const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] 
   { key: 'prehistory', label: 'Pre-Roman', categories: ['prehistory'] },
   { key: 'norman-expansion', label: 'Norman Expansion (911–1204+)', categories: ['norman-expansion'] },
   { key: 'normandy', label: 'Viking Normandy', categories: ['normandy'] },
+  { key: 'exploration', label: 'Exploration & Trade', categories: ['exploration'] },
+  { key: 'colonial', label: 'Colonial & Settlement', categories: ['colonial', 'new-france'] },
 ];
 
-const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy'] as const;
+const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy', 'exploration', 'colonial'] as const;
 type LayerPanelSectionKey = (typeof LAYER_PANEL_SECTION_KEYS)[number];
 
 function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
@@ -201,6 +203,8 @@ function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
     prehistory: true,
     'norman-expansion': true,
     normandy: true,
+    exploration: true,
+    colonial: true,
   };
 }
 

@@ -39,7 +39,7 @@ export interface AtlasEra {
 
 // --- Places ---
 
-export type PlaceKind = 'port' | 'city' | 'settlement' | 'abstract_node' | 'fort' | 'megalith' | 'hillfort';
+export type PlaceKind = 'port' | 'city' | 'settlement' | 'abstract_node' | 'fort' | 'megalith' | 'hillfort' | 'mission' | 'trading_post';
 export type PlaceLayer = 'europe' | 'atlantic' | 'americas';
 export type VisibilityLevel = 'emphasized' | 'normal' | 'faded' | 'hidden';
 
@@ -101,7 +101,10 @@ export type SegmentKind =
   | 'river_corridor'
   | 'raid'
   | 'incursion'
-  | 'maritime_corridor';
+  | 'maritime_corridor'
+  | 'colonial_migration'
+  | 'resupply'
+  | 'missionary';
 
 export type EvidenceLevel = 'documentary_cluster' | 'synthesis' | 'archaeological' | 'tradition';
 
@@ -224,8 +227,16 @@ export interface TimelineMarker {
 // --- People ---
 
 export type NarrativeWeight = 'anchor' | 'supporting' | 'minor';
-export type MigrationChannel = 'normandy_port' | 'perche' | 'brittany_coast' | 'aunis_saintonge' | 'paris_region' | 'other';
+export type MigrationChannel = 'normandy_port' | 'perche' | 'brittany_coast' | 'aunis_saintonge' | 'paris_region' | 'loire_valley' | 'poitou' | 'other';
 export type ProvenanceConfidence = 'documented' | 'network' | 'uncertain';
+
+export type SurnameOriginCategory =
+  | 'core_norman'
+  | 'strongly_norman'
+  | 'coastal_maritime'
+  | 'norse_influence'
+  | 'feudal_trade'
+  | 'other';
 
 export interface Person {
   id: string;
@@ -242,6 +253,12 @@ export interface Person {
   originLabel?: I18nString;
   migrationChannel?: MigrationChannel;
   confidence?: ProvenanceConfidence;
+  surname?: string;
+  surnameEtymology?: I18nString;
+  surnameOriginCategory?: SurnameOriginCategory;
+  relatedJourneyIds?: string[];
+  relatedSettlementIds?: string[];
+  relatedEventIds?: string[];
 }
 
 // --- Methodology / Atlas Contract ---

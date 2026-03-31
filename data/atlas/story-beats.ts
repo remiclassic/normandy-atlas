@@ -3360,4 +3360,188 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1204,
   },
+
+  // ── Normandy to the New World — transatlantic arc ────────────────
+  {
+    id: 'beat-transatlantic-norman-ports',
+    eraId: 'age-of-exploration',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 49.5],
+      zoom: 6.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['dieppe', 'honfleur', 'le-havre', 'rouen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: false,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Norman ports face the Atlantic',
+      body: {
+        en: 'By the late fifteenth century, Normandy\u2019s Channel ports \u2014 Dieppe, Honfleur, Le Havre \u2014 had been trading hubs for centuries. The same maritime infrastructure that served Channel commerce now pivoted toward the open Atlantic. Norman fishermen were already crossing to the Grand Banks before any formal French exploration, and merchant families in Rouen began financing voyages that would open a new continent.',
+        fr: 'Dès la fin du XVe siècle, les ports normands de la Manche \u2014 Dieppe, Honfleur, Le Havre \u2014 étaient des plaques tournantes commerciales depuis des siècles. La même infrastructure maritime qui servait le commerce transmanche se tournait désormais vers le grand large atlantique. Les pêcheurs normands traversaient déjà vers les Grands Bancs avant toute exploration française officielle, et les familles marchandes de Rouen commençaient à financer les voyages qui ouvriraient un nouveau continent.',
+      },
+    },
+    anchorYear: 1500,
+  },
+  {
+    id: 'beat-transatlantic-crossing',
+    eraId: 'age-of-exploration',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [-25.0, 46.0],
+      zoom: 2.6,
+      durationMs: 3000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['dieppe', 'mid-atlantic-passage', 'gaspe-peninsula'],
+      regionIds: [],
+      routeSegmentIds: ['seg-verrazzano-dieppe-atlantic', 'seg-cartier-atlantic'],
+      journeyIds: ['journey-verrazzano', 'journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Across the Atlantic',
+      body: {
+        en: 'Verrazzano sailed from Dieppe in 1524, charting the North American coast. Cartier followed from Saint-Malo in 1534, opening the St. Lawrence gateway. These voyages launched from the same Norman and Breton ports that had anchored Channel trade for centuries \u2014 the beginning of a transatlantic story that would reshape both continents.',
+        fr: 'Verrazzano quitta Dieppe en 1524, cartographiant la côte nord-américaine. Cartier suivit depuis Saint-Malo en 1534, ouvrant la porte du Saint-Laurent. Ces voyages partaient des mêmes ports normands et bretons qui avaient ancré le commerce de la Manche pendant des siècles \u2014 le début d\u2019une histoire transatlantique qui allait remodeler les deux continents.',
+      },
+    },
+    anchorYear: 1534,
+  },
+  {
+    id: 'beat-transatlantic-quebec-founding',
+    eraId: 'new-france-foundations',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [-71.2, 46.8],
+      zoom: 8.0,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'beauport', 'chateau-richer'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: false,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Québec: the Norman foothold',
+      body: {
+        en: 'Champlain founded Québec in 1608, and settlers arrived in trickles \u2014 many from Normandy and the Perche. Guillaume Couture, Zacharie Cloutier, Jean Gagnon, the Langlois and Boucher families: Norman-origin surnames that would become the founding lineages of French Canada. The Beaupré coast and Île d\u2019Orléans became their new Norman landscape along the St. Lawrence.',
+        fr: 'Champlain fonda Québec en 1608 et les colons arrivèrent au compte-gouttes \u2014 beaucoup de Normandie et du Perche. Guillaume Couture, Zacharie Cloutier, Jean Gagnon, les Langlois et les Boucher : des patronymes normands qui deviendraient les lignées fondatrices du Canada français. La côte de Beaupré et l\u2019Île d\u2019Orléans devinrent leur nouveau paysage normand le long du Saint-Laurent.',
+      },
+    },
+    anchorYear: 1634,
+  },
+  {
+    id: 'beat-transatlantic-acadia',
+    eraId: 'new-france-foundations',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [-65.0, 45.0],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['port-royal', 'louisbourg'],
+      regionIds: ['acadia'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: false,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Acadia: the Atlantic frontier',
+      body: {
+        en: 'Port-Royal in Acadia became the French Atlantic\u2019s secondary anchor \u2014 a farming and fishing community that developed its own distinct identity. Many Acadian families traced their origins through the same Norman port networks that fed the St. Lawrence colony. When France lost Acadia to Britain in 1713, the Acadians\u2019 Norman surnames endured through expulsion and resettlement.',
+        fr: 'Port-Royal en Acadie devint le second ancrage atlantique français \u2014 une communauté agricole et de pêche qui développa sa propre identité. Beaucoup de familles acadiennes remontaient aux mêmes réseaux portuaires normands qui alimentaient la colonie du Saint-Laurent. Lorsque la France perdit l\u2019Acadie au profit de la Grande-Bretagne en 1713, les patronymes normands des Acadiens survécurent à l\u2019expulsion et au déplacement.',
+      },
+    },
+    anchorYear: 1670,
+  },
+  {
+    id: 'beat-transatlantic-mississippi',
+    eraId: 'royal-new-france',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [-85.0, 40.0],
+      zoom: 3.5,
+      durationMs: 2800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['great-lakes-hub', 'mississippi-confluence', 'new-orleans'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-lasalle-greatlakes-mississippi', 'seg-lasalle-mississippi-gulf'],
+      journeyIds: ['journey-lasalle-mississippi'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'La Salle\u2019s continental claim',
+      body: {
+        en: 'René-Robert Cavelier de La Salle, born in Rouen, descended the full Mississippi to the Gulf of Mexico in 1682 and claimed the entire basin for France as "Louisiana." A single Norman explorer stretched French territory from the Gulf of St. Lawrence to the Gulf of Mexico \u2014 the most dramatic expansion in New France\u2019s history.',
+        fr: 'René-Robert Cavelier de La Salle, né à Rouen, descendit tout le Mississippi jusqu\u2019au golfe du Mexique en 1682 et revendiqua l\u2019ensemble du bassin pour la France sous le nom de « Louisiane ». Un seul explorateur normand étendit le territoire français du golfe du Saint-Laurent au golfe du Mexique \u2014 l\u2019expansion la plus spectaculaire de l\u2019histoire de la Nouvelle-France.',
+      },
+    },
+    anchorYear: 1682,
+  },
+  {
+    id: 'beat-transatlantic-endurance',
+    eraId: 'atlantic-imprint',
+    arcId: 'normandy-to-new-world',
+    camera: {
+      target: 'bbox',
+      center: [-71.2, 46.8],
+      zoom: 6.0,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'montreal', 'trois-rivieres'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: false,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The names that endured',
+      body: {
+        en: 'The Treaty of Paris in 1763 ended French sovereignty over New France. But the sixty thousand French-Canadian inhabitants \u2014 Couture, Gagnon, Tremblay, Boucher, Langlois, Cloutier, Pelletier, Fournier \u2014 remained. Their Norman surnames, their language, and their identity survived the change of empire. Today millions of Québécois carry names that trace directly back to the ports of Normandy.',
+        fr: 'Le traité de Paris de 1763 mit fin à la souveraineté française sur la Nouvelle-France. Mais les soixante mille habitants canadiens-français \u2014 Couture, Gagnon, Tremblay, Boucher, Langlois, Cloutier, Pelletier, Fournier \u2014 restèrent. Leurs patronymes normands, leur langue et leur identité survécurent au changement d\u2019empire. Aujourd\u2019hui des millions de Québécois portent des noms qui remontent directement aux ports de Normandie.',
+      },
+    },
+    anchorYear: 1763,
+  },
 ];

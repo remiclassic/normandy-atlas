@@ -185,6 +185,46 @@ export const layerConfigs: LayerConfig[] = [
     deckLayer: true,
     dependsOnEra: true,
   },
+  // --- Exploration & Colonial overlays ---
+  {
+    id: 'exploration-routes',
+    label: 'Exploration Routes',
+    category: 'exploration',
+    defaultOn: false,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    routeFilter: ['exploration'],
+  },
+  {
+    id: 'colonial-migration-flows',
+    label: 'Colonial Migration',
+    category: 'colonial',
+    defaultOn: false,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    routeFilter: ['colonial_migration', 'migration'],
+  },
+  {
+    id: 'forts-missions',
+    label: 'Forts & Missions',
+    category: 'colonial',
+    defaultOn: false,
+    mapLayerIds: [],
+    dependsOnEra: true,
+    settlementFilter: ['fort', 'mission'],
+  },
+  {
+    id: 'trade-routes',
+    label: 'Trade Routes',
+    category: 'exploration',
+    defaultOn: false,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    routeFilter: ['trade'],
+  },
   // --- Norman Expansion (1066–1204) overlay layers ---
   {
     id: 'norman-expansion-territories',
@@ -240,7 +280,9 @@ const OVERLAY_OFF: Record<string, boolean> = Object.fromEntries(
       c.category === 'normandy' ||
       c.category === 'norman-expansion' ||
       c.category === 'prehistory' ||
-      c.category === 'new-france',
+      c.category === 'new-france' ||
+      c.category === 'exploration' ||
+      c.category === 'colonial',
     )
     .map((c) => [c.id, false]),
 );
@@ -299,17 +341,31 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'norman-expansion-routes': true,
     'norman-expansion-nodes': true,
   },
+  'age-of-exploration': {
+    'exploration-routes': true,
+    'trade-routes': true,
+  },
   'new-france-foundations': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'exploration-routes': true,
+    'colonial-migration-flows': true,
+    'forts-missions': true,
   },
   'royal-new-france': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'exploration-routes': true,
+    'colonial-migration-flows': true,
+    'forts-missions': true,
+    'trade-routes': true,
   },
   'atlantic-imprint': {
     'new-france-territory': true,
     'settler-origin-flows': false,
+    'colonial-migration-flows': true,
+    'forts-missions': true,
+    'trade-routes': true,
   },
 };
 

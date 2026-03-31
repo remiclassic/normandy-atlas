@@ -573,6 +573,25 @@ const STRINGS = {
     es: 'Seguir su historia en el mapa',
     it: 'Segui la sua storia sulla mappa',
   },
+  'atlasJournal.tooltip.label': {
+    en: 'Atlas Journal',
+    fr: 'Journal de l\'Atlas',
+    es: 'Diario del Atlas',
+    it: 'Diario dell\'Atlante',
+  },
+  'atlasJournal.tooltip.hint': {
+    en: 'Glossary, timeline, Norman names, and how to read the atlas.',
+    fr: 'Glossaire, chronologie, patronymes normands et guide de l\'atlas.',
+    es: 'Glosario, cronología, apellidos normandos y guía del atlas.',
+    it: 'Glossario, cronologia, cognomi normanni e guida dell\'atlante.',
+  },
+  'atlasJournal.aria.open': {
+    en: 'Open atlas journal',
+    fr: 'Ouvrir le journal de l\'atlas',
+    es: 'Abrir el diario del atlas',
+    it: 'Apri il diario dell\'atlante',
+  },
+
   'flythrough.label': {
     en: 'Cinematic Flythrough',
     fr: 'Survol cinématique',

@@ -3,9 +3,11 @@
 import { useMemo, useState, useCallback } from 'react';
 import { motion, AnimatePresence, type PanInfo } from 'motion/react';
 import { createPortal } from 'react-dom';
+import Link from 'next/link';
 import { useMapStore } from '@/lib/store';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { pickI18n } from '@/lib/locale';
+import { CATEGORY_META, resolveCategoryLabel } from '@/lib/norman-names';
 import { getRegionRecord } from '@/data/regions-content';
 import { getSettlement } from '@/data/settlements';
 import { getEra } from '@/data/eras';
@@ -328,6 +330,8 @@ const PLACE_KIND_LABELS: Record<PlaceKind, string> = {
   fort: 'Fort',
   megalith: 'Megalithic Site',
   hillfort: 'Hillfort / Oppidum',
+  mission: 'Mission',
+  trading_post: 'Trading Post',
 };
 
 const CONFIDENCE_LABELS: Record<string, string> = {
@@ -491,6 +495,40 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
           <SectionLabel>Legacy</SectionLabel>
           <p className="text-[13px] leading-[1.75] text-text-muted">{pickI18n(person.legacy, locale)}</p>
         </div>
+      )}
+
+      {person.surname && person.surnameOriginCategory && (
+        <>
+          <div className="divider-fade" />
+          <div>
+            <SectionLabel>{locale === 'fr' ? 'Patronyme normand' : 'Norman Surname'}</SectionLabel>
+            <div className="rounded-md border border-chrome-border bg-chrome-fill-badge p-3 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-[14px] font-display font-semibold text-parchment">{person.surname}</span>
+                <span
+                  className="text-[9px] font-semibold uppercase tracking-[0.12em] px-2 py-0.5 rounded"
+                  style={{
+                    color: CATEGORY_META[person.surnameOriginCategory].color,
+                    background: `color-mix(in srgb, ${CATEGORY_META[person.surnameOriginCategory].color} 12%, transparent)`,
+                  }}
+                >
+                  {resolveCategoryLabel(person.surnameOriginCategory, locale)}
+                </span>
+              </div>
+              {person.surnameEtymology && (
+                <p className="text-[12px] text-text-muted/80 leading-relaxed italic">
+                  {pickI18n(person.surnameEtymology, locale)}
+                </p>
+              )}
+              <Link
+                href="/journal#norman-surnames"
+                className="inline-flex items-center gap-1 text-[11px] text-gold hover:text-gold-bright transition-colors mt-1"
+              >
+                {locale === 'fr' ? 'Voir tous les patronymes normands →' : 'View all Norman names →'}
+              </Link>
+            </div>
+          </div>
+        </>
       )}
 
       {confidence && (

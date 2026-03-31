@@ -25,6 +25,9 @@ const ROUTE_COLORS: Record<SegmentKind, [number, number, number]> = {
   raid: [60, 160, 200],
   incursion: [80, 140, 180],
   maritime_corridor: [42, 190, 200],
+  colonial_migration: [180, 150, 80],
+  resupply: [140, 120, 90],
+  missionary: [160, 130, 100],
 };
 
 /** Gold/amber override for Norman-origin exploration segments. */
@@ -175,6 +178,8 @@ const KIND_BASE_RADIUS: Record<PlaceKind, number> = {
   abstract_node: 3,
   megalith: 5,
   hillfort: 5.5,
+  mission: 4.5,
+  trading_post: 4.5,
 };
 
 const KIND_COLORS: Record<PlaceKind, string> = {
@@ -185,6 +190,8 @@ const KIND_COLORS: Record<PlaceKind, string> = {
   abstract_node: '#3d5670',
   megalith: '#a8926a',
   hillfort: '#8b5e3c',
+  mission: '#b8923a',
+  trading_post: '#7ba0c5',
 };
 
 const VISIBILITY_SCALE: Record<VisibilityLevel, number> = {

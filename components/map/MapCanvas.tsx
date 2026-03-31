@@ -1480,7 +1480,7 @@ export default function MapCanvas() {
         data-basemap={basemapMode}
         style={{ background: basemapMode === 'parchment' ? '#e8dcc8' : '#0a0c12' }}
       >
-        <div ref={containerRef} className="absolute inset-0 z-0 h-full w-full" />
+        <div ref={containerRef} className="atlas-maplibre-host absolute inset-0 z-0 h-full w-full" />
         <div className="pointer-events-auto absolute top-3 right-3 z-20">
           <TerrainToggle />
         </div>

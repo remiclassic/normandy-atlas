@@ -886,6 +886,86 @@ export const atlasPlaces: Place[] = [
       'norman-expansion': { visibility: 'normal', label: 'Bari', affiliationTags: ['Norman Italy'], pedagogyIndex: 4 },
     },
   },
+  // --- Additional Norman / French Atlantic ports ---
+  {
+    id: 'le-havre',
+    kind: 'port',
+    coordinates: [0.11, 49.49],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'age-of-exploration': { visibility: 'normal', label: 'Le Havre', affiliationTags: ['France', 'Atlantic port'], pedagogyIndex: 4 },
+      'new-france-foundations': { visibility: 'normal', label: 'Le Havre', affiliationTags: ['France', 'Atlantic port'], pedagogyIndex: 3 },
+      'royal-new-france': { visibility: 'normal', label: 'Le Havre', affiliationTags: ['France', 'Atlantic port'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'barfleur',
+    kind: 'port',
+    coordinates: [-1.26, 49.67],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'normal', label: 'Barfleur', affiliationTags: ['Normandy', 'port'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'Barfleur', affiliationTags: ['Normandy', 'invasion port'], pedagogyIndex: 5 },
+    },
+  },
+  // --- Additional Acadia / Louisiana settlements ---
+  {
+    id: 'fort-frontenac',
+    kind: 'fort',
+    coordinates: [-76.48, 44.23],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Fort Frontenac', affiliationTags: ['New France', 'fort', 'La Salle'], pedagogyIndex: 4 },
+      'atlantic-imprint': { visibility: 'faded', label: 'Fort Frontenac', affiliationTags: ['New France'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'chateau-richer',
+    kind: 'settlement',
+    coordinates: [-71.03, 46.96],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'new-france-foundations': { visibility: 'normal', label: 'Château-Richer', affiliationTags: ['New France', 'Beaupré coast'], pedagogyIndex: 4 },
+      'royal-new-france': { visibility: 'normal', label: 'Château-Richer', affiliationTags: ['New France'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'ile-dorleans',
+    kind: 'settlement',
+    coordinates: [-70.95, 46.90],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'new-france-foundations': { visibility: 'normal', label: "Île d'Orléans", affiliationTags: ['New France', 'seigneury'], pedagogyIndex: 4 },
+      'royal-new-france': { visibility: 'normal', label: "Île d'Orléans", affiliationTags: ['New France'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'mobile',
+    kind: 'fort',
+    coordinates: [-88.04, 30.69],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Fort Louis de la Mobile', affiliationTags: ['Louisiana', 'New France'], pedagogyIndex: 4 },
+      'atlantic-imprint': { visibility: 'normal', label: 'Mobile', affiliationTags: ['Louisiana'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'fort-niagara',
+    kind: 'fort',
+    coordinates: [-79.06, 43.26],
+    regionId: 'new-france',
+    layer: 'americas',
+    eraStates: {
+      'royal-new-france': { visibility: 'normal', label: 'Fort Niagara', affiliationTags: ['New France', 'fort'], pedagogyIndex: 4 },
+      'atlantic-imprint': { visibility: 'normal', label: 'Fort Niagara', affiliationTags: ['New France'], pedagogyIndex: 4 },
+    },
+  },
   // --- Cartier-era waypoints ---
   {
     id: 'gaspe-peninsula',

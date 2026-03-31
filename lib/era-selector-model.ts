@@ -24,7 +24,7 @@ export interface EraSelectorModel {
 const TIMELINE_GROUP_LABELS: Record<string, string> = {
   'deep-time': 'Ancient',
   medieval: 'Medieval',
-  atlantic: 'Atlantic',
+  atlantic: 'Atlantic & Colonial',
 };
 
 const SUMMARY_MAX = 140;

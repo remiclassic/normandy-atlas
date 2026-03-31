@@ -15,6 +15,8 @@ export const CHANNEL_BADGES: Record<MigrationChannel, ChannelBadge> = {
   brittany_coast:  { label: 'Breton',            tone: 'brittany' },
   aunis_saintonge: { label: 'Aunis–Saintonge',   tone: 'aunis' },
   paris_region:    { label: 'Paris region',       tone: 'paris' },
+  loire_valley:    { label: 'Loire Valley',       tone: 'neutral' },
+  poitou:          { label: 'Poitou',             tone: 'neutral' },
   other:           { label: 'Other French',       tone: 'neutral' },
 };
 

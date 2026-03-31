@@ -2,6 +2,8 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
+import { Library } from 'lucide-react';
 import MapLoader from '@/components/map/MapLoader';
 import EraSelector from '@/components/timeline/EraSelector';
 import AtlasTimelineRail from '@/components/timeline/AtlasTimelineRail';
@@ -129,6 +131,18 @@ export default function AtlasHomeShell() {
           />
         </ChromeIconTooltip>
         <ChromeIconTooltip
+          label={t('atlasJournal.tooltip.label', locale)}
+          hint={t('atlasJournal.tooltip.hint', locale)}
+        >
+          <Link
+            href="/journal"
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
+            aria-label={t('atlasJournal.aria.open', locale)}
+          >
+            <Library className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
+          </Link>
+        </ChromeIconTooltip>
+        <ChromeIconTooltip
           label={t('credits.tooltip.label', locale)}
           hint={t('credits.tooltip.hint', locale)}
         >
@@ -203,8 +217,11 @@ export default function AtlasHomeShell() {
             <LayerPanel />
             <MigrationExplorerPanel />
           </div>
-          <StoryModeBar />
-          <CinematicFlythroughBar />
+          {/* Mobile: column stack (flythrough above story) to avoid overlapping pills; desktop: pass-through */}
+          <div className="pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
+            <CinematicFlythroughBar />
+            <StoryModeBar />
+          </div>
         </div>
 
         <HistoricalDetailPanel />
@@ -226,6 +243,14 @@ export default function AtlasHomeShell() {
               </svg>
               {t('normanOverview.tooltip.label', locale)}
             </button>
+            <Link
+              href="/journal"
+              onClick={closeMobileMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <Library className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} />
+              {t('atlasJournal.tooltip.label', locale)}
+            </Link>
             <ReplayTourButton fullWidth />
           </div>
 

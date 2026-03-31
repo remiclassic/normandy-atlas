@@ -91,6 +91,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [1.5, 48.8], zoom: 5.0 },
     transitions: [{ toEraId: 'neustria', trigger: 'user' }],
     timelineGroup: 'medieval',
+    summary: {
+      en: 'As Roman authority collapsed, the northern provinces fragmented into competing warlord territories. Germanic Franks pushed south of the Rhine while Saxon raiders harried the Channel coast. The old civitas of Rotomagus survived, its bishops stepping into the power vacuum — but the future Normandy was now a contested frontier between fading Roman order and rising Frankish ambition.',
+      fr: 'Alors que l\u2019autorit\u00e9 romaine s\u2019effondrait, les provinces septentrionales se fragment\u00e8rent en territoires rivaux de seigneurs de guerre. Les Francs germaniques pouss\u00e8rent au sud du Rhin tandis que les pillards saxons harcelaient la c\u00f4te de la Manche. L\u2019ancienne civitas de Rotomagus survécut, ses \u00e9v\u00eaques comblant le vide du pouvoir \u2014 mais la future Normandie \u00e9tait d\u00e9sormais une fronti\u00e8re contest\u00e9e entre l\u2019ordre romain d\u00e9clinant et l\u2019ambition franque montante.',
+      es: 'Cuando la autoridad romana se derrumb\u00f3, las provincias septentrionales se fragmentaron en territorios de caudillos rivales. Los francos germ\u00e1nicos empujaron al sur del Rin mientras los asaltantes sajones hostigaban la costa de la Mancha. La antigua civitas de Rotomago sobrevivi\u00f3, con sus obispos llenando el vac\u00edo de poder, pero la futura Normand\u00eda era ya una frontera disputada entre el orden romano declinante y la ambici\u00f3n franca creciente.',
+      it: 'Quando l\u2019autorit\u00e0 romana croll\u00f2, le province settentrionali si frammentarono in territori di signori della guerra rivali. I Franchi germanici spinsero a sud del Reno mentre i predoni sassoni assalivano la costa della Manica. L\u2019antica civitas di Rotomagus sopravvisse, con i suoi vescovi che colmavano il vuoto di potere \u2014 ma la futura Normandia era ormai una frontiera contesa tra l\u2019ordine romano morente e l\u2019ambizione franca nascente.',
+    },
   },
   {
     id: 'neustria',
@@ -104,6 +110,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [1.2, 49.0], zoom: 5.4 },
     transitions: [{ toEraId: 'frankish-carolingian', trigger: 'user' }],
     timelineGroup: 'medieval',
+    summary: {
+      en: 'After Clovis divided the Frankish realm, the western portion became Neustria \u2014 a sub-kingdom whose capital at Soissons and episcopal seat at Rouen anchored the lower Seine. For two centuries Neustria competed with Austrasia for supremacy over the Frankish world. Its river valleys and abbeys accumulated enormous wealth, making the region an irresistible target when Norse longships arrived three generations later.',
+      fr: 'Apr\u00e8s que Clovis eut divis\u00e9 le royaume franc, la partie occidentale devint la Neustrie \u2014 un sous-royaume dont la capitale \u00e0 Soissons et le si\u00e8ge \u00e9piscopal \u00e0 Rouen ancr\u00e8rent la basse Seine. Pendant deux si\u00e8cles, la Neustrie rivalisa avec l\u2019Austrasie pour la supr\u00e9matie sur le monde franc. Ses vall\u00e9es fluviales et ses abbayes accumul\u00e8rent une richesse \u00e9norme, faisant de la r\u00e9gion une cible irr\u00e9sistible lorsque les drakkars normands arriv\u00e8rent trois g\u00e9n\u00e9rations plus tard.',
+      es: 'Tras la divisi\u00f3n del reino franco por Clodoveo, la parte occidental se convirti\u00f3 en Neustria \u2014 un subreino cuya capital en Soissons y sede episcopal en Ruan anclaron el bajo Sena. Durante dos siglos Neustria compiti\u00f3 con Austrasia por la supremac\u00eda del mundo franco. Sus valles fluviales y abad\u00edas acumularon una riqueza enorme, haciendo de la regi\u00f3n un blanco irresistible cuando los drakares nórdicos llegaron tres generaciones despu\u00e9s.',
+      it: 'Dopo che Clodoveo divise il regno franco, la parte occidentale divenne Neustria \u2014 un sottoregno la cui capitale a Soissons e sede episcopale a Rouen ancoravano la bassa Senna. Per due secoli la Neustria gareggi\u00f2 con l\u2019Austrasia per la supremazia sul mondo franco. Le sue valli fluviali e abbazie accumularono una ricchezza enorme, rendendo la regione un bersaglio irresistibile quando le navi vichinghe arrivarono tre generazioni dopo.',
+    },
   },
   {
     id: 'frankish-carolingian',
@@ -136,6 +148,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [1.0, 49.3], zoom: 5.6 },
     transitions: [{ toEraId: 'norman-origins', trigger: 'user' }],
     timelineGroup: 'medieval',
+    summary: {
+      en: 'Norse raiders transformed from seasonal plunderers into permanent occupiers. The Seine became their highway: fleets struck Paris in 845 and again in 885. Between raids, Norse war-bands wintered on islands in the lower Seine, intermarrying with local Franks and gradually transforming from marauders into settlers. By 911 the Frankish king had no choice but to recognize their leader Rollo with a grant of land — the seed of Normandy.',
+      fr: 'Les pillards nordiques se transformèrent de pillards saisonniers en occupants permanents. La Seine devint leur autoroute : des flottes frappèrent Paris en 845 puis en 885. Entre les raids, des bandes de guerriers nordiques hivernèrent sur les îles de la basse Seine, se mariant avec les Francs locaux et se transformant progressivement de maraudeurs en colons. En 911, le roi franc n\u2019eut d\u2019autre choix que de reconnaître leur chef Rollon par une concession de terre \u2014 la semence de la Normandie.',
+      es: 'Los asaltantes nórdicos pasaron de saqueadores estacionales a ocupantes permanentes. El Sena se convirtió en su autopista: las flotas atacaron París en 845 y nuevamente en 885. Entre incursiones, bandas guerreras nórdicas invernaban en islas del bajo Sena, mezclándose con los francos locales y transformándose gradualmente de merodeadores en colonos. Para 911, el rey franco no tuvo más remedio que reconocer a su líder Rollón con una concesión de tierras — la semilla de Normandía.',
+      it: 'I predoni norreni si trasformarono da saccheggiatori stagionali in occupanti permanenti. La Senna divenne la loro autostrada: flotte colpirono Parigi nell\u2019845 e di nuovo nell\u2019885. Tra le incursioni, bande guerriere norrene svernarono sulle isole della bassa Senna, mescolandosi con i Franchi locali e trasformandosi gradualmente da predoni in coloni. Entro il 911 il re franco non ebbe altra scelta che riconoscere il loro capo Rollone con una concessione di terre — il seme della Normandia.',
+    },
   },
   {
     id: 'norman-origins',
@@ -149,6 +167,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [1.0, 49.2], zoom: 5.2 },
     transitions: [{ toEraId: 'norman-expansion', trigger: 'user' }],
     timelineGroup: 'medieval',
+    summary: {
+      en: 'Rollo\u2019s concession became Europe\u2019s most dynamic duchy. Within three generations, Norse settlers adopted Frankish law, the French language, and Christian faith — yet retained their ancestors\u2019 appetite for expansion. Rouen grew into one of Europe\u2019s wealthiest cities. The duchy\u2019s ports along the Channel coast — Dieppe, Honfleur, Barfleur — forged maritime networks that would later carry Norman ambitions far beyond France.',
+      fr: 'La concession de Rollon devint le duché le plus dynamique d\u2019Europe. En trois générations, les colons nordiques adoptèrent le droit franc, la langue française et la foi chrétienne — tout en conservant l\u2019appétit d\u2019expansion de leurs ancêtres. Rouen devint l\u2019une des villes les plus riches d\u2019Europe. Les ports du duché le long de la Manche — Dieppe, Honfleur, Barfleur — tissèrent des réseaux maritimes qui porteraient plus tard les ambitions normandes bien au-delà de la France.',
+      es: 'La concesión de Rollón se convirtió en el ducado más dinámico de Europa. En tres generaciones, los colonos nórdicos adoptaron el derecho franco, la lengua francesa y la fe cristiana, pero conservaron el apetito expansionista de sus antepasados. Ruan creció hasta ser una de las ciudades más ricas de Europa. Los puertos del ducado a lo largo de la costa de la Mancha — Dieppe, Honfleur, Barfleur — forjaron redes marítimas que más tarde llevarían las ambiciones normandas mucho más allá de Francia.',
+      it: 'La concessione di Rollone divenne il ducato più dinamico d\u2019Europa. In tre generazioni, i coloni norreni adottarono il diritto franco, la lingua francese e la fede cristiana — pur conservando l\u2019appetito espansionistico dei loro antenati. Rouen crebbe fino a diventare una delle città più ricche d\u2019Europa. I porti del ducato lungo la costa della Manica — Dieppe, Honfleur, Barfleur — forgiarono reti marittime che avrebbero poi portato le ambizioni normanne ben oltre la Francia.',
+    },
   },
   {
     id: 'norman-expansion',
@@ -162,6 +186,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [0.2, 49.5], zoom: 4.6 },
     transitions: [{ toEraId: 'age-of-exploration', trigger: 'user' }],
     timelineGroup: 'medieval',
+    summary: {
+      en: 'After Hastings, Norman power radiated outward: England, Sicily, Antioch, Ireland. The cross-Channel Anglo-Norman realm reshaped European politics for centuries. But the Hundred Years\u2019 War and the Black Death eventually shattered the old feudal networks. By the mid-fifteenth century, Normandy\u2019s seafaring traditions had survived every dynastic upheaval — and its ports were already looking west toward the Atlantic.',
+      fr: 'Après Hastings, la puissance normande rayonna : Angleterre, Sicile, Antioche, Irlande. Le royaume anglo-normand trans-Manche remodela la politique européenne pendant des siècles. Mais la guerre de Cent Ans et la Peste noire finirent par briser les anciens réseaux féodaux. Au milieu du XVe siècle, les traditions maritimes de la Normandie avaient survécu à tous les bouleversements dynastiques — et ses ports regardaient déjà vers l\u2019ouest, vers l\u2019Atlantique.',
+      es: 'Tras Hastings, el poder normando irradió hacia fuera: Inglaterra, Sicilia, Antioquía, Irlanda. El reino anglo-normando transfronterizo reformó la política europea durante siglos. Pero la guerra de los Cien Años y la Peste Negra destruyeron las antiguas redes feudales. A mediados del siglo XV, las tradiciones marítimas de Normandía habían sobrevivido a todos los trastornos dinásticos — y sus puertos ya miraban hacia el oeste, hacia el Atlántico.',
+      it: 'Dopo Hastings, il potere normanno si irradiò: Inghilterra, Sicilia, Antiochia, Irlanda. Il regno anglo-normanno attraverso la Manica riplasmò la politica europea per secoli. Ma la guerra dei Cent\u2019Anni e la Peste Nera finirono per spezzare le antiche reti feudali. A metà del XV secolo, le tradizioni marinare della Normandia erano sopravvissute a ogni sconvolgimento dinastico — e i suoi porti guardavano già verso ovest, verso l\u2019Atlantico.',
+    },
   },
   // ── Atlantic / colonial ───────────────────────────────────────────
   {
@@ -176,6 +206,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [-25.0, 46.0], zoom: 2.6 },
     transitions: [{ toEraId: 'new-france-foundations', trigger: 'user' }],
     timelineGroup: 'atlantic',
+    summary: {
+      en: 'Norman and Breton fishermen were already crossing the Atlantic to the Grand Banks before Cartier ever sailed. When the French Crown finally backed formal exploration, its captains launched from the same Norman ports — Dieppe, Honfleur, Le Havre — that had served Channel trade for centuries. Cartier\u2019s voyages up the St. Lawrence (1534\u20131542) mapped the gateway to a continent, and Normandy\u2019s merchant families began investing in the fur trade that would finance colonization.',
+      fr: 'Les pêcheurs normands et bretons traversaient déjà l\u2019Atlantique vers les Grands Bancs avant que Cartier ne prenne la mer. Quand la Couronne de France soutint enfin l\u2019exploration formelle, ses capitaines partirent des mêmes ports normands — Dieppe, Honfleur, Le Havre — qui servaient le commerce de la Manche depuis des siècles. Les voyages de Cartier sur le Saint-Laurent (1534\u20131542) cartographièrent la porte d\u2019un continent, et les familles marchandes de Normandie commencèrent à investir dans le commerce des fourrures qui financerait la colonisation.',
+      es: 'Los pescadores normandos y bretones ya cruzaban el Atlántico hacia los Grandes Bancos antes de que Cartier zarpara. Cuando la Corona francesa respaldó finalmente la exploración formal, sus capitanes partieron de los mismos puertos normandos — Dieppe, Honfleur, Le Havre — que habían servido al comercio de la Mancha durante siglos. Los viajes de Cartier por el San Lorenzo (1534\u20131542) cartografiaron la puerta de un continente, y las familias comerciantes de Normandía empezaron a invertir en el comercio de pieles que financiaría la colonización.',
+      it: 'I pescatori normanni e bretoni attraversavano già l\u2019Atlantico verso i Grandi Banchi prima che Cartier salpasse. Quando la Corona francese sostenne finalmente l\u2019esplorazione formale, i suoi capitani partirono dagli stessi porti normanni — Dieppe, Honfleur, Le Havre — che avevano servito il commercio della Manica per secoli. I viaggi di Cartier sul San Lorenzo (1534\u20131542) mapparono la porta di un continente, e le famiglie mercantili della Normandia iniziarono a investire nel commercio di pellicce che avrebbe finanziato la colonizzazione.',
+    },
   },
   {
     id: 'new-france-foundations',
@@ -189,6 +225,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [-45.0, 47.0], zoom: 2.9 },
     transitions: [{ toEraId: 'royal-new-france', trigger: 'user' }],
     timelineGroup: 'atlantic',
+    summary: {
+      en: 'Champlain founded Quebec in 1608 and the colony clung to life along the St. Lawrence. Settlers arrived in trickles — many from the Perche, Normandy, and Île-de-France. Guillaume Couture, Étienne Racine, Jean Gagnon, and dozens of other Norman-origin families established the founding lineages of French Canada. Forts, missions, and the fur trade defined daily life, while Iroquois diplomacy and warfare shaped the colony\u2019s survival.',
+      fr: 'Champlain fonda Québec en 1608 et la colonie s\u2019accrocha le long du Saint-Laurent. Les colons arrivèrent au compte-gouttes — beaucoup du Perche, de Normandie et d\u2019Île-de-France. Guillaume Couture, Étienne Racine, Jean Gagnon et des dizaines d\u2019autres familles d\u2019origine normande établirent les lignées fondatrices du Canada français. Les forts, les missions et le commerce des fourrures définissaient la vie quotidienne, tandis que la diplomatie et la guerre iroquoises façonnaient la survie de la colonie.',
+      es: 'Champlain fundó Quebec en 1608 y la colonia se aferró a la vida a lo largo del San Lorenzo. Los colonos llegaron a cuentagotas — muchos del Perche, Normandía e Isla de Francia. Guillaume Couture, Étienne Racine, Jean Gagnon y docenas de otras familias de origen normando establecieron los linajes fundadores del Canadá francés. Los fuertes, las misiones y el comercio de pieles definían la vida diaria, mientras que la diplomacia y la guerra iroquesas determinaban la supervivencia de la colonia.',
+      it: 'Champlain fondò Quebec nel 1608 e la colonia si aggrappò alla vita lungo il San Lorenzo. I coloni arrivarono a rivoli — molti dal Perche, dalla Normandia e dall\u2019Île-de-France. Guillaume Couture, Étienne Racine, Jean Gagnon e decine di altre famiglie di origine normanna fondarono i lignaggi fondatori del Canada francese. Forti, missioni e il commercio di pellicce definivano la vita quotidiana, mentre la diplomazia e le guerre irochesi ne determinavano la sopravvivenza.',
+    },
   },
   {
     id: 'royal-new-france',
@@ -202,6 +244,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [-61.0, 47.0], zoom: 3.2 },
     transitions: [{ toEraId: 'atlantic-imprint', trigger: 'user' }],
     timelineGroup: 'atlantic',
+    summary: {
+      en: 'Louis XIV placed New France under direct royal control in 1663, dispatching the Carignan-Salières regiment and the filles du roi to strengthen the colony. The population surged from a few hundred to over fifteen thousand. Acadia flourished around Port-Royal, Louisbourg guarded the Atlantic approaches, and coureurs des bois pushed the fur frontier deep into the Great Lakes. La Salle descended the Mississippi to claim Louisiana, stretching French claims from the Gulf of St. Lawrence to the Gulf of Mexico.',
+      fr: 'Louis XIV plaça la Nouvelle-France sous contrôle royal direct en 1663, envoyant le régiment de Carignan-Salières et les filles du roi renforcer la colonie. La population bondit de quelques centaines à plus de quinze mille habitants. L\u2019Acadie prospéra autour de Port-Royal, Louisbourg gardait les approches atlantiques, et les coureurs des bois poussèrent la frontière des fourrures au cœur des Grands Lacs. La Salle descendit le Mississippi pour revendiquer la Louisiane, étendant les prétentions françaises du golfe du Saint-Laurent au golfe du Mexique.',
+      es: 'Luis XIV puso Nueva Francia bajo control real directo en 1663, enviando el regimiento de Carignan-Salières y las filles du roi para fortalecer la colonia. La población se disparó de unos pocos cientos a más de quince mil. Acadia floreció alrededor de Port-Royal, Louisbourg custodiaba los accesos atlánticos, y los coureurs des bois empujaron la frontera peletera hacia el corazón de los Grandes Lagos. La Salle descendió el Misisipi para reclamar Luisiana, extendiendo las pretensiones francesas desde el golfo de San Lorenzo hasta el golfo de México.',
+      it: 'Luigi XIV pose la Nuova Francia sotto il controllo reale diretto nel 1663, inviando il reggimento Carignan-Salières e le filles du roi per rafforzare la colonia. La popolazione balzò da poche centinaia a oltre quindicimila. L\u2019Acadia prosperò attorno a Port-Royal, Louisbourg sorvegliava gli accessi atlantici, e i coureurs des bois spinsero la frontiera delle pellicce nel cuore dei Grandi Laghi. La Salle discese il Mississippi per rivendicare la Louisiana, estendendo le pretese francesi dal golfo di San Lorenzo al golfo del Messico.',
+    },
   },
   {
     id: 'atlantic-imprint',
@@ -215,6 +263,12 @@ export const atlasEras: AtlasEra[] = [
     defaultCamera: { center: [-58.0, 46.5], zoom: 3.1 },
     transitions: [],
     timelineGroup: 'atlantic',
+    summary: {
+      en: 'The Treaty of Utrecht (1713) stripped France of Acadia and Newfoundland, but the colony adapted. Louisbourg became the greatest French fortress in the Americas, and the interior trade network held. Then the Seven Years\u2019 War brought the final reckoning: the fall of Quebec (1759) and Montreal (1760) ended French sovereignty. The Treaty of Paris (1763) transferred New France to Britain — but the sixty thousand French-Canadian inhabitants, most of Norman descent, remained. Their surnames, language, and identity endured.',
+      fr: 'Le traité d\u2019Utrecht (1713) dépouilla la France de l\u2019Acadie et de Terre-Neuve, mais la colonie s\u2019adapta. Louisbourg devint la plus grande forteresse française des Amériques, et le réseau commercial intérieur tint bon. Puis la guerre de Sept Ans apporta le règlement final : la chute de Québec (1759) et de Montréal (1760) mirent fin à la souveraineté française. Le traité de Paris (1763) transféra la Nouvelle-France à la Grande-Bretagne — mais les soixante mille habitants canadiens-français, pour la plupart d\u2019ascendance normande, restèrent. Leurs noms, leur langue et leur identité perdurèrent.',
+      es: 'El Tratado de Utrecht (1713) despojó a Francia de Acadia y Terranova, pero la colonia se adaptó. Louisbourg se convirtió en la mayor fortaleza francesa de las Américas, y la red comercial interior resistió. Luego la guerra de los Siete Años trajo el ajuste de cuentas final: la caída de Quebec (1759) y Montreal (1760) pusieron fin a la soberanía francesa. El Tratado de París (1763) transfirió Nueva Francia a Gran Bretaña — pero los sesenta mil habitantes franco-canadienses, en su mayoría de ascendencia normanda, permanecieron. Sus apellidos, su lengua y su identidad perduraron.',
+      it: 'Il Trattato di Utrecht (1713) spogliò la Francia dell\u2019Acadia e di Terranova, ma la colonia si adattò. Louisbourg divenne la più grande fortezza francese delle Americhe, e la rete commerciale interna resse. Poi la guerra dei Sette Anni portò la resa dei conti finale: la caduta di Quebec (1759) e Montreal (1760) posero fine alla sovranità francese. Il Trattato di Parigi (1763) trasferì la Nuova Francia alla Gran Bretagna — ma i sessantamila abitanti franco-canadesi, per lo più di discendenza normanna, rimasero. I loro cognomi, la loro lingua e la loro identità perdurarono.',
+    },
   },
 ];
 

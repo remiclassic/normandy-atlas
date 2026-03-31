@@ -1,10 +1,15 @@
 import type { I18nString } from '@/core/types';
 import { CELTIC_SEA_JOURNEY_ID } from '@/data/atlas/celtic-sea-route-metadata';
 
+/** Eras where Danish / Celtic Sea Normandy flythrough routes are defined (see `journeys.ts`). */
+const VIKING_NORMAN_FLYTHROUGH_ERAS = ['viking-age', 'norman-origins'] as const;
+
 export interface FlythroughPreset {
   id: string;
   journeyIds: string[];
   defaultEraId: string;
+  /** Show preset buttons and allow flythrough only in these eras. */
+  visibleEraIds: readonly string[];
   title: I18nString;
   subtitle: I18nString;
 }
@@ -14,6 +19,7 @@ export const flythroughPresets: FlythroughPreset[] = [
     id: 'viking-danish-to-rouen',
     journeyIds: ['journey-danish-migration'],
     defaultEraId: 'viking-age',
+    visibleEraIds: VIKING_NORMAN_FLYTHROUGH_ERAS,
     title: {
       en: 'Danish Migration to Rouen',
       fr: 'Migration danoise vers Rouen',
@@ -31,6 +37,7 @@ export const flythroughPresets: FlythroughPreset[] = [
     id: 'viking-celtic-to-rouen',
     journeyIds: [CELTIC_SEA_JOURNEY_ID],
     defaultEraId: 'viking-age',
+    visibleEraIds: VIKING_NORMAN_FLYTHROUGH_ERAS,
     title: {
       en: 'Celtic Sea Route',
       fr: 'Route de la mer Celtique',
@@ -48,6 +55,7 @@ export const flythroughPresets: FlythroughPreset[] = [
     id: 'viking-normandy-both',
     journeyIds: ['journey-danish-migration', CELTIC_SEA_JOURNEY_ID],
     defaultEraId: 'viking-age',
+    visibleEraIds: VIKING_NORMAN_FLYTHROUGH_ERAS,
     title: {
       en: 'Vikings into Normandy',
       fr: 'Les Vikings en Normandie',
@@ -65,4 +73,8 @@ export const flythroughPresets: FlythroughPreset[] = [
 
 export function getFlythroughPreset(presetId: string): FlythroughPreset | undefined {
   return flythroughPresets.find((p) => p.id === presetId);
+}
+
+export function isFlythroughPresetVisibleInEra(preset: FlythroughPreset, eraId: string): boolean {
+  return preset.visibleEraIds.includes(eraId);
 }

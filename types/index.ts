@@ -101,7 +101,10 @@ export type RouteKind =
   | 'military'
   | 'settlement_corridor'
   | 'river_corridor'
-  | 'maritime_corridor';
+  | 'maritime_corridor'
+  | 'colonial_migration'
+  | 'resupply'
+  | 'missionary';
 
 export type RouteCategory = RouteKind;
 export type RouteGeometry = 'arc' | 'path';
@@ -177,7 +180,9 @@ export type LayerCategory =
   | 'normandy'
   | 'norman-expansion'
   | 'prehistory'
-  | 'new-france';
+  | 'new-france'
+  | 'exploration'
+  | 'colonial';
 
 export interface LayerConfig {
   id: string;
@@ -209,15 +214,19 @@ export interface PersonRecord {
   id: string;
   slug: string;
   name: string;
+  surname?: string;
   summary: string;
+  surnameEtymology?: string;
+  surnameOriginCategory?: import('@/core/types').SurnameOriginCategory;
   relatedSettlementIds?: string[];
   relatedRouteIds?: string[];
   relatedEventIds?: string[];
+  relatedJourneyIds?: string[];
 }
 
 // --- Selection ---
 
-export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route';
+export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey';
 
 export type NormanSiteKind =
   | 'city'

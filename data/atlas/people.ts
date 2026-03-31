@@ -1,4 +1,44 @@
-import type { Person } from '@/core/types';
+import type { Person, SurnameOriginCategory } from '@/core/types';
+
+function normanSettler(
+  id: string,
+  displayName: string,
+  birthYear: number,
+  deathYear: number,
+  roles: string[],
+  originPlaceId: string,
+  destinationPlaceIds: string[],
+  weight: 'anchor' | 'supporting' | 'minor',
+  eraIds: string[],
+  channel: Person['migrationChannel'],
+  confidence: Person['confidence'],
+  originLabel: { en: string; fr: string },
+  bio: { en: string; fr: string },
+  legacy: { en: string; fr: string },
+  surname: string,
+  surnameCategory: SurnameOriginCategory,
+  surnameEtymology?: { en: string; fr: string },
+): Person {
+  return {
+    id,
+    displayName,
+    birthYear,
+    deathYear,
+    roles,
+    originPlaceId,
+    destinationPlaceIds,
+    narrativeWeight: weight,
+    relevantEraIds: eraIds,
+    migrationChannel: channel,
+    confidence,
+    originLabel,
+    bio,
+    legacy,
+    surname,
+    surnameOriginCategory: surnameCategory,
+    surnameEtymology,
+  };
+}
 
 export const atlasPeople: Person[] = [
   // ──────────── Carolingian-era figures ────────────
@@ -1210,6 +1250,213 @@ export const atlasPeople: Person[] = [
       en: 'Represents the many soldiers whose individual stories are poorly documented but whose collective impact was transformative.',
       fr: 'Représente les nombreux soldats dont les histoires individuelles sont mal documentées mais dont l\'impact collectif fut transformateur.',
       it: 'Rappresenta i molti soldati le cui storie individuali sono poco documentate ma il cui impatto collettivo fu trasformativo.',
+    },
+  },
+
+  // ──────────── Extended Norman-origin surname dataset ────────────
+  normanSettler('nicolas-dumont', 'Nicolas Dumont', 1625, 1690, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Normandy; associated with Honfleur embarkation', fr: 'Normandie ; associé à l\'embarquement de Honfleur' },
+    { en: 'Settler who established farmland along the St. Lawrence in the 1650s. The Dumont name became widespread in Québec.', fr: 'Colon qui établit des terres agricoles le long du Saint-Laurent dans les années 1650. Le nom Dumont se répandit au Québec.' },
+    { en: 'The Dumont surname reflects Norman hilltop geography (du mont = "of the hill").', fr: 'Le patronyme Dumont reflète la géographie des collines normandes (du mont).' },
+    'Dumont', 'core_norman', { en: 'From Old French "du mont" (of the hill); topographic surname', fr: 'De l\'ancien français « du mont » ; patronyme topographique' }),
+
+  normanSettler('philippe-gauthier', 'Philippe Gauthier', 1627, 1687, ['settler', 'militia'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations', 'royal-new-france'], 'normandy_port', 'network',
+    { en: 'Dieppe area, Normandy', fr: 'Région de Dieppe, Normandie' },
+    { en: 'Settler who arrived in the 1650s and married into the colony\'s founding families. The Gauthier surname became one of the most common in Québec.', fr: 'Colon arrivé dans les années 1650, marié dans les familles fondatrices de la colonie. Le nom Gauthier devint l\'un des plus courants au Québec.' },
+    { en: 'Gauthier descends from the Frankish name Waltheri (ruler of armies) — deeply rooted in Norman tradition.', fr: 'Gauthier descend du nom franc Waltheri (dirigeant des armées) — profondément ancré dans la tradition normande.' },
+    'Gauthier', 'core_norman', { en: 'From Frankish "Waltheri" (ruler of armies); Germanic personal name', fr: 'Du franc « Waltheri » (dirigeant des armées) ; nom personnel germanique' }),
+
+  normanSettler('charles-belanger', 'Charles Bélanger', 1640, 1712, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'network',
+    { en: 'Normandy; sailed through Honfleur networks', fr: 'Normandie ; embarqué via les réseaux de Honfleur' },
+    { en: 'Arrived c. 1665 and settled on the Beaupré coast. The Bélanger family became deeply rooted in the Charlevoix and Kamouraska regions.', fr: 'Arrivé vers 1665, installé sur la côte de Beaupré. La famille Bélanger s\'enracina profondément dans les régions de Charlevoix et Kamouraska.' },
+    { en: 'The Bélanger surname ranks among the most common in Québec, with virtually all tracing to this single ancestor.', fr: 'Le nom Bélanger figure parmi les plus courants au Québec, presque tous remontant à cet unique ancêtre.' },
+    'Bélanger', 'core_norman', { en: 'Possibly from bel + anger (beautiful meadow) or Frankish personal name', fr: 'Possiblement de bel + anger (beau pré) ou nom franc' }),
+
+  normanSettler('nicolas-lefrancois', 'Nicolas Lefrançois', 1642, 1701, ['settler', 'farmer'], 'rouen', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; likely Rouen-area origin', fr: 'Patronyme normand ; probable origine rouennaise' },
+    { en: 'Settler along the Beaupré coast in the 1660s. The name Lefrançois indicated a Frankish identity within the Norman-speaking world.', fr: 'Colon sur la côte de Beaupré dans les années 1660. Le nom Lefrançois indiquait une identité franque dans le monde normand.' },
+    { en: 'Common Québec surname tracing to Norman settlement patterns.', fr: 'Patronyme québécois courant remontant aux schémas de peuplement normand.' },
+    'Lefrançois', 'core_norman', { en: 'From Old French "le françois" (the Frenchman) — often a Norman distinguishing foreigners', fr: 'De l\'ancien français « le françois » — souvent un Normand distinguant les étrangers' }),
+
+  normanSettler('jacques-letourneau', 'Jacques Letourneau', 1635, 1698, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Normandy; departure from Honfleur', fr: 'Normandie ; départ de Honfleur' },
+    { en: 'Arrived in the 1650s and settled in the Québec region. Ancestor of the widespread Letourneau lineage.', fr: 'Arrivé dans les années 1650, installé dans la région de Québec. Ancêtre de la vaste lignée Letourneau.' },
+    { en: 'Letourneau reflects Norman artisan trades — the family name likely deriving from lathe-worker or turner.', fr: 'Letourneau reflète les métiers artisanaux normands — le patronyme dérivant probablement du tourneur.' },
+    'Letourneau', 'core_norman', { en: 'From Old French "le tornour" (the turner / lathe worker)', fr: 'De l\'ancien français « le tornour » (le tourneur)' }),
+
+  normanSettler('nicolas-drouin', 'Nicolas Drouin', 1612, 1680, ['settler', 'farmer'], 'mortagne-au-perche', ['quebec-city', 'beauport'], 'minor', ['new-france-foundations'], 'perche', 'documented',
+    { en: 'Pin-la-Garenne, Perche; recruited by Giffard', fr: 'Pin-la-Garenne, Perche ; recruté par Giffard' },
+    { en: 'Arrived in 1634 with the first Perche wave and settled at Château-Richer. His marriage to Marie Chapelier produced a vast lineage.', fr: 'Arrivé en 1634 avec la première vague percheronne, installé à Château-Richer. Son mariage avec Marie Chapelier donna naissance à une vaste lignée.' },
+    { en: 'Drouin is among the most prolific founding surnames in Québec genealogy.', fr: 'Drouin figure parmi les patronymes fondateurs les plus prolifiques de la généalogie québécoise.' },
+    'Drouin', 'core_norman', { en: 'From Frankish personal name "Drogo" via diminutive "Drouin"', fr: 'Du nom franc « Drogo » via le diminutif « Drouin »' }),
+
+  normanSettler('gilles-masson', 'Gilles Masson', 1630, 1690, ['settler', 'stonemason'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Normandy; associated with Dieppe departure', fr: 'Normandie ; associé au départ de Dieppe' },
+    { en: 'Stonemason who contributed to early building projects in the colony. The Masson name reflects the strong artisan recruitment from Normandy.', fr: 'Maçon qui contribua aux premiers chantiers de la colonie. Le nom Masson reflète le recrutement artisanal normand.' },
+    { en: 'Masson (mason) is an occupational surname common across Normandy\u2019s building-trade communities.', fr: 'Masson (maçon) est un patronyme de métier courant dans les communautés de bâtisseurs normands.' },
+    'Masson', 'core_norman', { en: 'Occupational: from Old French "maçon" (mason / builder)', fr: 'Professionnel : de l\'ancien français « maçon »' }),
+
+  normanSettler('guillaume-fournier', 'Guillaume Fournier', 1623, 1699, ['settler', 'baker', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations', 'royal-new-france'], 'normandy_port', 'documented',
+    { en: 'Coulmer, near Argentan, Normandy; sailed from Honfleur', fr: 'Coulmer, près d\'Argentan, Normandie ; embarqué depuis Honfleur' },
+    { en: 'Arrived in 1651 and settled at Pointe-aux-Trembles. Ancestor of the extensive Fournier lineage across Québec and Acadia.', fr: 'Arrivé en 1651, installé à Pointe-aux-Trembles. Ancêtre de la vaste lignée Fournier au Québec et en Acadie.' },
+    { en: 'One of the most reliably documented Norman-origin founders. The surname denotes a baker (from "fournier" = oven-keeper).', fr: 'L\'un des fondateurs d\'origine normande les mieux documentés. Le patronyme désigne un boulanger (de « fournier » = gardien du four).' },
+    'Fournier', 'core_norman', { en: 'Occupational: from Old French "fournier" (oven-keeper / baker)', fr: 'Professionnel : de l\'ancien français « fournier » (gardien du four)' }),
+
+  normanSettler('louis-deschamps', 'Louis Deschamps', 1638, 1700, ['settler'], 'rouen', ['trois-rivieres'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Rouen-area attribution', fr: 'Patronyme normand ; attribution rouennaise' },
+    { en: 'Settled in the Trois-Rivières area in the 1660s. The Deschamps name is a classic Norman topographic surname.', fr: 'Installé dans la région de Trois-Rivières dans les années 1660. Le nom Deschamps est un patronyme topographique normand classique.' },
+    { en: 'Deschamps ("of the fields") is one of the most recognizable Norman-origin place-surnames.', fr: 'Deschamps (« des champs ») est l\'un des patronymes topographiques normands les plus reconnaissables.' },
+    'Deschamps', 'core_norman', { en: 'Topographic: from Old French "des champs" (of the fields)', fr: 'Topographique : de l\'ancien français « des champs »' }),
+
+  normanSettler('jean-beaudoin', 'Jean Beaudoin', 1640, 1705, ['settler', 'farmer'], 'dieppe', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; regional Normandy attribution', fr: 'Patronyme normand ; attribution régionale normande' },
+    { en: 'Settler in the Québec region who established a farm in the 1670s. The Beaudoin name became common in the St. Lawrence settlements.', fr: 'Colon dans la région de Québec qui établit une ferme dans les années 1670. Le nom Beaudoin devint courant dans les établissements du Saint-Laurent.' },
+    { en: 'Beaudoin (bold friend) is a Frankish-Germanic personal name preserved through Norman naming traditions.', fr: 'Beaudoin (ami audacieux) est un nom franc-germanique conservé par les traditions nominatives normandes.' },
+    'Beaudoin', 'core_norman', { en: 'From Frankish "Baldwinus" (bold friend)', fr: 'Du franc « Baldwinus » (ami audacieux)' }),
+
+  normanSettler('jean-carpentier', 'Jean Carpentier', 1636, 1695, ['carpenter', 'settler'], 'rouen', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Normandy; occupational surname matching trade', fr: 'Normandie ; patronyme professionnel correspondant au métier' },
+    { en: 'Arrived as a skilled carpenter in the 1660s. The colony\u2019s construction needs drew many tradesmen from Norman ports.', fr: 'Arrivé comme charpentier qualifié dans les années 1660. Les besoins de construction de la colonie attirèrent de nombreux artisans des ports normands.' },
+    { en: 'Carpentier (carpenter) illustrates the occupational surname class so characteristic of Norman settler recruitment.', fr: 'Carpentier (charpentier) illustre la classe de patronymes professionnels si caractéristique du recrutement normand.' },
+    'Carpentier', 'core_norman', { en: 'Occupational: from Old French "carpentier" (carpenter)', fr: 'Professionnel : de l\'ancien français « carpentier »' }),
+
+  normanSettler('pierre-renaud', 'Pierre Renaud', 1635, 1700, ['settler'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Honfleur departure association', fr: 'Patronyme normand ; association au départ de Honfleur' },
+    { en: 'Settler who arrived in the 1650s. The Renaud/Renault variant became common in Québec.', fr: 'Colon arrivé dans les années 1650. La variante Renaud/Renault devint courante au Québec.' },
+    { en: 'Renaud is a Frankish personal name (Reginald) deeply rooted in Norman aristocratic and common usage.', fr: 'Renaud est un nom franc (Reginald) profondément ancré dans l\'usage normand.' },
+    'Renaud', 'core_norman', { en: 'From Frankish "Reginaldus" (counselor-ruler)', fr: 'Du franc « Reginaldus » (conseiller-souverain)' }),
+
+  // ─── Strongly Norman / Old French (feudal + Viking-rooted) ───
+  normanSettler('jean-robert', 'Jean Robert', 1630, 1695, ['settler', 'farmer'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Dieppe area', fr: 'Patronyme normand ; région de Dieppe' },
+    { en: 'Settler in the Québec area during the 1650s. The Robert name, one of France\'s most common, has deep Frankish roots.', fr: 'Colon dans la région de Québec pendant les années 1650. Le nom Robert, l\'un des plus courants de France, a de profondes racines franques.' },
+    { en: 'Robert became one of the most widespread surnames in Québec.', fr: 'Robert devint l\'un des patronymes les plus répandus au Québec.' },
+    'Robert', 'strongly_norman', { en: 'From Frankish "Hrōdberht" (bright fame) — name of Normandy\u2019s dukes', fr: 'Du franc « Hrōdberht » (gloire brillante) — nom des ducs de Normandie' }),
+
+  normanSettler('antoine-richard', 'Antoine Richard', 1635, 1700, ['settler', 'farmer'], 'rouen', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Rouen attribution', fr: 'Patronyme normand ; attribution rouennaise' },
+    { en: 'Settled in Québec in the 1660s. The Richard surname carried Frankish royal associations.', fr: 'Installé à Québec dans les années 1660. Le patronyme Richard portait des associations royales franques.' },
+    { en: 'Richard (strong ruler) was one of the most prestigious names in the Norman ducal tradition.', fr: 'Richard (souverain puissant) était l\'un des noms les plus prestigieux de la tradition ducale normande.' },
+    'Richard', 'strongly_norman', { en: 'From Frankish "Rīchardus" (strong ruler)', fr: 'Du franc « Rīchardus » (souverain puissant)' }),
+
+  normanSettler('jean-girard', 'Jean Girard', 1633, 1695, ['settler'], 'honfleur', ['trois-rivieres'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Normandy; Honfleur sailing networks', fr: 'Normandie ; réseaux de navigation de Honfleur' },
+    { en: 'Settled near Trois-Rivières in the 1660s. Girard is among the most common surnames in Québec.', fr: 'Installé près de Trois-Rivières dans les années 1660. Girard est parmi les patronymes les plus courants au Québec.' },
+    { en: 'The Girard lineage spread across the seigneuries of the St. Lawrence.', fr: 'La lignée Girard se répandit dans les seigneuries du Saint-Laurent.' },
+    'Girard', 'strongly_norman', { en: 'From Frankish "Gerhard" (brave spear)', fr: 'Du franc « Gerhard » (lance brave)' }),
+
+  normanSettler('jean-leclerc', 'Jean Leclerc', 1638, 1702, ['settler', 'notary'], 'rouen', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; probable Rouen-area origin', fr: 'Patronyme normand ; probable origine rouennaise' },
+    { en: 'Settled in Québec in the 1660s. The Leclerc name ("the clerk") suggests a literate, administrative background common among Norman émigrés.', fr: 'Installé à Québec dans les années 1660. Le nom Leclerc suggère un contexte lettré et administratif courant chez les émigrés normands.' },
+    { en: 'Leclerc became one of the most common surnames in French Canada.', fr: 'Leclerc devint l\'un des patronymes les plus courants au Canada français.' },
+    'Leclerc', 'strongly_norman', { en: 'Occupational: from Old French "le clerc" (the clerk / literate man)', fr: 'Professionnel : de l\'ancien français « le clerc »' }),
+
+  normanSettler('nicolas-marchand', 'Nicolas Marchand', 1632, 1690, ['settler', 'merchant'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Dieppe, Normandy; merchant background', fr: 'Dieppe, Normandie ; milieu marchand' },
+    { en: 'Part of the Dieppe merchant community that invested in the fur trade. Settled in the colony in the 1650s.', fr: 'Partie de la communauté marchande de Dieppe investissant dans la traite des fourrures. Installé dans la colonie dans les années 1650.' },
+    { en: 'Marchand ("merchant") reflects Normandy\'s commercial maritime culture.', fr: 'Marchand reflète la culture commerciale maritime de la Normandie.' },
+    'Marchand', 'strongly_norman', { en: 'Occupational: from Old French "marchand" (merchant / trader)', fr: 'Professionnel : de l\'ancien français « marchand »' }),
+
+  normanSettler('pierre-morel', 'Pierre Morel', 1637, 1700, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Honfleur embarkation networks', fr: 'Patronyme normand ; réseaux d\'embarquement de Honfleur' },
+    { en: 'Settler who arrived in the 1660s and farmed along the Beaupré coast.', fr: 'Colon arrivé dans les années 1660 qui cultiva le long de la côte de Beaupré.' },
+    { en: 'Morel ("dark-skinned" / "Moorish") is one of the classic Old French descriptive surnames.', fr: 'Morel (« à la peau sombre » / « moresque ») est l\'un des patronymes descriptifs classiques de l\'ancien français.' },
+    'Morel', 'strongly_norman', { en: 'Descriptive: from Old French "morel" (dark-skinned)', fr: 'Descriptif : de l\'ancien français « morel » (à la peau sombre)' }),
+
+  normanSettler('guillaume-perrault', 'Guillaume Perrault', 1634, 1692, ['settler', 'farmer'], 'rouen', ['trois-rivieres'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Rouen-area attribution', fr: 'Patronyme normand ; attribution rouennaise' },
+    { en: 'Settled near Trois-Rivières in the 1660s. The Perrault lineage produced several notable figures in New France and later Québec.', fr: 'Installé près de Trois-Rivières dans les années 1660. La lignée Perrault produisit plusieurs figures notables de la Nouvelle-France et du Québec.' },
+    { en: 'Perrault (a diminutive of Pierre) is a classic Norman personal-name surname.', fr: 'Perrault (diminutif de Pierre) est un patronyme normand classique.' },
+    'Perrault', 'strongly_norman', { en: 'From diminutive of "Pierre" (Peter) via Old French "Perraut"', fr: 'Du diminutif de « Pierre » via l\'ancien français « Perraut »' }),
+
+  normanSettler('denis-noel', 'Denis Noël', 1636, 1700, ['settler'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Normandy; Dieppe area', fr: 'Normandie ; région de Dieppe' },
+    { en: 'Settler who arrived in the 1660s. The Noël surname was common in Norman port communities.', fr: 'Colon arrivé dans les années 1660. Le patronyme Noël était courant dans les communautés portuaires normandes.' },
+    { en: 'Noël (Christmas) was given to children born during the Christmas season — a naming practice common in Normandy.', fr: 'Noël était donné aux enfants nés pendant la période de Noël — pratique courante en Normandie.' },
+    'Noël', 'strongly_norman', { en: 'From Old French "Noël" (Christmas); given to children born in the season', fr: 'De l\'ancien français « Noël » ; donné aux enfants nés en cette saison' }),
+
+  normanSettler('pierre-allard', 'Pierre Allard', 1638, 1700, ['settler', 'farmer'], 'rouen', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; regional attribution', fr: 'Patronyme normand ; attribution régionale' },
+    { en: 'Carignan-Salières soldier who stayed and farmed. The Allard surname became established in the colony.', fr: 'Soldat du Carignan-Salières resté pour cultiver. Le patronyme Allard s\'établit dans la colonie.' },
+    { en: 'Allard derives from Frankish "Adalhard" (noble-strong), a name common across Norman aristocratic lines.', fr: 'Allard dérive du franc « Adalhard » (noble-fort), nom courant dans les lignées aristocratiques normandes.' },
+    'Allard', 'strongly_norman', { en: 'From Frankish "Adalhard" (noble and strong)', fr: 'Du franc « Adalhard » (noble et fort)' }),
+
+  normanSettler('pierre-chevalier', 'Pierre Chevalier', 1632, 1695, ['soldier', 'settler'], 'rouen', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; feudal-military connotation', fr: 'Patronyme normand ; connotation féodale-militaire' },
+    { en: 'Settled in the colony during the 1660s. The Chevalier name carried feudal prestige in the Norman world.', fr: 'Installé dans la colonie dans les années 1660. Le nom Chevalier portait un prestige féodal dans le monde normand.' },
+    { en: 'Chevalier ("knight") is a classic feudal-status surname from the Norman military tradition.', fr: 'Chevalier est un patronyme de statut féodal classique de la tradition militaire normande.' },
+    'Chevalier', 'strongly_norman', { en: 'Status surname: from Old French "chevalier" (knight)', fr: 'Patronyme de statut : de l\'ancien français « chevalier »' }),
+
+  // ─── Coastal / Maritime Norman Names ───
+  normanSettler('pierre-dubois', 'Pierre Dubois', 1630, 1695, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Honfleur networks', fr: 'Patronyme normand ; réseaux de Honfleur' },
+    { en: 'Settled in the 1660s along the St. Lawrence. Dubois is one of the most common French surnames worldwide.', fr: 'Installé dans les années 1660 le long du Saint-Laurent. Dubois est l\'un des patronymes français les plus courants au monde.' },
+    { en: 'Dubois ("of the woods") is the quintessential Norman topographic surname, reflecting the forested bocage landscape.', fr: 'Dubois (« du bois ») est le patronyme topographique normand par excellence, reflétant le paysage de bocage boisé.' },
+    'Dubois', 'coastal_maritime', { en: 'Topographic: from Old French "du bois" (of the woods)', fr: 'Topographique : de l\'ancien français « du bois »' }),
+
+  normanSettler('martin-poirier', 'Martin Poirier', 1640, 1706, ['settler'], 'dieppe', ['quebec-city'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Dieppe area', fr: 'Patronyme normand ; région de Dieppe' },
+    { en: 'Arrived in the 1660s and settled in the colony. The Poirier name spread across Québec and later Acadia.', fr: 'Arrivé dans les années 1660, installé dans la colonie. Le nom Poirier se répandit au Québec et ensuite en Acadie.' },
+    { en: 'Poirier ("pear tree") is a classic Norman rural topographic surname.', fr: 'Poirier est un patronyme topographique rural normand classique.' },
+    'Poirier', 'coastal_maritime', { en: 'Topographic: from Old French "poirier" (pear tree)', fr: 'Topographique : de l\'ancien français « poirier »' }),
+
+  normanSettler('jean-legrand', 'Jean Legrand', 1638, 1700, ['settler'], 'rouen', ['trois-rivieres'], 'minor', ['royal-new-france'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Rouen attribution', fr: 'Patronyme normand ; attribution rouennaise' },
+    { en: 'Settled near Trois-Rivières after military service. Legrand is a widespread Norman descriptive surname.', fr: 'Installé près de Trois-Rivières après le service militaire. Legrand est un patronyme descriptif normand très répandu.' },
+    { en: 'Legrand ("the tall one") is one of the most common descriptive surnames from Normandy.', fr: 'Legrand (« le grand ») est l\'un des patronymes descriptifs les plus courants de Normandie.' },
+    'Legrand', 'coastal_maritime', { en: 'Descriptive: from Old French "le grand" (the tall one)', fr: 'Descriptif : de l\'ancien français « le grand »' }),
+
+  normanSettler('pierre-lavigne', 'Pierre Lavigne', 1636, 1698, ['settler', 'farmer'], 'honfleur', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Honfleur port', fr: 'Patronyme normand ; port de Honfleur' },
+    { en: 'Farmer who settled in the Québec area. The Lavigne name suggests an origin in Normandy\'s vine-growing areas.', fr: 'Agriculteur installé dans la région de Québec. Le nom Lavigne suggère une origine dans les zones viticoles de Normandie.' },
+    { en: 'Lavigne ("the vineyard") reflects the agricultural landscape of southern Normandy.', fr: 'Lavigne (« la vigne ») reflète le paysage agricole du sud de la Normandie.' },
+    'Lavigne', 'coastal_maritime', { en: 'Topographic: from Old French "la vigne" (the vineyard)', fr: 'Topographique : de l\'ancien français « la vigne »' }),
+
+  // ─── Names with Norse (Viking) Influence ───
+  normanSettler('jean-gosselin', 'Jean Gosselin', 1625, 1690, ['settler'], 'rouen', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'network',
+    { en: 'Rouen area, Normandy; surname carries Norse-Frankish roots', fr: 'Région de Rouen, Normandie ; patronyme aux racines norrois-franques' },
+    { en: 'Settler who arrived in the 1650s. The Gosselin name is distinctive for its Norse linguistic heritage within Norman culture.', fr: 'Colon arrivé dans les années 1650. Le nom Gosselin se distingue par son héritage linguistique norrois dans la culture normande.' },
+    { en: 'Gosselin carries indirect Norse roots through the Frankish-Norse name pool that emerged in early Normandy.', fr: 'Gosselin porte des racines norroises indirectes à travers le bassin de noms francs-norrois apparu dans la Normandie primitive.' },
+    'Gosselin', 'norse_influence', { en: 'From Frankish "Goscelin" (possibly Norse "Gautzelin" = little Goth)', fr: 'Du franc « Goscelin » (possiblement norrois « Gautzelin » = petit Goth)' }),
+
+  normanSettler('jean-hamel', 'Jean Hamel', 1635, 1699, ['settler'], 'dieppe', ['quebec-city'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Normandy; Dieppe area', fr: 'Normandie ; région de Dieppe' },
+    { en: 'Settler from the 1660s. The Hamel surname carries possible Norse etymological roots.', fr: 'Colon des années 1660. Le patronyme Hamel porte de possibles racines étymologiques norroises.' },
+    { en: 'Hamel may derive from Norse "hamall" (a steep slope) filtered through Norman French.', fr: 'Hamel pourrait dériver du norrois « hamall » (une pente raide) filtré par le normand.' },
+    'Hamel', 'norse_influence', { en: 'Possibly from Norse "hamall" (steep slope) or Old French "hamel" (small village)', fr: 'Possiblement du norrois « hamall » (pente raide) ou de l\'ancien français « hamel » (petit village)' }),
+
+  normanSettler('robert-dupont', 'Robert Dupont', 1634, 1700, ['settler'], 'rouen', ['trois-rivieres'], 'minor', ['new-france-foundations'], 'normandy_port', 'uncertain',
+    { en: 'Norman surname; Rouen area', fr: 'Patronyme normand ; région de Rouen' },
+    { en: 'Settled in the Trois-Rivières area. Dupont is one of the most recognizable French surnames.', fr: 'Installé dans la région de Trois-Rivières. Dupont est l\'un des patronymes français les plus reconnaissables.' },
+    { en: 'Dupont ("of the bridge") is a classic Norman topographic surname indicating residence near a bridge.', fr: 'Dupont (« du pont ») est un patronyme topographique normand classique indiquant la résidence près d\'un pont.' },
+    'Dupont', 'strongly_norman', { en: 'Topographic: from Old French "du pont" (of the bridge)', fr: 'Topographique : de l\'ancien français « du pont »' }),
+
+  // ─── La Salle (Royal New France) ───
+  {
+    id: 'rene-robert-la-salle',
+    displayName: 'René-Robert Cavelier de La Salle',
+    birthYear: 1643,
+    deathYear: 1687,
+    roles: ['explorer', 'colonizer'],
+    originPlaceId: 'rouen',
+    destinationPlaceIds: ['montreal', 'mississippi-confluence', 'gulf-of-mexico-node', 'new-orleans'],
+    narrativeWeight: 'anchor',
+    relevantEraIds: ['royal-new-france'],
+    migrationChannel: 'normandy_port',
+    confidence: 'documented',
+    surname: 'La Salle',
+    surnameOriginCategory: 'core_norman' as SurnameOriginCategory,
+    originLabel: {
+      en: 'Born Rouen, Normandy; one of the colony\u2019s most ambitious Norman-born explorers',
+      fr: 'Né à Rouen, Normandie ; l\u2019un des explorateurs les plus ambitieux d\u2019origine normande',
+    },
+    bio: {
+      en: 'Born in Rouen to a wealthy merchant family, La Salle arrived in New France in 1667 and became obsessed with finding a western passage. In 1682 he descended the Mississippi to its mouth and claimed the entire river basin for France, naming it "Louisiane" in honor of Louis XIV. His return expedition to colonize the Gulf Coast ended in mutiny and his murder in 1687.',
+      fr: 'Né à Rouen dans une famille de marchands aisés, La Salle arriva en Nouvelle-France en 1667 et devint obsédé par la recherche d\u2019un passage vers l\u2019ouest. En 1682, il descendit le Mississippi jusqu\u2019à son embouchure et revendiqua tout le bassin fluvial pour la France, le nommant « Louisiane » en l\u2019honneur de Louis XIV. Son expédition de retour pour coloniser la côte du golfe se termina par une mutinerie et son assassinat en 1687.',
+    },
+    legacy: {
+      en: 'La Salle\u2019s claim of Louisiana stretched French territory from the Gulf of St. Lawrence to the Gulf of Mexico \u2014 the most dramatic geographic expansion in New France\u2019s history, and one driven by a Rouennais.',
+      fr: 'La revendication de La Salle sur la Louisiane étendit le territoire français du golfe du Saint-Laurent au golfe du Mexique \u2014 l\u2019expansion géographique la plus spectaculaire de l\u2019histoire de la Nouvelle-France, menée par un Rouennais.',
     },
   },
 ];

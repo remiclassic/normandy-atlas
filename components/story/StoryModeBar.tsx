@@ -8,6 +8,7 @@ import { getStoryBeats, getBeat, getBeatCount } from '@/core';
 import { arcChromeStyle, getArcEntriesForEra } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
+import { useIsMobile } from '@/hooks/use-responsive';
 import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
 import type { StoryBeat } from '@/core/types';
@@ -27,7 +28,9 @@ export default function StoryModeBar() {
   const setEra = useMapStore((s) => s.setEra);
   const setActiveJourney = useMapStore((s) => s.setActiveJourney);
   const setAtlasSimYear = useMapStore((s) => s.setAtlasSimYear);
+  const cinematicFlythrough = useMapStore((s) => s.cinematicFlythrough);
 
+  const isMobile = useIsMobile();
   const atlasBeats = useMemo(() => getStoryBeats(storyArc), [storyArc]);
   const totalSteps = atlasMode ? atlasBeats.length : normanAtlanticStory.length;
 
@@ -110,17 +113,21 @@ export default function StoryModeBar() {
     <>
       {/* Story / arc start buttons */}
       <AnimatePresence>
-        {!storyMode && (
+        {!storyMode && cinematicFlythrough == null && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 sm:flex-row px-3 w-full sm:w-auto max-w-[calc(100vw-24px)]"
+            className={
+              isMobile
+                ? 'relative z-20 w-full flex flex-col gap-3 pointer-events-auto'
+                : 'absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-row flex-wrap items-center justify-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)]'
+            }
           >
             <button
               onClick={() => startStory()}
-              className="group flex items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 w-full sm:w-auto touch-target"
+              className="group flex min-h-[48px] shrink-0 items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 w-full sm:min-h-0 sm:w-auto touch-target"
             >
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-gold/10 group-hover:bg-gold/15 transition-colors duration-200">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -136,14 +143,14 @@ export default function StoryModeBar() {
                 <button
                   key={entry.arcId}
                   onClick={() => handleStartArc(entry.arcId)}
-                  className={`group flex items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-[12px] sm:text-[13px] font-medium transition-all duration-250 w-full sm:w-auto touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
+                  className={`group flex min-h-[44px] shrink-0 items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-left text-[12px] sm:text-[13px] font-medium transition-all duration-250 w-full sm:min-h-0 sm:w-auto sm:text-center touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
                 >
                   <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
                     <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                       <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                     </svg>
                   </span>
-                  <span className="truncate">{pickI18n(entry.label, locale)}</span>
+                  <span className="min-w-0 flex-1 leading-snug sm:truncate">{pickI18n(entry.label, locale)}</span>
                 </button>
               );
             })}
@@ -159,8 +166,11 @@ export default function StoryModeBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 48 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute bottom-0 left-0 right-0 z-30"
-            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+            className={`z-30 left-0 right-0 ${
+              isMobile
+                ? 'fixed bottom-0 pb-[env(safe-area-inset-bottom)]'
+                : 'absolute bottom-0 pb-[env(safe-area-inset-bottom)]'
+            }`}
           >
             <div className="mx-auto max-w-2xl mb-3 sm:mb-6 px-3 sm:px-4">
               <div className="rounded-2xl glass-panel-elevated overflow-hidden">

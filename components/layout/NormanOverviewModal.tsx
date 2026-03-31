@@ -4,6 +4,7 @@ import { memo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { BookOpen } from 'lucide-react';
+import Link from 'next/link';
 import type { AtlasLocale } from '@/core/types';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
@@ -74,6 +75,15 @@ const NormanOverviewScrollContent = memo(function NormanOverviewScrollContent({
         const blockKey = section.heading ?? `lead-${index}`;
         return <SectionBlock key={blockKey} blockKey={blockKey} section={section} />;
       })}
+
+      <div className="accent-line-gold mb-6 opacity-60" />
+      <Link
+        href="/journal#norman-surnames"
+        className="inline-flex items-center gap-2 text-[13px] font-medium text-gold hover:text-gold-bright transition-colors"
+      >
+        <BookOpen className="h-[14px] w-[14px]" strokeWidth={1.5} />
+        {locale === 'fr' ? 'Explorer les patronymes normands →' : 'Explore Norman names →'}
+      </Link>
     </div>
   );
 });

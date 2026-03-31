@@ -179,8 +179,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  touch-action: manipulation;
+  /* Do not set touch-action on the document root — it breaks map pan/zoom on some mobile browsers. */
 }
 
 body {
@@ -428,6 +427,25 @@ body {
   will-change: transform;
 }
 
+/*
+ * Mobile GPUs often corrupt the WebGL + DOM stack when mix-blend-mode sits above
+ * MapLibre/deck.gl. Disabling blend for parchment chrome keeps the map stable.
+ */
+@media (max-width: 768px) {
+  .parchment-map-chrome .parchment-chrome-blend {
+    mix-blend-mode: normal !important;
+  }
+
+  .parchment-water-sheen-motion,
+  .parchment-water-noise-motion {
+    will-change: auto;
+  }
+}
+
+.atlas-maplibre-host {
+  isolation: isolate;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .parchment-water-sheen-motion,
   .parchment-water-noise-motion {
@@ -558,6 +576,7 @@ body {
 .touch-target {
   min-width: 44px;
   min-height: 44px;
+  touch-action: manipulation;
 }
 
 /* Mobile map controls — enlarge on small screens */

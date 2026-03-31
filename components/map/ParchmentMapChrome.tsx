@@ -17,14 +17,14 @@ const ParchmentMapChrome = memo(function ParchmentMapChrome({
 }) {
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
+      className="parchment-map-chrome pointer-events-none absolute inset-0 z-[2] overflow-hidden"
       aria-hidden
     >
       {waterAtmosphere ? (
         <>
           {/* Cool drifting sheen — suggests tidal light on seas (whole-map overlay; subtle) */}
           <div
-            className="absolute inset-0 parchment-water-sheen-motion opacity-[0.11] mix-blend-soft-light"
+            className="parchment-chrome-blend absolute inset-0 parchment-water-sheen-motion opacity-[0.11] mix-blend-soft-light"
             style={{
               background:
                 'radial-gradient(ellipse 130% 95% at 38% 58%, rgba(95, 145, 165, 0.55) 0%, transparent 52%), radial-gradient(ellipse 110% 100% at 72% 32%, rgba(70, 120, 138, 0.4) 0%, transparent 48%)',
@@ -32,7 +32,7 @@ const ParchmentMapChrome = memo(function ParchmentMapChrome({
           />
           {/* Low-frequency noise drift — breaks uniformity without map repaints */}
           <div
-            className="absolute inset-0 parchment-water-noise-motion opacity-[0.035] mix-blend-soft-light"
+            className="parchment-chrome-blend absolute inset-0 parchment-water-noise-motion opacity-[0.035] mix-blend-soft-light"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E")`,
               backgroundSize: '220px 220px',
@@ -60,7 +60,7 @@ const ParchmentMapChrome = memo(function ParchmentMapChrome({
 
       {/* SVG film grain — GPU-friendly, CSS-animated (no React re-renders) */}
       <div
-        className="absolute inset-0 parchment-grain-motion opacity-[0.045] mix-blend-multiply"
+        className="parchment-chrome-blend absolute inset-0 parchment-grain-motion opacity-[0.045] mix-blend-multiply"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           backgroundSize: '180px 180px',
