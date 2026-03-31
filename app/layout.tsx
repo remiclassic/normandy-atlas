@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter, Crimson_Pro } from 'next/font/google';
 import './globals.css';
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-Q97Y9MCQ0T" />
     </html>
   );
 }
