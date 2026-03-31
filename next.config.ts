@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: projectRoot,
   output: "export",
   basePath,
+  // Keep `_next` chunk URLs aligned with basePath (must stay a string; never `undefined`).
+  assetPrefix: basePath,
 };
 
 export default nextConfig;
