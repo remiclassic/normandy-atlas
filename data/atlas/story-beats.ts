@@ -7,14 +7,14 @@ export const atlasStoryBeats: StoryBeat[] = [
     eraId: 'neolithic-normandy',
     camera: {
       target: 'bbox',
-      center: [-0.5, 49.2],
-      zoom: 7.0,
+      center: [-1.0, 49.25],
+      zoom: 6.5,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site'],
-      regionIds: ['normandy-neolithic-zone'],
+      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site', 'hougue-bie', 'faldouet-dolmen', 'le-dehus'],
+      regionIds: ['normandy-neolithic-zone', 'channel-islands-neolithic'],
       routeSegmentIds: [],
     },
     presentation: {
@@ -25,8 +25,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'Stones of the first farmers',
       body: {
-        en: 'Long before any written record, Neolithic communities raised stone monuments across what would become Normandy. Dolmens at Vauville, megaliths near Fontenay-le-Marmion, and burial sites at Cairon mark the earliest human imprint on this landscape — a foundation layer that runs beneath everything that follows.',
-        fr: 'Bien avant tout document écrit, des communautés néolithiques érigèrent des monuments de pierre à travers la future Normandie. Les dolmens de Vauville, les mégalithes de Fontenay-le-Marmion et les sépultures de Cairon marquent la plus ancienne empreinte humaine sur ce paysage — une couche fondatrice qui sous-tend tout ce qui suit.',
+        en: 'Long before any written record, Neolithic communities raised stone monuments across what would become Normandy and the nearby Channel Islands. Dolmens at Vauville, megaliths near Fontenay-le-Marmion, passage graves at La Hougue Bie in Jersey, and burial sites at Cairon mark the earliest human imprint on this landscape — a foundation layer that runs beneath everything that follows.',
+        fr: 'Bien avant tout document écrit, des communautés néolithiques érigèrent des monuments de pierre à travers la future Normandie et les îles Anglo-Normandes voisines. Les dolmens de Vauville, les mégalithes de Fontenay-le-Marmion, les tombes à couloir de La Hougue Bie à Jersey et les sépultures de Cairon marquent la plus ancienne empreinte humaine sur ce paysage — une couche fondatrice qui sous-tend tout ce qui suit.',
       },
     },
   },
@@ -938,14 +938,14 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'neolithic-normandy',
     camera: {
       target: 'bbox',
-      center: [-0.5, 49.1],
-      zoom: 6.5,
+      center: [-1.0, 49.2],
+      zoom: 6.2,
       durationMs: 2400,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site'],
-      regionIds: ['normandy-neolithic-zone'],
+      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site', 'hougue-bie', 'faldouet-dolmen', 'le-dehus'],
+      regionIds: ['normandy-neolithic-zone', 'channel-islands-neolithic'],
       routeSegmentIds: [],
     },
     presentation: {
@@ -991,6 +991,36 @@ export const atlasStoryBeats: StoryBeat[] = [
       },
     },
     anchorYear: -4500,
+  },
+  {
+    id: 'neo-arc-channel-islands',
+    eraId: 'neolithic-normandy',
+    arcId: 'neolithic-normandy',
+    camera: {
+      target: 'bbox',
+      center: [-2.3, 49.35],
+      zoom: 8.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['hougue-bie', 'faldouet-dolmen', 'le-dehus'],
+      regionIds: ['channel-islands-neolithic'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The Channel Islands: An Island Megalithic World',
+      body: {
+        en: 'The same megalith-building impulse that shaped the Cotentin coast extended to the Channel Islands. La Hougue Bie in Jersey — a twenty-metre passage grave aligned with the equinox sunrise — is one of the finest Neolithic monuments in western Europe. Nearby La Pouquelaye de Faldouet, with its massive capstone and double chamber, and Le Déhus in Guernsey attest that the islands were not peripheral but fully part of the Atlantic-facing world of stone. These communities looked outward across the sea, connected by the same maritime networks that would later carry bronze, iron, and settlers.',
+        fr: 'L\'élan mégalithique qui façonna la côte du Cotentin s\'étendit aussi aux îles Anglo-Normandes. La Hougue Bie à Jersey — une tombe à couloir de vingt mètres alignée sur le lever du soleil à l\'équinoxe — est l\'un des plus beaux monuments néolithiques d\'Europe occidentale. À proximité, La Pouquelaye de Faldouet, avec sa dalle de couverture massive et sa double chambre, et Le Déhus à Guernesey attestent que les îles n\'étaient pas périphériques mais pleinement intégrées au monde atlantique de la pierre. Ces communautés regardaient vers la mer, reliées par les mêmes réseaux maritimes qui transporteraient plus tard le bronze, le fer et les colons.',
+      },
+    },
+    anchorYear: -4300,
   },
   {
     id: 'neo-arc-fontenay-cluster',
@@ -1118,14 +1148,14 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'neolithic-normandy',
     camera: {
       target: 'bbox',
-      center: [-0.8, 49.1],
-      zoom: 6.8,
+      center: [-1.2, 49.15],
+      zoom: 6.4,
       durationMs: 2200,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site', 'dolmen-passais', 'menhir-dol', 'allee-couverte-bretteville'],
-      regionIds: ['normandy-neolithic-zone'],
+      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'cairon-site', 'dolmen-passais', 'menhir-dol', 'allee-couverte-bretteville', 'hougue-bie', 'faldouet-dolmen', 'le-dehus'],
+      regionIds: ['normandy-neolithic-zone', 'channel-islands-neolithic'],
       routeSegmentIds: [],
     },
     presentation: {
@@ -1136,8 +1166,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'A Sacred Landscape Takes Shape',
       body: {
-        en: 'Seen together, Normandy\'s megalithic monuments reveal a landscape deliberately organised by its first farming communities. Dolmens on the Cotentin coast, allées couvertes on the Caen plain, menhirs at territorial boundaries, burial clusters at ritual centres: these were not randomly placed stones but a connected geography of the sacred and the political. The same sites that Neolithic people chose for their monuments — headlands, river crossings, plateau edges — would be chosen again and again by Celtic chiefs, Roman engineers, Frankish kings, and Norman lords. The first map of Normandy was drawn in stone.',
-        fr: 'Vus ensemble, les monuments mégalithiques de Normandie révèlent un paysage délibérément organisé par ses premières communautés agricoles. Dolmens sur la côte du Cotentin, allées couvertes sur la plaine de Caen, menhirs aux frontières territoriales, groupes funéraires aux centres rituels : ce n\'étaient pas des pierres placées au hasard mais une géographie connectée du sacré et du politique. Les mêmes sites que les Néolithiques choisirent pour leurs monuments — promontoires, passages de rivières, rebords de plateaux — seraient choisis encore et encore par les chefs celtes, ingénieurs romains, rois francs et seigneurs normands. La première carte de la Normandie fut tracée dans la pierre.',
+        en: 'Seen together, the megalithic monuments of Normandy and the Channel Islands reveal a landscape deliberately organised by its first farming communities. Dolmens on the Cotentin coast, passage graves in Jersey and Guernsey, allées couvertes on the Caen plain, menhirs at territorial boundaries, burial clusters at ritual centres: these were not randomly placed stones but a connected geography of the sacred and the political, stretching from the mainland to the offshore islands. The same sites that Neolithic people chose for their monuments — headlands, river crossings, plateau edges — would be chosen again and again by Celtic chiefs, Roman engineers, Frankish kings, and Norman lords. The first map of Normandy was drawn in stone.',
+        fr: 'Vus ensemble, les monuments mégalithiques de Normandie et des îles Anglo-Normandes révèlent un paysage délibérément organisé par ses premières communautés agricoles. Dolmens sur la côte du Cotentin, tombes à couloir à Jersey et Guernesey, allées couvertes sur la plaine de Caen, menhirs aux frontières territoriales, groupes funéraires aux centres rituels : ce n\'étaient pas des pierres placées au hasard mais une géographie connectée du sacré et du politique, s\'étendant du continent aux îles voisines. Les mêmes sites que les Néolithiques choisirent pour leurs monuments — promontoires, passages de rivières, rebords de plateaux — seraient choisis encore et encore par les chefs celtes, ingénieurs romains, rois francs et seigneurs normands. La première carte de la Normandie fut tracée dans la pierre.',
       },
     },
     anchorYear: -2800,
@@ -1148,14 +1178,14 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'neolithic-normandy',
     camera: {
       target: 'bbox',
-      center: [-0.5, 49.3],
-      zoom: 6.2,
+      center: [-1.0, 49.3],
+      zoom: 6.0,
       durationMs: 2400,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'menhir-dol', 'dolmen-passais', 'cairon-site', 'allee-couverte-bretteville'],
-      regionIds: ['normandy-neolithic-zone'],
+      placeIds: ['dolmen-vauville', 'megaliths-fontenay', 'menhir-dol', 'dolmen-passais', 'cairon-site', 'allee-couverte-bretteville', 'hougue-bie', 'faldouet-dolmen', 'le-dehus'],
+      regionIds: ['normandy-neolithic-zone', 'channel-islands-neolithic'],
       routeSegmentIds: [],
     },
     presentation: {
@@ -1166,8 +1196,8 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'On the Threshold of Metal',
       body: {
-        en: 'By around 2000 BC, the Neolithic world was giving way to something new. Knowledge of metalworking — first copper, then bronze — was spreading from the east and south. The great age of megalith-building was ending, but the monuments remained, silent and enduring. New peoples would arrive, new technologies would transform the economy, and the Channel would become a highway for the tin trade. Yet the dolmens, menhirs, and allées couvertes raised by Normandy\'s first farmers would still stand — as they stand today — the oldest layer of human memory inscribed on a landscape that would never stop being reshaped.',
-        fr: 'Vers 2000 av. J.-C., le monde néolithique cédait la place à quelque chose de nouveau. La connaissance de la métallurgie — d\'abord le cuivre, puis le bronze — se répandait depuis l\'est et le sud. La grande époque de construction mégalithique prenait fin, mais les monuments restaient, silencieux et durables. De nouveaux peuples arriveraient, de nouvelles technologies transformeraient l\'économie, et la Manche deviendrait une autoroute pour le commerce de l\'étain. Pourtant les dolmens, menhirs et allées couvertes érigés par les premiers fermiers de Normandie se dresseraient encore — comme ils se dressent aujourd\'hui — la couche la plus ancienne de mémoire humaine inscrite sur un paysage qui ne cesserait jamais d\'être remodelé.',
+        en: 'By around 2000 BC, the Neolithic world was giving way to something new. Knowledge of metalworking — first copper, then bronze — was spreading from the east and south. The great age of megalith-building was ending, but the monuments remained, silent and enduring. New peoples would arrive, new technologies would transform the economy, and the Channel would become a highway for the tin trade. Yet the dolmens, menhirs, and allées couvertes raised by the first farmers of Normandy and the Channel Islands would still stand — as they stand today — the oldest layer of human memory inscribed on a landscape that would never stop being reshaped.',
+        fr: 'Vers 2000 av. J.-C., le monde néolithique cédait la place à quelque chose de nouveau. La connaissance de la métallurgie — d\'abord le cuivre, puis le bronze — se répandait depuis l\'est et le sud. La grande époque de construction mégalithique prenait fin, mais les monuments restaient, silencieux et durables. De nouveaux peuples arriveraient, de nouvelles technologies transformeraient l\'économie, et la Manche deviendrait une autoroute pour le commerce de l\'étain. Pourtant les dolmens, menhirs et allées couvertes érigés par les premiers fermiers de Normandie et des îles Anglo-Normandes se dresseraient encore — comme ils se dressent aujourd\'hui — la couche la plus ancienne de mémoire humaine inscrite sur un paysage qui ne cesserait jamais d\'être remodelé.',
       },
     },
     anchorYear: -2000,

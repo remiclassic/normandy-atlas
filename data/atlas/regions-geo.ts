@@ -37,6 +37,30 @@ export const atlasRegionsGeoJson: RegionFeatureCollection = {
     {
       type: 'Feature',
       properties: {
+        id: 'channel-islands-neolithic',
+        name: 'Channel Islands',
+        namesByEra: {
+          'neolithic-normandy': 'Channel Islands',
+          'bronze-age-channel': 'Channel Islands',
+        },
+        color: '#7a6b52',
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-2.65, 49.15],
+            [-2.0, 49.15],
+            [-2.0, 49.55],
+            [-2.65, 49.55],
+            [-2.65, 49.15],
+          ],
+        ],
+      },
+    },
+    {
+      type: 'Feature',
+      properties: {
         id: 'channel-trade-zone',
         name: 'Channel Trade Corridor',
         namesByEra: {

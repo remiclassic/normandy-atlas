@@ -346,6 +346,40 @@ export const atlasPlaces: Place[] = [
       'neolithic-normandy': { visibility: 'normal', label: 'Allée couverte (Bretteville)', affiliationTags: ['passage tomb', 'Neolithic'], pedagogyIndex: 4 },
     },
   },
+  // --- Channel Islands megalithic sites ---
+  {
+    id: 'hougue-bie',
+    kind: 'megalith',
+    coordinates: [-2.0588, 49.2077],
+    regionId: 'channel-islands-neolithic',
+    layer: 'europe',
+    eraStates: {
+      'neolithic-normandy': { visibility: 'emphasized', label: 'La Hougue Bie (Jersey)', affiliationTags: ['passage grave', 'ritual', 'Neolithic', 'Channel Islands'], pedagogyIndex: 5 },
+      'bronze-age-channel': { visibility: 'faded', label: 'La Hougue Bie', affiliationTags: ['Neolithic remnant', 'Channel Islands'], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'faldouet-dolmen',
+    kind: 'megalith',
+    coordinates: [-2.0220, 49.2148],
+    regionId: 'channel-islands-neolithic',
+    layer: 'europe',
+    eraStates: {
+      'neolithic-normandy': { visibility: 'normal', label: 'La Pouquelaye de Faldouet (Jersey)', affiliationTags: ['dolmen', 'passage grave', 'Neolithic', 'Channel Islands'], pedagogyIndex: 4 },
+      'bronze-age-channel': { visibility: 'faded', label: 'Faldouet Dolmen', affiliationTags: ['Neolithic remnant', 'Channel Islands'], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'le-dehus',
+    kind: 'megalith',
+    coordinates: [-2.5735, 49.4790],
+    regionId: 'channel-islands-neolithic',
+    layer: 'europe',
+    eraStates: {
+      'neolithic-normandy': { visibility: 'normal', label: 'Le Déhus (Guernsey)', affiliationTags: ['passage grave', 'Neolithic', 'Channel Islands'], pedagogyIndex: 4 },
+      'bronze-age-channel': { visibility: 'faded', label: 'Le Déhus', affiliationTags: ['Neolithic remnant', 'Channel Islands'], pedagogyIndex: 2 },
+    },
+  },
   // --- Bronze Age coastal settlements ---
   {
     id: 'bronze-cotentin-coast',

@@ -24,6 +24,7 @@ export default {
   'nf-arc-collapse': 'Colapso y pérdida',
   'neo-arc-first-farmers': 'Llegan los primeros agricultores',
   'neo-arc-dolmens': 'Dólmenes: casas para los muertos',
+  'neo-arc-channel-islands': 'Las islas del Canal: un mundo megalítico insular',
   'neo-arc-fontenay-cluster': 'Fontenay y los monumentos de la llanura de Caen',
   'neo-arc-allees-couvertes': 'Allées couvertes: corredores de piedra',
   'neo-arc-menhirs': 'Menhires: marcas en la tierra',

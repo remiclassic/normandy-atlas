@@ -1,7 +1,7 @@
 [
   {
     "id": "beat-neolithic-monuments",
-    "en": "Long before any written record, Neolithic communities raised stone monuments across what would become Normandy. Dolmens at Vauville, megaliths near Fontenay-le-Marmion, and burial sites at Cairon mark the earliest human imprint on this landscape — a foundation layer that runs beneath everything that follows."
+    "en": "Long before any written record, Neolithic communities raised stone monuments across what would become Normandy and the nearby Channel Islands. Dolmens at Vauville, megaliths near Fontenay-le-Marmion, passage graves at La Hougue Bie in Jersey, and burial sites at Cairon mark the earliest human imprint on this landscape — a foundation layer that runs beneath everything that follows."
   },
   {
     "id": "beat-bronze-channel",
@@ -88,12 +88,48 @@
     "en": "The Seven Years' War brought the end. Louisbourg fell in 1758, Québec in 1759 on the Plains of Abraham, and Montréal surrendered in 1760. The Treaty of Paris (1763) ceded all of New France to Britain. A continental system built over 150 years vanished from the map — but not from memory or genealogy."
   },
   {
+    "id": "gc-beat-couture-rouen",
+    "en": "Guillaume Couture was baptised on 14 January 1618 at Rouen, the Norman capital on the lower Seine — the same river corridor that would later feed recruits and artisans toward Atlantic Canada."
+  },
+  {
+    "id": "gc-beat-couture-atlantic",
+    "en": "Around 1640 he crossed as a Jesuit donné — a lay helper bound for the missions. The voyage from Norman ports to Québec took weeks and marked the hinge between European apprenticeship and American survival."
+  },
+  {
+    "id": "gc-beat-couture-quebec",
+    "en": "Québec was still a thin French foothold on the St. Lawrence. As carpenter and donné, Couture entered a world where alliances with Indigenous nations were not optional — they were the condition of existence."
+  },
+  {
+    "id": "gc-beat-couture-huronia",
+    "en": "In 1641 he travelled the Ottawa River corridor toward the Wendat (Huron) missions. There he learned languages and skills that would make him one of the colony's most effective interpreters."
+  },
+  {
+    "id": "gc-beat-couture-captivity",
+    "en": "Returning with Isaac Jogues, he was seized by a Mohawk war party, tortured, and adopted. He became the first French layman to live credibly in Haudenosaunee towns — knowledge the colony would desperately need."
+  },
+  {
+    "id": "gc-beat-couture-diplomacy",
+    "en": "After 1645 he escorted peace overtures and negotiated along the river. On the Lauzon seigneury he held a concession at Pointe-Lévy — not as seigneur, but as habitant opposite Québec, rooted in the land."
+  },
+  {
+    "id": "gc-beat-couture-long-sault",
+    "en": "He volunteered for Dollard des Ormeaux's Ottawa sortie. The siege at the Long Sault became one of French Canada's founding military stories — and Couture was there as interpreter and fighter."
+  },
+  {
+    "id": "gc-beat-couture-north-legacy",
+    "en": "In 1663 he led canoes up the Saguenay to Lake Mistassini, among the deepest French probes of the subarctic. He died in 1701 at Québec; his descendants still carry the Norman–St. Lawrence story across North America."
+  },
+  {
     "id": "neo-arc-first-farmers",
     "en": "Around 5000 BC, the Neolithic revolution reached the river valleys and coastal plains of what would become Normandy. Farming communities migrating from the south and east brought domesticated wheat, barley, cattle, and a radically new way of life. For the first time, people settled permanently — clearing forests, tilling soil, and building villages along the same river terraces and coastal lowlands that every later civilisation would inhabit. The landscape was being claimed, and the first markers of that claim were about to rise in stone."
   },
   {
     "id": "neo-arc-dolmens",
     "en": "The dolmen at Vauville, perched on the windswept Cotentin coast, is one of Normandy's oldest megalithic monuments. Dolmens were collective burial chambers — massive stone slabs raised to shelter the bones of the community's ancestors. They were not hidden away but placed prominently on headlands, hilltops, and river bluffs where they could be seen from afar. To build a dolmen was to declare: we belong to this land, and our dead watch over it. The Vauville dolmen stood here for three thousand years before the first Celtic warrior was born."
+  },
+  {
+    "id": "neo-arc-channel-islands",
+    "en": "The same megalith-building impulse that shaped the Cotentin coast extended to the Channel Islands. La Hougue Bie in Jersey — a twenty-metre passage grave aligned with the equinox sunrise — is one of the finest Neolithic monuments in western Europe. Nearby La Pouquelaye de Faldouet, with its massive capstone and double chamber, and Le Déhus in Guernsey attest that the islands were not peripheral but fully part of the Atlantic-facing world of stone. These communities looked outward across the sea, connected by the same maritime networks that would later carry bronze, iron, and settlers."
   },
   {
     "id": "neo-arc-fontenay-cluster",
@@ -113,11 +149,11 @@
   },
   {
     "id": "neo-arc-sacred-landscape",
-    "en": "Seen together, Normandy's megalithic monuments reveal a landscape deliberately organised by its first farming communities. Dolmens on the Cotentin coast, allées couvertes on the Caen plain, menhirs at territorial boundaries, burial clusters at ritual centres: these were not randomly placed stones but a connected geography of the sacred and the political. The same sites that Neolithic people chose for their monuments — headlands, river crossings, plateau edges — would be chosen again and again by Celtic chiefs, Roman engineers, Frankish kings, and Norman lords. The first map of Normandy was drawn in stone."
+    "en": "Seen together, the megalithic monuments of Normandy and the Channel Islands reveal a landscape deliberately organised by its first farming communities. Dolmens on the Cotentin coast, passage graves in Jersey and Guernsey, allées couvertes on the Caen plain, menhirs at territorial boundaries, burial clusters at ritual centres: these were not randomly placed stones but a connected geography of the sacred and the political, stretching from the mainland to the offshore islands. The same sites that Neolithic people chose for their monuments — headlands, river crossings, plateau edges — would be chosen again and again by Celtic chiefs, Roman engineers, Frankish kings, and Norman lords. The first map of Normandy was drawn in stone."
   },
   {
     "id": "neo-arc-bronze-horizon",
-    "en": "By around 2000 BC, the Neolithic world was giving way to something new. Knowledge of metalworking — first copper, then bronze — was spreading from the east and south. The great age of megalith-building was ending, but the monuments remained, silent and enduring. New peoples would arrive, new technologies would transform the economy, and the Channel would become a highway for the tin trade. Yet the dolmens, menhirs, and allées couvertes raised by Normandy's first farmers would still stand — as they stand today — the oldest layer of human memory inscribed on a landscape that would never stop being reshaped."
+    "en": "By around 2000 BC, the Neolithic world was giving way to something new. Knowledge of metalworking — first copper, then bronze — was spreading from the east and south. The great age of megalith-building was ending, but the monuments remained, silent and enduring. New peoples would arrive, new technologies would transform the economy, and the Channel would become a highway for the tin trade. Yet the dolmens, menhirs, and allées couvertes raised by the first farmers of Normandy and the Channel Islands would still stand — as they stand today — the oldest layer of human memory inscribed on a landscape that would never stop being reshaped."
   },
   {
     "id": "bac-arc-channel-highway",
@@ -402,5 +438,29 @@
   {
     "id": "ne-arc-legacy",
     "en": "By the thirteenth century the Norman world was dissolving into larger identities — English, French, Sicilian. Normandy itself was conquered by Philip Augustus in 1204, severing the cross-Channel duchy. Yet Norman legacies endured: common law in England, cathedral architecture from Durham to Monreale, feudal land tenure from Ireland to the Levant, and a diaspora of surnames, charters, and castle ruins stretching across three continents."
+  },
+  {
+    "id": "beat-transatlantic-norman-ports",
+    "en": "By the late fifteenth century, Normandyu2019s Channel ports u2014 Dieppe, Honfleur, Le Havre u2014 had been trading hubs for centuries. The same maritime infrastructure that served Channel commerce now pivoted toward the open Atlantic. Norman fishermen were already crossing to the Grand Banks before any formal French exploration, and merchant families in Rouen began financing voyages that would open a new continent."
+  },
+  {
+    "id": "beat-transatlantic-crossing",
+    "en": "Verrazzano sailed from Dieppe in 1524, charting the North American coast. Cartier followed from Saint-Malo in 1534, opening the St. Lawrence gateway. These voyages launched from the same Norman and Breton ports that had anchored Channel trade for centuries u2014 the beginning of a transatlantic story that would reshape both continents."
+  },
+  {
+    "id": "beat-transatlantic-quebec-founding",
+    "en": "Champlain founded Québec in 1608, and settlers arrived in trickles u2014 many from Normandy and the Perche. Guillaume Couture, Zacharie Cloutier, Jean Gagnon, the Langlois and Boucher families: Norman-origin surnames that would become the founding lineages of French Canada. The Beaupré coast and Île du2019Orléans became their new Norman landscape along the St. Lawrence."
+  },
+  {
+    "id": "beat-transatlantic-acadia",
+    "en": "Port-Royal in Acadia became the French Atlanticu2019s secondary anchor u2014 a farming and fishing community that developed its own distinct identity. Many Acadian families traced their origins through the same Norman port networks that fed the St. Lawrence colony. When France lost Acadia to Britain in 1713, the Acadiansu2019 Norman surnames endured through expulsion and resettlement."
+  },
+  {
+    "id": "beat-transatlantic-mississippi",
+    "en": "René-Robert Cavelier de La Salle, born in Rouen, descended the full Mississippi to the Gulf of Mexico in 1682 and claimed the entire basin for France as \"Louisiana.\" A single Norman explorer stretched French territory from the Gulf of St. Lawrence to the Gulf of Mexico u2014 the most dramatic expansion in New Franceu2019s history."
+  },
+  {
+    "id": "beat-transatlantic-endurance",
+    "en": "The Treaty of Paris in 1763 ended French sovereignty over New France. But the sixty thousand French-Canadian inhabitants u2014 Couture, Gagnon, Tremblay, Boucher, Langlois, Cloutier, Pelletier, Fournier u2014 remained. Their Norman surnames, their language, and their identity survived the change of empire. Today millions of Québécois carry names that trace directly back to the ports of Normandy."
   }
 ]

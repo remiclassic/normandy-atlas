@@ -20,6 +20,23 @@ export const atlasRegions: AtlasRegion[] = [
     },
   },
   {
+    id: 'channel-islands-neolithic',
+    name: { en: 'Channel Islands', fr: 'Îles Anglo-Normandes', it: 'Isole del Canale' },
+    layer: 'europe',
+    geometryRef: 'region-channel-islands-neolithic',
+    eraStates: {
+      'neolithic-normandy': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
+      'bronze-age-channel': { visibility: 'faded', borderStyle: 'soft', fillIntent: 'culture' },
+    },
+    narrativeByEra: {
+      'neolithic-normandy': {
+        en: 'The Channel Islands shared the same Atlantic-facing megalithic world as the Cotentin coast. Passage graves such as La Hougue Bie in Jersey rank among the finest Neolithic monuments in western Europe.',
+        fr: 'Les îles Anglo-Normandes participaient au même monde mégalithique atlantique que la côte du Cotentin. Des tombes à couloir comme La Hougue Bie à Jersey comptent parmi les plus beaux monuments néolithiques d\'Europe occidentale.',
+        it: 'Le Isole del Canale condividevano lo stesso mondo megalitico atlantico della costa del Cotentin. Tombe a corridoio come La Hougue Bie a Jersey figurano tra i più bei monumenti neolitici dell\'Europa occidentale.',
+      },
+    },
+  },
+  {
     id: 'channel-trade-zone',
     name: { en: 'Channel Trade Corridor', fr: 'Corridor commercial de la Manche', it: 'Corridoio commerciale della Manica' },
     layer: 'europe',
