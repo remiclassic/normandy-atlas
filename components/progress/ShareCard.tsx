@@ -7,6 +7,7 @@ import { t } from '@/lib/ui-strings';
 import type { UiStringKey } from '@/lib/ui-strings';
 import type { AtlasRole } from '@/hooks/useAtlasProgress';
 import { shareOrCopy, buildPublicShareUrl } from '@/lib/progress/share';
+import { atlasMilestones } from '@/data/atlas/milestones';
 
 const ROLE_STRING_KEYS: Record<AtlasRole, UiStringKey> = {
   explorer: 'ledger.role.explorer',
@@ -27,9 +28,10 @@ function ShareCard() {
 
   const handleShare = useCallback(async () => {
     const url = buildPublicShareUrl({});
+    const T = stats.coverageTotals;
     await shareOrCopy({
       title: 'Norman Atlas',
-      text: `I explored ${stats.places} places, ${stats.journeys} journeys, and ${stats.eras} eras on the Norman Atlas.`,
+      text: `I explored ${stats.places}/${T.places} places, ${stats.journeys}/${T.journeys} journeys, and ${stats.eras}/${T.eras} eras on the Norman Atlas.`,
       url,
     });
   }, [stats]);
@@ -49,11 +51,11 @@ function ShareCard() {
           {t(ROLE_STRING_KEYS[role], locale)}
         </p>
         <div className="grid grid-cols-2 gap-x-5 gap-y-1 mt-3">
-          <StatLine label={t('ledger.places', locale)} value={stats.places} />
-          <StatLine label={t('ledger.journeys', locale)} value={stats.journeys} />
-          <StatLine label={t('ledger.eras', locale)} value={stats.eras} />
-          <StatLine label={t('ledger.stories', locale)} value={stats.storiesCompleted} />
-          <StatLine label={t('ledger.milestones', locale)} value={stats.milestonesUnlocked} />
+          <StatLine label={t('ledger.places', locale)} current={stats.places} total={stats.coverageTotals.places} />
+          <StatLine label={t('ledger.journeys', locale)} current={stats.journeys} total={stats.coverageTotals.journeys} />
+          <StatLine label={t('ledger.eras', locale)} current={stats.eras} total={stats.coverageTotals.eras} />
+          <StatLine label={t('ledger.stories', locale)} current={stats.storiesCompleted} total={stats.coverageTotals.stories} />
+          <StatLine label={t('ledger.milestones', locale)} current={stats.milestonesUnlocked} total={atlasMilestones.length} />
         </div>
       </div>
       <button
@@ -66,11 +68,13 @@ function ShareCard() {
   );
 }
 
-function StatLine({ label, value }: { label: string; value: number }) {
+function StatLine({ label, current, total }: { label: string; current: number; total: number }) {
   return (
     <div className="flex items-center justify-between">
       <span className="text-[11px] text-text-dim">{label}</span>
-      <span className="text-[12px] font-semibold text-parchment tabular-nums">{value}</span>
+      <span className="text-[12px] font-semibold text-parchment tabular-nums">
+        {current}/{total}
+      </span>
     </div>
   );
 }

@@ -37,11 +37,13 @@ const CATEGORY_LABELS: Record<MilestoneCategory, { en: string; fr: string }> = {
   cartography: { en: 'Cartography', fr: 'Cartographie' },
 };
 
-function StatRow({ label, value }: { label: string; value: number }) {
+function StatRow({ label, current, total }: { label: string; current: number; total: number }) {
   return (
     <div className="flex items-center justify-between py-1.5">
       <span className="text-[12px] text-text-muted">{label}</span>
-      <span className="text-[13px] font-semibold text-parchment tabular-nums">{value}</span>
+      <span className="text-[13px] font-semibold text-parchment tabular-nums">
+        {current}/{total}
+      </span>
     </div>
   );
 }
@@ -62,6 +64,7 @@ function TierBadge({ tier }: { tier: number }) {
 const CoverageSection = memo(function CoverageSection({ locale }: { locale: AtlasLocale }) {
   const stats = useLedgerStats();
   const role = useInferredRole();
+  const T = stats.coverageTotals;
 
   return (
     <div>
@@ -74,12 +77,12 @@ const CoverageSection = memo(function CoverageSection({ locale }: { locale: Atla
         </span>
       </div>
       <div className="space-y-0">
-        <StatRow label={t('ledger.places', locale)} value={stats.places} />
-        <StatRow label={t('ledger.regions', locale)} value={stats.regions} />
-        <StatRow label={t('ledger.journeys', locale)} value={stats.journeys} />
-        <StatRow label={t('ledger.segments', locale)} value={stats.segments} />
-        <StatRow label={t('ledger.eras', locale)} value={stats.eras} />
-        <StatRow label={t('ledger.stories', locale)} value={stats.storiesCompleted} />
+        <StatRow label={t('ledger.places', locale)} current={stats.places} total={T.places} />
+        <StatRow label={t('ledger.regions', locale)} current={stats.regions} total={T.regions} />
+        <StatRow label={t('ledger.journeys', locale)} current={stats.journeys} total={T.journeys} />
+        <StatRow label={t('ledger.segments', locale)} current={stats.segments} total={T.segments} />
+        <StatRow label={t('ledger.eras', locale)} current={stats.eras} total={T.eras} />
+        <StatRow label={t('ledger.stories', locale)} current={stats.storiesCompleted} total={T.stories} />
       </div>
     </div>
   );

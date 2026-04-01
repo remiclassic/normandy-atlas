@@ -9,8 +9,11 @@ import {
   countDistinctSegments,
   countErasVisited,
   type ProgressV2,
-  type Aggregates,
 } from '@/lib/progress';
+import {
+  LEDGER_COVERAGE_TOTALS,
+  type LedgerCoverageTotals,
+} from '@/lib/atlas-ledger-totals';
 
 // ---------------------------------------------------------------------------
 // Lightweight subscription to the progress blob — avoids coupling the map
@@ -58,6 +61,7 @@ export interface LedgerStats {
   storiesCompleted: number;
   milestonesUnlocked: number;
   totalDwellMs: number;
+  coverageTotals: LedgerCoverageTotals;
 }
 
 export function useLedgerStats(): LedgerStats {
@@ -73,6 +77,7 @@ export function useLedgerStats(): LedgerStats {
       storiesCompleted: Object.values(story).filter((r) => r.completed).length,
       milestonesUnlocked: Object.keys(milestones).length,
       totalDwellMs: aggregates.totalSessionMs,
+      coverageTotals: LEDGER_COVERAGE_TOTALS,
     };
   }, [progress]);
 }

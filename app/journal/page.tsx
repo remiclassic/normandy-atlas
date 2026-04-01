@@ -153,19 +153,19 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
               {([
-                ['ledger.places', stats.places],
-                ['ledger.regions', stats.regions],
-                ['ledger.journeys', stats.journeys],
-                ['ledger.segments', stats.segments],
-                ['ledger.eras', stats.eras],
-                ['ledger.stories', stats.storiesCompleted],
-              ] as const).map(([key, val]) => (
+                ['ledger.places', stats.places, stats.coverageTotals.places],
+                ['ledger.regions', stats.regions, stats.coverageTotals.regions],
+                ['ledger.journeys', stats.journeys, stats.coverageTotals.journeys],
+                ['ledger.segments', stats.segments, stats.coverageTotals.segments],
+                ['ledger.eras', stats.eras, stats.coverageTotals.eras],
+                ['ledger.stories', stats.storiesCompleted, stats.coverageTotals.stories],
+              ] as const).map(([key, cur, tot]) => (
                 <div key={key} className="flex items-center justify-between">
                   <span className="text-[12px]" style={{ color: 'var(--color-text-muted)' }}>
                     {t(key, locale)}
                   </span>
                   <span className="text-[13px] font-semibold tabular-nums" style={{ color: 'var(--color-parchment)' }}>
-                    {val}
+                    {cur}/{tot}
                   </span>
                 </div>
               ))}
