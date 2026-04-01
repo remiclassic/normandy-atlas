@@ -60,14 +60,14 @@ export default function CinematicFlythroughBar() {
             className={
               isMobile
                 ? 'relative z-20 w-full flex flex-col gap-3 pointer-events-auto'
-                : 'absolute bottom-20 left-1/2 -translate-x-1/2 z-40 flex flex-row items-center gap-2 px-3 w-auto max-w-[calc(100vw-24px)] pointer-events-auto'
+                : 'pointer-events-auto absolute inset-x-3 bottom-20 z-40 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-2.5 sm:inset-x-4'
             }
           >
             {visiblePresets.map((p) => (
               <button
                 key={p.id}
                 onClick={() => handleStart(p.id)}
-                className="group flex min-h-[44px] shrink-0 items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-left text-[12px] font-medium text-text-muted hover:text-parchment transition-all duration-250 border-border hover:border-gold/25 w-full sm:w-auto sm:min-h-0 sm:text-center touch-target"
+                className="group flex min-h-[44px] min-w-0 max-w-full items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-left text-[12px] font-medium text-text-muted hover:text-parchment transition-all duration-250 border-border hover:border-gold/25 w-full sm:max-w-[min(100%,24rem)] sm:w-auto sm:min-h-0 sm:text-center touch-target"
               >
                 <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gold/8 group-hover:bg-gold/15 transition-colors duration-200">
                   <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
