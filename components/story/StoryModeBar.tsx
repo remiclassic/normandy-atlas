@@ -15,6 +15,7 @@ import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
 import { emitProgressEvent } from '@/lib/progress';
+import StoryBeatIllustration from './StoryBeatIllustration';
 
 export default function StoryModeBar() {
   const storyMode = useMapStore((s) => s.storyMode);
@@ -255,6 +256,11 @@ export default function StoryModeBar() {
                       exit={{ opacity: 0, x: -24 }}
                       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                     >
+                      {currentBeat?.illustration && (
+                        <div className="mb-3">
+                          <StoryBeatIllustration illustration={currentBeat.illustration} locale={locale} />
+                        </div>
+                      )}
                       {stepChapter && (
                         <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50 mb-1.5">
                           {stepChapter}

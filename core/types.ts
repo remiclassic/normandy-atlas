@@ -180,6 +180,12 @@ export interface StoryBeatPresentation {
   pulse: PulseTarget[];
 }
 
+export interface StoryBeatIllustration {
+  src: string;
+  alt: I18nString;
+  credit?: I18nString;
+}
+
 export interface StoryBeat {
   id: string;
   eraId: string;
@@ -194,6 +200,8 @@ export interface StoryBeat {
   anchorYear?: number;
   /** Optional arc tag for filtering beats into thematic sub-stories. */
   arcId?: string;
+  /** Optional artwork shown in the story bar for this beat. */
+  illustration?: StoryBeatIllustration;
 }
 
 // --- Timeline Markers ---

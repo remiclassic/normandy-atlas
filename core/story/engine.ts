@@ -1,4 +1,5 @@
 import { atlasStoryBeats } from '@/data/atlas/story-beats';
+import { STORY_BEAT_ILLUSTRATIONS } from '@/data/atlas/story-beat-illustrations';
 import { getEraRange } from '@/core/era/engine';
 import { getPlace, getPlaceCoords } from '@/core/places/engine';
 import { getAtlasRegion } from '@/core/regions/engine';
@@ -32,7 +33,10 @@ export function getStoryBeats(arcId?: string | null): StoryBeat[] {
     ? [...atlasStoryBeats]
     : atlasStoryBeats.filter((b) => b.arcId === arcId);
   list.sort(compareStoryBeatsChronologically);
-  return list;
+  return list.map((b) => {
+    const ill = STORY_BEAT_ILLUSTRATIONS[b.id];
+    return ill ? { ...b, illustration: ill } : b;
+  });
 }
 
 export function getBeat(index: number, arcId?: string | null): StoryBeat | undefined {

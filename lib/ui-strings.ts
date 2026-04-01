@@ -319,6 +319,18 @@ const STRINGS = {
     es: 'Finalizar',
     it: 'Fine',
   },
+  'story.illustration.enlarge': {
+    en: 'Enlarge image',
+    fr: 'Agrandir l\'image',
+    es: 'Ampliar imagen',
+    it: 'Ingrandisci immagine',
+  },
+  'story.illustration.close': {
+    en: 'Close',
+    fr: 'Fermer',
+    es: 'Cerrar',
+    it: 'Chiudi',
+  },
 
   // --- Story library panel ---
   'storyLibrary.tooltip.label': {
