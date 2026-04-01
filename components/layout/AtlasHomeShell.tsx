@@ -14,6 +14,7 @@ import MigrationExplorerPanel from '@/components/panels/MigrationExplorerPanel';
 import HistoricalDetailPanel from '@/components/panels/HistoricalDetailPanel';
 import StoryModeBar from '@/components/story/StoryModeBar';
 import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
+import StoryEraIntroOverlay from '@/components/story/StoryEraIntroOverlay';
 import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
@@ -541,6 +542,7 @@ export default function AtlasHomeShell() {
       <CuratorToast />
       <MilestoneCelebrationModal />
       <LedgerRecordedOverlay />
+      <StoryEraIntroOverlay />
       <SessionGuard />
     </div>
   );
