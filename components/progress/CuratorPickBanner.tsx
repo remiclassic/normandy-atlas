@@ -16,7 +16,13 @@ function CuratorPickBanner({ onNavigate }: { onNavigate?: () => void }) {
 
     if (dl.era) setEra(dl.era);
 
-    if (dl.place) selectFeature(dl.place, 'settlement');
+    if (dl.vikingAdna) {
+      useMapStore.getState().setLayerVisibility('viking-adna-burials', true);
+      selectFeature(dl.vikingAdna, 'viking-adna-site');
+    } else if (dl.vikingArch) {
+      useMapStore.getState().setLayerVisibility('viking-archaeology-sites', true);
+      selectFeature(dl.vikingArch, 'viking-archaeology-site');
+    } else if (dl.place) selectFeature(dl.place, 'settlement');
     else if (dl.region) selectFeature(dl.region, 'region');
     else if (dl.segment) selectFeature(dl.segment, 'atlas-route');
     else if (dl.journey) selectFeature(dl.journey, 'atlas-journey');

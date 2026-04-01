@@ -19,7 +19,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie JUHE",
         "yHaplogroup": "R1b-FT67458",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -41,7 +43,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Guillemette VEILLON",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -63,7 +67,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine de CORDAY [+1]",
         "yHaplogroup": "R1b-FTE36144",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -85,7 +91,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Julienne BARIL",
         "yHaplogroup": "E1b-BY54742",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -107,7 +115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne d'AUTRICHE",
         "yHaplogroup": "R1b-Z381",
         "yMajor": "R1b",
-        "excludeFromMap": true
+        "excludeFromMap": true,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -129,7 +139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine ROBIN",
         "yHaplogroup": "R1b-A1090",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -151,7 +163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Sainte DUPONT",
         "yHaplogroup": "G2-BY196985",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -173,7 +187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Francoise TOURAULT",
         "yHaplogroup": "R1b-Y3141/FGC12378",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -195,7 +211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Guillemette HEBERT",
         "yHaplogroup": "G-M201",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -217,7 +235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne COUVENT",
         "yHaplogroup": "J2-FT19666",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -239,7 +259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe MAUGER [+1]",
         "yHaplogroup": "R1b-FT263732",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -261,7 +283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne DUBREUIL",
         "yHaplogroup": "R1b-FGC18233",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -283,7 +307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte MAUGIS",
         "yHaplogroup": "R1b-FT397034",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -305,7 +331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe GUYON",
         "yHaplogroup": "R1b-Z295",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -327,7 +355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GRIMOUT",
         "yHaplogroup": "E1b-V22/L677",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -349,7 +379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise GRENIER ou GARNIER",
         "yHaplogroup": "R1b-FTB59434",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -371,7 +403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne MARTIN",
         "yHaplogroup": "J2-FT245329/FT370515",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -393,7 +427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GUYON",
         "yHaplogroup": "I1-FTC28328",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -415,7 +451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise MERY",
         "yHaplogroup": "R1b-CTS9881",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -437,7 +475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CREVET",
         "yHaplogroup": "I2-Y103977",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -459,7 +499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne FAUMOLEAU [+2]",
         "yHaplogroup": "R1b-Z17651",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -481,7 +523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Vincente BEAUMONT [+1]",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -503,7 +547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine GAUTHIER",
         "yHaplogroup": "R1b-Y62084",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -525,7 +571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MICHEL [+1]",
         "yHaplogroup": "R1b-FTB62462",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -547,7 +595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MARTIN",
         "yHaplogroup": "R1b-FTA73557",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -569,7 +619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine VALET",
         "yHaplogroup": "R1b-S18823",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -591,7 +643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne MERCIER",
         "yHaplogroup": "R1b-BY62927",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -613,7 +667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine GOUGET",
         "yHaplogroup": "R1b-BY68262",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -635,7 +691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Sebastienne GUERRY",
         "yHaplogroup": "R1b-Z198",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -657,7 +715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite CAUCHON [+2]",
         "yHaplogroup": "R1b-Z21475",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -679,7 +739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Hélène DESPORTES",
         "yHaplogroup": "G2-FTA3092",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -701,7 +763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Michelle AUCOIN",
         "yHaplogroup": "R1b-S8469",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -723,7 +787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOISDON",
         "yHaplogroup": "G2-Z727",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -745,7 +811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Radegonde LAMBERT",
         "yHaplogroup": "I1-L338/S1954",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -767,7 +835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Antoinette LANDRY",
         "yHaplogroup": "R1b-FT36442",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -789,7 +859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne TRAHAN",
         "yHaplogroup": "R1b-FTA73560",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -811,7 +883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Martine GAUTHIER",
         "yHaplogroup": "G2-YP786",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -833,7 +907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite TAVERNIER",
         "yHaplogroup": "R1b-S4031",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -855,7 +931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline CHAMBOY",
         "yHaplogroup": "R1b-S1855",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -877,7 +955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie OLIVIER",
         "yHaplogroup": "R1a-Y23598",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -899,7 +979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Huguette ROBERT [+1]",
         "yHaplogroup": "E1b-BY160511",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -921,7 +1003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MULIER",
         "yHaplogroup": "R1b-BY73629",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -943,7 +1027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUCHER",
         "yHaplogroup": "R1b-Z214",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -965,7 +1051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BOUCHER",
         "yHaplogroup": "I1-FGC21980",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -987,7 +1075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Adrienne DUVIVIER",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1009,7 +1099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Perrine BOURG [+2]",
         "yHaplogroup": "R1b-BY53580",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1031,7 +1123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne AUNEAU ou NOUNAU",
         "yHaplogroup": "R1b-BY3299",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1053,7 +1147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne MECHIN",
         "yHaplogroup": "I2-A427",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -1075,7 +1171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie TAVERNIER",
         "yHaplogroup": "J2-Z7675",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1097,7 +1195,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Sébastienne VEILLON",
         "yHaplogroup": "R1b-BY106832",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1119,7 +1219,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LENEUF du HERISSON",
         "yHaplogroup": "R1b-BY160947",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1141,7 +1243,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Edmée LEJEUNE",
         "yHaplogroup": "J2-Z631",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1163,7 +1267,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BENARD [+2]",
         "yHaplogroup": "R1b-FTA27626",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1185,7 +1291,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DOUCET",
         "yHaplogroup": "J2-Z15977",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1207,7 +1315,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise CLOUTIER",
         "yHaplogroup": "R1b-ZZ12_1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1229,7 +1339,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Guillemette ROLLEVILLE",
         "yHaplogroup": "R1b-FT364911",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1251,7 +1363,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe EMARD",
         "yHaplogroup": "R1b-S22047",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1273,7 +1387,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 ARCHAMBAULT",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1295,7 +1411,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne EMARD",
         "yHaplogroup": "R1b-FT421641",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1317,7 +1435,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHAPELIER",
         "yHaplogroup": "R1b-FT188522",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1339,7 +1459,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève LEFRANC [+1]",
         "yHaplogroup": "R1b-BY31006",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1361,7 +1483,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne BEDFORD ou BETFER",
         "yHaplogroup": "J2-Y416681",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1383,7 +1507,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine ELIE",
         "yHaplogroup": "E1b-Y260948",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1405,7 +1531,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LANGLOIS",
         "yHaplogroup": "R1b-S14445",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1427,7 +1555,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Pasquière LEFEBVRE",
         "yHaplogroup": "R1b-S16264",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1449,7 +1579,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GUILLEBOURDAY",
         "yHaplogroup": "R1b-FT89604",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1471,7 +1603,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Rose BAYON",
         "yHaplogroup": "R1b-FTF66124",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1493,7 +1627,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marthe GAGNON",
         "yHaplogroup": "R1b-FTA2348",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1515,7 +1651,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": ".. DOUCET",
         "yHaplogroup": "R1b-FT43232",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1537,7 +1675,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise BOUCHER dit PLANTE",
         "yHaplogroup": "E1b-FT209875",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1559,7 +1699,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BENARD",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1581,7 +1723,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise HEBERT",
         "yHaplogroup": "R1b-S21184",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1603,7 +1747,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise GAUDET",
         "yHaplogroup": "R1b-FT55255",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1625,7 +1771,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Rose STOUGHTON [+2]",
         "yHaplogroup": "I1-BY332",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1647,7 +1795,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BRETON",
         "yHaplogroup": "R1b-Z156",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1669,7 +1819,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LEJEUNE",
         "yHaplogroup": "R1b-FT397291",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1691,7 +1843,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CREVIER",
         "yHaplogroup": "E1b-FTC75225",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1713,7 +1867,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne Michelle GARNIER",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1735,7 +1891,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MARSOLET",
         "yHaplogroup": "R1b-Z346",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1757,7 +1915,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne AYOT",
         "yHaplogroup": "E1b-MZ49",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1779,7 +1939,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève GAMACHE",
         "yHaplogroup": "R1b-BY67350",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1801,7 +1963,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Aimée MIVILLE",
         "yHaplogroup": "E1b-CTS5856",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1823,7 +1987,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite SEVESTRE",
         "yHaplogroup": "R1b-FT236025",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1845,7 +2011,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine SAINT-PERE",
         "yHaplogroup": "R1b-BY73356",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1867,7 +2035,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine LEROUX",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1889,7 +2059,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise PELLETIER",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1911,7 +2083,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LEVASSEUR",
         "yHaplogroup": "I1-FT155524",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1933,7 +2107,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine MARTIN",
         "yHaplogroup": "I2-S18042",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -1955,7 +2131,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise LELIEVRE",
         "yHaplogroup": "R1b-FGC22538",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1977,7 +2155,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BITOUSET",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -1999,7 +2179,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise MARSOLET",
         "yHaplogroup": "R1b-FTF92456",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2021,7 +2203,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LANGLOIS",
         "yHaplogroup": "R1b-CTS278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2043,7 +2227,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève LONGCHAMP",
         "yHaplogroup": "G2-CTS9737",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2065,7 +2251,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise GAGNE",
         "yHaplogroup": "R1b-CTS12023/DF95",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2087,7 +2275,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GAULIN",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2109,7 +2299,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GODARD",
         "yHaplogroup": "R1b-Z156",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2131,7 +2323,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 POULIN",
         "yHaplogroup": "R1b-FT353555",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2153,7 +2347,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BADEAU",
         "yHaplogroup": "R1b-S18823",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2175,7 +2371,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Michelle LEFLOT",
         "yHaplogroup": "R1b-FTA94241",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2197,7 +2395,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BAUDARD",
         "yHaplogroup": "R1a-Z282",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -2219,7 +2419,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine BOUCHER",
         "yHaplogroup": "I1-FT5507",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2241,7 +2443,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise BENARD",
         "yHaplogroup": "R1b-BY33995",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2263,7 +2467,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne JAROUSSEL",
         "yHaplogroup": "R1b-FTC9693",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2285,7 +2491,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CHAVERLANGE",
         "yHaplogroup": "I1-S7660",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2307,7 +2515,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine FRANCOIS",
         "yHaplogroup": "R1b-BY64632",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2329,7 +2539,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite THOMAS",
         "yHaplogroup": "R1b-Z16868",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2351,7 +2563,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PARADIS",
         "yHaplogroup": "R1B-FT224301",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2373,7 +2587,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DARDENNE",
         "yHaplogroup": "J2-Y4493",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2395,7 +2611,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Antoinette GRENIER ou GARNIER",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2417,7 +2635,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GARNIER",
         "yHaplogroup": "R1b-CTS4299",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2439,7 +2659,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FOUBERT",
         "yHaplogroup": "I2-S2606",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -2461,7 +2683,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Marthe HUBERT",
         "yHaplogroup": "R1b-CTS6519",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2483,7 +2707,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUCHER",
         "yHaplogroup": "I1-BY34679",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2505,7 +2731,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise GARNIER",
         "yHaplogroup": "R1b-FTC38395",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2527,7 +2755,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LAURENCE",
         "yHaplogroup": "R1b-Z2247",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2549,7 +2779,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie2 ARCHAMBAULT",
         "yHaplogroup": "R1b-FTB35162",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2571,7 +2803,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GODIN",
         "yHaplogroup": "R1b-BY41645",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2593,7 +2827,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHASTEIGNE",
         "yHaplogroup": "R1b-CTS5601/S3933",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2615,7 +2851,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LELABOUREUR",
         "yHaplogroup": "R1b-DF13/CTS241",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2637,7 +2875,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie POUPONNELLE",
         "yHaplogroup": "L1-M349",
         "yMajor": "L",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -2659,7 +2899,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine BLANCHARD",
         "yHaplogroup": "R1b-FT137222",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2681,7 +2923,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise GRENIER ou GARNIER",
         "yHaplogroup": "R1b-Z34",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2703,7 +2947,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie HARMANS",
         "yHaplogroup": "R1b-DF96",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2725,7 +2971,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline ROULOIS",
         "yHaplogroup": "R1b-Z30",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2747,7 +2995,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PARENTEAU [+2]",
         "yHaplogroup": "R1b-BY67385",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2769,7 +3019,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie OUDIN ou HOUDIN",
         "yHaplogroup": "R1b-SRY2627/M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2791,7 +3043,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Nicole DUCHESNE",
         "yHaplogroup": "R1b-FT79092",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2813,7 +3067,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine FORESTIER ou FORTIER",
         "yHaplogroup": "R1b-FT136227",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2835,7 +3091,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LEDET",
         "yHaplogroup": "E1b-FT127844",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2857,7 +3115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Ozanne ACHON",
         "yHaplogroup": "R1b-FT202318",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2879,7 +3139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth GOBINET",
         "yHaplogroup": "I2-BY1183",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -2901,7 +3163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FERRA",
         "yHaplogroup": "R1b-CTS6889",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2923,7 +3187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine GIRARD",
         "yHaplogroup": "R1b-BY186433",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2945,7 +3211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BLANQUET",
         "yHaplogroup": "R1b-ZZ12_1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2967,7 +3235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine TRIO",
         "yHaplogroup": "E1b-CTS5856",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -2989,7 +3259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LELIEVRE",
         "yHaplogroup": "I1-FTC76688",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3011,7 +3283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LANDRY [+1]",
         "yHaplogroup": "R1b-Z211",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3033,7 +3307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée LOPPE",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3055,7 +3331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Perrine MOREAU",
         "yHaplogroup": "R1b-SRY2627/M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3077,7 +3355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne D'ANNEVILLE",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3099,7 +3379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth CAMUS",
         "yHaplogroup": "R1b-A2150",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3121,7 +3403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine CHARLES",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3143,7 +3427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Gabrielle BARRÉ",
         "yHaplogroup": "R1b-FGC11134",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3165,7 +3451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DUTEAU",
         "yHaplogroup": "R1b-FT2901",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3187,7 +3475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne DROUIN",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3209,7 +3499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GUERIC",
         "yHaplogroup": "I1-BY35233",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3231,7 +3523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie TESTE",
         "yHaplogroup": "R1b-FTC22536",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3253,7 +3547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie de RAINVILLE",
         "yHaplogroup": "I1-FT98068",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3275,7 +3571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Henriette PELLETRET",
         "yHaplogroup": "R1b-FT413594",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3297,7 +3595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie HALLE",
         "yHaplogroup": "R1b-BY17936",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3319,7 +3619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise CAPET ou CAPELLE",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3341,7 +3643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne OUESTNOROUEST dit PETITOUS",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3363,7 +3667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée GAGNON",
         "yHaplogroup": "R1b-BY152471",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3385,7 +3691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Denise LEMAITRE",
         "yHaplogroup": "R1b-FTD66390",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3407,7 +3715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne SOYER",
         "yHaplogroup": "G-M201",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3429,7 +3739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne THERIAULT",
         "yHaplogroup": "R1b-FT273461",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3451,7 +3763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BITOUSET [+1]",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3473,7 +3787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie SÉDILOT",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3495,7 +3811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOURG",
         "yHaplogroup": "R1b-BY60576",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3517,7 +3835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe Delphine TARDIF",
         "yHaplogroup": "R1b-BY189199",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3539,7 +3859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MESANGE",
         "yHaplogroup": "R1b-Z367",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3561,7 +3883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine IVORY",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3583,7 +3907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne DELAUNAY",
         "yHaplogroup": "R1b-FGC30145",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3605,7 +3931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MARTIN",
         "yHaplogroup": "J1-ZS4377",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3627,7 +3955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine RACINE",
         "yHaplogroup": "R1b-A30787",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3649,7 +3979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève MEZERAY",
         "yHaplogroup": "I2-FTE89103",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -3671,7 +4003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GAUTREAU",
         "yHaplogroup": "R1b-FT41172",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3693,7 +4027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne RENAUD",
         "yHaplogroup": "R1b-FT94529",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3715,7 +4051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Perrine THERRIEN [+1]",
         "yHaplogroup": "G2-BY28016",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3737,7 +4075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MERCIER",
         "yHaplogroup": "G2-Z44691",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3759,7 +4099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne POIRIAU",
         "yHaplogroup": "J1-FGC8223",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3781,7 +4123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie TROTTAIN",
         "yHaplogroup": "I1-Y91123",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3803,7 +4147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne TETARD",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3825,7 +4171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne HARDY",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3847,7 +4195,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marthe de RAINVILLE",
         "yHaplogroup": "R1b-Z8",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3869,7 +4219,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne GODARD",
         "yHaplogroup": "R1b-CTS10558",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3891,7 +4243,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GIRAUD",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3913,7 +4267,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LAFAILLE",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3935,7 +4291,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte CHAUVIN",
         "yHaplogroup": "R1b-L20",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3957,7 +4315,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine PAULO dit CORDETELLE",
         "yHaplogroup": "R1b-BY56943",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -3979,7 +4339,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MAZOUE",
         "yHaplogroup": "R1b-CTS241",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4001,7 +4363,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline FRELON",
         "yHaplogroup": "R1b-Z2534",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4023,7 +4387,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne GARNIER",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4045,7 +4411,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise LEBORGNE dit GAUSSE",
         "yHaplogroup": "J1-FTA91911",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4067,7 +4435,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine DUPUIS",
         "yHaplogroup": "R1a-FTD37322",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -4089,7 +4459,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine MARECOT",
         "yHaplogroup": "R1b-Z8",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4111,7 +4483,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Noëlle LANDEAU",
         "yHaplogroup": "R1b-Z208",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4133,7 +4507,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LEFEBVRE",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4155,7 +4531,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine JUILLET",
         "yHaplogroup": "R1b-L165",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4177,7 +4555,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Madeleine BOUTET",
         "yHaplogroup": "J2-M67",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4199,7 +4579,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Etiennette FAFARD",
         "yHaplogroup": "I1-Y3664",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4221,7 +4603,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne VEZINA",
         "yHaplogroup": "R1a-YP237",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -4243,7 +4627,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BERNARD",
         "yHaplogroup": "G2-FT104375",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4265,7 +4651,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Hélène DODIN",
         "yHaplogroup": "R1b-DF88",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4287,7 +4675,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 LANDRY",
         "yHaplogroup": "C2-Z30754",
         "yMajor": "C",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -4309,7 +4699,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GAUTREAU",
         "yHaplogroup": "R1b-FT128961",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4331,7 +4723,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Denise SAVARD",
         "yHaplogroup": "R1b-Z34",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4353,7 +4747,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise VEZINA",
         "yHaplogroup": "R1b-FTA30179",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4375,7 +4771,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise GARGOTIN",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4397,7 +4795,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GAILLARD dit DUPLESSIS",
         "yHaplogroup": "R1b-BY105880",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4419,7 +4819,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Pierrette VALLEE",
         "yHaplogroup": "I2-BY68142",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -4441,7 +4843,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Claude LAFONTAINE de CHEVRAINVILLE",
         "yHaplogroup": "G2-FT106898",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4463,7 +4867,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise PILOIS ou PITIE",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4485,7 +4891,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine PILLAT dit CHARON",
         "yHaplogroup": "R1b-FTA15886",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4507,7 +4915,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MEUNIER",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4529,7 +4939,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline NERON ou HERON",
         "yHaplogroup": "J2-BY46447",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4551,7 +4963,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne MAGNAN",
         "yHaplogroup": "R1b-FGC15710",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4573,7 +4987,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Denise DAMANEE",
         "yHaplogroup": "R1b-P312",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4595,7 +5011,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BEAUREGARD (de)",
         "yHaplogroup": "R1b-BY54766",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4617,7 +5035,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Thérèse MIGNEAULT",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4639,7 +5059,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MIUS, MELANCON, Charles m 1663 Marie DUGAS",
         "yHaplogroup": "R1b-PH312",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4661,7 +5083,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne COUTURE",
         "yHaplogroup": "R1b-L1066.1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4683,7 +5107,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite ABRAHAM",
         "yHaplogroup": "R1b-Z295",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4705,7 +5131,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Thérèse LEBLANC",
         "yHaplogroup": "R1b-A432",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4727,7 +5155,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Isabelle DOUCINET",
         "yHaplogroup": "E1b-BY56816",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4749,7 +5179,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MANIE ou MAGNIER",
         "yHaplogroup": "E1b-BY1098",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4771,7 +5203,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 GAUDET",
         "yHaplogroup": "R1b-BY107022",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4793,7 +5227,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite CARDILLON",
         "yHaplogroup": "G2-BY197853",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4815,7 +5251,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine RIVET",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4837,7 +5275,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie HEBERT",
         "yHaplogroup": "R1b-BY189775",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4859,7 +5299,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne PELLETRET",
         "yHaplogroup": "R1b-FTD73580",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4881,7 +5323,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne RIVET",
         "yHaplogroup": "J2-BY65661",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4903,7 +5347,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOURGERY",
         "yHaplogroup": "R1b-FGC10536",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4925,7 +5371,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Andree REMONDIERE",
         "yHaplogroup": "R1b-CTS8125",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4947,7 +5395,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine BRUN",
         "yHaplogroup": "R1b-BY34988",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4969,7 +5419,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BONHOMME",
         "yHaplogroup": "R1b-BY3592",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -4991,7 +5443,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BOURGEOIS",
         "yHaplogroup": "R1a-Y57",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -5013,7 +5467,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BASSET",
         "yHaplogroup": "R1b-L165",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5035,7 +5491,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MACLIN",
         "yHaplogroup": "E1b-BY160511",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5057,7 +5515,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BLANCHARD",
         "yHaplogroup": "R1b-A1105",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5079,7 +5539,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine VIEILLOT",
         "yHaplogroup": "R1b-CTS6889",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5101,7 +5563,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUCHER",
         "yHaplogroup": "R1b-MF642302",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5123,7 +5587,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne DURAND",
         "yHaplogroup": "R1b-FGC13552",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5145,7 +5611,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie2 LANDRY",
         "yHaplogroup": "R1b-FGC11859",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5167,7 +5635,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUAT",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5189,7 +5659,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie SELLE",
         "yHaplogroup": "J2-FT202445",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5211,7 +5683,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine GOARD",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5233,7 +5707,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ASSELIN ou ANCELIN",
         "yHaplogroup": "J2-M67",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5255,7 +5731,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise MEUNIER",
         "yHaplogroup": "R1b-FT365060",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5277,7 +5755,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne DENOT ou DENOTTE",
         "yHaplogroup": "I1-BY31784",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5299,7 +5779,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CHARTON",
         "yHaplogroup": "R1b-CTS4065",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5321,7 +5803,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine OLIVIER",
         "yHaplogroup": "R-S4281",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5343,7 +5827,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Adrienne BARBIER",
         "yHaplogroup": "R1b-FTF46306",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5365,7 +5851,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Michelle OUINVILLE",
         "yHaplogroup": "R1b-FTC23763",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5387,7 +5875,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PITON",
         "yHaplogroup": "E1b-A930",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5409,7 +5899,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LESEIGNEUR",
         "yHaplogroup": "R1b-BY3561",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5431,7 +5923,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Isabelle HUBERT",
         "yHaplogroup": "I1-F2642",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5453,7 +5947,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LECLERC",
         "yHaplogroup": "R1b-DF17",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5475,7 +5971,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine GIROUARD",
         "yHaplogroup": "J1-FGC8223",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5497,7 +5995,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Francoise L'ARCHEVEQUE",
         "yHaplogroup": "G2-CTS10391",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5519,7 +6019,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne FAUCONNIER",
         "yHaplogroup": "I2-Z26381/SK1271",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -5541,7 +6043,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte ROUSSEL [+2]",
         "yHaplogroup": "J2-BY205885",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5563,7 +6067,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LAMIRO",
         "yHaplogroup": "R1b-S1491",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5585,7 +6091,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacquette MICHEL",
         "yHaplogroup": "R1b-CTS6889",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5607,7 +6115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GANDIN",
         "yHaplogroup": "R1b-BY114410",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5629,7 +6139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DE LA MARE",
         "yHaplogroup": "R1b-BY152600",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5651,7 +6163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise AUBE",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5673,7 +6187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MAJOR",
         "yHaplogroup": "I1-FTF71441",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5695,7 +6211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine PHILIPPE",
         "yHaplogroup": "R1b-Y15640",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5717,7 +6235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 GOBEIL",
         "yHaplogroup": "R1b-FTC14990",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5739,7 +6259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne PERRAULT",
         "yHaplogroup": "J2-BY40879",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5761,7 +6283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CARREAU dit LAFRAICHEUR",
         "yHaplogroup": "R1b-FTA22644",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5783,7 +6307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Nicole SAULNIER",
         "yHaplogroup": "J2-BY60916",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5805,7 +6331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOILEAU",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5827,7 +6355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Thècle HUNEAULT",
         "yHaplogroup": "I2-S25451",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -5849,7 +6379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BUREAU",
         "yHaplogroup": "G2-Z40863",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5871,7 +6403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne GODEQUIN",
         "yHaplogroup": "I1-BY34679",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5893,7 +6427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Martine CRONIER",
         "yHaplogroup": "R1b-Z43468",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5915,7 +6451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte JOLY",
         "yHaplogroup": "R1b-BY42705",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5937,7 +6475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LABBE",
         "yHaplogroup": "R1b-FT242018",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5959,7 +6499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie COIGNARD",
         "yHaplogroup": "R1b-FT83467",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -5981,7 +6523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne de LAVOIE",
         "yHaplogroup": "R1b-Y3141/FGC12378",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6003,7 +6547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Sainte MIGNEAULT",
         "yHaplogroup": "I1-M253",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6025,7 +6571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie POIRE",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6047,7 +6595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BAILLARGEON",
         "yHaplogroup": "I2-PF4088",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -6069,7 +6619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine POITEVIN",
         "yHaplogroup": "R1b-CTS241/DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6091,7 +6643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BARBANT",
         "yHaplogroup": "R1b-A5616",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6113,7 +6667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne Michelle RENAUD ou ARNAUD",
         "yHaplogroup": "I1-S6270/S6275",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6135,7 +6691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Antoinette (1669) ou Etiennette (1701) LENOIR ou PIROIS",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6157,7 +6715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ARCULAR",
         "yHaplogroup": "R1b-BY64834",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6179,7 +6739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne PETIT",
         "yHaplogroup": "R1b-BY98305",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6201,7 +6763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CHORET",
         "yHaplogroup": "R1b-FTA16014",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6223,7 +6787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GAUTHIER",
         "yHaplogroup": "E1b-PF2546",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6245,7 +6811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine HANNETON (1693) ou ALTON (1669)",
         "yHaplogroup": "E1b-FTB22565",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6267,7 +6835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise BOUDREAU",
         "yHaplogroup": "J2-BY63672",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6289,7 +6859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LEGENDRE",
         "yHaplogroup": "R1b-FTB40282",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6311,7 +6883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise Lucrèce BILLOT",
         "yHaplogroup": "R1b-FT404348",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6333,7 +6907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise BOURGEOIS",
         "yHaplogroup": "R1a-YP561",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -6355,7 +6931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LEMARCHE dit LAROCHE",
         "yHaplogroup": "R1b-BY118350",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6377,7 +6955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine DESPRES",
         "yHaplogroup": "R1b-BY32619",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6399,7 +6979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GRANDIN",
         "yHaplogroup": "R1b-FGC7448",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6421,7 +7003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe BARBIER",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6443,7 +7027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite COLLET",
         "yHaplogroup": "I2-CTS6433",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -6465,7 +7051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FOURNIER",
         "yHaplogroup": "R1b-FT60895",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6487,7 +7075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DUBOIS",
         "yHaplogroup": "R1b-S1141",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6509,7 +7099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe HALLE",
         "yHaplogroup": "R1b-BY62599",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6531,7 +7123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine CHRETIEN",
         "yHaplogroup": "G2-CTS10391",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6553,7 +7147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline LABBE",
         "yHaplogroup": "R1b-L552",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6575,7 +7171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BOUCAULT",
         "yHaplogroup": "R1b-ZZ12_1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6597,7 +7195,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 BOURGEOIS",
         "yHaplogroup": "R1b-FGC8158",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6619,7 +7219,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne DEFOSSE ou DUFAUSSAY [+2]",
         "yHaplogroup": "R1b-FT46207",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6641,7 +7243,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CAMPION",
         "yHaplogroup": "J2-FTD65876/S23106",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6663,7 +7267,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth GODILLON",
         "yHaplogroup": "I2-CTS1758",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -6685,7 +7291,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie HUBERT",
         "yHaplogroup": "R1b-BY202441",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6707,7 +7315,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne SICARD",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6729,7 +7339,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne Marie AMIOT",
         "yHaplogroup": "R1b-DF27",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6751,7 +7363,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth AUBERT",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6773,7 +7387,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth ou Isabelle LEROY ou ROY",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6795,7 +7411,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MARCHAND",
         "yHaplogroup": "R1b-DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6817,7 +7435,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth SALE",
         "yHaplogroup": "R1b-FT41491",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6839,7 +7459,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise DUQUET",
         "yHaplogroup": "I2-BY138",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -6861,7 +7483,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth MEUNIER",
         "yHaplogroup": "R1b-CTS4188",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6883,7 +7507,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie1 CRETE",
         "yHaplogroup": "R1b-Z295",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6905,7 +7531,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BULTE ou BLUTE",
         "yHaplogroup": "I1-Y6889",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6927,7 +7555,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne SAVONET",
         "yHaplogroup": "R1b-FT78819",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6949,7 +7579,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Gabrielle MINEAU",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6971,7 +7603,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth Agnès LEFEBVRE",
         "yHaplogroup": "R1b-BY163598",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -6993,7 +7627,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Aimée ROUX",
         "yHaplogroup": "C1-Y65723",
         "yMajor": "C",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7015,7 +7651,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine GRATTON",
         "yHaplogroup": "R1b-Z225",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7037,7 +7675,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LAGOUE",
         "yHaplogroup": "T-FTE593",
         "yMajor": "T",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7059,7 +7699,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine PLOUART et TIREMONT",
         "yHaplogroup": "R1b-FTC76457",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7081,7 +7723,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LANGUILLE ou ANGUILLE",
         "yHaplogroup": "R-L2/Z49/DF103",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7103,7 +7747,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne PHILIPPE",
         "yHaplogroup": "R1b-A431",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7125,7 +7771,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise DURAND",
         "yHaplogroup": "G2-S18765",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7147,7 +7795,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine de LAMARCHE",
         "yHaplogroup": "E1b-BY65919",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7169,7 +7819,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne GRANDIN",
         "yHaplogroup": "R1b-FTA31769",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7191,7 +7843,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth AUBERT ou AUBE",
         "yHaplogroup": "R1b-CTS4299",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7213,7 +7867,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Rose COLIN",
         "yHaplogroup": "R1b-BY31097",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7235,7 +7891,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GUILLAUME",
         "yHaplogroup": "I2-FT251249",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7257,7 +7915,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne PINEAU ou de LAVIEVILLE [+1]",
         "yHaplogroup": "G2-FT62339",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7279,7 +7939,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Nicole PHILIPPEAU",
         "yHaplogroup": "I2-L1498",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7301,7 +7963,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHARPENTIER",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7323,7 +7987,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne CHARBONNEAU",
         "yHaplogroup": "R1b-FT53491",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7345,7 +8011,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine CLERICE",
         "yHaplogroup": "R1b-CTS5860",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7367,7 +8035,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHAPACOU ou PACAUD",
         "yHaplogroup": "R1b-Z202",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7389,7 +8059,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHAPACOU ou PACAUD",
         "yHaplogroup": "I2-FT196526",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7411,7 +8083,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LEFEBVRE",
         "yHaplogroup": "I1-F2735",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7433,7 +8107,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine AUVRAY",
         "yHaplogroup": "R1b-Z155",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7455,7 +8131,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DESHAIES",
         "yHaplogroup": "R1b-FTF63880",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7477,7 +8155,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine CAUCHON",
         "yHaplogroup": "R1b-FTD32616",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7499,7 +8179,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise TESSIER",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7521,7 +8203,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine RACLOS",
         "yHaplogroup": "R1b-BY140446",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7543,7 +8227,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth LAGUERIPIERE ou LAURERIPIERE (de)",
         "yHaplogroup": "E1b-V12",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7565,7 +8251,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine MILLET",
         "yHaplogroup": "R1b-BY33856",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7587,7 +8275,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LEROY",
         "yHaplogroup": "E1b-PF6747",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7609,7 +8299,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne FOURIER",
         "yHaplogroup": "R1a-BY184155",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7631,7 +8323,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite SAMSON",
         "yHaplogroup": "R1b-BY33606",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7653,7 +8347,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHAUSSEGROS",
         "yHaplogroup": "R1b-FT342403",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7675,7 +8371,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine FOURRIER",
         "yHaplogroup": "G2-Z44657",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7697,7 +8395,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LANDRY",
         "yHaplogroup": "E1b-CTS5856",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7719,7 +8419,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUART",
         "yHaplogroup": "J2-L70",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7741,7 +8443,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth Ursule DENEVERS",
         "yHaplogroup": "I2-PF4088",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7763,7 +8467,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacqueline BOULET",
         "yHaplogroup": "R1b-BY17932",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7785,7 +8491,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GODIN",
         "yHaplogroup": "R1b-FTG18287",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7807,7 +8515,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne HUNEAULT",
         "yHaplogroup": "R1b-FT150995",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7829,7 +8539,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GRANDIN",
         "yHaplogroup": "I2-FT5305",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7851,7 +8563,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine DUCHARME",
         "yHaplogroup": "G2-CTS8450",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7873,7 +8587,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne LACROIX (de)",
         "yHaplogroup": "E1b-PF2546",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7895,7 +8611,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine BAILLY",
         "yHaplogroup": "R1b-FT101203",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7917,7 +8635,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie2 GAUDET",
         "yHaplogroup": "I2-FTC21121",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -7939,7 +8659,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Hélène CALAIS",
         "yHaplogroup": "I1-L573",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7961,7 +8683,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DUMAIS",
         "yHaplogroup": "R1b-FTB62861",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -7983,7 +8707,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MEZERAY",
         "yHaplogroup": "R1b-BY157556",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8005,7 +8731,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe RATEAU ou ROTO",
         "yHaplogroup": "E1b-M183/M81",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8027,7 +8755,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUDREAU",
         "yHaplogroup": "R1b-S42",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8049,7 +8779,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jacquette FOURNIER",
         "yHaplogroup": "I2-FTA27194",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8071,7 +8803,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MORIN",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8093,7 +8827,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHENIER",
         "yHaplogroup": "R1b-S1051",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8115,7 +8851,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée LORION",
         "yHaplogroup": "R1b-FTE78479",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8137,7 +8875,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Mathurine BELANGER",
         "yHaplogroup": "R1b-BY47575",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8159,7 +8899,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MEUNIER",
         "yHaplogroup": "R1b-CTS6919",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8181,7 +8923,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DUGAS",
         "yHaplogroup": "R1b-BY210",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8203,7 +8947,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Huguette BOURG",
         "yHaplogroup": "R1b-FT98683",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8225,7 +8971,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite VACHON",
         "yHaplogroup": "I-L1498",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8247,7 +8995,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise AMIOT",
         "yHaplogroup": "E1b-PF2159",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8269,7 +9019,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne SIMON",
         "yHaplogroup": "J2-FT285544",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8291,7 +9043,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GIROUARD",
         "yHaplogroup": "R1b-BY93943",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8313,7 +9067,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe RICHAUME",
         "yHaplogroup": "R1b-Y3964",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8335,7 +9091,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Marthe CHAUVIN",
         "yHaplogroup": "R1b-FTD37987",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8357,7 +9115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise AUBRY",
         "yHaplogroup": "I1-Y129360",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8379,7 +9139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LAPORTE dit SAINT-GEORGES",
         "yHaplogroup": "R1b-A11482",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8401,7 +9163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LORION",
         "yHaplogroup": "R1b-U198/M467",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8423,7 +9187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth Ursule CLOUTIER",
         "yHaplogroup": "I2-L812",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8445,7 +9211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite PAQUET",
         "yHaplogroup": "R1b-ZZ12_1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8467,7 +9235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LAVOIE",
         "yHaplogroup": "R1b-S476/Z2976",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8489,7 +9259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie2 GOBEIL",
         "yHaplogroup": "R1b-FT234309",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8511,7 +9283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite ANTHIAUME",
         "yHaplogroup": "R1b-BY67760",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8533,7 +9307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite JOBIDON",
         "yHaplogroup": "R1b-Y129892",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8555,7 +9331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine PINEL",
         "yHaplogroup": "R1b-BY96383",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8577,7 +9355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PETIT",
         "yHaplogroup": "R1b-L1066.1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8599,7 +9379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CROISET",
         "yHaplogroup": "I2-FTE28365",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8621,7 +9403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine CADIEUX",
         "yHaplogroup": "R1b-BY192509",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8643,7 +9427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise TIERCE",
         "yHaplogroup": "R1b-SRY2627/M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8665,7 +9451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Christine Charlotte GAUDRY",
         "yHaplogroup": "I1-FT356807",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8687,7 +9475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine GRIMARD",
         "yHaplogroup": "R1b-S11121",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8709,7 +9499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine PARE",
         "yHaplogroup": "R1b-FT378320",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8731,7 +9523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte COUET ou COY ou CAUHE",
         "yHaplogroup": "R1b-Z214",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8753,7 +9547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine RICHARD",
         "yHaplogroup": "R1b-FT195426",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8775,7 +9571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GUILLET",
         "yHaplogroup": "R1b-FT251181",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8797,7 +9595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MAHEU",
         "yHaplogroup": "J2-PF7421",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8819,7 +9619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Thérèse GLORY",
         "yHaplogroup": "R1a-M198",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8841,7 +9643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Françoise GAUDRY",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8863,7 +9667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CHAPEAU",
         "yHaplogroup": "I2-BY63113",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -8885,7 +9691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LEBLOND",
         "yHaplogroup": "R1b-Y172372",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8907,7 +9715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise VERNIN",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8929,7 +9739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne SAVONET",
         "yHaplogroup": "R1b-JFS0366",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8951,7 +9763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne MESSIER dit SAINT-MICHEL",
         "yHaplogroup": "R1b-Y16854",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8973,7 +9787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine1 CHARON",
         "yHaplogroup": "R1b-Z2185",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -8995,7 +9811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth CHARBONNEAU",
         "yHaplogroup": "R1b-L20",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9017,7 +9835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GERBERT",
         "yHaplogroup": "R1b-BY200899",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9039,7 +9859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne1 DIONNE",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9061,7 +9883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie VALIQUETTE",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9083,7 +9907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne Marguerite LE CHEVALIER",
         "yHaplogroup": "R1b-FTB73255",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9105,7 +9931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Francoise LOIGNON [+1]",
         "yHaplogroup": "R1b-S1051",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9127,7 +9955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LECLERC",
         "yHaplogroup": "R1a-Z287",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9149,7 +9979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine BERTHELOT",
         "yHaplogroup": "R1b-BY197123",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9171,7 +10003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LHEROS",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9193,7 +10027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée MONTMENY dit PICARD (AG-LaR) ou SUART (m)",
         "yHaplogroup": "I2-FTE79891",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9215,7 +10051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée MONTMENY dit PICARD (AG-LaR) ou SUART (m)",
         "yHaplogroup": "J2-BY40879",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9237,7 +10075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne RIMBAULT",
         "yHaplogroup": "R1a-BY87922",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9259,7 +10099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine LECHARDOUX",
         "yHaplogroup": "I2-FTB21046",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9281,7 +10123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine PRUD'HOMME",
         "yHaplogroup": "J2-FT28779",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9303,7 +10147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise MIVILLE",
         "yHaplogroup": "R1b-CTS13028",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9325,7 +10171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne Marguerite BLOIS",
         "yHaplogroup": "R1b-CTS6519",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9347,7 +10195,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Catherine BLONDEAU",
         "yHaplogroup": "G2-FTA3092",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9369,7 +10219,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise THIBAULT",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9391,7 +10243,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne BOUVIER",
         "yHaplogroup": "R1b-FT206068",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9413,7 +10267,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève GUILLET",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9435,7 +10291,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie TETREAULT",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9457,7 +10315,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite PETITPAS",
         "yHaplogroup": "R1b-BY34785",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9479,7 +10339,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne BARBIER",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9501,7 +10363,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barthélemy MAILLOUX",
         "yHaplogroup": "R1b-BY74609",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9523,7 +10387,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie RABOUIN",
         "yHaplogroup": "R1b-BY71290",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9545,7 +10411,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite PROVENCHER",
         "yHaplogroup": "R1b-FT271121",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9567,7 +10435,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne LAVOIE (de)",
         "yHaplogroup": "R1b-Z202",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9589,7 +10459,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PITRE",
         "yHaplogroup": "R1b-DF13/CTS241",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9611,7 +10483,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie COUTURE",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9633,7 +10507,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CONILLE",
         "yHaplogroup": "R-FTF47244",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9655,7 +10531,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Louise BAUNE",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9677,7 +10555,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Huguette VINCENT",
         "yHaplogroup": "R1b-BY57271",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9699,7 +10579,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOYER",
         "yHaplogroup": "I2-PF4135",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9721,7 +10603,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Olive LAVOIE",
         "yHaplogroup": "R1b-Z150",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9743,7 +10627,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise HURTO",
         "yHaplogroup": "R1b-CTS4299",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9765,7 +10651,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise BASTINAUD dit PELLETIER",
         "yHaplogroup": "R1a-BY122573",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -9787,7 +10675,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Perrine LE MEUNIER [+2]",
         "yHaplogroup": "R1b-FT200954",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9809,7 +10699,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine1 CAMPEAU",
         "yHaplogroup": "R1b-Y3964",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9831,7 +10723,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie EMERY",
         "yHaplogroup": "R1b-Z202",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9853,7 +10747,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PROTEAU",
         "yHaplogroup": "I1-FTA82090",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9875,7 +10771,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève DUCLOS",
         "yHaplogroup": "R1b-FT47574",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9897,7 +10795,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PARENT dit RANCOURT",
         "yHaplogroup": "R-DF17",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9919,7 +10819,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise RONDEAU",
         "yHaplogroup": "R1b-BY1701",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9941,7 +10843,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine de LALONDE",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9963,7 +10867,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine DANIS",
         "yHaplogroup": "J2-L70",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -9985,7 +10891,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine GAGNON",
         "yHaplogroup": "R1b-S3770",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10007,7 +10915,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GIRARDY",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10029,7 +10939,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Christine AUBOIS ou DUBOIS",
         "yHaplogroup": "R1b-BY166008",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10051,7 +10963,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne INARD",
         "yHaplogroup": "I2-Z102",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10073,7 +10987,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne VALLEE",
         "yHaplogroup": "R1b-FT231105",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10095,7 +11011,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine de LAVOIE",
         "yHaplogroup": "G2-L42",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10117,7 +11035,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DENEAU",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10139,7 +11059,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Madeleine JULIEN",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10161,7 +11083,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite TREMBLAY",
         "yHaplogroup": "E1b-BY45382",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10183,7 +11107,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne L'ECUYER",
         "yHaplogroup": "J1-FTD84400",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10205,7 +11131,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BEAUCHAMP",
         "yHaplogroup": "R1b-S23955",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10227,7 +11155,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne ou Marie FAVREAU",
         "yHaplogroup": "G2-Z41144",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10249,7 +11179,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne DUCLOS",
         "yHaplogroup": "J2-M205",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10271,7 +11203,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Antoinette LEROUX",
         "yHaplogroup": "R1b-A10672",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10293,7 +11227,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie2 MARCOT",
         "yHaplogroup": "T-Y7381",
         "yMajor": "T",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10315,7 +11251,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GOBEIL",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10337,7 +11275,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine DOUCET",
         "yHaplogroup": "R1b-PH4838",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10359,7 +11299,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FAILLE",
         "yHaplogroup": "I1-BY11107",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10381,7 +11323,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GAUTHIER",
         "yHaplogroup": "I2-FTJ606",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10403,7 +11347,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie COULON",
         "yHaplogroup": "R1b-Y3141/FGC12378",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10425,7 +11371,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine ou Marie BARBARY",
         "yHaplogroup": "E1b-CTS9320",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10447,7 +11395,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne FAFARD",
         "yHaplogroup": "R1b-DF95",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10469,7 +11419,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine CREVIER dit BELLERIVE",
         "yHaplogroup": "R1b-Z16246",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10491,7 +11443,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne RABOUIN",
         "yHaplogroup": "R1b-SRY2627",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10513,7 +11467,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BOURG",
         "yHaplogroup": "I2-PF3892",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10535,7 +11491,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite VERIEUL",
         "yHaplogroup": "R1b-Z17553",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10557,7 +11515,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève PELLETIER",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10579,7 +11539,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Agnès GRONDIN",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10601,7 +11563,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne ou Marie CORMIER",
         "yHaplogroup": "E1b-Y189275",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10623,7 +11587,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DENIAU",
         "yHaplogroup": "R1b-L20",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10645,7 +11611,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe LHOMME",
         "yHaplogroup": "E1b-M183/M81",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10667,7 +11635,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise MIGNER",
         "yHaplogroup": "J2-Z6273",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10689,7 +11659,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth COQUIN dit LATOURNELLE",
         "yHaplogroup": "I1-CTS7362",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10711,7 +11683,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CAMPEAU",
         "yHaplogroup": "I2-M26",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10733,7 +11707,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine LANGLOIS",
         "yHaplogroup": "R1b-Y4364",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10755,7 +11731,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Renée LORION",
         "yHaplogroup": "R1a-M198",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10777,7 +11755,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Antoinette BARRABE",
         "yHaplogroup": "J2-FT425232",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10799,7 +11779,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise JEAN",
         "yHaplogroup": "I2-Y5282",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10821,7 +11803,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie RODRIGUE",
         "yHaplogroup": "R1b-FGC34856",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10843,7 +11827,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Thérèse GARAND",
         "yHaplogroup": "R1b-Z202",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10865,7 +11851,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BROCHU",
         "yHaplogroup": "R1b-BY90890",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10887,7 +11875,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Charlotte ROUTHIER",
         "yHaplogroup": "R1b-DF88",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10909,7 +11899,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GOTREAU",
         "yHaplogroup": "R1b-CTS241/DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10931,7 +11923,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MARTIN",
         "yHaplogroup": "R1b-CTS278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10953,7 +11947,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine TRAHAN",
         "yHaplogroup": "J1-L256",
         "yMajor": "J1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -10975,7 +11971,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne TARDIF",
         "yHaplogroup": "R1a-S2858",
         "yMajor": "R1a",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -10997,7 +11995,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise RENAUD dit LOCAS",
         "yHaplogroup": "J2-FTB37569",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11019,7 +12019,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine Angélique MATOU dit LABRIE",
         "yHaplogroup": "R1b-CTS4065",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11041,7 +12043,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Madeleine de LEPINAY",
         "yHaplogroup": "R1b-FGC13899",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11063,7 +12067,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne PION dit FONTAINE",
         "yHaplogroup": "R1b-FT176284",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11085,7 +12091,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Jeanne COUILLARD",
         "yHaplogroup": "R1b-FGC60413",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11107,7 +12115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève SERREAU de SAINT-AUBIN",
         "yHaplogroup": "R1b-CTS11824",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11129,7 +12139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte POUDRETTE",
         "yHaplogroup": "R1b-Z19/Z18",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11151,7 +12163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne GUERIN",
         "yHaplogroup": "R1b-S476/Z2976",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11173,7 +12187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite CHOREL de SAINT-ROMAIN",
         "yHaplogroup": "R1b-S11556",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11195,7 +12211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Marguerite HEBERT dit LAVERDURE",
         "yHaplogroup": "I2-BY63857",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -11217,7 +12235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FOURNIER",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11239,7 +12259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CUSSON",
         "yHaplogroup": "R1b-CTS114",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11261,7 +12283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Barbe PILETTE",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11283,7 +12307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MICHAUD",
         "yHaplogroup": "R1b-BY97869",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11305,7 +12331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Charlotte BERARD dit LAPIERRE",
         "yHaplogroup": "E1b-M183/M81",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11327,7 +12355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine Françoise MARTIN",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11349,7 +12379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne Marguerite BERUBE",
         "yHaplogroup": "R1b-SRY2627",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11371,7 +12403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Françoise DAVAINE",
         "yHaplogroup": "R1b-CTS241",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11393,7 +12427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine GRENIER dit NADEAU",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11415,7 +12451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GAREAU",
         "yHaplogroup": "R1b-L1066.1",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11437,7 +12475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite FERRE",
         "yHaplogroup": "R1b-FGC17186",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11459,7 +12499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie JOFRION",
         "yHaplogroup": "I1-A11316",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11481,7 +12523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie GABOURY dit LAVIOLETTE",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11503,7 +12547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BENARD",
         "yHaplogroup": "I1-A13385",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11525,7 +12571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Agnès GUILLEMET",
         "yHaplogroup": "R1b-Y54052",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11547,7 +12595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Marthe RICHAUME",
         "yHaplogroup": "I2-SK1254",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -11569,7 +12619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LARIOU",
         "yHaplogroup": "R1b-BY167566",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11591,7 +12643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne MORISSET",
         "yHaplogroup": "R1b-L562",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11613,7 +12667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth BOUCHARD",
         "yHaplogroup": "G2-FT62339",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11635,7 +12691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne PAUZE",
         "yHaplogroup": "I1-S63",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11657,7 +12715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise DESSUREAU",
         "yHaplogroup": "R1b-FT100938",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11679,7 +12739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elena GALLEGOS",
         "yHaplogroup": "I1-FT75340",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11701,7 +12763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LOISEAU",
         "yHaplogroup": "G2-FGC63542",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11723,7 +12787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Constance GARINET",
         "yHaplogroup": "I1-Z138",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11745,7 +12811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Isabeau Elizabeth LE LONG",
         "yHaplogroup": "R1b-FT107013",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11767,7 +12835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise MORIN",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11789,7 +12859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie NIQUET",
         "yHaplogroup": "R1b-A274",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11811,7 +12883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Marguerite BESSETTE",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11833,7 +12907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie DESTROISMAISONS",
         "yHaplogroup": "I1-M253",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11855,7 +12931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite GENTES",
         "yHaplogroup": "R1b-FGC17562",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11877,7 +12955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Jeanne TESSIER",
         "yHaplogroup": "R1b-FTD47604",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11899,7 +12979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise EMERY",
         "yHaplogroup": "R1b-CTS4065",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11921,7 +13003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine FORTIN",
         "yHaplogroup": "I1-Y5388",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11943,7 +13027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ROY",
         "yHaplogroup": "R1b-Z34609",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11965,7 +13051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie MOUFLET",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -11987,7 +13075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Jeanne BARRABÉ",
         "yHaplogroup": "R1b-FT174250",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12009,7 +13099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie CHAMBERLAN",
         "yHaplogroup": "R1b-DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12031,7 +13123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne LEROUX dit L'ENSEIGNE",
         "yHaplogroup": "R1b-BY101773",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12053,7 +13147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BOUTIN puis LABONTE",
         "yHaplogroup": "R1b-FT23417",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12075,7 +13171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise GAGNE",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12097,7 +13195,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BEAUFORT dit LIMOUSIN et HILAIRE",
         "yHaplogroup": "R1b-FTB33194",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12119,7 +13219,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOURG",
         "yHaplogroup": "R1b-FT163002",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12141,7 +13243,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth ARCOUET",
         "yHaplogroup": "I2-Y22829",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -12163,7 +13267,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne GUILLOT",
         "yHaplogroup": "R1b-FTD49971",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12185,7 +13291,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Catherine QUEVILLON",
         "yHaplogroup": "R1b-Z49",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12207,7 +13315,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine LACOMBE",
         "yHaplogroup": "G2-CTS4803",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12229,7 +13339,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Etiennette BANHIAC",
         "yHaplogroup": "I1-Z58",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12251,7 +13363,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite DUMAIS",
         "yHaplogroup": "I1-Y3969",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12273,7 +13387,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Angélique PROTEAU",
         "yHaplogroup": "R1b-CTS2501/DF41",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12295,7 +13411,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BRESA dit LAFLEUR",
         "yHaplogroup": "R1b-FTD74560",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12317,7 +13435,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne VILLENEUVE [+1]",
         "yHaplogroup": "I2-BY174865",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -12339,7 +13459,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Catherine DUBEAU",
         "yHaplogroup": "J2-M67",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12361,7 +13483,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MICHAUD",
         "yHaplogroup": "R1b-Z21475",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12383,7 +13507,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte VANDANDAIGUE",
         "yHaplogroup": "J2-L231",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12405,7 +13531,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe GERLAISE dit SAINT-AMAND",
         "yHaplogroup": "R1b-BY3654",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12427,7 +13555,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine GATIEN",
         "yHaplogroup": "R1b-BY166159",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12449,7 +13579,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne CHIASSON",
         "yHaplogroup": "R1b-SRY2627/M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12471,7 +13603,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise PROVOST dit SANSCRAINTE",
         "yHaplogroup": "R1b-FGC29467",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12493,7 +13627,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe MICHEL",
         "yHaplogroup": "C1-PH428",
         "yMajor": "C",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -12515,7 +13651,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Marguerite SAVARD",
         "yHaplogroup": "R1b-FTH30066",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12537,7 +13675,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Elisabeth POUPART dit LAFLEUR",
         "yHaplogroup": "R1b-FGC15710",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12559,7 +13699,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Catherine LEMOINE",
         "yHaplogroup": "R1b-A7812",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12581,7 +13723,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève FRADET",
         "yHaplogroup": "R1b-S3262",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12603,7 +13747,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Therese SAINT-PIERRE",
         "yHaplogroup": "R1b-Z225",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12625,7 +13771,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne MERIEU dit BOURBON",
         "yHaplogroup": "J2-Z6273",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12647,7 +13795,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LABBE",
         "yHaplogroup": "R1b-Y68499",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12669,7 +13819,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine MONMAILLON",
         "yHaplogroup": "R1b-CTS4299",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12691,7 +13843,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise DUFAULT",
         "yHaplogroup": "R1b-P311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12713,7 +13867,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LAVOIE",
         "yHaplogroup": "R1b-FT106547",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12735,7 +13891,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine MAILLOT",
         "yHaplogroup": "R1b-BY38524",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12757,7 +13915,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine MARTIN",
         "yHaplogroup": "R1b-Z209",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12779,7 +13939,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine BLEAU",
         "yHaplogroup": "R1b-MF642302",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12801,7 +13963,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne LEMIRE",
         "yHaplogroup": "G2-FTB75331",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12823,7 +13987,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Françoise puis Marie ROY dit DESJARDINS",
         "yHaplogroup": "R1b-FTB1210",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12845,7 +14011,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe MARCHET",
         "yHaplogroup": "N-FT352305",
         "yMajor": "N",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "eastern",
+        "geneticConfidence": "medium"
       },
       "geometry": {
         "type": "Point",
@@ -12867,7 +14035,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Ursule ACHIM dit SAINT-ANDRE",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12889,7 +14059,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe LEBLANC",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12911,7 +14083,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Jeanne LALANDE [+1]",
         "yHaplogroup": "R1b-BY15267",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12933,7 +14107,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne LUNEAU",
         "yHaplogroup": "R1b-FT153967",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12955,7 +14131,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie ou Marie Renée COUSINEAU",
         "yHaplogroup": "R1b-BY38682",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12977,7 +14155,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Julienne PERNET",
         "yHaplogroup": "J2-L26",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -12999,7 +14179,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise GAGNE",
         "yHaplogroup": "G2-Z30771",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13021,7 +14203,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise HENRY",
         "yHaplogroup": "I1-A9747",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13043,7 +14227,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MARCHAND",
         "yHaplogroup": "I1-S24121",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13065,7 +14251,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "BOUCHER Marie Anne",
         "yHaplogroup": "I2-CTS10057",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -13087,7 +14275,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Thérèse BARBEAU dit BOISDORE",
         "yHaplogroup": "I1-M253",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13109,7 +14299,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne CALLE [+1]",
         "yHaplogroup": "R1b-CTS241/DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13131,7 +14323,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Claire FLEURY de LAGORGENDIERE",
         "yHaplogroup": "I2-BY135483",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -13153,7 +14347,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LEBERTON",
         "yHaplogroup": "I2-A427",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -13175,7 +14371,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève RENAUD",
         "yHaplogroup": "R1b-BY20126",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13197,7 +14395,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Judith DOIRON",
         "yHaplogroup": "R1b-FT83415",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13219,7 +14419,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne RENAUD",
         "yHaplogroup": "R1b-DF27/U152/Z198",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13241,7 +14443,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine CAPLAN",
         "yHaplogroup": "E1b-S11956",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13263,7 +14467,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Françoise BENOIT dit LAFOREST",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13285,7 +14491,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne DESNOUX",
         "yHaplogroup": "R1b-FTB92784",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13307,7 +14515,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise BERNIER",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13329,7 +14539,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Louise Blanche DELISLE",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13351,7 +14563,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte COUTURE",
         "yHaplogroup": "R1b-U198",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13373,7 +14587,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève BANHIAC dit LAMONTAGNE",
         "yHaplogroup": "R1b-Z3000",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13395,7 +14611,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Jeanne PREVOST ou PROVOST",
         "yHaplogroup": "R1b-L2",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13417,7 +14635,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Angélique CARON",
         "yHaplogroup": "R1b-FTD60856",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13439,7 +14659,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite LÉVESQUE",
         "yHaplogroup": "E1b-V13",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13461,7 +14683,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Charlotte SAVARD",
         "yHaplogroup": "G2-S10458",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13483,7 +14707,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Angélique AMIOT",
         "yHaplogroup": "R1b-M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13505,7 +14731,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine VACHER dit LACERTE",
         "yHaplogroup": "R1b-A432",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13527,7 +14755,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Charlotte BOUCHER",
         "yHaplogroup": "N1-BY160234",
         "yMajor": "N",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "eastern",
+        "geneticConfidence": "medium"
       },
       "geometry": {
         "type": "Point",
@@ -13549,7 +14779,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Catherine DOIRON",
         "yHaplogroup": "R1b-FT177493",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13571,7 +14803,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BRUNET",
         "yHaplogroup": "R1b-FT40040",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13593,7 +14827,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Agnès LARCHE dit L'ARCHEVEQUE",
         "yHaplogroup": "R1b-L562",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13615,7 +14851,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Madeleine LAROCQUE",
         "yHaplogroup": "I1-M227",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13637,7 +14875,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Francoise QUIRION",
         "yHaplogroup": "R1b-U152",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13659,7 +14899,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Françoise PELLETIER",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13681,7 +14923,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe PELLETIER",
         "yHaplogroup": "R1b-Z16246",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13703,7 +14947,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie LAHAISE",
         "yHaplogroup": "R1b-FT91192",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13725,7 +14971,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Angelique CHORET",
         "yHaplogroup": "I2-Y129360",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -13747,7 +14995,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Catherine MARCHAND",
         "yHaplogroup": "I2-FGC18553",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -13769,7 +15019,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe SABOURIN",
         "yHaplogroup": "R1b-FT397488",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13791,7 +15043,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe REAUME",
         "yHaplogroup": "R1b-DF103",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13813,7 +15067,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne METHOT",
         "yHaplogroup": "R1b-FTC92815",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13835,7 +15091,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie BOUDEAU",
         "yHaplogroup": "R1b-S21225",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13857,7 +15115,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Angélique BOISVERT dit DENEVERS",
         "yHaplogroup": "R1b-Z278",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13879,7 +15139,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Jeanne LAPERRIERE",
         "yHaplogroup": "R1b-S21184",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13901,7 +15163,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne MARX",
         "yHaplogroup": "R1b-FT94529",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13923,7 +15187,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Geneviève DUROCHER dit FRAPPE",
         "yHaplogroup": "R1b-L20",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13945,7 +15211,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe GAGNON",
         "yHaplogroup": "R1b-L20",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13967,7 +15235,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Josèphe BOUDEAU",
         "yHaplogroup": "R1b-Z17693/A494",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -13989,7 +15259,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Judith MIVILLE dit DESCHENES",
         "yHaplogroup": "J2-FT29047",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14011,7 +15283,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève MOREL",
         "yHaplogroup": "R1b-U106/M405",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14033,7 +15307,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Geneviève FOISY",
         "yHaplogroup": "R1b-BY22335",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14055,7 +15331,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Madeleine CHOLET dit LAVIOLETTE",
         "yHaplogroup": "R1b-Z156",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14077,7 +15355,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Agathe Jacques FOY dit LACROIX",
         "yHaplogroup": "I1-FTA87377",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14099,7 +15379,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Françoise FUSEAU dit ROCH",
         "yHaplogroup": "I2-BY181213",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14121,7 +15403,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Julienne PERA",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14143,7 +15427,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne MARCHAND de LIGNERY",
         "yHaplogroup": "J2-M241",
         "yMajor": "J2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14165,7 +15451,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne1 CHAPADEAU",
         "yHaplogroup": "E1b-Y129270",
         "yMajor": "E1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14187,7 +15475,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Anne LEVASSEUR dit CHAVERLANGE",
         "yHaplogroup": "R1b-L21",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14209,7 +15499,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "PICHET Madeleine",
         "yHaplogroup": "R1b-Z198",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14231,7 +15523,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Suzanne VALLIERE",
         "yHaplogroup": "Q-L456",
         "yMajor": "Q",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "other",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14253,7 +15547,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Juliette DESBORDES",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14275,7 +15571,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Catherine RINGUET",
         "yHaplogroup": "R1b-FT189990",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14297,7 +15595,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Louise TRUDEL [+2]",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14319,7 +15619,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Rosalie MICHON",
         "yHaplogroup": "R1b-CTS11232",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14341,7 +15643,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite BRAULT",
         "yHaplogroup": "G2-Y182088",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14363,7 +15667,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève LAPARRE",
         "yHaplogroup": "I2-BY117260",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14385,7 +15691,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie (m) ou Marie Elisabeth (cm) THIBAULT",
         "yHaplogroup": "I1-S2077",
         "yMajor": "I1",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "scandinavian",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14407,7 +15715,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Josephe BROUILLET",
         "yHaplogroup": "R1b-BY98329",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14429,7 +15739,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Rosalie THERIAULT",
         "yHaplogroup": "R1b-BY203302",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14451,7 +15763,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève GAGNON",
         "yHaplogroup": "R1b-L48",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14473,7 +15787,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Elisabeth MARTIN",
         "yHaplogroup": "R1b-CTS10558",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14495,7 +15811,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MARTIN dit SAINT-JEAN",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14517,7 +15835,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Louise GIBOIN dit TRANQUILLE",
         "yHaplogroup": "R1b-FTA35902",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14539,7 +15859,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie PLANTE",
         "yHaplogroup": "R1b-M269",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14561,7 +15883,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne CHAPADEAU",
         "yHaplogroup": "R1b-FT166311",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14583,7 +15907,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Genevieve DEBIEN",
         "yHaplogroup": "R1b-SRY2627/M167",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14605,7 +15931,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Agnès LAVOIE",
         "yHaplogroup": "R1b-DF17",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14627,7 +15955,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Anne BOUDREAU",
         "yHaplogroup": "I2-Z113",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14649,7 +15979,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Geneviève CANUEL (père inconnu/father unknown)",
         "yHaplogroup": "R1b-FTF60000",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14671,7 +16003,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie Louise MARCOT",
         "yHaplogroup": "I2-FT251982",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14693,7 +16027,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Josephte BISAILLON",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14715,7 +16051,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marie FILIARD",
         "yHaplogroup": "I2-FTF3340",
         "yMajor": "I2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "possible-scandinavian",
+        "geneticConfidence": "low"
       },
       "geometry": {
         "type": "Point",
@@ -14737,7 +16075,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Victoire MAILHOT",
         "yHaplogroup": "G2-S23438",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14759,7 +16099,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Genevieve LAROCHE",
         "yHaplogroup": "R1b-CTS241/DF13",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14781,7 +16123,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Martine ou Mathilde TREMBLAY",
         "yHaplogroup": "G2-CTS4803",
         "yMajor": "G2",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "mediterranean-neolithic",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14803,7 +16147,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Sophie BAZINET",
         "yHaplogroup": "R1b-BY11563",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",
@@ -14825,7 +16171,9 @@ export const nfYdnaGeoJson: NfYdnaCollection = {
         "spouse": "Marguerite MORDEAU (père inconnu/father unknown)",
         "yHaplogroup": "R1b-L151",
         "yMajor": "R1b",
-        "excludeFromMap": false
+        "excludeFromMap": false,
+        "geneticOrigin": "western-european",
+        "geneticConfidence": "high"
       },
       "geometry": {
         "type": "Point",

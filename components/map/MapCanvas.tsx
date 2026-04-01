@@ -50,7 +50,9 @@ import { addAllNormanExpansionLayers, NORMAN_NODES_CIRCLES, NORMAN_NODES_SOURCE,
 import { applyParchmentOverlayLabelStyles } from './apply-parchment-overlay-labels';
 import { addAllPrehistoryLayers, PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES } from './prehistory-layers';
 import { addNewFranceTerritoryLayers, updateNewFranceTerritorySource } from './new-france-territory-layers';
-import { addNfYdnaLayers, NF_YDNA_CIRCLES, NF_YDNA_SOURCE, setYdnaYearFilter } from './new-france-ydna-layers';
+import { addNfYdnaLayers, applyNfYdnaOriginFilter, NF_YDNA_CIRCLES, NF_YDNA_SOURCE } from './new-france-ydna-layers';
+import { addVikingAdnaLayers, VIKING_ADNA_CIRCLES, VIKING_ADNA_SOURCE, setVikingAdnaFilters } from './viking-adna-layers';
+import { addVikingArchLayers, VIKING_ARCH_CIRCLES, VIKING_ARCH_SOURCE, setVikingArchYearFilter } from './viking-archaeology-layers';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { getTerritoryForYear } from '@/data/atlas/new-france-territory-geo';
 import { normanExpansionRoutes } from '@/data/norman-expansion';
@@ -493,6 +495,10 @@ export default function MapCanvas() {
   const hoveredNormanNodeRef = useRef<string | null>(null);
   const selectedYdnaRef = useRef<string | null>(null);
   const hoveredYdnaRef = useRef<string | null>(null);
+  const selectedVikingAdnaRef = useRef<string | null>(null);
+  const hoveredVikingAdnaRef = useRef<string | null>(null);
+  const selectedVikingArchRef = useRef<string | null>(null);
+  const hoveredVikingArchRef = useRef<string | null>(null);
   const readyRef = useRef(false);
   const interactionsAttachedRef = useRef(false);
   const rebuildMapDataLayersRef = useRef<(map: maplibregl.Map) => void>(() => {});
@@ -581,6 +587,8 @@ export default function MapCanvas() {
     }
 
     updateEraLabels(map, eraId);
+
+    if (atlasMode) applyNfYdnaOriginFilter(map, useMapStore.getState().ydnaScandinavianFilter);
   }, []);
 
   rebuildMapDataLayersRef.current = (map) => {
@@ -606,13 +614,21 @@ export default function MapCanvas() {
       addAllPrehistoryLayers(map, theme);
       addNewFranceTerritoryLayers(map);
       addNfYdnaLayers(map, theme);
+      applyNfYdnaOriginFilter(map, state.ydnaScandinavianFilter);
+      addVikingAdnaLayers(map, theme);
+      addVikingArchLayers(map, theme);
       applyParchmentOverlayLabelStyles(map, theme);
       setExpansionYearFilter(map, state.normandySimYear);
 
       if (state.atlasMode && isColonialEra(state.eraId)) {
         const colYear = colonialYearFromEra(state.eraId, state.atlasSimYear);
         updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
-        setYdnaYearFilter(map, colYear);
+      }
+
+      if (state.atlasMode && VIKING_MOVEMENT_ERA_IDS.has(state.eraId)) {
+        const vf = state.vikingAdnaFilter;
+        setVikingAdnaFilters(map, { simYear: state.atlasSimYear, country: vf.country, burialContext: vf.burialContext });
+        setVikingArchYearFilter(map, state.atlasSimYear);
       }
 
       for (const cfg of layerConfigs) {
@@ -872,6 +888,56 @@ export default function MapCanvas() {
           }
         }
 
+        if (map!.getLayer(VIKING_ADNA_CIRCLES)) {
+          const vaFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ADNA_CIRCLES] });
+          if (vaFeats.length) {
+            const p = vaFeats[0].properties!;
+            const fid = p.id as string;
+            if (hoveredVikingAdnaRef.current && hoveredVikingAdnaRef.current !== fid) {
+              setFeatureState(map!, hoveredVikingAdnaRef.current, { hover: false }, VIKING_ADNA_SOURCE);
+            }
+            hoveredVikingAdnaRef.current = fid;
+            setFeatureState(map!, fid, { hover: true }, VIKING_ADNA_SOURCE);
+            showTooltip({
+              x: e.point.x, y: e.point.y,
+              title: p.siteName as string,
+              subtitle: (p.burialContextType as string) ?? 'Burial site',
+              detail: `${p.sampleCount} sample${(p.sampleCount as number) > 1 ? 's' : ''} · ${p.dateStart}–${p.dateEnd} CE`,
+              hint: 'Click for genetics, archaeology & sources',
+            });
+            map!.getCanvas().style.cursor = 'pointer';
+            return;
+          } else if (hoveredVikingAdnaRef.current) {
+            setFeatureState(map!, hoveredVikingAdnaRef.current, { hover: false }, VIKING_ADNA_SOURCE);
+            hoveredVikingAdnaRef.current = null;
+          }
+        }
+
+        if (map!.getLayer(VIKING_ARCH_CIRCLES)) {
+          const archFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ARCH_CIRCLES] });
+          if (archFeats.length) {
+            const p = archFeats[0].properties!;
+            const fid = p.id as string;
+            if (hoveredVikingArchRef.current && hoveredVikingArchRef.current !== fid) {
+              setFeatureState(map!, hoveredVikingArchRef.current, { hover: false }, VIKING_ARCH_SOURCE);
+            }
+            hoveredVikingArchRef.current = fid;
+            setFeatureState(map!, fid, { hover: true }, VIKING_ARCH_SOURCE);
+            showTooltip({
+              x: e.point.x, y: e.point.y,
+              title: p.name as string,
+              subtitle: (p.siteType as string).replace(/_/g, ' '),
+              detail: `${p.dateStart}–${p.dateEnd} CE`,
+              hint: 'Click for details & sources',
+            });
+            map!.getCanvas().style.cursor = 'pointer';
+            return;
+          } else if (hoveredVikingArchRef.current) {
+            setFeatureState(map!, hoveredVikingArchRef.current, { hover: false }, VIKING_ARCH_SOURCE);
+            hoveredVikingArchRef.current = null;
+          }
+        }
+
         if (tooltipRef.current) showTooltip(null);
         if (!hoveredSettlementRef.current && !hoveredRegionRef.current) {
           map!.getCanvas().style.cursor = '';
@@ -893,6 +959,20 @@ export default function MapCanvas() {
         if (hoveredYdnaRef.current && map!.getSource(NF_YDNA_SOURCE)) {
           setFeatureState(map!, hoveredYdnaRef.current, { hover: false }, NF_YDNA_SOURCE);
           hoveredYdnaRef.current = null;
+        }
+      });
+      map.on('mouseleave', VIKING_ADNA_CIRCLES, () => {
+        if (tooltipRef.current) showTooltip(null);
+        if (hoveredVikingAdnaRef.current && map!.getSource(VIKING_ADNA_SOURCE)) {
+          setFeatureState(map!, hoveredVikingAdnaRef.current, { hover: false }, VIKING_ADNA_SOURCE);
+          hoveredVikingAdnaRef.current = null;
+        }
+      });
+      map.on('mouseleave', VIKING_ARCH_CIRCLES, () => {
+        if (tooltipRef.current) showTooltip(null);
+        if (hoveredVikingArchRef.current && map!.getSource(VIKING_ARCH_SOURCE)) {
+          setFeatureState(map!, hoveredVikingArchRef.current, { hover: false }, VIKING_ARCH_SOURCE);
+          hoveredVikingArchRef.current = null;
         }
       });
 
@@ -929,6 +1009,14 @@ export default function MapCanvas() {
           if (selectedYdnaRef.current && map!.getSource(NF_YDNA_SOURCE)) {
             setFeatureState(map!, selectedYdnaRef.current, { selected: false }, NF_YDNA_SOURCE);
             selectedYdnaRef.current = null;
+          }
+          if (selectedVikingAdnaRef.current && map!.getSource(VIKING_ADNA_SOURCE)) {
+            setFeatureState(map!, selectedVikingAdnaRef.current, { selected: false }, VIKING_ADNA_SOURCE);
+            selectedVikingAdnaRef.current = null;
+          }
+          if (selectedVikingArchRef.current && map!.getSource(VIKING_ARCH_SOURCE)) {
+            setFeatureState(map!, selectedVikingArchRef.current, { selected: false }, VIKING_ARCH_SOURCE);
+            selectedVikingArchRef.current = null;
           }
         };
 
@@ -994,6 +1082,34 @@ export default function MapCanvas() {
               selectedYdnaRef.current = id;
               setFeatureState(map!, id, { selected: true }, NF_YDNA_SOURCE);
               selectFeature(id, 'nf-ydna-lineage');
+              return;
+            }
+          }
+        }
+
+        if (map!.getLayer(VIKING_ADNA_CIRCLES)) {
+          const vaFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ADNA_CIRCLES] });
+          if (vaFeats.length) {
+            const id = vaFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedVikingAdnaRef.current = id;
+              setFeatureState(map!, id, { selected: true }, VIKING_ADNA_SOURCE);
+              selectFeature(id, 'viking-adna-site');
+              return;
+            }
+          }
+        }
+
+        if (map!.getLayer(VIKING_ARCH_CIRCLES)) {
+          const archFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ARCH_CIRCLES] });
+          if (archFeats.length) {
+            const id = archFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedVikingArchRef.current = id;
+              setFeatureState(map!, id, { selected: true }, VIKING_ARCH_SOURCE);
+              selectFeature(id, 'viking-archaeology-site');
               return;
             }
           }
@@ -1220,6 +1336,17 @@ export default function MapCanvas() {
 
   useEffect(() => {
     return useMapStore.subscribe(
+      (s) => s.ydnaScandinavianFilter,
+      (scandinavianOnly) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        applyNfYdnaOriginFilter(map, scandinavianOnly);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
       (s) => s.normandySimYear,
       (year) => {
         const map = mapRef.current;
@@ -1259,8 +1386,10 @@ export default function MapCanvas() {
             updateRegionSource(map, regionsGeoJson);
           }
 
-          setYdnaYearFilter(map, colYear);
         } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
+          const vf = useMapStore.getState().vikingAdnaFilter;
+          setVikingAdnaFilters(map, { simYear, country: vf.country, burialContext: vf.burialContext });
+          setVikingArchYearFilter(map, simYear);
           syncOverlay(eraId, layers);
         }
       },
@@ -1274,6 +1403,18 @@ export default function MapCanvas() {
         const map = mapRef.current;
         if (!map || !readyRef.current) return;
         setNormanNodePeriodFilter(map, period);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.vikingAdnaFilter,
+      (filter) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        const { atlasSimYear } = useMapStore.getState();
+        setVikingAdnaFilters(map, { simYear: atlasSimYear, country: filter.country, burialContext: filter.burialContext });
       },
     );
   }, []);

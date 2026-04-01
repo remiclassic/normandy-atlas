@@ -8,6 +8,8 @@ export interface TooltipData {
   title: string;
   subtitle?: string;
   detail?: string;
+  /** Short CTA (e.g. click-to-open detail panel) */
+  hint?: string;
 }
 
 const MapTooltip = memo(function MapTooltip({ data }: { data: TooltipData | null }) {
@@ -24,6 +26,11 @@ const MapTooltip = memo(function MapTooltip({ data }: { data: TooltipData | null
       )}
       {data.detail && (
         <p className="text-[11px] text-text-muted mt-1 leading-snug">{data.detail}</p>
+      )}
+      {data.hint && (
+        <p className="text-[10px] text-gold/55 mt-1.5 leading-snug border-t border-gold/10 pt-1.5">
+          {data.hint}
+        </p>
       )}
     </div>
   );

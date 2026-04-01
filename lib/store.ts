@@ -66,6 +66,13 @@ export const DEEP_TIME_ERA_IDS = new Set([
   'roman-gaul',
 ]);
 
+export interface VikingAdnaFilter {
+  country: string;
+  burialContext: string;
+}
+
+const DEFAULT_VIKING_ADNA_FILTER: VikingAdnaFilter = { country: 'all', burialContext: 'all' };
+
 function eraMidpoint(eraId: string): number {
   const r = getEraRange(eraId);
   return r ? Math.round((r.start + r.end) / 2) : 0;
@@ -112,8 +119,11 @@ interface MapStore {
    * When false (default), exploration lines stay visible for the whole era (easier to compare routes).
    */
   explorationRoutesYearStrict: boolean;
+  /** When true, only Scandinavian-linked Y-DNA lineages (I1, Norse R1a) are shown on the map. */
+  ydnaScandinavianFilter: boolean;
   /** When true, 3D terrain (elevation + hillshade + fog) is active on the map. */
   terrain3dEnabled: boolean;
+  vikingAdnaFilter: VikingAdnaFilter;
 
   /** Active cinematic flythrough preset, or null when not flying. */
   cinematicFlythrough: { presetId: string; actIndex: number } | null;
@@ -162,7 +172,9 @@ interface MapStore {
   setModernBasemapOverlays: (visible: boolean) => void;
   setParchmentWaterAtmosphere: (enabled: boolean) => void;
   setExplorationRoutesYearStrict: (strict: boolean) => void;
+  setYdnaScandinavianFilter: (enabled: boolean) => void;
   setTerrain3dEnabled: (enabled: boolean) => void;
+  setVikingAdnaFilter: (filter: Partial<VikingAdnaFilter>) => void;
   startCinematicFlythrough: (presetId: string) => void;
   stopCinematicFlythrough: () => void;
   setCinematicFlythroughProgress: (progress: number) => void;
@@ -229,7 +241,9 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   modernBasemapOverlays: false,
   parchmentWaterAtmosphere: false,
   explorationRoutesYearStrict: false,
+  ydnaScandinavianFilter: false,
   terrain3dEnabled: false,
+  vikingAdnaFilter: DEFAULT_VIKING_ADNA_FILTER,
   cinematicFlythrough: null,
   cinematicFlythroughProgress: 0,
   locale: DEFAULT_LOCALE,
@@ -376,7 +390,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
 
   setExplorationRoutesYearStrict: (strict) => set({ explorationRoutesYearStrict: strict }),
 
+  setYdnaScandinavianFilter: (enabled) => set({ ydnaScandinavianFilter: enabled }),
+
   setTerrain3dEnabled: (enabled) => set({ terrain3dEnabled: enabled }),
+
+  setVikingAdnaFilter: (partial) =>
+    set((s) => ({ vikingAdnaFilter: { ...s.vikingAdnaFilter, ...partial } })),
 
   startCinematicFlythrough: (presetId) =>
     set({

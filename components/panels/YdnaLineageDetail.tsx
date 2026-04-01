@@ -4,7 +4,8 @@ import { useMemo, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { getNfYdnaFeature } from '@/data/atlas/new-france-ydna';
 import { HAPLO_COLORS } from '@/components/map/new-france-ydna-layers';
-import type { YdnaMajor } from '@/data/atlas/new-france-ydna-types';
+import { GENETIC_ORIGIN_LABELS, GENETIC_ORIGIN_COLORS } from '@/data/atlas/new-france-ydna-types';
+import type { GeneticConfidence } from '@/data/atlas/new-france-ydna-types';
 
 function ContentFade({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -55,6 +56,12 @@ const YDNA_INFO: Record<string, { name: string; desc: string }> = {
   Other: { name: 'Other', desc: 'An uncommon or unclassified major haplogroup.' },
 };
 
+const CONFIDENCE_LABELS: Record<GeneticConfidence, string> = {
+  high: 'High confidence',
+  medium: 'Medium confidence',
+  low: 'Low confidence',
+};
+
 const FRANCOGENE_BASE = 'https://www.francogene.com/triangulation/y.php';
 
 export default function YdnaLineageDetail({ id }: { id: string }) {
@@ -64,9 +71,11 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
 
   if (!feature) return null;
 
-  const { displayLabel, surname, marriageYear, spouse, yHaplogroup, yMajor, triId } = feature.properties;
+  const { displayLabel, surname, marriageYear, spouse, yHaplogroup, yMajor, triId, geneticOrigin, geneticConfidence } = feature.properties;
   const color = HAPLO_COLORS[yMajor] ?? HAPLO_COLORS.Other;
   const info = YDNA_INFO[yMajor] ?? YDNA_INFO.Other;
+  const originColor = GENETIC_ORIGIN_COLORS[geneticOrigin] ?? GENETIC_ORIGIN_COLORS.other;
+  const originLabel = GENETIC_ORIGIN_LABELS[geneticOrigin] ?? GENETIC_ORIGIN_LABELS.other;
 
   return (
     <>
@@ -88,6 +97,15 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
             >
               {yMajor}
             </span>
+            <span
+              className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-md border"
+              style={{ color: `${originColor}cc`, background: `${originColor}0f`, borderColor: `${originColor}25` }}
+            >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" fill={originColor} opacity="0.7" />
+              </svg>
+              {originLabel}
+            </span>
           </div>
         </ContentFade>
 
@@ -107,6 +125,7 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
           <FactRow label="Spouse" value={spouse} />
           <FactRow label="Haplogroup" value={yHaplogroup} />
           <FactRow label="Major group" value={info.name} />
+          <FactRow label="Origin" value={`${originLabel} — ${CONFIDENCE_LABELS[geneticConfidence]}`} />
           <FactRow label="Source ID" value={triId} />
         </div>
       </ContentFade>
@@ -147,6 +166,11 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
               <p>
                 Haplogroups indicate deep ancestral geographic origins but do not determine ethnicity,
                 nationality, or autosomal genetic makeup.
+              </p>
+              <p>
+                <strong className="text-text-muted">Genetic Origin</strong> classifies the probable deep paternal
+                geographic origin based on the haplogroup. It does not determine ethnicity or cultural identity.
+                The Norman story is a mixture of Scandinavian, Frankish, and Gallo-Roman lineages.
               </p>
             </motion.div>
           )}

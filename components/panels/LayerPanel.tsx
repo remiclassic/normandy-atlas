@@ -1,10 +1,12 @@
 'use client';
 
-import { Fragment, memo, useCallback, useState } from 'react';
+import { Fragment, memo, useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
 import type { NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
 import { layerConfigs } from '@/data/layers';
+import { getVikingAdnaFilterOptions } from '@/data/atlas/viking-adna-burials';
+import { VIKING_ADNA_CONTEXT_COLORS, VIKING_ADNA_FALLBACK_COLOR } from '@/components/map/viking-adna-layers';
 import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
 import BottomSheet from '@/components/ui/BottomSheet';
@@ -136,6 +138,20 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
       <circle cx="11" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
     </svg>
   ),
+  'viking-adna-burials': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="5" r="3" stroke="currentColor" strokeWidth="1.2" opacity="0.7" />
+      <path d="M7 8v3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6" />
+      <path d="M5 2.5h4" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.4" />
+      <path d="M4 12h6" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" opacity="0.4" />
+    </svg>
+  ),
+  'viking-archaeology-sites': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M3 11L7 3l4 8H3z" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round" opacity="0.7" />
+      <circle cx="7" cy="8" r="1.5" fill="currentColor" opacity="0.4" />
+    </svg>
+  ),
 };
 
 const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
@@ -192,6 +208,85 @@ const ExplorationYearStrictRow = memo(function ExplorationYearStrictRow() {
   );
 });
 
+const CONTEXT_LABELS: Record<string, string> = {
+  'mass grave': 'Mass Grave',
+  cemetery: 'Cemetery',
+  'churchyard cemetery': 'Churchyard',
+};
+
+const VikingAdnaLegend = memo(function VikingAdnaLegend() {
+  return (
+    <div className="px-3.5 pb-2 pt-1">
+      <p className="text-[9px] uppercase tracking-[0.15em] text-text-dim/60 font-semibold mb-1.5">Burial context</p>
+      <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+        {Object.entries(VIKING_ADNA_CONTEXT_COLORS).map(([key, color]) => (
+          <span key={key} className="flex items-center gap-1.5 text-[10px] text-text-muted">
+            <span className="inline-block w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
+            {CONTEXT_LABELS[key] ?? key}
+          </span>
+        ))}
+        <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
+          <span className="inline-block w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: VIKING_ADNA_FALLBACK_COLOR }} />
+          Other
+        </span>
+      </div>
+      <p className="text-[9px] text-text-dim/50 mt-1.5">Circle size reflects sample count.</p>
+    </div>
+  );
+});
+
+const VikingAdnaFilterControls = memo(function VikingAdnaFilterControls() {
+  const filter = useMapStore((s) => s.vikingAdnaFilter);
+  const setFilter = useMapStore((s) => s.setVikingAdnaFilter);
+  const opts = useMemo(() => getVikingAdnaFilterOptions(), []);
+
+  const hasActiveFilter = filter.country !== 'all' || filter.burialContext !== 'all';
+
+  return (
+    <div className="px-3 pb-2 pt-0.5 space-y-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2">
+        <label className="block">
+          <span className="text-[9px] uppercase tracking-[0.15em] text-text-dim/60 font-semibold mb-0.5 block">Country</span>
+          <select
+            value={filter.country}
+            onChange={(e) => setFilter({ country: e.target.value })}
+            className="w-full text-[11px] text-text bg-chrome-fill-raised border border-chrome-border-strong rounded-md px-1.5 py-1 appearance-none cursor-pointer focus:outline-none focus:border-gold/40"
+          >
+            <option value="all">All</option>
+            {opts.countries.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+
+        <label className="block">
+          <span className="text-[9px] uppercase tracking-[0.15em] text-text-dim/60 font-semibold mb-0.5 block">Context</span>
+          <select
+            value={filter.burialContext}
+            onChange={(e) => setFilter({ burialContext: e.target.value })}
+            className="w-full text-[11px] text-text bg-chrome-fill-raised border border-chrome-border-strong rounded-md px-1.5 py-1 appearance-none cursor-pointer focus:outline-none focus:border-gold/40"
+          >
+            <option value="all">All</option>
+            {opts.contexts.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      {hasActiveFilter && (
+        <button
+          type="button"
+          onClick={() => setFilter({ country: 'all', burialContext: 'all' })}
+          className="text-[10px] text-gold/60 hover:text-gold/80 transition-colors"
+        >
+          Reset filters
+        </button>
+      )}
+    </div>
+  );
+});
+
 const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] = [
   { key: 'atlas', label: 'Atlas', categories: ['borders', 'labels', 'routes', 'settlements', 'events', 'terrain', 'claims'] },
   { key: 'prehistory', label: 'Pre-Roman', categories: ['prehistory'] },
@@ -199,9 +294,10 @@ const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] 
   { key: 'normandy', label: 'Viking Normandy', categories: ['normandy'] },
   { key: 'exploration', label: 'Exploration & Trade', categories: ['exploration'] },
   { key: 'colonial', label: 'Colonial & Settlement', categories: ['colonial', 'new-france'] },
+  { key: 'viking-world', label: 'Viking World (aDNA)', categories: ['viking-world'] },
 ];
 
-const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy', 'exploration', 'colonial'] as const;
+const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy', 'exploration', 'colonial', 'viking-world'] as const;
 type LayerPanelSectionKey = (typeof LAYER_PANEL_SECTION_KEYS)[number];
 
 function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
@@ -213,6 +309,7 @@ function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
     normandy: true,
     exploration: true,
     colonial: true,
+    'viking-world': true,
   };
 }
 
@@ -440,6 +537,63 @@ const YdnaLegend = memo(function YdnaLegend() {
   );
 });
 
+const ScandinavianFilterToggle = memo(function ScandinavianFilterToggle() {
+  const on = useMapStore((s) => s.ydnaScandinavianFilter);
+  const setFilter = useMapStore((s) => s.setYdnaScandinavianFilter);
+  const handleClick = useCallback(() => setFilter(!on), [setFilter, on]);
+
+  return (
+    <div className="px-3 pb-2 pt-0.5">
+      <button
+        type="button"
+        onClick={handleClick}
+        className="group grid w-full grid-cols-[28px_minmax(0,1fr)_32px] items-start gap-x-2.5 px-3 py-1.5 rounded-md text-left text-[12px] leading-snug transition-colors duration-150 hover:bg-chrome-fill-badge"
+      >
+        <span
+          className={`flex h-[18px] w-7 shrink-0 items-center justify-center transition-all duration-200 ${
+            on ? 'text-gold/80' : 'text-text-dim group-hover:text-text-muted'
+          }`}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+            <path d="M7 1v4M7 5C4 5 3 8 3 10M7 5C10 5 11 8 11 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+            <circle cx="3" cy="11" r="1.2" fill="#4898e0" opacity="0.8" />
+            <circle cx="11" cy="11" r="1.2" fill="#4898e0" opacity="0.8" />
+          </svg>
+        </span>
+        <span className="min-w-0 pt-0.5 space-y-1">
+          <span
+            className={`block text-left transition-colors duration-200 ${
+              on ? 'text-text' : 'text-text-dim group-hover:text-text-muted'
+            }`}
+          >
+            Scandinavian lineages only
+          </span>
+          <span className="block text-[10px] leading-snug text-text-dim/75 font-normal">
+            Show I1 and Norse-linked R1a branches
+          </span>
+        </span>
+        <span className="flex h-[18px] shrink-0 items-center justify-end">
+          <span
+            className={`relative h-4 w-7 shrink-0 rounded-full transition-colors duration-200 ${
+              on
+                ? 'border border-gold/55 bg-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)]'
+                : 'border border-chrome-border-strong bg-chrome-fill-raised'
+            }`}
+          >
+            <motion.span
+              animate={{ x: on ? 16 : 2 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+              className={`absolute top-0.5 h-2.5 w-2.5 rounded-full shadow-sm transition-colors duration-200 ${
+                on ? 'bg-parchment' : 'bg-text-muted/35'
+              }`}
+            />
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+});
+
 const NORMAN_PRESETS: { id: NormanExpansionPreset; label: string }[] = [
   { id: 'conquest', label: 'Conquest' },
   { id: 'influence', label: 'Influence' },
@@ -622,6 +776,23 @@ function LayerPanelContent({
                     )}
                     {section.key === 'norman-expansion' && <NormanPresetBar />}
                     {section.key === 'norman-expansion' && <NormanNodePeriodControl />}
+                    {section.key === 'viking-world' && (
+                      <div className="px-3.5 pb-2 pt-0">
+                        <p className="text-[10px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
+                          Genomics-backed burial sites from{' '}
+                          <span className="text-text-muted">Margaryan et al. (2020)</span>
+                          {' '}across England, Ireland, Scandinavia, and beyond. Enabled automatically in{' '}
+                          <span className="text-text-muted">Viking Age</span> and{' '}
+                          <span className="text-text-muted">Norman Origins</span> eras.
+                        </p>
+                      </div>
+                    )}
+                    {section.key === 'viking-world' && (layers['viking-adna-burials'] ?? false) && (
+                      <>
+                        <VikingAdnaLegend />
+                        <VikingAdnaFilterControls />
+                      </>
+                    )}
                     {sectionLayers.map((cfg) => (
                       <Fragment key={cfg.id}>
                         <LayerToggle
@@ -634,7 +805,10 @@ function LayerPanelContent({
                           <ExplorationYearStrictRow />
                         )}
                         {cfg.id === 'new-france-ydna-lineages' && (layers[cfg.id] ?? cfg.defaultOn) && (
-                          <YdnaLegend />
+                          <>
+                            <YdnaLegend />
+                            <ScandinavianFilterToggle />
+                          </>
                         )}
                       </Fragment>
                     ))}

@@ -10,6 +10,8 @@ export interface MapDeepLinkParams {
   segment?: string;
   journey?: string;
   ydna?: string;
+  vikingAdna?: string;
+  vikingArch?: string;
   story?: string | null;
   step?: number;
 }
@@ -22,6 +24,8 @@ export function buildMapHref(params: MapDeepLinkParams): string {
   if (params.segment) qs.set('segment', params.segment);
   if (params.journey) qs.set('journey', params.journey);
   if (params.ydna) qs.set('ydna', params.ydna);
+  if (params.vikingAdna) qs.set('vikingAdna', params.vikingAdna);
+  if (params.vikingArch) qs.set('vikingArch', params.vikingArch);
   if (params.story !== undefined) qs.set('story', params.story ?? '');
   if (params.step != null) qs.set('step', String(params.step));
   const str = qs.toString();

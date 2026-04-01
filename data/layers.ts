@@ -50,6 +50,14 @@ import {
   NF_YDNA_CIRCLES,
   NF_YDNA_LABELS,
 } from '@/components/map/new-france-ydna-layers';
+import {
+  VIKING_ADNA_CIRCLES,
+  VIKING_ADNA_LABELS,
+} from '@/components/map/viking-adna-layers';
+import {
+  VIKING_ARCH_CIRCLES,
+  VIKING_ARCH_LABELS,
+} from '@/components/map/viking-archaeology-layers';
 
 export const layerConfigs: LayerConfig[] = [
   {
@@ -274,6 +282,23 @@ export const layerConfigs: LayerConfig[] = [
     defaultOn: false,
     mapLayerIds: [NORMAN_NODES_CIRCLES, NORMAN_NODES_LABELS],
   },
+  // --- Viking-world overlays ---
+  {
+    id: 'viking-adna-burials',
+    label: 'Viking aDNA Burials',
+    category: 'viking-world',
+    defaultOn: false,
+    mapLayerIds: [VIKING_ADNA_CIRCLES, VIKING_ADNA_LABELS],
+    dependsOnEra: true,
+  },
+  {
+    id: 'viking-archaeology-sites',
+    label: 'Viking Archaeology Sites',
+    category: 'viking-world',
+    defaultOn: false,
+    mapLayerIds: [VIKING_ARCH_CIRCLES, VIKING_ARCH_LABELS],
+    dependsOnEra: true,
+  },
 ];
 
 export function getDefaultLayerState(): Record<string, boolean> {
@@ -294,7 +319,8 @@ const OVERLAY_OFF: Record<string, boolean> = Object.fromEntries(
       c.category === 'prehistory' ||
       c.category === 'new-france' ||
       c.category === 'exploration' ||
-      c.category === 'colonial',
+      c.category === 'colonial' ||
+      c.category === 'viking-world',
     )
     .map((c) => [c.id, false]),
 );
@@ -335,6 +361,8 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'normandy-rivers': true,
     'normandy-evidence': true,
     'normandy-toponymy': true,
+    'viking-adna-burials': true,
+    'viking-archaeology-sites': true,
   },
   'norman-origins': {
     'normandy-micro-regions': true,
@@ -345,6 +373,8 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'normandy-evidence': true,
     'normandy-toponymy': true,
     'norman-expansion-nodes': true,
+    'viking-adna-burials': true,
+    'viking-archaeology-sites': true,
   },
   'norman-expansion': {
     'norman-expansion-territories': true,

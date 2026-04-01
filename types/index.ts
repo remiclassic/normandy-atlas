@@ -182,7 +182,8 @@ export type LayerCategory =
   | 'prehistory'
   | 'new-france'
   | 'exploration'
-  | 'colonial';
+  | 'colonial'
+  | 'viking-world';
 
 export interface LayerConfig {
   id: string;
@@ -226,7 +227,7 @@ export interface PersonRecord {
 
 // --- Selection ---
 
-export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage';
+export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site';
 
 export type NormanSiteKind =
   | 'city'

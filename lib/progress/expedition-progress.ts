@@ -30,6 +30,10 @@ function countCompletedSteps(progress: ProgressV2, exp: ExpeditionDef): number {
       case 'story':
         if (story[step.entityId]?.completed) done++;
         break;
+      case 'viking-adna-site':
+      case 'viking-archaeology-site':
+        if (step.entityId in aggregates.places) done++;
+        break;
     }
   }
   return done;

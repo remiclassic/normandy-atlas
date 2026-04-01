@@ -37,6 +37,7 @@ function useTocItems(locale: AtlasLocale): TocItem[] {
     { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
     { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
     { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
+    { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
     { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
     { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
   ], [locale]);
@@ -338,6 +339,7 @@ const CATEGORY_ICON: Record<JournalCategory, typeof MapPin> = {
   journey: ExternalLink,
   segment: ExternalLink,
   story: ExternalLink,
+  'viking-site': MapPin,
 };
 
 const IndexCard = memo(function IndexCard({
@@ -454,7 +456,7 @@ export default function JournalPage() {
     const q = deferredIndexSearch.trim().toLowerCase();
     const rows = q ? fullIndex.filter((r) => r.searchText.includes(q)) : fullIndex;
     const grouped: Record<JournalCategory, JournalIndexRow[]> = {
-      concept: [], place: [], region: [], journey: [], segment: [], story: [],
+      concept: [], place: [], region: [], journey: [], segment: [], story: [], 'viking-site': [],
     };
     for (const row of rows) grouped[row.category].push(row);
     return grouped;
@@ -788,6 +790,21 @@ export default function JournalPage() {
                   : 'Every narrative moment from story mode, in chronological order. Each link launches the corresponding step.'}
               </Prose>
               <IndexSection rows={filteredByCategory.story} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Viking World Sites */}
+            <section>
+              <SectionHeading id="index-viking-sites">
+                {locale === 'fr' ? 'Sites vikings' : 'Viking Sites'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Sites archéologiques et sépultures de l\'âge viking à travers l\'Europe — des données ADN ancien aux emporia, forteresses, trésors et pierres runiques.'
+                  : 'Viking-age archaeological sites and burials across Europe — from ancient DNA to emporia, fortresses, hoards, and runestones.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory['viking-site']} locale={locale} />
             </section>
 
             <SectionDivider />

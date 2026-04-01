@@ -9,7 +9,7 @@ import type { I18nString } from '@/core/types';
 export interface ExpeditionStep {
   /** ID of the target entity (place / journey / region). */
   entityId: string;
-  entityKind: 'place' | 'journey' | 'region' | 'story';
+  entityKind: 'place' | 'journey' | 'region' | 'story' | 'viking-adna-site' | 'viking-archaeology-site';
   label: I18nString;
   /** Era to fly the map to when this step is activated. */
   eraId?: string;
@@ -36,6 +36,8 @@ export const atlasExpeditions: ExpeditionDef[] = [
     steps: [
       { entityId: 'journey-danish-migration', entityKind: 'journey', label: { en: 'Danish Migration to Seine', fr: 'Migration danoise vers la Seine' }, eraId: 'viking-age' },
       { entityId: 'journey-seine-raids', entityKind: 'journey', label: { en: 'Viking Seine Raids', fr: 'Raids vikings sur la Seine' }, eraId: 'viking-age' },
+      { entityId: 'hedeby-haithabu', entityKind: 'viking-adna-site', label: { en: 'Hedeby aDNA — the trade hub', fr: 'ADN ancien de Hedeby — le centre commercial' }, eraId: 'viking-age' },
+      { entityId: 'ile-de-groix', entityKind: 'viking-archaeology-site', label: { en: 'Île de Groix Ship Burial', fr: 'Sépulture navale de l\'Île de Groix' }, eraId: 'viking-age' },
       { entityId: 'rouen', entityKind: 'place', label: { en: 'Rouen — heart of the duchy', fr: 'Rouen — cœur du duché' }, eraId: 'norman-origins' },
       { entityId: 'journey-viking-settlement', entityKind: 'journey', label: { en: 'Viking Settlement', fr: 'Implantation viking' }, eraId: 'norman-origins' },
     ],

@@ -57,6 +57,20 @@ function classifyMajor(hg) {
   return 'Other';
 }
 
+function classifyOrigin(yMajor, yHaplogroup) {
+  if (yMajor === 'I1') return { origin: 'scandinavian', confidence: 'high' };
+  if (yMajor === 'R1a') {
+    if (/Z284/i.test(yHaplogroup)) return { origin: 'scandinavian', confidence: 'medium' };
+    return { origin: 'possible-scandinavian', confidence: 'low' };
+  }
+  if (yMajor === 'I2') return { origin: 'possible-scandinavian', confidence: 'low' };
+  if (yMajor === 'R1b') return { origin: 'western-european', confidence: 'high' };
+  if (yMajor === 'G2' || yMajor === 'J1' || yMajor === 'J2' || yMajor === 'E1b')
+    return { origin: 'mediterranean-neolithic', confidence: 'high' };
+  if (yMajor === 'N') return { origin: 'eastern', confidence: 'medium' };
+  return { origin: 'other', confidence: 'low' };
+}
+
 // Exclusion: non-colonial figures (royalty etc.)
 const EXCLUDE_TRI = new Set([
   'TRI0106', // Louis XIII - not a settler
@@ -160,6 +174,8 @@ for (const rec of byTri.values()) {
     ? `${rec.givenName} ${rec.surname}`
     : rec.surname;
 
+  const { origin: geneticOrigin, confidence: geneticConfidence } = classifyOrigin(rec.yMajor, rec.yHaplogroup);
+
   features.push({
     type: 'Feature',
     properties: {
@@ -173,6 +189,8 @@ for (const rec of byTri.values()) {
       yHaplogroup: rec.yHaplogroup,
       yMajor: rec.yMajor,
       excludeFromMap: rec.excludeFromMap,
+      geneticOrigin,
+      geneticConfidence,
     },
     geometry: {
       type: 'Point',

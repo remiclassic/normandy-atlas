@@ -59,15 +59,32 @@ function buildColorExpression(): maplibregl.ExpressionSpecification {
 }
 
 // ---------------------------------------------------------------------------
-// Year filter — set externally when atlasSimYear changes
+// Feature filter — show full Francogene catalogue on the map
+//
+// We intentionally do NOT gate dots by atlasSimYear / marriageYear: the
+// timeline defaults to each era's midpoint (e.g. ~1636 in Foundations), which
+// hid most lineages whose marriage falls later (the dataset runs into the 1800s).
+// Territory and regions still follow the timeline; Y-DNA points stay genealogical.
 // ---------------------------------------------------------------------------
 
-export function setYdnaYearFilter(map: MaplibreMap, colonialYear: number) {
-  const filter: maplibregl.FilterSpecification = [
-    'all',
-    ['!=', ['get', 'excludeFromMap'], true],
-    ['<=', ['get', 'marriageYear'], colonialYear],
-  ];
+const NF_YDNA_FEATURE_FILTER: maplibregl.FilterSpecification = ['!=', ['get', 'excludeFromMap'], true];
+
+export function applyNfYdnaFeatureFilter(map: MaplibreMap) {
+  if (map.getLayer(NF_YDNA_CIRCLES)) map.setFilter(NF_YDNA_CIRCLES, NF_YDNA_FEATURE_FILTER);
+  if (map.getLayer(NF_YDNA_LABELS)) map.setFilter(NF_YDNA_LABELS, NF_YDNA_FEATURE_FILTER);
+}
+
+const SCANDINAVIAN_ORIGINS = ['scandinavian', 'possible-scandinavian'];
+
+export function applyNfYdnaOriginFilter(map: MaplibreMap, scandinavianOnly: boolean) {
+  const filter = scandinavianOnly
+    ? ([
+        'all',
+        ['!=', ['get', 'excludeFromMap'], true],
+        ['in', ['get', 'geneticOrigin'], ['literal', SCANDINAVIAN_ORIGINS]],
+      ] as unknown as maplibregl.FilterSpecification)
+    : NF_YDNA_FEATURE_FILTER;
+
   if (map.getLayer(NF_YDNA_CIRCLES)) map.setFilter(NF_YDNA_CIRCLES, filter);
   if (map.getLayer(NF_YDNA_LABELS)) map.setFilter(NF_YDNA_LABELS, filter);
 }

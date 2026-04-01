@@ -1,4 +1,6 @@
 import type { AtlasLocale, Place, AtlasRegion, Journey, RouteSegment, StoryBeat } from '@/core/types';
+import { vikingAdnaSites } from '@/data/atlas/viking-adna-burials';
+import { vikingArchaeologySites } from '@/data/atlas/viking-archaeology-sites';
 import { atlasGlossary } from '@/data/atlas/glossary';
 import { atlasPlaces } from '@/data/atlas/places';
 import { atlasRegions } from '@/data/atlas/regions';
@@ -15,7 +17,7 @@ import { buildMapHref } from '@/lib/map-deep-link';
 // Public types
 // ---------------------------------------------------------------------------
 
-export type JournalCategory = 'concept' | 'place' | 'region' | 'journey' | 'segment' | 'story';
+export type JournalCategory = 'concept' | 'place' | 'region' | 'journey' | 'segment' | 'story' | 'viking-site';
 
 export interface JournalIndexRow {
   category: JournalCategory;
@@ -220,6 +222,30 @@ function buildStoryRows(locale: AtlasLocale): JournalIndexRow[] {
   });
 }
 
+function buildVikingSiteRows(_locale: AtlasLocale): JournalIndexRow[] {
+  const adnaRows: JournalIndexRow[] = vikingAdnaSites.map((s) => ({
+    category: 'viking-site' as const,
+    id: s.id,
+    title: s.siteName,
+    excerpt: truncate(s.burialDescription ?? `${s.periodLabel} · ${s.country}`),
+    searchText: haystack(s.siteName, s.country, s.region ?? '', s.periodLabel, ...s.tags),
+    mapLink: buildMapHref({ era: 'viking-age', vikingAdna: s.id }),
+    meta: { eraId: 'viking-age', kind: 'adna' },
+  }));
+
+  const archRows: JournalIndexRow[] = vikingArchaeologySites.map((s) => ({
+    category: 'viking-site' as const,
+    id: s.id,
+    title: s.name,
+    excerpt: truncate(s.description),
+    searchText: haystack(s.name, s.country, s.region ?? '', s.periodLabel, ...s.tags, s.siteType),
+    mapLink: buildMapHref({ era: 'viking-age', vikingArch: s.id }),
+    meta: { eraId: 'viking-age', kind: 'archaeology' },
+  }));
+
+  return [...adnaRows, ...archRows];
+}
+
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
@@ -237,6 +263,7 @@ export function buildJournalIndex(
   if (!include || include.has('journey')) rows.push(...buildJourneyRows(locale));
   if (!include || include.has('segment')) rows.push(...buildSegmentRows(locale));
   if (!include || include.has('story')) rows.push(...buildStoryRows(locale));
+  if (!include || include.has('viking-site')) rows.push(...buildVikingSiteRows(locale));
 
   return rows;
 }

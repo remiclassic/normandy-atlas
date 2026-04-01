@@ -36,8 +36,18 @@ export default function MapDeepLinkSync() {
     const segment = params.get('segment');
     const journey = params.get('journey');
     const ydna = params.get('ydna');
+    const vikingAdna = params.get('vikingAdna');
+    const vikingArch = params.get('vikingArch');
 
-    if (ydna) {
+    if (vikingAdna) {
+      if (!era) setEra('viking-age');
+      useMapStore.getState().setLayerVisibility('viking-adna-burials', true);
+      selectFeature(vikingAdna, 'viking-adna-site');
+    } else if (vikingArch) {
+      if (!era) setEra('viking-age');
+      useMapStore.getState().setLayerVisibility('viking-archaeology-sites', true);
+      selectFeature(vikingArch, 'viking-archaeology-site');
+    } else if (ydna) {
       useMapStore.getState().setLayerVisibility('new-france-ydna-lineages', true);
       selectFeature(ydna, 'nf-ydna-lineage');
     } else if (place) selectFeature(place, 'settlement');

@@ -14,6 +14,8 @@ import { getEra } from '@/data/eras';
 import { eventRecords } from '@/data/events';
 import { routeRecords } from '@/data/routes';
 import { evidencePoints } from '@/data/normandy/evidence-points';
+import { vikingAdnaSites } from '@/data/atlas/viking-adna-burials';
+import { vikingArchaeologySites } from '@/data/atlas/viking-archaeology-sites';
 import { getNormanSiteArticle } from '@/data/norman-expansion/site-articles';
 import { normanNodesGeoJson } from '@/data/norman-expansion';
 import { getPlace, getAtlasEra, getAtlasRegion, getPeopleForPlace, getPeopleForRegion, getPeopleForEra, getPerson, getVisibleRegions, getVisiblePlaces, resolveDataset, getShareForEntity, getSegment, getJourney } from '@/core';
@@ -1048,6 +1050,327 @@ function EvidenceDetail({ id }: { id: string }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Viking aDNA site detail
+// ---------------------------------------------------------------------------
+
+const CONTEXT_TYPE_LABELS: Record<string, string> = {
+  'mass grave': 'Mass Grave',
+  cemetery: 'Cemetery',
+  'churchyard cemetery': 'Churchyard Cemetery',
+};
+
+function VikingAdnaSiteDetail({ id }: { id: string }) {
+  const site = useMemo(() => vikingAdnaSites.find((s) => s.id === id), [id]);
+  if (!site) return null;
+
+  const dateLabel = site.dateStart === site.dateEnd
+    ? `${site.dateStart} CE`
+    : `${site.dateStart}–${site.dateEnd} CE`;
+
+  const samplesWithGenetics = site.samples.filter(
+    (s) => s.yDnaHaplogroup || s.mtDnaHaplogroup,
+  );
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-400/70 bg-sky-400/[0.06] px-2.5 py-1 rounded-md border border-sky-400/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="2.5" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              Archaeogenomics
+            </span>
+            {site.burialContextType && (
+              <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-ember/70 bg-ember/[0.06] px-2.5 py-1 rounded-md border border-ember/10">
+                {CONTEXT_TYPE_LABELS[site.burialContextType] ?? site.burialContextType}
+              </span>
+            )}
+            {site.tags.includes('execution') && (
+              <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-red-400/70 bg-red-400/[0.06] px-2.5 py-1 rounded-md border border-red-400/10">
+                Execution
+              </span>
+            )}
+            <span className={`inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-md border ${
+              site.coordinatesCertainty === 'confirmed'
+                ? 'text-green-400/70 bg-green-400/[0.06] border-green-400/10'
+                : 'text-yellow-400/70 bg-yellow-400/[0.06] border-yellow-400/10'
+            }`}>
+              {site.coordinatesCertainty === 'confirmed' ? 'Confirmed' : 'Approximate'}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {site.siteName}
+          </h2>
+          <p className="text-[13px] text-text-dim/80">
+            {[site.region, site.country].filter(Boolean).join(', ')}
+          </p>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Date" value={dateLabel} />
+          <FactRow label="Period" value={site.periodLabel} />
+          {site.assemblageSizeNote && <FactRow label="Assemblage" value={site.assemblageSizeNote} />}
+          {site.traumaNote && <FactRow label="Trauma" value={site.traumaNote} />}
+          {site.isotopeNote && <FactRow label="Isotope origins" value={site.isotopeNote} />}
+          <FactRow label="Samples" value={`${site.samples.length} individual${site.samples.length > 1 ? 's' : ''} sequenced`} />
+        </div>
+      </ContentFade>
+
+      {site.burialDescription && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.14}>
+            <div className="px-7 py-5">
+              <p className="text-[14px] leading-[1.75] text-text/85">{site.burialDescription}</p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {site.significanceNote && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.155}>
+            <div className="px-7 py-5">
+              <h3 className="text-[12px] font-semibold uppercase tracking-[0.15em] text-gold/70 mb-2">
+                Why this site matters
+              </h3>
+              <p className="text-[14px] leading-[1.75] text-text/85">{site.significanceNote}</p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {site.dataQualityNote && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.16}>
+            <div className="px-7 py-5">
+              <p className="text-[11px] text-yellow-400/60 leading-relaxed">
+                <span className="font-semibold uppercase tracking-wider text-[10px] mr-1.5">Data note:</span>
+                {site.dataQualityNote}
+              </p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {samplesWithGenetics.length > 0 && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <h3 className="text-[12px] font-semibold uppercase tracking-[0.15em] text-text-dim mb-3">
+                Haplogroups
+              </h3>
+              <div className="space-y-2">
+                {samplesWithGenetics.map((s) => (
+                  <div key={s.sampleId} className="flex items-baseline gap-3 text-[13px]">
+                    <span className="font-mono text-text-muted/80 shrink-0">{s.sampleId}</span>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1">
+                      {s.yDnaHaplogroup && (
+                        <span className="text-sky-300/80">
+                          <span className="text-text-dim text-[10px] uppercase tracking-wider mr-1">Y</span>
+                          {s.yDnaHaplogroup}
+                        </span>
+                      )}
+                      {s.mtDnaHaplogroup && (
+                        <span className="text-rose-300/80">
+                          <span className="text-text-dim text-[10px] uppercase tracking-wider mr-1">mt</span>
+                          {s.mtDnaHaplogroup}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.22}>
+        <div className="px-7 py-5">
+          <h3 className="text-[12px] font-semibold uppercase tracking-[0.15em] text-text-dim mb-2">
+            All sample IDs
+          </h3>
+          <p className="text-[12px] font-mono text-text-muted/70 leading-relaxed">
+            {site.samples.map((s) => s.sampleId).join(', ')}
+          </p>
+        </div>
+      </ContentFade>
+
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.26}>
+        <div className="px-7 py-5 space-y-2">
+          <p className="text-[11px] text-text-dim/60 leading-relaxed">
+            {site.studyLabel ? `${site.studyLabel} — ` : ''}Source: {site.sourceCitation}
+          </p>
+          {site.doi && (
+            <a
+              href={`https://doi.org/${site.doi}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[11px] text-sky-400/70 hover:text-sky-300 transition-colors"
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0">
+                <path d="M8 5.5V8a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2.5M6 1h3v3M9 1L4.5 5.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              DOI: {site.doi}
+            </a>
+          )}
+          {site.externalLinks?.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-[11px] text-sky-400/70 hover:text-sky-300 transition-colors"
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0">
+                <path d="M8 5.5V8a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2.5M6 1h3v3M9 1L4.5 5.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Viking archaeology site detail
+// ---------------------------------------------------------------------------
+
+const SITE_TYPE_LABELS: Record<string, string> = {
+  emporium: 'Trade Town',
+  fortification: 'Fortification',
+  assembly: 'Assembly Site',
+  hoard: 'Hoard Find',
+  settlement: 'Settlement',
+  burial_mound: 'Burial Mound',
+  monastery: 'Monastery',
+  runestone: 'Runestone',
+  ship_find: 'Ship Find',
+};
+
+function VikingArchaeologySiteDetail({ id }: { id: string }) {
+  const site = useMemo(() => vikingArchaeologySites.find((s) => s.id === id), [id]);
+  if (!site) return null;
+
+  const dateLabel = site.dateStart === site.dateEnd
+    ? `${site.dateStart} CE`
+    : `${site.dateStart}–${site.dateEnd} CE`;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-400/70 bg-amber-400/[0.06] px-2.5 py-1 rounded-md border border-amber-400/10">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <path d="M2 6L4 2l2 4H2z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+              </svg>
+              Archaeology
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-ember/70 bg-ember/[0.06] px-2.5 py-1 rounded-md border border-ember/10">
+              {SITE_TYPE_LABELS[site.siteType] ?? site.siteType}
+            </span>
+          </div>
+        </ContentFade>
+
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {site.name}
+          </h2>
+          <p className="text-[13px] text-text-dim/80">
+            {[site.region, site.country].filter(Boolean).join(', ')}
+          </p>
+        </ContentFade>
+      </div>
+
+      <div className="accent-line-gold mx-7" />
+
+      <ContentFade delay={0.1}>
+        <div className="px-7 py-5 space-y-3">
+          <FactRow label="Date" value={dateLabel} />
+          <FactRow label="Period" value={site.periodLabel} />
+          <FactRow label="Type" value={SITE_TYPE_LABELS[site.siteType] ?? site.siteType} />
+        </div>
+      </ContentFade>
+
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.14}>
+        <div className="px-7 py-5">
+          <p className="text-[14px] leading-[1.75] text-text/85">{site.description}</p>
+        </div>
+      </ContentFade>
+
+      {site.significanceNote && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <h3 className="text-[12px] font-semibold uppercase tracking-[0.15em] text-gold/70 mb-2">
+                Why this site matters
+              </h3>
+              <p className="text-[14px] leading-[1.75] text-text/85">{site.significanceNote}</p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      <div className="divider-fade mx-7" />
+      <ContentFade delay={0.22}>
+        <div className="px-7 py-5 space-y-2">
+          <p className="text-[11px] text-text-dim/60 leading-relaxed">
+            Source: {site.citation}
+          </p>
+          {site.wikipediaUrl && (
+            <a
+              href={site.wikipediaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[11px] text-sky-400/70 hover:text-sky-300 transition-colors"
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0">
+                <path d="M8 5.5V8a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2.5M6 1h3v3M9 1L4.5 5.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Wikipedia
+            </a>
+          )}
+          {site.externalLinks?.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-[11px] text-sky-400/70 hover:text-sky-300 transition-colors"
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="shrink-0">
+                <path d="M8 5.5V8a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1h2.5M6 1h3v3M9 1L4.5 5.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </ContentFade>
+    </>
+  );
+}
+
 function PrehistoricSiteDetail({ id, eraId }: { id: string; eraId: string }) {
   const locale = useMapStore((s) => s.locale);
   const place = useMemo(() => getPlace(id), [id]);
@@ -1493,6 +1816,10 @@ function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: strin
         <NormanSiteDetail id={selectedId} />
       ) : selectionKind === 'nf-ydna-lineage' ? (
         <YdnaLineageDetail id={selectedId} />
+      ) : selectionKind === 'viking-adna-site' ? (
+        <VikingAdnaSiteDetail id={selectedId} />
+      ) : selectionKind === 'viking-archaeology-site' ? (
+        <VikingArchaeologySiteDetail id={selectedId} />
       ) : selectionKind === 'prehistoric-site' ? (
         <PrehistoricSiteDetail id={selectedId} eraId={eraId} />
       ) : selectionKind === 'atlas-route' ? (
@@ -1591,6 +1918,8 @@ const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
   'norman-site': 'place_open',
   'nf-ydna-lineage': 'place_open',
   'evidence': 'place_open',
+  'viking-adna-site': 'place_open',
+  'viking-archaeology-site': 'place_open',
 };
 
 export default function HistoricalDetailPanel() {

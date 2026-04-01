@@ -157,7 +157,7 @@ const ExpeditionsSection = memo(function ExpeditionsSection({ locale }: { locale
     return atlasExpeditions.map((exp) => {
       const completed = exp.steps.filter((s) => {
         if (s.entityKind === 'story') return progress.story[s.entityId]?.completed;
-        const bucket = s.entityKind === 'place' ? 'places'
+        const bucket = s.entityKind === 'place' || s.entityKind === 'viking-adna-site' || s.entityKind === 'viking-archaeology-site' ? 'places'
           : s.entityKind === 'region' ? 'regions'
           : 'journeys';
         return s.entityId in progress.aggregates[bucket];
@@ -197,7 +197,7 @@ const ExpeditionsSection = memo(function ExpeditionsSection({ locale }: { locale
                     step.entityKind === 'story'
                       ? progress.story[step.entityId]?.completed
                       : step.entityId in progress.aggregates[
-                          step.entityKind === 'place' ? 'places'
+                          step.entityKind === 'place' || step.entityKind === 'viking-adna-site' || step.entityKind === 'viking-archaeology-site' ? 'places'
                             : step.entityKind === 'region' ? 'regions'
                             : 'journeys'
                         ];
