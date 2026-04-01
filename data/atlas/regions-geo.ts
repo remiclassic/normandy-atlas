@@ -618,6 +618,50 @@ export const atlasRegionsGeoJson: RegionFeatureCollection = {
         ],
       },
     },
+    // ── Scandinavian homeland ─────────────────────────────────────────
+    {
+      type: 'Feature',
+      properties: {
+        id: 'scandinavian-homeland',
+        name: 'Scandinavian Homeland',
+        namesByEra: {
+          'frankish-carolingian': 'Scandinavia',
+          'viking-age': 'Norse Homelands',
+          'norman-origins': 'Scandinavia',
+        },
+        color: '#2d9e8a',
+        fillIntent: 'homeland',
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [4.5, 58.0],
+            [5.0, 59.0],
+            [5.3, 60.5],
+            [5.0, 62.0],
+            [6.0, 63.5],
+            [10.0, 64.5],
+            [14.0, 65.0],
+            [18.0, 65.5],
+            [20.0, 64.0],
+            [22.0, 62.0],
+            [24.0, 60.5],
+            [22.0, 59.0],
+            [19.0, 58.5],
+            [16.0, 56.5],
+            [14.0, 55.5],
+            [12.5, 55.3],
+            [12.0, 54.5],
+            [10.5, 54.8],
+            [9.0, 55.5],
+            [8.0, 56.5],
+            [7.0, 57.5],
+            [4.5, 58.0],
+          ],
+        ],
+      },
+    },
     // ── Viking influence zones (soft, probabilistic) ──────────────────
     {
       type: 'Feature',

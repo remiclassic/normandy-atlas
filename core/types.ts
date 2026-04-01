@@ -66,7 +66,7 @@ export interface PlaceWithState extends Place {
 // --- Regions ---
 
 export type BorderStyle = 'hard' | 'soft' | 'disputed';
-export type FillIntent = 'culture' | 'polity' | 'pressure' | 'neutral' | 'frontier' | 'contested';
+export type FillIntent = 'culture' | 'polity' | 'pressure' | 'neutral' | 'frontier' | 'contested' | 'homeland';
 
 export interface RegionEraState {
   visibility: VisibilityLevel;
@@ -217,10 +217,12 @@ export type TimelineMarkerKind =
   | 'story';
 
 export interface TimelineMarkerAction {
-  type: 'flyToPlace' | 'openPerson' | 'openStoryStep' | 'setYearOnly';
+  type: 'flyToPlace' | 'openPerson' | 'openStoryStep' | 'setYearOnly' | 'flyToCamera';
   placeId?: string;
   personId?: string;
   beatIndex?: number;
+  center?: [number, number];
+  zoom?: number;
 }
 
 export interface TimelineMarker {
@@ -230,6 +232,7 @@ export interface TimelineMarker {
   eraIds: string[];
   label: I18nString;
   action?: TimelineMarkerAction;
+  detail?: I18nString;
 }
 
 // --- People ---

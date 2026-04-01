@@ -16,6 +16,7 @@ import { routeRecords } from '@/data/routes';
 import { evidencePoints } from '@/data/normandy/evidence-points';
 import { vikingAdnaSites } from '@/data/atlas/viking-adna-burials';
 import { vikingArchaeologySites } from '@/data/atlas/viking-archaeology-sites';
+import { getMarkerById } from '@/data/atlas/timeline-markers';
 import { getNormanSiteArticle } from '@/data/norman-expansion/site-articles';
 import { normanNodesGeoJson } from '@/data/norman-expansion';
 import { getPlace, getAtlasEra, getAtlasRegion, getPeopleForPlace, getPeopleForRegion, getPeopleForEra, getPerson, getVisibleRegions, getVisiblePlaces, resolveDataset, getShareForEntity, getSegment, getJourney } from '@/core';
@@ -1803,10 +1804,50 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
   );
 }
 
+function TimelineMarkerDetail({ id }: { id: string }) {
+  const locale = useMapStore((s) => s.locale);
+  const marker = useMemo(() => getMarkerById(id), [id]);
+  if (!marker) return null;
+
+  const yearStr = marker.year < 0 ? `${Math.abs(marker.year)} BC` : `${marker.year} AD`;
+
+  return (
+    <>
+      <div className="px-7 pt-7 pb-5">
+        <ContentFade>
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/70 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10">
+              {marker.kind}
+            </span>
+            <span className="text-[10px] font-semibold tabular-nums text-text-dim/70">{yearStr}</span>
+          </div>
+        </ContentFade>
+        <ContentFade delay={0.05}>
+          <h2 className="text-[26px] font-display font-bold text-parchment leading-tight mb-1.5 tracking-[-0.01em]">
+            {pickI18n(marker.label, locale)}
+          </h2>
+        </ContentFade>
+      </div>
+      {marker.detail && (
+        <>
+          <div className="accent-line-gold mx-7" />
+          <ContentFade delay={0.1}>
+            <div className="px-7 py-5">
+              <p className="text-[14px] leading-[1.75] text-text/85">{pickI18n(marker.detail, locale)}</p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+    </>
+  );
+}
+
 function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: string; selectionKind: string; eraId: string }) {
   return (
     <>
-      {selectionKind === 'atlas-person' ? (
+      {selectionKind === 'atlas-timeline-marker' ? (
+        <TimelineMarkerDetail id={selectedId} />
+      ) : selectionKind === 'atlas-person' ? (
         <AtlasPersonDetail personId={selectedId} eraId={eraId} />
       ) : selectionKind === 'era-info' ? (
         <EraInfoDetail eraId={selectedId} />

@@ -3,9 +3,10 @@
 import { memo, useCallback, useMemo, useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { useMapStore, NORMANDY_ERA_IDS } from '@/lib/store';
+import { useMapStore, NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { getEraRange } from '@/core/era/engine';
 import { getMarkersForEra } from '@/data/atlas/timeline-markers';
+import { VIKING_MACRO_PHASES, getVikingPhaseForYear } from '@/data/atlas/viking-timeline-phases';
 import { formatYear, yearToPercent } from '@/lib/timeline-utils';
 import { pickI18n } from '@/lib/locale';
 import { TimelineMarkerGlyph } from '@/lib/timeline-marker-icons';
@@ -255,7 +256,7 @@ function MarkerTooltip({
           {formatYear(marker.year)}
         </span>
       </div>
-      {marker.action?.type === 'openPerson' && marker.action.personId && (
+      {(marker.action?.type === 'openPerson' || marker.action?.type === 'flyToCamera' || marker.action?.type === 'flyToPlace') && (
         <p className="text-[9px] text-gold/60 mt-1.5">Click to explore</p>
       )}
     </motion.div>,
@@ -358,8 +359,14 @@ export default function AtlasTimelineRail() {
   const selectFeature = useMapStore((s) => s.selectFeature);
 
   const isNormandyMode = NORMANDY_ERA_IDS.has(eraId) && expansionLayerOn;
+  const isViking = VIKING_MOVEMENT_ERA_IDS.has(eraId);
   const range = useMemo(() => getEraRange(eraId), [eraId]);
   const simYear = isNormandyMode ? normandySimYear : atlasSimYear;
+
+  const vikingPhase = useMemo(
+    () => (isViking ? getVikingPhaseForYear(simYear) : undefined),
+    [isViking, simYear],
+  );
 
   const [hoveredMarker, setHoveredMarker] = useState<TimelineMarker | null>(null);
   const [anchorRect, setAnchorRect] = useState<DOMRect | null>(null);
@@ -407,6 +414,8 @@ export default function AtlasTimelineRail() {
     setAnchorRect(null);
   }, []);
 
+  const setPendingFlyTarget = useMapStore((s) => s.setPendingFlyTarget);
+
   const handleMarkerClick = useCallback(
     (marker: TimelineMarker) => {
       if (isNormandyMode) {
@@ -415,11 +424,24 @@ export default function AtlasTimelineRail() {
         setAtlasSimYear(marker.year);
       }
 
-      if (marker.action?.type === 'openPerson' && marker.action.personId) {
-        selectFeature(marker.action.personId, 'atlas-person');
+      const action = marker.action;
+      if (!action) {
+        selectFeature(marker.id, 'atlas-timeline-marker');
+        return;
+      }
+
+      if (action.type === 'openPerson' && action.personId) {
+        selectFeature(action.personId, 'atlas-person');
+      } else if (action.type === 'flyToCamera' && action.center) {
+        setPendingFlyTarget({ center: action.center, zoom: action.zoom ?? 6 });
+        selectFeature(marker.id, 'atlas-timeline-marker');
+      } else if (action.type === 'flyToPlace' && action.placeId) {
+        selectFeature(action.placeId, 'settlement');
+      } else {
+        selectFeature(marker.id, 'atlas-timeline-marker');
       }
     },
-    [isNormandyMode, setNormandySimYear, setAtlasSimYear, selectFeature],
+    [isNormandyMode, setNormandySimYear, setAtlasSimYear, selectFeature, setPendingFlyTarget],
   );
 
   const yearFromClientX = useCallback(
@@ -630,6 +652,55 @@ export default function AtlasTimelineRail() {
             )}
           </AnimatePresence>
         </div>
+
+        {/* Viking macro phase bands */}
+        {isViking && (
+          <div className="relative h-[18px] mt-0.5">
+            {VIKING_MACRO_PHASES.map((mp) => {
+              const left = Math.max(0, yearToPercent(Math.max(mp.yearStart, min), min, max));
+              const right = Math.min(100, yearToPercent(Math.min(mp.yearEnd, max), min, max));
+              if (right <= left) return null;
+              const mid = (left + right) / 2;
+              const active = simYear >= mp.yearStart && simYear < mp.yearEnd;
+              return (
+                <div key={mp.id}>
+                  <div
+                    className={`absolute top-0 h-[5px] rounded-sm transition-opacity duration-200 ${
+                      active ? 'opacity-100' : 'opacity-40'
+                    }`}
+                    style={{
+                      left: `${left}%`,
+                      width: `${right - left}%`,
+                      background: active
+                        ? 'linear-gradient(90deg, rgba(196,169,98,0.18), rgba(196,169,98,0.08))'
+                        : 'rgba(196,169,98,0.05)',
+                    }}
+                  />
+                  <span
+                    className={`absolute text-[7px] leading-none whitespace-nowrap transition-opacity duration-200 -translate-x-1/2 sm:text-[8px] ${
+                      active ? 'text-gold/55' : 'text-text-dim/30'
+                    }`}
+                    style={{ left: `${mid}%`, top: '7px' }}
+                  >
+                    {pickI18n(mp.label, locale)}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Viking phase narrative */}
+        {isViking && vikingPhase && (
+          <div className="mt-1 px-0.5">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-gold/50 sm:text-[10px]">
+              {pickI18n(vikingPhase.label, locale)}
+            </span>
+            <p className="mt-0.5 text-[9px] leading-[1.45] text-text-dim/70 line-clamp-3 sm:text-[10px] sm:leading-[1.5]">
+              {pickI18n(vikingPhase.narrative, locale)}
+            </p>
+          </div>
+        )}
 
         {/* Year labels */}
         <div className="flex items-center justify-between mt-0.5">

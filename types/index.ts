@@ -45,6 +45,7 @@ export interface RegionProperties {
   name: string;
   namesByEra: Record<string, string>;
   color?: string;
+  fillIntent?: string;
 }
 
 export type RegionFeature = Feature<Polygon | MultiPolygon, RegionProperties>;
@@ -193,8 +194,11 @@ export interface LayerConfig {
   mapLayerIds: string[];
   deckLayer?: boolean;
   dependsOnEra?: boolean;
+  /** Legacy route filter: controls deck.gl route layers by RouteKind from routeRecords. */
   routeFilter?: RouteKind[];
   settlementFilter?: SettlementCategory[];
+  /** Atlas route filter: controls atlas RouteSegment visibility via getHiddenSegmentKinds in MapCanvas. */
+  atlasSegmentKinds?: import('@/core/types').SegmentKind[];
 }
 
 // --- Route GeoJSON ---
@@ -227,7 +231,7 @@ export interface PersonRecord {
 
 // --- Selection ---
 
-export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site';
+export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site' | 'atlas-timeline-marker';
 
 export type NormanSiteKind =
   | 'city'

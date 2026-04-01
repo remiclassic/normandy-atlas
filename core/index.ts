@@ -25,6 +25,9 @@ export {
   getVisibleRegions,
   getAtlasRegionsGeoJsonForEra,
   getAtlasRegionsForColonialYear,
+  getAtlasRegionsForVikingSimYear,
+  getVikingTerritoryFadeStates,
+  getVikingTerritoryFadeRegionIds,
   getRegionsByLayer,
 } from './regions/engine';
 

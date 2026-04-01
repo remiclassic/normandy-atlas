@@ -125,6 +125,10 @@ interface MapStore {
   terrain3dEnabled: boolean;
   vikingAdnaFilter: VikingAdnaFilter;
 
+  /** One-shot camera fly request from UI (consumed by MapCanvas). */
+  pendingFlyTarget: { center: [number, number]; zoom: number } | null;
+  setPendingFlyTarget: (target: { center: [number, number]; zoom: number } | null) => void;
+
   /** Active cinematic flythrough preset, or null when not flying. */
   cinematicFlythrough: { presetId: string; actIndex: number } | null;
   /** Throttled progress [0–1] for the flythrough UI bar. */
@@ -244,6 +248,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   ydnaScandinavianFilter: false,
   terrain3dEnabled: false,
   vikingAdnaFilter: DEFAULT_VIKING_ADNA_FILTER,
+  pendingFlyTarget: null,
+  setPendingFlyTarget: (target) => set({ pendingFlyTarget: target }),
   cinematicFlythrough: null,
   cinematicFlythroughProgress: 0,
   locale: DEFAULT_LOCALE,

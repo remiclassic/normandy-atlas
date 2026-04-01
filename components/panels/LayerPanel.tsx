@@ -138,6 +138,31 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
       <circle cx="11" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
     </svg>
   ),
+  'viking-raid-routes': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M2 12C4 8 6 4 12 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M10.5 2.5L12 2l-.5 1.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+    </svg>
+  ),
+  'viking-trade-routes': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M2 7h10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeDasharray="2 1.5" />
+      <circle cx="2" cy="7" r="1.5" fill="currentColor" opacity="0.5" />
+      <circle cx="12" cy="7" r="1.5" fill="currentColor" opacity="0.5" />
+    </svg>
+  ),
+  'viking-settlement-routes': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M3 10C5 6 9 8 11 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <circle cx="11" cy="4" r="2" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+    </svg>
+  ),
+  'viking-exploration-routes': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M2 11C4 7 8 5 12 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeDasharray="3 2" />
+      <circle cx="12" cy="3" r="1" fill="currentColor" opacity="0.6" />
+    </svg>
+  ),
   'viking-adna-burials': (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
       <circle cx="7" cy="5" r="3" stroke="currentColor" strokeWidth="1.2" opacity="0.7" />
@@ -150,6 +175,25 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
       <path d="M3 11L7 3l4 8H3z" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round" opacity="0.7" />
       <circle cx="7" cy="8" r="1.5" fill="currentColor" opacity="0.4" />
+    </svg>
+  ),
+  'viking-expansion-zones': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1" strokeDasharray="3 2" opacity="0.4" />
+      <circle cx="7" cy="7" r="2.5" fill="currentColor" opacity="0.12" />
+    </svg>
+  ),
+  'viking-norse-homeland': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 2L3 6v5l4 2 4-2V6L7 2z" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round" opacity="0.6" />
+      <path d="M7 6v5" stroke="currentColor" strokeWidth="0.7" opacity="0.35" />
+    </svg>
+  ),
+  'viking-battle-markers': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M4 3L7 1l3 2v4L7 9 4 7V3z" stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round" opacity="0.7" />
+      <path d="M7 4v3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6" />
+      <circle cx="7" cy="12" r="1" fill="currentColor" opacity="0.4" />
     </svg>
   ),
 };
@@ -795,6 +839,21 @@ function LayerPanelContent({
                     )}
                     {sectionLayers.map((cfg) => (
                       <Fragment key={cfg.id}>
+                        {section.key === 'atlas' && cfg.id === 'routes' && (
+                          <p className="px-3.5 pt-2 pb-0.5 text-[9px] uppercase tracking-[0.14em] font-semibold text-text-dim/40">
+                            Routes &amp; overlays
+                          </p>
+                        )}
+                        {section.key === 'viking-world' && cfg.id === 'viking-raid-routes' && (
+                          <p className="px-3.5 pt-2 pb-0.5 text-[9px] uppercase tracking-[0.14em] font-semibold text-text-dim/40">
+                            Atlas route mesh (year-filtered)
+                          </p>
+                        )}
+                        {section.key === 'viking-world' && cfg.id === 'viking-adna-burials' && (
+                          <p className="px-3.5 pt-2 pb-0.5 text-[9px] uppercase tracking-[0.14em] font-semibold text-text-dim/40">
+                            Evidence &amp; poster overlays
+                          </p>
+                        )}
                         <LayerToggle
                           id={cfg.id}
                           label={cfg.label}

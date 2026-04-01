@@ -662,6 +662,7 @@ export const atlasPlaces: Place[] = [
     regionId: 'neustria',
     layer: 'europe',
     eraStates: {
+      'frankish-carolingian': { visibility: 'emphasized', label: 'Hedeby', affiliationTags: ['Danish', 'trade emporium'], pedagogyIndex: 5 },
       'viking-age': { visibility: 'emphasized', label: 'Hedeby', affiliationTags: ['Danish', 'trade emporium'], pedagogyIndex: 5 },
       'norman-origins': { visibility: 'normal', label: 'Hedeby', affiliationTags: ['Danish'], pedagogyIndex: 3 },
     },
@@ -673,8 +674,101 @@ export const atlasPlaces: Place[] = [
     regionId: 'neustria',
     layer: 'europe',
     eraStates: {
+      'frankish-carolingian': { visibility: 'normal', label: 'Birka', affiliationTags: ['Swedish', 'trade'], pedagogyIndex: 4 },
       'viking-age': { visibility: 'emphasized', label: 'Birka', affiliationTags: ['Swedish', 'trade emporium'], pedagogyIndex: 5 },
       'norman-origins': { visibility: 'normal', label: 'Birka', affiliationTags: ['Swedish'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'lindisfarne',
+    kind: 'settlement',
+    coordinates: [-1.676, 55.671],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'emphasized', label: 'Lindisfarne', affiliationTags: ['793', 'Northumbria'], pedagogyIndex: 5 },
+      'viking-age': { visibility: 'emphasized', label: 'Lindisfarne', affiliationTags: ['Northumbria'], pedagogyIndex: 4 },
+      'norman-origins': { visibility: 'normal', label: 'Lindisfarne', affiliationTags: [], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'faroe-islands',
+    kind: 'abstract_node',
+    coordinates: [-6.91, 62.01],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'hidden', label: 'Faroe Islands', affiliationTags: [], pedagogyIndex: 0 },
+      'viking-age': { visibility: 'faded', label: 'Faroe Islands', affiliationTags: ['Norse', 'stepping stone'], pedagogyIndex: 3 },
+      'norman-origins': { visibility: 'faded', label: 'Faroe Islands', affiliationTags: ['Norse'], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'gibraltar-strait',
+    kind: 'abstract_node',
+    coordinates: [-5.35, 36.14],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'hidden', label: 'Strait of Gibraltar', affiliationTags: [], pedagogyIndex: 0 },
+      'viking-age': { visibility: 'hidden', label: 'Strait of Gibraltar', affiliationTags: [], pedagogyIndex: 0 },
+      'norman-origins': { visibility: 'hidden', label: 'Strait of Gibraltar', affiliationTags: [], pedagogyIndex: 0 },
+    },
+  },
+  {
+    id: 'seville-guadalquivir',
+    kind: 'port',
+    coordinates: [-5.99, 37.39],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'hidden', label: 'Seville', affiliationTags: [], pedagogyIndex: 0 },
+      'viking-age': { visibility: 'emphasized', label: 'Seville (Ishbīliya)', affiliationTags: ['844 raid', 'Guadalquivir'], pedagogyIndex: 5 },
+      'norman-origins': { visibility: 'normal', label: 'Seville', affiliationTags: [], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'western-mediterranean-node',
+    kind: 'abstract_node',
+    coordinates: [8.35, 40.22],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'hidden', label: 'Western Mediterranean', affiliationTags: [], pedagogyIndex: 0 },
+      'norman-origins': { visibility: 'hidden', label: 'Western Mediterranean', affiliationTags: [], pedagogyIndex: 0 },
+    },
+  },
+  {
+    id: 'rome-tiber',
+    kind: 'city',
+    coordinates: [12.48, 41.90],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'emphasized', label: 'Rome', affiliationTags: ['Italian raids'], pedagogyIndex: 4 },
+      'norman-origins': { visibility: 'normal', label: 'Rome', affiliationTags: [], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'caspian-south-trade',
+    kind: 'abstract_node',
+    coordinates: [49.85, 40.38],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'hidden', label: 'Caspian south', affiliationTags: [], pedagogyIndex: 0 },
+      'norman-origins': { visibility: 'hidden', label: 'Caspian south', affiliationTags: [], pedagogyIndex: 0 },
+    },
+  },
+  {
+    id: 'baghdad-silver-node',
+    kind: 'abstract_node',
+    coordinates: [44.366, 33.312],
+    regionId: 'neustria',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'hidden', label: 'Baghdad (trade sphere)', affiliationTags: [], pedagogyIndex: 0 },
+      'norman-origins': { visibility: 'hidden', label: 'Baghdad (trade sphere)', affiliationTags: [], pedagogyIndex: 0 },
     },
   },
   {
@@ -943,6 +1037,9 @@ export const atlasPlaces: Place[] = [
     regionId: 'normandy',
     layer: 'europe',
     eraStates: {
+      'frankish-carolingian': { visibility: 'faded', label: 'London (Lundenwic)', affiliationTags: ['wic'], pedagogyIndex: 3 },
+      'viking-age': { visibility: 'emphasized', label: 'London', affiliationTags: ['wintering', 'Thames'], pedagogyIndex: 5 },
+      'norman-origins': { visibility: 'normal', label: 'London', affiliationTags: ['England'], pedagogyIndex: 4 },
       'norman-expansion': { visibility: 'emphasized', label: 'London', affiliationTags: ['Norman England', 'capital'], pedagogyIndex: 5 },
     },
   },
@@ -953,6 +1050,8 @@ export const atlasPlaces: Place[] = [
     regionId: 'normandy',
     layer: 'europe',
     eraStates: {
+      'viking-age': { visibility: 'faded', label: 'Palermo', affiliationTags: ['Mediterranean raids'], pedagogyIndex: 3 },
+      'norman-origins': { visibility: 'faded', label: 'Palermo', affiliationTags: ['Italy'], pedagogyIndex: 2 },
       'norman-expansion': { visibility: 'emphasized', label: 'Palermo', affiliationTags: ['Kingdom of Sicily'], pedagogyIndex: 5 },
     },
   },
@@ -1076,6 +1175,8 @@ export const atlasPlaces: Place[] = [
     regionId: 'normandy',
     layer: 'europe',
     eraStates: {
+      'viking-age': { visibility: 'faded', label: 'Mahdia', affiliationTags: ['Ifriqiya', 'Mediterranean'], pedagogyIndex: 3 },
+      'norman-origins': { visibility: 'faded', label: 'Mahdia', affiliationTags: ['North Africa'], pedagogyIndex: 2 },
       'norman-expansion': { visibility: 'normal', label: 'Mahdia', affiliationTags: ['Kingdom of Africa', 'Norman'], pedagogyIndex: 4 },
     },
   },
@@ -1264,6 +1365,61 @@ export const atlasPlaces: Place[] = [
     layer: 'americas',
     eraStates: {
       'atlantic-imprint': { visibility: 'normal', label: 'Mandan Country', affiliationTags: ['La Vérendrye', 'upper Missouri'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Viking expansion: Frisian coast, White Sea, Channel mesh ---
+  {
+    id: 'dorestad',
+    kind: 'trading_post',
+    coordinates: [5.34, 51.97],
+    regionId: 'frankish-empire',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'emphasized', label: 'Dorestad', affiliationTags: ['Carolingian', 'Frisian'], pedagogyIndex: 2 },
+      'viking-age': { visibility: 'normal', label: 'Dorestad (raided)', affiliationTags: ['raided', 'Frisian'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'utrecht',
+    kind: 'city',
+    coordinates: [5.12, 52.09],
+    regionId: 'frankish-empire',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'normal', label: 'Utrecht', affiliationTags: ['Carolingian', 'Frisian'], pedagogyIndex: 3 },
+      'viking-age': { visibility: 'normal', label: 'Utrecht', affiliationTags: ['Frisian'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'hamburg',
+    kind: 'city',
+    coordinates: [9.99, 53.55],
+    regionId: 'frankish-empire',
+    layer: 'europe',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'normal', label: 'Hamburg', affiliationTags: ['Carolingian', 'Saxon'], pedagogyIndex: 3 },
+      'viking-age': { visibility: 'normal', label: 'Hamburg', affiliationTags: ['raided', 'Saxon'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'white-sea-node',
+    kind: 'abstract_node',
+    coordinates: [38.0, 65.5],
+    regionId: 'scandinavian-homeland',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'faded', label: 'White Sea / Bjarmaland', affiliationTags: ['Norse exploration', 'fur trade'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'south-england-coast-node',
+    kind: 'abstract_node',
+    coordinates: [-1.4, 50.8],
+    regionId: 'channel-coastal',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'faded', label: 'South English Coast', affiliationTags: ['Anglo-Saxon'], pedagogyIndex: 5 },
+      'norman-origins': { visibility: 'faded', label: 'South English Coast', affiliationTags: ['Anglo-Saxon'], pedagogyIndex: 5 },
     },
   },
 ];

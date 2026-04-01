@@ -15,7 +15,7 @@ import { runMultiActFlythrough } from '@/lib/flythrough-camera';
 import { DARK_BASEMAP_URL, PARCHMENT_BASEMAP_URL } from './map-style';
 import { loadParchmentAtlasStyle } from './parchment-atlas-style';
 import ParchmentMapChrome from './ParchmentMapChrome';
-import { layerConfigs } from '@/data/layers';
+import { layerConfigs, getHiddenSegmentKinds } from '@/data/layers';
 import { normanAtlanticStory } from '@/data/stories';
 import { flyToCamera } from '@/lib/geo';
 import {
@@ -35,6 +35,11 @@ import {
   clearMigrationOverlay,
   applyPortWeights,
   clearPortWeights,
+  applyVikingTerritoryFade,
+  clearVikingTerritoryFade,
+  addVikingExpansionZoneLayers,
+  addVikingBattleLayers,
+  updateVikingBattleSource,
   REGION_SOURCE,
   SETTLEMENT_SOURCE,
 } from './map-layers';
@@ -54,6 +59,8 @@ import { addNfYdnaLayers, applyNfYdnaOriginFilter, NF_YDNA_CIRCLES, NF_YDNA_SOUR
 import { addVikingAdnaLayers, VIKING_ADNA_CIRCLES, VIKING_ADNA_SOURCE, setVikingAdnaFilters } from './viking-adna-layers';
 import { addVikingArchLayers, VIKING_ARCH_CIRCLES, VIKING_ARCH_SOURCE, setVikingArchYearFilter } from './viking-archaeology-layers';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
+import { vikingExpansionZonesGeoJson } from '@/data/atlas/viking-expansion-zones-geo';
+import { buildVikingBattleGeoJson } from '@/data/atlas/viking-battle-markers';
 import { getTerritoryForYear } from '@/data/atlas/new-france-territory-geo';
 import { normanExpansionRoutes } from '@/data/norman-expansion';
 import type { NormanExpansionRoute } from '@/data/norman-expansion';
@@ -67,6 +74,9 @@ import {
   getActiveSegments,
   getAtlasRegionsGeoJsonForEra,
   getAtlasRegionsForColonialYear,
+  getAtlasRegionsForVikingSimYear,
+  getVikingTerritoryFadeStates,
+  getVikingTerritoryFadeRegionIds,
   getVisiblePlaces,
   buildPlacesGeoJson,
   isOceanCrossing,
@@ -547,9 +557,13 @@ export default function MapCanvas() {
         : VIKING_MOVEMENT_ERA_IDS.has(eraId)
           ? atlasSimYear
           : undefined;
-      const segments = getActiveSegments(eraId, simYear, {
+      let segments = getActiveSegments(eraId, simYear, {
         explorationYearStrict: explorationRoutesYearStrict,
       });
+      const hiddenKinds = getHiddenSegmentKinds(layersState);
+      if (hiddenKinds) {
+        segments = segments.filter((s) => !hiddenKinds.has(s.kind));
+      }
       const flowOn = layersState['route-flow-animation'] ?? false;
       const dashOff = flowOn ? ((Date.now() / 40) % 18) / 18 : 0;
       overlayRef.current.setProps({
@@ -563,6 +577,16 @@ export default function MapCanvas() {
     }
   }, []);
 
+  const getVikingRegionsFiltered = useCallback((eraId: string, simYear: number) => {
+    const base = getAtlasRegionsForVikingSimYear(eraId, simYear);
+    const homelandOn = useMapStore.getState().layers['viking-norse-homeland'] ?? true;
+    if (homelandOn) return base;
+    return {
+      type: 'FeatureCollection' as const,
+      features: base.features.filter((f) => f.properties.id !== 'scandinavian-homeland'),
+    };
+  }, []);
+
   const syncSources = useCallback((eraId: string) => {
     const map = mapRef.current;
     if (!map || !readyRef.current) return;
@@ -570,10 +594,16 @@ export default function MapCanvas() {
 
     if (atlasMode) {
       if (isColonialEra(eraId)) {
+        clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
         const colYear = colonialYearFromEra(eraId, atlasSimYear);
         updateRegionSource(map, getAtlasRegionsForColonialYear(eraId, colYear));
         updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
+      } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
+        updateRegionSource(map, getVikingRegionsFiltered(eraId, atlasSimYear));
+        applyVikingTerritoryFade(map, getVikingTerritoryFadeStates(atlasSimYear));
+        updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
       } else {
+        clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
         updateRegionSource(map, getAtlasRegionsGeoJsonForEra(eraId));
         updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
       }
@@ -581,6 +611,7 @@ export default function MapCanvas() {
       const places = getVisiblePlaces(eraId);
       updateSettlementSource(map, buildPlacesGeoJson(places));
     } else {
+      clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
       updateRegionSource(map, getRegionsGeoJsonForEra(eraId));
       updateSettlementSource(map, getSettlementsGeoJsonForEra(eraId));
       updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
@@ -598,7 +629,9 @@ export default function MapCanvas() {
       ensureTerrainInfrastructure(map);
 
       if (state.atlasMode) {
-        const regionsGeoJson = getAtlasRegionsGeoJsonForEra(state.eraId);
+        const regionsGeoJson = VIKING_MOVEMENT_ERA_IDS.has(state.eraId)
+          ? getVikingRegionsFiltered(state.eraId, state.atlasSimYear)
+          : getAtlasRegionsGeoJsonForEra(state.eraId);
         addRegionLayers(map, regionsGeoJson, state.eraId, theme);
         addSettlementLayers(map, theme);
         const places = getVisiblePlaces(state.eraId);
@@ -617,6 +650,10 @@ export default function MapCanvas() {
       applyNfYdnaOriginFilter(map, state.ydnaScandinavianFilter);
       addVikingAdnaLayers(map, theme);
       addVikingArchLayers(map, theme);
+      addVikingExpansionZoneLayers(map, vikingExpansionZonesGeoJson);
+      addVikingBattleLayers(map, buildVikingBattleGeoJson(
+        VIKING_MOVEMENT_ERA_IDS.has(state.eraId) ? state.atlasSimYear : undefined,
+      ));
       applyParchmentOverlayLabelStyles(map, theme);
       setExpansionYearFilter(map, state.normandySimYear);
 
@@ -626,9 +663,12 @@ export default function MapCanvas() {
       }
 
       if (state.atlasMode && VIKING_MOVEMENT_ERA_IDS.has(state.eraId)) {
+        applyVikingTerritoryFade(map, getVikingTerritoryFadeStates(state.atlasSimYear));
         const vf = state.vikingAdnaFilter;
         setVikingAdnaFilters(map, { simYear: state.atlasSimYear, country: vf.country, burialContext: vf.burialContext });
         setVikingArchYearFilter(map, state.atlasSimYear);
+      } else {
+        clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
       }
 
       for (const cfg of layerConfigs) {
@@ -1245,10 +1285,16 @@ export default function MapCanvas() {
           if (!store.migrationFlowEnabled) store.setMigrationFlowEnabled(true);
         }
 
-        syncOverlay(useMapStore.getState().eraId, layers);
+        const state = useMapStore.getState();
+        syncOverlay(state.eraId, layers);
+
+        const homelandChanged = (layers['viking-norse-homeland'] ?? true) !== (prevLayers['viking-norse-homeland'] ?? true);
+        if (homelandChanged && VIKING_MOVEMENT_ERA_IDS.has(state.eraId)) {
+          syncSources(state.eraId);
+        }
       },
     );
-  }, [syncOverlay]);
+  }, [syncOverlay, syncSources]);
 
   useEffect(() => {
     return useMapStore.subscribe(
@@ -1387,6 +1433,14 @@ export default function MapCanvas() {
           }
 
         } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
+          const regionsGeoJson = getVikingRegionsFiltered(eraId, simYear);
+          const rKey = regionsGeoJson.features.map((f) => f.properties.id).join(',');
+          if (rKey !== lastRegionKeyRef.current) {
+            lastRegionKeyRef.current = rKey;
+            updateRegionSource(map, regionsGeoJson);
+          }
+          applyVikingTerritoryFade(map, getVikingTerritoryFadeStates(simYear));
+          updateVikingBattleSource(map, buildVikingBattleGeoJson(simYear));
           const vf = useMapStore.getState().vikingAdnaFilter;
           setVikingAdnaFilters(map, { simYear, country: vf.country, burialContext: vf.burialContext });
           setVikingArchYearFilter(map, simYear);
@@ -1452,6 +1506,20 @@ export default function MapCanvas() {
       unsub();
     };
   }, [syncOverlay]);
+
+  // --- Pending fly target (one-shot camera requests from UI) ---
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.pendingFlyTarget,
+      (target) => {
+        if (!target) return;
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        useMapStore.getState().setPendingFlyTarget(null);
+        flyToCamera(map, { center: target.center, zoom: target.zoom });
+      },
+    );
+  }, []);
 
   // --- Cinematic flythrough controller ---
   const flythroughAbortRef = useRef<AbortController | null>(null);
@@ -1621,8 +1689,10 @@ export default function MapCanvas() {
 
         const geojson = getAtlasRegionsGeoJsonForEra(cur.eraId);
 
+        const bmTheme = useMapStore.getState().basemapMode === 'parchment' ? 'parchment' : 'dark';
+
         if (!cur.open) {
-          clearMigrationOverlay(map, geojson);
+          clearMigrationOverlay(map, geojson, bmTheme);
           clearPortWeights(map, prevPortIdsRef.current);
           prevPortIdsRef.current = [];
           syncOverlay(cur.eraId, useMapStore.getState().layers);
@@ -1631,7 +1701,7 @@ export default function MapCanvas() {
 
         const dataset = resolveDataset({ eraId: cur.eraId, branch: cur.branch, cohortId: cur.cohort });
         if (!dataset) {
-          clearMigrationOverlay(map, geojson);
+          clearMigrationOverlay(map, geojson, bmTheme);
           syncOverlay(cur.eraId, useMapStore.getState().layers);
           return;
         }

@@ -308,6 +308,30 @@ export const atlasRegions: AtlasRegion[] = [
       'royal-new-france': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'neutral' },
     },
   },
+  // ── Scandinavian homeland ──────────────────────────────────────────
+  {
+    id: 'scandinavian-homeland',
+    name: { en: 'Norse Homelands', fr: 'Terres scandinaves', it: 'Terre norrene' },
+    layer: 'europe',
+    geometryRef: 'region-scandinavian-homeland',
+    eraStates: {
+      'frankish-carolingian': { visibility: 'emphasized', borderStyle: 'soft', fillIntent: 'homeland' },
+      'viking-age': { visibility: 'emphasized', borderStyle: 'soft', fillIntent: 'homeland' },
+      'norman-origins': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'homeland' },
+    },
+    narrativeByEra: {
+      'frankish-carolingian': {
+        en: 'The Scandinavian peninsula and Denmark formed the Norse homeland — a region of seafaring communities, seasonal raiding, and long-distance trade networks. Population pressure, political ambition, and mastery of sail technology drove Norse expansion outward from the late 8th century.',
+        fr: 'La péninsule scandinave et le Danemark formaient la terre d\'origine des Norrois — une région de communautés maritimes, de raids saisonniers et de réseaux commerciaux longue distance. La pression démographique, l\'ambition politique et la maîtrise de la voile poussèrent l\'expansion nordique à partir de la fin du VIIIe siècle.',
+        it: 'La penisola scandinava e la Danimarca formavano la madrepatria norrena — una regione di comunità marinare, razzie stagionali e reti commerciali a lunga distanza. La pressione demografica, l\'ambizione politica e la padronanza della vela spinsero l\'espansione norrena dalla fine dell\'VIII secolo.',
+      },
+      'viking-age': {
+        en: 'At the height of the Viking Age, Scandinavia was the hub of a vast network stretching from Vinland in the west to Baghdad in the east. Danish kings, Norwegian jarls, and Swedish traders operated across different spheres — but all drew strength from the same homeland maritime culture that produced the longship.',
+        fr: 'Au sommet de l\'ère viking, la Scandinavie était le centre d\'un vaste réseau s\'étendant de Vinland à l\'ouest jusqu\'à Bagdad à l\'est. Rois danois, jarls norvégiens et marchands suédois opéraient dans des sphères distinctes — mais tous tiraient leur force de la même culture maritime natale qui avait produit le drakkar.',
+        it: 'All\'apice dell\'epoca vichinga la Scandinavia era il centro di una vasta rete che andava da Vinland a ovest fino a Bagdad a est. Re danesi, jarl norvegesi e mercanti svedesi operavano in sfere diverse — ma tutti attingevano alla stessa cultura marittima d\'origine che aveva creato la nave lunga.',
+      },
+    },
+  },
   // ── Viking-era influence zones (probabilistic, soft geometry) ───────
   {
     id: 'danelaw',

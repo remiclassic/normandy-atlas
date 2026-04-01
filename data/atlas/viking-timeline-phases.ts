@@ -74,22 +74,62 @@ export const VIKING_PHASES: VikingPhase[] = [
   },
 ];
 
-export const VIKING_TIMELINE_MARKERS: { year: number; label: I18nString }[] = [
-  { year: 793, label: { en: 'Lindisfarne Raid', fr: 'Raid de Lindisfarne', it: 'Incursione a Lindisfarne' } },
-  { year: 841, label: { en: 'Rouen Falls', fr: 'Chute de Rouen', it: 'Caduta di Rouen' } },
-  { year: 886, label: { en: 'Siege of Paris', fr: 'Siège de Paris', it: 'Assedio di Parigi' } },
-  {
-    year: 911,
-    label: {
-      en: 'Treaty of Saint-Clair-sur-Epte',
-      fr: 'Traité de Saint-Clair-sur-Epte',
-      it: 'Trattato di Saint-Clair-sur-Epte',
-    },
-  },
-  { year: 1066, label: { en: 'Norman Conquest', fr: 'Conquête normande', it: 'Conquista normanna' } },
-];
-
 export function getVikingPhaseForYear(year: number): VikingPhase | undefined {
   return VIKING_PHASES.find((p) => year >= p.yearStart && year < p.yearEnd)
     ?? (year >= 1066 ? VIKING_PHASES[VIKING_PHASES.length - 1] : undefined);
 }
+
+// ---------------------------------------------------------------------------
+// Year-aware territory visibility rules
+// ---------------------------------------------------------------------------
+
+export interface VikingTerritoryTimeRule {
+  regionId: string;
+  /** Region appears only at or after this year (inclusive). */
+  visibleAfter?: number;
+  /** Region disappears at or after this year (exclusive). */
+  visibleBefore?: number;
+  /** Override visibility level when outside the emphasized window. */
+  fadedBefore?: number;
+  fadedAfter?: number;
+}
+
+export const VIKING_TERRITORY_TIME_RULES: VikingTerritoryTimeRule[] = [
+  { regionId: 'scandinavian-homeland' },
+  { regionId: 'danelaw', visibleAfter: 865, fadedAfter: 955 },
+  { regionId: 'norse-gaelic-sphere', visibleAfter: 795 },
+  { regionId: 'kievan-rus-zone', visibleAfter: 838, fadedAfter: 1000 },
+  { regionId: 'normandy', fadedBefore: 911 },
+];
+
+// ---------------------------------------------------------------------------
+// Macro expansion phases (three-band overlay for timeline UI)
+// ---------------------------------------------------------------------------
+
+export interface VikingMacroPhase {
+  id: string;
+  yearStart: number;
+  yearEnd: number;
+  label: I18nString;
+}
+
+export const VIKING_MACRO_PHASES: VikingMacroPhase[] = [
+  {
+    id: 'early-raids',
+    yearStart: 790,
+    yearEnd: 850,
+    label: { en: 'Early Raids', fr: 'Premiers raids', it: 'Primi raid' },
+  },
+  {
+    id: 'expansion-settlement',
+    yearStart: 850,
+    yearEnd: 950,
+    label: { en: 'Expansion', fr: 'Expansion', it: 'Espansione' },
+  },
+  {
+    id: 'consolidation',
+    yearStart: 950,
+    yearEnd: 1066,
+    label: { en: 'Consolidation', fr: 'Consolidation', it: 'Consolidamento' },
+  },
+];

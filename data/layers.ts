@@ -1,3 +1,20 @@
+/**
+ * Layer configuration registry.
+ *
+ * Route visibility has two independent mechanisms:
+ *
+ *  1. `routeFilter` (legacy / non-atlas eras): filters deck.gl route layers
+ *     by RouteKind from the legacy `routeRecords` dataset.  Used by
+ *     exploration, colonial-migration, and trade-route toggles.
+ *
+ *  2. `atlasSegmentKinds` (atlas overlay / Viking-world eras): controls which
+ *     atlas `RouteSegment.kind` values are visible via `getHiddenSegmentKinds`
+ *     in MapCanvas.  Used by the viking-raid-routes, viking-trade-routes,
+ *     viking-settlement-routes, and viking-exploration-routes toggles.
+ *
+ * The two systems are independent — `routeFilter` targets the legacy content
+ * pipeline while `atlasSegmentKinds` targets the atlas pipeline.
+ */
 import type { LayerConfig } from '@/types';
 import {
   BOUNDARY_STROKE,
@@ -58,6 +75,12 @@ import {
   VIKING_ARCH_CIRCLES,
   VIKING_ARCH_LABELS,
 } from '@/components/map/viking-archaeology-layers';
+import {
+  VIKING_ZONES_FILL,
+  VIKING_ZONES_STROKE,
+  VIKING_BATTLE_CIRCLES,
+  VIKING_BATTLE_LABELS,
+} from '@/components/map/map-layers';
 
 export const layerConfigs: LayerConfig[] = [
   {
@@ -284,6 +307,46 @@ export const layerConfigs: LayerConfig[] = [
   },
   // --- Viking-world overlays ---
   {
+    id: 'viking-raid-routes',
+    label: 'Raid & Incursion Routes',
+    category: 'viking-world',
+    defaultOn: true,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    atlasSegmentKinds: ['raid', 'incursion', 'invasion'],
+  },
+  {
+    id: 'viking-trade-routes',
+    label: 'Trade & River Corridors',
+    category: 'viking-world',
+    defaultOn: true,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    atlasSegmentKinds: ['trade', 'river_corridor', 'maritime_corridor'],
+  },
+  {
+    id: 'viking-settlement-routes',
+    label: 'Settlement & Migration',
+    category: 'viking-world',
+    defaultOn: true,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    atlasSegmentKinds: ['migration', 'settlement', 'settlement_corridor', 'expansion'],
+  },
+  {
+    id: 'viking-exploration-routes',
+    label: 'Exploration (Atlantic)',
+    category: 'viking-world',
+    defaultOn: true,
+    mapLayerIds: [],
+    deckLayer: true,
+    dependsOnEra: true,
+    atlasSegmentKinds: ['exploration'],
+  },
+  {
     id: 'viking-adna-burials',
     label: 'Viking aDNA Burials',
     category: 'viking-world',
@@ -297,6 +360,30 @@ export const layerConfigs: LayerConfig[] = [
     category: 'viking-world',
     defaultOn: false,
     mapLayerIds: [VIKING_ARCH_CIRCLES, VIKING_ARCH_LABELS],
+    dependsOnEra: true,
+  },
+  {
+    id: 'viking-expansion-zones',
+    label: 'Activity Zones (Poster)',
+    category: 'viking-world',
+    defaultOn: false,
+    mapLayerIds: [VIKING_ZONES_FILL, VIKING_ZONES_STROKE],
+    dependsOnEra: true,
+  },
+  {
+    id: 'viking-norse-homeland',
+    label: 'Norse Homeland Fill',
+    category: 'viking-world',
+    defaultOn: true,
+    mapLayerIds: [],
+    dependsOnEra: true,
+  },
+  {
+    id: 'viking-battle-markers',
+    label: 'Battle & Fleet Markers',
+    category: 'viking-world',
+    defaultOn: false,
+    mapLayerIds: [VIKING_BATTLE_CIRCLES, VIKING_BATTLE_LABELS],
     dependsOnEra: true,
   },
 ];
@@ -356,13 +443,23 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'prehistory-hillforts': true,
     'normandy-rivers': true,
   },
+  'frankish-carolingian': {
+    'normandy-rivers': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+  },
   'viking-age': {
     'normandy-expansion': true,
     'normandy-rivers': true,
     'normandy-evidence': true,
     'normandy-toponymy': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
     'viking-adna-burials': true,
     'viking-archaeology-sites': true,
+    'viking-expansion-zones': false,
   },
   'norman-origins': {
     'normandy-micro-regions': true,
@@ -373,6 +470,10 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'normandy-evidence': true,
     'normandy-toponymy': true,
     'norman-expansion-nodes': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
     'viking-adna-burials': true,
     'viking-archaeology-sites': true,
   },
@@ -417,4 +518,23 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
 export function getAtlasLayerPreset(eraId: string): Record<string, boolean> {
   const overrides = ATLAS_ERA_LAYER_OVERRIDES[eraId];
   return overrides ? { ...corePreset(), ...overrides } : corePreset();
+}
+
+/**
+ * Builds the set of SegmentKind values that should be hidden based on
+ * atlas segment-kind layer toggles that are currently OFF.
+ * Returns `null` when no filtering is needed (all on or no toggles present).
+ */
+export function getHiddenSegmentKinds(layersState: Record<string, boolean>): Set<import('@/core/types').SegmentKind> | null {
+  const hidden = new Set<import('@/core/types').SegmentKind>();
+  let anyToggleExists = false;
+  for (const cfg of layerConfigs) {
+    if (!cfg.atlasSegmentKinds) continue;
+    anyToggleExists = true;
+    if (!(layersState[cfg.id] ?? cfg.defaultOn)) {
+      for (const k of cfg.atlasSegmentKinds) hidden.add(k);
+    }
+  }
+  if (!anyToggleExists || hidden.size === 0) return null;
+  return hidden;
 }

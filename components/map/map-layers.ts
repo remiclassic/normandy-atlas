@@ -25,6 +25,22 @@ export function addRegionLayers(
   theme: MapDataTheme = 'dark',
 ) {
   const label = regionLabelTheme[theme];
+  const isDark = theme === 'dark';
+
+  const fillBase      = isDark ? 0.14 : 0.08;
+  const fillBaseHi    = isDark ? 0.20 : 0.12;
+  const fillHomeland  = isDark ? 0.28 : 0.18;
+  const fillHomelandHi = isDark ? 0.36 : 0.24;
+  const fillHover     = isDark ? 0.32 : 0.25;
+  const fillHoverHi   = isDark ? 0.38 : 0.30;
+  const fillSelect    = isDark ? 0.42 : 0.35;
+  const fillSelectHi  = isDark ? 0.48 : 0.40;
+
+  const strokeBase      = isDark ? 1.0  : 0.8;
+  const strokeHomeland  = isDark ? 1.8  : 1.4;
+  const strokeOpBase    = isDark ? 0.35 : 0.20;
+  const strokeOpHomeland = isDark ? 0.60 : 0.45;
+
   map.addSource(REGION_SOURCE, {
     type: 'geojson',
     data: geojson,
@@ -42,16 +58,26 @@ export function addRegionLayers(
         ['linear'],
         ['zoom'],
         3, [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false], 0.35,
-          ['boolean', ['feature-state', 'hover'], false], 0.25,
-          0.08,
+          '*',
+          ['coalesce', ['feature-state', 'vikingFadeOpacity'], 1],
+          [
+            'case',
+            ['boolean', ['feature-state', 'selected'], false], fillSelect,
+            ['boolean', ['feature-state', 'hover'], false], fillHover,
+            ['==', ['get', 'fillIntent'], 'homeland'], fillHomeland,
+            fillBase,
+          ],
         ],
         8, [
-          'case',
-          ['boolean', ['feature-state', 'selected'], false], 0.4,
-          ['boolean', ['feature-state', 'hover'], false], 0.3,
-          0.12,
+          '*',
+          ['coalesce', ['feature-state', 'vikingFadeOpacity'], 1],
+          [
+            'case',
+            ['boolean', ['feature-state', 'selected'], false], fillSelectHi,
+            ['boolean', ['feature-state', 'hover'], false], fillHoverHi,
+            ['==', ['get', 'fillIntent'], 'homeland'], fillHomelandHi,
+            fillBaseHi,
+          ],
         ],
       ],
     },
@@ -67,13 +93,15 @@ export function addRegionLayers(
         'case',
         ['boolean', ['feature-state', 'selected'], false], 2.5,
         ['boolean', ['feature-state', 'hover'], false], 1.8,
-        0.8,
+        ['==', ['get', 'fillIntent'], 'homeland'], strokeHomeland,
+        strokeBase,
       ],
       'line-opacity': [
         'case',
         ['boolean', ['feature-state', 'selected'], false], 0.85,
         ['boolean', ['feature-state', 'hover'], false], 0.55,
-        0.2,
+        ['==', ['get', 'fillIntent'], 'homeland'], strokeOpHomeland,
+        strokeOpBase,
       ],
     },
     layout: {
@@ -140,6 +168,125 @@ export function addRegionLayers(
       ],
     },
   });
+}
+
+// ---------------------------------------------------------------------------
+// Viking expansion zones (poster-style wash overlay)
+// ---------------------------------------------------------------------------
+
+export const VIKING_ZONES_SOURCE = 'viking-expansion-zones';
+export const VIKING_ZONES_FILL = 'viking-zones-fill';
+export const VIKING_ZONES_STROKE = 'viking-zones-stroke';
+
+export function addVikingExpansionZoneLayers(
+  map: MaplibreMap,
+  geojson: GeoJSON.FeatureCollection,
+) {
+  if (map.getSource(VIKING_ZONES_SOURCE)) return;
+
+  map.addSource(VIKING_ZONES_SOURCE, { type: 'geojson', data: geojson });
+
+  map.addLayer({
+    id: VIKING_ZONES_FILL,
+    type: 'fill',
+    source: VIKING_ZONES_SOURCE,
+    paint: {
+      'fill-color': [
+        'match', ['get', 'zoneKind'],
+        'intensive', 'rgba(196,169,98,0.06)',
+        'sporadic', 'rgba(196,169,98,0.03)',
+        'rgba(196,169,98,0.03)',
+      ],
+      'fill-opacity': 1,
+    },
+    layout: { visibility: 'none' },
+  });
+
+  map.addLayer({
+    id: VIKING_ZONES_STROKE,
+    type: 'line',
+    source: VIKING_ZONES_SOURCE,
+    paint: {
+      'line-color': 'rgba(196,169,98,0.15)',
+      'line-width': 1,
+      'line-dasharray': [4, 3],
+    },
+    layout: { visibility: 'none', 'line-join': 'round' as const },
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Viking battle / fleet markers (symbol layer)
+// ---------------------------------------------------------------------------
+
+export const VIKING_BATTLE_SOURCE = 'viking-battle-markers';
+export const VIKING_BATTLE_CIRCLES = 'viking-battle-circles';
+export const VIKING_BATTLE_LABELS = 'viking-battle-labels';
+
+export function addVikingBattleLayers(
+  map: MaplibreMap,
+  geojson: GeoJSON.FeatureCollection,
+) {
+  if (map.getSource(VIKING_BATTLE_SOURCE)) return;
+
+  map.addSource(VIKING_BATTLE_SOURCE, {
+    type: 'geojson',
+    data: geojson,
+    promoteId: 'id',
+  });
+
+  map.addLayer({
+    id: VIKING_BATTLE_CIRCLES,
+    type: 'circle',
+    source: VIKING_BATTLE_SOURCE,
+    paint: {
+      'circle-radius': [
+        'match', ['get', 'kind'],
+        'fleet', 5,
+        4,
+      ],
+      'circle-color': [
+        'match', ['get', 'kind'],
+        'battle', '#ef4444',
+        'siege', '#f97316',
+        'fleet', '#60a5fa',
+        '#c4a962',
+      ],
+      'circle-opacity': 0.75,
+      'circle-stroke-color': 'rgba(0,0,0,0.3)',
+      'circle-stroke-width': 0.8,
+    },
+    layout: { visibility: 'none' },
+  });
+
+  map.addLayer({
+    id: VIKING_BATTLE_LABELS,
+    type: 'symbol',
+    source: VIKING_BATTLE_SOURCE,
+    layout: {
+      'text-field': ['get', 'label'],
+      'text-size': ['interpolate', ['linear'], ['zoom'], 5, 8, 8, 10],
+      'text-font': ['Noto Sans Regular'],
+      'text-offset': [0, 1.2],
+      'text-anchor': 'top',
+      'text-allow-overlap': false,
+      visibility: 'none',
+    },
+    paint: {
+      'text-color': '#d4c9a8',
+      'text-halo-color': 'rgba(10, 12, 18, 0.9)',
+      'text-halo-width': 2,
+      'text-opacity': 0.7,
+    },
+  });
+}
+
+export function updateVikingBattleSource(
+  map: MaplibreMap,
+  geojson: GeoJSON.FeatureCollection,
+) {
+  const source = map.getSource(VIKING_BATTLE_SOURCE) as GeoJSONSource | undefined;
+  if (source) source.setData(geojson);
 }
 
 export function addSettlementLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
@@ -284,23 +431,43 @@ const MIGRATION_FILL_OPACITY: maplibregl.ExpressionSpecification = [
   ['max', 0.03, ['*', ['coalesce', ['feature-state', 'migrationWeight'], 0], 0.45]],
 ];
 
-const DEFAULT_FILL_OPACITY: maplibregl.ExpressionSpecification = [
-  'interpolate',
-  ['linear'],
-  ['zoom'],
-  3, [
-    'case',
-    ['boolean', ['feature-state', 'selected'], false], 0.35,
-    ['boolean', ['feature-state', 'hover'], false], 0.25,
-    0.08,
-  ],
-  8, [
-    'case',
-    ['boolean', ['feature-state', 'selected'], false], 0.4,
-    ['boolean', ['feature-state', 'hover'], false], 0.3,
-    0.12,
-  ],
-];
+function buildDefaultFillOpacity(dark: boolean): maplibregl.ExpressionSpecification {
+  const base      = dark ? 0.14 : 0.08;
+  const baseHi    = dark ? 0.20 : 0.12;
+  const homeland  = dark ? 0.28 : 0.18;
+  const homelandHi = dark ? 0.36 : 0.24;
+  const hover     = dark ? 0.32 : 0.25;
+  const hoverHi   = dark ? 0.38 : 0.30;
+  const sel       = dark ? 0.42 : 0.35;
+  const selHi     = dark ? 0.48 : 0.40;
+  return [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    3, [
+      '*',
+      ['coalesce', ['feature-state', 'vikingFadeOpacity'], 1],
+      [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false], sel,
+        ['boolean', ['feature-state', 'hover'], false], hover,
+        ['==', ['get', 'fillIntent'], 'homeland'], homeland,
+        base,
+      ],
+    ],
+    8, [
+      '*',
+      ['coalesce', ['feature-state', 'vikingFadeOpacity'], 1],
+      [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false], selHi,
+        ['boolean', ['feature-state', 'hover'], false], hoverHi,
+        ['==', ['get', 'fillIntent'], 'homeland'], homelandHi,
+        baseHi,
+      ],
+    ],
+  ];
+}
 
 /**
  * Set migration weights on region features and switch to migration paint.
@@ -330,6 +497,7 @@ export function applyMigrationOverlay(
 export function clearMigrationOverlay(
   map: MaplibreMap,
   geojson: RegionFeatureCollection,
+  theme: MapDataTheme = 'dark',
 ) {
   for (const feature of geojson.features) {
     map.setFeatureState(
@@ -338,7 +506,7 @@ export function clearMigrationOverlay(
     );
   }
   if (map.getLayer('regions-fill')) {
-    map.setPaintProperty('regions-fill', 'fill-opacity', DEFAULT_FILL_OPACITY);
+    map.setPaintProperty('regions-fill', 'fill-opacity', buildDefaultFillOpacity(theme === 'dark'));
   }
 }
 
@@ -368,6 +536,34 @@ export function clearPortWeights(
     map.setFeatureState(
       { source: SETTLEMENT_SOURCE, id: pid },
       { portWeight: 0 },
+    );
+  }
+}
+
+/**
+ * Apply per-region opacity multiplier for Viking territory fade rules.
+ * fadeMap: regionId → opacity (0–1); regions not in the map get 1.
+ */
+export function applyVikingTerritoryFade(
+  map: MaplibreMap,
+  fadeMap: Map<string, number>,
+) {
+  for (const [regionId, opacity] of fadeMap) {
+    map.setFeatureState(
+      { source: REGION_SOURCE, id: regionId },
+      { vikingFadeOpacity: opacity },
+    );
+  }
+}
+
+export function clearVikingTerritoryFade(
+  map: MaplibreMap,
+  regionIds: string[],
+) {
+  for (const id of regionIds) {
+    map.setFeatureState(
+      { source: REGION_SOURCE, id },
+      { vikingFadeOpacity: 1 },
     );
   }
 }

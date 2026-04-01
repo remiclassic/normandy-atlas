@@ -206,6 +206,119 @@ export const atlasJourneys: Journey[] = [
     },
   },
   {
+    id: 'journey-viking-baltic-hubs',
+    name: {
+      en: 'Baltic Emporia — Hedeby & Birka',
+      fr: 'Emporia de la Baltique — Hedeby et Birka',
+      it: 'Emporia baltici — Hedeby e Birka',
+    },
+    eraIds: ['frankish-carolingian', 'viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-denmark-hedeby', 'seg-vk-hedeby-birka'],
+    summary: {
+      en: 'The Danish-Swedish sea road connected the two great Viking Age trading towns, linking North Sea and Baltic exchange systems.',
+      fr: 'La route maritime dano-suédoise reliait les deux grands comptoirs vikings, reliant les systèmes d\'échange de la mer du Nord et de la Baltique.',
+      it: 'La rotta marittima danese-svedese collegava i due grandi empori dell\'età vichinga, unendo i sistemi di scambio del Mare del Nord e del Baltico.',
+    },
+  },
+  {
+    id: 'journey-viking-north-atlantic-chain',
+    name: {
+      en: 'North Atlantic Stepping Stones',
+      fr: 'Les pierres de l\'Atlantique Nord',
+      it: 'Tappe dell\'Atlantico del Nord',
+    },
+    eraIds: ['frankish-carolingian', 'viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-orkney-faroes', 'seg-vk-norway-faroes', 'seg-vk-faroes-iceland'],
+    summary: {
+      en: 'Island chains from Orkney and Norway through the Faroes toward Iceland — the offshore ladder of Norse expansion.',
+      fr: 'Chaînes insulaires des Orcades et de la Norvège par les Féroé vers l\'Islande — l\'échelle maritime de l\'expansion norroise.',
+      it: 'Catene insulari dalle Orcadi e dalla Norvegia attraverso le Fær Øer verso l\'Islanda — la scala marittima dell\'espansione norrena.',
+    },
+  },
+  {
+    id: 'journey-viking-lindisfarne-northumbria',
+    name: {
+      en: 'Lindisfarne & Northumbrian Coast',
+      fr: 'Lindisfarne et la côte northumbrienne',
+      it: 'Lindisfarne e la costa northumbrese',
+    },
+    eraIds: ['frankish-carolingian', 'viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-denmark-lindisfarne', 'seg-vk-york-lindisfarne'],
+    summary: {
+      en: 'From the raid that shocked Christendom in 793 to the later links between Scandinavian York and the monastic coast.',
+      fr: 'Du raid qui choqua la chrétienté en 793 aux liens ultérieurs entre York scandinave et la côte monastique.',
+      it: 'Dal raid che scosse la cristianità nel 793 ai legami successivi tra York scandinava e la costa monastica.',
+    },
+  },
+  {
+    id: 'journey-viking-thames-danelaw',
+    name: {
+      en: 'Thames & Danelaw Corridor',
+      fr: 'Corridor de la Tamise et du Danelaw',
+      it: 'Corridoio Tamigi e Danelaw',
+    },
+    eraIds: ['frankish-carolingian', 'viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-channel-london', 'seg-vk-london-york'],
+    summary: {
+      en: 'Viking fleets on the Thames and the interior corridor tying London to Jórvík during the Great Army period.',
+      fr: 'Flottes vikings sur la Tamise et corridor intérieur reliant Londres à Jórvík à l\'époque de la Grande Armée.',
+      it: 'Flotte vichinghe sul Tamigi e corridoio interno tra Londra e Jórvík nell\'epoca della Grande armata.',
+    },
+  },
+  {
+    id: 'journey-viking-irish-sea-channel',
+    name: {
+      en: 'Irish Sea → Channel Fork',
+      fr: 'Mer d\'Irlande → embranchement vers la Manche',
+      it: 'Mare d\'Irlanda → biforcazione verso la Manica',
+    },
+    eraIds: ['viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-dublin-channel-fork'],
+    summary: {
+      en: 'How Dublin-based fleets could reach the same western Channel approaches as Breton and Cotentin traffic.',
+      fr: 'Comment les flottes basées à Dublin pouvaient atteindre les mêmes approches occidentales de la Manche que le trafic breton et cotentinais.',
+      it: 'Come le flotte di Dublino potevano raggiungere gli stessi approcci occidentali della Manica del traffico bretone e del Cotentin.',
+    },
+  },
+  {
+    id: 'journey-viking-atlantic-to-med',
+    name: {
+      en: 'Atlantic to Mediterranean (Western Way)',
+      fr: 'Atlantique vers la Méditerranée (voie occidentale)',
+      it: 'Atlantico verso il Mediterraneo (via occidentale)',
+    },
+    eraIds: ['viking-age', 'norman-origins'],
+    segmentIds: [
+      'seg-vk-nantes-gibraltar',
+      'seg-vk-gibraltar-seville',
+      'seg-vk-seville-western-med',
+      'seg-vk-western-med-palermo',
+      'seg-vk-palermo-mahdia',
+      'seg-vk-palermo-rome',
+      'seg-vk-rome-constantinople-trade',
+    ],
+    summary: {
+      en: 'The long arc from Atlantic Francia and Iberia through Gibraltar into the western and central Mediterranean — raids, slaving, and mercenary service to Rome and Byzantium.',
+      fr: 'Le long arc de la Francie atlantique et de l\'Ibérie par Gibraltar vers la Méditerranée occidentale et centrale — raids, traite et service mercenaire jusqu\'à Rome et Byzance.',
+      it: 'Il lungo arco dalla Francia atlantica e dall\'Iberia attraverso Gibilterra verso il Mediterraneo occidentale e centrale — razzie, schiavitù e servizio mercenario fino a Roma e Bisanzio.',
+    },
+  },
+  {
+    id: 'journey-viking-volga-caspian-baghdad',
+    name: {
+      en: 'Volga — Caspian — Islamic Silver',
+      fr: 'Volga — Caspienne — argent islamique',
+      it: 'Volga — Caspio — argento islamico',
+    },
+    eraIds: ['viking-age', 'norman-origins'],
+    segmentIds: ['seg-vk-bulgar-caspian-south', 'seg-vk-caspian-baghdad-silver'],
+    summary: {
+      en: 'Extension of the Volga trade route toward Caspian and Mesopotamian markets — the eastern anchor of the dirham flows that reached Scandinavia.',
+      fr: 'Prolongement de la route commerciale de la Volga vers les marchés caspiens et mésopotamiens — l\'ancrage oriental des flux de dirhams parvenus en Scandinavie.',
+      it: 'Prolungamento della rotta commerciale della Volga verso i mercati caspici e mesopotamici — l\'ancora orientale dei flussi di dirham giunti in Scandinavia.',
+    },
+  },
+  {
     id: 'journey-loire-raids',
     name: { en: 'Loire Valley Raids', fr: 'Raids dans la vallée de la Loire', it: 'Incursioni nella valle della Loira' },
     eraIds: ['frankish-carolingian', 'viking-age'],
@@ -462,6 +575,57 @@ export const atlasJourneys: Journey[] = [
       en: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, pushed French exploration to its continental maximum. From 1731 he established a chain of trading posts from Lake Superior to Lake Winnipeg, reached the Mandan villages on the upper Missouri in 1738, and his sons may have sighted the Rocky Mountain foothills in 1742–1743. No European had ever traveled so far west from the St. Lawrence.',
       fr: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, porta l\'exploration française à son maximum continental. À partir de 1731, il établit une chaîne de postes de traite du lac Supérieur au lac Winnipeg, atteignit les villages mandans du haut Missouri en 1738, et ses fils aperçurent peut-être les contreforts des Rocheuses en 1742–1743.',
       it: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, spinse l\'esplorazione francese al suo massimo continentale. Dal 1731 stabilì una catena di posti di commercio dal lago Superiore al lago Winnipeg, raggiunse i villaggi Mandan sull\'alto Missouri nel 1738, e i suoi figli nel 1742–1743 avvistarono forse le prime propaggini delle Montagne Rocciose.',
+    },
+  },
+  // ── Viking: Frisian coast & Dorestad hub ───────────────────────
+  {
+    id: 'journey-viking-frisian-coast',
+    name: {
+      en: 'Frisian Coast & Dorestad Trade Hub',
+      fr: 'Côte frisonne et centre commercial de Dorestad',
+    },
+    eraIds: ['frankish-carolingian', 'viking-age'],
+    segmentIds: [
+      'seg-vk-hedeby-dorestad',
+      'seg-vk-dorestad-utrecht',
+      'seg-vk-dorestad-hamburg',
+      'seg-vk-hamburg-hedeby',
+      'seg-vk-london-dorestad',
+    ],
+    summary: {
+      en: 'The Frisian coast was a nexus of Carolingian commerce. Dorestad, the largest emporium north of the Alps, was raided by Vikings repeatedly (834–863) before declining. Hedeby and Hamburg connected this coast to the Baltic trade network.',
+      fr: 'La côte frisonne était un nœud du commerce carolingien. Dorestad, le plus grand emporium au nord des Alpes, fut pillé à plusieurs reprises par les Vikings (834–863) avant de décliner.',
+    },
+  },
+  // ── Viking: White Sea / Bjarmaland exploration ──────────────────
+  {
+    id: 'journey-viking-white-sea',
+    name: {
+      en: 'White Sea — Bjarmaland Fur Frontier',
+      fr: 'Mer Blanche — frontière des fourrures de Bjarmaland',
+    },
+    eraIds: ['viking-age'],
+    segmentIds: ['seg-vk-trondheim-whitesea'],
+    summary: {
+      en: 'Norse traders and explorers from Trondheim ventured northeast along the Norwegian coast and around the North Cape to Bjarmaland (White Sea region), seeking furs, walrus ivory, and tribute from the Finnic Bjarmians.',
+      fr: 'Des marchands et explorateurs norrois partis de Trondheim s\'aventurèrent au nord-est le long de la côte norvégienne et autour du Cap Nord vers le Bjarmaland (région de la mer Blanche), en quête de fourrures, d\'ivoire de morse et de tributs des Bjarmiens finnois.',
+    },
+  },
+  // ── Viking: Channel mesh ────────────────────────────────────────
+  {
+    id: 'journey-viking-channel-mesh',
+    name: {
+      en: 'English Channel Raid & Trade Mesh',
+      fr: 'Réseau de raids et de commerce de la Manche',
+    },
+    eraIds: ['viking-age', 'norman-origins'],
+    segmentIds: [
+      'seg-vk-south-coast-rouen',
+      'seg-vk-south-coast-nantes',
+    ],
+    summary: {
+      en: 'Cross-Channel links between southern England, Rouen, and Brittany that carried both Viking raids and post-settlement trade in the 9th–11th centuries.',
+      fr: 'Liaisons transmanche entre le sud de l\'Angleterre, Rouen et la Bretagne, vecteurs à la fois de raids vikings et de commerce post-colonisation aux IXe–XIe siècles.',
     },
   },
 ];
