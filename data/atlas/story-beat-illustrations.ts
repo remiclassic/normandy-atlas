@@ -2,9 +2,9 @@ import type { StoryBeatIllustration } from '@/core/types';
 
 /**
  * Illustration metadata for story beats.
- * Images live under `public/story/william-conqueror/` and are served as static assets.
- * All Bayeux Tapestry images are public domain (11th-century work, CC0 reproductions).
- * Architectural photos are CC BY-SA — credited inline.
+ * Images live under `public/story/<arc>/` and are served as static assets.
+ *   - william-conqueror: Bayeux Tapestry (public domain, CC0) + CC BY-SA photos.
+ *   - guillaume-couture: 17th–19th-century maps, engravings, and paintings (public domain).
  */
 export const STORY_BEAT_ILLUSTRATIONS: Partial<Record<string, StoryBeatIllustration>> = {
   'wc-bastard-birth': {
@@ -164,6 +164,136 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<Record<string, StoryBeatIllustrat
       fr: 'Photo : Wikimedia Commons (CC BY-SA 3.0)',
       es: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
       it: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
+    },
+  },
+
+  // ── Guillaume Couture arc ────────────────────────────────────────
+
+  'gc-beat-couture-rouen': {
+    src: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+    alt: {
+      en: 'Plan of Rouen by Jacques Gomboust, 1655 — the Norman capital where Guillaume Couture was baptised',
+      fr: 'Plan de Rouen par Jacques Gomboust, 1655 — la capitale normande où Guillaume Couture fut baptisé',
+      es: 'Plano de Rouen por Jacques Gomboust, 1655 — la capital normanda donde Guillaume Couture fue bautizado',
+      it: 'Pianta di Rouen di Jacques Gomboust, 1655 — la capitale normanna dove Guillaume Couture fu battezzato',
+    },
+    credit: {
+      en: 'Jacques Gomboust, 1655. Wikimedia Commons (public domain)',
+      fr: 'Jacques Gomboust, 1655. Wikimedia Commons (domaine public)',
+      es: 'Jacques Gomboust, 1655. Wikimedia Commons (dominio público)',
+      it: 'Jacques Gomboust, 1655. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-atlantic': {
+    src: '/story/guillaume-couture/champlain-map-1632.jpg',
+    alt: {
+      en: 'Champlain\'s map of New France, 1632 — the Atlantic world Couture crossed as a Jesuit donné',
+      fr: 'Carte de la Nouvelle-France par Champlain, 1632 — le monde atlantique que Couture traversa comme donné jésuite',
+      es: 'Mapa de Nueva Francia por Champlain, 1632 — el mundo atlántico que Couture cruzó como donné jesuita',
+      it: 'Mappa della Nuova Francia di Champlain, 1632 — il mondo atlantico che Couture attraversò come donné gesuita',
+    },
+    credit: {
+      en: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (public domain)',
+      fr: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (domaine public)',
+      es: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (dominio público)',
+      it: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-quebec': {
+    src: '/story/guillaume-couture/habitation-quebec.jpg',
+    alt: {
+      en: 'Champlain\'s Habitation de Québec — the fragile French foothold on the St. Lawrence',
+      fr: 'L\'Habitation de Québec de Champlain — le fragile avant-poste français sur le Saint-Laurent',
+      es: 'La Habitación de Quebec de Champlain — el frágil puesto francés en el San Lorenzo',
+      it: 'L\'Habitation de Québec di Champlain — il fragile avamposto francese sul San Lorenzo',
+    },
+    credit: {
+      en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+      fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+      es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+      it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-huronia': {
+    src: '/story/guillaume-couture/france-foi-hurons.jpg',
+    alt: {
+      en: 'France Bringing the Faith to the Hurons of New France — painting c. 1670, commissioned by the Hurons for the Jesuit church in Québec',
+      fr: 'La France apportant la foi aux Hurons de la Nouvelle-France — peinture v. 1670, commandée par les Hurons pour l\'église jésuite de Québec',
+      es: 'Francia llevando la fe a los hurones de Nueva Francia — pintura c. 1670, encargada por los hurones para la iglesia jesuita de Quebec',
+      it: 'La Francia porta la fede agli Uroni della Nuova Francia — dipinto c. 1670, commissionato dagli Uroni per la chiesa gesuita di Québec',
+    },
+    credit: {
+      en: 'Unknown French artist, c. 1670. Wikimedia Commons (public domain)',
+      fr: 'Artiste français inconnu, v. 1670. Wikimedia Commons (domaine public)',
+      es: 'Artista francés desconocido, c. 1670. Wikimedia Commons (dominio público)',
+      it: 'Artista francese sconosciuto, c. 1670. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-captivity': {
+    src: '/story/guillaume-couture/isaac-jogues.jpg',
+    alt: {
+      en: 'Father Isaac Jogues, captured alongside Guillaume Couture by a Mohawk war party in August 1642',
+      fr: 'Le père Isaac Jogues, capturé aux côtés de Guillaume Couture par un parti de guerre mohawk en août 1642',
+      es: 'El padre Isaac Jogues, capturado junto a Guillaume Couture por un grupo de guerra mohawk en agosto de 1642',
+      it: 'Padre Isaac Jogues, catturato insieme a Guillaume Couture da un gruppo di guerra mohawk nell\'agosto 1642',
+    },
+    credit: {
+      en: 'Engraving by J. Boyes. Wikimedia Commons (public domain)',
+      fr: 'Gravure de J. Boyes. Wikimedia Commons (domaine public)',
+      es: 'Grabado de J. Boyes. Wikimedia Commons (dominio público)',
+      it: 'Incisione di J. Boyes. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-diplomacy': {
+    src: '/story/guillaume-couture/trois-rivieres.jpg',
+    alt: {
+      en: 'The town of Trois-Rivières — a key diplomatic site where Couture negotiated peace along the St. Lawrence',
+      fr: 'La ville de Trois-Rivières — un site diplomatique clé où Couture négocia la paix le long du Saint-Laurent',
+      es: 'La villa de Trois-Rivières — un lugar diplomático clave donde Couture negoció la paz a lo largo del San Lorenzo',
+      it: 'La città di Trois-Rivières — un sito diplomatico chiave dove Couture negoziò la pace lungo il San Lorenzo',
+    },
+    credit: {
+      en: 'John Lambert, 1816. Wikimedia Commons (public domain)',
+      fr: 'John Lambert, 1816. Wikimedia Commons (domaine public)',
+      es: 'John Lambert, 1816. Wikimedia Commons (dominio público)',
+      it: 'John Lambert, 1816. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-long-sault': {
+    src: '/story/guillaume-couture/dollard-long-sault.jpg',
+    alt: {
+      en: 'Bas-relief of Dollard des Ormeaux at the Long Sault — Couture fought alongside him in 1660',
+      fr: 'Bas-relief de Dollard des Ormeaux au Long-Sault — Couture combattit à ses côtés en 1660',
+      es: 'Bajorrelieve de Dollard des Ormeaux en el Long Sault — Couture combatió a su lado en 1660',
+      it: 'Bassorilievo di Dollard des Ormeaux al Long Sault — Couture combatté al suo fianco nel 1660',
+    },
+    credit: {
+      en: 'Louis-Philippe Hébert, 1895. Monument à Maisonneuve, Montréal. Wikimedia Commons (public domain)',
+      fr: 'Louis-Philippe Hébert, 1895. Monument à Maisonneuve, Montréal. Wikimedia Commons (domaine public)',
+      es: 'Louis-Philippe Hébert, 1895. Monumento a Maisonneuve, Montreal. Wikimedia Commons (dominio público)',
+      it: 'Louis-Philippe Hébert, 1895. Monumento a Maisonneuve, Montréal. Wikimedia Commons (pubblico dominio)',
+    },
+  },
+
+  'gc-beat-couture-north-legacy': {
+    src: '/story/guillaume-couture/voyageur-canoe.jpg',
+    alt: {
+      en: 'Voyageurs in a large canoe — Frances Anne Hopkins, c. 1869; evoking Couture\'s 1663 expedition to Lake Mistassini',
+      fr: 'Voyageurs en grand canot — Frances Anne Hopkins, v. 1869 ; évoquant l\'expédition de Couture au lac Mistassini en 1663',
+      es: 'Viajeros en una gran canoa — Frances Anne Hopkins, c. 1869; evocando la expedición de Couture al lago Mistassini en 1663',
+      it: 'Voyageurs in una grande canoa — Frances Anne Hopkins, c. 1869; evocando la spedizione di Couture al lago Mistassini nel 1663',
+    },
+    credit: {
+      en: 'Frances Anne Hopkins, c. 1869. Wikimedia Commons (public domain)',
+      fr: 'Frances Anne Hopkins, v. 1869. Wikimedia Commons (domaine public)',
+      es: 'Frances Anne Hopkins, c. 1869. Wikimedia Commons (dominio público)',
+      it: 'Frances Anne Hopkins, c. 1869. Wikimedia Commons (pubblico dominio)',
     },
   },
 };
