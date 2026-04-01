@@ -91,15 +91,17 @@ const NormanOverviewScrollContent = memo(function NormanOverviewScrollContent({
 export const NormanOverviewIconButton = memo(function NormanOverviewIconButton({
   onOpen,
   ariaLabel,
+  className: extraClassName,
 }: {
   onOpen: () => void;
   ariaLabel: string;
+  className?: string;
 }) {
   return (
     <button
       type="button"
       onClick={onOpen}
-      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
+      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${extraClassName || 'hover:text-parchment'}`}
       aria-label={ariaLabel}
     >
       <BookOpen className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />

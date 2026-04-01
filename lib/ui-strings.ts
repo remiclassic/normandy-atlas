@@ -98,6 +98,12 @@ const STRINGS = {
     es: 'Un mapa vivo de personas, movimiento y tiempo',
     it: 'Una mappa viva di persone, movimenti e tempo',
   },
+  'header.currentEra': {
+    en: 'Current Era',
+    fr: 'Époque actuelle',
+    es: 'Era actual',
+    it: 'Era corrente',
+  },
 
   'theme.label': {
     en: 'Interface',

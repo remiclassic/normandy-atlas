@@ -20,6 +20,7 @@ import {
   type EraItem,
 } from '@/lib/era-selector-model';
 import { EraGlyph } from '@/lib/era-selector-icons';
+import { t } from '@/lib/ui-strings';
 import EraIconStrip, { EraIconDots } from './EraIconStrip';
 
 const JUMP_PANEL_WIDTH_PX = 288;
@@ -62,11 +63,11 @@ function EraIconTooltip({
       <p className="text-[12px] font-semibold text-parchment leading-tight">
         {item.label}
       </p>
-      <p className="text-[10px] text-text-dim/60 mt-0.5 tabular-nums">
+      <p className="text-[10px] text-text-muted/80 mt-0.5 tabular-nums">
         {formatYear(item.yearRange[0])} – {formatYear(item.yearRange[1])}
       </p>
       {item.summary && (
-        <p className="text-[10px] text-text-dim/50 mt-1.5 leading-snug line-clamp-3">
+        <p className="text-[10px] text-text-muted/70 mt-1.5 leading-snug line-clamp-3">
           {item.summary}
         </p>
       )}
@@ -117,27 +118,27 @@ const EraIcon = memo(function EraIcon({
         onBlur={hideTip}
         className={`
           relative flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md
-          transition-all duration-200
+          transition-colors duration-200
           ${disabled ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}
           ${
             isActive
               ? 'text-parchment'
               : disabled
-                ? 'text-text-dim/40'
-                : 'text-text-dim hover:text-text-muted'
+                ? 'text-text-dim/30'
+                : 'text-text-muted/70 hover:text-text-muted'
           }
         `}
       >
         {isActive && (
           <motion.div
             layoutId="era-icon-active"
-            className="absolute inset-0 rounded-md bg-gradient-to-b from-chrome-gradient-top to-chrome-gradient-bottom border border-gold/20 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft)]"
+            className="absolute inset-0 rounded-md bg-gradient-to-b from-chrome-gradient-top to-chrome-gradient-bottom border border-gold/30 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft),0_0_6px_rgba(212,175,55,0.08)]"
             transition={{ type: 'spring', stiffness: 380, damping: 28 }}
           />
         )}
 
         {!isActive && !disabled && (
-          <div className="absolute inset-0 rounded-md bg-transparent hover:bg-chrome-fill-badge transition-colors duration-200" />
+          <div className="absolute inset-0 rounded-md bg-transparent hover:bg-chrome-fill/60 transition-colors duration-200" />
         )}
 
         <EraGlyph id={item.id} className="relative z-10 h-4 w-4" />
@@ -536,11 +537,11 @@ export default function EraSelector({
           >
             {activeItem && (
               <>
-                <span className="block truncate text-[12px] font-semibold leading-tight text-parchment">
+                <span className="block truncate font-display text-[13px] font-semibold leading-tight text-parchment">
                   {activeItem.label}
                 </span>
-                <span className="block text-[10px] text-text-dim/55 tabular-nums leading-tight mt-0.5">
-                  {formatYear(activeItem.yearRange[0])}–{formatYear(activeItem.yearRange[1])}
+                <span className="block text-[10px] text-text-muted/70 tabular-nums leading-tight mt-0.5">
+                  {formatYear(activeItem.yearRange[0])} – {formatYear(activeItem.yearRange[1])}
                 </span>
               </>
             )}
@@ -576,7 +577,7 @@ export default function EraSelector({
       aria-label="Era timeline — Alt+Left/Right to cycle"
       className="flex min-w-0 flex-col"
     >
-      <div className="grid min-w-0 grid-cols-[auto_1fr_auto] items-center gap-1 px-2 py-0.5 sm:px-2.5">
+      <div className="grid min-w-0 grid-cols-[auto_1fr_auto] items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3">
         <div className="flex items-center gap-1">
           {leadingSlot}
           <button
@@ -585,21 +586,25 @@ export default function EraSelector({
             aria-label="Previous era"
             title={storyMode ? 'Exit story mode to change era' : isFirst ? 'First era' : `Previous: ${byId.get(flatIds[activeIndex - 1] ?? '')?.label ?? ''}`}
             className={`
-            flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
-            ${storyMode || isFirst ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
+            flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
+            ${storyMode || isFirst ? 'opacity-20 cursor-not-allowed text-text-muted/40' : 'text-text-muted/60 hover:text-parchment hover:bg-chrome-fill cursor-pointer'}
           `}
           >
-            <ChevronLeft className="h-3.5 w-3.5" strokeWidth={2} />
+            <ChevronLeft className="h-4 w-4" strokeWidth={1.5} />
           </button>
         </div>
 
-        <div className="min-w-0 select-none px-1 text-center">
+        <div className="min-w-0 select-none px-2 text-center">
           {activeItem && (
-            <span className="block truncate text-[11px] font-semibold leading-tight text-parchment sm:text-[12px]">
-              {activeItem.label}
-              <span className="font-normal text-text-dim/45"> · </span>
-              <span className="font-medium text-text-dim/65">
-                {formatYear(activeItem.yearRange[0])}–{formatYear(activeItem.yearRange[1])}
+            <span className="inline-flex items-baseline gap-2 truncate">
+              <span className="text-[8px] font-medium uppercase tracking-[0.22em] text-text-muted/60 sm:text-[9px] shrink-0">
+                {t('header.currentEra', locale)}
+              </span>
+              <span className="truncate font-display text-[16px] font-semibold leading-none text-parchment sm:text-[19px]">
+                {activeItem.label}
+              </span>
+              <span className="text-[10px] font-medium tabular-nums text-text-muted/70 sm:text-[11px] shrink-0 whitespace-nowrap">
+                {formatYear(activeItem.yearRange[0])} – {formatYear(activeItem.yearRange[1])}
               </span>
             </span>
           )}
@@ -612,11 +617,11 @@ export default function EraSelector({
             aria-label="Next era"
             title={storyMode ? 'Exit story mode to change era' : isLast ? 'Last era' : `Next: ${byId.get(flatIds[activeIndex + 1] ?? '')?.label ?? ''}`}
             className={`
-            flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
-            ${storyMode || isLast ? 'opacity-25 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
+            flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-200
+            ${storyMode || isLast ? 'opacity-20 cursor-not-allowed text-text-muted/40' : 'text-text-muted/60 hover:text-parchment hover:bg-chrome-fill cursor-pointer'}
           `}
           >
-            <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} />
+            <ChevronRight className="h-4 w-4" strokeWidth={1.5} />
           </button>
 
           <div className="h-3.5 w-px flex-shrink-0 bg-chrome-divider" />
@@ -632,7 +637,7 @@ export default function EraSelector({
               className={`
               relative flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md
               transition-colors duration-200
-              ${storyMode ? 'opacity-30 cursor-not-allowed text-text-dim/40' : 'text-text-dim hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
+              ${storyMode ? 'opacity-30 cursor-not-allowed text-text-muted/40' : 'text-text-muted/60 hover:text-text-muted hover:bg-chrome-fill cursor-pointer'}
             `}
             >
               <List className="h-3 w-3" strokeWidth={2} />
@@ -649,16 +654,16 @@ export default function EraSelector({
         </div>
       </div>
 
-      <div className="mx-1.5 h-px bg-chrome-shade-strong" />
+      <div className="mx-3 h-px bg-chrome-border/40 sm:mx-4" />
 
       <div
         ref={scrollRef}
-        className="flex w-full min-w-0 flex-nowrap items-center justify-center gap-x-1.5 overflow-x-auto px-1 py-1.5 scrollbar-thin sm:gap-x-2 sm:px-2"
+        className="flex w-full min-w-0 flex-nowrap items-center justify-center gap-x-2 overflow-x-auto px-1.5 pt-1.5 pb-2.5 scrollbar-thin sm:gap-x-3 sm:px-2.5"
       >
         {groups.map((group, gi) => (
-          <div key={group.label || gi} className="flex flex-shrink-0 items-center gap-x-1.5">
+          <div key={group.label || gi} className="flex flex-shrink-0 items-center gap-x-1.5 sm:gap-x-2">
             {group.label && (
-              <span className="px-1 text-[8px] font-semibold uppercase tracking-[0.18em] text-text-dim/45 whitespace-nowrap sm:text-[9px] sm:tracking-[0.2em]">
+              <span className="px-1 text-[8px] font-semibold uppercase tracking-[0.18em] text-text-muted/60 whitespace-nowrap sm:text-[9px] sm:tracking-[0.2em]">
                 {group.label}
               </span>
             )}
@@ -676,7 +681,7 @@ export default function EraSelector({
             ))}
 
             {gi < groups.length - 1 && (
-              <div className="mx-1 h-4 w-px flex-shrink-0 bg-chrome-divider sm:mx-2" />
+              <div className="mx-1.5 h-4 w-px flex-shrink-0 bg-chrome-divider/70 sm:mx-2.5" />
             )}
           </div>
         ))}

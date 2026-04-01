@@ -83,12 +83,12 @@ export const EraIconDots = memo(function EraIconDots({
   const top = icons.slice(0, 3);
 
   return (
-    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex gap-[2px]" aria-hidden>
+    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-[2px]" aria-hidden>
       {top.map(({ icon }) => (
         <span
           key={icon}
-          className="h-[3px] w-[3px] rounded-full"
-          style={{ backgroundColor: ICON_META[icon].accent, opacity: 0.7 }}
+          className="h-[2px] w-[2px] rounded-full"
+          style={{ backgroundColor: ICON_META[icon].accent, opacity: 0.6 }}
         />
       ))}
     </span>

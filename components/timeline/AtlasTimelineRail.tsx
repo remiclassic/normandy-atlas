@@ -70,14 +70,14 @@ function findNearbyMarkers(
 // ─── Kind styling ───────────────────────────────────────────────────
 
 const KIND_STROKE: Record<TimelineMarkerKind, string> = {
-  battle: 'text-red-400/80',
-  treaty: 'text-blue-400/80',
-  person: 'text-gold/80',
-  foundation: 'text-emerald-400/80',
-  expansion: 'text-orange-400/80',
-  exploration: 'text-cyan-400/80',
-  migration: 'text-purple-400/80',
-  story: 'text-gold/80',
+  battle: 'text-red-400',
+  treaty: 'text-blue-400',
+  person: 'text-gold',
+  foundation: 'text-emerald-400',
+  expansion: 'text-orange-400',
+  exploration: 'text-cyan-400',
+  migration: 'text-purple-400',
+  story: 'text-gold',
 };
 
 const KIND_GLOW: Record<TimelineMarkerKind, string> = {
@@ -92,14 +92,14 @@ const KIND_GLOW: Record<TimelineMarkerKind, string> = {
 };
 
 const KIND_BG: Record<TimelineMarkerKind, string> = {
-  battle: 'bg-red-400/10',
-  treaty: 'bg-blue-400/10',
-  person: 'bg-gold/10',
-  foundation: 'bg-emerald-400/10',
-  expansion: 'bg-orange-400/10',
-  exploration: 'bg-cyan-400/10',
-  migration: 'bg-purple-400/10',
-  story: 'bg-gold/10',
+  battle: 'bg-red-500/25',
+  treaty: 'bg-blue-500/25',
+  person: 'bg-amber-500/25',
+  foundation: 'bg-emerald-500/25',
+  expansion: 'bg-orange-500/25',
+  exploration: 'bg-cyan-500/25',
+  migration: 'bg-purple-500/25',
+  story: 'bg-amber-500/25',
 };
 
 const KIND_LABELS: Record<TimelineMarkerKind, string> = {
@@ -150,7 +150,7 @@ const MarkerIcon = memo(function MarkerIcon({
       ref={ref}
       type="button"
       className="absolute -translate-x-1/2 flex items-center justify-center z-[2] group"
-      style={{ left: `${percent}%`, top: '-6px' }}
+      style={{ left: `${percent}%`, top: '1px' }}
       onMouseEnter={() => ref.current && onHover(marker, ref.current)}
       onMouseLeave={onLeave}
       onFocus={() => ref.current && onHover(marker, ref.current)}
@@ -158,15 +158,15 @@ const MarkerIcon = memo(function MarkerIcon({
       onClick={() => onClick(marker)}
       aria-label={`${pickI18n(marker.label, locale)}, ${formatYear(marker.year)}`}
     >
-      <span className="absolute -inset-2" aria-hidden />
+      <span className="absolute -inset-3" aria-hidden />
       <span
-        className={`relative flex h-[22px] w-[22px] items-center justify-center rounded-md border transition-all duration-200 ${
+        className={`relative flex h-[22px] w-[22px] items-center justify-center rounded-md border-[1.5px] transition-colors duration-200 ${
           isPast
-            ? `${KIND_BG[marker.kind]} ${KIND_STROKE[marker.kind]} border-current/20 ${KIND_GLOW[marker.kind]}`
-            : 'bg-chrome-fill-active/60 text-text-dim/40 border-chrome-border-strong/40'
-        } group-hover:scale-[1.25] group-focus-visible:scale-[1.25] group-focus-visible:ring-1 group-focus-visible:ring-gold/40`}
+            ? `${KIND_BG[marker.kind]} ${KIND_STROKE[marker.kind]} border-current/50 ${KIND_GLOW[marker.kind]}`
+            : 'bg-surface text-text-muted border-border-bright'
+        } group-hover:scale-[1.15] group-focus-visible:scale-[1.15] group-focus-visible:ring-1 group-focus-visible:ring-gold/40`}
       >
-        <TimelineMarkerGlyph kind={marker.kind} className="h-3 w-3" />
+        <TimelineMarkerGlyph kind={marker.kind} className="h-3.5 w-3.5" />
       </span>
     </button>
   );
@@ -186,11 +186,12 @@ const TickLabel = memo(function TickLabel({
   return (
     <div
       className="absolute -translate-x-1/2 flex flex-col items-center pointer-events-none"
-      style={{ left: `${percent}%`, bottom: 0 }}
+      style={{ left: `${percent}%`, top: '0' }}
     >
+      <span className="h-[6px] w-px" style={{ background: 'color-mix(in srgb, var(--color-text-dim) 30%, transparent)' }} />
       <span
-        className={`text-[9px] leading-none whitespace-nowrap tabular-nums transition-opacity duration-150 sm:text-[10px] ${
-          isPast ? 'font-medium text-parchment/60' : 'text-text-dim/35'
+        className={`mt-0.5 text-[9px] leading-none whitespace-nowrap tabular-nums sm:text-[10px] ${
+          isPast ? 'font-semibold text-parchment/80' : 'text-text-muted/50'
         }`}
       >
         {formatYear(year)}
@@ -247,15 +248,15 @@ function MarkerTooltip({
         <span className={`inline-flex h-3.5 w-3.5 items-center justify-center flex-shrink-0 ${KIND_STROKE[marker.kind]}`}>
           <TimelineMarkerGlyph kind={marker.kind} className="h-3 w-3" />
         </span>
-        <span className="text-[10px] text-text-dim/70">
+        <span className="text-[10px] text-text-muted">
           {KIND_LABELS[marker.kind]}
         </span>
-        <span className="text-[10px] text-text-dim/50 tabular-nums ml-auto">
+        <span className="text-[10px] text-text-muted/70 tabular-nums ml-auto">
           {formatYear(marker.year)}
         </span>
       </div>
-      {marker.action && (
-        <p className="text-[9px] text-gold/40 mt-1.5">Click to explore</p>
+      {marker.action?.type === 'openPerson' && marker.action.personId && (
+        <p className="text-[9px] text-gold/60 mt-1.5">Click to explore</p>
       )}
     </motion.div>,
     document.body,
@@ -282,18 +283,17 @@ function ScrubTooltip({
 
   return createPortal(
     <motion.div
-      initial={{ opacity: 0, y: 6 }}
+      initial={{ opacity: 0, y: -4 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 6 }}
+      exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.1 }}
       role="status"
       aria-live="polite"
       className="pointer-events-none fixed z-[9999] rounded-lg border border-chrome-border bg-chrome-popover px-3 py-2"
       style={{
         left: clampedLeft,
-        top: top - 8,
+        top: top + 20,
         width: tooltipW,
-        transform: 'translateY(-100%)',
         backdropFilter: 'blur(24px) saturate(1.2)',
         boxShadow:
           '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
@@ -309,7 +309,7 @@ function ScrubTooltip({
               <span className={`inline-flex h-3 w-3 items-center justify-center flex-shrink-0 ${KIND_STROKE[m.kind]}`}>
                 <TimelineMarkerGlyph kind={m.kind} className="h-2.5 w-2.5" />
               </span>
-              <span className="text-[9px] text-text-dim/70 truncate leading-tight">
+              <span className="text-[9px] text-text-muted truncate leading-tight">
                 {pickI18n(m.label, locale)}
               </span>
             </div>
@@ -333,14 +333,13 @@ const Playhead = memo(function Playhead({
   return (
     <div
       className="absolute z-[3] pointer-events-none -translate-x-1/2 flex flex-col items-center"
-      style={{ left: `${percent}%`, top: '-10px' }}
+      style={{ left: `${percent}%`, top: '0px' }}
     >
-      <span className="flex h-[24px] w-[24px] items-center justify-center rounded-full border border-gold/30 bg-chrome-popover/90 shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+      <span className="flex h-[20px] w-[20px] items-center justify-center rounded-full border border-gold/50 bg-chrome-popover shadow-[0_1px_4px_rgba(0,0,0,0.15),0_0_8px_rgba(212,175,55,0.12)]"
         style={{ backdropFilter: 'blur(8px)' }}
       >
-        <EraGlyph id={eraId} className="h-3 w-3 text-gold/80" />
+        <EraGlyph id={eraId} className="h-2.5 w-2.5 text-gold" />
       </span>
-      <span className="h-[14px] w-[1.5px] bg-gold/30 mt-[-1px]" />
     </div>
   );
 });
@@ -551,16 +550,15 @@ export default function AtlasTimelineRail() {
       animate={{ opacity: 1, height: 'auto' }}
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       className="overflow-hidden border-t border-chrome-border"
+      style={{ background: 'var(--color-chrome-fill)' }}
       data-onboarding="timeline"
     >
-      <div className="flex items-center gap-3 px-3 py-2 pointer-events-auto sm:gap-5 sm:px-6 sm:py-2.5">
-        <span className="flex-shrink-0 text-[9px] font-semibold uppercase tracking-[0.14em] text-gold/45 tabular-nums sm:text-[10px]">
-          {formatYear(Math.max(min, Math.min(max, simYear)))}
-        </span>
-
+      <div className="flex flex-col gap-0 px-3 py-1.5 pointer-events-auto sm:px-5">
+        {/* Track + markers row */}
         <div
           ref={railRef}
-          className="relative min-h-[44px] min-w-0 flex-1 pt-2 touch-none select-none"
+          className="relative min-w-0 touch-none select-none"
+          style={{ height: 22 }}
           role="slider"
           tabIndex={0}
           aria-valuemin={min}
@@ -577,19 +575,22 @@ export default function AtlasTimelineRail() {
           onKeyDown={handleKeyDown}
         >
           {/* Track background */}
-          <div className="absolute top-[10px] right-0 left-0 h-[3px] rounded-full bg-chrome-fill-raised sm:h-[3px]" />
+          <div
+            className="absolute top-[10px] right-0 left-0 h-[2px] rounded-full"
+            style={{ background: 'color-mix(in srgb, var(--color-text-dim) 25%, transparent)' }}
+          />
 
           {/* Committed fill */}
           <div
-            className="absolute top-[10px] left-0 h-[3px] rounded-full bg-gold/30 transition-all duration-100"
-            style={{ width: `${committedPct}%` }}
+            className="absolute top-[10px] left-0 h-[2px] rounded-full transition-[width] duration-100"
+            style={{ width: `${committedPct}%`, background: 'color-mix(in srgb, var(--color-gold) 65%, transparent)' }}
           />
 
           {/* Preview fill (during drag) */}
           {previewYear != null && (
             <div
-              className="absolute top-[10px] left-0 h-[3px] rounded-full bg-gold/15"
-              style={{ width: `${pct}%` }}
+              className="absolute top-[10px] left-0 h-[2px] rounded-full"
+              style={{ width: `${pct}%`, background: 'color-mix(in srgb, var(--color-gold) 30%, transparent)' }}
             />
           )}
 
@@ -611,17 +612,6 @@ export default function AtlasTimelineRail() {
             <Playhead percent={pct} eraId={eraId} />
           )}
 
-          <div className="absolute top-[20px] right-0 left-0">
-            {ticks.map((t) => (
-              <TickLabel
-                key={t.year}
-                year={t.year}
-                percent={t.percent}
-                isPast={Math.max(min, Math.min(max, simYear)) >= t.year}
-              />
-            ))}
-          </div>
-
           <AnimatePresence>
             {hoveredMarker && anchorRect && (
               <MarkerTooltip marker={hoveredMarker} anchorRect={anchorRect} locale={locale} />
@@ -639,6 +629,19 @@ export default function AtlasTimelineRail() {
               />
             )}
           </AnimatePresence>
+        </div>
+
+        {/* Year labels */}
+        <div className="flex items-center justify-between mt-0.5">
+          <span className="text-[9px] font-medium tabular-nums text-text-muted/60 sm:text-[10px]">
+            {formatYear(min)}
+          </span>
+          <span className="text-[10px] font-semibold tabular-nums text-gold/80 sm:text-[11px]">
+            {formatYear(Math.max(min, Math.min(max, simYear)))}
+          </span>
+          <span className="text-[9px] font-medium tabular-nums text-text-muted/60 sm:text-[10px]">
+            {formatYear(max)}
+          </span>
         </div>
       </div>
     </motion.div>

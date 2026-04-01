@@ -465,6 +465,62 @@ export const atlasPlaces: Place[] = [
       'roman-gaul': { visibility: 'normal', label: 'Abrincae / Avranches', affiliationTags: ['Roman'], pedagogyIndex: 4 },
     },
   },
+  // --- Rollo arc places ---
+  {
+    id: 'chartres',
+    kind: 'city',
+    coordinates: [1.49, 48.45],
+    regionId: 'frankish-core',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'emphasized', label: 'Chartres', affiliationTags: ['Frankish', 'besieged'], pedagogyIndex: 4 },
+      'norman-origins': { visibility: 'normal', label: 'Chartres', affiliationTags: ['Frankish'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'saint-clair-sur-epte',
+    kind: 'settlement',
+    coordinates: [1.78, 49.22],
+    regionId: 'lower-seine',
+    layer: 'europe',
+    eraStates: {
+      'viking-age': { visibility: 'emphasized', label: 'Saint-Clair-sur-Epte', affiliationTags: ['Frankish', 'treaty'], pedagogyIndex: 5 },
+      'norman-origins': { visibility: 'normal', label: 'Saint-Clair-sur-Epte', affiliationTags: ['Normandy', 'treaty'], pedagogyIndex: 4 },
+    },
+  },
+  // --- William the Conqueror arc places ---
+  {
+    id: 'falaise',
+    kind: 'settlement',
+    coordinates: [-0.20, 48.89],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'emphasized', label: 'Falaise', affiliationTags: ['Normandy', 'ducal castle'], pedagogyIndex: 5 },
+      'norman-expansion': { visibility: 'normal', label: 'Falaise', affiliationTags: ['Normandy'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'val-es-dunes',
+    kind: 'abstract_node',
+    coordinates: [-0.30, 49.12],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'emphasized', label: 'Val-ès-Dunes', affiliationTags: ['Normandy', 'battle'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'saint-valery-sur-somme',
+    kind: 'port',
+    coordinates: [1.63, 50.19],
+    regionId: 'channel-coast',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'normal', label: 'Saint-Valéry-sur-Somme', affiliationTags: ['assembly port'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'Saint-Valéry-sur-Somme', affiliationTags: ['Norman', 'invasion fleet'], pedagogyIndex: 5 },
+    },
+  },
   // --- Migration-flow origin nodes (Viking / Norman era) ---
   {
     id: 'denmark-origin',
@@ -918,6 +974,109 @@ export const atlasPlaces: Place[] = [
     layer: 'europe',
     eraStates: {
       'norman-expansion': { visibility: 'normal', label: 'Bari', affiliationTags: ['Norman Italy'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Bohemond arc places ---
+  {
+    id: 'taranto',
+    kind: 'port',
+    coordinates: [17.24, 40.47],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Taranto', affiliationTags: ['Norman Italy', 'principality'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'nicaea',
+    kind: 'city',
+    coordinates: [29.72, 40.43],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Nicaea', affiliationTags: ['Byzantine', 'Crusader siege'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'dorylaeum',
+    kind: 'abstract_node',
+    coordinates: [30.52, 39.78],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Dorylaeum', affiliationTags: ['battle', 'Crusader'], pedagogyIndex: 5 },
+    },
+  },
+  // --- Robert Guiscard arc places ---
+  {
+    id: 'aversa',
+    kind: 'settlement',
+    coordinates: [14.21, 40.97],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Aversa', affiliationTags: ['Norman Italy', 'first county'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'salerno',
+    kind: 'city',
+    coordinates: [14.77, 40.68],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Salerno', affiliationTags: ['Norman Italy', 'capital'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'durazzo',
+    kind: 'port',
+    coordinates: [19.45, 41.32],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Durazzo (Dyrrachium)', affiliationTags: ['Byzantine', 'Norman battle'], pedagogyIndex: 5 },
+    },
+  },
+  // --- Roger II arc places ---
+  {
+    id: 'messina',
+    kind: 'port',
+    coordinates: [15.55, 38.19],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Messina', affiliationTags: ['Norman Italy', 'port'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'melfi',
+    kind: 'settlement',
+    coordinates: [15.53, 40.99],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Melfi', affiliationTags: ['Norman Italy', 'council'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'cefalu',
+    kind: 'settlement',
+    coordinates: [14.02, 38.04],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Cefalù', affiliationTags: ['Kingdom of Sicily', 'cathedral'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'mahdia',
+    kind: 'port',
+    coordinates: [11.06, 35.50],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Mahdia', affiliationTags: ['Kingdom of Africa', 'Norman'], pedagogyIndex: 4 },
     },
   },
   // --- Additional Norman / French Atlantic ports ---

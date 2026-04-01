@@ -3574,4 +3574,1398 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1763,
   },
+
+  // ── Rollo lifetime guided arc ────────────────────────────────────
+  {
+    id: 'rollo-origins',
+    eraId: 'viking-age',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'bbox',
+      center: [9.0, 57.5],
+      zoom: 4.0,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['denmark-origin', 'norway-origin'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'A man between two traditions',
+      body: {
+        en: 'The man later known as Rollo was born around 860 somewhere in Scandinavia — but where exactly remains disputed. Norman chronicler Dudo of Saint-Quentin, writing a century later, called him Danish. Icelandic sagas name him Hrólfr, son of a Norwegian earl from Møre. No contemporary source settles the question. What is certain is that he emerged from the same Norse warrior culture that was reshaping Western Europe, and that by the late ninth century he was leading war-bands toward the richest prize on the Continent: the Seine valley of Francia.',
+        fr: 'L\'homme qui deviendrait Rollon naquit vers 860 quelque part en Scandinavie — mais l\'endroit exact reste disputé. Le chroniqueur normand Dudon de Saint-Quentin, écrivant un siècle plus tard, le dit danois. Les sagas islandaises le nomment Hrólfr, fils d\'un jarl norvégien du Møre. Aucune source contemporaine ne tranche. Ce qui est sûr, c\'est qu\'il était issu de la même culture guerrière nordique qui refaçonnait l\'Europe occidentale, et que dès la fin du IXe siècle il menait des bandes armées vers la proie la plus riche du Continent : la vallée de la Seine en Francia.',
+      },
+    },
+    anchorYear: 860,
+  },
+  {
+    id: 'rollo-to-francia',
+    eraId: 'viking-age',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'bbox',
+      center: [4.0, 53.0],
+      zoom: 4.2,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['denmark-origin', 'seine-estuary'],
+      regionIds: [],
+      routeSegmentIds: ['seg-denmark-seine'],
+      journeyIds: ['journey-danish-migration'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Crossing to Francia',
+      body: {
+        en: 'During the 870s and 880s, Norse fleets repeatedly struck the Frankish coast. Whether Rollo was among the early raiders or arrived later is unknown, but by the 890s a chieftain of that name commanded forces on the lower Seine. The migration route was well-established: across the North Sea from Denmark, through the Channel, and into the wide mouth of the Seine — a river highway leading straight to the wealthiest monasteries and towns in Francia.',
+        fr: 'Durant les années 870 et 880, des flottes nordiques frappèrent la côte franque à répétition. Si Rollon figurait parmi les premiers raiders ou arriva plus tard reste inconnu, mais dès les années 890 un chef de ce nom commandait des forces sur la basse Seine. La route migratoire était bien établie : à travers la mer du Nord depuis le Danemark, par la Manche, et dans l\'embouchure large de la Seine — une autoroute fluviale menant droit aux monastères et villes les plus riches de Francia.',
+      },
+    },
+    anchorYear: 876,
+  },
+  {
+    id: 'rollo-seine-raids',
+    eraId: 'viking-age',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'bbox',
+      center: [0.6, 49.4],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'jumieges', 'seine-estuary'],
+      regionIds: ['lower-seine'],
+      routeSegmentIds: ['seg-estuary-rouen-raid', 'seg-rouen-jumieges-raid'],
+      journeyIds: ['journey-seine-raids'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'The Seine as war corridor',
+      body: {
+        en: 'The lower Seine was both highway and hunting ground. Viking war-bands had sacked Rouen as early as 841 and torched Jumièges abbey. By the 880s, Norse groups wintered on islands in the river, raiding upstream toward Paris and downstream toward the Channel coast. Rollo operated within this violent landscape — one chieftain among several, but increasingly the dominant figure on the lower Seine. The monasteries that once lined the river lay abandoned; the Frankish military infrastructure had collapsed.',
+        fr: 'La basse Seine était à la fois autoroute et terrain de chasse. Les bandes vikings avaient saccagé Rouen dès 841 et incendié l\'abbaye de Jumièges. Dès les années 880, des groupes nordiques hivernaient sur les îles du fleuve, pillant en amont vers Paris et en aval vers la côte de la Manche. Rollon opérait dans ce paysage violent — un chef parmi d\'autres, mais de plus en plus la figure dominante sur la basse Seine. Les monastères qui bordaient jadis le fleuve gisaient à l\'abandon ; l\'appareil militaire franc s\'était effondré.',
+      },
+    },
+    anchorYear: 885,
+  },
+  {
+    id: 'rollo-pressure-paris',
+    eraId: 'viking-age',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'bbox',
+      center: [1.2, 49.1],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['paris', 'rouen', 'seine-estuary'],
+      regionIds: ['lower-seine', 'frankish-core'],
+      routeSegmentIds: ['seg-rouen-paris-incursion'],
+      journeyIds: ['journey-seine-raids'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Pressure on the Frankish heartland',
+      body: {
+        en: 'After the great siege of Paris in 885–886, Frankish kings tried tribute, diversion, and military force — none succeeded for long. Through the 890s and 900s, Rollo\'s war-band tightened its grip on the lower Seine. He besieged cities, extracted tribute, and raided deep into the Frankish interior. The Carolingian court, riven by its own succession crises, lacked the resources to dislodge a force that had effectively made the lower Seine a Norse-held corridor.',
+        fr: 'Après le grand siège de Paris en 885-886, les rois francs tentèrent tribut, détournement et force militaire — rien ne réussit durablement. Durant les années 890 et 900, la bande de Rollon resserra son emprise sur la basse Seine. Il assiégea des villes, extorqua des tributs et pilla profondément l\'intérieur franc. La cour carolingienne, déchirée par ses propres crises de succession, n\'avait pas les moyens de déloger une force qui avait fait de la basse Seine un corridor norrois de fait.',
+      },
+    },
+    anchorYear: 890,
+  },
+  {
+    id: 'rollo-chartres-911',
+    eraId: 'viking-age',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'places',
+      center: [1.49, 48.75],
+      zoom: 7.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['chartres', 'paris'],
+      regionIds: ['frankish-core'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The siege of Chartres — 911',
+      body: {
+        en: 'In the summer of 911, Rollo led his forces south to besiege Chartres — a dangerously deep push into the Frankish heartland. A relieving army under Robert of Neustria and Richard of Burgundy defeated the Norse outside the city walls. But the Frankish victory was Pyrrhic: they could win a battle but not end the raiding. Both sides understood that negotiation, not warfare, would settle the lower Seine. The stage was set for the most consequential treaty in French medieval history.',
+        fr: 'À l\'été 911, Rollon mena ses forces au sud pour assiéger Chartres — une poussée dangereusement profonde dans le cœur franc. Une armée de secours sous Robert de Neustrie et Richard de Bourgogne défit les Nordiques devant les murs de la cité. Mais la victoire franque fut à la Pyrrhus : ils pouvaient gagner une bataille mais pas mettre fin aux raids. Les deux camps comprirent que la négociation, non la guerre, réglerait le sort de la basse Seine. Le terrain était prêt pour le traité le plus lourd de conséquences de l\'histoire médiévale française.',
+      },
+    },
+    anchorYear: 911,
+  },
+  {
+    id: 'rollo-treaty-epte',
+    eraId: 'norman-origins',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'places',
+      center: [1.78, 49.22],
+      zoom: 8.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-clair-sur-epte', 'rouen'],
+      regionIds: ['normandy', 'lower-seine'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The Treaty of Saint-Clair-sur-Epte',
+      body: {
+        en: 'In autumn 911, Rollo and King Charles the Simple reached a settlement at Saint-Clair-sur-Epte, on the river Epte — the natural boundary between the Frankish interior and the lower Seine. Rollo received Rouen and the surrounding territory. In return he pledged to defend the Seine against further Viking incursions, accept Christian baptism, and render nominal fealty to the Frankish crown. The treaty was not a gift but a recognition of reality: Frankish power had already lost control of the region. The nucleus of Normandy — the land of the Northmen — was born.',
+        fr: 'À l\'automne 911, Rollon et le roi Charles le Simple conclurent un accord à Saint-Clair-sur-Epte, sur la rivière Epte — la frontière naturelle entre l\'intérieur franc et la basse Seine. Rollon reçut Rouen et le territoire environnant. En retour, il s\'engagea à défendre la Seine contre de nouvelles incursions vikings, à accepter le baptême chrétien et à rendre un hommage nominal à la couronne franque. Le traité ne fut pas un cadeau mais la reconnaissance d\'une réalité : le pouvoir franc avait déjà perdu le contrôle de la région. Le noyau de la Normandie — la terre des Hommes du Nord — était né.',
+      },
+    },
+    anchorYear: 911,
+  },
+  {
+    id: 'rollo-baptism-rouen',
+    eraId: 'norman-origins',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'places',
+      center: [1.1, 49.44],
+      zoom: 8.5,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Baptism, marriage, and a new name',
+      body: {
+        en: 'Shortly after the treaty, Rollo was baptised at Rouen, taking the Christian name Robert — after his godfather Robert, Duke of Francia. He married or allied with Poppa, a Frankish noblewoman whose family connections anchored him in local aristocratic networks. The baptism was both a spiritual and political act: it signalled that the new lord of the Seine intended to govern through Frankish institutions, not merely extract plunder. Later chroniclers embellished the ceremony — the famous story of Rollo refusing to kiss the king\'s foot belongs to literary tradition, not documented fact.',
+        fr: 'Peu après le traité, Rollon fut baptisé à Rouen, prenant le nom chrétien de Robert — d\'après son parrain Robert, duc de Francia. Il épousa ou s\'allia avec Poppa, une noble franque dont les liens familiaux l\'ancèrent dans les réseaux aristocratiques locaux. Le baptême fut à la fois un acte spirituel et politique : il signalait que le nouveau seigneur de la Seine entendait gouverner par les institutions franques, non simplement piller. Les chroniqueurs ultérieurs enjolivèrent la cérémonie — la fameuse histoire de Rollon refusant de baiser le pied du roi relève de la tradition littéraire, non du fait documenté.',
+      },
+    },
+    anchorYear: 912,
+  },
+  {
+    id: 'rollo-consolidation',
+    eraId: 'norman-origins',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'bbox',
+      center: [0.2, 49.3],
+      zoom: 7.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'caen', 'seine-estuary'],
+      regionIds: ['normandy', 'lower-seine'],
+      routeSegmentIds: ['seg-estuary-rouen-settlement', 'seg-rouen-caen-settlement'],
+      journeyIds: ['journey-viking-settlement'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Consolidating the new lordship',
+      body: {
+        en: 'Through the 910s and 920s, Rollo consolidated his territory. Norse settlers spread from the Seine estuary westward, intermarrying with Frankish and Gallo-Roman populations. Raiding corridors became settlement corridors. Rollo granted lands to his followers, appointed administrators, and began restoring the ruined churches and abbeys whose goodwill he needed. He maintained alliances with the Frankish court while encouraging new Scandinavian immigration. The result was a hybrid lordship — Norse military aristocracy grafted onto Frankish legal and ecclesiastical traditions — that proved remarkably effective.',
+        fr: 'Tout au long des années 910 et 920, Rollon consolida son territoire. Les colons nordiques se répandirent depuis l\'estuaire de la Seine vers l\'ouest, se mariant avec les populations franques et gallo-romaines. Les corridors de raids devinrent des corridors de peuplement. Rollon concéda des terres à ses fidèles, nomma des administrateurs et commença à restaurer les églises et abbayes en ruine dont il avait besoin du soutien. Il maintint ses alliances avec la cour franque tout en encourageant une nouvelle immigration scandinave. Le résultat fut une seigneurie hybride — une aristocratie militaire nordique greffée sur les traditions juridiques et ecclésiastiques franques — d\'une efficacité remarquable.',
+      },
+    },
+    anchorYear: 920,
+  },
+  {
+    id: 'rollo-death-succession',
+    eraId: 'norman-origins',
+    arcId: 'rollo-lifetime',
+    camera: {
+      target: 'places',
+      center: [1.1, 49.44],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Death and the seed of a dynasty',
+      body: {
+        en: 'Rollo died around 928 at Rouen, having ruled his territory for roughly seventeen years. He was succeeded by his son William Longsword, who would expand the duchy westward into the Bessin and deepen its integration into the Frankish political order. Within three generations, the Norse settlers had adopted the French language, Frankish law, and Christian devotion — yet retained their ancestors\' appetite for expansion. The small grant of 911 became the most dynamic duchy in Europe, the springboard for the Norman conquest of England, the kingdoms of southern Italy and Sicily, and a legacy that would reach across the Atlantic to New France.',
+        fr: 'Rollon mourut vers 928 à Rouen, après avoir dirigé son territoire pendant environ dix-sept ans. Son fils Guillaume Longue-Épée lui succéda, étendant le duché vers l\'ouest dans le Bessin et approfondissant son intégration dans l\'ordre politique franc. En trois générations, les colons nordiques adoptèrent la langue française, le droit franc et la dévotion chrétienne — tout en conservant l\'appétit d\'expansion de leurs ancêtres. La modeste concession de 911 devint le duché le plus dynamique d\'Europe, le tremplin de la conquête normande de l\'Angleterre, des royaumes d\'Italie du Sud et de Sicile, et d\'un héritage qui atteindrait l\'autre rive de l\'Atlantique jusqu\'en Nouvelle-France.',
+      },
+    },
+    anchorYear: 928,
+  },
+
+  // ── William the Conqueror lifetime guided arc ────────────────────
+  {
+    id: 'wc-bastard-birth',
+    eraId: 'norman-origins',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'places',
+      center: [-0.20, 48.89],
+      zoom: 8.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['falaise'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The bastard of Falaise',
+      body: {
+        en: 'Around 1028, William was born at Falaise castle — the illegitimate son of Robert I, Duke of Normandy, and Herleva, a woman of modest origin from the town. His illegitimacy would define his early life: a claim to the duchy that was legally recognized by his father but socially precarious. Robert died on pilgrimage in 1035, and the seven-year-old William inherited a duchy whose aristocracy saw a fatherless bastard child as an opportunity rather than an obstacle.',
+        fr: 'Vers 1028, Guillaume naquit au château de Falaise — fils illégitime de Robert Ier, duc de Normandie, et d\'Herleva, une femme de modeste origine de la ville. Son illégitimité définirait ses premières années : un droit au duché juridiquement reconnu par son père mais socialement précaire. Robert mourut en pèlerinage en 1035, et Guillaume, âgé de sept ans, hérita d\'un duché dont l\'aristocratie voyait dans un enfant bâtard orphelin une opportunité plutôt qu\'un obstacle.',
+      },
+    },
+    anchorYear: 1028,
+  },
+  {
+    id: 'wc-dangerous-minority',
+    eraId: 'norman-origins',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.4, 49.3],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'falaise', 'caen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'A dangerous minority',
+      body: {
+        en: 'The years between 1035 and 1047 were the most violent in the duchy\'s history. Three of William\'s guardians were murdered in succession. Norman barons fought each other for dominance, and the young duke\'s survival depended on loyal retainers who smuggled him from castle to castle during the worst conspiracies. The ducal authority Rollo\'s descendants had built over a century was on the verge of collapse. William grew up in this world of ambush and betrayal — and it forged a ruler of extraordinary ruthlessness and political intelligence.',
+        fr: 'Les années entre 1035 et 1047 furent les plus violentes de l\'histoire du duché. Trois des tuteurs de Guillaume furent assassinés successivement. Les barons normands se combattaient pour la suprématie, et la survie du jeune duc dépendait de fidèles qui le faisaient passer de château en château pendant les pires conspirations. L\'autorité ducale bâtie par les descendants de Rollon en un siècle était au bord de l\'effondrement. Guillaume grandit dans ce monde d\'embuscades et de trahisons — et cela forgea un souverain d\'une cruauté et d\'une intelligence politique extraordinaires.',
+      },
+    },
+    anchorYear: 1040,
+  },
+  {
+    id: 'wc-val-es-dunes',
+    eraId: 'norman-origins',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'places',
+      center: [-0.30, 49.12],
+      zoom: 8.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['val-es-dunes', 'caen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Val-ès-Dunes — the duke fights back',
+      body: {
+        en: 'In 1047, a coalition of rebellious Norman barons led by Guy of Burgundy attempted to overthrow the young duke. William, then roughly nineteen, rode to meet them near Caen at Val-ès-Dunes. With crucial support from King Henry I of France, he routed the rebel army in a cavalry battle on the open plain. It was the turning point of his minority: after Val-ès-Dunes, no internal coalition would seriously threaten his rule again. William had proved that he could fight, and that he would destroy anyone who challenged his authority.',
+        fr: 'En 1047, une coalition de barons normands rebelles menée par Guy de Bourgogne tenta de renverser le jeune duc. Guillaume, alors âgé d\'environ dix-neuf ans, marcha à leur rencontre près de Caen à Val-ès-Dunes. Avec le soutien décisif du roi Henri Ier de France, il mit en déroute l\'armée rebelle dans un combat de cavalerie en plaine. Ce fut le tournant de sa minorité : après Val-ès-Dunes, aucune coalition interne ne menacerait plus sérieusement son règne. Guillaume avait prouvé qu\'il savait combattre et qu\'il détruirait quiconque contesterait son autorité.',
+      },
+    },
+    anchorYear: 1047,
+  },
+  {
+    id: 'wc-duchy-master',
+    eraId: 'norman-origins',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.2, 49.3],
+      zoom: 7.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'caen', 'barfleur'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Master of the duchy',
+      body: {
+        en: 'Through the 1050s William systematically broke every remaining centre of resistance. He defeated the count of Anjou, repelled two invasions by his former ally King Henry I of France, married Matilda of Flanders to secure his northern border, and launched an ambitious programme of castle-building and Church reform. Caen rose as a second ducal capital, anchored by the twin abbeys — Abbaye aux Hommes and Abbaye aux Dames — that expressed Norman piety and ambition in stone. By 1060, Normandy was the most tightly governed principality in France, and William was its unchallenged lord.',
+        fr: 'Au cours des années 1050, Guillaume brisa méthodiquement chaque dernier foyer de résistance. Il vainquit le comte d\'Anjou, repoussa deux invasions de son ancien allié le roi Henri Ier de France, épousa Mathilde de Flandre pour sécuriser sa frontière nord, et lança un programme ambitieux de construction de châteaux et de réforme de l\'Église. Caen s\'éleva comme seconde capitale ducale, ancrée par les abbayes jumelles — l\'Abbaye aux Hommes et l\'Abbaye aux Dames — qui exprimaient dans la pierre piété et ambition normandes. En 1060, la Normandie était la principauté la mieux gouvernée de France, et Guillaume son seigneur incontesté.',
+      },
+    },
+    anchorYear: 1055,
+  },
+  {
+    id: 'wc-claim-to-england',
+    eraId: 'norman-origins',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 50.2],
+      zoom: 5.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'london', 'hastings'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The claim to England',
+      body: {
+        en: 'Edward the Confessor, the childless Anglo-Saxon king, had lived in exile in Normandy for decades before taking the English throne in 1042. William later claimed that Edward had promised him the succession — a claim reinforced when Harold Godwinson, the most powerful English earl, allegedly swore an oath recognizing William\'s right during a visit to Normandy around 1064. When Edward died on 5 January 1066 and Harold seized the crown, William declared him a perjurer and began planning the most audacious military operation of the medieval age.',
+        fr: 'Édouard le Confesseur, le roi anglo-saxon sans enfant, avait vécu en exil en Normandie pendant des décennies avant de monter sur le trône anglais en 1042. Guillaume prétendit plus tard qu\'Édouard lui avait promis la succession — une revendication renforcée quand Harold Godwinson, le plus puissant comte anglais, aurait prêté serment reconnaissant le droit de Guillaume lors d\'une visite en Normandie vers 1064. Quand Édouard mourut le 5 janvier 1066 et qu\'Harold s\'empara de la couronne, Guillaume le déclara parjure et commença à planifier l\'opération militaire la plus audacieuse du Moyen Âge.',
+      },
+    },
+    anchorYear: 1064,
+  },
+  {
+    id: 'wc-invasion-fleet',
+    eraId: 'norman-expansion',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.8, 49.8],
+      zoom: 6.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-valery-sur-somme', 'caen', 'barfleur'],
+      regionIds: ['normandy', 'channel-coast'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The invasion fleet assembles',
+      body: {
+        en: 'Through the summer of 1066, William assembled an invasion force of roughly 7,000 men and perhaps 700 ships — drawn not just from Normandy but from Brittany, Flanders, and across northern France. The fleet gathered at the mouth of the river Dives, then moved to Saint-Valéry-sur-Somme to await favourable winds. It was a colossal logistical enterprise: horses, armour, siege timber, and supplies for an army that would need to fight the moment it landed. William secured papal blessing for his cause, turning a dynastic gamble into something resembling a crusade.',
+        fr: 'Pendant l\'été 1066, Guillaume assembla une force d\'invasion d\'environ 7 000 hommes et peut-être 700 navires — recrutés non seulement en Normandie mais aussi en Bretagne, en Flandre et dans tout le nord de la France. La flotte se rassembla à l\'embouchure de la Dives, puis se déplaça à Saint-Valéry-sur-Somme pour attendre des vents favorables. C\'était une entreprise logistique colossale : chevaux, armures, bois de siège et ravitaillement pour une armée qui devrait combattre dès son débarquement. Guillaume obtint la bénédiction papale pour sa cause, transformant un pari dynastique en quelque chose qui ressemblait à une croisade.',
+      },
+    },
+    anchorYear: 1066,
+  },
+  {
+    id: 'wc-hastings',
+    eraId: 'norman-expansion',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.3, 50.5],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-valery-sur-somme', 'hastings', 'london'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Hastings — 14 October 1066',
+      body: {
+        en: 'The Norman fleet crossed the Channel on the night of 27–28 September, landing at Pevensey on the Sussex coast. Harold, who had just destroyed a Norwegian invasion at Stamford Bridge in the north, force-marched his exhausted army south. The two forces met on 14 October at Senlac Hill near Hastings. The battle lasted all day — a brutal contest between the Norman heavy cavalry and the Anglo-Saxon shield wall. Harold was killed, tradition says by an arrow through the eye, and by nightfall the English army had broken. A single day\'s fighting decided the fate of England.',
+        fr: 'La flotte normande traversa la Manche dans la nuit du 27 au 28 septembre, débarquant à Pevensey sur la côte du Sussex. Harold, qui venait de détruire une invasion norvégienne à Stamford Bridge dans le nord, fit marche forcée vers le sud avec son armée épuisée. Les deux forces se rencontrèrent le 14 octobre à Senlac Hill près de Hastings. La bataille dura toute la journée — un affrontement brutal entre la cavalerie lourde normande et le mur de boucliers anglo-saxon. Harold fut tué, selon la tradition d\'une flèche dans l\'œil, et à la tombée de la nuit l\'armée anglaise était brisée. Un seul jour de combat décida du sort de l\'Angleterre.',
+      },
+    },
+    anchorYear: 1066,
+  },
+  {
+    id: 'wc-coronation-conquest',
+    eraId: 'norman-expansion',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'places',
+      center: [-0.13, 51.51],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'hastings'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Coronation and conquest',
+      body: {
+        en: 'William was crowned King of England at Westminster Abbey on Christmas Day 1066. But winning the crown and holding the kingdom were different things. Over the next five years he crushed rebellion after rebellion — most brutally the "Harrying of the North" in 1069–70, when he systematically devastated Yorkshire to break Anglo-Scandinavian resistance. Castle after castle rose across the landscape: the Tower of London, Windsor, Warwick, York. The old Anglo-Saxon aristocracy was almost entirely replaced by Norman and French lords. England was being remade.',
+        fr: 'Guillaume fut couronné roi d\'Angleterre à l\'abbaye de Westminster le jour de Noël 1066. Mais gagner la couronne et tenir le royaume étaient deux choses différentes. Au cours des cinq années suivantes, il écrasa rébellion après rébellion — la plus brutale étant la « Dévastation du Nord » en 1069-70, quand il ravagea systématiquement le Yorkshire pour briser la résistance anglo-scandinave. Château après château s\'éleva à travers le pays : la Tour de Londres, Windsor, Warwick, York. L\'ancienne aristocratie anglo-saxonne fut presque entièrement remplacée par des seigneurs normands et français. L\'Angleterre était refaite.',
+      },
+    },
+    anchorYear: 1067,
+  },
+  {
+    id: 'wc-cross-channel-empire',
+    eraId: 'norman-expansion',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 50.0],
+      zoom: 5.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'caen', 'london'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'A cross-Channel empire',
+      body: {
+        en: 'For the last twenty years of his life, William governed a realm that straddled the English Channel — Normandy on one side, England on the other. He spent roughly half his time in each, crossing the Channel repeatedly to manage crises. The Domesday Book of 1086, a comprehensive survey of English land and wealth, demonstrated a capacity for administrative control unmatched anywhere in Europe. Norman French entered English law, language, and culture. The architecture of power — stone castles, Romanesque cathedrals — transformed the English landscape. But the cross-Channel state was inherently unstable, its two halves pulling in different directions.',
+        fr: 'Pendant les vingt dernières années de sa vie, Guillaume gouverna un royaume à cheval sur la Manche — la Normandie d\'un côté, l\'Angleterre de l\'autre. Il passa environ la moitié de son temps dans chacun, traversant la Manche à répétition pour gérer les crises. Le Domesday Book de 1086, un inventaire complet des terres et richesses anglaises, témoignait d\'une capacité de contrôle administratif inégalée en Europe. Le franco-normand pénétra le droit, la langue et la culture anglais. L\'architecture du pouvoir — châteaux de pierre, cathédrales romanes — transforma le paysage anglais. Mais l\'État transmanche était intrinsèquement instable, ses deux moitiés tirant dans des directions opposées.',
+      },
+    },
+    anchorYear: 1080,
+  },
+  {
+    id: 'wc-death-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'william-conqueror',
+    camera: {
+      target: 'places',
+      center: [1.1, 49.44],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'caen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Death at Rouen — a divided inheritance',
+      body: {
+        en: 'In September 1087, while campaigning against the French king in the Vexin, William was fatally injured when his horse stumbled on the burning ruins of Mantes. He was carried to the priory of Saint-Gervais outside Rouen, where he died on 9 September. His kingdom was divided: Robert Curthose received Normandy, William Rufus received England. He was buried at his own foundation, the Abbaye aux Hommes in Caen. The bastard of Falaise had transformed a minor duchy into a cross-Channel empire, reshaped the English language and law, and set in motion a Norman legacy that would echo from Sicily to the walls of Jerusalem — and, centuries later, across the Atlantic to New France.',
+        fr: 'En septembre 1087, alors qu\'il faisait campagne contre le roi de France dans le Vexin, Guillaume fut mortellement blessé quand son cheval trébucha sur les ruines brûlantes de Mantes. Il fut transporté au prieuré de Saint-Gervais près de Rouen, où il mourut le 9 septembre. Son royaume fut divisé : Robert Courteheuse reçut la Normandie, Guillaume le Roux reçut l\'Angleterre. Il fut enterré dans sa propre fondation, l\'Abbaye aux Hommes à Caen. Le bâtard de Falaise avait transformé un duché mineur en un empire transmanche, remodelé la langue et le droit anglais, et mis en mouvement un héritage normand qui résonnerait de la Sicile aux murs de Jérusalem — et, des siècles plus tard, de l\'autre côté de l\'Atlantique jusqu\'en Nouvelle-France.',
+      },
+    },
+    anchorYear: 1087,
+  },
+
+  // ── Roger II lifetime guided arc ─────────────────────────────────
+  {
+    id: 'r2-hauteville-arrival',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'bbox',
+      center: [8.0, 44.5],
+      zoom: 4.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari', 'melfi'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The Hautevilles come south',
+      body: {
+        en: 'In the early eleventh century, Norman adventurers — landless younger sons from the petty aristocracy of the Cotentin and the Bessin — arrived in southern Italy as mercenaries for hire. They fought for Lombard princes, Byzantine governors, and anyone who would pay. Among them were the sons of Tancred of Hauteville, a minor lord from near Coutances. From this obscure family would come Robert Guiscard, who conquered Apulia and Calabria, and his younger brother Roger I, who wrested Sicily from the Arabs. By the late eleventh century the Hautevilles held the largest Norman dominion outside Normandy itself.',
+        fr: 'Au début du XIe siècle, des aventuriers normands — cadets sans terre de la petite aristocratie du Cotentin et du Bessin — arrivèrent en Italie du Sud comme mercenaires à louer. Ils combattaient pour des princes lombards, des gouverneurs byzantins, et quiconque pouvait payer. Parmi eux se trouvaient les fils de Tancrède de Hauteville, un petit seigneur des environs de Coutances. De cette famille obscure sortiraient Robert Guiscard, qui conquit les Pouilles et la Calabre, et son frère cadet Roger Ier, qui arracha la Sicile aux Arabes. À la fin du XIe siècle, les Hauteville détenaient le plus vaste domaine normand hors de la Normandie elle-même.',
+      },
+    },
+    anchorYear: 1030,
+  },
+  {
+    id: 'r2-birth-sicily',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'places',
+      center: [15.55, 38.19],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['messina', 'palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Born into a conquered island',
+      body: {
+        en: 'Roger II was born on 22 December 1095 in Sicily — most likely at Mileto in Calabria — the son of Roger I, the Great Count who had spent thirty years conquering the island from its Arab rulers. Sicily was a world unlike anything in northern Europe: Greek-speaking Christians, Arabic-speaking Muslims, Jewish communities, and a thin Norman military elite governing them all. Roger I died in 1101, leaving the six-year-old Roger II under his mother Adelaide\'s regency. The boy inherited not just an island but the challenge of holding together one of the most diverse populations in the medieval world.',
+        fr: 'Roger II naquit le 22 décembre 1095 en Sicile — très probablement à Mileto en Calabre — fils de Roger Ier, le Grand Comte qui avait passé trente ans à conquérir l\'île sur ses souverains arabes. La Sicile était un monde sans équivalent en Europe du Nord : chrétiens hellénophones, musulmans arabophones, communautés juives et une mince élite militaire normande gouvernant le tout. Roger Ier mourut en 1101, laissant Roger II, six ans, sous la régence de sa mère Adélaïde. L\'enfant héritait non seulement d\'une île mais du défi de maintenir l\'unité de l\'une des populations les plus diverses du monde médiéval.',
+      },
+    },
+    anchorYear: 1095,
+  },
+  {
+    id: 'r2-mainland-claim',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'bbox',
+      center: [15.0, 40.0],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari', 'melfi', 'palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Claiming the mainland',
+      body: {
+        en: 'When his cousin William, Duke of Apulia, died without heirs in 1127, Roger seized his chance. He crossed the Strait of Messina and claimed the mainland Norman territories — Apulia, Calabria, and the Principality of Capua. The mainland barons, who had no wish to be ruled by a Sicilian count, revolted repeatedly. Roger defeated them with a combination of military force and political cunning, besieging rebel strongholds and buying off those who could be bought. By 1129 he had forced the last holdouts to submit. For the first time, every Norman territory in southern Italy and Sicily answered to one lord.',
+        fr: 'Quand son cousin Guillaume, duc d\'Apulie, mourut sans héritier en 1127, Roger saisit sa chance. Il traversa le détroit de Messine et revendiqua les territoires normands continentaux — les Pouilles, la Calabre et la principauté de Capoue. Les barons du continent, qui ne voulaient pas être gouvernés par un comte sicilien, se révoltèrent à plusieurs reprises. Roger les soumit par un mélange de force militaire et de ruse politique, assiégeant les places fortes rebelles et achetant ceux qui pouvaient l\'être. En 1129, il avait contraint les derniers récalcitrants à se soumettre. Pour la première fois, chaque territoire normand d\'Italie du Sud et de Sicile obéissait à un seul seigneur.',
+      },
+    },
+    anchorYear: 1127,
+  },
+  {
+    id: 'r2-crowned-king',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'places',
+      center: [13.36, 38.12],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'King of Sicily — Christmas 1130',
+      body: {
+        en: 'On Christmas Day 1130, Roger was crowned King of Sicily in Palermo cathedral by a papal legate. The new kingdom united Sicily, Calabria, Apulia, Capua, and Naples under a single crown — the first time these territories had been united since the fall of Rome. Pope Anacletus II granted the title in exchange for Roger\'s support in a papal schism; the rival pope, Innocent II, denounced it. Roger\'s response was characteristically direct: he defeated Innocent\'s German and Norman allies in the field, captured the pope himself at the Battle of Galluccio in 1139, and forced him to confirm the kingdom. Legitimacy, for Roger, was something you won by force and then dressed in ceremony.',
+        fr: 'Le jour de Noël 1130, Roger fut couronné roi de Sicile dans la cathédrale de Palerme par un légat pontifical. Le nouveau royaume unissait la Sicile, la Calabre, les Pouilles, Capoue et Naples sous une seule couronne — la première unification de ces territoires depuis la chute de Rome. Le pape Anaclet II avait accordé le titre en échange du soutien de Roger dans un schisme papal ; le pape rival, Innocent II, le dénonça. La réponse de Roger fut caractéristiquement directe : il vainquit les alliés allemands et normands d\'Innocent sur le terrain, captura le pape lui-même à la bataille de Galluccio en 1139, et le força à confirmer le royaume. La légitimité, pour Roger, était quelque chose qu\'on gagnait par la force et qu\'on habillait ensuite de cérémonie.',
+      },
+    },
+    anchorYear: 1130,
+  },
+  {
+    id: 'r2-palermo-capital',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'places',
+      center: [13.36, 38.12],
+      zoom: 8.5,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo', 'cefalu'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Palermo — capital of three cultures',
+      body: {
+        en: 'Roger made Palermo one of the most remarkable cities in the medieval world. Arab geographers, Greek scholars, Latin churchmen, and Norman administrators worked side by side. The royal court operated in Arabic, Greek, and Latin. Roger commissioned the Cappella Palatina, whose interior fused Byzantine mosaics, Arabic muqarnas ceilings, and Latin liturgy in a single dazzling space. At Cefalù he raised a cathedral whose mosaic Christ Pantocrator remains one of the supreme achievements of medieval art. No other ruler in Europe governed with such deliberate multicultural ambition.',
+        fr: 'Roger fit de Palerme l\'une des villes les plus remarquables du monde médiéval. Géographes arabes, érudits grecs, ecclésiastiques latins et administrateurs normands travaillaient côte à côte. La cour royale fonctionnait en arabe, en grec et en latin. Roger commanda la Chapelle Palatine, dont l\'intérieur fusionnait mosaïques byzantines, plafonds à muqarnas arabes et liturgie latine en un seul espace éblouissant. À Cefalù, il éleva une cathédrale dont le Christ Pantocrator en mosaïque reste l\'un des chefs-d\'œuvre suprêmes de l\'art médiéval. Aucun autre souverain en Europe ne gouverna avec une ambition multiculturelle aussi délibérée.',
+      },
+    },
+    anchorYear: 1140,
+  },
+  {
+    id: 'r2-administration',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'bbox',
+      center: [14.5, 39.5],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo', 'bari', 'messina'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The most governed kingdom in Europe',
+      body: {
+        en: 'Roger built an administrative machine of extraordinary sophistication. Drawing on Arab fiscal traditions, Byzantine bureaucratic methods, and Norman feudal structures, he created a centralized state that could tax, legislate, and enforce royal authority across a vast and diverse realm. The Assizes of Ariano (1140) codified laws for the entire kingdom. A network of royal justiciars enforced the king\'s peace. The diwan — a treasury modelled on Fatimid Egypt — tracked revenues with a precision that would not be matched in western Europe until the Angevin reforms in England. Roger proved that a Norman ruler could not only conquer but govern.',
+        fr: 'Roger bâtit une machine administrative d\'une sophistication extraordinaire. Puisant dans les traditions fiscales arabes, les méthodes bureaucratiques byzantines et les structures féodales normandes, il créa un État centralisé capable de taxer, légiférer et imposer l\'autorité royale à travers un royaume vaste et divers. Les Assises d\'Ariano (1140) codifièrent les lois pour l\'ensemble du royaume. Un réseau de justiciers royaux faisait respecter la paix du roi. Le diwān — un trésor calqué sur l\'Égypte fatimide — suivait les revenus avec une précision qui ne serait égalée en Europe occidentale qu\'avec les réformes angevines en Angleterre. Roger prouva qu\'un souverain normand pouvait non seulement conquérir mais gouverner.',
+      },
+    },
+    anchorYear: 1140,
+  },
+  {
+    id: 'r2-africa-mediterranean',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'bbox',
+      center: [12.0, 37.0],
+      zoom: 4.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo', 'mahdia', 'messina'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Norman Africa and the central Mediterranean',
+      body: {
+        en: 'Roger\'s ambitions reached across the sea. Between 1135 and 1153 his fleets conquered a chain of coastal cities along the North African shore — Mahdia, Tripoli, Sfax, Gabès — establishing what chroniclers called the "Kingdom of Africa." It was the only time a Christian European power held territory on the North African coast between the Roman era and the early modern age. Roger also raided the Byzantine Empire, sacking Corfu, Corinth, and Thebes, and carrying Greek silk weavers back to Palermo. The central Mediterranean had become a Norman lake.',
+        fr: 'Les ambitions de Roger s\'étendirent au-delà de la mer. Entre 1135 et 1153, ses flottes conquirent une chaîne de cités côtières le long du littoral nord-africain — Mahdia, Tripoli, Sfax, Gabès — établissant ce que les chroniqueurs appelèrent le « Royaume d\'Afrique ». Ce fut la seule fois qu\'une puissance chrétienne européenne tint un territoire sur la côte nord-africaine entre l\'époque romaine et le début de l\'ère moderne. Roger razzía également l\'Empire byzantin, mettant à sac Corfou, Corinthe et Thèbes, et ramenant des tisserands de soie grecs à Palerme. La Méditerranée centrale était devenue un lac normand.',
+      },
+    },
+    anchorYear: 1148,
+  },
+  {
+    id: 'r2-al-idrisi',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'places',
+      center: [13.36, 38.12],
+      zoom: 8.0,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Al-Idrisi and the Book of Roger',
+      body: {
+        en: 'In 1154, the Arab geographer Muhammad al-Idrisi completed the Tabula Rogeriana — the "Book of Roger" — the most accurate world map produced in the medieval period. Commissioned by Roger, it was engraved on a massive silver disc and accompanied by a geographic text that synthesized Greek, Arabic, and Norman knowledge. The project embodied everything Roger\'s court represented: intellectual ambition, cross-cultural collaboration, and a king who saw himself not as the ruler of one people but as the patron of universal learning. No other Norman achievement so clearly demonstrated how far the descendants of Scandinavian raiders had come.',
+        fr: 'En 1154, le géographe arabe Muhammad al-Idrisi acheva la Tabula Rogeriana — le « Livre de Roger » — la carte du monde la plus précise produite au Moyen Âge. Commandée par Roger, elle fut gravée sur un immense disque d\'argent et accompagnée d\'un texte géographique synthétisant les savoirs grec, arabe et normand. Le projet incarnait tout ce que la cour de Roger représentait : ambition intellectuelle, collaboration interculturelle et un roi qui se voyait non comme le souverain d\'un seul peuple mais comme le patron du savoir universel. Aucune autre réalisation normande ne démontra aussi clairement le chemin parcouru par les descendants de raiders scandinaves.',
+      },
+    },
+    anchorYear: 1154,
+  },
+  {
+    id: 'r2-death-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'roger-ii',
+    camera: {
+      target: 'bbox',
+      center: [13.5, 38.5],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['palermo', 'cefalu'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Death and the Norman Mediterranean legacy',
+      body: {
+        en: 'Roger II died on 26 February 1154 in Palermo, aged fifty-eight. His kingdom passed to his son William I, and then to his grandson William II, who built the cathedral of Monreale — the last great masterpiece of Norman Sicily. The Hauteville dynasty ended in 1194 when Emperor Henry VI conquered the kingdom, but the structures Roger built survived. His legal code, his multicultural administration, and his architectural splendour shaped Sicily for centuries. The Cappella Palatina, Cefalù, and Monreale still stand as monuments to a moment when Norman ambition, Arab learning, and Byzantine artistry fused into something the world had never seen before — and would never see again.',
+        fr: 'Roger II mourut le 26 février 1154 à Palerme, à cinquante-huit ans. Son royaume passa à son fils Guillaume Ier, puis à son petit-fils Guillaume II, qui bâtit la cathédrale de Monreale — le dernier grand chef-d\'œuvre de la Sicile normande. La dynastie Hauteville prit fin en 1194 quand l\'empereur Henri VI conquit le royaume, mais les structures bâties par Roger survécurent. Son code juridique, son administration multiculturelle et sa splendeur architecturale façonnèrent la Sicile pendant des siècles. La Chapelle Palatine, Cefalù et Monreale se dressent encore comme des monuments d\'un moment où ambition normande, savoir arabe et art byzantin fusionnèrent en quelque chose que le monde n\'avait jamais vu — et ne reverrait jamais.',
+      },
+    },
+    anchorYear: 1154,
+  },
+
+  // ── Robert Guiscard lifetime guided arc ──────────────────────────
+  {
+    id: 'rg-hauteville-origins',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [4.0, 47.0],
+      zoom: 4.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['caen', 'bari'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Sons of Hauteville',
+      body: {
+        en: 'Tancred of Hauteville was a minor Norman lord near Coutances in the Cotentin — a man of modest means with twelve sons and no land to give most of them. Beginning in the 1030s, the elder brothers left Normandy for southern Italy, where the fragmented politics of Lombard principalities, Byzantine provinces, and Arab-held Sicily offered opportunity to skilled fighters. The first Norman foothold was Aversa, granted as a county in 1030. Robert, the sixth of Tancred\'s sons, arrived in Italy around 1047 — young, ambitious, and entirely without resources. He would become the most formidable conqueror of his age.',
+        fr: 'Tancrède de Hauteville était un petit seigneur normand près de Coutances dans le Cotentin — un homme de moyens modestes avec douze fils et aucune terre à donner à la plupart d\'entre eux. À partir des années 1030, les frères aînés quittèrent la Normandie pour l\'Italie du Sud, où la politique fragmentée des principautés lombardes, des provinces byzantines et de la Sicile tenue par les Arabes offrait des possibilités aux combattants habiles. Le premier point d\'ancrage normand fut Aversa, accordée comme comté en 1030. Robert, sixième fils de Tancrède, arriva en Italie vers 1047 — jeune, ambitieux et totalement dépourvu de ressources. Il deviendrait le plus redoutable conquérant de son temps.',
+      },
+    },
+    anchorYear: 1035,
+  },
+  {
+    id: 'rg-arrival-italy',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [15.5, 40.5],
+      zoom: 6.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['aversa', 'melfi', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The fox arrives in Apulia',
+      body: {
+        en: 'Robert arrived in Calabria with nothing but his sword and his wits. He earned the nickname "Guiscard" — the "Wily" or "Resourceful" — by raiding, extorting, and outmaneuvering both his enemies and his own Norman rivals. He operated as a brigand-chief in the Calabrian highlands, building a war-band from scratch through a combination of personal charisma, calculated violence, and the promise of plunder. When his elder brother Humphrey died in 1057, Robert seized control of the family\'s Italian holdings. He now commanded every Norman fighting man in Apulia.',
+        fr: 'Robert arriva en Calabre avec rien d\'autre que son épée et sa ruse. Il gagna le surnom de « Guiscard » — le « Rusé » ou « Avisé » — en pillant, extorquant et déjouant à la fois ses ennemis et ses propres rivaux normands. Il opéra comme un chef de brigands dans les hautes terres calabraises, construisant une bande armée à partir de rien grâce à un mélange de charisme personnel, de violence calculée et de promesses de butin. Quand son frère aîné Humphrey mourut en 1057, Robert s\'empara du contrôle des possessions familiales en Italie. Il commandait désormais chaque combattant normand dans les Pouilles.',
+      },
+    },
+    anchorYear: 1047,
+  },
+  {
+    id: 'rg-papal-alliance',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'places',
+      center: [15.53, 40.99],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['melfi'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The Treaty of Melfi — vassal to the Pope',
+      body: {
+        en: 'In 1059, Pope Nicholas II made a stunning reversal. The papacy had tried and failed to dislodge the Normans from southern Italy; now it chose to co-opt them. At Melfi, the Pope invested Robert as Duke of Apulia, Calabria, and — in an inspired piece of legal fiction — Sicily, which was still under Arab rule. In return Robert became a papal vassal, pledging military support. The treaty transformed Robert from a brigand warlord into a legitimate feudal prince with papal sanction. It was one of the most consequential diplomatic deals of the eleventh century: the Normans gained legitimacy, the papacy gained a sword.',
+        fr: 'En 1059, le pape Nicolas II fit un revirement stupéfiant. La papauté avait tenté sans succès de déloger les Normands d\'Italie du Sud ; elle choisit maintenant de les récupérer. À Melfi, le pape investit Robert comme duc d\'Apulie, de Calabre et — dans une fiction juridique inspirée — de Sicile, encore sous domination arabe. En retour Robert devint vassal pontifical, promettant un soutien militaire. Le traité transforma Robert de chef de guerre brigand en prince féodal légitime avec la sanction papale. Ce fut l\'un des accords diplomatiques les plus lourds de conséquences du XIe siècle : les Normands gagnèrent la légitimité, la papauté gagna une épée.',
+      },
+    },
+    anchorYear: 1059,
+  },
+  {
+    id: 'rg-fall-of-bari',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'places',
+      center: [16.87, 41.12],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The fall of Bari — Byzantium expelled',
+      body: {
+        en: 'Bari had been the capital of Byzantine Italy for over three centuries — the anchor of Constantinople\'s western presence. Robert besieged it for three years, cutting off both land and sea supply. In April 1071, the city surrendered. With Bari\'s fall, Byzantine authority in Italy ended permanently. An empire that had ruled the region since Justinian lost its last foothold to a family of Norman adventurers from the Cotentin. Robert now controlled everything from the Adriatic coast to the mountains of Calabria — the largest Norman domain outside England.',
+        fr: 'Bari avait été la capitale de l\'Italie byzantine pendant plus de trois siècles — l\'ancre de la présence occidentale de Constantinople. Robert l\'assiégea trois ans, coupant le ravitaillement terrestre et maritime. En avril 1071, la ville capitula. Avec la chute de Bari, l\'autorité byzantine en Italie prit fin définitivement. Un empire qui avait gouverné la région depuis Justinien perdait sa dernière base face à une famille d\'aventuriers normands du Cotentin. Robert contrôlait désormais tout, de la côte adriatique aux montagnes de Calabre — le plus vaste domaine normand hors d\'Angleterre.',
+      },
+    },
+    anchorYear: 1071,
+  },
+  {
+    id: 'rg-sicily-campaign',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [14.5, 38.5],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['messina', 'palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'The conquest of Sicily',
+      body: {
+        en: 'While consolidating Apulia, Robert entrusted the conquest of Sicily to his youngest brother Roger. The campaign lasted thirty years (1061–1091). Messina fell first, then the Normans pushed west across a mountainous island defended by Arab emirs who knew the terrain. Palermo, the great prize, was taken in 1072 after a joint siege by Robert and Roger. Robert retained nominal overlordship, but it was Roger who stayed and governed — laying the foundations for what would become, under his son Roger II, the Kingdom of Sicily.',
+        fr: 'Tout en consolidant les Pouilles, Robert confia la conquête de la Sicile à son plus jeune frère Roger. La campagne dura trente ans (1061–1091). Messine tomba la première, puis les Normands poussèrent vers l\'ouest à travers une île montagneuse défendue par des émirs arabes connaissant le terrain. Palerme, le grand prix, fut prise en 1072 après un siège conjoint de Robert et Roger. Robert conserva la suzeraineté nominale, mais c\'est Roger qui resta et gouverna — posant les fondations de ce qui deviendrait, sous son fils Roger II, le Royaume de Sicile.',
+      },
+    },
+    anchorYear: 1072,
+  },
+  {
+    id: 'rg-salerno-capital',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'places',
+      center: [14.77, 40.68],
+      zoom: 7.5,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Salerno — a Norman capital',
+      body: {
+        en: 'In 1076, Robert captured Salerno, the last independent Lombard principality, and made it his capital. The city\'s famous medical school — the oldest in Europe — continued to function under Norman rule. Robert married the Lombard princess Sichelgaita, who rode into battle at his side in full armour. He began construction of a great cathedral to rival anything in northern Europe. From Salerno, Robert governed a realm stretching from the Abruzzi to Sicily — but his ambitions were already turning eastward, toward the richest prize of all: the Byzantine Empire.',
+        fr: 'En 1076, Robert prit Salerne, la dernière principauté lombarde indépendante, et en fit sa capitale. La célèbre école de médecine de la ville — la plus ancienne d\'Europe — continua de fonctionner sous le régime normand. Robert épousa la princesse lombarde Sichelgaite, qui chevauchait à ses côtés en armure complète au combat. Il commença la construction d\'une grande cathédrale rivalisant avec toutes celles d\'Europe du Nord. Depuis Salerne, Robert gouvernait un domaine s\'étendant des Abruzzes à la Sicile — mais ses ambitions se tournaient déjà vers l\'est, vers le prix le plus riche de tous : l\'Empire byzantin.',
+      },
+    },
+    anchorYear: 1076,
+  },
+  {
+    id: 'rg-durazzo-campaign',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [17.5, 40.5],
+      zoom: 5.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari', 'durazzo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Against Byzantium — the battle of Durazzo',
+      body: {
+        en: 'In 1081, Robert crossed the Adriatic and invaded the Byzantine Empire itself. His target was Durazzo (Dyrrachium), the western terminus of the Via Egnatia — the road to Constantinople. The Byzantine emperor Alexios I Komnenos met him with an army that included the elite Varangian Guard. On 18 October 1081, in one of the great battles of the medieval period, Robert\'s Norman cavalry shattered the Byzantine line. Durazzo fell. For the first time since the Visigoths, a western army was advancing toward Constantinople along the ancient Roman road. It was the most audacious campaign any Norman had yet attempted.',
+        fr: 'En 1081, Robert traversa l\'Adriatique et envahit l\'Empire byzantin lui-même. Sa cible était Durazzo (Dyrrachium), le terminus occidental de la Via Egnatia — la route de Constantinople. L\'empereur byzantin Alexis Ier Comnène l\'affronta avec une armée comprenant l\'élite de la Garde varangienne. Le 18 octobre 1081, dans l\'une des grandes batailles de la période médiévale, la cavalerie normande de Robert brisa la ligne byzantine. Durazzo tomba. Pour la première fois depuis les Wisigoths, une armée occidentale avançait vers Constantinople le long de l\'ancienne voie romaine. C\'était la campagne la plus audacieuse qu\'un Normand ait jamais tentée.',
+      },
+    },
+    anchorYear: 1081,
+  },
+  {
+    id: 'rg-rome-rescue',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [14.0, 41.5],
+      zoom: 5.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The sack of Rome',
+      body: {
+        en: 'In 1084, Pope Gregory VII was besieged in the Castel Sant\'Angelo by the Holy Roman Emperor Henry IV. The Pope called on his Norman vassal for rescue. Robert marched north with a massive army, drove off the German forces, and freed the Pope — but his troops then sacked Rome with a violence that shocked all of Christendom. Entire districts were burned. The Romans, who had welcomed him as a liberator, cursed the Normans as worse than the barbarians of old. Gregory, too humiliated to remain, left Rome with Robert and died in exile at Salerno. It was a characteristic Guiscard moment: victory achieved, but at a cost that appalled even his allies.',
+        fr: 'En 1084, le pape Grégoire VII était assiégé au Château Saint-Ange par l\'empereur du Saint-Empire Henri IV. Le pape appela son vassal normand au secours. Robert marcha vers le nord avec une armée massive, chassa les forces germaniques et libéra le pape — mais ses troupes mirent ensuite Rome à sac avec une violence qui choqua toute la chrétienté. Des quartiers entiers furent incendiés. Les Romains, qui l\'avaient accueilli en libérateur, maudirent les Normands comme pires que les barbares d\'autrefois. Grégoire, trop humilié pour rester, quitta Rome avec Robert et mourut en exil à Salerne. Ce fut un moment typiquement Guiscard : victoire obtenue, mais à un coût qui consterna même ses alliés.',
+      },
+    },
+    anchorYear: 1084,
+  },
+  {
+    id: 'rg-death-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'robert-guiscard',
+    camera: {
+      target: 'bbox',
+      center: [15.0, 40.0],
+      zoom: 5.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari', 'palermo', 'salerno', 'durazzo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Death and a Mediterranean legacy',
+      body: {
+        en: 'Robert Guiscard died on 17 July 1085 on the island of Cephalonia, in the midst of his second Balkan campaign against Byzantium. He was about seventy years old. He had arrived in Italy with nothing and left behind a domain stretching from the Adriatic to Sicily, had expelled the Byzantine Empire from the Italian peninsula, conquered the last Arab strongholds in Sicily, sacked Rome, and fought the greatest empire in the world to a standstill. His son Bohemond would carry the Norman name to Antioch on the First Crusade. His brother Roger\'s line would produce Roger II and the Kingdom of Sicily. The wily sixth son of Hauteville had reshaped the map of the medieval Mediterranean.',
+        fr: 'Robert Guiscard mourut le 17 juillet 1085 sur l\'île de Céphalonie, en pleine deuxième campagne balkanique contre Byzance. Il avait environ soixante-dix ans. Arrivé en Italie sans rien, il laissait un domaine s\'étendant de l\'Adriatique à la Sicile, avait expulsé l\'Empire byzantin de la péninsule italienne, conquis les derniers bastions arabes de Sicile, mis Rome à sac et combattu le plus grand empire du monde jusqu\'à l\'impasse. Son fils Bohémond porterait le nom normand à Antioche lors de la Première Croisade. La lignée de son frère Roger produirait Roger II et le Royaume de Sicile. Le rusé sixième fils de Hauteville avait redessiné la carte de la Méditerranée médiévale.',
+      },
+    },
+    anchorYear: 1085,
+  },
+
+  // ── Bohemond of Antioch lifetime guided arc ──────────────────────
+  {
+    id: 'boh-guiscard-son',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'bbox',
+      center: [15.0, 40.5],
+      zoom: 5.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bari', 'salerno', 'taranto'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'A Guiscard\'s son, disinherited',
+      body: {
+        en: 'Bohemond was born around 1054, the eldest son of Robert Guiscard and his first wife Alberada of Buonalbergo. He grew up in the violent world of Norman southern Italy, trained for war from childhood, and fought alongside his father at the pivotal battle of Durazzo in 1081 — where, at barely twenty-seven, he led the cavalry charge that broke the Byzantine line. But when Guiscard remarried the Lombard princess Sichelgaita, she secured the succession for her own son, Roger Borsa. Bohemond was passed over. The greatest warrior of his generation was left with nothing but his reputation and his father\'s example: that a landless Norman could carve out a realm by force of arms.',
+        fr: 'Bohémond naquit vers 1054, fils aîné de Robert Guiscard et de sa première épouse Alberada de Buonalbergo. Il grandit dans le monde violent de l\'Italie du Sud normande, formé à la guerre dès l\'enfance, et combattit aux côtés de son père à la bataille décisive de Durazzo en 1081 — où, à peine vingt-sept ans, il mena la charge de cavalerie qui brisa la ligne byzantine. Mais lorsque Guiscard se remaria avec la princesse lombarde Sichelgaite, celle-ci assura la succession à son propre fils, Roger Borsa. Bohémond fut écarté. Le plus grand guerrier de sa génération se retrouvait sans rien d\'autre que sa réputation et l\'exemple paternel : un Normand sans terre pouvait se tailler un royaume par la force des armes.',
+      },
+    },
+    anchorYear: 1054,
+  },
+  {
+    id: 'boh-italian-wars',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'places',
+      center: [16.5, 40.8],
+      zoom: 6.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['taranto', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The prince of Taranto',
+      body: {
+        en: 'After Guiscard\'s death in 1085, Bohemond spent a decade fighting his half-brother Roger Borsa for a share of the inheritance. He was a brilliant soldier but a poor politician, and Borsa held the ducal title and papal support. Eventually Bohemond carved out the Principality of Taranto — the heel of the Italian boot — a modest domain for a man of his ambitions. He held it restlessly, always looking for a larger stage. When Pope Urban II preached the First Crusade at Clermont in 1095, Bohemond saw something no other Norman lord recognised: an opportunity to build his own principality in the East, beyond the reach of brothers, popes, and Byzantine emperors.',
+        fr: 'Après la mort de Guiscard en 1085, Bohémond passa une décennie à combattre son demi-frère Roger Borsa pour une part de l\'héritage. C\'était un soldat brillant mais un piètre politique, et Borsa détenait le titre ducal et le soutien papal. Finalement Bohémond se tailla la Principauté de Tarente — le talon de la botte italienne — un domaine modeste pour un homme de ses ambitions. Il le tenait avec impatience, cherchant toujours une scène plus grande. Quand le pape Urbain II prêcha la Première Croisade à Clermont en 1095, Bohémond vit quelque chose qu\'aucun autre seigneur normand ne reconnut : l\'occasion de bâtir sa propre principauté en Orient, hors de portée des frères, des papes et des empereurs byzantins.',
+      },
+    },
+    anchorYear: 1090,
+  },
+  {
+    id: 'boh-crusade-begins',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'bbox',
+      center: [22.0, 41.0],
+      zoom: 4.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['taranto', 'durazzo', 'constantinople'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Taking the cross',
+      body: {
+        en: 'In 1096, Bohemond was besieging Amalfi when news of the Crusade reached him. According to legend, he tore up his finest cloak to make crosses for his men on the spot. He assembled the Norman contingent — experienced veterans of the Italian wars, many of them descendants of the mercenaries who had first come south decades earlier. They crossed the Adriatic at Durazzo, retracing his father\'s invasion route of 1081, and marched overland through the Balkans to Constantinople. Bohemond knew the road, knew the enemy, and knew the Byzantine emperor Alexios I Komnenos personally — from opposite sides of a battlefield.',
+        fr: 'En 1096, Bohémond assiégeait Amalfi quand la nouvelle de la Croisade lui parvint. Selon la légende, il déchira son plus beau manteau pour en faire des croix pour ses hommes sur-le-champ. Il rassembla le contingent normand — des vétérans aguerris des guerres d\'Italie, dont beaucoup descendaient des mercenaires venus pour la première fois dans le Sud des décennies plus tôt. Ils traversèrent l\'Adriatique à Durazzo, retraçant la route d\'invasion de son père en 1081, et marchèrent par voie terrestre à travers les Balkans jusqu\'à Constantinople. Bohémond connaissait la route, connaissait l\'ennemi et connaissait personnellement l\'empereur byzantin Alexis Ier Comnène — pour l\'avoir affronté sur un champ de bataille.',
+      },
+    },
+    anchorYear: 1096,
+  },
+  {
+    id: 'boh-constantinople-oath',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'places',
+      center: [29.0, 41.0],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['constantinople'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Constantinople — the oath',
+      body: {
+        en: 'Alexios Komnenos regarded the Crusaders with deep suspicion — especially the Normans, who had invaded his empire barely fifteen years earlier. He demanded that every Crusader lord swear an oath to return any former Byzantine territory they conquered. Most did so reluctantly. Bohemond swore willingly, even eagerly — and the Byzantine princess Anna Komnena, writing years later, captured his towering physical presence: tall, fair-haired, broad-shouldered, with a permanent half-smile that unsettled everyone who met him. Alexios offered him the title of Grand Domestic of the East. Bohemond accepted the flattery and ignored the obligation. He had no intention of returning anything.',
+        fr: 'Alexis Comnène considérait les Croisés avec une profonde méfiance — surtout les Normands, qui avaient envahi son empire à peine quinze ans plus tôt. Il exigea de chaque seigneur croisé un serment de restituer tout ancien territoire byzantin conquis. La plupart le firent à contrecœur. Bohémond jura volontiers, même avec empressement — et la princesse byzantine Anne Comnène, écrivant des années plus tard, capta sa stature imposante : grand, blond, aux larges épaules, avec un demi-sourire permanent qui mettait mal à l\'aise tous ceux qui le rencontraient. Alexis lui offrit le titre de Grand Domestique d\'Orient. Bohémond accepta la flatterie et ignora l\'obligation. Il n\'avait aucune intention de rendre quoi que ce soit.',
+      },
+    },
+    anchorYear: 1097,
+  },
+  {
+    id: 'boh-dorylaeum-march',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'bbox',
+      center: [31.0, 40.0],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['nicaea', 'dorylaeum'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Nicaea and Dorylaeum',
+      body: {
+        en: 'The Crusader army crossed into Asia Minor and besieged Nicaea, which surrendered to Byzantine agents before the Crusaders could storm it — deepening their distrust of Alexios. Then, on 1 July 1097, the Seljuk sultan Kilij Arslan ambushed Bohemond\'s vanguard at Dorylaeum. The Normans were outnumbered and surrounded. Bohemond held his line for hours in brutal close combat, ordering his knights to dismount and fight on foot alongside the infantry — an unconventional tactic that kept the army from being overrun. When Godfrey of Bouillon\'s reinforcements arrived, the Crusaders counter-attacked and routed the Seljuk army. It was the decisive land battle of the First Crusade, and it established Bohemond as the Crusade\'s foremost military commander.',
+        fr: 'L\'armée croisée traversa l\'Asie Mineure et assiégea Nicée, qui se rendit à des agents byzantins avant que les Croisés ne puissent la prendre d\'assaut — approfondissant leur méfiance envers Alexis. Puis, le 1er juillet 1097, le sultan seldjoukide Kilij Arslan tendit une embuscade à l\'avant-garde de Bohémond à Dorylée. Les Normands étaient en infériorité numérique et encerclés. Bohémond tint sa ligne pendant des heures dans un combat rapproché brutal, ordonnant à ses chevaliers de mettre pied à terre et de combattre aux côtés de l\'infanterie — une tactique non conventionnelle qui empêcha l\'armée d\'être submergée. Quand les renforts de Godefroy de Bouillon arrivèrent, les Croisés contre-attaquèrent et mirent en déroute l\'armée seldjoukide. Ce fut la bataille terrestre décisive de la Première Croisade, et elle établit Bohémond comme le premier commandant militaire de la Croisade.',
+      },
+    },
+    anchorYear: 1097,
+  },
+  {
+    id: 'boh-siege-antioch',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'places',
+      center: [36.17, 36.20],
+      zoom: 7.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['antioch'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The siege of Antioch',
+      body: {
+        en: 'Antioch was the great prize — a city of massive Roman walls, ancient churches, and strategic control over the route to Jerusalem. The Crusaders besieged it for eight months (October 1097 – June 1098), suffering starvation, desertion, and plague. Bohemond alone kept his nerve. He secretly negotiated with an Armenian tower-guard named Firouz, who agreed to open a gate. On the night of 2–3 June 1098, Bohemond\'s Normans scaled the walls, Firouz opened the Tower of the Two Sisters, and the Crusaders poured in. The city fell in a night of chaotic violence. Three days later, a massive Seljuk relief army under Kerbogha of Mosul arrived and besieged the besiegers. Bohemond, now trapped inside the city he had just taken, faced annihilation.',
+        fr: 'Antioche était le grand prix — une ville aux massives murailles romaines, aux églises antiques et au contrôle stratégique de la route vers Jérusalem. Les Croisés l\'assiégèrent huit mois (octobre 1097 – juin 1098), souffrant de famine, de désertions et de peste. Seul Bohémond garda son sang-froid. Il négocia secrètement avec un garde de tour arménien nommé Firouz, qui accepta d\'ouvrir une porte. Dans la nuit du 2 au 3 juin 1098, les Normands de Bohémond escaladèrent les murs, Firouz ouvrit la Tour des Deux Sœurs, et les Croisés s\'engouffrèrent. La ville tomba dans une nuit de violence chaotique. Trois jours plus tard, une massive armée de secours seldjoukide sous Kerbogha de Mossoul arriva et assiégea les assiégeants. Bohémond, désormais piégé dans la ville qu\'il venait de prendre, faisait face à l\'anéantissement.',
+      },
+    },
+    anchorYear: 1098,
+  },
+  {
+    id: 'boh-holy-lance',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'places',
+      center: [36.17, 36.20],
+      zoom: 8.0,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['antioch'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The Holy Lance and the sortie',
+      body: {
+        en: 'Starving and desperate inside Antioch\'s walls, the Crusaders rallied around a miraculous discovery: a Provençal peasant named Peter Bartholomew claimed a vision had revealed the Holy Lance — the spear that pierced Christ\'s side — buried beneath the Cathedral of St. Peter. They dug and found an iron lance-point. Whether Bohemond believed in the relic is doubtful, but he understood its power. On 28 June 1098, he led the entire Crusader army in a massed sortie from the city gates. The starving, half-mad Crusaders charged Kerbogha\'s vastly superior force — and broke it. The Seljuk army dissolved. Antioch was secured. Bohemond claimed it as his own, citing a pre-siege agreement with the other leaders. The other princes protested. Bohemond ignored them.',
+        fr: 'Affamés et désespérés derrière les murs d\'Antioche, les Croisés se rallièrent autour d\'une découverte miraculeuse : un paysan provençal nommé Pierre Barthélemy prétendit qu\'une vision lui avait révélé la Sainte Lance — la lance qui perça le flanc du Christ — enterrée sous la cathédrale Saint-Pierre. Ils creusèrent et trouvèrent une pointe de lance en fer. Que Bohémond ait cru à la relique est douteux, mais il en comprit le pouvoir. Le 28 juin 1098, il mena toute l\'armée croisée dans une sortie en masse par les portes de la ville. Les Croisés affamés et à demi fous chargèrent la force vastement supérieure de Kerbogha — et la brisèrent. L\'armée seldjoukide se disloqua. Antioche était sécurisée. Bohémond la revendiqua comme sienne, invoquant un accord pré-siège avec les autres chefs. Les autres princes protestèrent. Bohémond les ignora.',
+      },
+    },
+    anchorYear: 1098,
+  },
+  {
+    id: 'boh-captivity',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'bbox',
+      center: [37.0, 38.0],
+      zoom: 5.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['antioch'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Prince of Antioch — and prisoner',
+      body: {
+        en: 'Bohemond established himself as Prince of Antioch while the other Crusaders marched on to Jerusalem. He governed a polyglot state of Franks, Armenians, Greeks, and Syrian Christians, imposing Norman-style feudalism on an Eastern city. But in 1100, while campaigning against the Danishmend Turks, he was ambushed and captured. He spent three years in captivity (1100–1103), during which his nephew Tancred — another Hauteville — governed Antioch in his absence. His ransom was enormous: 100,000 gold dinars, paid partly by the Armenian ruler of Edessa. Even in captivity, Bohemond\'s legend grew — Muslim chroniclers noted his defiance and his refusal to convert.',
+        fr: 'Bohémond s\'établit comme Prince d\'Antioche tandis que les autres Croisés marchaient sur Jérusalem. Il gouvernait un État polyglotte de Francs, d\'Arméniens, de Grecs et de chrétiens syriaques, imposant un féodalisme de type normand à une ville orientale. Mais en 1100, lors d\'une campagne contre les Turcs danishmendides, il fut pris en embuscade et capturé. Il passa trois ans en captivité (1100–1103), pendant lesquels son neveu Tancrède — un autre Hauteville — gouverna Antioche en son absence. Sa rançon fut énorme : 100 000 dinars d\'or, payés en partie par le souverain arménien d\'Édesse. Même en captivité, la légende de Bohémond grandit — les chroniqueurs musulmans notèrent sa défiance et son refus de se convertir.',
+      },
+    },
+    anchorYear: 1100,
+  },
+  {
+    id: 'boh-devol-death',
+    eraId: 'norman-expansion',
+    arcId: 'bohemond-antioch',
+    camera: {
+      target: 'bbox',
+      center: [19.0, 40.5],
+      zoom: 5.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['durazzo', 'taranto', 'antioch'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Devol, defeat, and a Norman legacy in the East',
+      body: {
+        en: 'Released in 1103, Bohemond returned to Europe to raise a new army — not for the Holy Land, but for his true obsession: destroying Byzantium. He married Constance, daughter of King Philip I of France, recruited a vast force, and in 1107 crossed the Adriatic to besiege Durazzo — exactly as his father had done in 1081. But this time Alexios was ready. The siege failed. In 1108, Bohemond was forced to sign the humiliating Treaty of Devol, acknowledging Antioch as a Byzantine fief. He never returned to the East. He died in Apulia in 1111, probably around fifty-seven, a man whose ambitions had always exceeded his resources. Yet the Principality of Antioch survived him by nearly two centuries, and the Hauteville name rang from Normandy to the Euphrates — the farthest reach any Norman dynasty ever achieved.',
+        fr: 'Libéré en 1103, Bohémond retourna en Europe pour lever une nouvelle armée — non pour la Terre Sainte, mais pour sa véritable obsession : détruire Byzance. Il épousa Constance, fille du roi Philippe Ier de France, recruta une vaste force, et en 1107 traversa l\'Adriatique pour assiéger Durazzo — exactement comme son père l\'avait fait en 1081. Mais cette fois Alexis était prêt. Le siège échoua. En 1108, Bohémond fut contraint de signer l\'humiliant Traité de Devol, reconnaissant Antioche comme un fief byzantin. Il ne retourna jamais en Orient. Il mourut dans les Pouilles en 1111, probablement vers cinquante-sept ans, un homme dont les ambitions avaient toujours dépassé ses ressources. Pourtant la Principauté d\'Antioche lui survécut près de deux siècles, et le nom des Hauteville résonnait de la Normandie à l\'Euphrate — la portée la plus lointaine jamais atteinte par une dynastie normande.',
+      },
+    },
+    anchorYear: 1111,
+  },
 ];

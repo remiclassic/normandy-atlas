@@ -35,6 +35,7 @@ import MilestoneCelebrationModal from '@/components/progress/MilestoneCelebratio
 import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
 import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
 import SessionGuard from '@/components/progress/SessionGuard';
+import { getArcEntriesForEra, arcChromeStyle } from '@/data/atlas/era-arcs';
 
 function MobileMenuDrawer({
   open,
@@ -106,6 +107,16 @@ export default function AtlasHomeShell() {
   useHydrateUiTheme();
   const locale = useLocale();
   const isMobile = useIsMobile();
+  const eraId = useMapStore((s) => s.eraId);
+  const uiTheme = useMapStore((s) => s.uiTheme);
+
+  const eraAccentHover = useMemo(() => {
+    const arcs = getArcEntriesForEra(eraId);
+    if (arcs.length === 0) return '';
+    const style = arcChromeStyle(arcs[0], uiTheme);
+    return style.textHover.replace('hover:', 'hover:');
+  }, [eraId, uiTheme]);
+
   const [creditsOpen, setCreditsOpen] = useState(false);
   const openCredits = useCallback(() => setCreditsOpen(true), []);
   const closeCredits = useCallback(() => setCreditsOpen(false), []);
@@ -185,9 +196,9 @@ export default function AtlasHomeShell() {
     openLedgerAndEndCelebration();
   }, [closeMobileMenu, openLedgerAndEndCelebration]);
 
-  const desktopLeadingSlot = useMemo(
+  const desktopUtilitySlot = useMemo(
     () => (
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5 text-text-muted/80">
         <ReplayTourButton />
         <span data-onboarding="stories">
           <ChromeIconTooltip
@@ -197,10 +208,10 @@ export default function AtlasHomeShell() {
             <button
               type="button"
               onClick={openStoryLibrary}
-              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-cyan-300/80"
+              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
               aria-label={t('storyLibrary.aria.open', locale)}
             >
-              <Clapperboard className="h-[15px] w-[15px]" strokeWidth={1.5} aria-hidden />
+              <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
             </button>
           </ChromeIconTooltip>
         </span>
@@ -211,6 +222,7 @@ export default function AtlasHomeShell() {
           <NormanOverviewIconButton
             onOpen={openNormanOverview}
             ariaLabel={t('normanOverview.aria.open', locale)}
+            className={eraAccentHover}
           />
         </ChromeIconTooltip>
         <ChromeIconTooltip
@@ -220,10 +232,10 @@ export default function AtlasHomeShell() {
           <Link
             href="/journal"
             onClick={stopLedgerPulseOnJournalNavigate}
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
+            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
             aria-label={t('atlasJournal.aria.open', locale)}
           >
-            <Library className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
+            <Library className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
           </Link>
         </ChromeIconTooltip>
         <ChromeIconTooltip
@@ -235,15 +247,15 @@ export default function AtlasHomeShell() {
             type="button"
             onClick={openLedgerAndEndCelebration}
             animate={ledgerAttentionActive
-              ? { scale: [1, 1.2, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
-              : { scale: 1, color: 'var(--color-text-dim)' }}
+              ? { scale: [1, 1.15, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
+              : { scale: 1 }}
             transition={ledgerAttentionActive ? { duration: 0.8, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md transition-[background] duration-200 hover:bg-chrome-fill"
-            style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-dim)' }}
+            className="flex h-5 w-5 shrink-0 items-center justify-center rounded transition-[background] duration-200 hover:bg-chrome-fill"
+            style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-muted)', opacity: 0.7 }}
             aria-label={t('ledger.aria.open', locale)}
             data-ledger-entry
           >
-            <BookOpen className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
+            <BookOpen className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
           </motion.button>
         </ChromeIconTooltip>
         <ChromeIconTooltip
@@ -258,7 +270,8 @@ export default function AtlasHomeShell() {
         >
           <CreditsIconButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
         </ChromeIconTooltip>
-        <span className="flex items-center gap-1" data-onboarding="theme">
+        <div className="mx-0.5 h-3 w-px bg-chrome-divider" />
+        <span className="flex items-center gap-0.5" data-onboarding="theme">
           <ThemeSwitcher />
           <BasemapSwitcher />
         </span>
@@ -267,13 +280,13 @@ export default function AtlasHomeShell() {
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
       </div>
     ),
-    [ledgerAttentionActive, locale, openCredits, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
+    [eraAccentHover, ledgerAttentionActive, locale, openCredits, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
   );
 
   return (
     <div className="flex h-dvh w-screen flex-col overflow-hidden bg-background">
       {/* ─── Header ─────────────────────────────────────────── */}
-      <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/55 backdrop-blur-md pointer-events-none">
+      <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
         {isMobile ? (
           /* ── Mobile compact header ─────────────────────── */
           <div className="flex items-center gap-2 px-3 py-1.5 pointer-events-auto">
@@ -304,34 +317,41 @@ export default function AtlasHomeShell() {
           </div>
         ) : (
           /* ── Desktop/tablet header ─────────────────────── */
-          <div className="flex flex-col gap-2 px-4 py-2 pointer-events-auto sm:flex-row sm:items-center sm:gap-8 sm:px-5 sm:py-2.5">
-            <div className="flex shrink-0 flex-col gap-0.5 border-chrome-border sm:border-r sm:pr-8">
-              <h1 className="font-display text-[14px] font-bold leading-none tracking-wide text-parchment sm:text-[15px]">
-                Norman Atlas
-              </h1>
-              <p className="text-[8px] font-medium uppercase leading-snug tracking-[0.18em] text-text-dim sm:text-[9px] sm:tracking-[0.2em]">
-                {t('header.tagline', locale)}
-              </p>
+          <div className="flex flex-col pointer-events-auto">
+            {/* Row 1 — brand + utility (quiet) */}
+            <div className="flex items-center gap-6 px-4 py-1.5 sm:px-5" style={{ background: 'var(--color-chrome-fill)' }}>
+              <div className="flex shrink-0 items-center gap-3">
+                <div className="flex flex-col gap-0">
+                  <h1 className="font-display text-[12px] font-semibold leading-none tracking-wide text-text-muted sm:text-[13px]">
+                    Norman Atlas
+                  </h1>
+                  <p className="text-[7px] font-medium uppercase leading-snug tracking-[0.2em] text-text-muted/50 sm:text-[8px]">
+                    {t('header.tagline', locale)}
+                  </p>
+                </div>
+                <ChromeIconTooltip
+                  label={t('support.tooltip.label', locale)}
+                  hint={t('support.tooltip.hint', locale)}
+                >
+                  <button
+                    type="button"
+                    onClick={openSupport}
+                    className="hidden shrink-0 items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[10px] font-bold text-gold transition-colors duration-200 hover:border-gold/50 hover:bg-gold/20 hover:text-gold-bright sm:inline-flex"
+                    aria-label={t('support.aria.open', locale)}
+                  >
+                    <Heart className="h-3 w-3 fill-gold/40" strokeWidth={2} aria-hidden />
+                    <span className="md:hidden">{t('support.headerButton', locale)}</span>
+                    <span className="hidden md:inline">{t('support.headerButtonFull', locale)}</span>
+                  </button>
+                </ChromeIconTooltip>
+              </div>
+              <div className="min-w-0 flex-1" />
+              {desktopUtilitySlot}
             </div>
 
-            <ChromeIconTooltip
-              label={t('support.tooltip.label', locale)}
-              hint={t('support.tooltip.hint', locale)}
-            >
-              <button
-                type="button"
-                onClick={openSupport}
-                className="hidden shrink-0 items-center gap-1.5 rounded-lg border border-gold/20 bg-gold/5 px-3 py-1 text-[11px] font-semibold text-gold/80 transition-all duration-200 hover:border-gold/35 hover:bg-gold/10 hover:text-gold sm:inline-flex"
-                aria-label={t('support.aria.open', locale)}
-              >
-                <Heart className="h-3 w-3" strokeWidth={2} aria-hidden />
-                <span className="md:hidden">{t('support.headerButton', locale)}</span>
-                <span className="hidden md:inline">{t('support.headerButtonFull', locale)}</span>
-              </button>
-            </ChromeIconTooltip>
-
-            <div className="min-w-0 flex-1">
-              <EraSelector leadingSlot={desktopLeadingSlot} />
+            {/* Row 2 — era hero (focal) */}
+            <div className="border-t border-chrome-border/50 px-4 sm:px-5">
+              <EraSelector />
             </div>
           </div>
         )}
