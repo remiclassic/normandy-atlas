@@ -487,6 +487,11 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
   'age-of-exploration': {
     'exploration-routes': true,
     'trade-routes': true,
+    // Atlas deck uses atlasSegmentKinds toggles; legacy exploration/trade alone do not drive mesh lines.
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
   },
   'new-france-foundations': {
     'new-france-territory': true,
@@ -495,6 +500,10 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'exploration-routes': true,
     'colonial-migration-flows': true,
     'forts-missions': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
   },
   'royal-new-france': {
     'new-france-territory': true,
@@ -504,6 +513,10 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'colonial-migration-flows': true,
     'forts-missions': true,
     'trade-routes': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
   },
   'atlantic-imprint': {
     'new-france-territory': true,
@@ -512,6 +525,10 @@ const ATLAS_ERA_LAYER_OVERRIDES: Record<string, Record<string, boolean>> = {
     'colonial-migration-flows': true,
     'forts-missions': true,
     'trade-routes': true,
+    'viking-raid-routes': true,
+    'viking-trade-routes': true,
+    'viking-settlement-routes': true,
+    'viking-exploration-routes': true,
   },
 };
 

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { getEraRange } from '@/core/era/engine';
 import { getMarkersForEra } from '@/data/atlas/timeline-markers';
-import { VIKING_MACRO_PHASES, getVikingPhaseForYear } from '@/data/atlas/viking-timeline-phases';
+import { VIKING_MACRO_PHASES } from '@/data/atlas/viking-timeline-phases';
 import { formatYear, yearToPercent } from '@/lib/timeline-utils';
 import { pickI18n } from '@/lib/locale';
 import { TimelineMarkerGlyph } from '@/lib/timeline-marker-icons';
@@ -363,11 +363,6 @@ export default function AtlasTimelineRail() {
   const range = useMemo(() => getEraRange(eraId), [eraId]);
   const simYear = isNormandyMode ? normandySimYear : atlasSimYear;
 
-  const vikingPhase = useMemo(
-    () => (isViking ? getVikingPhaseForYear(simYear) : undefined),
-    [isViking, simYear],
-  );
-
   const [hoveredMarker, setHoveredMarker] = useState<TimelineMarker | null>(null);
   const [anchorRect, setAnchorRect] = useState<DOMRect | null>(null);
 
@@ -687,18 +682,6 @@ export default function AtlasTimelineRail() {
                 </div>
               );
             })}
-          </div>
-        )}
-
-        {/* Viking phase narrative */}
-        {isViking && vikingPhase && (
-          <div className="mt-1 px-0.5">
-            <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-gold/50 sm:text-[10px]">
-              {pickI18n(vikingPhase.label, locale)}
-            </span>
-            <p className="mt-0.5 text-[9px] leading-[1.45] text-text-dim/70 line-clamp-3 sm:text-[10px] sm:leading-[1.5]">
-              {pickI18n(vikingPhase.narrative, locale)}
-            </p>
           </div>
         )}
 
