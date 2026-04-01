@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
-import { Clapperboard, Heart, Library, Signpost, BookOpen } from 'lucide-react';
+import { Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -17,10 +17,13 @@ import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
 import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
-import { CreditsModal, CreditsIconButton } from '@/components/layout/CreditsPanel';
+import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
 import { RoadmapModal, RoadmapIconButton } from '@/components/layout/RoadmapModal';
 import { SupportModal } from '@/components/layout/SupportModal';
+
+/** Set to true to restore Support the Atlas in the header, mobile menu, and creator modal. */
+const SUPPORT_ATLAS_ENABLED = false;
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { useHydrateLocale, useHydrateUiTheme, useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
@@ -264,12 +267,6 @@ export default function AtlasHomeShell() {
         >
           <RoadmapIconButton onOpen={openRoadmap} ariaLabel={t('roadmap.aria.open', locale)} />
         </ChromeIconTooltip>
-        <ChromeIconTooltip
-          label={t('credits.tooltip.label', locale)}
-          hint={t('credits.tooltip.hint', locale)}
-        >
-          <CreditsIconButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
-        </ChromeIconTooltip>
         <div className="mx-0.5 h-3 w-px bg-chrome-divider" />
         <span className="flex items-center gap-0.5" data-onboarding="theme">
           <ThemeSwitcher />
@@ -280,7 +277,7 @@ export default function AtlasHomeShell() {
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
       </div>
     ),
-    [eraAccentHover, ledgerAttentionActive, locale, openCredits, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
+    [eraAccentHover, ledgerAttentionActive, locale, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
   );
 
   return (
@@ -318,7 +315,7 @@ export default function AtlasHomeShell() {
         ) : (
           /* ── Desktop/tablet header ─────────────────────── */
           <div className="flex flex-col pointer-events-auto">
-            {/* Row 1 — brand + utility (quiet) */}
+            {/* Row 1: brand + utility (quiet) */}
             <div className="flex items-center gap-6 px-4 py-1.5 sm:px-5" style={{ background: 'var(--color-chrome-fill)' }}>
               <div className="flex shrink-0 items-center gap-3">
                 <div className="flex flex-col gap-0">
@@ -329,27 +326,35 @@ export default function AtlasHomeShell() {
                     {t('header.tagline', locale)}
                   </p>
                 </div>
-                <ChromeIconTooltip
-                  label={t('support.tooltip.label', locale)}
-                  hint={t('support.tooltip.hint', locale)}
-                >
-                  <button
-                    type="button"
-                    onClick={openSupport}
-                    className="hidden shrink-0 items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[10px] font-bold text-gold transition-colors duration-200 hover:border-gold/50 hover:bg-gold/20 hover:text-gold-bright sm:inline-flex"
-                    aria-label={t('support.aria.open', locale)}
+                {SUPPORT_ATLAS_ENABLED && (
+                  <ChromeIconTooltip
+                    label={t('support.tooltip.label', locale)}
+                    hint={t('support.tooltip.hint', locale)}
                   >
-                    <Heart className="h-3 w-3 fill-gold/40" strokeWidth={2} aria-hidden />
-                    <span className="md:hidden">{t('support.headerButton', locale)}</span>
-                    <span className="hidden md:inline">{t('support.headerButtonFull', locale)}</span>
-                  </button>
+                    <button
+                      type="button"
+                      onClick={openSupport}
+                      className="hidden shrink-0 items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-[10px] font-bold text-gold transition-colors duration-200 hover:border-gold/50 hover:bg-gold/20 hover:text-gold-bright sm:inline-flex"
+                      aria-label={t('support.aria.open', locale)}
+                    >
+                      <Heart className="h-3 w-3 fill-gold/40" strokeWidth={2} aria-hidden />
+                      <span className="md:hidden">{t('support.headerButton', locale)}</span>
+                      <span className="hidden md:inline">{t('support.headerButtonFull', locale)}</span>
+                    </button>
+                  </ChromeIconTooltip>
+                )}
+                <ChromeIconTooltip
+                  label={t('credits.tooltip.label', locale)}
+                  hint={t('credits.tooltip.hint', locale)}
+                >
+                  <CreatorAboutHeaderButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
                 </ChromeIconTooltip>
               </div>
               <div className="min-w-0 flex-1" />
               {desktopUtilitySlot}
             </div>
 
-            {/* Row 2 — era hero (focal) */}
+            {/* Row 2: era hero (focal) */}
             <div className="border-t border-chrome-border/50 px-4 sm:px-5">
               <EraSelector />
             </div>
@@ -397,7 +402,7 @@ export default function AtlasHomeShell() {
           <MapDeepLinkSync />
           <div className="vignette-overlay absolute inset-0" aria-hidden />
 
-          {/* Map overlay panels — repositioned for mobile */}
+          {/* Map overlay panels, repositioned for mobile */}
           <div
             className={`absolute z-20 flex flex-col items-start gap-2 ${
               isMobile
@@ -500,22 +505,21 @@ export default function AtlasHomeShell() {
           <div className="h-px bg-chrome-divider" />
 
           <div className="space-y-2">
-            <button
-              onClick={handleSupportFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-gold/80 hover:bg-gold/8 hover:text-gold transition-colors touch-target"
-            >
-              <Heart className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
-              {t('support.mobileDrawer.label', locale)}
-            </button>
+            {SUPPORT_ATLAS_ENABLED && (
+              <button
+                onClick={handleSupportFromMenu}
+                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-gold/80 hover:bg-gold/8 hover:text-gold transition-colors touch-target"
+              >
+                <Heart className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+                {t('support.mobileDrawer.label', locale)}
+              </button>
+            )}
             <button
               onClick={handleCreditsFromMenu}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 opacity-60">
-                <path d="M3 2h10v12H3z" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M6 5h4M6 8h4" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-              </svg>
-              {t('credits.tooltip.label', locale)}
+              <Feather className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+              {t('credits.headerButtonFull', locale)}
             </button>
           </div>
         </div>
@@ -524,10 +528,14 @@ export default function AtlasHomeShell() {
       {/* ─── Modals ─────────────────────────────────────────── */}
       <StoryLibraryPanel open={storyLibraryOpen} onClose={closeStoryLibrary} />
 
-      <CreditsModal open={creditsOpen} onClose={closeCredits} onOpenSupport={openSupport} />
+      <CreditsModal
+        open={creditsOpen}
+        onClose={closeCredits}
+        onOpenSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
+      />
       <NormanOverviewModal open={normanOverviewOpen} onClose={closeNormanOverview} />
       <RoadmapModal open={roadmapOpen} onClose={closeRoadmap} />
-      <SupportModal open={supportOpen} onClose={closeSupport} />
+      {SUPPORT_ATLAS_ENABLED && <SupportModal open={supportOpen} onClose={closeSupport} />}
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
       <AtlasLedgerPanel open={ledgerOpen} onClose={closeLedger} />
       <CuratorToast />

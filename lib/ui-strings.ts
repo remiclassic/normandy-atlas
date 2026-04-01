@@ -2,7 +2,7 @@ import type { AtlasLocale } from '@/core/types';
 import { DEFAULT_LOCALE } from '@/lib/locale';
 
 // ---------------------------------------------------------------------------
-// Static UI strings — keyed by message id then locale.
+// Static UI strings, keyed by message id then locale.
 // Phase 1: en, fr, es, it.
 // ---------------------------------------------------------------------------
 
@@ -190,10 +190,10 @@ const STRINGS = {
     it: 'Un sistema storico vivente',
   },
   'tour.step1.body': {
-    en: 'This atlas is not just a map.\nIt shows how people moved, settled, and shaped the world over time — from Neolithic Normandy to the shores of New France.',
-    fr: 'Cet atlas n\'est pas une simple carte.\nIl montre comment les peuples se sont déplacés, installés et ont façonné le monde — de la Normandie néolithique aux rives de la Nouvelle-France.',
-    es: 'Este atlas no es solo un mapa.\nMuestra cómo las personas se desplazaron, se asentaron y moldearon el mundo — desde la Normandía neolítica hasta las costas de Nueva Francia.',
-    it: 'Questo atlante non è solo una mappa.\nMostra come le persone si sono mosse, si sono stabilite e hanno plasmato il mondo — dalla Normandia neolitica alle coste della Nuova Francia.',
+    en: 'This atlas is not just a map.\nIt shows how people moved, settled, and shaped the world over time, from Neolithic Normandy to the shores of New France.',
+    fr: 'Cet atlas n\'est pas une simple carte.\nIl montre comment les peuples se sont déplacés, installés et ont façonné le monde, de la Normandie néolithique aux rives de la Nouvelle-France.',
+    es: 'Este atlas no es solo un mapa.\nMuestra cómo las personas se desplazaron, se asentaron y moldearon el mundo, desde la Normandía neolítica hasta las costas de Nueva Francia.',
+    it: 'Questo atlante non è solo una mappa.\nMostra come le persone si sono mosse, si sono stabilite e hanno plasmato il mondo, dalla Normandia neolitica alle coste della Nuova Francia.',
   },
   'tour.step2.title': {
     en: 'What you see',
@@ -202,10 +202,10 @@ const STRINGS = {
     it: 'Cosa vedi',
   },
   'tour.step2.body': {
-    en: 'Each point represents a settlement. Lines trace migration routes. Shaded regions show zones of influence — all reconstructed from available records.',
-    fr: 'Chaque point représente un établissement. Les lignes tracent les routes migratoires. Les régions ombrées montrent les zones d\'influence — le tout reconstitué à partir des sources disponibles.',
+    en: 'Each point represents a settlement. Lines trace migration routes. Shaded regions show zones of influence, all reconstructed from available records.',
+    fr: 'Chaque point représente un établissement. Les lignes tracent les routes migratoires. Les régions ombrées montrent les zones d\'influence, le tout reconstitué à partir des sources disponibles.',
     es: 'Cada punto representa un asentamiento. Las líneas trazan rutas migratorias. Las regiones sombreadas muestran zonas de influencia, todo reconstruido a partir de registros disponibles.',
-    it: 'Ogni punto rappresenta un insediamento. Le linee tracciano rotte migratorie. Le regioni ombreggiate mostrano zone di influenza — tutto ricostruito dalle fonti disponibili.',
+    it: 'Ogni punto rappresenta un insediamento. Le linee tracciano rotte migratorie. Le regioni ombreggiate mostrano zone di influenza, tutto ricostruito dalle fonti disponibili.',
   },
   'tour.step3.title': {
     en: 'Navigate through time',
@@ -226,10 +226,10 @@ const STRINGS = {
     it: 'Storie cinematiche',
   },
   'tour.step4.body': {
-    en: 'Open the story library to follow curated journeys across the map — from the Viking Age to Norman expansion, New France, and personal histories like Guillaume Couture.\n\nEach arc guides the camera and narrates the events as they happened.',
-    fr: 'Ouvrez la bibliothèque pour suivre des parcours guidés sur la carte — de l\'ère viking à l\'expansion normande, la Nouvelle-France et des destins personnels comme Guillaume Couture.\n\nChaque arc guide la caméra et raconte les événements tels qu\'ils se sont déroulés.',
-    es: 'Abra la biblioteca de historias para seguir recorridos guiados — desde la era vikinga hasta la expansión normanda, Nueva Francia e historias personales como Guillaume Couture.\n\nCada arco guía la cámara y narra los acontecimientos tal como sucedieron.',
-    it: 'Apri la libreria per seguire percorsi guidati sulla mappa — dall\'età vichinga all\'espansione normanna, la Nuova Francia e storie personali come Guillaume Couture.\n\nOgni arco guida la telecamera e racconta gli eventi così come accaddero.',
+    en: 'Open the story library to follow curated journeys across the map, from the Viking Age to Norman expansion, New France, and personal histories like Guillaume Couture.\n\nEach arc guides the camera and narrates the events as they happened.',
+    fr: 'Ouvrez la bibliothèque pour suivre des parcours guidés sur la carte, de l\'ère viking à l\'expansion normande, la Nouvelle-France et des destins personnels comme Guillaume Couture.\n\nChaque arc guide la caméra et raconte les événements tels qu\'ils se sont déroulés.',
+    es: 'Abra la biblioteca de historias para seguir recorridos guiados, desde la era vikinga hasta la expansión normanda, Nueva Francia e historias personales como Guillaume Couture.\n\nCada arco guía la cámara y narra los acontecimientos tal como sucedieron.',
+    it: 'Apri la libreria per seguire percorsi guidati sulla mappa, dall\'età vichinga all\'espansione normanna, la Nuova Francia e storie personali come Guillaume Couture.\n\nOgni arco guida la telecamera e racconta gli eventi così come accaddero.',
   },
   'tour.step5.title': {
     en: 'Make it yours',
@@ -262,10 +262,10 @@ const STRINGS = {
     it: 'Inizia il tuo viaggio',
   },
   'tour.step7.body': {
-    en: 'Recommended: open the story library and start with "From Vikings to the New World" — the flagship arc covering Norman settlement, expansion, and the Atlantic crossing.\n\nOr explore freely: pick any era from the timeline and follow the map wherever it leads.',
-    fr: 'Recommandé : ouvrez la bibliothèque et commencez par « Des Vikings au Nouveau Monde » — l\'arc phare couvrant l\'installation normande, l\'expansion et la traversée de l\'Atlantique.\n\nOu explorez librement : choisissez une époque et suivez la carte où elle vous mène.',
-    es: 'Recomendado: abra la biblioteca de historias y comience con «De vikingos al Nuevo Mundo» — el arco principal que cubre el asentamiento normando, la expansión y el cruce del Atlántico.\n\nO explore libremente: elija una era en la línea de tiempo y siga el mapa adonde lo lleve.',
-    it: 'Consigliato: apri la libreria e inizia con «Dai vichinghi al Nuovo Mondo» — l\'arco principale su insediamento normanno, espansione e attraversata atlantica.\n\nOppure esplora liberamente: scegli un\'epoca dalla cronologia e segui la mappa ovunque ti porti.',
+    en: 'Recommended: open the story library and start with "From Vikings to the New World." The flagship arc covers Norman settlement, expansion, and the Atlantic crossing.\n\nOr explore freely: pick any era from the timeline and follow the map wherever it leads.',
+    fr: 'Recommandé : ouvrez la bibliothèque et commencez par « Des Vikings au Nouveau Monde ». L\'arc phare couvre l\'installation normande, l\'expansion et la traversée de l\'Atlantique.\n\nOu explorez librement : choisissez une époque et suivez la carte où elle vous mène.',
+    es: 'Recomendado: abra la biblioteca de historias y comience con «De vikingos al Nuevo Mundo». El arco principal cubre el asentamiento normando, la expansión y el cruce del Atlántico.\n\nO explore libremente: elija una era en la línea de tiempo y siga el mapa adonde lo lleve.',
+    it: 'Consigliato: apri la libreria e inizia con «Dai vichinghi al Nuovo Mondo». L\'arco principale riguarda insediamento normanno, espansione e attraversata atlantica.\n\nOppure esplora liberamente: scegli un\'epoca dalla cronologia e segui la mappa ovunque ti porti.',
   },
 
   // --- Tour controls ---
@@ -508,60 +508,90 @@ const STRINGS = {
     it: 'Eredità',
   },
 
-  // --- Credits modal & chrome ---
+  // --- Creator about modal & chrome ---
+  'credits.headerButton': {
+    en: 'Creator',
+    fr: 'Créateur',
+    es: 'Creador',
+    it: 'Creatore',
+  },
+  'credits.headerButtonFull': {
+    en: 'About the Creator',
+    fr: 'À propos du créateur',
+    es: 'Sobre el creador',
+    it: 'Il creatore',
+  },
   'credits.tooltip.label': {
-    en: 'Credits & about',
-    fr: 'Crédits et à propos',
-    es: 'Créditos e información',
-    it: 'Crediti e informazioni',
+    en: 'About the Creator',
+    fr: 'À propos du créateur',
+    es: 'Sobre el creador',
+    it: 'Il creatore',
   },
   'credits.tooltip.hint': {
-    en: 'Creator, vision, links, and how to support this project.',
-    fr: 'Créateur, vision, liens et comment soutenir ce projet.',
-    es: 'Creador, visión, enlaces y cómo apoyar este proyecto.',
-    it: 'Creatore, visione, link e come sostenere il progetto.',
+    en: 'The person behind this atlas, the vision, and how to work together.',
+    fr: 'La personne derrière cet atlas, la vision et comment collaborer.',
+    es: 'La persona detrás de este atlas, la visión y cómo colaborar.',
+    it: 'La persona dietro questo atlante, la visione e come collaborare.',
   },
   'credits.aria.open': {
-    en: 'Open credits and about',
-    fr: 'Ouvrir les crédits et à propos',
-    es: 'Abrir créditos e información',
-    it: 'Apri crediti e informazioni',
+    en: 'Open about the creator',
+    fr: 'Ouvrir à propos du créateur',
+    es: 'Abrir sobre el creador',
+    it: 'Apri informazioni sul creatore',
   },
   'credits.aria.close': {
-    en: 'Close credits',
-    fr: 'Fermer les crédits',
-    es: 'Cerrar créditos',
-    it: 'Chiudi crediti',
+    en: 'Close',
+    fr: 'Fermer',
+    es: 'Cerrar',
+    it: 'Chiudi',
   },
-  'credits.sectionLabel': {
-    en: 'Credits',
-    fr: 'Crédits',
-    es: 'Créditos',
-    it: 'Crediti',
+  'credits.eyebrow': {
+    en: 'Norman Atlas',
+    fr: 'Norman Atlas',
+    es: 'Norman Atlas',
+    it: 'Norman Atlas',
   },
   'credits.title': {
-    en: 'Created by Guillaume Remi Couture',
-    fr: 'Créé par Guillaume Remi Couture',
-    es: 'Creado por Guillaume Remi Couture',
-    it: 'Creato da Guillaume Remi Couture',
+    en: 'Guillaume Remi Couture',
+    fr: 'Guillaume Remi Couture',
+    es: 'Guillaume Remi Couture',
+    it: 'Guillaume Remi Couture',
   },
-  'credits.intro1': {
-    en: 'This atlas was created by Guillaume Remi Couture, a UX/UI designer with nearly two decades of experience building interactive systems, games, and digital products used by millions of people worldwide.',
-    fr: 'Cet atlas a été créé par Guillaume Remi Couture, designer UX/UI avec près de vingt ans d\'expérience dans la conception de systèmes interactifs, de jeux et de produits numériques utilisés par des millions de personnes dans le monde.',
-    es: 'Este atlas fue creado por Guillaume Remi Couture, diseñador UX/UI con casi dos décadas de experiencia en sistemas interactivos, videojuegos y productos digitales usados por millones de personas en todo el mundo.',
-    it: 'Questo atlante è stato creato da Guillaume Remi Couture, designer UX/UI con quasi vent\'anni di esperienza in sistemi interattivi, giochi e prodotti digitali usati da milioni di persone nel mondo.',
+  'credits.role': {
+    en: 'UX/UI and interactive systems designer: game UI, digital products, and spatial storytelling.',
+    fr: 'Designer UX/UI et systèmes interactifs : interfaces de jeu, produits numériques et narration spatiale.',
+    es: 'Diseñador UX/UI y de sistemas interactivos: UI de juegos, productos digitales y narrativa espacial.',
+    it: 'Designer UX/UI e sistemi interattivi: UI di gioco, prodotti digitali e narrazione spaziale.',
   },
-  'credits.intro2': {
-    en: 'But this project is not just another product.',
-    fr: 'Mais ce projet n\'est pas qu\'un produit de plus.',
-    es: 'Pero este proyecto no es solo un producto más.',
-    it: 'Ma questo progetto non è solo un altro prodotto.',
+  'credits.statusPill': {
+    en: 'Available for select consulting & collaboration',
+    fr: 'Disponible pour conseil et collaboration sélectifs',
+    es: 'Disponible para consultoría y colaboración selectas',
+    it: 'Disponibile per consulenza e collaborazione selezionate',
   },
-  'credits.intro3': {
-    en: 'It is personal.',
-    fr: 'Il est personnel.',
-    es: 'Es personal.',
-    it: 'È personale.',
+  'credits.thesis': {
+    en: 'This atlas is also a working example of how I design layered, narrative-driven systems.',
+    fr: 'Cet atlas est aussi un exemple concret de ma façon de concevoir des systèmes narratifs et multicouches.',
+    es: 'Este atlas es también un ejemplo práctico de cómo diseño sistemas narrativos y multicapa.',
+    it: 'Questo atlante è anche un esempio concreto di come progetto sistemi narrativi e stratificati.',
+  },
+  'credits.aboutTitle': {
+    en: 'About the Creator',
+    fr: 'À propos du créateur',
+    es: 'Sobre el creador',
+    it: 'Il creatore',
+  },
+  'credits.about1': {
+    en: 'For nearly twenty years I have designed UX/UI, interactive systems, and game interfaces for products used at scale, including collaborations with companies such as Disney, where clarity, guidance, and craft define every decision.',
+    fr: 'Depuis près de vingt ans, je conçois des interfaces UX/UI, des systèmes interactifs et des interfaces de jeu pour des produits à grande échelle, notamment en collaboration avec des entreprises comme Disney, où clarté, accompagnement et rigueur guident chaque décision.',
+    es: 'Durante casi veinte años he diseñado UX/UI, sistemas interactivos e interfaces de juego para productos a escala, incluyendo colaboraciones con empresas como Disney, donde claridad, orientación y oficio definen cada decisión.',
+    it: 'Per quasi vent\'anni ho progettato UX/UI, sistemi interattivi e interfacce di gioco per prodotti su larga scala, incluse collaborazioni con aziende come Disney, dove chiarezza, orientamento e cura definiscono ogni scelta.',
+  },
+  'credits.about2': {
+    en: 'Norman Atlas is personal research made tangible: history explored as a system you can move through, not a static page.',
+    fr: 'Norman Atlas est une recherche personnelle rendue tangible : l\'histoire explorée comme un système que l\'on parcourt, pas une page statique.',
+    es: 'Norman Atlas es investigación personal hecha tangible: historia explorada como un sistema por el que navegar, no una página estática.',
+    it: 'Norman Atlas è ricerca personale resa tangibile: storia esplorata come un sistema da percorrere, non una pagina statica.',
   },
   'credits.whyTitle': {
     en: 'Why This Atlas Exists',
@@ -570,118 +600,64 @@ const STRINGS = {
     it: 'Perché esiste questo atlante',
   },
   'credits.why1': {
-    en: 'For as long as I can remember, I have been drawn to the story of the Normans, not just the surface-level version you find in textbooks, but the deeper layers: the movement of people, the migrations, the transformations, the way Viking settlers became one of the most influential forces in medieval Europe.',
-    fr: 'Depuis aussi loin que je m\'en souvienne, l\'histoire des Normands m\'a fasciné — pas seulement la version superficielle des manuels, mais les strates profondes : les mouvements de peuples, les migrations, les transformations, la manière dont les colons vikings sont devenus l\'une des forces les plus influentes de l\'Europe médiévale.',
-    es: 'Desde que tengo memoria me ha atraído la historia de los normandos, no solo la versión superficial de los libros de texto, sino las capas profundas: el movimiento de gentes, las migraciones, las transformaciones, cómo los colonos vikingos se convirtieron en una de las fuerzas más influyentes de la Europa medieval.',
-    it: 'Per quanto mi ricordi, la storia dei Normanni mi ha sempre affascinato — non solo la versione superficiale dei manuali, ma gli strati profondi: il movimento delle genti, le migrazioni, le trasformazioni, come i coloni vichinghi divennero una delle forze più influenti dell\'Europa medievale.',
+    en: 'The story of the Normans goes far beyond textbooks: the migrations, the cultural transformations, the way Viking settlers became one of the most influential forces in medieval Europe. Most of that narrative is fragmented across sources and centuries.',
+    fr: 'L\'histoire des Normands dépasse largement les manuels : les migrations, les transformations culturelles, la manière dont les colons vikings sont devenus l\'une des forces les plus influentes de l\'Europe médiévale. L\'essentiel de ce récit est dispersé entre les sources et les siècles.',
+    es: 'La historia de los normandos va mucho más allá de los libros de texto: las migraciones, las transformaciones culturales, cómo los colonos vikingos se convirtieron en una de las fuerzas más influyentes de la Europa medieval. Gran parte de esa narrativa está fragmentada entre fuentes y siglos.',
+    it: 'La storia dei Normanni va ben oltre i manuali: le migrazioni, le trasformazioni culturali, come i coloni vichinghi divennero una delle forze più influenti dell\'Europa medievale. Gran parte di questa narrazione è frammentata tra fonti e secoli.',
   },
   'credits.why2': {
-    en: 'Normandy is not just a place. It is a turning point. It is where identities shifted, where cultures blended, where something new was created. That ripple effect spread across England, Southern Italy, the Crusader states, and eventually into New France.',
-    fr: 'La Normandie n\'est pas qu\'un lieu. C\'est un tournant. C\'est là que les identités se sont déplacées, que les cultures se sont mêlées, que quelque chose de nouveau est né. Cet effet d\'entraînement s\'est propagé en Angleterre, dans le sud de l\'Italie, dans les États des croisades, puis jusqu\'à la Nouvelle-France.',
-    es: 'Normandía no es solo un lugar. Es un punto de inflexión. Ahí cambiaron las identidades, se mezclaron las culturas, nació algo nuevo. Ese efecto dominó se extendió por Inglaterra, el sur de Italia, los estados cruzados y, al final, a Nueva Francia.',
-    it: 'La Normandia non è solo un luogo. È una svolta. È dove le identità si sono spostate, le culture si sono fuse, è nato qualcosa di nuovo. Quell\'effetto a catena si è diffuso in Inghilterra, nel sud Italia, negli stati crociati e infine nella Nuova Francia.',
+    en: 'Normandy is a turning point, where identities shifted, cultures blended, and something new emerged. That ripple spread across England, Southern Italy, the Crusader states, and eventually into New France.',
+    fr: 'La Normandie est un tournant, là où les identités se sont transformées, les cultures mêlées, et où quelque chose de nouveau est né. Cette onde s\'est propagée en Angleterre, dans le sud de l\'Italie, dans les États croisés, puis jusqu\'en Nouvelle-France.',
+    es: 'Normandía es un punto de inflexión, donde cambiaron las identidades, se mezclaron las culturas y surgió algo nuevo. Esa onda se extendió por Inglaterra, el sur de Italia, los estados cruzados y, al final, a Nueva Francia.',
+    it: 'La Normandia è una svolta, dove le identità si sono trasformate, le culture fuse, e qualcosa di nuovo è emerso. Quell\'onda si è diffusa in Inghilterra, nel sud Italia, negli stati crociati e infine nella Nuova Francia.',
   },
   'credits.why3': {
-    en: 'But most of this story is fragmented, so I built something to see it clearly.',
-    fr: 'Mais la plus grande partie de ce récit est fragmentée — j\'ai donc bâti quelque chose pour le voir clairement.',
-    es: 'Pero gran parte de esta historia está fragmentada, así que construí algo para verla con claridad.',
-    it: 'Ma gran parte di questa storia è frammentata, così ho costruito qualcosa per vederla con chiarezza.',
+    en: 'I built this atlas to see that story clearly, as a connected system rather than scattered fragments.',
+    fr: 'J\'ai construit cet atlas pour voir ce récit clairement, comme un système connecté plutôt que des fragments épars.',
+    es: 'Construí este atlas para ver esa historia con claridad, como un sistema conectado y no como fragmentos dispersos.',
+    it: 'Ho costruito questo atlante per vedere quella storia con chiarezza, come un sistema connesso anziché frammenti sparsi.',
   },
-  'credits.visionTitle': {
-    en: 'The Vision',
-    fr: 'La vision',
-    es: 'La visión',
-    it: 'La visione',
+  'credits.showsTitle': {
+    en: 'What This Project Shows',
+    fr: 'Ce que montre ce projet',
+    es: 'Lo que muestra este proyecto',
+    it: 'Cosa mostra questo progetto',
   },
-  'credits.visionIntro': {
-    en: 'This atlas is meant to be more than a map. It is a living system that lets you:',
-    fr: 'Cet atlas veut être bien plus qu\'une carte. C\'est un système vivant qui vous permet de :',
-    es: 'Este atlas pretende ser más que un mapa. Es un sistema vivo que le permite:',
-    it: 'Questo atlante vuole essere più di una mappa. È un sistema vivente che ti permette di:',
+  'credits.showsIntro': {
+    en: 'More than a map. A living atlas that lets you:',
+    fr: 'Plus qu\'une carte. Un atlas vivant qui vous permet de :',
+    es: 'Más que un mapa. Un atlas vivo que le permite:',
+    it: 'Più di una mappa. Un atlante vivente che ti permette di:',
   },
-  'credits.visionL1': {
+  'credits.showsL1': {
     en: 'Follow migrations across time',
     fr: 'Suivre les migrations dans le temps',
     es: 'Seguir migraciones a lo largo del tiempo',
     it: 'Seguire le migrazioni nel tempo',
   },
-  'credits.visionL2': {
+  'credits.showsL2': {
     en: 'Explore where people came from and where they settled',
     fr: 'Explorer d\'où venaient les peuples et où ils se sont installés',
     es: 'Explorar de dónde venían las gentes y dónde se asentaron',
     it: 'Esplorare da dove venivano le genti e dove si stabilirono',
   },
-  'credits.visionL3': {
-    en: 'Understand how cultures evolved',
-    fr: 'Comprendre comment les cultures ont évolué',
-    es: 'Entender cómo evolucionaron las culturas',
-    it: 'Capire come sono evolute le culture',
+  'credits.showsL3': {
+    en: 'Understand how cultures evolved over centuries',
+    fr: 'Comprendre comment les cultures ont évolué au fil des siècles',
+    es: 'Entender cómo evolucionaron las culturas a lo largo de los siglos',
+    it: 'Capire come le culture si sono evolute nel corso dei secoli',
   },
-  'credits.visionL4': {
-    en: 'Connect events across centuries in a visual way',
-    fr: 'Relier des événements sur des siècles, de façon visuelle',
-    es: 'Conectar acontecimientos a lo largo de los siglos de forma visual',
-    it: 'Collegare eventi attraverso i secoli in modo visivo',
+  'credits.showsL4': {
+    en: 'Connect events across time in a visual, spatial way',
+    fr: 'Relier des événements à travers le temps de façon visuelle et spatiale',
+    es: 'Conectar acontecimientos a través del tiempo de forma visual y espacial',
+    it: 'Collegare eventi nel tempo in modo visivo e spaziale',
   },
-  'credits.visionOutro': {
-    en: 'Instead of reading history in pieces, you can experience it as a continuous story.',
-    fr: 'Au lieu de lire l\'histoire par morceaux, vous pouvez la vivre comme un récit continu.',
-    es: 'En lugar de leer la historia a trozos, puede vivirla como una narración continua.',
-    it: 'Invece di leggere la storia a pezzi, puoi viverla come un racconto continuo.',
-  },
-  'credits.builtTitle': {
-    en: 'Built from Experience',
-    fr: 'Construit sur l\'expérience',
-    es: 'Construido con experiencia',
-    it: 'Costruito sull\'esperienza',
-  },
-  'credits.builtIntro': {
-    en: 'This project brings together everything I have learned over 18+ years in design:',
-    fr: 'Ce projet rassemble tout ce que j\'ai appris en plus de 18 ans de design :',
-    es: 'Este proyecto reúne todo lo aprendido en más de 18 años de diseño:',
-    it: 'Questo progetto riunisce tutto ciò che ho imparato in oltre 18 anni di design:',
-  },
-  'credits.builtL1': {
-    en: 'Game UI and interactive systems',
-    fr: 'Interfaces de jeu et systèmes interactifs',
-    es: 'IU de juegos y sistemas interactivos',
-    it: 'UI di gioco e sistemi interattivi',
-  },
-  'credits.builtL2': {
-    en: 'World-building and spatial storytelling',
-    fr: 'Construction de mondes et narration spatiale',
-    es: 'Construcción de mundos y narrativa espacial',
-    it: 'World-building e narrazione spaziale',
-  },
-  'credits.builtL3': {
-    en: 'UX design for complex systems',
-    fr: 'Design UX pour systèmes complexes',
-    es: 'Diseño UX para sistemas complejos',
-    it: 'Design UX per sistemi complessi',
-  },
-  'credits.builtL4': {
-    en: 'AI-assisted workflows and modern web tech',
-    fr: 'Flux de travail assistés par l\'IA et technologies web modernes',
-    es: 'Flujos de trabajo con IA y tecnología web moderna',
-    it: 'Flussi di lavoro assistiti dall\'IA e tecnologie web moderne',
-  },
-  'credits.builtOutro': {
-    en: 'I have worked with companies like Disney and others, designing experiences meant to guide millions of users. This atlas applies that same thinking to history.',
-    fr: 'J\'ai travaillé avec des entreprises comme Disney et d\'autres, en concevant des expériences pour des millions d\'utilisateurs. Cet atlas applique la même démarche à l\'histoire.',
-    es: 'He trabajado con empresas como Disney y otras, diseñando experiencias para millones de usuarios. Este atlas aplica la misma idea a la historia.',
-    it: 'Ho lavorato con aziende come Disney e altre, progettando esperienze per milioni di utenti. Questo atlante applica lo stesso approccio alla storia.',
-  },
-  'credits.personalTitle': {
-    en: 'A Personal Note',
-    fr: 'Une note personnelle',
-    es: 'Una nota personal',
-    it: 'Una nota personale',
-  },
-  'credits.personal1': {
-    en: 'I am not building this as a traditional historian. I am building this as someone trying to understand where things come from. The Norman story is not just about conquest. It is about identity, movement, and transformation. And in a way, it reflects something deeper about all of us.',
-    fr: 'Je ne construis pas cela en historien classique, mais en quelqu\'un qui cherche à comprendre d\'où viennent les choses. L\'histoire normande ne se résume pas à la conquête : elle parle d\'identité, de mouvement, de transformation — et, d\'une certaine façon, de quelque chose de plus profond en nous tous.',
-    es: 'No lo construyo como historiador tradicional, sino como alguien que intenta entender de dónde vienen las cosas. La historia normanda no es solo conquista: es identidad, movimiento y transformación — y, en cierto modo, refleja algo más profundo en todos nosotros.',
-    it: 'Non lo sto costruendo come storico tradizionale, ma come qualcuno che cerca di capire da dove vengono le cose. La storia normanna non è solo conquista: è identità, movimento, trasformazione — e in un certo senso rispecchia qualcosa di più profondo in ciascuno di noi.',
+  'credits.showsOutro': {
+    en: 'The same discipline I apply to complex products (structure, pacing, legibility) is what holds this experience together.',
+    fr: 'La même rigueur que j\'applique aux produits complexes (structure, rythme, lisibilité) est ce qui donne sa cohérence à cette expérience.',
+    es: 'La misma disciplina que aplico a productos complejos (estructura, ritmo, legibilidad) es lo que da cohesión a esta experiencia.',
+    it: 'La stessa disciplina che applico ai prodotti complessi (struttura, ritmo, leggibilità) è ciò che tiene insieme questa esperienza.',
   },
   'credits.workTitle': {
     en: 'Work With Me',
@@ -690,16 +666,22 @@ const STRINGS = {
     it: 'Lavoriamo insieme',
   },
   'credits.workIntro': {
-    en: 'If you are interested in working together, collaborating, or bringing this level of design thinking into your own project, connect on LinkedIn:',
-    fr: 'Si vous souhaitez collaborer ou intégrer cette approche design à votre projet, contactez-moi sur LinkedIn :',
-    es: 'Si le interesa colaborar o llevar este nivel de pensamiento de diseño a su proyecto, conéctese en LinkedIn:',
-    it: 'Se vuoi collaborare o portare questo livello di design thinking nel tuo progetto, contattami su LinkedIn:',
+    en: 'If you want this level of systems thinking applied to a product, interface, or creative challenge, LinkedIn is the best way to start a conversation.',
+    fr: 'Si vous souhaitez appliquer ce niveau de pensée systémique à un produit, une interface ou un défi créatif, LinkedIn est le meilleur moyen d\'entamer la conversation.',
+    es: 'Si desea aplicar este nivel de pensamiento sistémico a un producto, interfaz o desafío creativo, LinkedIn es la mejor forma de iniciar una conversación.',
+    it: 'Se vuoi applicare questo livello di pensiero sistemico a un prodotto, un\'interfaccia o una sfida creativa, LinkedIn è il modo migliore per iniziare una conversazione.',
+  },
+  'credits.workCta': {
+    en: 'Connect on LinkedIn',
+    fr: 'Me contacter sur LinkedIn',
+    es: 'Conectar en LinkedIn',
+    it: 'Contattami su LinkedIn',
   },
   'credits.workAvailable': {
-    en: 'I am available for:',
-    fr: 'Je suis disponible pour :',
-    es: 'Estoy disponible para:',
-    it: 'Sono disponibile per:',
+    en: 'Available for:',
+    fr: 'Disponible pour :',
+    es: 'Disponible para:',
+    it: 'Disponibile per:',
   },
   'credits.workL1': {
     en: 'UX/UI design consulting',
@@ -708,7 +690,7 @@ const STRINGS = {
     it: 'Consulenza UX/UI',
   },
   'credits.workL2': {
-    en: 'Interactive systems and product design',
+    en: 'Interactive systems & product design',
     fr: 'Systèmes interactifs et design produit',
     es: 'Sistemas interactivos y diseño de producto',
     it: 'Sistemi interattivi e design di prodotto',
@@ -720,8 +702,8 @@ const STRINGS = {
     it: 'UI/UX per giochi',
   },
   'credits.workL4': {
-    en: 'AI-assisted workflows and prototyping',
-    fr: 'Flux de travail assistés par l\'IA et prototypage',
+    en: 'AI-assisted workflows & prototyping',
+    fr: 'Flux assistés par l\'IA et prototypage',
     es: 'Flujos con IA y prototipado',
     it: 'Flussi assistiti dall\'IA e prototipazione',
   },
@@ -732,10 +714,10 @@ const STRINGS = {
     it: 'Sostenere l\'Atlante',
   },
   'credits.supportIntro': {
-    en: 'Norman Atlas is an independent, long-term historical project. Your support helps fund continued development, research, visual improvements, and new content.',
-    fr: 'Norman Atlas est un projet historique indépendant et de long terme. Votre soutien finance le développement continu, la recherche, les améliorations visuelles et les nouveaux contenus.',
-    es: 'Norman Atlas es un proyecto histórico independiente a largo plazo. Su apoyo financia el desarrollo continuo, la investigación, las mejoras visuales y los nuevos contenidos.',
-    it: 'Norman Atlas è un progetto storico indipendente a lungo termine. Il tuo sostegno finanzia lo sviluppo continuo, la ricerca, i miglioramenti visivi e i nuovi contenuti.',
+    en: 'Norman Atlas is an independent, long-term project. Your support funds continued research, new features, and historical expansion.',
+    fr: 'Norman Atlas est un projet indépendant et de long terme. Votre soutien finance la recherche, les nouvelles fonctionnalités et l\'expansion historique.',
+    es: 'Norman Atlas es un proyecto independiente a largo plazo. Su apoyo financia la investigación, nuevas funciones y la expansión histórica.',
+    it: 'Norman Atlas è un progetto indipendente a lungo termine. Il tuo sostegno finanzia la ricerca, nuove funzionalità e l\'espansione storica.',
   },
   'credits.supportCta': {
     en: 'View support options',
@@ -750,10 +732,10 @@ const STRINGS = {
     it: 'Progetto in evoluzione',
   },
   'credits.ongoing1': {
-    en: 'This atlas is continuously evolving. New eras, deeper historical accuracy, and richer data layers will be added over time. If you are exploring this now, you are early, and that is part of the journey.',
-    fr: 'Cet atlas évolue en continu. De nouvelles époques, une meilleure précision historique et des couches de données plus riches seront ajoutées. Si vous explorez cela maintenant, vous êtes en avance — et cela fait partie du parcours.',
-    es: 'Este atlas evoluciona sin cesar. Con el tiempo se añadirán nuevas épocas, mayor rigor histórico y capas de datos más ricas. Si lo explora ahora, llega pronto — y eso forma parte del camino.',
-    it: 'Questo atlante evolve continuamente. Nel tempo si aggiungeranno nuove epoche, maggiore accuratezza storica e strati di dati più ricchi. Se lo stai esplorando ora sei in anticipo — e fa parte del percorso.',
+    en: 'This atlas is continuously evolving, with new eras, deeper accuracy, and richer data layers over time. If you are exploring now, you are early; that is part of the journey.',
+    fr: 'Cet atlas évolue en continu, avec de nouvelles époques, une précision accrue et des couches de données plus riches au fil du temps. Si vous explorez maintenant, vous êtes en avance ; cela fait partie du parcours.',
+    es: 'Este atlas evoluciona continuamente, con nuevas épocas, mayor precisión y capas de datos más ricas con el tiempo. Si lo explora ahora, llega pronto; eso forma parte del camino.',
+    it: 'Questo atlante evolve continuamente, con nuove epoche, maggiore accuratezza e strati di dati più ricchi nel tempo. Se lo esplori ora, sei in anticipo; fa parte del percorso.',
   },
   // --- Support modal ---
   'support.tooltip.label': {
