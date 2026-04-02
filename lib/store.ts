@@ -103,6 +103,8 @@ interface MapStore {
   hoveredFeatureId: string | null;
   hoveredKind: SelectionKind | null;
   detailPanelOpen: boolean;
+  /** Whether the desktop detail aside is expanded (full width) vs collapsed (slim rail). */
+  detailPanelExpanded: boolean;
   storyMode: boolean;
   storyStepIndex: number;
   storyArc: string | null;
@@ -166,10 +168,11 @@ interface MapStore {
   setAtlasSimYear: (year: number) => void;
   setNormanNodePeriod: (period: NormanNodePeriod) => void;
   setBasemapMode: (mode: BasemapMode) => void;
-  selectFeature: (id: string | null, kind?: SelectionKind) => void;
+  selectFeature: (id: string | null, kind?: SelectionKind, options?: { expandDetail?: boolean }) => void;
   hoverFeature: (id: string | null, kind?: SelectionKind) => void;
   openDetail: () => void;
   closeDetail: () => void;
+  setDetailPanelExpanded: (expanded: boolean) => void;
   startStory: (arcId?: string | null, options?: { stepIndex?: number }) => void;
   stopStory: () => void;
   nextStoryStep: () => void;
@@ -243,6 +246,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   hoveredFeatureId: null,
   hoveredKind: null,
   detailPanelOpen: false,
+  detailPanelExpanded: true,
   storyMode: false,
   storyStepIndex: 0,
   storyArc: null,
@@ -364,11 +368,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       layers: { ...s.layers, [id]: visible },
     })),
 
-  selectFeature: (id, kind) =>
+  selectFeature: (id, kind, options) =>
     set({
       selectedFeatureId: id,
       selectionKind: id ? (kind ?? 'region') : null,
       detailPanelOpen: id !== null,
+      detailPanelExpanded: id !== null ? (options?.expandDetail ?? true) : true,
     }),
 
   hoverFeature: (id, kind) =>
@@ -377,8 +382,9 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       hoveredKind: id ? (kind ?? 'region') : null,
     }),
 
-  openDetail: () => set({ detailPanelOpen: true }),
-  closeDetail: () => set({ detailPanelOpen: false, selectedFeatureId: null, selectionKind: null }),
+  openDetail: () => set({ detailPanelOpen: true, detailPanelExpanded: true }),
+  closeDetail: () => set({ detailPanelOpen: false, detailPanelExpanded: true, selectedFeatureId: null, selectionKind: null }),
+  setDetailPanelExpanded: (expanded) => set({ detailPanelExpanded: expanded }),
 
   startStory: (arcId?: string | null, options?: { stepIndex?: number }) => {
     const arc = arcId ?? null;

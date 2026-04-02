@@ -1296,7 +1296,7 @@ export default function MapCanvas() {
         if (loadState.atlasMode && (loadState.onboardingPhase === 'complete' || isOnboardingDone())) {
           const initialAtlasEra = getAtlasEra(loadState.eraId);
           if (initialAtlasEra?.summary) {
-            loadState.selectFeature(loadState.eraId, 'era-info');
+            loadState.selectFeature(loadState.eraId, 'era-info', { expandDetail: false });
           }
         }
 
@@ -1366,7 +1366,7 @@ export default function MapCanvas() {
         syncSources(eraId);
         syncOverlay(eraId, useMapStore.getState().layers);
 
-        const { atlasMode, selectFeature, onboardingPhase } = useMapStore.getState();
+        const { atlasMode, selectFeature, onboardingPhase, storyMode, storyStepIndex } = useMapStore.getState();
         if (atlasMode) {
           const era = getAtlasEra(eraId);
           if (era?.defaultCamera) {
@@ -1377,7 +1377,8 @@ export default function MapCanvas() {
             });
           }
           if (era?.summary && onboardingPhase === 'complete') {
-            selectFeature(eraId, 'era-info');
+            const expandDetail = storyMode ? storyStepIndex === 0 : false;
+            selectFeature(eraId, 'era-info', { expandDetail });
           }
         }
 

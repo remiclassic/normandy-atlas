@@ -1977,15 +1977,57 @@ const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
   'viking-archaeology-site': 'place_open',
 };
 
+function CollapsedRail({ onExpand }: { onExpand: () => void }) {
+  return (
+    <motion.button
+      initial={{ opacity: 0, x: 8 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 8 }}
+      transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+      onClick={onExpand}
+      aria-expanded={false}
+      aria-label="Expand detail panel"
+      className="z-30 flex h-full w-10 flex-shrink-0 flex-col items-center justify-center border-l border-chrome-border-strong bg-chrome-popover/80 text-text-dim hover:text-text-muted hover:bg-chrome-popover transition-colors duration-150 cursor-pointer"
+      style={{
+        backdropFilter: 'blur(40px) saturate(1.2)',
+        WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
+      }}
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-60">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </motion.button>
+  );
+}
+
+function MinimizeButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="absolute top-4 right-4 w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all duration-150 border border-transparent hover:border-chrome-border touch-target z-10"
+      aria-label="Collapse panel"
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+}
+
 export default function HistoricalDetailPanel() {
   const selectedId = useMapStore((s) => s.selectedFeatureId);
   const selectionKind = useMapStore((s) => s.selectionKind);
   const detailOpen = useMapStore((s) => s.detailPanelOpen);
+  const expanded = useMapStore((s) => s.detailPanelExpanded);
   const eraId = useMapStore((s) => s.eraId);
   const closeDetail = useMapStore((s) => s.closeDetail);
+  const setExpanded = useMapStore((s) => s.setDetailPanelExpanded);
   const isMobile = useIsMobile();
 
   const show = detailOpen && !!selectedId;
+
+  const handleExpand = useCallback(() => setExpanded(true), [setExpanded]);
+  const handleCollapse = useCallback(() => setExpanded(false), [setExpanded]);
 
   const dwellStartRef = useRef<number>(0);
   const lastEmittedRef = useRef<string | null>(null);
@@ -2027,7 +2069,10 @@ export default function HistoricalDetailPanel() {
 
   return (
     <AnimatePresence mode="wait">
-      {show && (
+      {show && !expanded && (
+        <CollapsedRail key="collapsed-rail" onExpand={handleExpand} />
+      )}
+      {show && expanded && (
         <motion.aside
           key={`${selectionKind}-${selectedId}`}
           initial={{ opacity: 0, x: 20 }}
@@ -2040,7 +2085,7 @@ export default function HistoricalDetailPanel() {
             WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
           }}
         >
-          <CloseButton onClick={closeDetail} />
+          <MinimizeButton onClick={handleCollapse} />
 
           <div className="flex-1 overflow-y-auto scrollbar-thin pb-6 pt-1">
             <DetailContent selectedId={selectedId!} selectionKind={selectionKind ?? 'region'} eraId={eraId} />

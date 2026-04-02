@@ -70,6 +70,7 @@ export default function StoryModeBar() {
   const storyMapFollow = useMapStore((s) => s.storyMapFollow);
   const setStoryMapFollow = useMapStore((s) => s.setStoryMapFollow);
   const selectFeature = useMapStore((s) => s.selectFeature);
+  const setDetailPanelExpanded = useMapStore((s) => s.setDetailPanelExpanded);
 
   const isMobile = useIsMobile();
   const cinematic = isCinematicArc(storyArc);
@@ -239,6 +240,33 @@ export default function StoryModeBar() {
     startLedgerCelebration();
   }, [atlasMode, storyArc, startLedgerCelebration]);
 
+  const handleNext = useCallback(() => {
+    nextStep();
+    if (stepIndex === 0) {
+      setDetailPanelExpanded(false);
+    }
+  }, [nextStep, stepIndex, setDetailPanelExpanded]);
+
+  // When entering story step 0, expand the era-info detail panel (handles same-era case
+  // where MapCanvas eraId subscription won't fire).
+  const step0ExpandedRef = useRef(false);
+  useEffect(() => {
+    if (!storyMode) {
+      step0ExpandedRef.current = false;
+      return;
+    }
+    if (stepIndex === 0 && atlasMode && !step0ExpandedRef.current) {
+      step0ExpandedRef.current = true;
+      const beatEraId = currentBeat?.eraId;
+      if (beatEraId) {
+        selectFeature(beatEraId, 'era-info', { expandDetail: true });
+      }
+    }
+    if (stepIndex > 0) {
+      step0ExpandedRef.current = false;
+    }
+  }, [storyMode, stepIndex, atlasMode, currentBeat?.eraId, selectFeature]);
+
   const isActive = storyMode && (currentBeat || currentLegacyStep);
   const eraId = useMapStore((s) => s.eraId);
 
@@ -402,7 +430,7 @@ export default function StoryModeBar() {
                     </svg>
                   </button>
                   <button
-                    onClick={isLast ? handleFinish : nextStep}
+                    onClick={isLast ? handleFinish : handleNext}
                     disabled={celebrating}
                     className="flex items-center justify-center h-9 rounded-lg bg-emerald-400/12 border border-emerald-400/20 px-5 text-[13px] font-medium text-emerald-300 hover:bg-emerald-400/18 hover:border-emerald-400/30 transition-all duration-150 disabled:opacity-40"
                   >
@@ -609,7 +637,7 @@ export default function StoryModeBar() {
                       </svg>
                     </button>
                     <button
-                      onClick={isLast ? handleFinish : nextStep}
+                      onClick={isLast ? handleFinish : handleNext}
                       disabled={celebrating}
                       className={`flex items-center justify-center h-10 sm:h-9 rounded-lg ${
                         cinematic
