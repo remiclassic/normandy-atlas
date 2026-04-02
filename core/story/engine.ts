@@ -78,6 +78,40 @@ export interface ResolvedStoryFocus {
   journeyIds: string[];
 }
 
+/**
+ * Apply the impact-variant overlay when appropriate, returning a beat with
+ * effective focus / copy / camera.  Pure function — safe to call from any context.
+ */
+export function getEffectiveStoryBeat(
+  beat: StoryBeat,
+  opts: { cinematic: boolean; storyViewMode: 'exploration' | 'impact' },
+): StoryBeat {
+  if (!opts.cinematic || opts.storyViewMode !== 'impact' || !beat.impactVariant) return beat;
+  const v = beat.impactVariant;
+  return {
+    ...beat,
+    focus: v.focus ? { ...beat.focus, ...v.focus } : beat.focus,
+    copy: {
+      title: v.copy?.title ?? beat.copy.title,
+      body: v.copy?.body ?? beat.copy.body,
+    },
+    camera: v.camera ? { ...beat.camera, ...v.camera } : beat.camera,
+  };
+}
+
+/**
+ * Resolve a [lng, lat] anchor for a beat's illustration.
+ * Tries focus place coordinates first, then falls back to camera center.
+ */
+export function resolveStoryIllustrationLngLat(beat: StoryBeat): [number, number] | null {
+  for (const placeId of beat.focus.placeIds) {
+    const coords = getPlaceCoords(placeId);
+    if (coords) return coords;
+  }
+  if (beat.camera.center) return beat.camera.center;
+  return null;
+}
+
 export function resolveStoryFocus(beat: StoryBeat): ResolvedStoryFocus {
   const places: PlaceWithState[] = [];
   for (const placeId of beat.focus.placeIds) {

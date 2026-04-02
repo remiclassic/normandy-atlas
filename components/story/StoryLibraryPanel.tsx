@@ -207,8 +207,8 @@ export default function StoryLibraryPanel({
             </header>
           )}
 
-          {/* Split-screen body */}
-          <div className="flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0">
+          {/* Split-screen body — mobile: single scroll column; lg+: side-by-side with inner scroll */}
+          <div className="flex-1 min-h-0 flex flex-col overflow-y-auto overscroll-y-contain lg:flex-row lg:overflow-hidden">
             {/* LEFT: Featured story panel */}
             <div className="relative h-[55vh] shrink-0 lg:h-auto lg:flex-[0_0_57%] xl:flex-[0_0_58%]">
               <StoryLibraryFeaturedPanel
@@ -223,7 +223,7 @@ export default function StoryLibraryPanel({
             </div>
 
             {/* RIGHT: Filter bar + editorial grid */}
-            <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:border-l" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="flex flex-col border-t lg:border-t-0 lg:min-h-0 lg:flex-1 lg:overflow-hidden lg:border-l" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
               {/* Title + filter bar */}
               <div className="shrink-0 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                 <div className="flex items-center justify-between px-4 pt-4 pb-1 lg:px-5">
@@ -241,8 +241,8 @@ export default function StoryLibraryPanel({
                 />
               </div>
 
-              {/* Scrollable grid */}
-              <div className="flex-1 overflow-y-auto scrollbar-thin pt-4">
+              {/* Grid — flows naturally on mobile (parent scrolls); inner-scrolls on lg+ */}
+              <div className="pt-4 lg:flex-1 lg:min-h-0 lg:overflow-y-auto lg:overscroll-y-contain scrollbar-thin">
                 <StoryLibraryEditorialGrid
                   rows={rows}
                   filter={filterCategory}

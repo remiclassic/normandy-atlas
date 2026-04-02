@@ -4,14 +4,14 @@ import { useMemo, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
-import { getStoryBeats, getBeat, getBeatCount } from '@/core';
+import { getStoryBeats, getBeat, getBeatCount, getEffectiveStoryBeat, resolveStoryIllustrationLngLat } from '@/core';
 import { arcChromeStyle, getArcEntriesForEra } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
-import type { StoryBeat, StoryBeatCamera, StoryBeatFocus } from '@/core/types';
+import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
 import { emitProgressEvent } from '@/lib/progress';
@@ -26,22 +26,6 @@ function isCinematicArc(arcId: string | null): boolean {
   return arcId != null && CINEMATIC_ARC_IDS.has(arcId);
 }
 
-function mergeImpactVariant(beat: StoryBeat): {
-  focus: StoryBeatFocus;
-  copy: StoryBeat['copy'];
-  camera: StoryBeatCamera;
-} {
-  const v = beat.impactVariant;
-  if (!v) return { focus: beat.focus, copy: beat.copy, camera: beat.camera };
-  return {
-    focus: v.focus ? { ...beat.focus, ...v.focus } : beat.focus,
-    copy: {
-      title: v.copy?.title ?? beat.copy.title,
-      body: v.copy?.body ?? beat.copy.body,
-    },
-    camera: v.camera ? { ...beat.camera, ...v.camera } : beat.camera,
-  };
-}
 
 const CHAPTER_LABELS: Record<string, string[]> = {
   'leif-erikson': [
@@ -84,14 +68,15 @@ export default function StoryModeBar() {
 
   const effectiveBeat = useMemo(() => {
     if (!rawBeat) return null;
-    if (cinematic && storyViewMode === 'impact' && rawBeat.impactVariant) {
-      const merged = mergeImpactVariant(rawBeat);
-      return { ...rawBeat, focus: merged.focus, copy: merged.copy, camera: merged.camera };
-    }
-    return rawBeat;
+    return getEffectiveStoryBeat(rawBeat, { cinematic, storyViewMode });
   }, [rawBeat, cinematic, storyViewMode]);
 
   const currentBeat = effectiveBeat;
+
+  const hasMapPin = useMemo(() => {
+    if (!effectiveBeat?.illustration) return false;
+    return resolveStoryIllustrationLngLat(effectiveBeat) != null;
+  }, [effectiveBeat]);
 
   const currentLegacyStep: StoryStep | null = useMemo(() => {
     if (!storyMode || atlasMode) return null;
@@ -384,7 +369,7 @@ export default function StoryModeBar() {
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    {currentBeat?.illustration && (
+                    {currentBeat?.illustration && !hasMapPin && (
                       <div className="mb-4">
                         <StoryBeatIllustration illustration={currentBeat.illustration} locale={locale} />
                       </div>
@@ -591,7 +576,7 @@ export default function StoryModeBar() {
                   </div>
                 )}
 
-                <div className="px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4">
+                <div className="px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4 max-h-[38vh] overflow-y-auto overscroll-y-contain sm:max-h-none sm:overflow-y-visible">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`${stepId}-${storyViewMode}`}
@@ -600,7 +585,7 @@ export default function StoryModeBar() {
                       exit={{ opacity: 0, x: -24 }}
                       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      {currentBeat?.illustration && (
+                      {currentBeat?.illustration && !hasMapPin && (
                         <div className="mb-3">
                           <StoryBeatIllustration illustration={currentBeat.illustration} locale={locale} />
                         </div>
@@ -613,7 +598,7 @@ export default function StoryModeBar() {
                       <h3 className="text-base sm:text-lg font-display font-bold text-parchment mb-1.5 sm:mb-2 tracking-[-0.01em]">
                         {stepTitle}
                       </h3>
-                      <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted line-clamp-4 sm:line-clamp-none">{stepBody}</p>
+                      <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
                     </motion.div>
                   </AnimatePresence>
                 </div>

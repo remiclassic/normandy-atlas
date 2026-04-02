@@ -48,6 +48,8 @@ export {
   getBeat,
   getBeatCount,
   getStoryStepForBeatId,
+  getEffectiveStoryBeat,
+  resolveStoryIllustrationLngLat,
   resolveStoryFocus,
 } from './story/engine';
 

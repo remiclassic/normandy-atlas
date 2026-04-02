@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback, useState, memo } from 'react';
+import { useEffect, useRef, useCallback, useState, useReducer, memo } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MapboxOverlay } from '@deck.gl/mapbox';
@@ -71,6 +71,7 @@ import { syncMapLabelTextSize } from './map-label-text-size';
 import { NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { pickI18n } from '@/lib/locale';
 import { registerAtlasMapIcons } from '@/lib/atlas/mapIcons';
+import { StoryIllustrationMapOverlay } from '@/components/map/StoryIllustrationMapOverlay';
 
 import {
   getActiveSegments,
@@ -556,6 +557,8 @@ export default function MapCanvas() {
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const [eraTransition, setEraTransition] = useState(false);
   const [mapBearing, setMapBearing] = useState(0);
+  /** Bumps when the MapLibre instance is created or torn down so story pins re-sync (mapRef is not reactive). */
+  const [mapInstanceGeneration, bumpMapInstance] = useReducer((n: number) => n + 1, 0);
 
   // Hoisted so the basemap-switch handler can also clear the tooltip
   const showTooltip = useCallback((data: TooltipData | null) => {
@@ -756,6 +759,7 @@ export default function MapCanvas() {
           /* map may already be torn down */
         }
         mapRef.current = null;
+        bumpMapInstance();
       }
       overlayRef.current = null;
       map = null;
@@ -856,6 +860,7 @@ export default function MapCanvas() {
       }
 
       mapRef.current = map;
+      bumpMapInstance();
       attachCanvasRecovery(map);
 
       map.on('load', async () => {
@@ -1894,6 +1899,7 @@ export default function MapCanvas() {
         style={{ background: basemapMode === 'parchment' ? '#e8dcc8' : '#0a0c12' }}
       >
         <div ref={containerRef} className="atlas-maplibre-host absolute inset-0 z-0 h-full w-full" />
+        <StoryIllustrationMapOverlay mapRef={mapRef} mapInstanceGeneration={mapInstanceGeneration} />
         <div className="pointer-events-auto absolute top-3 right-3 z-20">
           <TerrainToggle />
         </div>
