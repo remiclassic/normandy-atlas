@@ -427,21 +427,17 @@ export default function StoryModeBar() {
     <>
       {/* Story / arc start buttons */}
       <AnimatePresence>
-        {!storyMode && cinematicFlythrough == null && (
+        {!isMobile && !storyMode && cinematicFlythrough == null && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className={
-              isMobile
-                ? 'relative z-20 w-full flex flex-col gap-3 pointer-events-auto'
-                : 'pointer-events-auto absolute inset-x-3 bottom-6 z-40 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-2.5 sm:inset-x-4'
-            }
+            className="pointer-events-auto absolute inset-x-3 bottom-6 z-40 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-2.5 sm:inset-x-4"
           >
             <button
               onClick={() => startStory()}
-              className="group flex min-h-[48px] min-w-0 max-w-full items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 w-full sm:min-h-0 sm:w-auto sm:max-w-[min(100%,28rem)] touch-target"
+              className="group flex min-w-0 max-w-[min(100%,28rem)] items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 touch-target"
             >
               <span className="flex shrink-0 items-center justify-center w-7 h-7 rounded-full bg-gold/10 group-hover:bg-gold/15 transition-colors duration-200">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -457,14 +453,14 @@ export default function StoryModeBar() {
                 <button
                   key={entry.arcId}
                   onClick={() => handleStartArc(entry.arcId)}
-                  className={`group flex min-h-[44px] min-w-0 max-w-full items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-left text-[12px] sm:text-[13px] font-medium transition-all duration-250 w-full sm:min-h-0 sm:max-w-[min(100%,24rem)] sm:w-auto sm:text-center touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
+                  className={`group flex min-w-0 max-w-[min(100%,24rem)] items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-center text-[13px] font-medium transition-all duration-250 touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
                 >
                   <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
                     <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
                       <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                     </svg>
                   </span>
-                  <span className="min-w-0 flex-1 leading-snug sm:truncate">{pickI18n(entry.label, locale)}</span>
+                  <span className="min-w-0 flex-1 leading-snug truncate">{pickI18n(entry.label, locale)}</span>
                 </button>
               );
             })}

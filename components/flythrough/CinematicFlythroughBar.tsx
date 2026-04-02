@@ -36,7 +36,7 @@ export default function CinematicFlythroughBar() {
   );
 
   const showPresetPicker =
-    atlasMode && !isActive && !storyMode && visiblePresets.length > 0;
+    !isMobile && atlasMode && !isActive && !storyMode && visiblePresets.length > 0;
 
   useEffect(() => {
     if (!flythrough || !preset) return;

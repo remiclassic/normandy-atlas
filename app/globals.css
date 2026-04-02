@@ -613,6 +613,10 @@ html.text-size-large .maplibregl-ctrl-attrib {
 
 /* Mobile map controls — enlarge on small screens */
 @media (max-width: 768px) {
+  .maplibregl-ctrl-bottom-right {
+    bottom: 4.5rem !important;
+  }
+
   .maplibregl-ctrl-group button {
     width: 44px !important;
     height: 44px !important;

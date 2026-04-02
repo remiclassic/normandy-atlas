@@ -1097,6 +1097,25 @@ const STRINGS = {
     it: 'Apri il diario dell\'atlante',
   },
 
+  'dock.more': {
+    en: 'More journeys',
+    fr: 'Plus de parcours',
+    es: 'Más recorridos',
+    it: 'Altri percorsi',
+  },
+  'dock.flythroughs': {
+    en: 'Flythroughs',
+    fr: 'Survols',
+    es: 'Sobrevuelos',
+    it: 'Sorvoli',
+  },
+  'dock.stories': {
+    en: 'Story Arcs',
+    fr: 'Arcs narratifs',
+    es: 'Arcos narrativos',
+    it: 'Archi narrativi',
+  },
+
   'flythrough.label': {
     en: 'Cinematic Flythrough',
     fr: 'Survol cinématique',

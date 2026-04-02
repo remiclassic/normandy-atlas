@@ -16,6 +16,7 @@ import StoryModeBar from '@/components/story/StoryModeBar';
 import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
 import StoryEraIntroOverlay from '@/components/story/StoryEraIntroOverlay';
 import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
+import MobilePlayDock from '@/components/story/MobilePlayDock';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
@@ -472,11 +473,11 @@ export default function AtlasHomeShell() {
           <MapDeepLinkSync />
           <div className="vignette-overlay absolute inset-0" aria-hidden />
 
-          {/* Map overlay panels, repositioned for mobile */}
+          {/* Map overlay panels, repositioned for mobile to clear the play dock */}
           <div
             className={`absolute z-20 flex flex-col items-start gap-2 ${
               isMobile
-                ? 'bottom-4 left-3 right-3'
+                ? 'bottom-20 left-3 right-3'
                 : 'bottom-28 left-5'
             }`}
             data-onboarding="layers"
@@ -484,10 +485,11 @@ export default function AtlasHomeShell() {
             <LayerPanel />
             <MigrationExplorerPanel />
           </div>
-          {/* Mobile: column stack (flythrough above story) to avoid overlapping pills; desktop: pass-through */}
+          {/* Mobile: hybrid dock replaces stacked idle buttons; desktop: pass-through */}
           <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
             <CinematicFlythroughBar />
             <StoryModeBar />
+            <MobilePlayDock />
           </div>
         </div>
 
