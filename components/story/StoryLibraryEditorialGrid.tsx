@@ -28,6 +28,7 @@ interface Props {
   locale: AtlasLocale;
   uiTheme: UiTheme;
   progressMap: Record<string, StoryProgressRecord>;
+  selectedKey?: string | null;
   onSelect: (row: StoryLibraryRowModel) => void;
   onHoverEnter?: (row: StoryLibraryRowModel) => void;
   onHoverLeave?: () => void;
@@ -39,6 +40,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
   locale,
   uiTheme,
   progressMap,
+  selectedKey,
   onSelect,
   onHoverEnter,
   onHoverLeave,
@@ -90,6 +92,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
                   uiTheme={uiTheme}
                   progress={progressMap[row.progressKey]}
                   variant={i < 2 ? 'medium' : 'standard'}
+                  isSelected={row.progressKey === selectedKey}
                   onSelect={onSelect}
                   onHoverEnter={onHoverEnter}
                   onHoverLeave={onHoverLeave}

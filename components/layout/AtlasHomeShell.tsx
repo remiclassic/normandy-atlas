@@ -63,7 +63,7 @@ function MobileMenuDrawer({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] bg-black/40 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -71,7 +71,7 @@ function MobileMenuDrawer({
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed left-0 top-0 bottom-0 z-[61] w-[280px] max-w-[80vw] border-r border-chrome-border-strong bg-chrome-popover overflow-y-auto scrollbar-thin"
+            className="fixed left-0 top-0 bottom-0 z-[71] w-[280px] max-w-[80vw] border-r border-chrome-border-strong bg-chrome-popover overflow-y-auto scrollbar-thin"
             style={{
               backdropFilter: 'blur(40px) saturate(1.2)',
               WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
@@ -333,6 +333,7 @@ export default function AtlasHomeShell() {
         {isMobile ? (
           /* ── Mobile compact header ─────────────────────── */
           <div className="flex flex-col pointer-events-auto">
+            {/* Row 1: nav icons + expedition chip */}
             <div className="flex items-center gap-2 px-3 py-1.5">
               <button
                 onClick={openMobileMenu}
@@ -366,19 +367,22 @@ export default function AtlasHomeShell() {
                 </button>
               )}
 
-              <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
-
-              <div className="min-w-0 flex-1">
-                {storyLibraryOpen ? (
-                  <div className="flex min-h-9 items-center justify-center px-1">
-                    <p className="truncate text-center font-display text-[12px] font-semibold tracking-tight text-text-muted">
-                      {t('storyLibrary.title', locale)}
-                    </p>
-                  </div>
-                ) : (
-                  <EraSelector compact />
-                )}
+              <div className="min-w-0 flex-1 flex justify-end">
+                <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} compact />
               </div>
+            </div>
+
+            {/* Row 2: era selector or story library title (full width) */}
+            <div className="min-w-0 w-full border-t border-chrome-border/40 px-3">
+              {storyLibraryOpen ? (
+                <div className="flex min-h-9 items-center justify-center px-1">
+                  <p className="truncate text-center font-display text-[12px] font-semibold tracking-tight text-text-muted">
+                    {t('storyLibrary.title', locale)}
+                  </p>
+                </div>
+              ) : (
+                <EraSelector compact />
+              )}
             </div>
           </div>
         ) : (
@@ -443,7 +447,7 @@ export default function AtlasHomeShell() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-14 left-1/2 -translate-x-1/2 z-[82] pointer-events-auto"
+            className="fixed top-24 left-1/2 -translate-x-1/2 z-[82] pointer-events-auto"
           >
             <motion.button
               type="button"

@@ -312,7 +312,7 @@ function AtlasLedgerPanel({ open, onClose }: { open: boolean; onClose: () => voi
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] bg-black/40 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -320,7 +320,7 @@ function AtlasLedgerPanel({ open, onClose }: { open: boolean; onClose: () => voi
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed right-0 top-0 bottom-0 z-[61] w-[360px] max-w-[90vw] border-l border-chrome-border-strong bg-chrome-popover overflow-y-auto scrollbar-thin"
+            className="fixed right-0 top-0 bottom-0 z-[71] w-[360px] max-w-[90vw] border-l border-chrome-border-strong bg-chrome-popover overflow-y-auto scrollbar-thin"
             style={{
               backdropFilter: 'blur(40px) saturate(1.2)',
               WebkitBackdropFilter: 'blur(40px) saturate(1.2)',

@@ -642,6 +642,13 @@ html.text-size-large .maplibregl-ctrl-attrib {
 .welcome-intro-root {
   background: var(--welcome-bg-base);
 }
+@keyframes heroSwipeHintFade {
+  0% { opacity: 0; }
+  15% { opacity: 0.5; }
+  60% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
 @keyframes cinematic-ocean-drift {
   0%   { transform: translate(0, 0); }
   50%  { transform: translate(-30px, -20px); }

@@ -2014,6 +2014,29 @@ function MinimizeButton({ onClick }: { onClick: () => void }) {
   );
 }
 
+function MobileDetailReopenFab({ onReopen }: { onReopen: () => void }) {
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
+    <motion.button
+      type="button"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+      onClick={onReopen}
+      aria-label="Reopen detail panel"
+      className="fixed top-52 right-3 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-chrome-border-strong bg-chrome-popover/95 shadow-lg backdrop-blur-xl pointer-events-auto touch-target"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-parchment">
+        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
+        <path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      </svg>
+    </motion.button>,
+    document.body,
+  );
+}
+
 export default function HistoricalDetailPanel() {
   const selectedId = useMapStore((s) => s.selectedFeatureId);
   const selectionKind = useMapStore((s) => s.selectionKind);
@@ -2057,13 +2080,20 @@ export default function HistoricalDetailPanel() {
 
   if (isMobile) {
     return (
-      <MobileDetailSheet
-        show={show}
-        selectedId={selectedId}
-        selectionKind={selectionKind}
-        eraId={eraId}
-        onClose={closeDetail}
-      />
+      <>
+        <MobileDetailSheet
+          show={show && expanded}
+          selectedId={selectedId}
+          selectionKind={selectionKind}
+          eraId={eraId}
+          onClose={handleCollapse}
+        />
+        <AnimatePresence>
+          {show && !expanded && (
+            <MobileDetailReopenFab onReopen={handleExpand} />
+          )}
+        </AnimatePresence>
+      </>
     );
   }
 

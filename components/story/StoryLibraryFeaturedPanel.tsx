@@ -1,7 +1,7 @@
 'use client';
 
-import { memo, useMemo } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { memo, useCallback, useMemo } from 'react';
+import { AnimatePresence, motion, useReducedMotion, type PanInfo } from 'motion/react';
 import type { StoryLibraryRowModel } from '@/lib/story-library-build';
 import type { AtlasLocale } from '@/core/types';
 import type { UiTheme } from '@/lib/ui-theme';
@@ -11,7 +11,7 @@ import { arcChromeStyle } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import { t, type UiStringKey } from '@/lib/ui-strings';
-import { Play, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, RotateCcw } from 'lucide-react';
 
 const CATEGORY_KEY: Record<StoryCategory, UiStringKey> = {
   Origins: 'storyLibrary.category.origins',
@@ -44,6 +44,11 @@ interface Props {
   onPlay: () => void;
   onResume: () => void;
   onViewChapters: () => void;
+  isMobile?: boolean;
+  activeIndex?: number;
+  totalCount?: number;
+  onSwipeNext?: () => void;
+  onSwipePrev?: () => void;
 }
 
 export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel({
@@ -54,6 +59,11 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
   onPlay,
   onResume,
   onViewChapters,
+  isMobile,
+  activeIndex,
+  totalCount,
+  onSwipeNext,
+  onSwipePrev,
 }: Props) {
   const reducedMotion = useReducedMotion();
 
@@ -86,6 +96,18 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
     };
   }, [row, locale, uiTheme, progress]);
 
+  const swipeable = isMobile && totalCount != null && totalCount > 1;
+
+  const handleHeroDragEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      if (Math.abs(info.offset.x) > 50) {
+        if (info.offset.x < 0) onSwipeNext?.();
+        else onSwipePrev?.();
+      }
+    },
+    [onSwipeNext, onSwipePrev],
+  );
+
   if (!row || !derived) {
     return (
       <div className="relative flex h-full items-center justify-center">
@@ -99,7 +121,7 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
     categoryLabel, toneLabel, durationLabel, scenesLabel, timelineLabel,
   } = derived;
 
-  return (
+  const heroContent = (
     <div className="relative flex h-full flex-col justify-end overflow-hidden">
       {/* Background image */}
       <AnimatePresence mode="popLayout">
@@ -162,6 +184,24 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
       {/* Arc accent strip */}
       {chrome && (
         <div className={`absolute inset-x-0 top-0 z-[1] h-[3px] ${chrome.iconBg}`} />
+      )}
+
+      {/* Mobile: counter label */}
+      {swipeable && (
+        <span className="absolute top-4 right-4 z-[2] rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold text-white/60 tabular-nums">
+          {(activeIndex ?? 0) + 1} / {totalCount}
+        </span>
+      )}
+
+      {/* Mobile: swipe hint chevrons — fade out after initial appearance */}
+      {swipeable && (
+        <div
+          className="pointer-events-none absolute inset-y-0 inset-x-0 z-[2] flex items-center justify-between px-2"
+          style={{ animation: 'heroSwipeHintFade 2.5s ease-in-out forwards' }}
+        >
+          <ChevronLeft className="h-6 w-6 text-white/40 drop-shadow" />
+          <ChevronRight className="h-6 w-6 text-white/40 drop-shadow" />
+        </div>
       )}
 
       {/* Content */}
@@ -255,4 +295,21 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
       </AnimatePresence>
     </div>
   );
+
+  if (swipeable) {
+    return (
+      <motion.div
+        className="h-full"
+        style={{ touchAction: 'pan-y' }}
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.35}
+        onDragEnd={handleHeroDragEnd}
+      >
+        {heroContent}
+      </motion.div>
+    );
+  }
+
+  return heroContent;
 });

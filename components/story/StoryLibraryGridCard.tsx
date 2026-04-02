@@ -16,6 +16,7 @@ interface Props {
   uiTheme: UiTheme;
   progress?: StoryProgressRecord;
   variant: 'medium' | 'standard';
+  isSelected?: boolean;
   onSelect: (row: StoryLibraryRowModel) => void;
   onHoverEnter?: (row: StoryLibraryRowModel) => void;
   onHoverLeave?: () => void;
@@ -27,6 +28,7 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
   uiTheme,
   progress,
   variant,
+  isSelected,
   onSelect,
   onHoverEnter,
   onHoverLeave,
@@ -97,6 +99,7 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50
         transition-all duration-200
         hover:shadow-[0_4px_24px_rgba(0,0,0,0.4)]
+        ${isSelected ? 'max-lg:ring-2 max-lg:ring-gold/50 max-lg:border-gold/30' : ''}
         ${aspectClass}
       `}
     >

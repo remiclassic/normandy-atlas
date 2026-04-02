@@ -15,6 +15,7 @@ import { StoryLibraryFeaturedPanel } from '@/components/story/StoryLibraryFeatur
 import { StoryLibraryFilterBar, type FilterValue } from '@/components/story/StoryLibraryFilterBar';
 import { StoryLibraryEditorialGrid } from '@/components/story/StoryLibraryEditorialGrid';
 import { StoryLibraryDetailSheet } from '@/components/story/StoryLibraryDetailSheet';
+import { useIsMobile } from '@/hooks/use-responsive';
 import { ArrowLeft } from 'lucide-react';
 
 export default function StoryLibraryPanel({
@@ -30,7 +31,9 @@ export default function StoryLibraryPanel({
   const uiTheme = useMapStore((s) => s.uiTheme);
   const startStory = useMapStore((s) => s.startStory);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const scrollBodyRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   const [progressEpoch, setProgressEpoch] = useState(0);
   const [activeRow, setActiveRow] = useState<StoryLibraryRowModel | null>(null);
@@ -45,6 +48,17 @@ export default function StoryLibraryPanel({
     return readStoryProgressMap();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progressEpoch, open]);
+
+  const filteredRows = useMemo(() => {
+    if (filterCategory === 'all') return rows;
+    return rows.filter((r) => r.meta.category === filterCategory);
+  }, [rows, filterCategory]);
+
+  const activeIndex = useMemo(() => {
+    if (!activeRow) return 0;
+    const idx = filteredRows.findIndex((r) => r.progressKey === activeRow.progressKey);
+    return idx >= 0 ? idx : 0;
+  }, [filteredRows, activeRow]);
 
   // Initialize activeRow when panel opens
   useEffect(() => {
@@ -111,7 +125,10 @@ export default function StoryLibraryPanel({
       clearTimeout(hoverTimerRef.current);
       hoverTimerRef.current = null;
     }
-  }, []);
+    if (isMobile) {
+      scrollBodyRef.current?.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+    }
+  }, [isMobile, reducedMotion]);
 
   const handleCardHoverEnter = useCallback((row: StoryLibraryRowModel) => {
     if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
@@ -127,6 +144,20 @@ export default function StoryLibraryPanel({
     }
     setHoverPreviewRow(null);
   }, []);
+
+  const goToNextHero = useCallback(() => {
+    if (filteredRows.length === 0) return;
+    const next = (activeIndex + 1) % filteredRows.length;
+    setActiveRow(filteredRows[next]);
+    setHoverPreviewRow(null);
+  }, [filteredRows, activeIndex]);
+
+  const goToPrevHero = useCallback(() => {
+    if (filteredRows.length === 0) return;
+    const prev = (activeIndex - 1 + filteredRows.length) % filteredRows.length;
+    setActiveRow(filteredRows[prev]);
+    setHoverPreviewRow(null);
+  }, [filteredRows, activeIndex]);
 
   const handlePlay = useCallback(() => {
     if (displayedRow) playRow(displayedRow, false);
@@ -208,7 +239,7 @@ export default function StoryLibraryPanel({
           )}
 
           {/* Split-screen body — mobile: single scroll column; lg+: side-by-side with inner scroll */}
-          <div className="flex-1 min-h-0 flex flex-col overflow-y-auto overscroll-y-contain lg:flex-row lg:overflow-hidden">
+          <div ref={scrollBodyRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto overscroll-y-contain lg:flex-row lg:overflow-hidden">
             {/* LEFT: Featured story panel */}
             <div className="relative h-[55vh] shrink-0 lg:h-auto lg:flex-[0_0_57%] xl:flex-[0_0_58%]">
               <StoryLibraryFeaturedPanel
@@ -219,6 +250,11 @@ export default function StoryLibraryPanel({
                 onPlay={handlePlay}
                 onResume={handleResume}
                 onViewChapters={handleViewChapters}
+                isMobile={isMobile}
+                activeIndex={activeIndex}
+                totalCount={filteredRows.length}
+                onSwipeNext={goToNextHero}
+                onSwipePrev={goToPrevHero}
               />
             </div>
 
@@ -249,6 +285,7 @@ export default function StoryLibraryPanel({
                   locale={locale}
                   uiTheme={uiTheme}
                   progressMap={progressMap}
+                  selectedKey={activeRow?.progressKey ?? null}
                   onSelect={handleCardSelect}
                   onHoverEnter={handleCardHoverEnter}
                   onHoverLeave={handleCardHoverLeave}
