@@ -6,19 +6,34 @@ import {
   type StoryCategory,
   type StoryLibraryMeta,
 } from '@/data/atlas/story-library-meta';
-import type { AtlasLocale } from '@/core/types';
-import type { StoryBeat } from '@/core/types';
+import type { AtlasLocale, StoryBeat } from '@/core/types';
 import { pickI18n } from '@/lib/locale';
 import { STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
 import { arcIdToProgressKey } from '@/lib/story-progress';
+import { getEraRange } from '@/core/era/engine';
+
+export interface FocusStats {
+  uniquePlaces: number;
+  uniqueRegions: number;
+  uniqueRoutes: number;
+}
 
 export interface StoryLibraryRowModel {
   meta: StoryLibraryMeta;
   arcEntry: EraArcEntry | null;
   sceneCount: number;
   chapterTitles: string[];
+  chapterTitlesExtended: string[];
   progressKey: string;
+  /** Resolved poster image — meta.thumb if set, else first illustrated beat's src. */
+  resolvedPosterSrc: string | null;
+  /** Timeline year range derived from beats, if computable. */
+  timelineRange: { start: number; end: number } | null;
+  /** Counts of unique map features referenced by beats. */
+  focusStats: FocusStats;
+  /** Poster credit string (already locale-resolved). */
+  posterCredit: string | null;
 }
 
 function resolveBeatTitle(beat: StoryBeat, locale: AtlasLocale): string {
@@ -38,9 +53,80 @@ function chapterPreviewForArc(arcId: string | null, locale: AtlasLocale, take = 
   return beats.map((b) => resolveBeatTitle(b, locale));
 }
 
+function chapterExtendedForArc(arcId: string | null, locale: AtlasLocale, take = 12): string[] {
+  const beats = getStoryBeats(arcId).slice(0, take);
+  return beats.map((b) => resolveBeatTitle(b, locale));
+}
+
 function findArcEntry(arcId: string | null): EraArcEntry | null {
   if (!arcId) return null;
   return atlasEraArcs.find((a) => a.arcId === arcId) ?? null;
+}
+
+function resolvePosterSrc(meta: StoryLibraryMeta): string | null {
+  if (meta.thumb) return meta.thumb;
+  const beats = getStoryBeats(meta.arcId);
+  for (const b of beats) {
+    if (b.illustration?.src) return b.illustration.src;
+  }
+  return null;
+}
+
+function computeTimelineRange(
+  beats: StoryBeat[],
+): { start: number; end: number } | null {
+  let min = Infinity;
+  let max = -Infinity;
+
+  for (const b of beats) {
+    if (b.anchorYear != null) {
+      if (b.anchorYear < min) min = b.anchorYear;
+      if (b.anchorYear > max) max = b.anchorYear;
+    } else {
+      const range = getEraRange(b.eraId);
+      if (range) {
+        if (range.start < min) min = range.start;
+        if (range.end > max) max = range.end;
+      }
+    }
+  }
+
+  if (!isFinite(min) || !isFinite(max)) return null;
+  return { start: min, end: max };
+}
+
+function computeFocusStats(beats: StoryBeat[]): FocusStats {
+  const places = new Set<string>();
+  const regions = new Set<string>();
+  const routes = new Set<string>();
+
+  for (const b of beats) {
+    for (const id of b.focus.placeIds) places.add(id);
+    for (const id of b.focus.regionIds) regions.add(id);
+    for (const id of b.focus.routeSegmentIds) routes.add(id);
+  }
+
+  return {
+    uniquePlaces: places.size,
+    uniqueRegions: regions.size,
+    uniqueRoutes: routes.size,
+  };
+}
+
+function resolvePosterCredit(
+  meta: StoryLibraryMeta,
+  resolvedSrc: string | null,
+  locale: AtlasLocale,
+): string | null {
+  if (meta.posterCredit) return pickI18n(meta.posterCredit, locale);
+  if (!resolvedSrc || meta.thumb) return null;
+  const beats = getStoryBeats(meta.arcId);
+  for (const b of beats) {
+    if (b.illustration?.src === resolvedSrc && b.illustration.credit) {
+      return pickI18n(b.illustration.credit, locale);
+    }
+  }
+  return null;
 }
 
 /**
@@ -54,12 +140,20 @@ export function buildStoryLibraryRows(locale: AtlasLocale): StoryLibraryRowModel
     const sceneCount = getBeatCount(meta.arcId);
     if (sceneCount === 0) continue;
 
+    const beats = getStoryBeats(meta.arcId);
+    const resolvedSrc = resolvePosterSrc(meta);
+
     rows.push({
       meta,
       arcEntry: findArcEntry(meta.arcId),
       sceneCount,
       chapterTitles: chapterPreviewForArc(meta.arcId, locale),
+      chapterTitlesExtended: chapterExtendedForArc(meta.arcId, locale),
       progressKey: arcIdToProgressKey(meta.arcId),
+      resolvedPosterSrc: resolvedSrc,
+      timelineRange: computeTimelineRange(beats),
+      focusStats: computeFocusStats(beats),
+      posterCredit: resolvePosterCredit(meta, resolvedSrc, locale),
     });
   }
 

@@ -34,6 +34,8 @@ export interface StoryLibraryMeta {
   tone?: StoryTone;
   sortOrder?: number;
   recommendedEraId?: string;
+  synopsisExtended?: I18nString;
+  posterCredit?: I18nString;
 }
 
 /**
@@ -45,6 +47,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     arcId: null,
     category: 'Legacy',
     sortOrder: 0,
+    thumb: '/story/thumbs/full-atlas.jpg',
     displayTitle: {
       en: 'Full atlas chronicle',
       fr: 'Chronique complète de l’atlas',
@@ -65,12 +68,14 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 45,
     tone: 'epic',
+    posterCredit: { en: 'David Roberts, Public domain' },
   },
   {
     arcId: 'normandy-to-new-world',
     category: 'Legacy',
     featured: true,
     sortOrder: 1,
+    thumb: '/story/thumbs/normandy-to-new-world.jpg',
     recommendedEraId: 'norman-origins',
     displayTitle: {
       en: 'From Vikings to the New World',
@@ -92,34 +97,40 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 18,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'neolithic-normandy',
     category: 'Origins',
     sortOrder: 10,
+    thumb: '/story/thumbs/neolithic-normandy.jpg',
     blurb: {
       en: 'Megaliths and the first farmers—the deepest layer of human presence in the landscape.',
       fr: 'Mégalithes et premiers agriculteurs — la couche la plus profonde du paysage.',
     },
     estimatedMinutes: 4,
     tone: 'foundational',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'bronze-age-channel',
     category: 'Origins',
     sortOrder: 11,
+    thumb: '/story/thumbs/bronze-age-channel.jpg',
     blurb: {
       en: 'The Channel as a Bronze Age highway—metal, exchange, and coastal nodes that prefigure later seafaring.',
       fr: 'La Manche comme route de l’âge du bronze — métaux, échanges et rivages qui annoncent la navigation.',
     },
     estimatedMinutes: 4,
     tone: 'exploratory',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'leif-erikson',
     category: 'Exploration',
     featured: true,
     sortOrder: 5,
+    thumb: '/story/thumbs/leif-erikson.jpg',
     recommendedEraId: 'norman-origins',
     displayTitle: {
       en: 'Leif Erikson — Vinland and beyond',
@@ -141,77 +152,91 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 12,
     tone: 'dark',
+    posterCredit: { en: 'Christian Krohg, Public domain' },
   },
   {
     arcId: 'iron-age-gaul',
     category: 'Origins',
     sortOrder: 12,
+    thumb: '/story/thumbs/iron-age-gaul.jpg',
     blurb: {
       en: 'Tribes, oppida, and river corridors before Rome remade the map.',
       fr: 'Tribus, oppida et corridors fluviaux avant que Rome remodele la carte.',
     },
     estimatedMinutes: 5,
     tone: 'foundational',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'roman-gaul',
     category: 'Origins',
     sortOrder: 13,
+    thumb: '/story/thumbs/roman-gaul.jpg',
     blurb: {
       en: 'Provinces, roads, and Rotomagus—Roman infrastructure over a Celtic landscape.',
       fr: 'Provinces, voies et Rotomagus — la couche romaine sur un paysage celte.',
     },
     estimatedMinutes: 5,
     tone: 'foundational',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'post-roman-gaul',
     category: 'Origins',
     sortOrder: 14,
+    thumb: '/story/thumbs/post-roman-gaul.jpg',
     blurb: {
       en: 'After the legions: fragmented power, rising elites, and the shaping of what comes next.',
       fr: 'Après les légions : pouvoir fragmenté, élites nouvelles et préparation des siècles suivants.',
     },
     estimatedMinutes: 4,
     tone: 'dark',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'neustria',
     category: 'Origins',
     sortOrder: 15,
+    thumb: '/story/thumbs/neustria.jpg',
     blurb: {
       en: 'The Frankish coastal march: theaters of raid, treaty, and negotiation on the Seine.',
       fr: 'La marche côtière franque : raids, traités et négociations sur la Seine.',
     },
     estimatedMinutes: 4,
     tone: 'dark',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'frankish-carolingian',
     category: 'Origins',
     sortOrder: 16,
+    thumb: '/story/thumbs/frankish-carolingian.jpg',
     blurb: {
       en: 'Carolingian frontiers and coastal defense before the longships returned in force.',
       fr: 'Frontières carolingiennes et défense côtière avant le retour des longs navires.',
     },
     estimatedMinutes: 4,
     tone: 'foundational',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'viking-age',
     category: 'Conquest',
     sortOrder: 20,
+    thumb: '/story/thumbs/viking-age.jpg',
     blurb: {
       en: 'Raiding, river ascents, and the scramble for tribute along the Channel coast.',
       fr: 'Incursions, remontées de fleuves et quête de tribut le long de la Manche.',
     },
     estimatedMinutes: 6,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'norman-origins',
     category: 'Conquest',
     sortOrder: 21,
+    thumb: '/story/thumbs/norman-origins.jpg',
     hook: {
       en: 'From the treaty of Saint-Clair-sur-Epte to a Christian Norman polity.',
       fr: 'Du traité de Saint-Clair-sur-Epte à une Normandie chrétienne et structurée.',
@@ -222,45 +247,53 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 7,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'norman-expansion',
     category: 'Expansion',
     sortOrder: 30,
+    thumb: '/story/thumbs/norman-expansion.jpg',
     blurb: {
       en: 'Norman arms and ambition beyond the duchy—England, the Mediterranean, and the wider medieval stage.',
       fr: 'Les armes et l’ambition normandes hors du duché — Angleterre, Méditerranée et scène médiévale.',
     },
     estimatedMinutes: 8,
     tone: 'epic',
+    posterCredit: { en: 'Bayeux Tapestry, Public domain' },
   },
   {
     arcId: 'age-of-exploration',
     category: 'Exploration',
     sortOrder: 40,
+    thumb: '/story/thumbs/age-of-exploration.jpg',
     blurb: {
       en: 'Maritime discovery, Atlantic crossings, and the geographic imagination of early modern Europe.',
       fr: 'Découvertes maritimes, traversées de l’Atlantique et imaginaire géographique de l’Europe moderne naissante.',
     },
     estimatedMinutes: 6,
     tone: 'exploratory',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'new-france',
     category: 'New France',
     sortOrder: 50,
+    thumb: '/story/thumbs/new-france.jpg',
     blurb: {
       en: 'Foundations, royal colony, and the cultural imprint of French North America.',
       fr: 'Fondations, colonie royale et empreinte culturelle de l’Amérique française.',
     },
     estimatedMinutes: 7,
     tone: 'foundational',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'guillaume-couture',
     category: 'People',
     sortOrder: 60,
     isNew: true,
+    thumb: '/story/guillaume-couture/voyageur-canoe.jpg',
     blurb: {
       en: 'One documented life—capture, negotiation, and belonging—etched onto the map.',
       fr: 'Une vie documentée — capture, négociation et appartenance — inscrite sur la carte.',
@@ -273,6 +306,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     category: 'People',
     sortOrder: 61,
     isNew: true,
+    thumb: '/story/thumbs/rollo-lifetime.jpg',
     recommendedEraId: 'viking-age',
     displayTitle: {
       en: 'Rollo — From Viking to Duke',
@@ -294,12 +328,14 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 7,
     tone: 'personal',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'william-conqueror',
     category: 'Conquest',
     sortOrder: 22,
     isNew: true,
+    thumb: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
     recommendedEraId: 'norman-origins',
     displayTitle: {
       en: 'William the Conqueror',
@@ -327,6 +363,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     category: 'Expansion',
     sortOrder: 31,
     isNew: true,
+    thumb: '/story/thumbs/roger-ii.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Roger II — Builder of Sicily',
@@ -348,12 +385,14 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 7,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'robert-guiscard',
     category: 'Expansion',
     sortOrder: 32,
     isNew: true,
+    thumb: '/story/thumbs/robert-guiscard.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Robert Guiscard — The Wily Conqueror',
@@ -375,12 +414,14 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 8,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
   {
     arcId: 'bohemond-antioch',
     category: 'Conquest',
     sortOrder: 23,
     isNew: true,
+    thumb: '/story/thumbs/bohemond-antioch.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Bohemond — Prince of Antioch',
@@ -402,5 +443,6 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     },
     estimatedMinutes: 8,
     tone: 'epic',
+    posterCredit: { en: 'Wikimedia Commons, Public domain' },
   },
 ];

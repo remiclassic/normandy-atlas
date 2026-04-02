@@ -1,9 +1,9 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
-import { Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
+import { ArrowLeft, Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -139,6 +139,13 @@ export default function AtlasHomeShell() {
   const openStoryLibrary = useCallback(() => setStoryLibraryOpen(true), []);
   const closeStoryLibrary = useCallback(() => setStoryLibraryOpen(false), []);
 
+  const storyLibraryCloseRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (storyLibraryOpen) {
+      queueMicrotask(() => storyLibraryCloseRef.current?.focus());
+    }
+  }, [storyLibraryOpen]);
+
   const [roadmapOpen, setRoadmapOpen] = useState(false);
   const openRoadmap = useCallback(() => setRoadmapOpen(true), []);
   const closeRoadmap = useCallback(() => setRoadmapOpen(false), []);
@@ -205,21 +212,39 @@ export default function AtlasHomeShell() {
   const desktopUtilitySlot = useMemo(
     () => (
       <div className="flex items-center gap-0.5 text-text-muted/80">
-        <ReplayTourButton />
+        {!storyLibraryOpen && <ReplayTourButton />}
         <span data-onboarding="stories">
-          <ChromeIconTooltip
-            label={t('storyLibrary.tooltip.label', locale)}
-            hint={t('storyLibrary.tooltip.hint', locale)}
-          >
-            <button
-              type="button"
-              onClick={openStoryLibrary}
-              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
-              aria-label={t('storyLibrary.aria.open', locale)}
+          {storyLibraryOpen ? (
+            <ChromeIconTooltip
+              label={t('storyLibrary.backToMap', locale)}
+              hint={t('storyLibrary.subtitle', locale)}
             >
-              <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-            </button>
-          </ChromeIconTooltip>
+              <button
+                ref={storyLibraryCloseRef}
+                type="button"
+                onClick={closeStoryLibrary}
+                className="flex shrink-0 items-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
+                aria-label={t('storyLibrary.backToMap', locale)}
+              >
+                <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
+                <span className="hidden sm:inline">{t('storyLibrary.backToMap', locale)}</span>
+              </button>
+            </ChromeIconTooltip>
+          ) : (
+            <ChromeIconTooltip
+              label={t('storyLibrary.tooltip.label', locale)}
+              hint={t('storyLibrary.tooltip.hint', locale)}
+            >
+              <button
+                type="button"
+                onClick={openStoryLibrary}
+                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
+                aria-label={t('storyLibrary.aria.open', locale)}
+              >
+                <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+              </button>
+            </ChromeIconTooltip>
+          )}
         </span>
         <ChromeIconTooltip
           label={t('normanOverview.tooltip.label', locale)}
@@ -279,14 +304,25 @@ export default function AtlasHomeShell() {
         </ChromeIconTooltip>
         <span className="flex items-center gap-0.5" data-onboarding="theme">
           <ThemeSwitcher />
-          <BasemapSwitcher />
+          {!storyLibraryOpen && <BasemapSwitcher />}
         </span>
         <BackgroundMusic floating={false} />
         <LanguageSwitcher />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
       </div>
     ),
-    [eraAccentHover, ledgerAttentionActive, locale, openLedgerAndEndCelebration, openNormanOverview, openRoadmap, openStoryLibrary, stopLedgerPulseOnJournalNavigate],
+    [
+      closeStoryLibrary,
+      eraAccentHover,
+      ledgerAttentionActive,
+      locale,
+      openLedgerAndEndCelebration,
+      openNormanOverview,
+      openRoadmap,
+      openStoryLibrary,
+      stopLedgerPulseOnJournalNavigate,
+      storyLibraryOpen,
+    ],
   );
 
   return (
@@ -295,30 +331,53 @@ export default function AtlasHomeShell() {
       <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
         {isMobile ? (
           /* ── Mobile compact header ─────────────────────── */
-          <div className="flex items-center gap-2 px-3 py-1.5 pointer-events-auto">
-            <button
-              onClick={openMobileMenu}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-text-muted transition-colors touch-target"
-              aria-label="Open menu"
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
+          <div className="flex flex-col pointer-events-auto">
+            <div className="flex items-center gap-2 px-3 py-1.5">
+              <button
+                onClick={openMobileMenu}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-text-muted transition-colors touch-target"
+                aria-label="Open menu"
+              >
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
 
-            <button
-              type="button"
-              onClick={openStoryLibrary}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-cyan-300/80 transition-colors touch-target"
-              aria-label={t('storyLibrary.aria.open', locale)}
-            >
-              <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
-            </button>
+              {storyLibraryOpen ? (
+                <button
+                  ref={storyLibraryCloseRef}
+                  type="button"
+                  onClick={closeStoryLibrary}
+                  className="flex max-w-[min(100%,11rem)] shrink-0 touch-target items-center gap-1.5 rounded-lg border border-chrome-border bg-chrome-fill px-2.5 py-2 text-[11px] font-semibold text-text-muted transition-colors hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment"
+                  aria-label={t('storyLibrary.backToMap', locale)}
+                >
+                  <ArrowLeft className="h-4 w-4 shrink-0 text-gold/80" strokeWidth={2.25} aria-hidden />
+                  <span className="truncate">{t('storyLibrary.backToMap', locale)}</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={openStoryLibrary}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-cyan-300/80 transition-colors touch-target"
+                  aria-label={t('storyLibrary.aria.open', locale)}
+                >
+                  <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
+                </button>
+              )}
 
-            <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
+              <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
-            <div className="min-w-0 flex-1">
-              <EraSelector compact />
+              <div className="min-w-0 flex-1">
+                {storyLibraryOpen ? (
+                  <div className="flex min-h-9 items-center justify-center px-1">
+                    <p className="truncate text-center font-display text-[12px] font-semibold tracking-tight text-text-muted">
+                      {t('storyLibrary.title', locale)}
+                    </p>
+                  </div>
+                ) : (
+                  <EraSelector compact />
+                )}
+              </div>
             </div>
           </div>
         ) : (
@@ -332,7 +391,7 @@ export default function AtlasHomeShell() {
                     Norman Atlas
                   </h1>
                   <p className="text-[7px] font-medium uppercase leading-snug tracking-[0.2em] text-text-muted/50 sm:text-[8px]">
-                    {t('header.tagline', locale)}
+                    {storyLibraryOpen ? t('storyLibrary.subtitle', locale) : t('header.tagline', locale)}
                   </p>
                 </div>
                 {SUPPORT_ATLAS_ENABLED && (
@@ -363,14 +422,16 @@ export default function AtlasHomeShell() {
               {desktopUtilitySlot}
             </div>
 
-            {/* Row 2: era hero (focal) */}
-            <div className="border-t border-chrome-border/50 px-4 sm:px-5">
-              <EraSelector />
-            </div>
+            {/* Row 2: era hero (focal) — hidden while browsing stories */}
+            {!storyLibraryOpen && (
+              <div className="border-t border-chrome-border/50 px-4 sm:px-5">
+                <EraSelector />
+              </div>
+            )}
           </div>
         )}
 
-        <AtlasTimelineRail />
+        {!storyLibraryOpen && <AtlasTimelineRail />}
       </header>
 
       {/* ─── Mobile ledger attention chip (10s after accomplishments) ── */}
@@ -431,6 +492,11 @@ export default function AtlasHomeShell() {
         </div>
 
         <HistoricalDetailPanel />
+        <StoryLibraryPanel
+          open={storyLibraryOpen}
+          onClose={closeStoryLibrary}
+          useShellChrome
+        />
       </div>
 
       {/* ─── Mobile menu drawer ─────────────────────────────── */}
@@ -539,8 +605,6 @@ export default function AtlasHomeShell() {
       </MobileMenuDrawer>
 
       {/* ─── Modals ─────────────────────────────────────────── */}
-      <StoryLibraryPanel open={storyLibraryOpen} onClose={closeStoryLibrary} />
-
       <CreditsModal
         open={creditsOpen}
         onClose={closeCredits}
