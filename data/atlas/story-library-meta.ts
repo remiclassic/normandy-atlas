@@ -116,6 +116,33 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     tone: 'exploratory',
   },
   {
+    arcId: 'leif-erikson',
+    category: 'Exploration',
+    featured: true,
+    sortOrder: 5,
+    recommendedEraId: 'norman-origins',
+    displayTitle: {
+      en: 'Leif Erikson — Vinland and beyond',
+      fr: 'Leif Erikson — le Vinland et au-delà',
+      es: 'Leif Erikson — Vinlandia y más allá',
+      it: 'Leif Erikson — Vinland e oltre',
+    },
+    hook: {
+      en: 'The first European to set foot in the Americas — and why the world forgot.',
+      fr: 'Le premier Européen à poser le pied en Amérique — et pourquoi le monde oublia.',
+      es: 'El primer europeo en pisar América — y por qué el mundo lo olvidó.',
+      it: 'Il primo europeo a mettere piede nelle Americhe — e perché il mondo dimenticò.',
+    },
+    blurb: {
+      en: 'An eight-chapter cinematic journey from the fjords of Norway to L\'Anse aux Meadows — and full circle to New France. Exploration and impact views reveal how the Norse Atlantic failure shaped what came after.',
+      fr: 'Un voyage cinématique en huit chapitres, des fjords de Norvège à L\'Anse aux Meadows — et retour vers la Nouvelle-France. Les modes exploration et impact révèlent comment l\'échec atlantique norrois façonna ce qui suivit.',
+      es: 'Un viaje cinematográfico en ocho capítulos, de los fiordos de Noruega a L\'Anse aux Meadows — y de vuelta a Nueva Francia.',
+      it: 'Un viaggio cinematico in otto capitoli, dai fiordi della Norvegia a L\'Anse aux Meadows — e ritorno alla Nuova Francia.',
+    },
+    estimatedMinutes: 12,
+    tone: 'dark',
+  },
+  {
     arcId: 'iron-age-gaul',
     category: 'Origins',
     sortOrder: 12,

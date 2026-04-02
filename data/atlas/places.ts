@@ -846,7 +846,7 @@ export const atlasPlaces: Place[] = [
     layer: 'atlantic',
     eraStates: {
       'viking-age': { visibility: 'emphasized', label: 'Iceland (Reykjavík)', affiliationTags: ['Norwegian', 'settlement'], pedagogyIndex: 5 },
-      'norman-origins': { visibility: 'normal', label: 'Iceland', affiliationTags: ['Norse'], pedagogyIndex: 3 },
+      'norman-origins': { visibility: 'emphasized', label: 'Iceland', affiliationTags: ['Norse'], pedagogyIndex: 4 },
     },
   },
   {

@@ -551,6 +551,20 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
           </span>
         </div>
       )}
+
+      {person.guidedStoryArcId && (
+        <button
+          type="button"
+          onClick={() => {
+            const { startStory, closeDetail } = useMapStore.getState();
+            startStory(person.guidedStoryArcId!);
+            closeDetail();
+          }}
+          className="w-full mt-3 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.08] px-4 py-3 text-[13px] font-medium text-emerald-300/95 hover:bg-emerald-400/[0.14] hover:border-emerald-400/35 transition-colors"
+        >
+          {locale === 'fr' ? 'Suivre le récit sur la carte' : locale === 'es' ? 'Seguir el relato en el mapa' : locale === 'it' ? 'Segui il racconto sulla mappa' : 'Follow the story on the map'}
+        </button>
+      )}
     </div>
   );
 }

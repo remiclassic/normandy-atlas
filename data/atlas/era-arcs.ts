@@ -371,6 +371,32 @@ export const atlasEraArcs: EraArcEntry[] = [
     },
   },
   {
+    arcId: 'leif-erikson',
+    eraIds: ['viking-age', 'norman-origins', 'new-france-foundations'],
+    label: {
+      en: 'Leif Erikson — Vinland and beyond',
+      fr: 'Leif Erikson — le Vinland et au-delà',
+      es: 'Leif Erikson — Vinlandia y más allá',
+      it: 'Leif Erikson — Vinland e oltre',
+    },
+    style: {
+      text: 'text-emerald-300/80',
+      textHover: 'hover:text-emerald-200',
+      border: 'border-emerald-400/15',
+      borderHover: 'hover:border-emerald-400/25',
+      iconBg: 'bg-emerald-400/10',
+      iconBgHover: 'group-hover:bg-emerald-400/15',
+    },
+    styleLight: {
+      text: 'text-emerald-950/90',
+      textHover: 'hover:text-emerald-950',
+      border: 'border-emerald-800/35',
+      borderHover: 'hover:border-emerald-800/50',
+      iconBg: 'bg-emerald-800/20',
+      iconBgHover: 'group-hover:bg-emerald-800/28',
+    },
+  },
+  {
     arcId: 'norman-expansion',
     eraIds: ['norman-expansion'],
     label: {

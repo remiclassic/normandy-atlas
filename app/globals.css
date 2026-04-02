@@ -606,6 +606,12 @@ body {
 .welcome-intro-root {
   background: var(--welcome-bg-base);
 }
+@keyframes cinematic-ocean-drift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-30px, -20px); }
+  100% { transform: translate(0, 0); }
+}
+
 .welcome-intro-gradients {
   background:
     radial-gradient(ellipse 80% 60% at 50% 55%, var(--welcome-gradient-1) 0%, transparent 70%),

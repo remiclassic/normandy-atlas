@@ -4968,4 +4968,317 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1111,
   },
+
+  // ── Leif Erikson cinematic arc ─────────────────────────────────────
+  {
+    id: 'leif-ch1-bloodline',
+    eraId: 'viking-age',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-8.0, 62.0],
+      zoom: 3.6,
+      durationMs: 3000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['norway-origin', 'iceland', 'greenland'],
+      regionIds: ['scandinavia'],
+      routeSegmentIds: ['seg-norway-iceland', 'seg-iceland-greenland'],
+      journeyIds: ['journey-atlantic-norse'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The Bloodline of Exploration',
+      body: {
+        en: 'The Norse expansion across the North Atlantic was not a single leap but a chain of generations. Norwegian chieftains, driven by land hunger and feuds, first settled Iceland around 870. A century later, Erik the Red — banished for killing — sailed west and founded the Greenland colonies around 985. His son Leif grew up on this frontier, inheriting both the seamanship and the restlessness that had carried his ancestors from the fjords of Norway to the edge of the known world.',
+        fr: 'L\'expansion norroise à travers l\'Atlantique Nord ne fut pas un bond unique mais un enchaînement de générations. Des chefs norvégiens, poussés par la soif de terres et les querelles, colonisèrent d\'abord l\'Islande vers 870. Un siècle plus tard, Erik le Rouge — banni pour meurtre — navigua vers l\'ouest et fonda les colonies du Groenland vers 985. Son fils Leif grandit sur cette frontière, héritier du savoir nautique et de l\'inquiétude qui avaient porté ses ancêtres des fjords de Norvège jusqu\'aux confins du monde connu.',
+      },
+    },
+    anchorYear: 985,
+    impactVariant: {
+      copy: {
+        title: 'A Seafaring Lineage',
+        body: {
+          en: 'Each generation pushed the frontier further: from the fjords to the Faeroes, the Faeroes to Iceland, Iceland to Greenland. This stepping-stone pattern — short crossings knitting together a vast ocean — was the Norse method of Atlantic conquest, a model that would echo five centuries later when other Europeans reached the same shores.',
+          fr: 'Chaque génération repoussait la frontière un peu plus loin : des fjords aux Féroé, des Féroé à l\'Islande, de l\'Islande au Groenland. Ce schéma de pierres de gué — de courtes traversées reliant un vaste océan — constituait la méthode norroise de conquête atlantique, un modèle qui trouverait écho cinq siècles plus tard lorsque d\'autres Européens atteindraient les mêmes rivages.',
+        },
+      },
+    },
+  },
+  {
+    id: 'leif-ch2-edge-of-known',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-35.0, 63.0],
+      zoom: 4.0,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['greenland', 'iceland'],
+      regionIds: [],
+      routeSegmentIds: ['seg-iceland-greenland'],
+      journeyIds: ['journey-atlantic-norse'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The Edge of the Known World',
+      body: {
+        en: 'By the late 900s, the Greenland settlements were the westernmost outpost of European civilization — a cluster of farms wedged between the ice cap and the Davis Strait. The Eastern Settlement around Brattahlíð held perhaps 3,000 souls at its peak. Timber was scarce, growing seasons brutal, and survival depended on walrus ivory trade with Europe. Rumors of forested lands to the southwest drifted through the colony. For Leif Erikson, raised in this harsh periphery, the next crossing was not recklessness — it was logical.',
+        fr: 'À la fin des années 900, les colonies groenlandaises formaient l\'avant-poste le plus occidental de la civilisation européenne — un chapelet de fermes coincées entre la calotte glaciaire et le détroit de Davis. L\'Établissement oriental autour de Brattahlíð comptait peut-être 3 000 âmes à son apogée. Le bois manquait, les saisons de culture étaient rudes, et la survie dépendait du commerce d\'ivoire de morse avec l\'Europe. Des rumeurs de terres boisées au sud-ouest circulaient dans la colonie. Pour Leif Erikson, élevé à cette périphérie austère, la traversée suivante n\'était pas de la témérité — c\'était logique.',
+      },
+    },
+    anchorYear: 998,
+    impactVariant: {
+      copy: {
+        title: 'Greenland\'s Fragile Lifeline',
+        body: {
+          en: 'The Greenland colonies were always precarious: dependent on a single trade good — walrus ivory — and a handful of ships each year from Iceland and Norway. When European demand shifted to African elephant ivory and the climate cooled in the 1300s, the lifeline thinned. Greenland reminds us that discovery without sustainable connection is impermanent.',
+          fr: 'Les colonies du Groenland étaient toujours précaires : dépendantes d\'un seul produit d\'échange — l\'ivoire de morse — et de quelques navires par an en provenance d\'Islande et de Norvège. Lorsque la demande européenne se tourna vers l\'ivoire d\'éléphant africain et que le climat se refroidit au XIVe siècle, la ligne de vie s\'amenuisa. Le Groenland nous rappelle que la découverte sans connexion durable est éphémère.',
+        },
+      },
+    },
+  },
+  {
+    id: 'leif-ch3-crossing',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-50.0, 56.0],
+      zoom: 3.8,
+      durationMs: 3500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['greenland', 'vinland'],
+      regionIds: [],
+      routeSegmentIds: ['seg-greenland-vinland'],
+      journeyIds: ['journey-atlantic-norse'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'The Crossing',
+      body: {
+        en: 'Around the year 1000, Leif Erikson sailed from Brattahlíð with a crew of thirty-five, following reports from Bjarni Herjólfsson who had sighted unknown coastlines. The saga tradition describes three landfalls: Helluland (likely Baffin Island), a barren slab of rock; Markland (probably Labrador), dense with forest; and finally Vínland, where they found wild grapes, salmon, and mild winters. The crossing from Greenland — roughly 1,800 kilometres of open sea — was the farthest any European had ventured into the western Atlantic.',
+        fr: 'Vers l\'an 1000, Leif Erikson quitta Brattahlíð avec un équipage de trente-cinq hommes, suivant les récits de Bjarni Herjólfsson qui avait aperçu des côtes inconnues. La tradition des sagas décrit trois escales : Helluland (probablement l\'île de Baffin), une dalle de roche stérile ; Markland (sans doute le Labrador), dense de forêt ; et enfin Vínland, où ils trouvèrent du raisin sauvage, du saumon et des hivers doux. La traversée depuis le Groenland — environ 1 800 kilomètres de pleine mer — représentait le point le plus occidental jamais atteint par un Européen dans l\'Atlantique.',
+      },
+    },
+    anchorYear: 1000,
+  },
+  {
+    id: 'leif-ch4-vinland',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'places',
+      center: [-55.53, 51.59],
+      zoom: 7.5,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['vinland'],
+      regionIds: [],
+      routeSegmentIds: [],
+      journeyIds: ['journey-atlantic-norse'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Vinland — L\'Anse aux Meadows',
+      body: {
+        en: 'The archaeological site at L\'Anse aux Meadows on the northern tip of Newfoundland is the only confirmed Norse settlement in the Americas. Excavated by Helge and Anne Stine Ingstad in the 1960s, it revealed turf longhouses, a smithy with iron slag, and bronze ring-pins of distinctly Norse style. Radiocarbon dating places occupation around 1000 CE — exactly when the sagas say Leif built his houses. The site was likely a seasonal base camp for further exploration southward, not a permanent colony.',
+        fr: 'Le site archéologique de L\'Anse aux Meadows, à la pointe nord de Terre-Neuve, est le seul établissement norrois confirmé en Amérique. Fouillé par Helge et Anne Stine Ingstad dans les années 1960, il a révélé des maisons longues en tourbe, une forge avec du laitier de fer et des broches annulaires en bronze de style nettement norrois. La datation au radiocarbone situe l\'occupation vers l\'an 1000 — exactement quand les sagas disent que Leif construisit ses maisons. Le site était probablement un camp de base saisonnier pour d\'autres explorations vers le sud, et non une colonie permanente.',
+      },
+    },
+    anchorYear: 1000,
+  },
+  {
+    id: 'leif-ch5-failure',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-50.0, 55.0],
+      zoom: 4.2,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['greenland', 'vinland'],
+      regionIds: [],
+      routeSegmentIds: ['seg-greenland-vinland'],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Why It Failed',
+      body: {
+        en: 'The Norse returned to Vinland several times after Leif — his brother Thorvald was killed by Indigenous inhabitants; Thorfinn Karlsefni brought livestock and attempted a lasting settlement. But the venture collapsed within a decade. Distance was the core problem: Vinland sat 4,500 kilometres from Norway, reachable only through Greenland\'s tiny population. Conflict with the local Beothuk or Dorset peoples — whom the Norse called Skrælingjar — made permanent habitation dangerous. Without metropolitan support, supply lines, or demographic mass, the settlement was unsustainable. The Norse withdrew, and the Atlantic closed behind them for five centuries.',
+        fr: 'Les Norrois retournèrent au Vinland plusieurs fois après Leif — son frère Thorvald fut tué par des habitants autochtones ; Thorfinn Karlsefni amena du bétail et tenta un établissement durable. Mais l\'entreprise s\'effondra en moins d\'une décennie. La distance était le problème central : le Vinland se trouvait à 4 500 kilomètres de la Norvège, accessible uniquement via la petite population du Groenland. Les conflits avec les peuples locaux — que les Norrois appelaient Skrælingjar — rendaient l\'habitation permanente dangereuse. Sans soutien métropolitain, lignes d\'approvisionnement ni masse démographique, l\'établissement était insoutenable. Les Norrois se retirèrent, et l\'Atlantique se referma derrière eux pour cinq siècles.',
+      },
+    },
+    anchorYear: 1010,
+    impactVariant: {
+      copy: {
+        title: 'The Limits of Reach Without Infrastructure',
+        body: {
+          en: 'Vinland failed for the same reason many early outposts failed: discovery is not colonization. Without state backing, regular shipping, or enough people to absorb losses, a foothold cannot hold. When the French arrived in the same region five centuries later, they brought a crown apparatus, Jesuit networks, and the fur trade — still barely enough. The Norse failure is the negative image of what made New France possible.',
+          fr: 'Le Vinland échoua pour la même raison que beaucoup d\'avant-postes précoces : la découverte n\'est pas la colonisation. Sans soutien étatique, navigation régulière ni assez de personnes pour absorber les pertes, un point d\'ancrage ne peut tenir. Lorsque les Français arrivèrent dans la même région cinq siècles plus tard, ils apportèrent un appareil royal, des réseaux jésuites et le commerce des fourrures — à peine suffisant. L\'échec norrois est l\'image inversée de ce qui rendit la Nouvelle-France possible.',
+        },
+      },
+    },
+  },
+  {
+    id: 'leif-ch6-forgotten',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-20.0, 62.0],
+      zoom: 3.8,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['iceland', 'greenland'],
+      regionIds: ['scandinavia'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-atlantic-norse'],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The Forgotten Discovery',
+      body: {
+        en: 'For five hundred years, the story of Vinland survived only in Icelandic sagas — the Grœnlendinga saga and Eiríks saga rauða. Medieval Europe never absorbed the knowledge. No map updated, no trade route opened, no papal bull issued. Columbus, the Cabots, and Cartier sailed west with no awareness that Norse keels had cut these waters before them. Not until the 19th century did scholars begin treating the sagas as more than legend, and not until L\'Anse aux Meadows in 1960 did archaeology confirm what the texts had always claimed.',
+        fr: 'Pendant cinq cents ans, l\'histoire du Vinland ne survécut que dans les sagas islandaises — la Grœnlendinga saga et l\'Eiríks saga rauða. L\'Europe médiévale n\'assimila jamais cette connaissance. Aucune carte ne fut mise à jour, aucune route commerciale ouverte, aucune bulle papale émise. Colomb, les Cabot et Cartier naviguèrent vers l\'ouest sans savoir que des quilles norroises avaient déjà sillonné ces eaux. Ce n\'est qu\'au XIXe siècle que les chercheurs commencèrent à traiter les sagas comme autre chose que des légendes, et pas avant L\'Anse aux Meadows en 1960 que l\'archéologie confirma ce que les textes avaient toujours affirmé.',
+      },
+    },
+    anchorYear: 1050,
+    impactVariant: {
+      copy: {
+        title: 'Sagas vs. History',
+        body: {
+          en: 'The Norse discovery had zero downstream effect on European expansion. No cartographic data transferred, no navigational knowledge circulated beyond Iceland, and the Greenland colonies themselves vanished by the 1400s. It is a powerful reminder that discovery without transmission is historically inert. The Atlantic had to be "discovered" again — this time by societies with printing presses, state navies, and global ambitions.',
+          fr: 'La découverte norroise n\'eut aucun effet en aval sur l\'expansion européenne. Aucune donnée cartographique ne fut transmise, aucune connaissance nautique ne circula au-delà de l\'Islande, et les colonies du Groenland elles-mêmes disparurent vers les années 1400. C\'est un rappel puissant que la découverte sans transmission est historiquement inerte. L\'Atlantique dut être « redécouvert » — cette fois par des sociétés dotées d\'imprimeries, de marines d\'État et d\'ambitions mondiales.',
+        },
+      },
+    },
+  },
+  {
+    id: 'leif-ch7-bridge-normans',
+    eraId: 'norman-origins',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'places',
+      center: [0.0, 49.3],
+      zoom: 6.5,
+      durationMs: 2800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Bridge to the Normans',
+      body: {
+        en: 'At almost exactly the same time Leif reached Vinland, his distant kinsmen in Francia were completing a different transformation. Rollo\'s descendants — the same Norse bloodline that had produced the Atlantic explorers — had become French-speaking Christian dukes ruling a powerful territory around the lower Seine. By 1000, Normandy was no longer Scandinavian in language or religion, but the Viking inheritance persisted in its military culture, its maritime confidence, and its appetite for expansion. The thread connecting a Greenland farmstead to a Norman castle is not metaphor — it is genealogy.',
+        fr: 'Presque exactement au moment où Leif atteignait le Vinland, ses lointains parents en Francia achevaient une transformation différente. Les descendants de Rollon — la même lignée norroise qui avait produit les explorateurs de l\'Atlantique — étaient devenus des ducs francophones et chrétiens régnant sur un puissant territoire autour de la basse Seine. Vers l\'an 1000, la Normandie n\'était plus scandinave par la langue ni par la religion, mais l\'héritage viking perdurait dans sa culture militaire, sa confiance maritime et son appétit d\'expansion. Le fil reliant une ferme groenlandaise à un château normand n\'est pas une métaphore — c\'est de la généalogie.',
+      },
+    },
+    anchorYear: 1000,
+    impactVariant: {
+      copy: {
+        title: 'Norse to Norman Identity',
+        body: {
+          en: 'The transformation from Viking raider to Norman duke took barely four generations. By 1000, the settlers spoke French, built stone churches, and governed through Frankish feudal law — yet they kept their restless dynamism. William the Conqueror, the Hautevilles of Sicily, Bohemond of Antioch: all were products of this cultural alchemy. The Norse who reached Vinland and the Normans who conquered England shared great-great-grandfathers.',
+          fr: 'La transformation de pillard viking en duc normand ne prit guère que quatre générations. Vers l\'an 1000, les colons parlaient français, bâtissaient des églises en pierre et gouvernaient selon le droit féodal franc — pourtant ils conservèrent leur dynamisme inquiet. Guillaume le Conquérant, les Hauteville de Sicile, Bohémond d\'Antioche : tous étaient les produits de cette alchimie culturelle. Les Norrois qui atteignirent le Vinland et les Normands qui conquirent l\'Angleterre partageaient des arrière-arrière-grands-parents.',
+        },
+      },
+      focus: {
+        placeIds: ['rouen'],
+        regionIds: ['normandy'],
+        routeSegmentIds: [],
+      },
+    },
+  },
+  {
+    id: 'leif-ch8-new-france',
+    eraId: 'new-france-foundations',
+    arcId: 'leif-erikson',
+    camera: {
+      target: 'bbox',
+      center: [-30.0, 50.0],
+      zoom: 2.8,
+      durationMs: 3500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['rouen', 'dieppe', 'quebec-city', 'vinland'],
+      regionIds: ['normandy', 'new-france'],
+      routeSegmentIds: ['seg-dieppe-atlantic', 'seg-atlantic-quebec'],
+    },
+    presentation: {
+      routeHighlightMode: 'kind',
+      dimOthers: false,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Full Circle — New France',
+      body: {
+        en: 'When Samuel de Champlain sailed from Honfleur in 1608 and founded Québec, he launched a colonial enterprise rooted in the same Norman ports that had once dispatched Viking longships. Many of the settlers who populated New France came from Normandy and the Perche — descendants of the very Norse who had once looked west across the Atlantic. L\'Anse aux Meadows lies barely 1,200 kilometres from Québec City. The Norse reached this coast five centuries too early; the Normans\' French-speaking heirs finally made it stick. From Vinland to New France, the circle closes — the Atlantic crossing that Leif attempted alone was completed by the civilization his kinsmen helped to build.',
+        fr: 'Lorsque Samuel de Champlain partit de Honfleur en 1608 et fonda Québec, il lançait une entreprise coloniale enracinée dans les mêmes ports normands qui avaient autrefois envoyé les drakkars vikings. Nombre des colons qui peuplèrent la Nouvelle-France venaient de Normandie et du Perche — descendants des mêmes Norrois qui avaient jadis regardé vers l\'ouest par-delà l\'Atlantique. L\'Anse aux Meadows se trouve à peine 1 200 kilomètres de la ville de Québec. Les Norrois atteignirent cette côte cinq siècles trop tôt ; les héritiers francophones des Normands réussirent enfin à s\'y maintenir. Du Vinland à la Nouvelle-France, le cercle se referme — la traversée atlantique que Leif tenta seul fut achevée par la civilisation que ses proches contribuèrent à bâtir.',
+      },
+    },
+    anchorYear: 1608,
+    impactVariant: {
+      copy: {
+        title: 'The Atlantic Thread',
+        body: {
+          en: 'The line from Norse Vinland to French Québec is not direct causation — it is rhyme. The same geographic logic that drew Leif southwest from Greenland drew Cartier and Champlain northwest from Normandy. The St. Lawrence corridor, the Grand Banks cod, the timber-rich coastline: these resources called to every Atlantic civilization in turn. Understanding Leif\'s failed attempt illuminates why New France succeeded — and why the Norman Atlantic world, from Rollo to Champlain, forms one continuous arc.',
+          fr: 'La ligne du Vinland norrois au Québec français n\'est pas un lien de causalité directe — c\'est une rime. La même logique géographique qui attira Leif vers le sud-ouest depuis le Groenland attira Cartier et Champlain vers le nord-ouest depuis la Normandie. Le corridor du Saint-Laurent, les morues des Grands Bancs, le littoral riche en bois : ces ressources appelèrent tour à tour chaque civilisation atlantique. Comprendre la tentative avortée de Leif éclaire pourquoi la Nouvelle-France réussit — et pourquoi le monde atlantique normand, de Rollon à Champlain, forme un seul arc continu.',
+        },
+      },
+      camera: {
+        target: 'bbox',
+        center: [-30.0, 50.0],
+        zoom: 2.5,
+        durationMs: 3000,
+        easing: 'easeInOutCubic',
+      },
+    },
+  },
 ];

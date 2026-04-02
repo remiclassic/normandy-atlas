@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useCallback, useState, memo } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MapboxOverlay } from '@deck.gl/mapbox';
@@ -18,6 +18,7 @@ import ParchmentMapChrome from './ParchmentMapChrome';
 import { layerConfigs, getHiddenSegmentKinds } from '@/data/layers';
 import { normanAtlanticStory } from '@/data/stories';
 import { flyToCamera } from '@/lib/geo';
+import { isMaplibreMapRenderable } from '@/lib/map-mobile-recovery';
 import {
   getRegionsGeoJsonForEra,
   getSettlementsGeoJsonForEra,
@@ -493,6 +494,44 @@ function tryRunOnboardingFly(map: maplibregl.Map | null) {
   });
 }
 
+const CINEMATIC_OCEAN_ARC_IDS = new Set(['leif-erikson']);
+
+const CinematicOceanOverlay = memo(function CinematicOceanOverlay() {
+  const storyArc = useMapStore((s) => s.storyArc);
+  const storyMode = useMapStore((s) => s.storyMode);
+  const basemapMode = useMapStore((s) => s.basemapMode);
+  const active = storyMode && storyArc != null && CINEMATIC_OCEAN_ARC_IDS.has(storyArc) && basemapMode === 'dark';
+
+  return (
+    <AnimatePresence>
+      {active && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: 'radial-gradient(ellipse 120% 80% at 50% 60%, transparent 40%, rgba(6,28,40,0.35) 100%)',
+            mixBlendMode: 'multiply',
+          }}
+        >
+          <div
+            className="absolute inset-[-10%]"
+            style={{
+              backgroundImage:
+                'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'f\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.015\' numOctaves=\'3\' seed=\'7\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23f)\'/%3E%3C/svg%3E")',
+              backgroundSize: '512px 512px',
+              opacity: 0.08,
+              animation: 'cinematic-ocean-drift 60s linear infinite',
+            }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+});
+
 export default function MapCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -694,11 +733,83 @@ export default function MapCanvas() {
     const containerEl = containerRef.current;
     if (!containerEl || mapRef.current) return;
 
-    let cancelled = false;
     let map: maplibregl.Map | null = null;
     let resizeObserver: ResizeObserver | null = null;
+    let mapBootGeneration = 0;
+    let canvasRecoveryCleanup: (() => void) | null = null;
 
-    const boot = async () => {
+    function teardownMap() {
+      mapBootGeneration += 1;
+      resetOnboardingEntranceFly();
+      resizeObserver?.disconnect();
+      resizeObserver = null;
+      canvasRecoveryCleanup?.();
+      canvasRecoveryCleanup = null;
+      readyRef.current = false;
+      interactionsAttachedRef.current = false;
+      const m = mapRef.current;
+      if (m) {
+        try {
+          m.remove();
+        } catch {
+          /* map may already be torn down */
+        }
+        mapRef.current = null;
+      }
+      overlayRef.current = null;
+      map = null;
+    }
+
+    function recoverMapIfNeeded(force: boolean) {
+      const container = containerRef.current;
+      if (!container) return;
+      if (force || !isMaplibreMapRenderable(mapRef.current, container)) {
+        teardownMap();
+        void boot(0);
+        return;
+      }
+      const softRecover = () => {
+        mapRef.current?.resize();
+        mapRef.current?.triggerRepaint();
+      };
+      requestAnimationFrame(softRecover);
+      setTimeout(softRecover, 250);
+    }
+
+    function attachCanvasRecovery(mapInstance: maplibregl.Map) {
+      canvasRecoveryCleanup?.();
+      const canvas = mapInstance.getCanvas();
+      const onLost = (e: Event) => {
+        e.preventDefault();
+        recoverMapIfNeeded(true);
+      };
+      const onRestored = () => {
+        recoverMapIfNeeded(false);
+      };
+      canvas.addEventListener('webglcontextlost', onLost);
+      canvas.addEventListener('webglcontextrestored', onRestored);
+      canvasRecoveryCleanup = () => {
+        canvas.removeEventListener('webglcontextlost', onLost);
+        canvas.removeEventListener('webglcontextrestored', onRestored);
+      };
+    }
+
+    async function boot(layoutAttempt = 0) {
+      const myGen = mapBootGeneration;
+      const stale = () => myGen !== mapBootGeneration;
+
+      const host = containerRef.current;
+      if (!host) return;
+      const layout = host.getBoundingClientRect();
+      if (layout.width < 1 || layout.height < 1) {
+        if (layoutAttempt < 30 && !stale()) {
+          setTimeout(() => {
+            if (!stale()) void boot(layoutAttempt + 1);
+          }, 50);
+        }
+        return;
+      }
+
       const { atlasMode, eraId: initialEra, basemapMode, onboardingPhase } = useMapStore.getState();
       const atlasEra = atlasMode ? getAtlasEra(initialEra) : null;
       const onboarding = onboardingPhase !== 'complete' && !isOnboardingDone();
@@ -717,7 +828,7 @@ export default function MapCanvas() {
         }
       }
 
-      if (cancelled || !containerRef.current) return;
+      if (stale() || !containerRef.current) return;
 
       map = new maplibregl.Map({
         container: containerRef.current,
@@ -737,18 +848,21 @@ export default function MapCanvas() {
       map.addControl(overlay as unknown as maplibregl.IControl);
       overlayRef.current = overlay;
 
-      if (cancelled) {
+      if (stale()) {
         map.remove();
         overlayRef.current = null;
         return;
       }
 
       mapRef.current = map;
+      attachCanvasRecovery(map);
 
       map.on('load', async () => {
         if (!map) return;
+        if (stale()) return;
         const theme = useMapStore.getState().basemapMode === 'parchment' ? 'parchment' : 'dark';
         await registerAtlasMapIcons(map, theme);
+        if (stale() || !map) return;
         rebuildMapDataLayersRef.current(map);
 
         if (!interactionsAttachedRef.current) {
@@ -1184,7 +1298,7 @@ export default function MapCanvas() {
         }
 
         const syncMapBearing = () => {
-          if (cancelled || !map) return;
+          if (stale() || !map) return;
           setMapBearing(map.getBearing());
         };
         map.on('rotate', syncMapBearing);
@@ -1203,20 +1317,35 @@ export default function MapCanvas() {
       }
     };
 
-    void boot();
+    const onVisibility = () => {
+      if (document.visibilityState !== 'visible') return;
+      requestAnimationFrame(() => recoverMapIfNeeded(false));
+      setTimeout(() => recoverMapIfNeeded(false), 50);
+      setTimeout(() => recoverMapIfNeeded(false), 250);
+    };
+
+    const onPageShow = (e: PageTransitionEvent) => {
+      recoverMapIfNeeded(e.persisted);
+    };
+
+    const onLayoutShift = () => {
+      setTimeout(() => recoverMapIfNeeded(false), 50);
+      setTimeout(() => recoverMapIfNeeded(false), 250);
+    };
+
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pageshow', onPageShow);
+    window.addEventListener('resize', onLayoutShift);
+    window.addEventListener('orientationchange', onLayoutShift);
+
+    void boot(0);
 
     return () => {
-      cancelled = true;
-      resetOnboardingEntranceFly();
-      resizeObserver?.disconnect();
-      readyRef.current = false;
-      interactionsAttachedRef.current = false;
-      const m = mapRef.current;
-      if (m) {
-        m.remove();
-        mapRef.current = null;
-      }
-      overlayRef.current = null;
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('pageshow', onPageShow);
+      window.removeEventListener('resize', onLayoutShift);
+      window.removeEventListener('orientationchange', onLayoutShift);
+      teardownMap();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -1338,18 +1467,22 @@ export default function MapCanvas() {
 
   useEffect(() => {
     return useMapStore.subscribe(
-      (s) => ({ storyMode: s.storyMode, stepIndex: s.storyStepIndex, atlasMode: s.atlasMode, storyArc: s.storyArc }),
-      ({ storyMode, stepIndex, atlasMode, storyArc }) => {
+      (s) => ({ storyMode: s.storyMode, stepIndex: s.storyStepIndex, atlasMode: s.atlasMode, storyArc: s.storyArc, storyMapFollow: s.storyMapFollow, storyViewMode: s.storyViewMode }),
+      ({ storyMode, stepIndex, atlasMode, storyArc, storyMapFollow, storyViewMode }) => {
         const map = mapRef.current;
-        if (!map || !readyRef.current || !storyMode) return;
+        if (!map || !readyRef.current || !storyMode || !storyMapFollow) return;
 
         if (atlasMode) {
           const beat = getBeat(Math.min(stepIndex, getBeatCount(storyArc) - 1), storyArc);
           if (!beat?.camera) return;
+          // For cinematic arcs in impact mode, use the impact variant camera if available
+          const cam = (storyViewMode === 'impact' && beat.impactVariant?.camera)
+            ? { ...beat.camera, ...beat.impactVariant.camera }
+            : beat.camera;
           flyToCamera(map, {
-            center: beat.camera.center,
-            zoom: beat.camera.zoom,
-            duration: beat.camera.durationMs,
+            center: cam.center,
+            zoom: cam.zoom,
+            duration: cam.durationMs,
           });
         } else {
           const step = normanAtlanticStory[Math.min(stepIndex, normanAtlanticStory.length - 1)];
@@ -1752,6 +1885,7 @@ export default function MapCanvas() {
         {basemapMode === 'parchment' ? (
           <ParchmentMapChrome bearing={mapBearing} waterAtmosphere={parchmentWaterAtmosphere} />
         ) : null}
+        <CinematicOceanOverlay />
       </div>
 
       <MapTooltip data={tooltip} />

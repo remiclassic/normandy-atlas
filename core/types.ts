@@ -186,6 +186,12 @@ export interface StoryBeatIllustration {
   credit?: I18nString;
 }
 
+export interface StoryBeatImpactVariant {
+  focus?: Partial<StoryBeatFocus>;
+  copy?: { title?: string; body?: I18nString };
+  camera?: Partial<StoryBeatCamera>;
+}
+
 export interface StoryBeat {
   id: string;
   eraId: string;
@@ -202,6 +208,8 @@ export interface StoryBeat {
   arcId?: string;
   /** Optional artwork shown in the story bar for this beat. */
   illustration?: StoryBeatIllustration;
+  /** Alternate focus / copy / camera used when "Historical impact" view is active. */
+  impactVariant?: StoryBeatImpactVariant;
 }
 
 // --- Timeline Markers ---
@@ -270,6 +278,8 @@ export interface Person {
   relatedJourneyIds?: string[];
   relatedSettlementIds?: string[];
   relatedEventIds?: string[];
+  /** When set, the person detail panel shows a CTA to launch this guided story arc. */
+  guidedStoryArcId?: string;
 }
 
 // --- Methodology / Atlas Contract ---

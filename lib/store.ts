@@ -103,6 +103,10 @@ interface MapStore {
   storyMode: boolean;
   storyStepIndex: number;
   storyArc: string | null;
+  /** When false, camera does not follow story beat changes (user exploring freely). */
+  storyMapFollow: boolean;
+  /** Toggle between exploration and historical-impact views within cinematic arcs. */
+  storyViewMode: 'exploration' | 'impact';
   activeJourneyId: string | null;
 
   migrationExplorerOpen: boolean;
@@ -166,6 +170,8 @@ interface MapStore {
   nextStoryStep: () => void;
   prevStoryStep: () => void;
   goToStoryStep: (index: number) => void;
+  setStoryMapFollow: (follow: boolean) => void;
+  setStoryViewMode: (mode: 'exploration' | 'impact') => void;
   setActiveJourney: (journeyId: string | null) => void;
   applyNormanExpansionPreset: (preset: NormanExpansionPreset) => void;
   setMigrationExplorerOpen: (open: boolean) => void;
@@ -235,6 +241,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   storyMode: false,
   storyStepIndex: 0,
   storyArc: null,
+  storyMapFollow: true,
+  storyViewMode: 'exploration' as 'exploration' | 'impact',
   activeJourneyId: null,
 
   migrationExplorerOpen: false,
@@ -261,7 +269,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
 
   advanceLedgerCelebration: () => {
-    set({ storyMode: false, storyArc: null, activeJourneyId: null, ledgerCelebrationPhase: 'idle' });
+    set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration' as 'exploration' | 'impact', activeJourneyId: null, ledgerCelebrationPhase: 'idle' });
     pulseLedgerAttention();
   },
 
@@ -291,6 +299,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       storyMode: false,
       storyStepIndex: 0,
       storyArc: null,
+      storyMapFollow: true,
+      storyViewMode: 'exploration' as 'exploration' | 'impact',
       activeJourneyId: null,
     }),
 
@@ -358,16 +368,19 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   openDetail: () => set({ detailPanelOpen: true }),
   closeDetail: () => set({ detailPanelOpen: false, selectedFeatureId: null, selectionKind: null }),
 
-  startStory: (arcId) => set({ storyMode: true, storyStepIndex: 0, storyArc: arcId ?? null, activeJourneyId: null, cinematicFlythrough: null, cinematicFlythroughProgress: 0 }),
-  stopStory: () => set({ storyMode: false, storyArc: null, activeJourneyId: null }),
+  startStory: (arcId) => set({ storyMode: true, storyStepIndex: 0, storyArc: arcId ?? null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, cinematicFlythrough: null, cinematicFlythroughProgress: 0 }),
+  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null }),
 
   nextStoryStep: () =>
-    set((s) => ({ storyStepIndex: s.storyStepIndex + 1 })),
+    set((s) => ({ storyStepIndex: s.storyStepIndex + 1, storyMapFollow: true })),
 
   prevStoryStep: () =>
-    set((s) => ({ storyStepIndex: Math.max(0, s.storyStepIndex - 1) })),
+    set((s) => ({ storyStepIndex: Math.max(0, s.storyStepIndex - 1), storyMapFollow: true })),
 
-  goToStoryStep: (index) => set({ storyStepIndex: index }),
+  goToStoryStep: (index) => set({ storyStepIndex: index, storyMapFollow: true }),
+
+  setStoryMapFollow: (follow) => set({ storyMapFollow: follow }),
+  setStoryViewMode: (mode) => set({ storyViewMode: mode }),
 
   setActiveJourney: (journeyId) => set({ activeJourneyId: journeyId }),
 
@@ -409,6 +422,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       cinematicFlythroughProgress: 0,
       storyMode: false,
       storyArc: null,
+      storyMapFollow: true,
+      storyViewMode: 'exploration' as 'exploration' | 'impact',
     }),
 
   stopCinematicFlythrough: () =>
