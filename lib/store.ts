@@ -3,6 +3,7 @@ import { subscribeWithSelector } from 'zustand/middleware';
 import { defaultEraId } from '@/data/eras';
 import { getDefaultLayerState, getAtlasLayerPreset } from '@/data/layers';
 import { getDefaultAtlasEraId, isValidAtlasEra, getEraRange } from '@/core/era/engine';
+import { getBeatCount } from '@/core/story/engine';
 import { isMigrationEra } from '@/core/migration/engine';
 import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-france-timeline';
 import type { SelectionKind } from '@/types';
@@ -169,7 +170,7 @@ interface MapStore {
   hoverFeature: (id: string | null, kind?: SelectionKind) => void;
   openDetail: () => void;
   closeDetail: () => void;
-  startStory: (arcId?: string) => void;
+  startStory: (arcId?: string | null, options?: { stepIndex?: number }) => void;
   stopStory: () => void;
   nextStoryStep: () => void;
   prevStoryStep: () => void;
@@ -379,7 +380,24 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   openDetail: () => set({ detailPanelOpen: true }),
   closeDetail: () => set({ detailPanelOpen: false, selectedFeatureId: null, selectionKind: null }),
 
-  startStory: (arcId) => set({ storyMode: true, storyStepIndex: 0, storyArc: arcId ?? null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, cinematicFlythrough: null, cinematicFlythroughProgress: 0 }),
+  startStory: (arcId?: string | null, options?: { stepIndex?: number }) => {
+    const arc = arcId ?? null;
+    const maxIdx = Math.max(0, getBeatCount(arc) - 1);
+    const raw = options?.stepIndex ?? 0;
+    const stepIndex = Number.isFinite(raw)
+      ? Math.max(0, Math.min(raw, maxIdx))
+      : 0;
+    set({
+      storyMode: true,
+      storyStepIndex: stepIndex,
+      storyArc: arc,
+      storyMapFollow: true,
+      storyViewMode: 'exploration',
+      activeJourneyId: null,
+      cinematicFlythrough: null,
+      cinematicFlythroughProgress: 0,
+    });
+  },
   stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null }),
 
   nextStoryStep: () =>

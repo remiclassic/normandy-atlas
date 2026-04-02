@@ -131,7 +131,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     featured: true,
     sortOrder: 5,
     thumb: '/story/thumbs/leif-erikson.jpg',
-    recommendedEraId: 'norman-origins',
+    recommendedEraId: 'viking-age',
     displayTitle: {
       en: 'Leif Erikson — Vinland and beyond',
       fr: 'Leif Erikson — le Vinland et au-delà',

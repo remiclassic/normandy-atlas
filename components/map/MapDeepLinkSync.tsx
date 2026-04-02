@@ -23,7 +23,6 @@ export default function MapDeepLinkSync() {
       setEra,
       selectFeature,
       startStory,
-      goToStoryStep,
     } = useMapStore.getState();
 
     const era = params.get('era');
@@ -58,12 +57,13 @@ export default function MapDeepLinkSync() {
     const storyParam = params.get('story');
     if (storyParam !== null) {
       const arcId = storyParam || undefined;
-      startStory(arcId);
       const stepParam = params.get('step');
+      let stepIndex = 0;
       if (stepParam != null) {
         const idx = Math.max(0, Math.min(Number(stepParam), getBeatCount(arcId ?? null) - 1));
-        if (Number.isFinite(idx)) goToStoryStep(idx);
+        if (Number.isFinite(idx)) stepIndex = idx;
       }
+      startStory(arcId ?? null, { stepIndex });
     }
 
     window.history.replaceState({}, '', window.location.pathname);

@@ -55,7 +55,6 @@ export default function StoryLibraryPanel({
   const locale = useLocale();
   const uiTheme = useMapStore((s) => s.uiTheme);
   const startStory = useMapStore((s) => s.startStory);
-  const goToStoryStep = useMapStore((s) => s.goToStoryStep);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [progressEpoch, setProgressEpoch] = useState(0);
   const [selectedRow, setSelectedRow] = useState<StoryLibraryRowModel | null>(null);
@@ -140,18 +139,15 @@ export default function StoryLibraryPanel({
       const key = row.progressKey;
       const saved = resume ? progressMap[key]?.lastStep ?? 0 : 0;
       if (row.meta.arcId === null) {
-        startStory();
+        startStory(null, { stepIndex: saved });
       } else {
-        startStory(row.meta.arcId);
-      }
-      if (resume && saved > 0) {
-        queueMicrotask(() => goToStoryStep(saved));
+        startStory(row.meta.arcId, { stepIndex: saved });
       }
       setProgressEpoch((e) => e + 1);
       setSelectedRow(null);
       onClose();
     },
-    [startStory, goToStoryStep, onClose, progressMap],
+    [startStory, onClose, progressMap],
   );
 
   const handleTileSelect = useCallback((row: StoryLibraryRowModel) => {
