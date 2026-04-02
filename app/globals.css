@@ -180,6 +180,29 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   /* Do not set touch-action on the document root — it breaks map pan/zoom on some mobile browsers. */
+
+  --atlas-text-2xs: 7px;
+  --atlas-text-xs: 9px;
+  --atlas-text-sm: 10px;
+  --atlas-text-base: 12px;
+  --atlas-text-md: 13px;
+  --atlas-text-lg: 14px;
+  --atlas-text-xl: 18px;
+  --atlas-text-2xl: 20px;
+  --atlas-text-3xl: 24px;
+  transition: font-size 180ms ease;
+}
+
+html.text-size-large {
+  --atlas-text-2xs: 9px;
+  --atlas-text-xs: 11px;
+  --atlas-text-sm: 12px;
+  --atlas-text-base: 15px;
+  --atlas-text-md: 16px;
+  --atlas-text-lg: 17px;
+  --atlas-text-xl: 22px;
+  --atlas-text-2xl: 24px;
+  --atlas-text-3xl: 28px;
 }
 
 body {
@@ -349,6 +372,15 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-chrome-border-strong);
   box-shadow: var(--shadow-popover);
+}
+
+/* Text-size accessibility — tooltip + attribution scaling */
+html.text-size-large .map-atlas-tooltip {
+  font-size: var(--atlas-text-base);
+}
+
+html.text-size-large .maplibregl-ctrl-attrib {
+  font-size: 12px !important;
 }
 
 /* Section divider with subtle gradient */

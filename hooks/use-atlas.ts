@@ -5,6 +5,7 @@ import { useMapStore, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
 import { readStoredUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
+import { readStoredTextSize, applyTextSizeToDocument } from '@/lib/text-size';
 import type { AtlasLocale, I18nString } from '@/core/types';
 import {
   getVisiblePlaces,
@@ -46,6 +47,15 @@ export function useHydrateUiTheme(): void {
     const stored = readStoredUiTheme();
     applyUiThemeToDocument(stored);
     useMapStore.setState({ uiTheme: stored });
+  }, []);
+}
+
+/** Sync text-size preference from localStorage with Zustand (blocking script already set classList). */
+export function useHydrateTextSize(): void {
+  useEffect(() => {
+    const stored = readStoredTextSize();
+    applyTextSizeToDocument(stored);
+    useMapStore.setState({ textSize: stored });
   }, []);
 }
 

@@ -67,6 +67,7 @@ import { normanExpansionRoutes } from '@/data/norman-expansion';
 import type { NormanExpansionRoute } from '@/data/norman-expansion';
 import MapTooltip from './MapTooltip';
 import type { TooltipData } from './MapTooltip';
+import { syncMapLabelTextSize } from './map-label-text-size';
 import { NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { pickI18n } from '@/lib/locale';
 import { registerAtlasMapIcons } from '@/lib/atlas/mapIcons';
@@ -865,6 +866,8 @@ export default function MapCanvas() {
         if (stale() || !map) return;
         rebuildMapDataLayersRef.current(map);
 
+        syncMapLabelTextSize(map, useMapStore.getState().textSize);
+
         if (!interactionsAttachedRef.current) {
           interactionsAttachedRef.current = true;
 
@@ -1389,6 +1392,17 @@ export default function MapCanvas() {
       (phase) => {
         if (phase === 'intro') resetOnboardingEntranceFly();
         if (phase === 'flying' || phase === 'guided') tryRunOnboardingFly(mapRef.current);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.textSize,
+      (mode) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        syncMapLabelTextSize(map, mode);
       },
     );
   }, []);

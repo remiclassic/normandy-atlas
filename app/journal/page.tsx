@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useMemo, useDeferredValue, useCallback, memo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Search, Menu, X, MapPin, Map, ExternalLink } from 'lucide-react';
+import TextSizeMenu from '@/components/ui/TextSizeMenu';
 import { useLocale } from '@/hooks/use-atlas';
 import { pickI18n } from '@/lib/locale';
 import { getAtlasEras } from '@/core/era/engine';
@@ -555,10 +556,14 @@ export default function JournalPage() {
           {locale === 'fr' ? 'Journal de l\u2019Atlas' : 'Atlas Journal'}
         </h1>
 
+        <span className="ml-auto hidden md:inline-flex">
+          <TextSizeMenu standalone />
+        </span>
+
         <button
           type="button"
           onClick={() => setMobileTocOpen((v) => !v)}
-          className="ml-auto md:hidden flex h-8 w-8 items-center justify-center rounded-lg transition-colors cursor-pointer"
+          className="ml-auto md:ml-0 md:hidden flex h-8 w-8 items-center justify-center rounded-lg transition-colors cursor-pointer"
           style={{ color: 'var(--color-text-dim)' }}
           aria-label={mobileTocOpen ? 'Close table of contents' : 'Open table of contents'}
         >

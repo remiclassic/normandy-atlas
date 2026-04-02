@@ -26,12 +26,13 @@ import { SupportModal } from '@/components/layout/SupportModal';
 /** Set to true to restore Support the Atlas in the header, mobile menu, and creator modal. */
 const SUPPORT_ATLAS_ENABLED = false;
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
-import { useHydrateLocale, useHydrateUiTheme, useLocale } from '@/hooks/use-atlas';
+import { useHydrateLocale, useHydrateUiTheme, useHydrateTextSize, useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import BasemapSwitcher from '@/components/ui/BasemapSwitcher';
+import TextSizeMenu from '@/components/ui/TextSizeMenu';
 import { BackgroundMusic } from '@/components/audio/BackgroundMusic';
 import AtlasLedgerPanel from '@/components/progress/AtlasLedgerPanel';
 import CuratorToast from '@/components/progress/CuratorToast';
@@ -109,6 +110,7 @@ function MobileMenuDrawer({
 export default function AtlasHomeShell() {
   useHydrateLocale();
   useHydrateUiTheme();
+  useHydrateTextSize();
   const locale = useLocale();
   const isMobile = useIsMobile();
   const eraId = useMapStore((s) => s.eraId);
@@ -269,6 +271,12 @@ export default function AtlasHomeShell() {
           <RoadmapIconButton onOpen={openRoadmap} ariaLabel={t('roadmap.aria.open', locale)} />
         </ChromeIconTooltip>
         <div className="mx-0.5 h-3 w-px bg-chrome-divider" />
+        <ChromeIconTooltip
+          label={t('textSize.tooltip.label', locale)}
+          hint={t('textSize.tooltip.hint', locale)}
+        >
+          <TextSizeMenu />
+        </ChromeIconTooltip>
         <span className="flex items-center gap-0.5" data-onboarding="theme">
           <ThemeSwitcher />
           <BasemapSwitcher />
@@ -492,6 +500,10 @@ export default function AtlasHomeShell() {
             <div className="flex items-center justify-between px-3 py-2">
               <span className="text-[13px] text-text-muted">Basemap</span>
               <BasemapSwitcher />
+            </div>
+            <div className="flex items-center justify-between px-3 py-2">
+              <span className="text-[13px] text-text-muted">Text size</span>
+              <TextSizeMenu />
             </div>
             <div className="flex items-center justify-between px-3 py-2">
               <span className="text-[13px] text-text-muted">Language</span>

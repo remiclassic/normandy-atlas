@@ -124,6 +124,43 @@ const STRINGS = {
     it: 'Schema colori pergamena',
   },
 
+  'textSize.tooltip.label': {
+    en: 'Adjust text size',
+    fr: 'Taille du texte',
+    es: 'Tamaño del texto',
+    it: 'Dimensione del testo',
+  },
+  'textSize.tooltip.hint': {
+    en: 'Improve readability',
+    fr: 'Améliorer la lisibilité',
+    es: 'Mejorar la legibilidad',
+    it: 'Migliora la leggibilità',
+  },
+  'textSize.standard': {
+    en: 'Standard text',
+    fr: 'Texte standard',
+    es: 'Texto estándar',
+    it: 'Testo standard',
+  },
+  'textSize.large': {
+    en: 'Large text',
+    fr: 'Grand texte',
+    es: 'Texto grande',
+    it: 'Testo grande',
+  },
+  'textSize.highContrast': {
+    en: 'High contrast (coming soon)',
+    fr: 'Contraste élevé (bientôt)',
+    es: 'Alto contraste (próximamente)',
+    it: 'Alto contrasto (in arrivo)',
+  },
+  'textSize.reducedMotion': {
+    en: 'Reduced motion (coming soon)',
+    fr: 'Mouvement réduit (bientôt)',
+    es: 'Movimiento reducido (próximamente)',
+    it: 'Movimento ridotto (in arrivo)',
+  },
+
   'basemap.group': {
     en: 'Map base',
     fr: 'Fond de carte',

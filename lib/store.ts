@@ -10,6 +10,8 @@ import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocal
 import { DEFAULT_LOCALE, readStoredLocale, persistLocale } from '@/lib/locale';
 import type { UiTheme } from '@/lib/ui-theme';
 import { DEFAULT_UI_THEME, persistUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
+import type { TextSizeMode } from '@/lib/text-size';
+import { DEFAULT_TEXT_SIZE, persistTextSize, applyTextSizeToDocument } from '@/lib/text-size';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -142,6 +144,7 @@ interface MapStore {
   onboardingPhase: OnboardingPhase;
   /** App chrome only — map basemap uses `basemapMode`. */
   uiTheme: UiTheme;
+  textSize: TextSizeMode;
 
   ledgerCelebrationPhase: LedgerCelebrationPhase;
   /** True while the Atlas Ledger chrome icon should pulse (auto-clears after 10s). */
@@ -153,6 +156,7 @@ interface MapStore {
 
   setLocale: (locale: AtlasLocale) => void;
   setUiTheme: (theme: UiTheme) => void;
+  setTextSize: (mode: TextSizeMode) => void;
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
   toggleLayer: (id: string) => void;
@@ -263,6 +267,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
   uiTheme: DEFAULT_UI_THEME,
+  textSize: DEFAULT_TEXT_SIZE,
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
   ledgerAttentionActive: false,
 
@@ -289,6 +294,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     persistUiTheme(theme);
     applyUiThemeToDocument(theme);
     set({ uiTheme: theme });
+  },
+
+  setTextSize: (mode) => {
+    persistTextSize(mode);
+    applyTextSizeToDocument(mode);
+    set({ textSize: mode });
   },
 
   setAtlasMode: (enabled) =>

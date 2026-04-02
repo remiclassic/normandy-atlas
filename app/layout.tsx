@@ -50,6 +50,14 @@ export default function RootLayout({
               "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
           }}
         />
+        <Script
+          id="text-size-restore"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
+          }}
+        />
         <noscript>
           <img
             height={1}
