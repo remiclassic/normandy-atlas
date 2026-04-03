@@ -360,10 +360,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'roger-ii',
-    category: 'Expansion',
+    category: 'People',
     sortOrder: 31,
     isNew: true,
-    thumb: '/story/thumbs/roger-ii.jpg',
+    thumb: '/story/norman-expansion/monreale-cathedral.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Roger II — Builder of Sicily',
@@ -389,10 +389,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'robert-guiscard',
-    category: 'Expansion',
+    category: 'People',
     sortOrder: 32,
     isNew: true,
-    thumb: '/story/thumbs/robert-guiscard.jpg',
+    thumb: '/story/norman-expansion/melfi-castle-apulia.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Robert Guiscard — The Wily Conqueror',
@@ -418,10 +418,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'bohemond-antioch',
-    category: 'Conquest',
+    category: 'People',
     sortOrder: 23,
     isNew: true,
-    thumb: '/story/thumbs/bohemond-antioch.jpg',
+    thumb: '/story/norman-expansion/siege-antioch-1098.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Bohemond — Prince of Antioch',
@@ -447,10 +447,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'william-iron-arm',
-    category: 'Expansion',
-    sortOrder: 33,
+    category: 'People',
+    sortOrder: 63,
     isNew: true,
-    thumb: '/story/thumbs/william-iron-arm.jpg',
+    thumb: '/story/norman-expansion/melfi-castle-apulia.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'William Iron Arm — First Lord of Apulia',
@@ -477,7 +477,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     category: 'People',
     sortOrder: 62,
     isNew: true,
-    thumb: '/story/thumbs/sichelgaita.jpg',
+    thumb: '/story/norman-expansion/salerno-medieval-cityscape.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Sichelgaita — Warrior Queen of the Normans',
@@ -501,10 +501,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'odo-bayeux',
-    category: 'Conquest',
-    sortOrder: 24,
+    category: 'People',
+    sortOrder: 64,
     isNew: true,
-    thumb: '/story/thumbs/odo-bayeux.jpg',
+    thumb: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Odo of Bayeux — Bishop, Earl, Warlord',
@@ -528,10 +528,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   },
   {
     arcId: 'hereward-the-wake',
-    category: 'Conquest',
-    sortOrder: 25,
+    category: 'People',
+    sortOrder: 65,
     isNew: true,
-    thumb: '/story/thumbs/hereward-the-wake.jpg',
+    thumb: '/story/william-conqueror/bayeux-tapestry-hastings.jpg',
     recommendedEraId: 'norman-expansion',
     displayTitle: {
       en: 'Hereward the Wake — The Last Englishman',
