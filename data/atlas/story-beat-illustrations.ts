@@ -8,10 +8,131 @@ import type { StoryBeatIllustrationSlide } from '@/core/types';
  *   - viking-age: Commons photos and PD painting reproductions + AI where needed.
  *   - norman-origins: Commons (abbey, Vinland, manuscript) + AI reconstructions + reuse of Viking / William assets where apt.
  *   - norman-expansion: Italy / crusade / England assets under public/story/norman-expansion + William Conqueror reuse.
+ *   - age-of-exploration: Norman Atlantic ports (Commons) + AI mid-ocean reconstruction; Rouen plan reused from guillaume-couture.
+ *   - new-france-foundations: Atlantic France ports, St. Lawrence corridor, Acadia (Commons) + reuse of age-of-exploration / guillaume-couture + AI Château-Richer landscape.
+ *   - royal-new-france: Great Lakes forts, Mississippi / Gulf (Commons + AI Baie des Puants & Gulf coast) + reuse of new-france-foundations / guillaume-couture.
+ *   - atlantic-imprint: peak & collapse of New France (Benjamin West Wolfe PD) + St. Lawrence endurance; heavy reuse of royal / new-france / guillaume assets.
  *
  * Each key maps to a single slide or an array of slides.
  * Slides with placeId / center get their own map pin and gallery anchor.
  */
+
+/** Mainland French Atlantic ports, Perche, and insular Norman harbour (Guernsey) — shared by migration + New France arc origin beats. */
+const NEW_FRANCE_ATLANTIC_ORIGIN_SLIDES: StoryBeatIllustrationSlide[] = [
+  {
+    src: '/story/new-france-foundations/la-rochelle-vieux-port-lisch.jpg',
+    alt: {
+      en: 'La Rochelle Vieux-Port — reconstruction after Juste Lisch (1864); Aunis was a major Centre-West source of emigrants to New France',
+      fr: 'Le Vieux-Port de La Rochelle — reconstitution d’après Juste Lisch (1864) ; l’Aunis fut une source majeure d’émigrants vers la Nouvelle-France',
+      es: 'El Viejo Puerto de La Rochelle — reconstrucción según Juste Lisch (1864); Aunis fue una fuente importante de emigrantes a Nueva Francia',
+      it: 'Il Vieux-Port de La Rochelle — ricostruzione da Juste Lisch (1864); l’Aunis fu una fonte importante di emigrati verso la Nuova Francia',
+    },
+    credit: {
+      en: 'Juste Lisch, 1864 (illustration); photograph 2006. Wikimedia Commons (public domain)',
+      fr: 'Juste Lisch, 1864 (illustration) ; photographie 2006. Wikimedia Commons (domaine public)',
+      es: 'Juste Lisch, 1864 (ilustración); fotografía 2006. Wikimedia Commons (dominio público)',
+      it: 'Juste Lisch, 1864 (illustrazione); fotografia 2006. Wikimedia Commons (pubblico dominio)',
+    },
+    placeId: 'la-rochelle',
+  },
+  {
+    src: '/story/new-france-foundations/saint-malo-port.jpg',
+    alt: {
+      en: 'Saint-Malo harbour — Breton corsair port and repeated point of embarkation toward Canada and Acadia',
+      fr: 'Le port de Saint-Malo — havre breton corsaire et point d’embarquement répété vers le Canada et l’Acadie',
+      es: 'Puerto de Saint-Malo — puerto corsario bretón y punto repetido de embarque hacia Canadá y Acadia',
+      it: 'Porto di Saint-Malo — porto corsaro bretone e punto d’imbarco ricorrente verso Canada e Acadia',
+    },
+    credit: {
+      en: 'Photo: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+      fr: 'Photo : IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+      es: 'Foto: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+      it: 'Foto: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+    },
+    placeId: 'saint-malo',
+  },
+  {
+    src: '/story/age-of-exploration/dieppe-port.jpg',
+    alt: {
+      en: 'Dieppe — Norman Channel port that sent repeated cohorts of engagés and settlers toward the St. Lawrence',
+      fr: 'Dieppe — port normand de la Manche qui envoya des cohortes répétées d’engagés et de colons vers le Saint-Laurent',
+      es: 'Dieppe — puerto normando del Canal que envió cohortes repetidas de engagés y colonos hacia el San Lorenzo',
+      it: 'Dieppe — porto normanno della Manica che inviò coorti ripetute di engagés e coloni verso il San Lorenzo',
+    },
+    credit: {
+      en: 'Photo: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      fr: 'Photo : W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      es: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      it: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+    },
+    placeId: 'dieppe',
+  },
+  {
+    src: '/story/age-of-exploration/honfleur-port.jpg',
+    alt: {
+      en: 'Honfleur Vieux Bassin — Seine-estuary port tied to Norman recruitment for colonial voyages',
+      fr: 'Le Vieux Bassin d’Honfleur — port de l’estuaire de la Seine lié au recrutement normand pour les voyages coloniaux',
+      es: 'Vieux Bassin de Honfleur — puerto del estuario del Sena vinculado al reclutamiento normando para viajes coloniales',
+      it: 'Vieux Bassin di Honfleur — porto dell’estuario della Senna legato al reclutamento normanno per i viaggi coloniali',
+    },
+    credit: {
+      en: 'Photo: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+      fr: 'Photo : Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+      es: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+      it: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+    },
+    placeId: 'honfleur',
+  },
+  {
+    src: '/story/new-france-foundations/mortagne-sous-prefecture.jpg',
+    alt: {
+      en: 'Mortagne-au-Perche — market town in the Perche, a dense source region for French Canadian founder lineages',
+      fr: 'Mortagne-au-Perche — bourg de marché du Perche, région d’origine dense pour les lignées fondatrices canadiennes-françaises',
+      es: 'Mortagne-au-Perche — villa de mercado del Perche, región de origen densa para linajes fundacionales franco-canadienses',
+      it: 'Mortagne-au-Perche — borgo di mercato del Perche, regione d’origine ricca di lignaggi fondatori franco-canadesi',
+    },
+    credit: {
+      en: 'Photo: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+      fr: 'Photo : Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+      es: 'Foto: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+      it: 'Foto: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+    },
+    placeId: 'mortagne-au-perche',
+  },
+  {
+    src: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+    alt: {
+      en: 'Jacques Gomboust’s 1655 plan of Rouen — lower Seine merchant networks financed outfits and charters for Atlantic Canada',
+      fr: 'Plan de Rouen par Jacques Gomboust, 1655 — les réseaux marchands de la basse Seine finançaient équipements et chartes pour le Canada atlantique',
+      es: 'Plano de Ruán de Jacques Gomboust, 1655 — las redes mercantiles del bajo Sena financiaban equipos y cartas para el Canadá atlántico',
+      it: 'Pianta di Rouen di Jacques Gomboust, 1655 — le reti mercantili della bassa Senna finanziavano equipaggiamenti e patenti per il Canada atlantico',
+    },
+    credit: {
+      en: 'Jacques Gomboust, 1655. Wikimedia Commons (public domain)',
+      fr: 'Jacques Gomboust, 1655. Wikimedia Commons (domaine public)',
+      es: 'Jacques Gomboust, 1655. Wikimedia Commons (dominio público)',
+      it: 'Jacques Gomboust, 1655. Wikimedia Commons (pubblico dominio)',
+    },
+    placeId: 'rouen',
+  },
+  {
+    src: '/story/new-france-foundations/st-peter-port-harbour.jpg',
+    alt: {
+      en: 'Saint Peter Port, Guernsey — insular Norman harbour in the same cultural orbit, though colonial sailings were overwhelmingly from mainland France',
+      fr: 'Saint-Pierre-Port, Guernesey — havre insulaire normand dans la même sphère culturelle, bien que les départs coloniaux partissent surtout de France continentale',
+      es: 'Saint Peter Port, Guernsey — puerto insular normando en el mismo ámbito cultural, aunque los viajes coloniales salieron sobre todo de Francia continental',
+      it: 'Saint Peter Port, Guernsey — porto insulare normanno nella stessa sfera culturale, sebbene le partenze coloniali fossero soprattutto dalla Francia continentale',
+    },
+    credit: {
+      en: 'Photo: John Rostron / Geograph Channel Islands, Wikimedia Commons (CC BY-SA 2.0)',
+      fr: 'Photo : John Rostron / Geograph Channel Islands, Wikimedia Commons (CC BY-SA 2.0)',
+      es: 'Foto: John Rostron / Geograph Channel Islands, Wikimedia Commons (CC BY-SA 2.0)',
+      it: 'Foto: John Rostron / Geograph Channel Islands, Wikimedia Commons (CC BY-SA 2.0)',
+    },
+    placeId: 'saint-peter-port',
+  },
+];
+
 export const STORY_BEAT_ILLUSTRATIONS: Partial<
   Record<string, StoryBeatIllustrationSlide | StoryBeatIllustrationSlide[]>
 > = {
@@ -359,6 +480,900 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Frances Anne Hopkins, c. 1869. Wikimedia Commons (pubblico dominio)',
       },
       placeId: 'lake-mistassini',
+    },
+  ],
+
+  // ── New France foundations ─────────────────────────────────────────
+  //   - Atlantic origin ports: Commons (La Rochelle Lisch PD; Saint-Malo, Mortagne, St Peter Port CC BY-SA)
+  //   - St. Lawrence / Acadia: Montmorency, Tadoussac, Montréal, Port-Royal, Louisbourg (Commons)
+  //   - Château-Richer ribbon farms: AI reconstruction
+
+  'beat-2': [
+    {
+      src: '/story/age-of-exploration/dieppe-port.jpg',
+      alt: {
+        en: 'Dieppe — one of many mainland harbours from which repeated Atlantic crossings fed the St. Lawrence colony',
+        fr: 'Dieppe — l’un des nombreux havres continentaux d’où des traversées atlantiques répétées alimentaient la colonie du Saint-Laurent',
+        es: 'Dieppe — uno de los muchos puertos continentales desde los que travesías atlánticas repetidas abastecían la colonia del San Lorenzo',
+        it: 'Dieppe — uno dei tanti porti continentali da cui traversate atlantiche ripetute rifornivano la colonia del San Lorenzo',
+      },
+      credit: {
+        en: 'Photo: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'dieppe',
+    },
+    {
+      src: '/story/age-of-exploration/atlantic-crossing-16th-century.jpg',
+      alt: {
+        en: 'Reconstruction — weeks at sea on the North Atlantic, the corridor linking French ports to Québec',
+        fr: 'Reconstitution — des semaines en mer sur l’Atlantique Nord, corridor reliant les ports français à Québec',
+        es: 'Reconstrucción — semanas en el Atlántico Norte, el corredor que unía los puertos franceses con Quebec',
+        it: 'Ricostruzione — settimane in mare sull’Atlantico del Nord, corridoio che collegava i porti francesi a Québec',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mid-atlantic-passage',
+    },
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Champlain’s Habitation de Québec — terminus of the transatlantic corridor for many colonial cohorts',
+        fr: 'L’Habitation de Québec de Champlain — terminus du corridor transatlantique pour de nombreuses cohortes coloniales',
+        es: 'La Habitation de Champlain en Quebec — término del corredor transatlántico para muchas cohortes coloniales',
+        it: 'L’Habitation de Québec di Champlain — capolinea del corridoio transatlantico per molte coorti coloniali',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+  ],
+
+  'beat-3': [
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Habitation de Québec — a small founder population here left an outsized imprint on French Canadian culture',
+        fr: 'L’Habitation de Québec — une population fondatrice restreinte y laissa une empreinte démesurée sur la culture canadienne-française',
+        es: 'La Habitation de Québec — una población fundadora pequeña dejó una huella desproporcionada en la cultura franco-canadiense',
+        it: 'Habitation de Québec — una piccola popolazione fondatrice lasciò un’impronta sproporzionata sulla cultura franco-canadese',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/montmorency-falls.jpg',
+      alt: {
+        en: 'Montmorency Falls — near Beauport on the Beaupré shore, part of the dense St. Lawrence settlement ribbon',
+        fr: 'Chute Montmorency — près de Beauport sur la côte de Beaupré, partie du ruban dense de peuplement du Saint-Laurent',
+        es: 'Cataratas Montmorency — cerca de Beauport en la costa de Beaupré, parte del denso ribete de asentamiento del San Lorenzo',
+        it: 'Cascate Montmorency — vicino a Beauport sulla costa di Beaupré, parte del fitto nastro di insediamento del San Lorenzo',
+      },
+      credit: {
+        en: 'Photo: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'beauport',
+    },
+    {
+      src: '/story/new-france-foundations/mortagne-sous-prefecture.jpg',
+      alt: {
+        en: 'Mortagne-au-Perche — many recruits to Canada left from Norman and Perche parishes linked to Rouen and Dieppe',
+        fr: 'Mortagne-au-Perche — nombre de recrues pour le Canada partirent de paroisses normandes et percheronnes liées à Rouen et Dieppe',
+        es: 'Mortagne-au-Perche — muchos reclutas para Canadá salieron de parroquias normandas y del Perche ligadas a Ruán y Dieppe',
+        it: 'Mortagne-au-Perche — molti reclute per il Canada partirono da parrocchie normanne e del Perche legate a Rouen e Dieppe',
+      },
+      credit: {
+        en: 'Photo: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Benjism89 (Benjamin Smith), Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'mortagne-au-perche',
+    },
+  ],
+
+  'beat-migration-origins': NEW_FRANCE_ATLANTIC_ORIGIN_SLIDES,
+
+  'nf-arc-origins': NEW_FRANCE_ATLANTIC_ORIGIN_SLIDES,
+
+  'nf-arc-atlantic-crossing': [
+    {
+      src: '/story/new-france-foundations/la-rochelle-vieux-port-lisch.jpg',
+      alt: {
+        en: 'La Rochelle — spring sailings toward Canada and Acadia often left from La Rochelle and other Atlantic harbours',
+        fr: 'La Rochelle — les départs printaniers vers le Canada et l’Acadie partaient souvent de La Rochelle et d’autres havres atlantiques',
+        es: 'La Rochelle — las salidas de primavera hacia Canadá y Acadia a menudo partían de La Rochelle y otros puertos atlánticos',
+        it: 'La Rochelle — le partenze primaverili verso Canada e Acadia spesso salpavano da La Rochelle e da altri porti atlantici',
+      },
+      credit: {
+        en: 'Juste Lisch, 1864 (illustration); photograph 2006. Wikimedia Commons (public domain)',
+        fr: 'Juste Lisch, 1864 (illustration) ; photographie 2006. Wikimedia Commons (domaine public)',
+        es: 'Juste Lisch, 1864 (ilustración); fotografía 2006. Wikimedia Commons (dominio público)',
+        it: 'Juste Lisch, 1864 (illustrazione); fotografia 2006. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'la-rochelle',
+    },
+    {
+      src: '/story/age-of-exploration/dieppe-port.jpg',
+      alt: {
+        en: 'Dieppe — Norman port named alongside La Rochelle, Honfleur, and Saint-Malo in colonial sailing seasons',
+        fr: 'Dieppe — port normand cité avec La Rochelle, Honfleur et Saint-Malo dans les saisons de navigation coloniale',
+        es: 'Dieppe — puerto normando nombrado junto a La Rochelle, Honfleur y Saint-Malo en las temporadas de navegación colonial',
+        it: 'Dieppe — porto normanno citato con La Rochelle, Honfleur e Saint-Malo nelle stagioni di navigazione coloniale',
+      },
+      credit: {
+        en: 'Photo: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'dieppe',
+    },
+    {
+      src: '/story/age-of-exploration/atlantic-crossing-16th-century.jpg',
+      alt: {
+        en: 'Reconstruction — six- to twelve-week Atlantic passages carried settlers, supplies, and trade goods toward the St. Lawrence',
+        fr: 'Reconstitution — des traversées atlantiques de six à douze semaines transportaient colons, vivres et marchandises vers le Saint-Laurent',
+        es: 'Reconstrucción — travesías atlánticas de seis a doce semanas llevaban colonos, víveres y mercancías hacia el San Lorenzo',
+        it: 'Ricostruzione — traversate atlantiche di sei-dodici settimane portavano coloni, viveri e merci verso il San Lorenzo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mid-atlantic-passage',
+    },
+    {
+      src: '/story/guillaume-couture/champlain-map-1632.jpg',
+      alt: {
+        en: 'Champlain’s 1632 map of New France — the St. Lawrence colony as the demographic hub of many transatlantic voyages',
+        fr: 'Carte de la Nouvelle-France par Champlain, 1632 — la colonie du Saint-Laurent comme pôle démographique de nombreuses traversées',
+        es: 'Mapa de Nueva Francia de Champlain, 1632 — la colonia del San Lorenzo como eje demográfico de muchas travesías',
+        it: 'Mappa della Nuova Francia di Champlain, 1632 — la colonia del San Lorenzo come polo demografico di molte traversate',
+      },
+      credit: {
+        en: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+  ],
+
+  'nf-arc-settlement-corridor': [
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Habitation de Québec — head of the seigneurial ribbon along the lower St. Lawrence',
+        fr: 'L’Habitation de Québec — tête du ruban seigneurial le long du bas Saint-Laurent',
+        es: 'La Habitation de Québec — cabeza del ribete señorial a lo largo del bajo San Lorenzo',
+        it: 'Habitation de Québec — testa del nastro signorile lungo il basso San Lorenzo',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/guillaume-couture/trois-rivieres.jpg',
+      alt: {
+        en: 'Trois-Rivières — mid-corridor node between Québec and Montréal on the St. Lawrence',
+        fr: 'Trois-Rivières — nœud du milieu du corridor entre Québec et Montréal sur le Saint-Laurent',
+        es: 'Trois-Rivières — nudo intermedio del corredor entre Quebec y Montreal en el San Lorenzo',
+        it: 'Trois-Rivières — nodo centrale del corridoio tra Québec e Montréal sul San Lorenzo',
+      },
+      credit: {
+        en: 'John Lambert, 1816. Wikimedia Commons (public domain)',
+        fr: 'John Lambert, 1816. Wikimedia Commons (domaine public)',
+        es: 'John Lambert, 1816. Wikimedia Commons (dominio público)',
+        it: 'John Lambert, 1816. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'trois-rivieres',
+    },
+    {
+      src: '/story/new-france-foundations/vieux-port-montreal.jpg',
+      alt: {
+        en: 'Old Port of Montréal — downstream terminus of the settled St. Lawrence spine under New France',
+        fr: 'Vieux-Port de Montréal — terminus aval de l’épine dorsale peuplée du Saint-Laurent sous la Nouvelle-France',
+        es: 'Puerto Viejo de Montreal — término aguas abajo del eje poblado del San Lorenzo bajo Nueva Francia',
+        it: 'Vecchio Porto di Montréal — terminale a valle del dorso popolato del San Lorenzo sotto la Nuova Francia',
+      },
+      credit: {
+        en: 'Photo: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'montreal',
+    },
+    {
+      src: '/story/new-france-foundations/montmorency-falls.jpg',
+      alt: {
+        en: 'Montmorency Falls — Beaupré shore landscape tied to early farms facing Île d’Orléans',
+        fr: 'Chute Montmorency — paysage de la côte de Beaupré lié aux premières fermes face à l’Île d’Orléans',
+        es: 'Cataratas Montmorency — paisaje de la costa de Beaupré ligado a las primeras granjas frente a la isla de Orleans',
+        it: 'Cascate Montmorency — paesaggio della costa di Beaupré legato alle prime fattorie di fronte all’Île d’Orléans',
+      },
+      credit: {
+        en: 'Photo: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'beauport',
+    },
+    {
+      src: '/story/new-france-foundations/tadoussac-chapelle-indiens.jpg',
+      alt: {
+        en: 'Tadoussac Indian Chapel (1747–1750) — trading and mission gateway at the mouth of the Saguenay',
+        fr: 'Chapelle des Indiens de Tadoussac (1747-1750) — porte de traite et de mission à l’embouchure du Saguenay',
+        es: 'Capilla de los indios de Tadoussac (1747-1750) — puerta de comercio y misión en la boca del Saguenay',
+        it: 'Cappella degli Indiani a Tadoussac (1747-1750) — accesso a commercio e missione alla foce del Saguenay',
+      },
+      credit: {
+        en: 'Photo: Natidu, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Natidu, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Natidu, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Natidu, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'tadoussac',
+    },
+  ],
+
+  'beat-transatlantic-quebec-founding': [
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Champlain’s Québec habitation (1608) — anchor for Norman and Perche founder families on the St. Lawrence',
+        fr: 'L’habitation de Champlain à Québec (1608) — ancrage des familles fondatrices normandes et percheronnes sur le Saint-Laurent',
+        es: 'La Habitation de Québec de Champlain (1608) — ancla de familias fundadoras normandas y del Perche en el San Lorenzo',
+        it: 'L’habitation di Champlain a Québec (1608) — ancora per famiglie fondatrici normanne e del Perche sul San Lorenzo',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/montmorency-falls.jpg',
+      alt: {
+        en: 'Montmorency Falls — the Beaupré coast and Île d’Orléans as a “new Norman” agricultural landscape',
+        fr: 'Chute Montmorency — la côte de Beaupré et l’Île d’Orléans comme paysage agricole « néo-normand »',
+        es: 'Cataratas Montmorency — la costa de Beaupré y la isla de Orleans como paisaje agrícola « neo-normando »',
+        it: 'Cascate Montmorency — la costa di Beaupré e l’Île d’Orléans come paesaggio agricolo «neo-normanno»',
+      },
+      credit: {
+        en: 'Photo: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Elena Tatiana Chis, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'beauport',
+    },
+    {
+      src: '/story/new-france-foundations/chateau-richer-beauce-st-lawrence.jpg',
+      alt: {
+        en: 'Reconstruction — seigneurial ribbon farms along the St. Lawrence near Château-Richer, where many early families took land',
+        fr: 'Reconstitution — fermes en ruban seigneurial le long du Saint-Laurent près de Château-Richer, où de nombreuses familles prirent terre',
+        es: 'Reconstrucción — granjas señoriales en franja a lo largo del San Lorenzo cerca de Château-Richer, donde muchas familias obtuvieron tierras',
+        it: 'Ricostruzione — fattorie signorili a nastro lungo il San Lorenzo vicino a Château-Richer, dove molte famiglie ottennero terre',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'chateau-richer',
+    },
+  ],
+
+  'beat-transatlantic-acadia': [
+    {
+      src: '/story/new-france-foundations/port-royal-habitation.jpg',
+      alt: {
+        en: 'Port-Royal National Historic Site — replica of France’s early 17th-century Acadian habitation on the Annapolis Basin',
+        fr: 'Lieu historique national du Port-Royal — réplique de l’habitation acadienne du début du XVIIe siècle sur le bassin d’Annapolis',
+        es: 'Lugar histórico nacional de Port-Royal — réplica de la habitación acadiana de principios del siglo XVII en la cuenca de Annapolis',
+        it: 'Sito storico nazionale di Port-Royal — replica dell’abitazione acadiana di inizio XVII secolo sul bacino di Annapolis',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'port-royal',
+    },
+    {
+      src: '/story/new-france-foundations/louisbourg-fortress.jpg',
+      alt: {
+        en: 'Fortress of Louisbourg — 18th-century French Atlantic stronghold tied to Acadian and Canadian defence networks',
+        fr: 'Forteresse de Louisbourg — bastion atlantique français du XVIIIe siècle lié aux réseaux de défense acadiens et canadiens',
+        es: 'Fortaleza de Louisbourg — bastión atlántico francés del siglo XVIII ligado a las redes de defensa acadianas y canadienses',
+        it: 'Fortezza di Louisbourg — bastione atlantico francese del XVIII secolo legato alle reti di difesa acadiane e canadesi',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'louisbourg',
+    },
+  ],
+
+  'leif-ch8-new-france': [
+    {
+      src: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+      alt: {
+        en: 'Plan of Rouen, 1655 — Norman river capital linking Viking-age seafaring to Champlain’s colonial departures',
+        fr: 'Plan de Rouen, 1655 — capitale fluviale normande reliant la navigation d’époque viking aux départs coloniaux de Champlain',
+        es: 'Plano de Ruán, 1655 — capital fluvial normanda que une la navegación vikinga con las salidas coloniales de Champlain',
+        it: 'Pianta di Rouen, 1655 — capitale fluviale normanna che collega la navigazione vichinga alle partenze coloniali di Champlain',
+      },
+      credit: {
+        en: 'Jacques Gomboust, 1655. Wikimedia Commons (public domain)',
+        fr: 'Jacques Gomboust, 1655. Wikimedia Commons (domaine public)',
+        es: 'Jacques Gomboust, 1655. Wikimedia Commons (dominio público)',
+        it: 'Jacques Gomboust, 1655. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'rouen',
+    },
+    {
+      src: '/story/age-of-exploration/honfleur-port.jpg',
+      alt: {
+        en: 'Honfleur — Champlain sailed from here in 1608 to found Québec, echoing the same Norman harbours that once sent longships',
+        fr: 'Honfleur — Champlain partit d’ici en 1608 pour fonder Québec, en écho aux mêmes ports normands qui avaient envoyé des drakkars',
+        es: 'Honfleur — Champlain zarpó desde aquí en 1608 para fundar Quebec, en eco de los mismos puertos normandos que enviaron drakkars',
+        it: 'Honfleur — Champlain salpò di qui nel 1608 per fondare Québec, eco degli stessi porti normanni che inviarono drakkar',
+      },
+      credit: {
+        en: 'Photo: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'honfleur',
+    },
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Habitation de Québec — French-speaking heirs of the Norman Atlantic world made the St. Lawrence colony endure',
+        fr: 'L’Habitation de Québec — les héritiers francophones du monde atlantique normand firent perdurer la colonie du Saint-Laurent',
+        es: 'La Habitation de Québec — los herederos francófonos del mundo atlántico normando hicieron perdurar la colonia del San Lorenzo',
+        it: 'Habitation de Québec — gli eredi francofoni del mondo atlantico normanno fecero durare la colonia del San Lorenzo',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/l-anse-aux-meadows-longhouse.jpg',
+      alt: {
+        en: 'Recreated Norse longhouse at L’Anse aux Meadows — Vinland and Québec belong to the same Atlantic geography, centuries apart',
+        fr: 'Maison longue norroise reconstituée à l’Anse aux Meadows — le Vinland et Québec partagent la même géographie atlantique, à des siècles d’intervalle',
+        es: 'Casa larga nórdica recreada en L’Anse aux Meadows — Vinlandia y Quebec comparten la misma geografía atlántica, siglos aparte',
+        it: 'Casa lunga norrena ricostruita a L’Anse aux Meadows — Vinland e Québec condividono la stessa geografia atlantica, a secoli di distanza',
+      },
+      credit: {
+        en: 'Photo: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'vinland',
+    },
+  ],
+
+  // ── Royal New France ────────────────────────────────────────────────
+  //   - Michilimackinac: Galteglise, Wikimedia Commons (public domain)
+  //   - Sault Ste. Marie locks: U.S. Army Corps of Engineers webcam (public domain)
+  //   - Detroit River skyline: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)
+  //   - St. Louis / Mississippi: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)
+  //   - Jackson Square engraving: W. P. Snyder, Harper’s Weekly 1885 (public domain)
+  //   - Green Bay shore / Gulf marsh: AI reconstructions
+
+  'beat-4': [
+    {
+      src: '/story/new-france-foundations/la-rochelle-vieux-port-lisch.jpg',
+      alt: {
+        en: 'La Rochelle Vieux-Port — Aunis and the Centre-West fed colonial corridors toward Acadia and Canada',
+        fr: 'Le Vieux-Port de La Rochelle — l’Aunis et le Centre-Ouest alimentaient des corridors coloniaux vers l’Acadie et le Canada',
+        es: 'El Viejo Puerto de La Rochelle — Aunis y el Centro-Oeste abastecían corredores coloniales hacia Acadia y Canadá',
+        it: 'Il Vieux-Port de La Rochelle — l’Aunis e il Centro-Ovest alimentavano corridoi coloniali verso Acadia e Canada',
+      },
+      credit: {
+        en: 'Juste Lisch, 1864 (illustration); photograph 2006. Wikimedia Commons (public domain)',
+        fr: 'Juste Lisch, 1864 (illustration) ; photographie 2006. Wikimedia Commons (domaine public)',
+        es: 'Juste Lisch, 1864 (ilustración); fotografía 2006. Wikimedia Commons (dominio público)',
+        it: 'Juste Lisch, 1864 (illustrazione); fotografia 2006. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'la-rochelle',
+    },
+    {
+      src: '/story/new-france-foundations/saint-malo-port.jpg',
+      alt: {
+        en: 'Saint-Malo — Breton sailings linked France to Port-Royal, Louisbourg, and the wider French Atlantic',
+        fr: 'Saint-Malo — les départs bretons reliaient la France à Port-Royal, Louisbourg et l’Atlantique français au sens large',
+        es: 'Saint-Malo — las salidas bretonas unían Francia con Port-Royal, Louisbourg y el Atlántico francés en conjunto',
+        it: 'Saint-Malo — le partenze bretone collegavano la Francia a Port-Royal, Louisbourg e l’Atlantico francese più ampio',
+      },
+      credit: {
+        en: 'Photo: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: IgorCalzone1, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'saint-malo',
+    },
+    {
+      src: '/story/new-france-foundations/port-royal-habitation.jpg',
+      alt: {
+        en: 'Port-Royal — Acadian anchor fed by the same La Rochelle and Saint-Malo harbour systems as the St. Lawrence',
+        fr: 'Port-Royal — ancrage acadien nourri par les mêmes réseaux portuaires de La Rochelle et Saint-Malo que le Saint-Laurent',
+        es: 'Port-Royal — ancla acadiana abastecida por los mismos sistemas portuarios de La Rochelle y Saint-Malo que el San Lorenzo',
+        it: 'Port-Royal — ancora acadiana alimentata dagli stessi sistemi portuali di La Rochelle e Saint-Malo del San Lorenzo',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'port-royal',
+    },
+    {
+      src: '/story/new-france-foundations/louisbourg-fortress.jpg',
+      alt: {
+        en: 'Louisbourg — France’s rebuilt Atlantic fortress capped the corridor from Breton and Aunis ports to Cape Breton',
+        fr: 'Louisbourg — la forteresse atlantique reconstruite par la France couronnait le corridor des ports bretons et aunisiens jusqu’au cap-Breton',
+        es: 'Louisbourg — la fortaleza atlántica reconstruida por Francia culminaba el corredor desde los puertos bretones y de Aunis hasta Cape Breton',
+        it: 'Louisbourg — la fortezza atlantica ricostruita dalla Francia chiudeva il corridoio dai porti bretoni e dell’Aunis fino a Cape Breton',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'louisbourg',
+    },
+  ],
+
+  'nf-arc-great-lakes': [
+    {
+      src: '/story/new-france-foundations/vieux-port-montreal.jpg',
+      alt: {
+        en: 'Old Port of Montréal — gateway to the Ottawa River route and the upper Great Lakes fur-trade network',
+        fr: 'Vieux-Port de Montréal — porte d’accès à la route de l’Outaouais et au réseau de traite des Grands Lacs supérieurs',
+        es: 'Puerto Viejo de Montreal — puerta a la ruta del río Ottawa y a la red comercial de pieles del alto los Grandes Lagos',
+        it: 'Vecchio Porto di Montréal — accesso alla via del fiume Ottawa e alla rete di commercio delle peli dei Grandi Laghi superiori',
+      },
+      credit: {
+        en: 'Photo: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'montreal',
+    },
+    {
+      src: '/story/guillaume-couture/france-foi-hurons.jpg',
+      alt: {
+        en: 'France bringing the faith to the Hurons — symbolic of missions and alliances knitting the Great Lakes interior to Québec',
+        fr: 'La France apportant la foi aux Hurons — symbole des missions et alliances reliant l’intérieur des Grands Lacs à Québec',
+        es: 'Francia llevando la fe a los hurones — símbolo de misiones y alianzas que unían el interior de los Grandes Lagos a Quebec',
+        it: 'La Francia porta la fede agli Uroni — simbolo di missioni e alleanze che legavano l’interno dei Grandi Laghi a Québec',
+      },
+      credit: {
+        en: 'Unknown French artist, c. 1670. Wikimedia Commons (public domain)',
+        fr: 'Artiste français inconnu, v. 1670. Wikimedia Commons (domaine public)',
+        es: 'Artista francés desconocido, c. 1670. Wikimedia Commons (dominio público)',
+        it: 'Artista francese sconosciuto, c. 1670. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'great-lakes-hub',
+    },
+    {
+      src: '/story/royal-new-france/fort-michilimackinac.jpg',
+      alt: {
+        en: 'Reconstructed Fort Michilimackinac — straits entrepôt between Lakes Huron and Michigan under French fur-trade control',
+        fr: 'Fort Michilimackinac reconstitué — comptoir du détroit entre les lacs Huron et Michigan sous le contrôle français de la traite',
+        es: 'Fort Michilimackinac reconstruido — entrepuerto del estrecho entre los lagos Hurón y Míchigan bajo el comercio francés de pieles',
+        it: 'Fort Michilimackinac ricostruito — emporio dello stretto tra i laghi Huron e Michigan sotto il commercio francese delle pellicce',
+      },
+      credit: {
+        en: 'Photo: Galteglise, Wikimedia Commons (public domain)',
+        fr: 'Photo : Galteglise, Wikimedia Commons (domaine public)',
+        es: 'Foto: Galteglise, Wikimedia Commons (dominio público)',
+        it: 'Foto: Galteglise, Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'michilimackinac',
+    },
+    {
+      src: '/story/royal-new-france/sault-ste-marie-locks.jpg',
+      alt: {
+        en: 'St. Marys River at Sault Ste. Marie — the rapids and portage node linking Lake Superior to the lower lakes',
+        fr: 'Rivière Sainte-Marie à Sault Ste. Marie — les rapides et le nœud de portage reliant le lac Supérieur aux lacs inférieurs',
+        es: 'Río St. Marys en Sault Ste. Marie — rápidos y nudo de portage que enlazan el lago Superior con los lagos inferiores',
+        it: 'Fiume St. Marys a Sault Ste. Marie — rapide e nodo di portage che collegano il lago Superiore ai laghi inferiori',
+      },
+      credit: {
+        en: 'U.S. Army Corps of Engineers webcam. Wikimedia Commons (public domain)',
+        fr: 'Image : U.S. Army Corps of Engineers (webcam). Wikimedia Commons (domaine public)',
+        es: 'Imagen: U.S. Army Corps of Engineers (webcam). Wikimedia Commons (dominio público)',
+        it: 'Immagine: U.S. Army Corps of Engineers (webcam). Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'sault-ste-marie',
+    },
+    {
+      src: '/story/royal-new-france/detroit-river-skyline.jpg',
+      alt: {
+        en: 'Detroit River waterfront — Fort Pontchartrain (Detroit) guarded the narrow passage between Lakes Erie and Huron',
+        fr: 'Front de rivière à Detroit — Fort Pontchartrain (Detroit) gardait le passage étroit entre les lacs Érié et Huron',
+        es: 'Frente fluvial del río Detroit — Fort Pontchartrain (Detroit) custodiaba el paso estrecho entre los lagos Erie y Hurón',
+        it: 'Fronte sul fiume Detroit — Fort Pontchartrain (Detroit) presidiava lo stretto tra i laghi Erie e Huron',
+      },
+      credit: {
+        en: 'Photo: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        fr: 'Photo : Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        es: 'Foto: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        it: 'Foto: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+      },
+      placeId: 'fort-detroit',
+    },
+  ],
+
+  'nf-arc-mississippi': [
+    {
+      src: '/story/guillaume-couture/champlain-map-1632.jpg',
+      alt: {
+        en: 'Champlain’s 1632 map — the St. Lawrence world that later linked Montreal to Mississippi and Gulf explorations',
+        fr: 'Carte de Champlain, 1632 — l’univers du Saint-Laurent qui reliera plus tard Montréal aux explorations du Mississippi et du golfe',
+        es: 'Mapa de Champlain, 1632 — el mundo del San Lorenzo que luego enlazaría Montreal con las exploraciones del Mississippi y el golfo',
+        it: 'Mappa di Champlain, 1632 — l’universo del San Lorenzo che avrebbe collegato Montréal alle esplorazioni del Mississippi e del golfo',
+      },
+      credit: {
+        en: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'great-lakes-hub',
+    },
+    {
+      src: '/story/royal-new-france/st-louis-mississippi-night.jpg',
+      alt: {
+        en: 'St. Louis on the Mississippi — near the confluence zone where Jolliet and Marquette’s 1673 voyage proved the river ran south',
+        fr: 'Saint-Louis sur le Mississippi — près du secteur de confluence où la descente de Jolliet et Marquette en 1673 prouva que le fleuve courait vers le sud',
+        es: 'St. Louis en el Mississippi — cerca de la zona de confluencia donde el viaje de Jolliet y Marquette en 1673 demostró que el río corría hacia el sur',
+        it: 'St. Louis sul Mississippi — vicino alla zona di confluenza dove la discesa di Jolliet e Marquette nel 1673 dimostrò che il fiume scorreva a sud',
+      },
+      credit: {
+        en: 'Photo: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'mississippi-confluence',
+    },
+    {
+      src: '/story/royal-new-france/gulf-mexico-louisiana-coast.jpg',
+      alt: {
+        en: 'Reconstruction — Gulf of Mexico littoral evoking La Salle’s 1682 claim of Louisiana for France',
+        fr: 'Reconstitution — littoral du golfe du Mexique évoquant la prise de possession de la Louisiane par La Salle pour la France en 1682',
+        es: 'Reconstrucción — litoral del golfo de México que evoca la toma de posesión de Luisiana por La Salle para Francia en 1682',
+        it: 'Ricostruzione — litorale del golfo del Messico che evoca la presa di possesso della Louisiana da parte de La Salle per la Francia nel 1682',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'gulf-of-mexico-node',
+    },
+    {
+      src: '/story/royal-new-france/green-bay-baie-des-puants.jpg',
+      alt: {
+        en: 'Reconstruction — western shore of Green Bay (Baie des Puants), a French mission and fur-trade node opening toward the Mississippi basin',
+        fr: 'Reconstitution — rive ouest de la baie Green (Baie des Puants), nœud de mission et de traite des fourrures s’ouvrant vers le bassin du Mississippi',
+        es: 'Reconstrucción — orilla oeste de la bahía de Green (Baie des Puants), nudo de misión y comercio de pieles hacia la cuenca del Mississippi',
+        it: 'Ricostruzione — sponda occidentale della baia di Green (Baie des Puants), nodo di missione e commercio di pellicce verso il bacino del Mississippi',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'green-bay',
+    },
+  ],
+
+  'beat-transatlantic-mississippi': [
+    {
+      src: '/story/guillaume-couture/champlain-map-1632.jpg',
+      alt: {
+        en: 'Champlain’s map of New France — the interior network from which La Salle, born in Rouen, pushed toward the Mississippi and Gulf',
+        fr: 'Carte de la Nouvelle-France par Champlain — le réseau intérieur depuis lequel La Salle, né à Rouen, poussa vers le Mississippi et le golfe',
+        es: 'Mapa de Nueva Francia de Champlain — la red interior desde la que La Salle, nacido en Ruán, avanzó hacia el Mississippi y el golfo',
+        it: 'Mappa della Nuova Francia di Champlain — la rete interna da cui La Salle, nato a Rouen, spinse verso il Mississippi e il golfo',
+      },
+      credit: {
+        en: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'great-lakes-hub',
+    },
+    {
+      src: '/story/royal-new-france/st-louis-mississippi-night.jpg',
+      alt: {
+        en: 'St. Louis on the Mississippi — the great river system La Salle followed from the Great Lakes toward the Gulf in 1682',
+        fr: 'Saint-Louis sur le Mississippi — le grand réseau fluvial que La Salle suivit des Grands Lacs vers le golfe en 1682',
+        es: 'St. Louis en el Mississippi — la gran red fluvial que La Salle siguió desde los Grandes Lagos hacia el golfo en 1682',
+        it: 'St. Louis sul Mississippi — la grande rete fluviale che La Salle percorse dai Grandi Laghi verso il golfo nel 1682',
+      },
+      credit: {
+        en: 'Photo: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Daniel Schwen, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'mississippi-confluence',
+    },
+    {
+      src: '/story/royal-new-france/jackson-square-new-orleans-1885.jpg',
+      alt: {
+        en: 'Jackson Square, New Orleans (1885 wood engraving) — heart of the French Quarter, eventual capital of French Louisiana on the Gulf',
+        fr: 'Place Jackson, La Nouvelle-Orléans (gravure sur bois, 1885) — cœur du Vieux Carré, capitale ultérieure de la Louisiane française sur le golfe',
+        es: 'Jackson Square, Nueva Orleans (grabado en madera, 1885) — corazón del Barrio Francés, capital posterior de la Luisiana francesa en el golfo',
+        it: 'Jackson Square, New Orleans (xilografia, 1885) — cuore del Quartiere Francese, capitale successiva della Louisiana francese sul golfo',
+      },
+      credit: {
+        en: 'W. P. Snyder after Harper’s Weekly, 1885. Wikimedia Commons (public domain)',
+        fr: 'W. P. Snyder d’après Harper’s Weekly, 1885. Wikimedia Commons (domaine public)',
+        es: 'W. P. Snyder según Harper’s Weekly, 1885. Wikimedia Commons (dominio público)',
+        it: 'W. P. Snyder da Harper’s Weekly, 1885. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'new-orleans',
+    },
+  ],
+
+  // ── Atlantic imprint (New France peak, loss, endurance) ───────────
+  //   - Death of General Wolfe: Benjamin West, 1770 (National Gallery of Canada; photo WGA / Commons, public domain)
+
+  'nf-arc-peak': [
+    {
+      src: '/story/guillaume-couture/champlain-map-1632.jpg',
+      alt: {
+        en: 'Champlain’s map of New France — intellectual forerunner of the continental claim from the Gulf of St. Lawrence to the interior',
+        fr: 'Carte de la Nouvelle-France par Champlain — prédécesseur intellectuel de la revendication continentale du golfe du Saint-Laurent à l’intérieur',
+        es: 'Mapa de Nueva Francia de Champlain — precursor intelectual de la reivindicación continental desde el golfo de San Lorenzo al interior',
+        it: 'Mappa della Nuova Francia di Champlain — precursore intellettuale della rivendicazione continentale dal golfo del San Lorenzo all’interno',
+      },
+      credit: {
+        en: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, 1632. NYPL / Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/vieux-port-montreal.jpg',
+      alt: {
+        en: 'Old Port of Montréal — hub of the St. Lawrence spine at the zenith of French North America after the Great Peace of 1701',
+        fr: 'Vieux-Port de Montréal — plaque tournante de l’axe du Saint-Laurent au zénith de l’Amérique française après la Grande Paix de 1701',
+        es: 'Puerto Viejo de Montreal — eje del San Lorenzo en el zenit de la América francesa tras la Gran Paz de 1701',
+        it: 'Vecchio Porto di Montréal — snodo del dorsale del San Lorenzo allo zenit dell’America francese dopo la Grande Pace del 1701',
+      },
+      credit: {
+        en: 'Photo: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'montreal',
+    },
+    {
+      src: '/story/new-france-foundations/louisbourg-fortress.jpg',
+      alt: {
+        en: 'Fortress of Louisbourg — Atlantic bastion of French power in Acadia and the cod fisheries at New France’s height',
+        fr: 'Forteresse de Louisbourg — bastion atlantique du pouvoir français en Acadie et dans la pêche à la morue à l’apogée de la Nouvelle-France',
+        es: 'Fortaleza de Louisbourg — bastión atlántico del poder francés en Acadia y la pesca del bacalao en el apogeo de Nueva Francia',
+        it: 'Fortezza di Louisbourg — bastione atlantico del potere francese in Acadia e nella pesca del merluzzo all’apogeo della Nuova Francia',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'louisbourg',
+    },
+    {
+      src: '/story/royal-new-france/jackson-square-new-orleans-1885.jpg',
+      alt: {
+        en: 'Jackson Square, New Orleans (1885 engraving) — French Louisiana on the Gulf as the southern anchor of the continental claim',
+        fr: 'Place Jackson, La Nouvelle-Orléans (gravure 1885) — la Louisiane française sur le golfe comme ancrage sud de la revendication continentale',
+        es: 'Jackson Square, Nueva Orleans (grabado 1885) — la Luisiana francesa en el golfo como ancla sur de la reivindicación continental',
+        it: 'Jackson Square, New Orleans (xilografia 1885) — la Louisiana francese sul golfo come ancora meridionale della rivendicazione continentale',
+      },
+      credit: {
+        en: 'W. P. Snyder after Harper’s Weekly, 1885. Wikimedia Commons (public domain)',
+        fr: 'W. P. Snyder d’après Harper’s Weekly, 1885. Wikimedia Commons (domaine public)',
+        es: 'W. P. Snyder según Harper’s Weekly, 1885. Wikimedia Commons (dominio público)',
+        it: 'W. P. Snyder da Harper’s Weekly, 1885. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'new-orleans',
+    },
+    {
+      src: '/story/royal-new-france/detroit-river-skyline.jpg',
+      alt: {
+        en: 'Detroit River — choke point between Lakes Erie and Huron where Fort Détroit anchored the western French lakes system',
+        fr: 'Rivière Detroit — passage étroit entre les lacs Érié et Huron où Fort Détroit ancrait le système français des lacs à l’ouest',
+        es: 'Río Detroit — paso estrecho entre los lagos Erie y Hurón donde Fort Détroit anclaba el sistema francés de los lagos al oeste',
+        it: 'Fiume Detroit — strozzatura tra i laghi Erie e Huron dove Fort Détroit ancorava il sistema francese dei laghi a ovest',
+      },
+      credit: {
+        en: 'Photo: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        fr: 'Photo : Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        es: 'Foto: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+        it: 'Foto: Shawn Wilson, Wikimedia Commons (CC BY-SA 1.0)',
+      },
+      placeId: 'fort-detroit',
+    },
+    {
+      src: '/story/royal-new-france/fort-michilimackinac.jpg',
+      alt: {
+        en: 'Fort Michilimackinac — straits trading fort tying the upper lakes fur economy to Montréal and Québec',
+        fr: 'Fort Michilimackinac — fort de traite du détroit reliant l’économie des fourrures des lacs supérieurs à Montréal et Québec',
+        es: 'Fort Michilimackinac — fuerte comercial del estrecho que unía la economía de pieles de los lagos superiores con Montreal y Quebec',
+        it: 'Fort Michilimackinac — forte di commercio dello stretto che legava l’economia delle pellicce dei laghi superiori a Montréal e Québec',
+      },
+      credit: {
+        en: 'Photo: Galteglise, Wikimedia Commons (public domain)',
+        fr: 'Photo : Galteglise, Wikimedia Commons (domaine public)',
+        es: 'Foto: Galteglise, Wikimedia Commons (dominio público)',
+        it: 'Foto: Galteglise, Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'michilimackinac',
+    },
+  ],
+
+  'nf-arc-collapse': [
+    {
+      src: '/story/atlantic-imprint/death-of-general-wolfe-1770.jpg',
+      alt: {
+        en: 'Benjamin West, The Death of General Wolfe (1770) — the 1759 battle on the Plains of Abraham sealed the loss of Québec',
+        fr: 'Benjamin West, La Mort du général Wolfe (1770) — la bataille de 1759 sur les Plaines d’Abraham scella la perte de Québec',
+        es: 'Benjamin West, La muerte del general Wolfe (1770) — la batalla de 1759 en las Llanuras de Abraham selló la pérdida de Quebec',
+        it: 'Benjamin West, La morte del generale Wolfe (1770) — la battaglia del 1759 sulle pianure di Abraham sancì la perdita di Québec',
+      },
+      credit: {
+        en: 'Benjamin West, 1770. National Gallery of Canada; photograph via Web Gallery of Art / Wikimedia Commons (public domain)',
+        fr: 'Benjamin West, 1770. Musée des beaux-arts du Canada ; photographie via Web Gallery of Art / Wikimedia Commons (domaine public)',
+        es: 'Benjamin West, 1770. Galería Nacional de Canadá; fotografía vía Web Gallery of Art / Wikimedia Commons (dominio público)',
+        it: 'Benjamin West, 1770. National Gallery of Canada; fotografia via Web Gallery of Art / Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/louisbourg-fortress.jpg',
+      alt: {
+        en: 'Louisbourg — captured by British siege in 1758, removing France’s great Atlantic fortress before the fall of Québec',
+        fr: 'Louisbourg — prise par siège britannique en 1758, privant la France de sa grande forteresse atlantique avant la chute de Québec',
+        es: 'Louisbourg — tomada por el sitio británico en 1758, privando a Francia de su gran fortaleza atlántica antes de la caída de Quebec',
+        it: 'Louisbourg — conquistata dall’assedio britannico nel 1758, togliendo alla Francia la grande fortezza atlantica prima della caduta di Québec',
+      },
+      credit: {
+        en: 'Photo: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        fr: 'Photo : Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        es: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+        it: 'Foto: Dennis G. Jarvis (archer10), Wikimedia Commons (CC BY-SA 2.0)',
+      },
+      placeId: 'louisbourg',
+    },
+    {
+      src: '/story/new-france-foundations/vieux-port-montreal.jpg',
+      alt: {
+        en: 'Montréal — the last major French stronghold surrendered in 1760; the Treaty of Paris (1763) ended French rule in Canada',
+        fr: 'Montréal — la dernière grande place forte française capitula en 1760 ; le traité de Paris (1763) mit fin à la domination française au Canada',
+        es: 'Montreal — la última gran plaza fuerte francesa capituló en 1760; el Tratado de París (1763) acabó con el dominio francés en Canadá',
+        it: 'Montréal — l’ultima grande roccaforte francese si arrese nel 1760; il trattato di Parigi (1763) pose fine al dominio francese in Canada',
+      },
+      credit: {
+        en: 'Photo: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'montreal',
+    },
+  ],
+
+  'beat-transatlantic-endurance': [
+    {
+      src: '/story/guillaume-couture/habitation-quebec.jpg',
+      alt: {
+        en: 'Habitation de Québec — the colonial layer that outlasted 1763: language, law, and parish life on the St. Lawrence endured',
+        fr: 'L’Habitation de Québec — la couche coloniale qui survécut à 1763 : langue, droit et vie paroissiale sur le Saint-Laurent perdurent',
+        es: 'La Habitation de Québec — la capa colonial que sobrevivió a 1763: idioma, derecho y vida parroquial en el San Lorenzo perduraron',
+        it: 'L’Habitation de Québec — lo strato coloniale che sopravvisse al 1763: lingua, diritto e vita parrocchiale sul San Lorenzo durarono',
+      },
+      credit: {
+        en: 'Samuel de Champlain, c. 1608. Wikimedia Commons (public domain)',
+        fr: 'Samuel de Champlain, v. 1608. Wikimedia Commons (domaine public)',
+        es: 'Samuel de Champlain, c. 1608. Wikimedia Commons (dominio público)',
+        it: 'Samuel de Champlain, c. 1608. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'quebec-city',
+    },
+    {
+      src: '/story/new-france-foundations/vieux-port-montreal.jpg',
+      alt: {
+        en: 'Old Port of Montréal — French Canadian civic and commercial life continued here under British rule with Norman-rooted surnames',
+        fr: 'Vieux-Port de Montréal — la vie civique et commerciale canadienne-française y poursuivit sous la domination britannique, avec des patronymes aux racines normandes',
+        es: 'Puerto Viejo de Montreal — la vida cívica y comercial franco-canadiense siguió bajo el dominio británico, con apellidos de raíz normanda',
+        it: 'Vecchio Porto di Montréal — la vita civica e commerciale franco-canadese continuò sotto il dominio britannico, con cognomi dalle radici normanne',
+      },
+      credit: {
+        en: 'Photo: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Christophe95, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'montreal',
+    },
+    {
+      src: '/story/guillaume-couture/trois-rivieres.jpg',
+      alt: {
+        en: 'Trois-Rivières — mid-St. Lawrence towns kept French institutions and family names linking settlers to Norman embarkation ports',
+        fr: 'Trois-Rivières — les bourgs du milieu du Saint-Laurent gardèrent institutions françaises et patronymes liant les colons aux ports normands d’embarquement',
+        es: 'Trois-Rivières — los pueblos del San Lorenzo medio conservaron instituciones francesas y apellidos que unían a los colonos con los puertos normandos de embarque',
+        it: 'Trois-Rivières — le città del medio San Lorenzo mantennero istituzioni francesi e cognomi che legavano i coloni ai porti normanni d’imbarco',
+      },
+      credit: {
+        en: 'John Lambert, 1816. Wikimedia Commons (public domain)',
+        fr: 'John Lambert, 1816. Wikimedia Commons (domaine public)',
+        es: 'John Lambert, 1816. Wikimedia Commons (dominio público)',
+        it: 'John Lambert, 1816. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'trois-rivieres',
     },
   ],
 
@@ -2901,6 +3916,148 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
       },
       placeId: 'durazzo',
+    },
+  ],
+
+  // ── Age of Exploration ─────────────────────────────────────────────
+  //   - Honfleur / Dieppe / Le Havre: Wikimedia Commons (CC BY-SA)
+  //   - Gaspé (Point Newport): Wm. Notman & Son, c. 1900 — public domain (McCord Stewart Museum)
+  //   - Mid-Atlantic ship: AI reconstruction
+
+  'beat-1': [
+    {
+      src: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+      alt: {
+        en: 'Jacques Gomboust’s 1655 plan of Rouen — the Seine capital linking inland trade to Channel and Atlantic shipping',
+        fr: 'Plan de Rouen par Jacques Gomboust, 1655 — la capitale séquanaise reliant le commerce de l’intérieur au trafic transmanche et atlantique',
+        es: 'Plano de Ruán de Jacques Gomboust, 1655 — la capital del Sena que une el comercio interior con el tráfico del Canal y el Atlántico',
+        it: 'Pianta di Rouen di Jacques Gomboust, 1655 — la capitale sulla Senna che collega il commercio dell’entroterra al traffico della Manica e dell’Atlantico',
+      },
+      credit: {
+        en: 'Jacques Gomboust, 1655. Wikimedia Commons (public domain)',
+        fr: 'Jacques Gomboust, 1655. Wikimedia Commons (domaine public)',
+        es: 'Jacques Gomboust, 1655. Wikimedia Commons (dominio público)',
+        it: 'Jacques Gomboust, 1655. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'beat-transatlantic-norman-ports': [
+    {
+      src: '/story/age-of-exploration/dieppe-port.jpg',
+      alt: {
+        en: 'Dieppe harbour — a Channel ferry port that long anchored cross-Channel trade before Norman voyages pivoted toward the Atlantic',
+        fr: 'Le port de Dieppe — plaque tournante de la Manche qui a longtemps soutenu le commerce transmanche avant que les voyages normands ne se tournent vers l’Atlantique',
+        es: 'Puerto de Dieppe — nudo del Canal de la Mancha que sostuvo durante siglos el comercio transmanche antes de que las expediciones normandas miraran al Atlántico',
+        it: 'Porto di Dieppe — snodo della Manica che per secoli ha sostenuto il commercio transmanica prima che le spedizioni normanne puntassero sull’Atlantico',
+      },
+      credit: {
+        en: 'Photo: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'dieppe',
+    },
+    {
+      src: '/story/age-of-exploration/honfleur-port.jpg',
+      alt: {
+        en: 'Honfleur’s Vieux Bassin — a Norman harbour where deep-sea craft and fishermen tied the Seine estuary to the open Atlantic',
+        fr: 'Le Vieux Bassin d’Honfleur — un port normand où navires de haute mer et pêcheurs liaient l’estuaire de la Seine au large atlantique',
+        es: 'El Vieux Bassin de Honfleur — un puerto normando donde barcos de altura y pescadores unían el estuario del Sena con el Atlántico abierto',
+        it: 'Il Vieux Bassin di Honfleur — porto normanno dove navi d’altura e pescatori collegavano l’estuario della Senna all’Atlantico aperto',
+      },
+      credit: {
+        en: 'Photo: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Gzzz, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'honfleur',
+    },
+    {
+      src: '/story/age-of-exploration/le-havre-bassin-manche.jpg',
+      alt: {
+        en: 'Le Havre’s Bassin de la Manche — modern docks on the same estuary that became France’s great Atlantic outlet after the 16th century',
+        fr: 'Le bassin de la Manche au Havre — des quais modernes sur le même estuaire qui devint le grand débouché atlantique de la France après le XVIe siècle',
+        es: 'El bassin de la Manche en el puerto de El Havre — muelles modernos en el mismo estuario que se convirtió en el gran enlace atlántico de Francia tras el siglo XVI',
+        it: 'Il bacino della Manica a Le Havre — banchine moderne sullo stesso estuario che divenne la grande porta atlantica della Francia dopo il XVI secolo',
+      },
+      credit: {
+        en: 'Photo: Raimond Spekking, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Raimond Spekking, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Raimond Spekking, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Raimond Spekking, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'le-havre',
+    },
+    {
+      src: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+      alt: {
+        en: 'Plan of Rouen, 1655 — merchant houses on the lower Seine financed and outfitted transoceanic voyages from Norman and Breton ports',
+        fr: 'Plan de Rouen, 1655 — les maisons marchandes de la basse Seine finançaient et équipaient les voyages transocéaniques depuis les ports normands et bretons',
+        es: 'Plano de Ruán, 1655 — las casas mercantes del bajo Sena financiaban y equipaban viajes transoceánicos desde puertos normandos y bretones',
+        it: 'Pianta di Rouen, 1655 — le case mercantili della bassa Senna finanziavano e equipaggiavano viaggi transoceanici dai porti normanni e bretoni',
+      },
+      credit: {
+        en: 'Jacques Gomboust, 1655. Wikimedia Commons (public domain)',
+        fr: 'Jacques Gomboust, 1655. Wikimedia Commons (domaine public)',
+        es: 'Jacques Gomboust, 1655. Wikimedia Commons (dominio público)',
+        it: 'Jacques Gomboust, 1655. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'beat-transatlantic-crossing': [
+    {
+      src: '/story/age-of-exploration/dieppe-port.jpg',
+      alt: {
+        en: 'Dieppe — in 1524 Giovanni da Verrazzano’s expedition for the French crown sailed from this Channel port toward North America',
+        fr: 'Dieppe — en 1524, l’expédition de Giovanni da Verrazzano pour la couronne française partit de ce port de la Manche vers l’Amérique du Nord',
+        es: 'Dieppe — en 1524 la expedición de Giovanni da Verrazzano para la corona francesa zarpó de este puerto de la Mancha hacia América del Norte',
+        it: 'Dieppe — nel 1524 la spedizione di Giovanni da Verrazzano per la corona francese salpò da questo porto della Manica verso il Nord America',
+      },
+      credit: {
+        en: 'Photo: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: W. Bulach, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'dieppe',
+    },
+    {
+      src: '/story/age-of-exploration/atlantic-crossing-16th-century.jpg',
+      alt: {
+        en: 'Reconstruction — a 16th-century European sailing ship on the open Atlantic, evoking the long ocean crossing from Normandy to North America',
+        fr: 'Reconstitution — un voilier européen du XVIe siècle sur l’Atlantique ouvert, évoquant la longue traversée de la Normandie vers l’Amérique du Nord',
+        es: 'Reconstrucción — un velero europeo del siglo XVI en el Atlántico abierto, evocando la larga travesía desde Normandía hasta América del Norte',
+        it: 'Ricostruzione — una nave a vela europea del XVI secolo sull’Atlantico aperto, che evoca la lunga traversata dalla Normandia al Nord America',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mid-atlantic-passage',
+    },
+    {
+      src: '/story/age-of-exploration/gaspe-point-newport.jpg',
+      alt: {
+        en: 'Point Newport, Gaspé Peninsula, Quebec, c. 1900 — the forested headlands Cartier reached in 1534 when French exploration opened the St. Lawrence gateway',
+        fr: 'Pointe de Newport, péninsule de la Gaspésie, Québec, v. 1900 — les caps boisés que Cartier atteignit en 1534 quand l’exploration française ouvrit la porte du Saint-Laurent',
+        es: 'Punta Newport, península de Gaspé, Quebec, c. 1900 — los cabos boscosos que Cartier alcanzó en 1534 cuando la exploración francesa abrió la puerta del San Lorenzo',
+        it: 'Point Newport, penisola della Gaspésia, Quebec, c. 1900 — le punte boscose che Cartier raggiunse nel 1534 quando l’esplorazione francese aprì l’accesso al San Lorenzo',
+      },
+      credit: {
+        en: 'Wm. Notman & Son, c. 1900. McCord Stewart Museum VIEW-3982 (public domain)',
+        fr: 'Wm. Notman & Son, v. 1900. Musée McCord Stewart VIEW-3982 (domaine public)',
+        es: 'Wm. Notman & Son, c. 1900. Museo McCord Stewart VIEW-3982 (dominio público)',
+        it: 'Wm. Notman & Son, c. 1900. McCord Stewart Museum VIEW-3982 (pubblico dominio)',
+      },
+      placeId: 'gaspe-peninsula',
     },
   ],
 };
