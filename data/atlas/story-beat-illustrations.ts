@@ -1463,4 +1463,232 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
       center: [1.2, 49.0],
     },
   ],
+
+  // ── Frankish & Carolingian frontier ─────────────────────────────────
+  //   - Charlemagne denier (Mainz): public domain, BnF / Gallica
+  //   - Utrecht Psalter: public domain, c. 800
+  //   - Raphael, Coronation of Charlemagne: public domain, Vatican
+  //   - Jumièges ruins: reused from neustria (CC BY-SA 3.0, JDesplats)
+
+  'beat-carolingian-frontier': [
+    {
+      src: '/story/frankish-carolingian/carolingian-western-frontier.jpg',
+      alt: {
+        en: 'Imperial Neustria under the Carolingians — Channel emporia, the Seine corridor to Paris and Rouen, and the Breton march toward Nantes',
+        fr: 'Neustrie impériale sous les Carolingiens — emporia de la Manche, corridor de la Seine vers Paris et Rouen, et marche bretonne vers Nantes',
+        es: 'Neustria imperial bajo los carolingios — emporios del canal, corredor del Sena hacia París y Rouen, y la marca bretona hacia Nantes',
+        it: 'Neustria imperiale sotto i Carolingi — empori della Manica, corridoio della Senna verso Parigi e Rouen e la marca bretone verso Nantes',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [0.0, 49.0],
+    },
+  ],
+
+  'beat-seine-corridor': [
+    {
+      src: '/story/neustria/abbaye-jumieges.jpg',
+      alt: {
+        en: 'Jumièges Abbey on the lower Seine — under the Carolingians, monastic houses like this linked Paris to the Channel and concentrated enormous wealth',
+        fr: 'Abbaye de Jumièges sur la basse Seine — sous les Carolingiens, des maisons monastiques comme celle-ci reliaient Paris à la Manche et concentraient d\'énormes richesses',
+        es: 'Abadía de Jumièges en el bajo Sena — bajo los carolingios, casas monásticas como esta unían París con el canal y concentraban enormes riquezas',
+        it: 'Abbazia di Jumièges sulla bassa Senna — sotto i Carolingi, case monastiche come questa collegavano Parigi alla Manica e concentravano enormi ricchezze',
+      },
+      credit: {
+        en: 'Photo: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'jumieges',
+    },
+  ],
+
+  'fc-arc-carolingian-rise': [
+    {
+      src: '/story/frankish-carolingian/pippin-short-carolingian-acclamation.jpg',
+      alt: {
+        en: 'Pippin the Short acclaimed king in 751 — the last Merovingian yields as the Carolingian dynasty takes the Frankish throne with Church support',
+        fr: 'Pépin le Bref acclamé roi en 751 — le dernier Mérovingien cède tandis que la dynastie carolingienne prend le trône franc avec le soutien de l\'Église',
+        es: 'Pipino el Breve aclamado rey en 751 — el último merovingio cede mientras la dinastía carolingia toma el trono franco con apoyo de la Iglesia',
+        it: 'Pipino il Breve acclamato re nel 751 — l\'ultimo merovingio cede mentre la dinastia carolingia prende il trono franco con il sostegno della Chiesa',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'paris',
+    },
+  ],
+
+  'fc-arc-charlemagne': [
+    {
+      src: '/story/frankish-carolingian/raphael-coronation-charlemagne.jpg',
+      alt: {
+        en: 'The Coronation of Charlemagne — fresco by Raphael and workshop (1516–1517), Vatican, depicting Charlemagne crowned emperor in Rome, 800 AD',
+        fr: 'Le Couronnement de Charlemagne — fresque de Raphaël et son atelier (1516–1517), Vatican, représentant Charlemagne couronné empereur à Rome en 800',
+        es: 'La Coronación de Carlomagno — fresco de Rafael y taller (1516–1517), Vaticano, que representa a Carlomagno coronado emperador en Roma en 800',
+        it: 'L\'incoronazione di Carlo Magno — affresco di Raffaello e bottega (1516–1517), Vaticano, che raffigura Carlo Magno incoronato imperatore a Roma nell\'800',
+      },
+      credit: {
+        en: 'Raphael and workshop, Apostolic Palace, Vatican (public domain)',
+        fr: 'Raphaël et atelier, palais apostolique, Vatican (domaine public)',
+        es: 'Rafael y taller, Palacio Apostólico, Vaticano (dominio público)',
+        it: 'Raffaello e bottega, Palazzo Apostolico, Vaticano (pubblico dominio)',
+      },
+      center: [2.0, 49.0],
+    },
+    {
+      src: '/story/frankish-carolingian/charlemagne-denier-mayence.jpg',
+      alt: {
+        en: 'Silver denier of Charlemagne struck at Mainz, 812–814 — inscription KAROLVS IMP AVG; Carolingian coinage linked the Seine ports to a single imperial economy',
+        fr: 'Denier d\'argent de Charlemagne frappé à Mayence, 812–814 — inscription KAROLVS IMP AVG ; la monnaie carolingienne reliait les ports de la Seine à une économie impériale unique',
+        es: 'Denario de plata de Carlomagno acuñado en Maguncia, 812–814 — inscripción KAROLVS IMP AVG; la moneda carolingia unía los puertos del Sena a una economía imperial única',
+        it: 'Denaro d\'argento di Carlo Magno coniato a Magonza, 812–814 — iscrizione KAROLVS IMP AVG; la moneta carolingia collegava i porti della Senna a un\'unica economia imperiale',
+      },
+      credit: {
+        en: 'BnF, Cabinet des Médailles, Gallica (public domain)',
+        fr: 'BnF, Cabinet des médailles, Gallica (domaine public)',
+        es: 'BnF, Gabinete de Medallas, Gallica (dominio público)',
+        it: 'BnF, Gabinetto delle medaglie, Gallica (pubblico dominio)',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'fc-arc-seine-abbeys': [
+    {
+      src: '/story/neustria/abbaye-jumieges.jpg',
+      alt: {
+        en: 'Jumièges Abbey — one of the richest houses on the lower Seine under Carolingian royal charters, connecting monastic wealth to Rouen and the sea',
+        fr: 'Abbaye de Jumièges — l\'une des maisons les plus riches de la basse Seine sous les chartes royales carolingiennes, reliant la richesse monastique à Rouen et à la mer',
+        es: 'Abadía de Jumièges — una de las casas más ricas del bajo Sena bajo cartas reales carolingias, uniendo la riqueza monástica con Rouen y el mar',
+        it: 'Abbazia di Jumièges — una delle case più ricche della bassa Senna sotto le carte reali carolingie, collegando la ricchezza monastica a Rouen e al mare',
+      },
+      credit: {
+        en: 'Photo: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'jumieges',
+    },
+    {
+      src: '/story/frankish-carolingian/utrecht-psalter-cropped.jpg',
+      alt: {
+        en: 'Carolingian illumination from the Utrecht Psalter, c. 800 — the kind of scriptoria that flourished along the Seine under imperial and monastic patronage',
+        fr: 'Enluminure carolingienne du Psautier d\'Utrecht, v. 800 — le type de scriptoriums qui prospéra le long de la Seine sous le patronage impérial et monastique',
+        es: 'Miniatura carolingia del Salterio de Utrecht, c. 800 — el tipo de scriptoria que floreció a lo largo del Sena bajo el patronazgo imperial y monástico',
+        it: 'Miniatura carolingia dal Salterio di Utrecht, c. 800 — il tipo di scriptoria che fiorì lungo la Senna sotto il patronato imperiale e monastico',
+      },
+      credit: {
+        en: 'Utrecht Psalter, c. 800, Utrecht University Library (public domain)',
+        fr: 'Psautier d\'Utrecht, v. 800, bibliothèque de l\'université d\'Utrecht (domaine public)',
+        es: 'Salterio de Utrecht, c. 800, biblioteca de la Universidad de Utrecht (dominio público)',
+        it: 'Salterio di Utrecht, c. 800, biblioteca dell\'Università di Utrecht (pubblico dominio)',
+      },
+      placeId: 'paris',
+    },
+  ],
+
+  'fc-arc-quentovic-trade': [
+    {
+      src: '/story/frankish-carolingian/quentovic-emporium.jpg',
+      alt: {
+        en: 'Quentovic emporium on the Channel coast, c. 815 — Frisian and Anglo-Saxon merchants meet Frankish toll-takers at the empire\'s premier cross-Channel port',
+        fr: 'Emporium de Quentovic sur la côte de la Manche, v. 815 — marchands frisons et anglo-saxons rencontrent les percepteurs francs au premier port transmanche de l\'empire',
+        es: 'Emporio de Quentovic en la costa del canal, c. 815 — comerciantes frisones y anglosajones se encuentran con los recaudadores francos en el principal puerto transmanche del imperio',
+        it: 'Emporio di Quentovic sulla costa della Manica, c. 815 — mercanti frisoni e anglosassoni incontrano i esattori franchi nel principale porto transmanica dell\'impero',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'quentovic',
+    },
+  ],
+
+  'fc-arc-louis-pious': [
+    {
+      src: '/story/frankish-carolingian/louis-the-pious-civil-war.jpg',
+      alt: {
+        en: 'Louis the Pious and the fracturing Carolingian court, 830s — civil wars among his sons drained troops from the Channel and river frontiers',
+        fr: 'Louis le Pieux et la cour carolingienne en fragmentation, années 830 — les guerres civiles entre ses fils drainèrent les troupes des frontières de la Manche et des fleuves',
+        es: 'Luis el Piadoso y la corte carolingia fracturada, década de 830 — las guerras civiles entre sus hijos vaciaron de tropas las fronteras del canal y los ríos',
+        it: 'Lodovico il Pio e la corte carolingia in frantumi, anni 830 — le guerre civili tra i figli prosciugarono le truppe dalle frontiere della Manica e dei fiumi',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [2.0, 49.0],
+    },
+  ],
+
+  'fc-arc-verdun': [
+    {
+      src: '/story/frankish-carolingian/treaty-of-verdun-843.jpg',
+      alt: {
+        en: 'The Treaty of Verdun, 843 — the Carolingian empire partitioned; West Francia, centred on the Seine and Loire, emerged fragile and harder to defend',
+        fr: 'Le traité de Verdun, 843 — l\'empire carolingien partagé ; la Francie occidentale, centrée sur la Seine et la Loire, émerge fragile et plus difficile à défendre',
+        es: 'El Tratado de Verdún, 843 — el imperio carolingio dividido; la Francia Occidental, centrada en el Sena y el Loira, surgió frágil y más difícil de defender',
+        it: 'Il trattato di Verdun, 843 — l\'impero carolingio spartito; la Francia occidentale, incentrata sulla Senna e sulla Loira, emerse fragile e più difficile da difendere',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [5.4, 49.15],
+    },
+  ],
+
+  'fc-arc-first-raids': [
+    {
+      src: '/story/frankish-carolingian/first-norse-raids-seine-841.jpg',
+      alt: {
+        en: 'Norse longships enter the Seine estuary, 841 — Rouen and Jumièges attacked as Carolingian civil war leaves the river undefended',
+        fr: 'Drakkars scandinaves dans l\'estuaire de la Seine, 841 — Rouen et Jumièges attaqués tandis que la guerre civile carolingienne laisse le fleuve sans défense',
+        es: 'Drakkar escandinavos en el estuario del Sena, 841 — Rouen y Jumièges atacados mientras la guerra civil carolingia deja el río indefenso',
+        it: 'Navi vichinghe nell\'estuario della Senna, 841 — Rouen e Jumièges attaccate mentre la guerra civile carolingia lascia il fiume senza difese',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'seine-estuary',
+    },
+  ],
+
+  'fc-arc-storm-horizon': [
+    {
+      src: '/story/frankish-carolingian/eve-viking-age-frontier.jpg',
+      alt: {
+        en: 'On the eve of the Viking Age, 841 — Norse fleets probe every major estuary from Nantes to Quentovic as the Carolingian west faces a storm from the sea',
+        fr: 'À la veille de l\'Âge Viking, 841 — les flottes scandinaves sondent chaque grand estuaire de Nantes à Quentovic tandis que l\'Occident carolingien fait face à la tempête venue de la mer',
+        es: 'En vísperas de la Era Vikinga, 841 — flotas escandinavas suenan cada gran estuario de Nantes a Quentovic mientras el Occidente carolingio afronta la tormenta desde el mar',
+        it: 'Alla vigilia dell\'età vichinga, 841 — flotte scandinave sondano ogni grande estuario da Nantes a Quentovic mentre l\'Occidente carolingio affronta la tempesta dal mare',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [1.0, 50.0],
+    },
+  ],
 };
