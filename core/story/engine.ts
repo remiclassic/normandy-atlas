@@ -6,6 +6,7 @@ import { getAtlasRegion } from '@/core/regions/engine';
 import { getSegment } from '@/core/routes/engine';
 import type {
   StoryBeat,
+  StoryBeatIllustrationSlide,
   PlaceWithState,
   RegionWithState,
   ResolvedSegment,
@@ -34,8 +35,10 @@ export function getStoryBeats(arcId?: string | null): StoryBeat[] {
     : atlasStoryBeats.filter((b) => b.arcId === arcId);
   list.sort(compareStoryBeatsChronologically);
   return list.map((b) => {
-    const ill = STORY_BEAT_ILLUSTRATIONS[b.id];
-    return ill ? { ...b, illustration: ill } : b;
+    const raw = STORY_BEAT_ILLUSTRATIONS[b.id];
+    if (!raw) return b;
+    const slides: StoryBeatIllustrationSlide[] = Array.isArray(raw) ? raw : [raw];
+    return { ...b, illustrations: slides, illustration: slides[0] };
   });
 }
 
@@ -110,6 +113,22 @@ export function resolveStoryIllustrationLngLat(beat: StoryBeat): [number, number
   }
   if (beat.camera.center) return beat.camera.center;
   return null;
+}
+
+/**
+ * Resolve a [lng, lat] anchor for a single illustration slide.
+ * Checks slide-level anchor first, then falls back to beat-level resolution.
+ */
+export function resolveSlideAnchor(
+  slide: StoryBeatIllustrationSlide,
+  beat: StoryBeat,
+): [number, number] | null {
+  if (slide.center) return slide.center;
+  if (slide.placeId) {
+    const coords = getPlaceCoords(slide.placeId);
+    if (coords) return coords;
+  }
+  return resolveStoryIllustrationLngLat(beat);
 }
 
 export function resolveStoryFocus(beat: StoryBeat): ResolvedStoryFocus {

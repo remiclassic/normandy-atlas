@@ -112,6 +112,8 @@ interface MapStore {
   storyMapFollow: boolean;
   /** Toggle between exploration and historical-impact views within cinematic arcs. */
   storyViewMode: 'exploration' | 'impact';
+  /** Image gallery state for multi-slide story illustrations. */
+  storyImageGallery: { open: boolean; activeIndex: number; beatId: string | null };
   activeJourneyId: string | null;
 
   migrationExplorerOpen: boolean;
@@ -180,6 +182,9 @@ interface MapStore {
   goToStoryStep: (index: number) => void;
   setStoryMapFollow: (follow: boolean) => void;
   setStoryViewMode: (mode: 'exploration' | 'impact') => void;
+  openStoryImageGallery: (beatId: string, index?: number) => void;
+  setStoryImageGalleryIndex: (index: number) => void;
+  closeStoryImageGallery: () => void;
   setActiveJourney: (journeyId: string | null) => void;
   applyNormanExpansionPreset: (preset: NormanExpansionPreset) => void;
   setMigrationExplorerOpen: (open: boolean) => void;
@@ -252,6 +257,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   storyArc: null,
   storyMapFollow: true,
   storyViewMode: 'exploration' as 'exploration' | 'impact',
+  storyImageGallery: { open: false, activeIndex: 0, beatId: null },
   activeJourneyId: null,
 
   migrationExplorerOpen: false,
@@ -402,20 +408,41 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       activeJourneyId: null,
       cinematicFlythrough: null,
       cinematicFlythroughProgress: 0,
+      storyImageGallery: { open: false, activeIndex: 0, beatId: null },
     });
   },
-  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null }),
+  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, storyImageGallery: { open: false, activeIndex: 0, beatId: null } }),
 
   nextStoryStep: () =>
-    set((s) => ({ storyStepIndex: s.storyStepIndex + 1, storyMapFollow: true })),
+    set((s) => ({
+      storyStepIndex: s.storyStepIndex + 1,
+      storyMapFollow: true,
+      storyImageGallery: { open: false, activeIndex: 0, beatId: null },
+    })),
 
   prevStoryStep: () =>
-    set((s) => ({ storyStepIndex: Math.max(0, s.storyStepIndex - 1), storyMapFollow: true })),
+    set((s) => ({
+      storyStepIndex: Math.max(0, s.storyStepIndex - 1),
+      storyMapFollow: true,
+      storyImageGallery: { open: false, activeIndex: 0, beatId: null },
+    })),
 
-  goToStoryStep: (index) => set({ storyStepIndex: index, storyMapFollow: true }),
+  goToStoryStep: (index) =>
+    set({ storyStepIndex: index, storyMapFollow: true, storyImageGallery: { open: false, activeIndex: 0, beatId: null } }),
 
   setStoryMapFollow: (follow) => set({ storyMapFollow: follow }),
   setStoryViewMode: (mode) => set({ storyViewMode: mode }),
+
+  openStoryImageGallery: (beatId, index = 0) =>
+    set({ storyImageGallery: { open: true, activeIndex: index, beatId } }),
+
+  setStoryImageGalleryIndex: (index) =>
+    set((s) => ({
+      storyImageGallery: { ...s.storyImageGallery, activeIndex: index },
+    })),
+
+  closeStoryImageGallery: () =>
+    set({ storyImageGallery: { open: false, activeIndex: 0, beatId: null } }),
 
   setActiveJourney: (journeyId) => set({ activeJourneyId: journeyId }),
 

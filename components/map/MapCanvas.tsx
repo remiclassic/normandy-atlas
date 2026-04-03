@@ -72,6 +72,7 @@ import { NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { pickI18n } from '@/lib/locale';
 import { registerAtlasMapIcons } from '@/lib/atlas/mapIcons';
 import { StoryIllustrationMapOverlay } from '@/components/map/StoryIllustrationMapOverlay';
+import StoryImageGallery from '@/components/story/StoryImageGallery';
 
 import {
   getActiveSegments,
@@ -96,6 +97,8 @@ import {
   resolveFlowArcs,
   getBeatCount,
   getJourney,
+  getEffectiveStoryBeat,
+  resolveSlideAnchor,
 } from '@/core';
 import { NORMAN_ROUTE_COLOR } from '@/core/presentation/styles';
 import type { ResolvedSegment, MigrationOverlayContext, MigrationDataset } from '@/core/types';
@@ -1495,7 +1498,6 @@ export default function MapCanvas() {
         if (atlasMode) {
           const beat = getBeat(Math.min(stepIndex, getBeatCount(storyArc) - 1), storyArc);
           if (!beat?.camera) return;
-          // For cinematic arcs in impact mode, use the impact variant camera if available
           const cam = (storyViewMode === 'impact' && beat.impactVariant?.camera)
             ? { ...beat.camera, ...beat.impactVariant.camera }
             : beat.camera;
@@ -1508,6 +1510,47 @@ export default function MapCanvas() {
           const step = normanAtlanticStory[Math.min(stepIndex, normanAtlanticStory.length - 1)];
           if (!step?.camera) return;
           flyToCamera(map, step.camera);
+        }
+      },
+    );
+  }, []);
+
+  // Gallery image cycling — fly map to each slide's anchor
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => s.storyImageGallery,
+      (gallery, prev) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        const { storyMode, atlasMode, storyArc, storyStepIndex, storyMapFollow, storyViewMode } = useMapStore.getState();
+
+        if (gallery.open && gallery.beatId) {
+          const beat = getBeat(Math.min(storyStepIndex, getBeatCount(storyArc) - 1), storyArc);
+          if (!beat?.illustrations?.length) return;
+          const slide = beat.illustrations[Math.min(gallery.activeIndex, beat.illustrations.length - 1)];
+          if (!slide) return;
+          const anchor = resolveSlideAnchor(slide, beat);
+          if (!anchor) return;
+          flyToCamera(map, {
+            center: anchor,
+            zoom: slide.zoom ?? beat.camera.zoom,
+            duration: 1500,
+          });
+        } else if (!gallery.open && prev.open && storyMode && storyMapFollow) {
+          // Gallery just closed — restore beat camera
+          if (atlasMode) {
+            const beat = getBeat(Math.min(storyStepIndex, getBeatCount(storyArc) - 1), storyArc);
+            if (!beat?.camera) return;
+            const effective = getEffectiveStoryBeat(beat, {
+              cinematic: storyArc != null && CINEMATIC_OCEAN_ARC_IDS.has(storyArc),
+              storyViewMode,
+            });
+            flyToCamera(map, {
+              center: effective.camera.center,
+              zoom: effective.camera.zoom,
+              duration: effective.camera.durationMs,
+            });
+          }
         }
       },
     );
@@ -1900,6 +1943,7 @@ export default function MapCanvas() {
       >
         <div ref={containerRef} className="atlas-maplibre-host absolute inset-0 z-0 h-full w-full" />
         <StoryIllustrationMapOverlay mapRef={mapRef} mapInstanceGeneration={mapInstanceGeneration} />
+        <StoryImageGallery />
         <div className="pointer-events-auto absolute top-3 right-3 z-20">
           <TerrainToggle />
         </div>

@@ -186,6 +186,15 @@ export interface StoryBeatIllustration {
   credit?: I18nString;
 }
 
+export interface StoryBeatIllustrationSlide extends StoryBeatIllustration {
+  /** Place id for geographic anchor — resolved via getPlaceCoords. */
+  placeId?: string;
+  /** Explicit [lng, lat] anchor when no place exists. */
+  center?: [number, number];
+  /** Per-slide zoom override; falls back to beat camera zoom. */
+  zoom?: number;
+}
+
 export interface StoryBeatImpactVariant {
   focus?: Partial<StoryBeatFocus>;
   copy?: { title?: string; body?: I18nString };
@@ -206,8 +215,10 @@ export interface StoryBeat {
   anchorYear?: number;
   /** Optional arc tag for filtering beats into thematic sub-stories. */
   arcId?: string;
-  /** Optional artwork shown in the story bar for this beat. */
+  /** First illustration (backward-compat shorthand for illustrations[0]). */
   illustration?: StoryBeatIllustration;
+  /** Gallery of illustrations, each with an optional geographic anchor. */
+  illustrations?: StoryBeatIllustrationSlide[];
   /** Alternate focus / copy / camera used when "Historical impact" view is active. */
   impactVariant?: StoryBeatImpactVariant;
 }

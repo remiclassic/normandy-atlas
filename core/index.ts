@@ -50,6 +50,7 @@ export {
   getStoryStepForBeatId,
   getEffectiveStoryBeat,
   resolveStoryIllustrationLngLat,
+  resolveSlideAnchor,
   resolveStoryFocus,
 } from './story/engine';
 

@@ -1,24 +1,30 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback, memo } from 'react';
 import type maplibregl from 'maplibre-gl';
 import { useMapStore } from '@/lib/store';
 import {
   getBeat,
   getBeatCount,
   getEffectiveStoryBeat,
-  resolveStoryIllustrationLngLat,
+  resolveSlideAnchor,
 } from '@/core';
-import type { StoryBeatIllustration } from '@/core/types';
+import type { StoryBeatIllustrationSlide } from '@/core/types';
 import { StoryBeatMapPin } from '@/components/story/StoryBeatIllustration';
 
 const CINEMATIC_ARC_IDS = new Set(['leif-erikson']);
 
+interface ResolvedPin {
+  slide: StoryBeatIllustrationSlide;
+  lng: number;
+  lat: number;
+  slideIndex: number;
+  beatId: string;
+}
+
 /**
- * Positions the story illustration pin in screen space above the map surface.
- * MapLibre HTML markers live inside the canvas container under Deck.gl’s
- * full-map overlay, so they stay invisible — this layer is a sibling of the
- * map host with a higher z-index instead.
+ * Positions story illustration pins in screen space above the map surface.
+ * Projects one pin per slide for the current beat, using a single rAF loop.
  */
 export function StoryIllustrationMapOverlay({
   mapRef,
@@ -34,53 +40,48 @@ export function StoryIllustrationMapOverlay({
   const storyViewMode = useMapStore((s) => s.storyViewMode);
   const locale = useMapStore((s) => s.locale);
 
-  const pin = useMemo((): {
-    illustration: StoryBeatIllustration;
-    lng: number;
-    lat: number;
-    beatId: string;
-  } | null => {
-    if (!storyMode || !atlasMode) return null;
+  const pins = useMemo((): ResolvedPin[] => {
+    if (!storyMode || !atlasMode) return [];
     const count = getBeatCount(storyArc);
-    if (count < 1) return null;
+    if (count < 1) return [];
     const rawBeat = getBeat(Math.min(stepIndex, count - 1), storyArc);
-    if (!rawBeat) return null;
+    if (!rawBeat) return [];
     const cinematic = storyArc != null && CINEMATIC_ARC_IDS.has(storyArc);
     const beat = getEffectiveStoryBeat(rawBeat, { cinematic, storyViewMode });
-    if (!beat.illustration) return null;
-    const ll = resolveStoryIllustrationLngLat(beat);
-    if (!ll) return null;
-    return {
-      illustration: beat.illustration,
-      lng: ll[0],
-      lat: ll[1],
-      beatId: beat.id,
-    };
+    const slides = beat.illustrations;
+    if (!slides?.length) return [];
+
+    const result: ResolvedPin[] = [];
+    for (let i = 0; i < slides.length; i++) {
+      const slide = slides[i];
+      const anchor = resolveSlideAnchor(slide, beat);
+      if (!anchor) continue;
+      result.push({ slide, lng: anchor[0], lat: anchor[1], slideIndex: i, beatId: beat.id });
+    }
+    return result;
   }, [storyMode, atlasMode, storyArc, stepIndex, storyViewMode]);
 
-  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const [positions, setPositions] = useState<(({ x: number; y: number }) | null)[]>([]);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !pin) {
-      setPos(null);
+    if (!map || pins.length === 0) {
+      setPositions([]);
       return;
     }
-
-    const lngLat: [number, number] = [pin.lng, pin.lat];
 
     let rafId = 0;
 
     const update = () => {
       try {
-        const p = map.project(lngLat);
-        if (!Number.isFinite(p.x) || !Number.isFinite(p.y)) {
-          setPos(null);
-          return;
-        }
-        setPos({ x: p.x, y: p.y });
+        const next = pins.map((pin) => {
+          const p = map.project([pin.lng, pin.lat]);
+          if (!Number.isFinite(p.x) || !Number.isFinite(p.y)) return null;
+          return { x: p.x, y: p.y };
+        });
+        setPositions(next);
       } catch {
-        setPos(null);
+        setPositions([]);
       }
     };
 
@@ -119,25 +120,60 @@ export function StoryIllustrationMapOverlay({
         /* map may already be destroyed */
       }
     };
-  }, [mapInstanceGeneration, pin, mapRef]);
+  }, [mapInstanceGeneration, pins, mapRef]);
 
-  if (!pin || pos == null) return null;
+  if (pins.length === 0 || positions.length === 0) return null;
 
   return (
     <div
       className="pointer-events-none absolute inset-0 z-[30]"
       data-story-illustration-pin=""
     >
-      <div
-        className="pointer-events-auto absolute"
-        style={{
-          left: pos.x,
-          top: pos.y,
-          transform: 'translate(-50%, calc(-100% - 8px))',
-        }}
-      >
-        <StoryBeatMapPin illustration={pin.illustration} locale={locale} />
-      </div>
+      {pins.map((pin, i) => {
+        const pos = positions[i];
+        if (!pos) return null;
+        return (
+          <OverlayPin
+            key={`${pin.beatId}-${pin.slideIndex}`}
+            pin={pin}
+            pos={pos}
+            locale={locale}
+          />
+        );
+      })}
     </div>
   );
 }
+
+const OverlayPin = memo(function OverlayPin({
+  pin,
+  pos,
+  locale,
+}: {
+  pin: ResolvedPin;
+  pos: { x: number; y: number };
+  locale: string;
+}) {
+  const openGallery = useMapStore((s) => s.openStoryImageGallery);
+
+  const handleClick = useCallback(() => {
+    openGallery(pin.beatId, pin.slideIndex);
+  }, [openGallery, pin.beatId, pin.slideIndex]);
+
+  return (
+    <div
+      className="pointer-events-auto absolute"
+      style={{
+        left: pos.x,
+        top: pos.y,
+        transform: 'translate(-50%, calc(-100% - 8px))',
+      }}
+    >
+      <StoryBeatMapPin
+        illustration={pin.slide}
+        locale={locale as 'en' | 'fr' | 'es' | 'it'}
+        onOpenOverride={handleClick}
+      />
+    </div>
+  );
+});

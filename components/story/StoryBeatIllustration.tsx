@@ -9,35 +9,54 @@ import { t } from '@/lib/ui-strings';
 import type { StoryBeatIllustration as IllustrationMeta } from '@/core/types';
 import type { AtlasLocale } from '@/core/types';
 
-// ─── Shared lightbox ────────────────────────────────────────────────
+// ─── Gallery lightbox (multi-item) ──────────────────────────────────
 
-interface LightboxProps {
-  open: boolean;
+interface GalleryItem {
   src: string;
   alt: string;
   credit: string | null;
+}
+
+interface GalleryLightboxProps {
+  open: boolean;
+  items: GalleryItem[];
+  index: number;
   locale: AtlasLocale;
+  onIndexChange: (index: number) => void;
   onClose: () => void;
 }
 
-export const IllustrationLightbox = memo(function IllustrationLightbox({
+export const IllustrationGalleryLightbox = memo(function IllustrationGalleryLightbox({
   open,
-  src,
-  alt,
-  credit,
+  items,
+  index,
   locale,
+  onIndexChange,
   onClose,
-}: LightboxProps) {
+}: GalleryLightboxProps) {
+  const total = items.length;
+  const item = items[index] ?? items[0];
+
+  const goPrev = useCallback(() => {
+    if (index > 0) onIndexChange(index - 1);
+  }, [index, onIndexChange]);
+
+  const goNext = useCallback(() => {
+    if (index < total - 1) onIndexChange(index + 1);
+  }, [index, total, onIndexChange]);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      else if (e.key === 'ArrowLeft') goPrev();
+      else if (e.key === 'ArrowRight') goNext();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open, onClose]);
+  }, [open, onClose, goPrev, goNext]);
 
-  if (typeof document === 'undefined') return null;
+  if (typeof document === 'undefined' || !item) return null;
 
   return createPortal(
     <AnimatePresence>
@@ -45,7 +64,7 @@ export const IllustrationLightbox = memo(function IllustrationLightbox({
         <motion.div
           role="dialog"
           aria-modal="true"
-          aria-label={alt}
+          aria-label={item.alt}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -61,16 +80,53 @@ export const IllustrationLightbox = memo(function IllustrationLightbox({
             className="relative flex max-h-[85vh] max-w-[92vw] flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={src}
-              alt={alt}
-              className="max-h-[75vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
-            />
-            {credit && (
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={item.src}
+                src={item.src}
+                alt={item.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="max-h-[75vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+              />
+            </AnimatePresence>
+
+            {item.credit && (
               <p className="mt-3 max-w-[90vw] text-center text-[11px] leading-relaxed text-white/60">
-                {credit}
+                {item.credit}
               </p>
+            )}
+
+            {total > 1 && (
+              <div className="mt-3 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  disabled={index === 0}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20 disabled:opacity-25 disabled:cursor-not-allowed transition-colors duration-150"
+                  aria-label="Previous image"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <span className="text-[12px] text-white/60 tabular-nums">
+                  {index + 1} / {total}
+                </span>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  disabled={index === total - 1}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20 disabled:opacity-25 disabled:cursor-not-allowed transition-colors duration-150"
+                  aria-label="Next image"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
             )}
           </motion.div>
 
@@ -91,14 +147,43 @@ export const IllustrationLightbox = memo(function IllustrationLightbox({
   );
 });
 
-// ─── Inline trigger (original full-width 16:9 preview) ─────────────
+// ─── Legacy single-image lightbox (kept for non-gallery callers) ────
+
+interface LightboxProps {
+  open: boolean;
+  src: string;
+  alt: string;
+  credit: string | null;
+  locale: AtlasLocale;
+  onClose: () => void;
+}
+
+export const IllustrationLightbox = memo(function IllustrationLightbox(props: LightboxProps) {
+  const item: GalleryItem = { src: props.src, alt: props.alt, credit: props.credit };
+  return (
+    <IllustrationGalleryLightbox
+      open={props.open}
+      items={[item]}
+      index={0}
+      locale={props.locale}
+      onIndexChange={() => {}}
+      onClose={props.onClose}
+    />
+  );
+});
+
+// ─── Inline trigger (full-width 16:9 preview in story bar) ──────────
 
 interface Props {
   illustration: IllustrationMeta;
   locale: AtlasLocale;
+  /** Total slides for this beat (shows "+N" badge when > 1). */
+  slideCount?: number;
+  /** When set, clicking opens the gallery via this callback instead of the local lightbox. */
+  onOpenOverride?: () => void;
 }
 
-export default memo(function StoryBeatIllustration({ illustration, locale }: Props) {
+export default memo(function StoryBeatIllustration({ illustration, locale, slideCount, onOpenOverride }: Props) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -106,7 +191,14 @@ export default memo(function StoryBeatIllustration({ illustration, locale }: Pro
   const alt = pickI18n(illustration.alt, locale);
   const credit = illustration.credit ? pickI18n(illustration.credit, locale) : null;
 
-  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleOpen = useCallback(() => {
+    if (onOpenOverride) {
+      onOpenOverride();
+    } else {
+      setOpen(true);
+    }
+  }, [onOpenOverride]);
+
   const handleClose = useCallback(() => {
     setOpen(false);
     requestAnimationFrame(() => triggerRef.current?.focus());
@@ -136,35 +228,55 @@ export default memo(function StoryBeatIllustration({ illustration, locale }: Pro
           </svg>
           {t('story.illustration.enlarge', locale)}
         </span>
+        {(slideCount ?? 0) > 1 && (
+          <span className="absolute top-2 right-2 flex items-center gap-1 rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-white/90 pointer-events-none">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="3" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
+              <rect x="5" y="1" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.3" fill="none" />
+            </svg>
+            {slideCount}
+          </span>
+        )}
       </button>
 
-      <IllustrationLightbox
-        open={open}
-        src={src}
-        alt={alt}
-        credit={credit}
-        locale={locale}
-        onClose={handleClose}
-      />
+      {!onOpenOverride && (
+        <IllustrationLightbox
+          open={open}
+          src={src}
+          alt={alt}
+          credit={credit}
+          locale={locale}
+          onClose={handleClose}
+        />
+      )}
     </>
   );
 });
 
-// ─── Map pin trigger (compact thumbnail for MapLibre marker) ───────
+// ─── Map pin trigger (compact thumbnail for MapLibre marker) ────────
 
 interface MapPinProps {
   illustration: IllustrationMeta;
   locale: AtlasLocale;
+  /** When set, clicking calls this instead of opening a local lightbox. */
+  onOpenOverride?: () => void;
 }
 
-export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, locale }: MapPinProps) {
+export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, locale, onOpenOverride }: MapPinProps) {
   const [open, setOpen] = useState(false);
 
   const src = publicAssetUrl(illustration.src);
   const alt = pickI18n(illustration.alt, locale);
   const credit = illustration.credit ? pickI18n(illustration.credit, locale) : null;
 
-  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleOpen = useCallback(() => {
+    if (onOpenOverride) {
+      onOpenOverride();
+    } else {
+      setOpen(true);
+    }
+  }, [onOpenOverride]);
+
   const handleClose = useCallback(() => setOpen(false), []);
 
   return (
@@ -193,14 +305,16 @@ export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, loc
         </svg>
       </button>
 
-      <IllustrationLightbox
-        open={open}
-        src={src}
-        alt={alt}
-        credit={credit}
-        locale={locale}
-        onClose={handleClose}
-      />
+      {!onOpenOverride && (
+        <IllustrationLightbox
+          open={open}
+          src={src}
+          alt={alt}
+          credit={credit}
+          locale={locale}
+          onClose={handleClose}
+        />
+      )}
     </>
   );
 });
