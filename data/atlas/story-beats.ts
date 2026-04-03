@@ -6039,4 +6039,1337 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1086,
   },
+
+  // ── Samuel de Champlain guided arc ──────────────────────────────────
+  {
+    id: 'chpl-beat-brouage',
+    eraId: 'age-of-exploration',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'places',
+      center: [-1.15, 46.16],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['la-rochelle'],
+      regionIds: ['aunis'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Brouage — a navigator is born',
+      body: {
+        en: 'Samuel de Champlain was born around 1574 in Brouage, a fortified salt port on the Saintonge coast. The town\'s Atlantic trade and its proximity to La Rochelle shaped a young man who would spend his life navigating between France and the New World.',
+        fr: 'Samuel de Champlain naquit vers 1574 à Brouage, port fortifié du sel sur la côte saintongeaise. Le commerce atlantique de la ville et sa proximité avec La Rochelle formèrent un jeune homme qui passerait sa vie à naviguer entre la France et le Nouveau Monde.',
+      },
+    },
+    anchorYear: 1574,
+  },
+  {
+    id: 'chpl-beat-first-crossings',
+    eraId: 'age-of-exploration',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'bbox',
+      center: [-28.0, 47.0],
+      zoom: 2.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['honfleur', 'la-rochelle', 'mid-atlantic-passage'],
+      regionIds: ['atlantic-basin'],
+      routeSegmentIds: ['seg-honfleur-atlantic'],
+    },
+    presentation: {
+      routeHighlightMode: 'kind',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'First crossings — learning the Atlantic',
+      body: {
+        en: 'Before Canada, Champlain sailed to the Spanish West Indies and Central America (1599–1601), sharpening the navigational and observational skills that would define his career. He returned with maps, drawings, and a conviction that France must plant colonies in the New World.',
+        fr: 'Avant le Canada, Champlain navigua vers les Antilles espagnoles et l\'Amérique centrale (1599-1601), affinant les compétences de navigation et d\'observation qui définiront sa carrière. Il revint avec cartes, dessins et la conviction que la France devait fonder des colonies dans le Nouveau Monde.',
+      },
+    },
+    anchorYear: 1601,
+  },
+  {
+    id: 'chpl-beat-acadia',
+    eraId: 'age-of-exploration',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'places',
+      center: [-65.52, 44.74],
+      zoom: 5.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['port-royal', 'la-rochelle'],
+      regionIds: ['acadia', 'aunis'],
+      routeSegmentIds: ['seg-la-rochelle-atlantic', 'seg-atlantic-port-royal'],
+      journeyIds: ['journey-la-rochelle-acadia'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Acadia — the first colony attempt',
+      body: {
+        en: 'In 1604, under Pierre Dugua de Mons\'s royal monopoly, Champlain helped establish a settlement at Île Sainte-Croix, then Port-Royal. The harsh winters killed many, but Champlain mapped the coast from Cape Cod to the Bay of Fundy — knowledge that would guide his next, decisive venture.',
+        fr: 'En 1604, sous le monopole royal de Pierre Dugua de Mons, Champlain participa à l\'établissement d\'une colonie à l\'île Sainte-Croix, puis à Port-Royal. Les hivers rigoureux tuèrent beaucoup, mais Champlain cartographia la côte du cap Cod à la baie de Fundy — un savoir qui guidera son prochain projet, décisif.',
+      },
+    },
+    anchorYear: 1604,
+  },
+  {
+    id: 'chpl-beat-founding-quebec',
+    eraId: 'new-france-foundations',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'places',
+      center: [-71.21, 46.81],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'tadoussac'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Québec — 3 July 1608',
+      body: {
+        en: 'Champlain chose the narrows of the St. Lawrence — Kebec in Algonquin — for a permanent habitation. The fortified post sat below the cliff, overlooking the river where it contracts to rifle-shot width. It was a trader\'s chokepoint and a strategist\'s dream. The colony of New France had its capital.',
+        fr: 'Champlain choisit le rétrécissement du Saint-Laurent — Kebec en algonquin — pour une habitation permanente. Le poste fortifié se dressait au pied de la falaise, dominant le fleuve là où il se resserre à portée de mousquet. C\'était un verrou commercial et un rêve de stratège. La Nouvelle-France avait sa capitale.',
+      },
+    },
+    anchorYear: 1608,
+  },
+  {
+    id: 'chpl-beat-alliances',
+    eraId: 'new-france-foundations',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'bbox',
+      center: [-74.0, 44.5],
+      zoom: 5.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'montreal', 'lake-huron-node'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-champlain-quebec-huron'],
+      journeyIds: ['journey-champlain-great-lakes'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Alliances that shaped a continent',
+      body: {
+        en: 'Champlain forged alliances with the Wendat (Huron), Algonquin, and Montagnais nations — commitments sealed by war against the Haudenosaunee in 1609. These partnerships defined New France\'s diplomacy for a century: the colony survived because Indigenous nations chose to trade with and fight alongside the French.',
+        fr: 'Champlain forgea des alliances avec les Wendats (Hurons), les Algonquins et les Montagnais — engagements scellés par la guerre contre les Haudenosaunee en 1609. Ces partenariats définirent la diplomatie de la Nouvelle-France pendant un siècle : la colonie survécut parce que les nations autochtones choisirent de commercer et de combattre aux côtés des Français.',
+      },
+    },
+    anchorYear: 1609,
+  },
+  {
+    id: 'chpl-beat-great-lakes',
+    eraId: 'new-france-foundations',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'bbox',
+      center: [-79.0, 44.5],
+      zoom: 4.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'montreal', 'lake-huron-node', 'great-lakes-hub'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-champlain-quebec-huron'],
+      journeyIds: ['journey-champlain-great-lakes'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Into the interior — the Great Lakes',
+      body: {
+        en: 'In 1615 Champlain pushed up the Ottawa River to Lake Huron and wintered among the Wendat — the deepest penetration of the continent by a French leader to that date. His journey revealed the immense scale of the land France had claimed: an interior of lakes, rivers, and nations stretching beyond any European map.',
+        fr: 'En 1615, Champlain remonta l\'Outaouais jusqu\'au lac Huron et hiverna chez les Wendats — la pénétration la plus profonde du continent par un dirigeant français à cette date. Son voyage révéla l\'échelle immense de la terre que la France avait revendiquée : un intérieur de lacs, de rivières et de nations s\'étendant au-delà de toute carte européenne.',
+      },
+    },
+    anchorYear: 1615,
+  },
+  {
+    id: 'chpl-beat-cartographer',
+    eraId: 'new-france-foundations',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'bbox',
+      center: [-55.0, 47.0],
+      zoom: 3.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'port-royal', 'tadoussac', 'gaspe-peninsula'],
+      regionIds: ['new-france', 'acadia', 'atlantic-basin'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The cartographer\'s legacy',
+      body: {
+        en: 'Champlain\'s 1632 map of New France was the most accurate depiction of northeastern North America in existence. Compiled from decades of personal observation, Indigenous testimony, and careful draftsmanship, it guided navigators and administrators for generations. He was as much mapmaker as governor — and his maps outlasted every building he raised.',
+        fr: 'La carte de 1632 de Champlain de la Nouvelle-France était la représentation la plus précise du nord-est de l\'Amérique du Nord. Compilée à partir de décennies d\'observation personnelle, de témoignages autochtones et de dessin minutieux, elle guida navigateurs et administrateurs pendant des générations. Il était autant cartographe que gouverneur — et ses cartes survécurent à chaque édifice qu\'il érigea.',
+      },
+    },
+    anchorYear: 1632,
+  },
+  {
+    id: 'chpl-beat-death',
+    eraId: 'new-france-foundations',
+    arcId: 'samuel-de-champlain',
+    camera: {
+      target: 'places',
+      center: [-71.21, 46.81],
+      zoom: 7.2,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Death at Québec — Christmas 1635',
+      body: {
+        en: 'Champlain died on 25 December 1635 in the settlement he had founded twenty-seven years earlier. He left behind a colony of barely three hundred souls, a web of Indigenous alliances, and the most detailed maps of any French territory overseas. History would call him the Father of New France.',
+        fr: 'Champlain mourut le 25 décembre 1635 dans l\'établissement qu\'il avait fondé vingt-sept ans plus tôt. Il laissait une colonie d\'à peine trois cents âmes, un réseau d\'alliances autochtones et les cartes les plus détaillées de tout territoire français d\'outre-mer. L\'histoire le surnommerait le Père de la Nouvelle-France.',
+      },
+    },
+    anchorYear: 1635,
+  },
+
+  // ── Jacques Cartier guided arc ──────────────────────────────────────
+  {
+    id: 'jcar-beat-saint-malo',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'places',
+      center: [-2.02, 48.65],
+      zoom: 7.2,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-malo'],
+      regionIds: ['brittany'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Saint-Malo — city of corsairs',
+      body: {
+        en: 'Jacques Cartier was born in 1491 in Saint-Malo, the walled Breton port whose mariners already fished the Grand Banks of Newfoundland. The town sat at the junction of Breton and Norman maritime worlds — a natural springboard for Atlantic exploration.',
+        fr: 'Jacques Cartier naquit en 1491 à Saint-Malo, le port breton fortifié dont les marins pêchaient déjà sur les Grands Bancs de Terre-Neuve. La ville se trouvait à la jonction des mondes maritimes breton et normand — un tremplin naturel pour l\'exploration atlantique.',
+      },
+    },
+    anchorYear: 1491,
+  },
+  {
+    id: 'jcar-beat-first-voyage',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'bbox',
+      center: [-45.0, 48.0],
+      zoom: 2.8,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-malo', 'gaspe-peninsula'],
+      regionIds: ['atlantic-basin'],
+      routeSegmentIds: ['seg-cartier-atlantic'],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'First voyage — 1534',
+      body: {
+        en: 'Commissioned by Francis I, Cartier sailed from Saint-Malo on 20 April 1534 with two ships. He crossed the Atlantic in twenty days, entered the Gulf of St. Lawrence, and mapped the coasts of Newfoundland, Prince Edward Island, and the Gaspé Peninsula — the first systematic French reconnaissance of the region.',
+        fr: 'Mandaté par François Ier, Cartier quitta Saint-Malo le 20 avril 1534 avec deux navires. Il traversa l\'Atlantique en vingt jours, entra dans le golfe du Saint-Laurent et cartographia les côtes de Terre-Neuve, de l\'Île-du-Prince-Édouard et de la Gaspésie — la première reconnaissance française systématique de la région.',
+      },
+    },
+    anchorYear: 1534,
+  },
+  {
+    id: 'jcar-beat-gaspe',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'places',
+      center: [-64.48, 48.83],
+      zoom: 6.5,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['gaspe-peninsula'],
+      regionIds: [],
+      routeSegmentIds: ['seg-cartier-gulf-stadacona'],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The cross at Gaspé',
+      body: {
+        en: 'At Gaspé Bay, Cartier erected a ten-metre wooden cross bearing the arms of France — an act of possession that the local chief Donnacona did not welcome. Cartier took Donnacona\'s two sons back to France, beginning a fraught relationship between European claims and Indigenous sovereignty that would define the next two centuries.',
+        fr: 'À la baie de Gaspé, Cartier planta une croix de dix mètres aux armes de la France — un acte de prise de possession que le chef local Donnacona n\'accueillit pas favorablement. Cartier emmena les deux fils de Donnacona en France, inaugurant une relation tendue entre les revendications européennes et la souveraineté autochtone qui définirait les deux siècles suivants.',
+      },
+    },
+    anchorYear: 1534,
+  },
+  {
+    id: 'jcar-beat-stadacona',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'places',
+      center: [-71.21, 46.81],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city', 'gaspe-peninsula'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-cartier-gulf-stadacona'],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Stadacona — the second voyage',
+      body: {
+        en: 'In 1535, guided by Donnacona\'s sons, Cartier sailed up the St. Lawrence to Stadacona — a thriving village on the site of present-day Québec. He wintered there, losing twenty-five men to scurvy before local knowledge of white cedar tea saved the rest. The river was open, and its nations were powerful.',
+        fr: 'En 1535, guidé par les fils de Donnacona, Cartier remonta le Saint-Laurent jusqu\'à Stadaconé — un village florissant sur le site de l\'actuel Québec. Il y passa l\'hiver, perdant vingt-cinq hommes du scorbut avant qu\'une tisane d\'annedda (cèdre blanc) transmise par les locaux ne sauve le reste. Le fleuve était ouvert, et ses nations étaient puissantes.',
+      },
+    },
+    anchorYear: 1535,
+  },
+  {
+    id: 'jcar-beat-hochelaga',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'places',
+      center: [-73.57, 45.50],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['montreal', 'quebec-city'],
+      regionIds: ['new-france'],
+      routeSegmentIds: ['seg-cartier-stadacona-hochelaga'],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes', 'destinations'],
+    },
+    copy: {
+      title: 'Hochelaga — the mountain',
+      body: {
+        en: 'Against Donnacona\'s advice, Cartier pressed upstream to Hochelaga, a large palisaded town at the foot of Mont Royal. From the summit he saw the St. Lawrence rapids that blocked further progress and the vast forested interior beyond. He named the mountain — and gave Montréal its name.',
+        fr: 'Malgré les avertissements de Donnacona, Cartier remonta le fleuve jusqu\'à Hochelaga, grande ville palissadée au pied du mont Royal. Du sommet, il vit les rapides du Saint-Laurent qui bloquaient toute avancée et l\'immense intérieur forestier au-delà. Il nomma la montagne — et donna à Montréal son nom.',
+      },
+    },
+    anchorYear: 1535,
+  },
+  {
+    id: 'jcar-beat-third-voyage',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'bbox',
+      center: [-45.0, 48.0],
+      zoom: 3.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-malo', 'quebec-city'],
+      regionIds: ['atlantic-basin', 'new-france'],
+      routeSegmentIds: ['seg-cartier-atlantic', 'seg-cartier-gulf-stadacona'],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'Third voyage — failure and diamonds',
+      body: {
+        en: 'Cartier\'s 1541–42 expedition aimed to found a permanent colony and find the fabled Kingdom of Saguenay. He built a fort above Stadacona, collected what he believed were diamonds and gold — they were quartz and pyrite. Roberval arrived with colonists but the venture collapsed. France would not return in force for sixty years.',
+        fr: 'L\'expédition de 1541-42 visait à fonder une colonie permanente et à trouver le légendaire Royaume du Saguenay. Il construisit un fort au-dessus de Stadaconé et collecta ce qu\'il croyait être des diamants et de l\'or — c\'étaient du quartz et de la pyrite. Roberval arriva avec des colons, mais l\'entreprise échoua. La France ne reviendrait en force que soixante ans plus tard.',
+      },
+    },
+    anchorYear: 1541,
+  },
+  {
+    id: 'jcar-beat-legacy',
+    eraId: 'age-of-exploration',
+    arcId: 'jacques-cartier',
+    camera: {
+      target: 'bbox',
+      center: [-35.0, 48.0],
+      zoom: 2.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['saint-malo', 'gaspe-peninsula', 'quebec-city', 'montreal'],
+      regionIds: ['brittany', 'atlantic-basin', 'new-france'],
+      routeSegmentIds: [],
+      journeyIds: ['journey-cartier'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['origins', 'destinations'],
+    },
+    copy: {
+      title: 'Return to Saint-Malo — a door left open',
+      body: {
+        en: 'Cartier died in 1557 at Saint-Malo, his colony attempt a failure. Yet his three voyages had mapped the St. Lawrence from the Gulf to the rapids, named Mont Royal, and proved the river was a highway into the continent. When Champlain sailed seventy years later, he followed Cartier\'s charts.',
+        fr: 'Cartier mourut en 1557 à Saint-Malo, sa tentative de colonie un échec. Pourtant, ses trois voyages avaient cartographié le Saint-Laurent du golfe aux rapides, nommé le mont Royal et prouvé que le fleuve était une autoroute vers le continent. Quand Champlain navigua soixante-dix ans plus tard, il suivit les cartes de Cartier.',
+      },
+    },
+    anchorYear: 1557,
+  },
+
+  // ── Pierre Dugua de Mons guided arc ─────────────────────────────────
+  {
+    id: 'dugua-beat-royan',
+    eraId: 'age-of-exploration',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'places',
+      center: [-1.15, 46.16],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['la-rochelle'],
+      regionIds: ['aunis'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Royan — merchant and Huguenot',
+      body: {
+        en: 'Pierre Dugua, sieur de Mons, was born around 1558 in Royan, Saintonge — a Protestant in a region whose merchants had long traded along the Atlantic coast. His military service during the Wars of Religion earned him the trust of Henri IV, who would grant him the instrument that made permanent settlement possible: a royal fur-trade monopoly.',
+        fr: 'Pierre Dugua, sieur de Mons, naquit vers 1558 à Royan, en Saintonge — un protestant dans une région dont les marchands commerçaient depuis longtemps le long de la côte atlantique. Son service militaire pendant les guerres de Religion lui valut la confiance d\'Henri IV, qui lui accorderait l\'instrument rendant possible la colonisation permanente : un monopole royal de la traite des fourrures.',
+      },
+    },
+    anchorYear: 1558,
+  },
+  {
+    id: 'dugua-beat-monopoly',
+    eraId: 'age-of-exploration',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'bbox',
+      center: [-28.0, 47.0],
+      zoom: 2.8,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['la-rochelle', 'honfleur', 'mid-atlantic-passage'],
+      regionIds: ['aunis', 'atlantic-basin'],
+      routeSegmentIds: ['seg-la-rochelle-atlantic'],
+      journeyIds: ['journey-la-rochelle-acadia'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['routes'],
+    },
+    copy: {
+      title: 'The monopoly — financing a continent',
+      body: {
+        en: 'In 1603 Henri IV granted Dugua a monopoly on the fur trade between the 40th and 46th parallels. It was the financial engine behind colonization: private capital underwrote ships, supplies, and settlers in exchange for exclusive beaver-pelt profits. Dugua recruited Champlain as cartographer and navigator — the partnership that would found New France.',
+        fr: 'En 1603, Henri IV accorda à Dugua un monopole de la traite des fourrures entre les 40e et 46e parallèles. C\'était le moteur financier de la colonisation : le capital privé finançait navires, provisions et colons en échange des profits exclusifs du castor. Dugua recruta Champlain comme cartographe et navigateur — le partenariat qui fondera la Nouvelle-France.',
+      },
+    },
+    anchorYear: 1603,
+  },
+  {
+    id: 'dugua-beat-sainte-croix',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'places',
+      center: [-65.52, 44.74],
+      zoom: 5.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['port-royal'],
+      regionIds: ['acadia'],
+      routeSegmentIds: ['seg-atlantic-port-royal'],
+      journeyIds: ['journey-la-rochelle-acadia'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Île Sainte-Croix — a lethal winter',
+      body: {
+        en: 'In 1604, Dugua\'s expedition landed at Île Sainte-Croix in the Bay of Fundy. The island seemed defensible, but the winter was devastating: thirty-five of seventy-nine men died of scurvy and cold. The survivors relocated to Port-Royal across the bay. Dugua had learned, at terrible cost, that colonization demanded more than capital — it demanded knowledge of the land.',
+        fr: 'En 1604, l\'expédition de Dugua débarqua à l\'île Sainte-Croix dans la baie de Fundy. L\'île semblait défendable, mais l\'hiver fut dévastateur : trente-cinq des soixante-dix-neuf hommes moururent du scorbut et du froid. Les survivants se relocalisèrent à Port-Royal de l\'autre côté de la baie. Dugua avait appris, à un coût terrible, que la colonisation exigeait plus que du capital — elle exigeait la connaissance du terrain.',
+      },
+    },
+    anchorYear: 1604,
+  },
+  {
+    id: 'dugua-beat-port-royal',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'places',
+      center: [-65.52, 44.74],
+      zoom: 6.5,
+      durationMs: 1800,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['port-royal'],
+      regionIds: ['acadia'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Port-Royal — France in Acadia',
+      body: {
+        en: 'Port-Royal became the first sustained French settlement in North America. Under Poutrincourt\'s local command and Champlain\'s mapping, the Habitation sheltered colonists, forged ties with the Mi\'kmaq, and hosted the Ordre de Bon Temps — the New World\'s first social club. Dugua financed it from France, never again crossing the ocean himself.',
+        fr: 'Port-Royal devint le premier établissement français durable en Amérique du Nord. Sous le commandement local de Poutrincourt et la cartographie de Champlain, l\'Habitation abrita les colons, forgea des liens avec les Mi\'kmaqs et accueillit l\'Ordre de Bon Temps — le premier club social du Nouveau Monde. Dugua le finançait depuis la France, sans jamais plus traverser l\'océan.',
+      },
+    },
+    anchorYear: 1605,
+  },
+  {
+    id: 'dugua-beat-quebec-founding',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'places',
+      center: [-71.21, 46.81],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['quebec-city'],
+      regionIds: ['new-france'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Behind Champlain — the founding of Québec',
+      body: {
+        en: 'When Dugua\'s Acadian monopoly was revoked, he pivoted to the St. Lawrence. In 1608 he sent Champlain with a new commission to found a trading post at Québec. Dugua never sailed there himself, but without his capital, his political connections, and his willingness to absorb losses, Champlain\'s habitation would not have been built.',
+        fr: 'Quand le monopole acadien de Dugua fut révoqué, il se tourna vers le Saint-Laurent. En 1608, il envoya Champlain avec une nouvelle commission pour fonder un poste de traite à Québec. Dugua n\'y navigua jamais, mais sans son capital, ses connexions politiques et sa volonté d\'absorber les pertes, l\'habitation de Champlain n\'aurait pas vu le jour.',
+      },
+    },
+    anchorYear: 1608,
+  },
+  {
+    id: 'dugua-beat-legacy',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-dugua-de-mons',
+    camera: {
+      target: 'bbox',
+      center: [-35.0, 46.0],
+      zoom: 2.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['la-rochelle', 'port-royal', 'quebec-city'],
+      regionIds: ['aunis', 'acadia', 'new-france', 'atlantic-basin'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins', 'destinations'],
+    },
+    copy: {
+      title: 'The man behind the colony',
+      body: {
+        en: 'Dugua died in 1628, largely forgotten. History remembered Champlain, not the merchant who wrote the checks. Yet Dugua\'s model — private monopoly financing public colonization — was the template for every subsequent venture in New France. He proved that permanent settlement required sustained capital, not just royal ambition.',
+        fr: 'Dugua mourut en 1628, largement oublié. L\'histoire retint Champlain, pas le marchand qui signa les traites. Pourtant, le modèle de Dugua — monopole privé finançant la colonisation publique — servit de modèle à chaque entreprise ultérieure en Nouvelle-France. Il prouva que l\'établissement permanent exigeait un capital soutenu, pas seulement l\'ambition royale.',
+      },
+    },
+    anchorYear: 1628,
+  },
+
+  // ── Louis Hébert guided arc ─────────────────────────────────────────
+  {
+    id: 'lheb-beat-paris',
+    eraId: 'new-france-foundations',
+    arcId: 'louis-hebert',
+    camera: { target: 'places', center: [2.35, 48.86], zoom: 7.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris', 'rouen'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Paris — an apothecary\'s ambition',
+      body: {
+        en: 'Louis Hébert was born around 1575 in Paris, where he practised as an apothecary. Recruited through Rouen\'s trading networks, he would become the first European to farm Canadian soil — exchanging mortar and pestle for plough and hoe.',
+        fr: 'Louis Hébert naquit vers 1575 à Paris, où il exerçait comme apothicaire. Recruté via les réseaux marchands de Rouen, il deviendrait le premier Européen à cultiver le sol canadien — échangeant pilon et mortier contre charrue et houe.',
+      },
+    },
+    anchorYear: 1575,
+  },
+  {
+    id: 'lheb-beat-acadia',
+    eraId: 'new-france-foundations',
+    arcId: 'louis-hebert',
+    camera: { target: 'places', center: [-65.52, 44.74], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['port-royal'], regionIds: ['acadia'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Acadia — first taste of the New World',
+      body: {
+        en: 'Hébert accompanied Poutrincourt to Port-Royal in 1606, tending the sick and experimenting with local plants. He returned to Paris, but the experience planted a seed: the land could support European life, if someone was willing to work it.',
+        fr: 'Hébert accompagna Poutrincourt à Port-Royal en 1606, soignant les malades et expérimentant avec les plantes locales. Il rentra à Paris, mais l\'expérience avait semé une graine : la terre pouvait nourrir la vie européenne, si quelqu\'un voulait la travailler.',
+      },
+    },
+    anchorYear: 1606,
+  },
+  {
+    id: 'lheb-beat-crossing',
+    eraId: 'new-france-foundations',
+    arcId: 'louis-hebert',
+    camera: { target: 'bbox', center: [-28.0, 47.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['honfleur', 'mid-atlantic-passage', 'quebec-city'], regionIds: ['atlantic-basin', 'new-france'], routeSegmentIds: ['seg-honfleur-atlantic', 'seg-atlantic-montreal'], journeyIds: ['journey-honfleur-montreal'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'Atlantic crossing — 1617',
+      body: {
+        en: 'In 1617, Hébert sold his Paris shop, packed his family — wife Marie Rollet and three children — and sailed from Honfleur to Québec. The trading company tried to bind him to warehouse work, but he insisted on farming. He was done with commerce; he wanted land.',
+        fr: 'En 1617, Hébert vendit sa boutique parisienne, embarqua sa famille — son épouse Marie Rollet et trois enfants — et navigua de Honfleur à Québec. La compagnie de traite tenta de le cantonner à l\'entrepôt, mais il insista pour cultiver. Il en avait fini avec le commerce ; il voulait la terre.',
+      },
+    },
+    anchorYear: 1617,
+  },
+  {
+    id: 'lheb-beat-first-farm',
+    eraId: 'new-france-foundations',
+    arcId: 'louis-hebert',
+    camera: { target: 'places', center: [-71.21, 46.81], zoom: 7.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city'], regionIds: ['new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The first farm — heights of Québec',
+      body: {
+        en: 'On the plateau above the habitation, Hébert cleared land and grew wheat, rye, and garden vegetables. He was the first European in Canada to live primarily from his own harvest rather than company stores. The farm proved a point: the colony did not have to depend entirely on supply ships from France.',
+        fr: 'Sur le plateau au-dessus de l\'habitation, Hébert défricha la terre et cultiva blé, seigle et légumes de jardin. Il fut le premier Européen au Canada à vivre principalement de sa propre récolte plutôt que des magasins de la compagnie. La ferme prouva un point essentiel : la colonie n\'avait pas à dépendre entièrement des navires de ravitaillement de France.',
+      },
+    },
+    anchorYear: 1618,
+  },
+  {
+    id: 'lheb-beat-death',
+    eraId: 'new-france-foundations',
+    arcId: 'louis-hebert',
+    camera: { target: 'places', center: [-71.21, 46.81], zoom: 7.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city'], regionIds: ['new-france', 'colony-zone-quebec'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Death and the root of a nation',
+      body: {
+        en: 'Hébert died in January 1627 after a fall on the ice — the first European farmer buried in Canadian soil. His wife Marie Rollet stayed, remarried, and continued to anchor the fragile community. Their descendants number in the millions today. The apothecary who chose to farm had planted something deeper than wheat.',
+        fr: 'Hébert mourut en janvier 1627 après une chute sur la glace — le premier agriculteur européen enterré en sol canadien. Son épouse Marie Rollet resta, se remaria et continua d\'ancrer la communauté fragile. Leurs descendants se comptent aujourd\'hui par millions. L\'apothicaire qui choisit de cultiver avait semé quelque chose de plus profond que le blé.',
+      },
+    },
+    anchorYear: 1627,
+  },
+
+  // ── Robert Giffard guided arc ───────────────────────────────────────
+  {
+    id: 'rgif-beat-perche',
+    eraId: 'new-france-foundations',
+    arcId: 'robert-giffard',
+    camera: { target: 'places', center: [0.55, 48.52], zoom: 7.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['mortagne-au-perche'], regionIds: ['perche'], routeSegmentIds: [], journeyIds: ['journey-perche-quebec'] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Mortagne-au-Perche — the recruiter\'s home',
+      body: {
+        en: 'Robert Giffard was born around 1587 in the Perche, a quiet inland region south of Normandy. As a surgeon, he first visited New France in the 1620s and saw what the colony lacked: families willing to farm. He returned to Mortagne determined to fill that gap — from his own parishes.',
+        fr: 'Robert Giffard naquit vers 1587 dans le Perche, paisible région intérieure au sud de la Normandie. Chirurgien, il visita la Nouvelle-France dans les années 1620 et vit ce qui manquait à la colonie : des familles prêtes à cultiver. Il rentra à Mortagne déterminé à combler ce vide — depuis ses propres paroisses.',
+      },
+    },
+    anchorYear: 1587,
+  },
+  {
+    id: 'rgif-beat-corridor',
+    eraId: 'new-france-foundations',
+    arcId: 'robert-giffard',
+    camera: { target: 'bbox', center: [-28.0, 47.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['mortagne-au-perche', 'rouen', 'dieppe', 'mid-atlantic-passage', 'quebec-city'], regionIds: ['perche', 'normandy', 'atlantic-basin'], routeSegmentIds: ['seg-mortagne-rouen', 'seg-rouen-dieppe', 'seg-dieppe-atlantic', 'seg-atlantic-quebec'], journeyIds: ['journey-perche-quebec'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'The Perche-Québec corridor',
+      body: {
+        en: 'Giffard\'s route ran overland from Mortagne to Rouen, down the Seine to Dieppe, then across the Atlantic. In 1634 he led the single most important recruitment wave in early New France: dozens of families from the Perche, embarking together and settling together. It was chain migration by design.',
+        fr: 'L\'itinéraire de Giffard allait par voie de terre de Mortagne à Rouen, descendait la Seine jusqu\'à Dieppe, puis traversait l\'Atlantique. En 1634, il mena la vague de recrutement la plus importante des débuts de la Nouvelle-France : des dizaines de familles du Perche, embarquant ensemble et s\'installant ensemble. C\'était une migration en chaîne organisée.',
+      },
+    },
+    anchorYear: 1634,
+  },
+  {
+    id: 'rgif-beat-beauport',
+    eraId: 'new-france-foundations',
+    arcId: 'robert-giffard',
+    camera: { target: 'places', center: [-71.19, 46.88], zoom: 7.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['beauport', 'quebec-city'], regionIds: ['colony-zone-quebec', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Seigneury of Beauport',
+      body: {
+        en: 'Giffard received the seigneury of Beauport, just north of Québec, and installed his Percheron families on long riverfront lots along the St. Lawrence. The settlement model — seigneur as recruiter, organizer, and landlord — became the template for populating the colony. Beauport was its first and most successful example.',
+        fr: 'Giffard reçut la seigneurie de Beauport, juste au nord de Québec, et installa ses familles percheronnes sur de longues concessions riveraines le long du Saint-Laurent. Le modèle — seigneur comme recruteur, organisateur et propriétaire — devint le gabarit du peuplement de la colonie. Beauport en fut le premier et le plus réussi des exemples.',
+      },
+    },
+    anchorYear: 1634,
+  },
+  {
+    id: 'rgif-beat-families',
+    eraId: 'new-france-foundations',
+    arcId: 'robert-giffard',
+    camera: { target: 'bbox', center: [-71.0, 46.9], zoom: 6.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['beauport', 'quebec-city', 'chateau-richer', 'ile-dorleans'], regionIds: ['colony-zone-quebec', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Families that built a colony',
+      body: {
+        en: 'The names Giffard brought from the Perche — Cloutier, Juchereau, Tremblay, Boucher, Côté — became the foundational surnames of French Canada. These were not adventurers or soldiers but farmers, artisans, and their wives, drawn by a recruiter they knew personally. The Perche founder effect is still visible in Québec genealogy today.',
+        fr: 'Les noms que Giffard amena du Perche — Cloutier, Juchereau, Tremblay, Boucher, Côté — devinrent les patronymes fondateurs du Canada français. Ce n\'étaient ni des aventuriers ni des soldats, mais des cultivateurs, artisans et leurs épouses, attirés par un recruteur qu\'ils connaissaient personnellement. L\'effet fondateur percheron reste visible dans la généalogie québécoise aujourd\'hui.',
+      },
+    },
+    anchorYear: 1640,
+  },
+  {
+    id: 'rgif-beat-legacy',
+    eraId: 'new-france-foundations',
+    arcId: 'robert-giffard',
+    camera: { target: 'bbox', center: [-35.0, 48.0], zoom: 2.8, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['mortagne-au-perche', 'beauport', 'quebec-city'], regionIds: ['perche', 'new-france', 'atlantic-basin'], routeSegmentIds: [], journeyIds: ['journey-perche-quebec'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['origins', 'destinations'] },
+    copy: {
+      title: 'The recruiter\'s legacy',
+      body: {
+        en: 'Giffard died in 1668 at Beauport, having crossed the Atlantic multiple times to bring settlers. His model of seigneurial recruitment — personal networks, parish connections, family migration — shaped New France\'s demographic foundation more than any royal decree. A modest surgeon from a quiet inland region had populated a continent.',
+        fr: 'Giffard mourut en 1668 à Beauport, ayant traversé l\'Atlantique à de multiples reprises pour amener des colons. Son modèle de recrutement seigneurial — réseaux personnels, liens paroissiaux, migration familiale — façonna la base démographique de la Nouvelle-France plus que tout décret royal. Un modeste chirurgien d\'une paisible région intérieure avait peuplé un continent.',
+      },
+    },
+    anchorYear: 1668,
+  },
+
+  // ── Pierre Boucher guided arc ───────────────────────────────────────
+  {
+    id: 'pbou-beat-perche',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-boucher',
+    camera: { target: 'places', center: [0.55, 48.52], zoom: 7.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['mortagne-au-perche'], regionIds: ['perche'], routeSegmentIds: [], journeyIds: ['journey-perche-quebec'] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Perche — a boy crosses the ocean',
+      body: {
+        en: 'Pierre Boucher was born in 1622 in Mortagne-au-Perche. In 1635, at age thirteen, he crossed the Atlantic with the wave of Percheron families recruited by Giffard. He would spend the rest of his ninety-five years in New France — longer than almost anyone in the founding generation.',
+        fr: 'Pierre Boucher naquit en 1622 à Mortagne-au-Perche. En 1635, à treize ans, il traversa l\'Atlantique avec la vague de familles percheronnes recrutées par Giffard. Il passerait le reste de ses quatre-vingt-quinze ans en Nouvelle-France — plus longtemps que presque n\'importe qui de la génération fondatrice.',
+      },
+    },
+    anchorYear: 1635,
+  },
+  {
+    id: 'pbou-beat-interpreter',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-boucher',
+    camera: { target: 'bbox', center: [-73.0, 46.0], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city', 'trois-rivieres', 'lake-huron-node'], regionIds: ['new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Learning among nations',
+      body: {
+        en: 'Sent to live among the Wendat as a teenager, Boucher became fluent in multiple Indigenous languages. This immersion gave him the cross-cultural understanding that would make him one of the colony\'s most effective leaders — a governor who could negotiate with both Paris and the First Nations.',
+        fr: 'Envoyé vivre parmi les Wendats adolescent, Boucher devint couramment polyglotte en langues autochtones. Cette immersion lui donna la compréhension interculturelle qui ferait de lui l\'un des dirigeants les plus efficaces de la colonie — un gouverneur capable de négocier aussi bien avec Paris qu\'avec les Premières Nations.',
+      },
+    },
+    anchorYear: 1640,
+  },
+  {
+    id: 'pbou-beat-trois-rivieres',
+    eraId: 'new-france-foundations',
+    arcId: 'pierre-boucher',
+    camera: { target: 'places', center: [-72.55, 46.35], zoom: 7.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['trois-rivieres'], regionIds: ['colony-zone-trois-rivieres', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Governor of Trois-Rivières',
+      body: {
+        en: 'As governor of Trois-Rivières from 1654, Boucher defended the settlement during the most dangerous years of the Iroquois wars. With barely a handful of militiamen, he held a post that sat squarely on the front line between French and Haudenosaunee territories.',
+        fr: 'Comme gouverneur de Trois-Rivières à partir de 1654, Boucher défendit l\'établissement pendant les années les plus dangereuses des guerres iroquoises. Avec à peine une poignée de miliciens, il tint un poste qui se trouvait en pleine ligne de front entre les territoires français et haudenosaunee.',
+      },
+    },
+    anchorYear: 1654,
+  },
+  {
+    id: 'pbou-beat-paris-mission',
+    eraId: 'royal-new-france',
+    arcId: 'pierre-boucher',
+    camera: { target: 'bbox', center: [-28.0, 48.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris', 'quebec-city', 'trois-rivieres'], regionIds: ['new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins', 'destinations'] },
+    copy: {
+      title: 'Mission to Louis XIV',
+      body: {
+        en: 'In 1661 Boucher sailed to France to petition Louis XIV personally. His argument was blunt: New France would die without soldiers. The king listened. The result was the Carignan-Salières Regiment — twelve hundred troops dispatched in 1665, the largest military reinforcement the colony had ever seen.',
+        fr: 'En 1661, Boucher navigua vers la France pour plaider auprès de Louis XIV en personne. Son argument était direct : la Nouvelle-France mourrait sans soldats. Le roi écouta. Le résultat fut le régiment de Carignan-Salières — douze cents soldats envoyés en 1665, le plus grand renfort militaire que la colonie ait jamais vu.',
+      },
+    },
+    anchorYear: 1661,
+  },
+  {
+    id: 'pbou-beat-histoire',
+    eraId: 'royal-new-france',
+    arcId: 'pierre-boucher',
+    camera: { target: 'places', center: [-72.55, 46.35], zoom: 6.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['trois-rivieres', 'quebec-city'], regionIds: ['new-france', 'colony-zone-trois-rivieres'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Histoire véritable — the colony described',
+      body: {
+        en: 'In 1664, Boucher published the first book-length description of New France: its geography, peoples, animals, and potential. Written for a French audience that knew almost nothing about Canada, the Histoire véritable was both promotional tract and ethnographic record.',
+        fr: 'En 1664, Boucher publia la première description de la Nouvelle-France en forme de livre : géographie, peuples, animaux et potentiel. Écrite pour un public français qui ne savait presque rien du Canada, l\'Histoire véritable était à la fois tract promotionnel et document ethnographique.',
+      },
+    },
+    anchorYear: 1664,
+  },
+  {
+    id: 'pbou-beat-legacy',
+    eraId: 'royal-new-france',
+    arcId: 'pierre-boucher',
+    camera: { target: 'bbox', center: [-72.0, 46.5], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['trois-rivieres', 'quebec-city', 'montreal'], regionIds: ['new-france'], routeSegmentIds: ['seg-stl-quebec-montreal'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Ninety-five years — a life as long as the colony',
+      body: {
+        en: 'Boucher founded the seigneury of Boucherville near Montréal and died in 1717 at age ninety-five. He had arrived as a child in a colony of a few hundred; he died in a society of eighteen thousand. His writings, his diplomacy, and his petition to Louis XIV had directly shaped the transformation.',
+        fr: 'Boucher fonda la seigneurie de Boucherville près de Montréal et mourut en 1717 à quatre-vingt-quinze ans. Il était arrivé enfant dans une colonie de quelques centaines d\'âmes ; il mourut dans une société de dix-huit mille. Ses écrits, sa diplomatie et sa pétition auprès de Louis XIV avaient directement façonné la transformation.',
+      },
+    },
+    anchorYear: 1717,
+  },
+
+  // ── Jean Talon guided arc ───────────────────────────────────────────
+  {
+    id: 'jtal-beat-origins',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'places', center: [2.35, 48.86], zoom: 6.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'A Colbertiste for the colony',
+      body: {
+        en: 'Jean Talon was born around 1626 in Châlons-en-Champagne and rose through the royal bureaucracy as a protégé of Colbert — Louis XIV\'s minister of finance. When Colbert needed a man to transform New France from fur-trade outpost into productive crown colony, he chose Talon.',
+        fr: 'Jean Talon naquit vers 1626 à Châlons-en-Champagne et gravit la bureaucratie royale comme protégé de Colbert — ministre des finances de Louis XIV. Quand Colbert eut besoin d\'un homme pour transformer la Nouvelle-France de comptoir de traite en colonie productive de la Couronne, il choisit Talon.',
+      },
+    },
+    anchorYear: 1626,
+  },
+  {
+    id: 'jtal-beat-arrival',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'places', center: [-71.21, 46.81], zoom: 6.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city'], regionIds: ['new-france', 'colony-zone-quebec'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'First intendant — 1665',
+      body: {
+        en: 'Talon arrived at Québec in 1665 as the colony\'s first intendant — the crown\'s chief administrator for justice, finance, and civil order. He found a colony of barely three thousand people, dependent on the fur trade and vulnerable to Iroquois raids. He set about changing everything.',
+        fr: 'Talon arriva à Québec en 1665 comme premier intendant de la colonie — administrateur en chef de la Couronne pour la justice, les finances et l\'ordre civil. Il trouva une colonie d\'à peine trois mille âmes, dépendante de la traite des fourrures et vulnérable aux raids iroquois. Il entreprit de tout changer.',
+      },
+    },
+    anchorYear: 1665,
+  },
+  {
+    id: 'jtal-beat-census',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'bbox', center: [-71.5, 46.7], zoom: 6.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city', 'trois-rivieres', 'montreal'], regionIds: ['new-france', 'colony-zone-quebec', 'colony-zone-trois-rivieres', 'colony-zone-montreal'], routeSegmentIds: ['seg-stl-quebec-montreal'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The census of 1666',
+      body: {
+        en: 'Talon ordered Canada\'s first systematic census: door-to-door, recording name, age, occupation, and marital status for every colonist along the St. Lawrence. The count revealed 3,215 souls — and the demographic reality Talon was determined to change.',
+        fr: 'Talon ordonna le premier recensement systématique du Canada : de porte en porte, consignant nom, âge, métier et état civil de chaque colon le long du Saint-Laurent. Le compte révéla 3 215 âmes — et la réalité démographique que Talon était déterminé à changer.',
+      },
+    },
+    anchorYear: 1666,
+  },
+  {
+    id: 'jtal-beat-filles-du-roi',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'bbox', center: [-28.0, 47.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris', 'la-rochelle', 'quebec-city'], regionIds: ['new-france', 'atlantic-basin'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'Filles du Roi — engineering a population',
+      body: {
+        en: 'Between 1663 and 1673, Talon orchestrated the migration of some eight hundred Filles du Roi — young women sent to marry settlers and bear children. Within a decade, the colony\'s population tripled. Talon offered bounties for large families and fines for bachelors.',
+        fr: 'Entre 1663 et 1673, Talon orchestra la migration d\'environ huit cents Filles du Roi — des jeunes femmes envoyées pour épouser des colons et avoir des enfants. En une décennie, la population de la colonie tripla. Talon offrait des primes aux grandes familles et des amendes aux célibataires.',
+      },
+    },
+    anchorYear: 1668,
+  },
+  {
+    id: 'jtal-beat-industry',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'places', center: [-71.21, 46.81], zoom: 6.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city', 'beauport'], regionIds: ['colony-zone-quebec', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Brewery, shipyard, tannery',
+      body: {
+        en: 'Talon pushed New France beyond beaver pelts. He founded a brewery at Québec, promoted hemp and flax cultivation, built a tannery, and explored iron deposits. His goal was Colbertiste self-sufficiency: a colony that produced what it consumed and exported surplus to France.',
+        fr: 'Talon poussa la Nouvelle-France au-delà des peaux de castor. Il fonda une brasserie à Québec, promut la culture du chanvre et du lin, construisit une tannerie et explora les gisements de fer. Son objectif était l\'autosuffisance colbertiste : une colonie qui produise ce qu\'elle consomme et exporte le surplus vers la France.',
+      },
+    },
+    anchorYear: 1670,
+  },
+  {
+    id: 'jtal-beat-exploration',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'bbox', center: [-82.0, 44.0], zoom: 3.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city', 'great-lakes-hub', 'sault-ste-marie'], regionIds: ['new-france'], routeSegmentIds: ['seg-champlain-quebec-huron'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['routes', 'destinations'] },
+    copy: {
+      title: 'Pushing west — mandates for exploration',
+      body: {
+        en: 'Talon sent emissaries west to claim the interior for France. At Sault Sainte-Marie in 1671, his envoy formally proclaimed French sovereignty over the Great Lakes basin. The geographic ambitions he set in motion would lead, within a decade, to La Salle\'s Mississippi expedition.',
+        fr: 'Talon envoya des émissaires vers l\'ouest pour revendiquer l\'intérieur au nom de la France. Au Sault Sainte-Marie en 1671, son envoyé proclama formellement la souveraineté française sur le bassin des Grands Lacs. Les ambitions géographiques qu\'il lança mèneraient, en une décennie, à l\'expédition de La Salle sur le Mississippi.',
+      },
+    },
+    anchorYear: 1671,
+  },
+  {
+    id: 'jtal-beat-legacy',
+    eraId: 'royal-new-france',
+    arcId: 'jean-talon',
+    camera: { target: 'bbox', center: [-71.5, 46.8], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['quebec-city', 'trois-rivieres', 'montreal', 'beauport'], regionIds: ['new-france'], routeSegmentIds: ['seg-stl-quebec-montreal'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Return to France — the colony transformed',
+      body: {
+        en: 'Talon returned to France in 1672 and never came back. In seven years he had tripled the population, diversified the economy, extended French claims to the Great Lakes, and laid the administrative framework that would govern New France until 1760. He died in Paris in 1694 — a bureaucrat whose ledgers changed a continent.',
+        fr: 'Talon rentra en France en 1672 et ne revint jamais. En sept ans, il avait triplé la population, diversifié l\'économie, étendu les revendications françaises aux Grands Lacs et posé le cadre administratif qui gouvernerait la Nouvelle-France jusqu\'en 1760. Il mourut à Paris en 1694 — un bureaucrate dont les registres changèrent un continent.',
+      },
+    },
+    anchorYear: 1672,
+  },
+
+  // ── Marguerite Bourgeoys guided arc ─────────────────────────────────
+  {
+    id: 'mbou-beat-troyes',
+    eraId: 'new-france-foundations',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'places', center: [2.35, 48.86], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Troyes — a calling takes shape',
+      body: {
+        en: 'Marguerite Bourgeoys was born in 1620 in Troyes, Champagne. At twenty she experienced a religious conversion and joined an external congregation of women who taught the poor. When Maisonneuve sought a teacher for his nascent settlement at Montréal, Bourgeoys answered the call.',
+        fr: 'Marguerite Bourgeoys naquit en 1620 à Troyes, en Champagne. À vingt ans, elle connut une conversion religieuse et rejoignit une congrégation externe de femmes enseignant aux pauvres. Quand Maisonneuve chercha une institutrice pour son établissement naissant à Montréal, Bourgeoys répondit à l\'appel.',
+      },
+    },
+    anchorYear: 1620,
+  },
+  {
+    id: 'mbou-beat-crossing',
+    eraId: 'new-france-foundations',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'bbox', center: [-28.0, 47.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['honfleur', 'mid-atlantic-passage', 'montreal'], regionIds: ['atlantic-basin', 'new-france'], routeSegmentIds: ['seg-honfleur-atlantic', 'seg-atlantic-montreal'], journeyIds: ['journey-honfleur-montreal'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'Across the Atlantic to Ville-Marie',
+      body: {
+        en: 'In 1653, Bourgeoys sailed from France to Montréal — then called Ville-Marie, a fortified mission settlement of barely fifty colonists. She arrived to teach, but found a community that needed everything: education, nursing, moral leadership, and the sheer will to survive.',
+        fr: 'En 1653, Bourgeoys navigua de France à Montréal — alors appelé Ville-Marie, un établissement missionnaire fortifié d\'à peine cinquante colons. Elle arriva pour enseigner, mais trouva une communauté qui avait besoin de tout : éducation, soins, direction morale et la simple volonté de survivre.',
+      },
+    },
+    anchorYear: 1653,
+  },
+  {
+    id: 'mbou-beat-first-school',
+    eraId: 'new-france-foundations',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The first school in Montréal',
+      body: {
+        en: 'In 1658, Bourgeoys opened her first school in a converted stone stable. She taught French and Indigenous children together — reading, writing, arithmetic, and practical skills. It was the first non-cloistered school in New France.',
+        fr: 'En 1658, Bourgeoys ouvrit sa première école dans une étable de pierre reconvertie. Elle enseignait aux enfants français et autochtones ensemble — lecture, écriture, calcul et compétences pratiques. C\'était la première école non cloîtrée de Nouvelle-France.',
+      },
+    },
+    anchorYear: 1658,
+  },
+  {
+    id: 'mbou-beat-congregation',
+    eraId: 'new-france-foundations',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Congrégation de Notre-Dame',
+      body: {
+        en: 'Bourgeoys founded the Congrégation de Notre-Dame — the first uncloistered women\'s religious community in New France. Its members lived among the people, not behind convent walls. They taught in parish schools, prepared Filles du Roi for marriage, and carried education to remote settlements.',
+        fr: 'Bourgeoys fonda la Congrégation de Notre-Dame — la première communauté religieuse féminine non cloîtrée en Nouvelle-France. Ses membres vivaient parmi le peuple, pas derrière des murs conventuels. Elles enseignaient dans les écoles paroissiales, préparaient les Filles du Roi au mariage et portaient l\'éducation dans les établissements éloignés.',
+      },
+    },
+    anchorYear: 1659,
+  },
+  {
+    id: 'mbou-beat-colony-schools',
+    eraId: 'royal-new-france',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'bbox', center: [-72.0, 46.5], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal', 'quebec-city', 'trois-rivieres'], regionIds: ['new-france'], routeSegmentIds: ['seg-stl-quebec-montreal'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Schools across the colony',
+      body: {
+        en: 'By the 1680s the Congrégation operated schools in Québec, Trois-Rivières, and along the Côte-de-Beaupré. Bourgeoys recruited teachers from France and trained local women. Her network of parish schools gave New France an educational infrastructure that the English colonies would not match for decades.',
+        fr: 'Dans les années 1680, la Congrégation tenait des écoles à Québec, Trois-Rivières et le long de la Côte-de-Beaupré. Bourgeoys recrutait des enseignantes en France et formait des femmes locales. Son réseau d\'écoles paroissiales donna à la Nouvelle-France une infrastructure éducative que les colonies anglaises ne rattraperaient pas avant des décennies.',
+      },
+    },
+    anchorYear: 1680,
+  },
+  {
+    id: 'mbou-beat-legacy',
+    eraId: 'royal-new-france',
+    arcId: 'marguerite-bourgeoys',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Saint Marguerite — a legacy in stone and spirit',
+      body: {
+        en: 'Bourgeoys died on 12 January 1700 in Montréal. She was canonized as a saint in 1982 — the first woman born in France to be so honoured for work done in the Americas. Her Congrégation survives today, and the educational model she built shaped colonial society for over a century.',
+        fr: 'Bourgeoys mourut le 12 janvier 1700 à Montréal. Elle fut canonisée en 1982 — la première femme née en France à être ainsi honorée pour son œuvre en Amérique. Sa Congrégation survit aujourd\'hui, et le modèle éducatif qu\'elle bâtit façonna la société coloniale pendant plus d\'un siècle.',
+      },
+    },
+    anchorYear: 1700,
+  },
+
+  // ── Jeanne Mance guided arc ─────────────────────────────────────────
+  {
+    id: 'jman-beat-langres',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'places', center: [2.35, 48.86], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['paris'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Langres — the call to serve',
+      body: {
+        en: 'Jeanne Mance was born in 1606 in Langres, Champagne. She cared for the wounded during the Thirty Years\' War and, through Parisian devotional networks, heard of a project to build a mission settlement on the island of Montréal. She volunteered as its nurse and fundraiser.',
+        fr: 'Jeanne Mance naquit en 1606 à Langres, en Champagne. Elle soigna les blessés pendant la guerre de Trente Ans et, par les réseaux dévots parisiens, entendit parler d\'un projet de mission sur l\'île de Montréal. Elle se porta volontaire comme infirmière et collectrice de fonds.',
+      },
+    },
+    anchorYear: 1606,
+  },
+  {
+    id: 'jman-beat-crossing',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'bbox', center: [-28.0, 47.0], zoom: 2.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['la-rochelle', 'mid-atlantic-passage', 'montreal'], regionIds: ['atlantic-basin', 'new-france'], routeSegmentIds: ['seg-la-rochelle-atlantic'] },
+    presentation: { routeHighlightMode: 'kind', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'The crossing — 1641',
+      body: {
+        en: 'Mance sailed from La Rochelle in 1641 with Maisonneuve\'s party. She carried funds donated by Angélique de Bullion, earmarked for a hospital in the wilderness. The crossing was the hinge of her life: she left France as a provincial laywoman and arrived as the co-architect of a city.',
+        fr: 'Mance embarqua de La Rochelle en 1641 avec le groupe de Maisonneuve. Elle emportait les fonds donnés par Angélique de Bullion, destinés à un hôpital en pleine nature. La traversée fut le pivot de sa vie : elle quitta la France simple laïque de province et arriva co-architecte d\'une ville.',
+      },
+    },
+    anchorYear: 1641,
+  },
+  {
+    id: 'jman-beat-ville-marie',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Ville-Marie — 17 May 1642',
+      body: {
+        en: 'Maisonneuve\'s party founded Ville-Marie on the island of Montréal in May 1642. Mance was there from the first day — the only woman among the founders. The settlement was a devotional project, and Mance was its practical conscience.',
+        fr: 'Le groupe de Maisonneuve fonda Ville-Marie sur l\'île de Montréal en mai 1642. Mance y était dès le premier jour — la seule femme parmi les fondateurs. L\'établissement était un projet dévot, et Mance en était la conscience pratique.',
+      },
+    },
+    anchorYear: 1642,
+  },
+  {
+    id: 'jman-beat-hotel-dieu',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.5, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Hôtel-Dieu — the hospital',
+      body: {
+        en: 'In 1645, Mance opened the Hôtel-Dieu de Montréal — the settlement\'s first hospital and one of the oldest in North America. She treated colonists and Indigenous people alike, managing supplies, nursing the wounded during Iroquois raids, and keeping the institution solvent across decades of war.',
+        fr: 'En 1645, Mance ouvrit l\'Hôtel-Dieu de Montréal — le premier hôpital de l\'établissement et l\'un des plus anciens d\'Amérique du Nord. Elle soigna colons et Autochtones sans distinction, gérant les provisions, soignant les blessés pendant les raids iroquois et maintenant l\'institution solvable à travers des décennies de guerre.',
+      },
+    },
+    anchorYear: 1645,
+  },
+  {
+    id: 'jman-beat-iroquois-wars',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'bbox', center: [-73.5, 45.5], zoom: 6.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal', 'trois-rivieres'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Holding Ville-Marie together',
+      body: {
+        en: 'During the most dangerous years of the Iroquois wars, Mance effectively held Montréal together while Maisonneuve sailed to France for reinforcements. She used hospital funds to recruit soldiers — a controversial decision that saved the settlement.',
+        fr: 'Pendant les années les plus dangereuses des guerres iroquoises, Mance tint Montréal ensemble pendant que Maisonneuve navigua vers la France pour des renforts. Elle utilisa les fonds de l\'hôpital pour recruter des soldats — une décision controversée qui sauva l\'établissement.',
+      },
+    },
+    anchorYear: 1651,
+  },
+  {
+    id: 'jman-beat-legacy',
+    eraId: 'new-france-foundations',
+    arcId: 'jeanne-mance',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 7.0, durationMs: 1800, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Co-founder of Montréal',
+      body: {
+        en: 'Jeanne Mance died on 18 June 1673 in Montréal. She had spent thirty-two years building a hospital and holding a frontier settlement together through war, disease, and financial crisis. Recognized today as a co-founder of Montréal, her Hôtel-Dieu endures.',
+        fr: 'Jeanne Mance mourut le 18 juin 1673 à Montréal. Elle avait passé trente-deux ans à bâtir un hôpital et à maintenir un établissement frontalier à travers guerres, maladies et crises financières. Reconnue aujourd\'hui comme co-fondatrice de Montréal, son Hôtel-Dieu perdure.',
+      },
+    },
+    anchorYear: 1673,
+  },
+
+  // ── René-Robert Cavelier de La Salle guided arc ─────────────────────
+  {
+    id: 'rlas-beat-rouen',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'places', center: [1.10, 49.44], zoom: 7.2, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['rouen'], regionIds: ['normandy'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Rouen — a merchant\'s son with imperial dreams',
+      body: {
+        en: 'René-Robert Cavelier was born in Rouen in 1643 to a wealthy merchant family. Educated by Jesuits, he left the order and sailed for New France in 1667 — trading a comfortable Norman life for the obsessive pursuit of a western passage. He would find something larger.',
+        fr: 'René-Robert Cavelier naquit à Rouen en 1643 dans une famille de marchands aisés. Éduqué par les jésuites, il quitta l\'ordre et navigua vers la Nouvelle-France en 1667 — échangeant une vie normande confortable contre la quête obsessionnelle d\'un passage vers l\'ouest. Il trouverait quelque chose de plus vaste.',
+      },
+    },
+    anchorYear: 1643,
+  },
+  {
+    id: 'rlas-beat-montreal',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'places', center: [-73.57, 45.50], zoom: 6.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['montreal'], regionIds: ['colony-zone-montreal', 'new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Montréal — the western frontier',
+      body: {
+        en: 'La Salle established himself on the island of Montréal, where he learned Indigenous languages and heard persistent reports of a great river flowing south. He sold his seigneury to finance expeditions and became the colony\'s most aggressive western explorer.',
+        fr: 'La Salle s\'établit sur l\'île de Montréal, où il apprit les langues autochtones et entendit des récits persistants d\'un grand fleuve coulant vers le sud. Il vendit sa seigneurie pour financer des expéditions et devint l\'explorateur de l\'ouest le plus agressif de la colonie.',
+      },
+    },
+    anchorYear: 1669,
+  },
+  {
+    id: 'rlas-beat-frontenac',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'places', center: [-76.48, 44.23], zoom: 6.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['fort-frontenac', 'montreal'], regionIds: ['new-france'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Fort Frontenac — gateway to the interior',
+      body: {
+        en: 'In 1673 La Salle rebuilt Fort Frontenac at the outlet of Lake Ontario — the strategic hinge between the St. Lawrence corridor and the Great Lakes. With Frontenac as his base, he controlled the western fur trade and staged the expeditions that would carry him to the Mississippi.',
+        fr: 'En 1673, La Salle reconstruisit le fort Frontenac à la sortie du lac Ontario — le pivot stratégique entre le corridor du Saint-Laurent et les Grands Lacs. Avec Frontenac comme base, il contrôla la traite des fourrures de l\'ouest et organisa les expéditions qui le porteraient au Mississippi.',
+      },
+    },
+    anchorYear: 1673,
+  },
+  {
+    id: 'rlas-beat-illinois',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'bbox', center: [-87.0, 42.0], zoom: 4.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['great-lakes-hub', 'fort-crevecoeur'], regionIds: ['new-france'], routeSegmentIds: ['seg-lasalle-greatlakes-mississippi'], journeyIds: ['journey-lasalle-mississippi'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['routes', 'destinations'] },
+    copy: {
+      title: 'Fort Crèvecœur — into Illinois country',
+      body: {
+        en: 'In 1680 La Salle built Fort Crèvecœur on the Illinois River — the deepest French post in the interior. Desertion and mutiny plagued the venture, but setbacks only sharpened his determination to reach the Mississippi.',
+        fr: 'En 1680, La Salle construisit le fort Crèvecœur sur la rivière Illinois — le poste français le plus profond dans l\'intérieur. Désertion et mutinerie ravagèrent l\'entreprise, mais les revers ne firent qu\'aiguiser sa détermination d\'atteindre le Mississippi.',
+      },
+    },
+    anchorYear: 1680,
+  },
+  {
+    id: 'rlas-beat-mississippi',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'bbox', center: [-90.0, 35.0], zoom: 3.5, durationMs: 2500, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['great-lakes-hub', 'mississippi-confluence', 'gulf-of-mexico-node'], regionIds: ['new-france'], routeSegmentIds: ['seg-lasalle-greatlakes-mississippi', 'seg-lasalle-mississippi-gulf'], journeyIds: ['journey-lasalle-mississippi'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['routes'] },
+    copy: {
+      title: 'The Mississippi — descent to the Gulf',
+      body: {
+        en: 'On 9 April 1682, La Salle reached the mouth of the Mississippi and claimed the entire river basin for France, naming it "Louisiane." In a single expedition, a Norman from Rouen had expanded French territory from the Great Lakes to the Gulf of Mexico — the most dramatic geographic claim in New France\'s history.',
+        fr: 'Le 9 avril 1682, La Salle atteignit l\'embouchure du Mississippi et revendiqua tout le bassin fluvial pour la France, le nommant « Louisiane ». En une seule expédition, un Normand de Rouen avait étendu le territoire français des Grands Lacs au golfe du Mexique — la revendication géographique la plus spectaculaire de l\'histoire de la Nouvelle-France.',
+      },
+    },
+    anchorYear: 1682,
+  },
+  {
+    id: 'rlas-beat-murder',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'bbox', center: [-95.0, 30.0], zoom: 4.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['gulf-of-mexico-node'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Murder in Texas — 1687',
+      body: {
+        en: 'La Salle\'s return expedition to colonize the Gulf coast went catastrophically wrong. He missed the Mississippi delta, landed in Texas, and spent two years lost. His men, starving and desperate, mutinied and killed him on 19 March 1687. The greatest explorer New France produced died at the hands of his own followers.',
+        fr: 'L\'expédition de retour de La Salle pour coloniser la côte du golfe tourna au désastre. Il manqua le delta du Mississippi, débarqua au Texas et passa deux ans égaré. Ses hommes, affamés et désespérés, se mutinèrent et le tuèrent le 19 mars 1687. Le plus grand explorateur de la Nouvelle-France mourut aux mains de ses propres compagnons.',
+      },
+    },
+    anchorYear: 1687,
+  },
+  {
+    id: 'rlas-beat-legacy',
+    eraId: 'royal-new-france',
+    arcId: 'rene-robert-la-salle',
+    camera: { target: 'bbox', center: [-85.0, 38.0], zoom: 3.0, durationMs: 2500, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['rouen', 'quebec-city', 'montreal', 'mississippi-confluence', 'gulf-of-mexico-node'], regionIds: ['normandy', 'new-france'], routeSegmentIds: ['seg-lasalle-greatlakes-mississippi', 'seg-lasalle-mississippi-gulf'], journeyIds: ['journey-lasalle-mississippi'] },
+    presentation: { routeHighlightMode: 'journey', dimOthers: true, pulse: ['origins', 'routes', 'destinations'] },
+    copy: {
+      title: 'From Rouen to the Gulf — a Norman continental vision',
+      body: {
+        en: 'La Salle\'s claim of Louisiana stretched French territory from the Gulf of St. Lawrence to the Gulf of Mexico. A Rouennais merchant\'s son had drawn the largest geographic arc in colonial history. Louisiana would be settled, fought over, and sold — but the claim that created it was his.',
+        fr: 'La revendication de La Salle sur la Louisiane étendit le territoire français du golfe du Saint-Laurent au golfe du Mexique. Le fils d\'un marchand rouennais avait tracé le plus grand arc géographique de l\'histoire coloniale. La Louisiane serait peuplée, disputée et vendue — mais la revendication qui la créa était la sienne.',
+      },
+    },
+    anchorYear: 1682,
+  },
 ];

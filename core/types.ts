@@ -268,6 +268,11 @@ export type SurnameOriginCategory =
   | 'feudal_trade'
   | 'other';
 
+/** Structured Norman/atlas framing for the person detail panel. */
+export type AtlasThroughline =
+  | { kind: 'norman'; descriptor?: I18nString }
+  | { kind: 'inclusion'; rationale: I18nString };
+
 export interface Person {
   id: string;
   displayName: string;
@@ -291,6 +296,8 @@ export interface Person {
   relatedEventIds?: string[];
   /** When set, the person detail panel shows a CTA to launch this guided story arc. */
   guidedStoryArcId?: string;
+  /** Norman identity or atlas-inclusion rationale, surfaced in the person detail panel. */
+  atlasThroughline?: AtlasThroughline;
 }
 
 // --- Methodology / Atlas Contract ---

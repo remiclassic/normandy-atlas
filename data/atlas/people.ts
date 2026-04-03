@@ -1,4 +1,4 @@
-import type { Person, SurnameOriginCategory } from '@/core/types';
+import type { AtlasThroughline, Person, SurnameOriginCategory } from '@/core/types';
 
 function normanSettler(
   id: string,
@@ -150,6 +150,16 @@ export const atlasPeople: Person[] = [
       fr: 'Progéniteur de chaque duc de Normandie et, par Guillaume le Conquérant, ancêtre de chaque monarque anglais depuis 1066. Son installation transforma un corridor fluvial pillé en la principauté la plus dynamique d\'Europe occidentale.',
       it: 'Capostipite di ogni duca di Normandia e, tramite Guglielmo il Conquistatore, antenato di ogni monarca inglese dal 1066. Il suo insediamento trasformò un corridoio fluviale saccheggiato nel principato più dinamico dell\'Europa occidentale.',
     },
+    guidedStoryArcId: 'rollo-lifetime',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Founding ruler of the Norman polity',
+        fr: 'Fondateur de la principauté normande',
+        es: 'Fundador del principado normando',
+        it: 'Fondatore del principato normanno',
+      },
+    },
   },
   {
     id: 'william-the-conqueror',
@@ -177,6 +187,16 @@ export const atlasPeople: Person[] = [
       fr: 'Ancêtre de chaque monarque anglais depuis 1066. Le Domesday Book, les réseaux de châteaux et la fusion du franco-normand avec le vieil anglais posèrent les fondations de l\'Angleterre médiévale et moderne. Sa conquête fit de la Normandie le pivot du pouvoir européen pendant deux siècles.',
       it: 'Antenato di ogni monarca inglese dal 1066. Il Domesday Book, le reti di castelli e la fusione del franco-normanno con l\'inglese antico crearono le fondamenta dell\'Inghilterra medievale e moderna. La sua conquista fece della Normandia il perno del potere europeo per due secoli.',
     },
+    guidedStoryArcId: 'william-conqueror',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Duke of Normandy; architect of the cross-Channel realm',
+        fr: 'Duc de Normandie ; architecte du royaume transmanche',
+        es: 'Duque de Normandía; arquitecto del reino transchino',
+        it: 'Duca di Normandia; artefice del regno attraverso la Manica',
+      },
+    },
   },
   {
     id: 'roger-ii-sicily',
@@ -203,6 +223,16 @@ export const atlasPeople: Person[] = [
       en: 'Created the most sophisticated state in twelfth-century Europe. His legal code, administrative structures, and architectural masterpieces — the Cappella Palatina, Cefalù, and indirectly Monreale — endured long after the Hauteville dynasty ended in 1194.',
       fr: 'Créa l\'État le plus sophistiqué de l\'Europe du XIIe siècle. Son code juridique, ses structures administratives et ses chefs-d\'œuvre architecturaux — la Chapelle Palatine, Cefalù et indirectement Monreale — survécurent bien après la fin de la dynastie Hauteville en 1194.',
       it: 'Creò lo stato più sofisticato dell\'Europa del XII secolo. Il suo codice giuridico, le strutture amministrative e i capolavori architettonici — la Cappella Palatina, Cefalù e indirettamente Monreale — perdurarono ben oltre la fine della dinastia altavilla nel 1194.',
+    },
+    guidedStoryArcId: 'roger-ii',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Hauteville dynasty — Norman King of Sicily',
+        fr: 'Dynastie Hauteville — roi normand de Sicile',
+        es: 'Dinastía Hauteville — rey normando de Sicilia',
+        it: 'Dinastia Altavilla — re normanno di Sicilia',
+      },
     },
   },
   // ──────────── Exploration-era figures ────────────
@@ -233,6 +263,16 @@ export const atlasPeople: Person[] = [
       fr: 'Surnommé « le père de la Nouvelle-France » ; ses alliances avec les Hurons-Wendats et les Algonquins ont défini la diplomatie de la colonie.',
       it: 'Detto «padre della Nuova Francia»; le alleanze con Huron-Wendat e Algonchini definirono la diplomazia coloniale.',
     },
+    guidedStoryArcId: 'samuel-de-champlain',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Sailed repeatedly from Norman ports (Honfleur); founder of Québec and architect of the colony that Norman recruits would populate.',
+        fr: 'Embarqua à répétition des ports normands (Honfleur) ; fondateur de Québec et architecte de la colonie que les recrues normandes peupleraient.',
+        es: 'Zarpó repetidamente desde puertos normandos (Honfleur); fundador de Quebec y arquitecto de la colonia que los reclutas normandos poblarían.',
+        it: 'Salpò ripetutamente dai porti normanni (Honfleur); fondatore di Québec e architetto della colonia che le reclute normanne avrebbero popolato.',
+      },
+    },
   },
   {
     id: 'jacques-cartier',
@@ -261,6 +301,16 @@ export const atlasPeople: Person[] = [
       fr: 'Figure de proue de l\'Âge des explorations ; son contact avec Stadaconé et Hochelaga marque le premier engagement français durable dans la région du Saint-Laurent.',
       it: 'Figura di riferimento dell\'età delle esplorazioni; il contatto con Stadacona e Hochelaga segna il primo impegno francese duraturo nella regione del San Lorenzo.',
     },
+    guidedStoryArcId: 'jacques-cartier',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Breton mariner from the Norman-Breton maritime sphere who charted the St. Lawrence — the corridor Norman colonists would later follow.',
+        fr: 'Marin breton de la sphère maritime bréto-normande qui cartographia le Saint-Laurent — le corridor que les colons normands emprunteraient ensuite.',
+        es: 'Marinero bretón de la esfera marítima bretona-normanda que cartografió el San Lorenzo — el corredor que seguirían los colonos normandos.',
+        it: 'Marinaio bretone della sfera marittima bretone-normanna che mappò il San Lorenzo — il corridoio che i coloni normanni avrebbero poi seguito.',
+      },
+    },
   },
   {
     id: 'pierre-dugua-de-mons',
@@ -288,6 +338,16 @@ export const atlasPeople: Person[] = [
       en: 'Often overshadowed by Champlain, but without Dugua\'s capital and political connections, permanent settlement might not have happened when it did.',
       fr: 'Souvent éclipsé par Champlain, mais sans le capital et les connexions politiques de Dugua, la colonisation permanente n\'aurait peut-être pas eu lieu à ce moment.',
       it: 'Spesso oscurato da Champlain, ma senza il capitale e le connessioni politiche di Dugua l\'insediamento permanente forse non sarebbe avvenuto allora.',
+    },
+    guidedStoryArcId: 'pierre-dugua-de-mons',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Saintonge merchant whose fur-trade monopoly financed the Norman-Atlantic colonial system and the founding of Québec.',
+        fr: 'Marchand saintongeais dont le monopole de la traite finança le système colonial normand-atlantique et la fondation de Québec.',
+        es: 'Comerciante de Saintonge cuyo monopolio peletero financió el sistema colonial normando-atlántico y la fundación de Quebec.',
+        it: 'Mercante della Saintonge il cui monopolio della pelletteria finanziò il sistema coloniale normanno-atlantico e la fondazione di Québec.',
+      },
     },
   },
   {
@@ -375,6 +435,15 @@ export const atlasPeople: Person[] = [
     },
     relatedJourneyIds: ['journey-atlantic-norse'],
     guidedStoryArcId: 'leif-erikson',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Norse Atlantic explorer whose saga bridges directly to the Norman Norse inheritance — the same maritime world from which the duchy of Normandy grew.',
+        fr: 'Explorateur norrois de l\'Atlantique dont la saga relie directement l\'héritage norrois normand — le même monde maritime d\'où naquit le duché de Normandie.',
+        es: 'Explorador nórdico del Atlántico cuya saga conecta directamente con la herencia nórdica normanda — el mismo mundo marítimo del que surgió el ducado de Normandía.',
+        it: 'Esploratore norreno dell\'Atlantico la cui saga si ricollega direttamente all\'eredità norrena normanna — lo stesso mondo marittimo da cui nacque il ducato di Normandia.',
+      },
+    },
   },
   {
     id: 'jean-alfonse',
@@ -433,6 +502,16 @@ export const atlasPeople: Person[] = [
       fr: 'Ses origines normandes, l\'établissement sur le Saint-Laurent et la diplomatie autochtone se rejoignent dans son parcours. Il est tenu pour une figure fondatrice du Canada français et ancêtre d\'une vaste descendance.',
       it: 'Le sue radici normanne, l\'insediamento sul San Lorenzo e la diplomazia con le popolazioni indigene convergono nella sua vita. È considerato una figura fondatrice del Canada francese e antenato di un vasto lignaggio.',
     },
+    guidedStoryArcId: 'guillaume-couture',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Documented Rouen origins — Norman-to-New France corridor',
+        fr: 'Origine rouennaise documentée — corridor Normandie-Nouvelle-France',
+        es: 'Origen documentado en Rouen — corredor Normandía-Nueva Francia',
+        it: 'Origine rouennese documentata — corridoio Normandia-Nuova Francia',
+      },
+    },
   },
   {
     id: 'louis-hebert',
@@ -461,6 +540,16 @@ export const atlasPeople: Person[] = [
       fr: 'Figure fondatrice de la généalogie québécoise ; ses descendants se comptent par millions en Amérique du Nord.',
       it: 'Figura fondativa della genealogia québécoise; i suoi discendenti si contano a milioni in Nord America.',
     },
+    guidedStoryArcId: 'louis-hebert',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Paris apothecary recruited through Rouen trading networks; first European farmer in Canada, proving the St. Lawrence could sustain settlement.',
+        fr: 'Apothicaire parisien recruté par les réseaux marchands de Rouen ; premier agriculteur européen au Canada, prouvant que le Saint-Laurent pouvait sustenter la colonisation.',
+        es: 'Boticario parisino reclutado por las redes comerciales de Rouen; primer agricultor europeo en Canadá, demostrando que el San Lorenzo podía sustentar el asentamiento.',
+        it: 'Farmacista parigino reclutato tramite le reti commerciali di Rouen; primo agricoltore europeo in Canada, dimostrando che il San Lorenzo poteva sostenere l\'insediamento.',
+      },
+    },
   },
   {
     id: 'robert-giffard',
@@ -488,6 +577,16 @@ export const atlasPeople: Person[] = [
       en: 'Embodies the seigneurial recruitment model and the Perche founder effect in Québec genealogy.',
       fr: 'Incarne le modèle de recrutement seigneurial et l\'effet fondateur du Perche dans la généalogie québécoise.',
       it: 'Incarne il modello di reclutamento signorile e l\'effetto fondatore del Perche nella genealogia québécoise.',
+    },
+    guidedStoryArcId: 'robert-giffard',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Percheron recruiter whose seigneurial model channelled families from the Norman hinterland to the St. Lawrence — the demographic engine of New France.',
+        fr: 'Recruteur percheron dont le modèle seigneurial canalisa des familles de l\'arrière-pays normand vers le Saint-Laurent — le moteur démographique de la Nouvelle-France.',
+        es: 'Reclutador percherón cuyo modelo señorial canalizó familias del interior normando al San Lorenzo — el motor demográfico de Nueva Francia.',
+        it: 'Reclutatore percherone il cui modello signorile convogliò famiglie dall\'entroterra normanno al San Lorenzo — il motore demografico della Nuova Francia.',
+      },
     },
   },
   {
@@ -771,6 +870,16 @@ export const atlasPeople: Person[] = [
       fr: 'Ses écrits et son plaidoyer menèrent directement à l\'intervention royale qui transforma la Nouvelle-France d\'un avant-poste précaire en colonie de la Couronne.',
       it: 'Scritti e azione politica portarono direttamente all\'intervento reale che trasformò la Nuova Francia da avamposto fragile in colonia della Corona.',
     },
+    guidedStoryArcId: 'pierre-boucher',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Percheron child settler who became governor, author, and the man whose petition to Louis XIV transformed New France into a crown colony.',
+        fr: 'Enfant colon percheron devenu gouverneur, auteur et l\'homme dont la pétition à Louis XIV transforma la Nouvelle-France en colonie royale.',
+        es: 'Niño colono percherón que se convirtió en gobernador, autor y el hombre cuya petición a Luis XIV transformó Nueva Francia en colonia real.',
+        it: 'Bambino colono percherone diventato governatore, autore e l\'uomo la cui petizione a Luigi XIV trasformò la Nuova Francia in colonia reale.',
+      },
+    },
   },
   {
     id: 'jean-bourdon',
@@ -939,6 +1048,16 @@ export const atlasPeople: Person[] = [
       fr: 'Transforma la Nouvelle-France d\'un poste de traite en une colonie organisée de la Couronne avec une croissance démographique planifiée.',
       it: 'Trasformò la Nuova Francia da avamposto della traite in colonia organizzata della Corona con crescita demografica pianificata.',
     },
+    guidedStoryArcId: 'jean-talon',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Royal intendant whose census, Filles du Roi programme, and exploration mandates built the administrative framework of the Norman-origin colony.',
+        fr: 'Intendant royal dont le recensement, le programme des Filles du Roi et les mandats d\'exploration bâtirent le cadre administratif de la colonie d\'origine normande.',
+        es: 'Intendente real cuyo censo, programa de Filles du Roi y mandatos de exploración construyeron el marco administrativo de la colonia de origen normando.',
+        it: 'Intendente reale il cui censimento, programma delle Filles du Roi e mandati esplorativi costruirono l\'apparato amministrativo della colonia di origine normanna.',
+      },
+    },
   },
 
   // ──────────── Filles du Roi and civilian migration ────────────
@@ -997,6 +1116,16 @@ export const atlasPeople: Person[] = [
       fr: 'Canonisée en 1982. Son modèle éducatif façonna la société coloniale pendant plus d\'un siècle.',
       it: 'Canonizzata santa nel 1982. Il suo modello educativo plasmò la società coloniale per oltre un secolo.',
     },
+    guidedStoryArcId: 'marguerite-bourgeoys',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Champenoise educator who built the colony\'s school system and trained the Filles du Roi — shaping the social fabric of Norman-seeded New France.',
+        fr: 'Éducatrice champenoise qui bâtit le système scolaire de la colonie et forma les Filles du Roi — façonnant le tissu social de la Nouvelle-France d\'origine normande.',
+        es: 'Educadora champañesa que construyó el sistema escolar de la colonia y formó a las Filles du Roi — moldeando el tejido social de Nueva Francia de origen normando.',
+        it: 'Educatrice champenoise che costruì il sistema scolastico della colonia e formò le Filles du Roi — plasmando il tessuto sociale della Nuova Francia di origine normanna.',
+      },
+    },
   },
   {
     id: 'catherine-de-baillon',
@@ -1052,6 +1181,16 @@ export const atlasPeople: Person[] = [
       en: 'Recognized as a co-founder of Montréal; her hospital endures to this day.',
       fr: 'Reconnue comme co-fondatrice de Montréal ; son hôpital existe encore aujourd\'hui.',
       it: 'Riconosciuta co-fondatrice di Montréal; il suo ospedale esiste ancora oggi.',
+    },
+    guidedStoryArcId: 'jeanne-mance',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Co-founder of Montréal and builder of its first hospital — her institutional work anchored the colony\'s second city on the St. Lawrence corridor.',
+        fr: 'Co-fondatrice de Montréal et bâtisseuse de son premier hôpital — son travail institutionnel ancra la deuxième ville de la colonie sur le corridor du Saint-Laurent.',
+        es: 'Cofundadora de Montreal y constructora de su primer hospital — su trabajo institucional ancló la segunda ciudad de la colonia en el corredor del San Lorenzo.',
+        it: 'Co-fondatrice di Montréal e costruttrice del primo ospedale — il suo lavoro istituzionale ancorò la seconda città della colonia sul corridoio del San Lorenzo.',
+      },
     },
   },
   {
@@ -1570,6 +1709,16 @@ export const atlasPeople: Person[] = [
       en: 'La Salle\u2019s claim of Louisiana stretched French territory from the Gulf of St. Lawrence to the Gulf of Mexico \u2014 the most dramatic geographic expansion in New France\u2019s history, and one driven by a Rouennais.',
       fr: 'La revendication de La Salle sur la Louisiane étendit le territoire français du golfe du Saint-Laurent au golfe du Mexique \u2014 l\u2019expansion géographique la plus spectaculaire de l\u2019histoire de la Nouvelle-France, menée par un Rouennais.',
     },
+    guidedStoryArcId: 'rene-robert-la-salle',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Documented Rouen origins — Norman explorer who claimed Louisiana for France',
+        fr: 'Origine rouennaise documentée — explorateur normand qui revendiqua la Louisiane pour la France',
+        es: 'Origen documentado en Rouen — explorador normando que reclamó Luisiana para Francia',
+        it: 'Origine rouennese documentata — esploratore normanno che rivendicò la Louisiana per la Francia',
+      },
+    },
   },
   // ─── Robert Guiscard ───
   {
@@ -1593,6 +1742,16 @@ export const atlasPeople: Person[] = [
       fr: 'Les conquêtes de Guiscard mirent fin à la domination byzantine en Italie et posèrent les bases du Royaume normand de Sicile. Son fils Bohémond porta le nom normand à Antioche lors de la Première Croisade ; la lignée de son frère Roger produisit Roger II et le royaume le plus sophistiqué de l\'Europe du XIIe siècle.',
       it: 'Le conquiste del Guiscardo posero fine al dominio bizantino in Italia e gettarono le basi per il Regno normanno di Sicilia. Suo figlio Boemondo portò il nome normanno ad Antiochia nella Prima Crociata; la linea del fratello Ruggero produsse Ruggero II e il regno più sofisticato dell\'Europa del XII secolo.',
     },
+    guidedStoryArcId: 'robert-guiscard',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Hauteville adventurer from Normandy — Duke of Apulia and Calabria',
+        fr: 'Aventurier Hauteville de Normandie — duc d\'Apulie et de Calabre',
+        es: 'Aventurero Hauteville de Normandía — duque de Apulia y Calabria',
+        it: 'Avventuriero Altavilla di Normandia — duca di Puglia e Calabria',
+      },
+    },
   },
   // ─── Bohemond of Antioch ───
   {
@@ -1615,6 +1774,16 @@ export const atlasPeople: Person[] = [
       en: 'The Principality of Antioch survived for nearly two centuries after Bohemond\'s death, becoming the most enduring Norman state in the Crusader East. His career demonstrated that the Hauteville appetite for conquest could project Norman power from the heel of Italy to the banks of the Euphrates.',
       fr: 'La Principauté d\'Antioche survécut près de deux siècles après la mort de Bohémond, devenant l\'État normand le plus durable en Orient croisé. Sa carrière démontra que l\'appétit de conquête des Hauteville pouvait projeter la puissance normande du talon de l\'Italie jusqu\'aux rives de l\'Euphrate.',
       it: 'Il Principato di Antiochia sopravvisse per quasi due secoli dopo la morte di Boemondo, diventando lo stato normanno più duraturo nell\'Oriente crociato. La sua carriera dimostrò che l\'appetito di conquista degli Altavilla poteva proiettare il potere normanno dal tacco d\'Italia alle rive dell\'Eufrate.',
+    },
+    guidedStoryArcId: 'bohemond-antioch',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Hauteville dynasty — Norman Prince of Antioch',
+        fr: 'Dynastie Hauteville — prince normand d\'Antioche',
+        es: 'Dinastía Hauteville — príncipe normando de Antioquía',
+        it: 'Dinastia Altavilla — principe normanno di Antiochia',
+      },
     },
   },
   // ─── Tancred of Hauteville ───
@@ -1664,6 +1833,15 @@ export const atlasPeople: Person[] = [
       it: 'La sua breve contea di Puglia (c. 1042–1046) stabilì il precedente che permise ai fratelli di edificare il Regno normanno di Sicilia. Ogni conquista altavilla successiva crebbe dal punto d\'appoggio che aveva ricavato.',
     },
     guidedStoryArcId: 'william-iron-arm',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Hauteville eldest son — first Norman Count of Apulia',
+        fr: 'Fils aîné des Hauteville — premier comte normand d\'Apulie',
+        es: 'Hijo mayor de los Hauteville — primer conde normando de Apulia',
+        it: 'Figlio maggiore degli Altavilla — primo conte normanno di Puglia',
+      },
+    },
   },
   // ─── Sichelgaita ───
   {
@@ -1688,6 +1866,15 @@ export const atlasPeople: Person[] = [
       it: 'Una delle pochissime donne comandanti in battaglia documentate del periodo medievale. Le sue manovre politiche plasmarono la successione altavilla e spinsero indirettamente Boemondo verso la Prima Crociata.',
     },
     guidedStoryArcId: 'sichelgaita',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Lombard princess who entered the Norman world through marriage to Robert Guiscard and fought alongside his army — one of the rare documented female battlefield commanders of the medieval period.',
+        fr: 'Princesse lombarde entrée dans le monde normand par son mariage avec Robert Guiscard et qui combattit aux côtés de son armée — l\'une des rares femmes chefs de guerre documentées du Moyen Âge.',
+        es: 'Princesa lombarda que entró en el mundo normando por su matrimonio con Roberto Guiscardo y combatió junto a su ejército — una de las pocas mujeres comandantes en batalla documentadas del medievo.',
+        it: 'Principessa longobarda entrata nel mondo normanno attraverso il matrimonio con Roberto il Guiscardo e che combatté al fianco del suo esercito — una delle rare donne comandanti in battaglia documentate del medioevo.',
+      },
+    },
   },
   // ─── Odo of Bayeux ───
   {
@@ -1712,6 +1899,15 @@ export const atlasPeople: Person[] = [
       it: 'L\'Arazzo di Bayeux — se davvero opera della sua committenza — è uno dei documenti storici più importanti del Medioevo. La sua carriera incarnava la fusione normanna di potere religioso e militare che definì l\'era della Conquista.',
     },
     guidedStoryArcId: 'odo-bayeux',
+    atlasThroughline: {
+      kind: 'norman',
+      descriptor: {
+        en: 'Half-brother of the Conqueror — Bishop, Earl, and patron of the Bayeux Tapestry',
+        fr: 'Demi-frère du Conquérant — évêque, comte et commanditaire de la Tapisserie de Bayeux',
+        es: 'Medio hermano del Conquistador — obispo, conde y mecenas del Tapiz de Bayeux',
+        it: 'Fratellastro del Conquistatore — vescovo, conte e committente dell\'Arazzo di Bayeux',
+      },
+    },
   },
   // ─── Hereward the Wake ───
   {
@@ -1736,5 +1932,14 @@ export const atlasPeople: Person[] = [
       it: 'La sua leggenda rappresenta l\'esperienza inglese della conquista normanna — spossessamento, resistenza e il trauma di un mondo rovesciato. La storia di Ely è il necessario contrappeso alla narrazione normanna di trionfo.',
     },
     guidedStoryArcId: 'hereward-the-wake',
+    atlasThroughline: {
+      kind: 'inclusion',
+      rationale: {
+        en: 'Anglo-Saxon rebel whose fenland resistance tells the other side of the Norman Conquest — the necessary counter-narrative to the story of Norman triumph.',
+        fr: 'Rebelle anglo-saxon dont la résistance dans les marais raconte l\'autre versant de la conquête normande — le contre-récit nécessaire au triomphe normand.',
+        es: 'Rebelde anglosajón cuya resistencia en los pantanos cuenta el otro lado de la conquista normanda — la contranarrativa necesaria al triunfo normando.',
+        it: 'Ribelle anglosassone la cui resistenza nelle paludi racconta l\'altro lato della conquista normanna — la contronarrazione necessaria al trionfo normanno.',
+      },
+    },
   },
 ];
