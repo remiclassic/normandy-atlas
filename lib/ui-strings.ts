@@ -1358,6 +1358,105 @@ const STRINGS = {
     es: 'Abrir registro',
     it: 'Apri registro',
   },
+
+  // --- Detail FAB (mobile reopen) ---
+  'detail.fab.hint': {
+    en: 'Tap to explore this story',
+    fr: 'Touchez pour explorer ce récit',
+    es: 'Toca para explorar esta historia',
+    it: 'Tocca per esplorare questa storia',
+  },
+  'detail.fab.hintDismiss': {
+    en: 'Got it',
+    fr: 'Compris',
+    es: 'Entendido',
+    it: 'Capito',
+  },
+  'detail.fab.aria': {
+    en: 'Open place story and details',
+    fr: 'Ouvrir le récit et les détails du lieu',
+    es: 'Abrir la historia y los detalles del lugar',
+    it: 'Apri la storia e i dettagli del luogo',
+  },
+  // --- Story Launcher ---
+  'launcher.open': {
+    en: 'Explore Stories',
+    fr: 'Explorer les récits',
+    es: 'Explorar historias',
+    it: 'Esplora i racconti',
+  },
+  'launcher.title': {
+    en: 'Story Launcher',
+    fr: 'Lanceur de récits',
+    es: 'Lanzador de historias',
+    it: 'Lanciatore di racconti',
+  },
+  'launcher.section.recommended': {
+    en: 'Recommended for you',
+    fr: 'Recommandé pour vous',
+    es: 'Recomendado para ti',
+    it: 'Consigliato per te',
+  },
+  'launcher.section.arcs': {
+    en: 'Story Arcs',
+    fr: 'Arcs narratifs',
+    es: 'Arcos narrativos',
+    it: 'Archi narrativi',
+  },
+  'launcher.section.journeys': {
+    en: 'Full Journeys',
+    fr: 'Parcours complets',
+    es: 'Recorridos completos',
+    it: 'Percorsi completi',
+  },
+  'launcher.section.flythroughs': {
+    en: 'Cinematic Flights',
+    fr: 'Survols cinématiques',
+    es: 'Sobrevuelos cinematográficos',
+    it: 'Sorvoli cinematici',
+  },
+  'launcher.contextual.continue': {
+    en: 'Continue',
+    fr: 'Continuer',
+    es: 'Continuar',
+    it: 'Continua',
+  },
+  'launcher.badge.continue': {
+    en: 'Continue',
+    fr: 'Reprendre',
+    es: 'Continuar',
+    it: 'Riprendi',
+  },
+  'launcher.badge.completed': {
+    en: 'Completed',
+    fr: 'Terminé',
+    es: 'Completado',
+    it: 'Completato',
+  },
+  'launcher.journey.full': {
+    en: 'Full Atlas Chronicle',
+    fr: 'Chronique complète de l\'atlas',
+    es: 'Crónica completa del atlas',
+    it: 'Cronaca completa dell\'atlante',
+  },
+  'launcher.browseAll': {
+    en: 'Browse all stories',
+    fr: 'Parcourir toutes les histoires',
+    es: 'Ver todas las historias',
+    it: 'Sfoglia tutte le storie',
+  },
+  'launcher.aria.close': {
+    en: 'Close story launcher',
+    fr: 'Fermer le lanceur de récits',
+    es: 'Cerrar lanzador de historias',
+    it: 'Chiudi lanciatore di racconti',
+  },
+  'launcher.duration': {
+    en: '~{min} min',
+    fr: '~{min} min',
+    es: '~{min} min',
+    it: '~{min} min',
+  },
 } as const satisfies StringTable;
 
 export type UiStringKey = keyof typeof STRINGS;

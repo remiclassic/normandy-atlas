@@ -1,11 +1,11 @@
 'use client';
 
 import { useMemo, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { useMobileStoryPeek } from '@/hooks/use-mobile-story-peek';
 import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
 import { getStoryBeats, getBeat, getBeatCount, getEffectiveStoryBeat } from '@/core';
-import { arcChromeStyle, getArcEntriesForEra } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { useIsMobile } from '@/hooks/use-responsive';
@@ -32,14 +32,16 @@ const CHAPTER_LABELS: Record<string, string[]> = {
   ],
 };
 
-export default function StoryModeBar() {
+interface StoryModeBarProps {
+  onOpenLauncher?: () => void;
+}
+
+export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
   const storyMode = useMapStore((s) => s.storyMode);
   const stepIndex = useMapStore((s) => s.storyStepIndex);
   const atlasMode = useMapStore((s) => s.atlasMode);
   const storyArc = useMapStore((s) => s.storyArc);
   const locale = useMapStore((s) => s.locale);
-  const uiTheme = useMapStore((s) => s.uiTheme);
-  const startStory = useMapStore((s) => s.startStory);
   const stopStory = useMapStore((s) => s.stopStory);
   const nextStep = useMapStore((s) => s.nextStoryStep);
   const prevStep = useMapStore((s) => s.prevStoryStep);
@@ -56,6 +58,7 @@ export default function StoryModeBar() {
   const setDetailPanelExpanded = useMapStore((s) => s.setDetailPanelExpanded);
 
   const isMobile = useIsMobile();
+  const reducedMotion = !!useReducedMotion();
   const cinematic = isCinematicArc(storyArc);
   const atlasBeats = useMemo(() => getStoryBeats(storyArc), [storyArc]);
   const totalSteps = atlasMode ? atlasBeats.length : normanAtlanticStory.length;
@@ -248,10 +251,44 @@ export default function StoryModeBar() {
   }, [storyMode, stepIndex, atlasMode, currentBeat?.eraId, selectFeature]);
 
   const isActive = storyMode && (currentBeat || currentLegacyStep);
-  const eraId = useMapStore((s) => s.eraId);
 
-  const arcEntries = useMemo(() => getArcEntriesForEra(eraId), [eraId]);
-  const handleStartArc = useCallback((arcId: string) => startStory(arcId), [startStory]);
+  // ─── Mobile peek-to-map gesture ──────────────────────────────────
+  const {
+    peekY,
+    dragControls,
+    animating: peekAnimating,
+    cardRef: peekCardRef,
+    resetPeek,
+    handleDragEnd: handlePeekDragEnd,
+    runContinueSequence,
+    dragConstraints: peekDragConstraints,
+  } = useMobileStoryPeek(isMobile && !!isActive, reducedMotion);
+
+  const isActiveFlag = !!isActive;
+  useEffect(() => {
+    if (isActiveFlag) resetPeek();
+  }, [isActiveFlag, resetPeek]);
+
+  const getNextFlyDurationMs = useCallback(() => {
+    if (!atlasMode) return 2500;
+    const nextIdx = Math.min(stepIndex + 1, getBeatCount(storyArc) - 1);
+    const beat = getBeat(nextIdx, storyArc);
+    return beat?.camera?.durationMs ?? 2500;
+  }, [atlasMode, stepIndex, storyArc]);
+
+  const handleMobileContinue = useCallback(() => {
+    runContinueSequence(handleNext, getNextFlyDurationMs());
+  }, [runContinueSequence, handleNext, getNextFlyDurationMs]);
+
+  const handlePrev = useCallback(() => {
+    resetPeek();
+    prevStep();
+  }, [resetPeek, prevStep]);
+
+  const handleGoToStep = useCallback((i: number) => {
+    resetPeek();
+    goToStep(i);
+  }, [resetPeek, goToStep]);
 
   // ─── Cinematic right-rail (desktop) — gated by CINEMATIC_RIGHT_RAIL_ENABLED ───
   if (isActive && cinematic && !isMobile && CINEMATIC_RIGHT_RAIL_ENABLED) {
@@ -428,45 +465,27 @@ export default function StoryModeBar() {
   // ─── Default layout (bottom bar) ─────────────────────────────────
   return (
     <>
-      {/* Story / arc start buttons */}
+      {/* Story launcher CTA (desktop idle) */}
       <AnimatePresence>
-        {!isMobile && !storyMode && cinematicFlythrough == null && (
+        {!isMobile && !storyMode && cinematicFlythrough == null && onOpenLauncher && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="pointer-events-auto absolute inset-x-3 bottom-6 z-40 flex flex-row flex-wrap items-center justify-center gap-x-2 gap-y-2.5 sm:inset-x-4"
+            className="pointer-events-auto absolute inset-x-3 bottom-6 z-40 flex items-center justify-center sm:inset-x-4"
           >
             <button
-              onClick={() => startStory()}
+              onClick={onOpenLauncher}
               className="group flex min-w-0 max-w-[min(100%,28rem)] items-center justify-center gap-3 rounded-full glass-panel glow-gold px-5 py-3 text-[13px] font-medium text-gold hover:text-gold-bright transition-all duration-250 border-gold/15 hover:border-gold/25 touch-target"
             >
               <span className="flex shrink-0 items-center justify-center w-7 h-7 rounded-full bg-gold/10 group-hover:bg-gold/15 transition-colors duration-200">
-                <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>
                   <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
                 </svg>
               </span>
-              <span className="min-w-0 truncate">{t('story.explore', locale)}</span>
+              <span className="min-w-0 truncate">{t('launcher.open', locale)}</span>
             </button>
-
-            {arcEntries.map((entry) => {
-              const st = arcChromeStyle(entry, uiTheme);
-              return (
-                <button
-                  key={entry.arcId}
-                  onClick={() => handleStartArc(entry.arcId)}
-                  className={`group flex min-w-0 max-w-[min(100%,24rem)] items-center justify-center gap-2.5 rounded-full glass-panel px-4 py-2.5 text-center text-[13px] font-medium transition-all duration-250 touch-target ${st.text} ${st.textHover} ${st.border} ${st.borderHover}`}
-                >
-                  <span className={`flex items-center justify-center w-6 h-6 rounded-full ${st.iconBg} ${st.iconBgHover} transition-colors duration-200`}>
-                    <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                      <path d="M3.5 1.5l8 5.5-8 5.5V1.5z" fill="currentColor" />
-                    </svg>
-                  </span>
-                  <span className="min-w-0 flex-1 leading-snug truncate">{pickI18n(entry.label, locale)}</span>
-                </button>
-              );
-            })}
           </motion.div>
         )}
       </AnimatePresence>
@@ -485,8 +504,25 @@ export default function StoryModeBar() {
                 : 'absolute bottom-0 pb-[env(safe-area-inset-bottom)]'
             }`}
           >
+            <motion.div
+              style={isMobile ? { y: peekY } : undefined}
+              drag={isMobile ? 'y' : false}
+              dragControls={dragControls}
+              dragListener={false}
+              dragConstraints={peekDragConstraints}
+              dragElastic={0.15}
+              onDragEnd={handlePeekDragEnd}
+            >
             <div className="mx-auto max-w-2xl mb-3 sm:mb-6 px-3 sm:px-4">
-              <div className="rounded-2xl glass-panel-elevated overflow-hidden">
+              <div ref={peekCardRef} className="rounded-2xl glass-panel-elevated overflow-hidden">
+                {isMobile && (
+                  <div
+                    className="flex justify-center pt-2.5 pb-1 touch-none cursor-grab active:cursor-grabbing"
+                    onPointerDown={(e) => { if (!peekAnimating) dragControls.start(e); }}
+                  >
+                    <div className="w-8 h-[3px] rounded-full bg-text-dim/30" />
+                  </div>
+                )}
                 <div className="relative h-[2px] bg-chrome-shade-strong">
                   <motion.div
                     className={`absolute inset-y-0 left-0 bg-gradient-to-r ${
@@ -524,7 +560,7 @@ export default function StoryModeBar() {
                       {Array.from({ length: totalSteps }, (_, i) => (
                         <button
                           key={i}
-                          onClick={() => goToStep(i)}
+                          onClick={() => handleGoToStep(i)}
                           className={`h-1 rounded-full transition-all duration-400 flex-shrink-0 ${
                             i === stepIndex
                               ? `w-4 sm:w-5 ${cinematic ? 'bg-emerald-400/70' : 'bg-gold/70'}`
@@ -598,8 +634,8 @@ export default function StoryModeBar() {
                   </button>
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={prevStep}
-                      disabled={isFirst || celebrating}
+                      onClick={handlePrev}
+                      disabled={isFirst || celebrating || peekAnimating}
                       className="flex items-center justify-center w-10 h-10 sm:w-9 sm:h-9 rounded-lg border border-border hover:border-border-bright disabled:opacity-20 disabled:cursor-not-allowed text-text-dim hover:text-text-muted transition-all duration-150 hover:bg-chrome-fill-badge touch-target"
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -607,8 +643,8 @@ export default function StoryModeBar() {
                       </svg>
                     </button>
                     <button
-                      onClick={isLast ? handleFinish : handleNext}
-                      disabled={celebrating}
+                      onClick={isLast ? handleFinish : (isMobile ? handleMobileContinue : handleNext)}
+                      disabled={celebrating || peekAnimating}
                       className={`flex items-center justify-center h-10 sm:h-9 rounded-lg ${
                         cinematic
                           ? 'bg-emerald-400/12 border border-emerald-400/20 text-emerald-300 hover:bg-emerald-400/18 hover:border-emerald-400/30'
@@ -626,6 +662,7 @@ export default function StoryModeBar() {
                 </div>
               </div>
             </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

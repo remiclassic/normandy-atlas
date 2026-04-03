@@ -1,9 +1,10 @@
 'use client';
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, type PanInfo } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion, type PanInfo } from 'motion/react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { BookOpen } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { pickI18n } from '@/lib/locale';
@@ -2014,25 +2015,95 @@ function MinimizeButton({ onClick }: { onClick: () => void }) {
   );
 }
 
+const HINT_STORAGE_KEY = 'atlas_detail_fab_hint_v1';
+
 function MobileDetailReopenFab({ onReopen }: { onReopen: () => void }) {
+  const reducedMotion = useReducedMotion();
+  const locale = useMapStore((s) => s.locale);
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (!localStorage.getItem(HINT_STORAGE_KEY)) setShowHint(true);
+    } catch { /* private browsing */ }
+  }, []);
+
+  const dismissHint = useCallback(() => {
+    setShowHint(false);
+    try { localStorage.setItem(HINT_STORAGE_KEY, '1'); } catch { /* */ }
+  }, []);
+
+  const handleClick = useCallback(() => {
+    dismissHint();
+    onReopen();
+  }, [dismissHint, onReopen]);
+
   if (typeof document === 'undefined') return null;
 
+  const pulseBoxShadow = reducedMotion
+    ? '0 0 10px rgba(212,175,55,0.18), 0 2px 12px rgba(0,0,0,0.25)'
+    : undefined;
+
   return createPortal(
-    <motion.button
-      type="button"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-      onClick={onReopen}
-      aria-label="Reopen detail panel"
-      className="fixed top-52 right-3 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-chrome-border-strong bg-chrome-popover/95 shadow-lg backdrop-blur-xl pointer-events-auto touch-target"
-    >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-parchment">
-        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-        <path d="M8 5v3.5M8 10.5v.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      </svg>
-    </motion.button>,
+    <div className="fixed top-52 right-3 z-40 pointer-events-auto flex flex-col items-end gap-2">
+      <motion.button
+        type="button"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={
+          reducedMotion
+            ? { opacity: 1, scale: 1 }
+            : {
+                opacity: 1,
+                scale: 1,
+                boxShadow: [
+                  '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
+                  '0 0 16px rgba(212,175,55,0.28), 0 2px 12px rgba(0,0,0,0.25)',
+                  '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
+                ],
+              }
+        }
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={
+          reducedMotion
+            ? { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }
+            : {
+                opacity: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+                scale: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+                boxShadow: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+              }
+        }
+        onClick={handleClick}
+        aria-label={t('detail.fab.aria', locale)}
+        className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-chrome-popover/95 backdrop-blur-xl touch-target"
+        style={pulseBoxShadow ? { boxShadow: pulseBoxShadow } : undefined}
+      >
+        <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
+      </motion.button>
+
+      <AnimatePresence>
+        {showHint && (
+          <motion.div
+            initial={{ opacity: 0, y: 4, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.95 }}
+            transition={{ duration: 0.18, delay: 0.4 }}
+            className="rounded-lg border border-chrome-border bg-chrome-popover/95 px-3 py-2 backdrop-blur-xl max-w-[180px]"
+            style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px var(--color-chrome-tooltip-ring)' }}
+          >
+            <p className="text-[11px] leading-snug text-parchment/90">
+              {t('detail.fab.hint', locale)}
+            </p>
+            <button
+              type="button"
+              onClick={dismissHint}
+              className="mt-1.5 text-[10px] font-medium text-gold/70 hover:text-gold transition-colors"
+            >
+              {t('detail.fab.hintDismiss', locale)}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>,
     document.body,
   );
 }

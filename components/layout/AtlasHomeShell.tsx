@@ -17,6 +17,8 @@ import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
 import StoryEraIntroOverlay from '@/components/story/StoryEraIntroOverlay';
 import CinematicFlythroughBar from '@/components/flythrough/CinematicFlythroughBar';
 import MobilePlayDock from '@/components/story/MobilePlayDock';
+import StoryLauncherSheet from '@/components/story/launcher/StoryLauncherSheet';
+import { StoryLauncherContext } from '@/hooks/use-story-launcher';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
@@ -139,6 +141,14 @@ export default function AtlasHomeShell() {
   const [storyLibraryOpen, setStoryLibraryOpen] = useState(false);
   const openStoryLibrary = useCallback(() => setStoryLibraryOpen(true), []);
   const closeStoryLibrary = useCallback(() => setStoryLibraryOpen(false), []);
+
+  const [storyLauncherOpen, setStoryLauncherOpen] = useState(false);
+  const openStoryLauncher = useCallback(() => setStoryLauncherOpen(true), []);
+  const closeStoryLauncher = useCallback(() => setStoryLauncherOpen(false), []);
+  const storyLauncherCtx = useMemo(
+    () => ({ open: openStoryLauncher, close: closeStoryLauncher, isOpen: storyLauncherOpen }),
+    [openStoryLauncher, closeStoryLauncher, storyLauncherOpen],
+  );
 
   const storyLibraryCloseRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -327,6 +337,7 @@ export default function AtlasHomeShell() {
   );
 
   return (
+    <StoryLauncherContext.Provider value={storyLauncherCtx}>
     <div className="flex h-dvh w-screen flex-col overflow-hidden bg-background">
       {/* ─── Header ─────────────────────────────────────────── */}
       <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
@@ -492,12 +503,17 @@ export default function AtlasHomeShell() {
           {/* Mobile: hybrid dock replaces stacked idle buttons; desktop: pass-through */}
           <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
             <CinematicFlythroughBar />
-            <StoryModeBar />
-            <MobilePlayDock />
+            <StoryModeBar onOpenLauncher={openStoryLauncher} />
+            <MobilePlayDock onOpenLauncher={openStoryLauncher} />
           </div>
         </div>
 
         <HistoricalDetailPanel />
+        <StoryLauncherSheet
+          open={storyLauncherOpen}
+          onClose={closeStoryLauncher}
+          onBrowseAll={openStoryLibrary}
+        />
         <StoryLibraryPanel
           open={storyLibraryOpen}
           onClose={closeStoryLibrary}
@@ -627,5 +643,6 @@ export default function AtlasHomeShell() {
       <StoryEraIntroOverlay />
       <SessionGuard />
     </div>
+    </StoryLauncherContext.Provider>
   );
 }
