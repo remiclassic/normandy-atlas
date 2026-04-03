@@ -7,6 +7,7 @@ import type { StoryBeatIllustrationSlide } from '@/core/types';
  *   - guillaume-couture: 17th–19th-century maps, engravings, and paintings (public domain).
  *   - viking-age: Commons photos and PD painting reproductions + AI where needed.
  *   - norman-origins: Commons (abbey, Vinland, manuscript) + AI reconstructions + reuse of Viking / William assets where apt.
+ *   - norman-expansion: Italy / crusade / England assets under public/story/norman-expansion + William Conqueror reuse.
  *
  * Each key maps to a single slide or an array of slides.
  * Slides with placeId / center get their own map pin and gallery anchor.
@@ -2246,6 +2247,660 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
       },
       placeId: 'rouen',
+    },
+  ],
+
+  // ── Norman expansion (overview arc) ──────────────────────────────
+
+  'ne-arc-duchy-base': [
+    {
+      src: '/story/william-conqueror/abbaye-aux-hommes.jpg',
+      alt: {
+        en: 'Abbaye aux Hommes, Caen — symbol of ducal power and reform on the eve of Norman expansion across Europe',
+        fr: 'Abbaye aux Hommes, Caen — symbole du pouvoir ducal et de la réforme à la veille de l\'expansion normande en Europe',
+        es: 'Abadía de los Hombres, Caen — símbolo del poder ducal y la reforma en vísperas de la expansión normanda por Europa',
+        it: 'Abbazia degli Uomini, Caen — simbolo del potere ducale e della riforma alla vigilia dell\'espansione normanna in Europa',
+      },
+      credit: {
+        en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'caen',
+    },
+  ],
+
+  'ne-arc-england': [
+    {
+      src: '/story/william-conqueror/domesday-book.jpg',
+      alt: {
+        en: 'Domesday Book (1086) — the survey that embodied Anglo-Norman administrative control after the conquest',
+        fr: 'Domesday Book (1086) — le recensement qui incarnait le contrôle administratif anglo-normand après la conquête',
+        es: 'Domesday Book (1086) — el censo que encarnó el control administrativo anglonormando tras la conquista',
+        it: 'Domesday Book (1086) — il censimento che incarnò il controllo amministrativo anglo-normanno dopo la conquista',
+      },
+      credit: {
+        en: 'Domesday Book, Warwickshire. Wikimedia Commons (public domain)',
+        fr: 'Domesday Book, Warwickshire. Wikimedia Commons (domaine public)',
+        es: 'Domesday Book, Warwickshire. Wikimedia Commons (dominio público)',
+        it: 'Domesday Book, Warwickshire. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'london',
+    },
+  ],
+
+  'ne-arc-southern-italy': [
+    {
+      src: '/story/norman-expansion/monreale-cathedral.jpg',
+      alt: {
+        en: 'Monreale Cathedral, Sicily — Norman-Arab-Byzantine fusion architecture of the Hauteville Mediterranean world',
+        fr: 'Cathédrale de Monreale, Sicile — architecture fusionnelle normanno-arabo-byzantine du monde méditerranéen des Hauteville',
+        es: 'Catedral de Monreale, Sicilia — arquitectura de fusión normanda-árabe-bizantina del mundo mediterráneo de los Hauteville',
+        it: 'Cattedrale di Monreale, Sicilia — architettura di fusione normanno-arabo-bizantina del mondo mediterraneo degli Altavilla',
+      },
+      credit: {
+        en: 'Photo: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  'ne-arc-crusades': [
+    {
+      src: '/story/william-conqueror/bayeux-tapestry-knights.jpg',
+      alt: {
+        en: 'Bayeux Tapestry — Norman heavy cavalry, the military template Crusader lords took to Antioch and the Levant',
+        fr: 'Tapisserie de Bayeux — cavalerie lourde normande, modèle militaire que les seigneurs croisés portèrent à Antioche et au Levant',
+        es: 'Tapiz de Bayeux — caballería pesada normanda, plantilla militar que los señores cruzados llevaron a Antioquía y el Levante',
+        it: 'Arazzo di Bayeux — cavalleria pesante normanna, modello militare che i signori crociati portarono ad Antiochia e al Levante',
+      },
+      credit: {
+        en: 'Bayeux Tapestry, scene 51. Photo: Myrabella, Wikimedia Commons (CC0)',
+        fr: 'Tapisserie de Bayeux, scène 51. Photo : Myrabella, Wikimedia Commons (CC0)',
+        es: 'Tapiz de Bayeux, escena 51. Foto: Myrabella, Wikimedia Commons (CC0)',
+        it: 'Arazzo di Bayeux, scena 51. Foto: Myrabella, Wikimedia Commons (CC0)',
+      },
+      placeId: 'antioch',
+    },
+  ],
+
+  'ne-arc-periphery': [
+    {
+      src: '/story/william-conqueror/tower-of-london.jpg',
+      alt: {
+        en: 'The Tower of London — Anglo-Norman castle-building pushed into Wales and, from the 1160s, across the Irish Sea',
+        fr: 'La Tour de Londres — la construction de châteaux anglo-normands poussée au pays de Galles et, dès les années 1160, vers la mer d\'Irlande',
+        es: 'La Torre de Londres — la red de castillos anglonormandos extendida a Gales y, desde la década de 1160, al mar de Irlanda',
+        it: 'La Torre di Londra — le fortificazioni anglo-normanne spinte nel Galles e, dal 1160, verso il mare d\'Irlanda',
+      },
+      credit: {
+        en: 'Photo: Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'london',
+    },
+  ],
+
+  'ne-arc-byzantine-africa': [
+    {
+      src: '/story/norman-expansion/norman-fleet-mahdia-africa.jpg',
+      alt: {
+        en: 'Reconstruction — Sicilian Norman fleets along the North African shore: the short-lived Kingdom of Africa and Mediterranean reach',
+        fr: 'Reconstitution — flottes siciliennes normandes le long du rivage nord-africain : le bref « Royaume d\'Afrique » et la portée méditerranéenne',
+        es: 'Reconstrucción — flotas sicilonormandas en la costa norteafricana: el breve «Reino de África» y el alcance mediterráneo',
+        it: 'Ricostruzione — flotte siciliane normanne lungo la costa nordafricana: il breve «Regno d\'Africa» e la portata mediterranea',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mahdia',
+    },
+  ],
+
+  'ne-arc-legacy': [
+    {
+      src: '/story/norman-expansion/chateau-gaillard-les-andelys.jpg',
+      alt: {
+        en: 'Reconstruction — Château Gaillard above the Seine: symbol of Angevin Normandy before Philip Augustus seized the duchy in 1204',
+        fr: 'Reconstitution — Château Gaillard surplombant la Seine : symbole de la Normandie angevine avant que Philippe Auguste s\'empare du duché en 1204',
+        es: 'Reconstrucción — Château Gaillard sobre el Sena: símbolo de la Normandía angevina antes de que Felipe Augusto tomara el ducado en 1204',
+        it: 'Ricostruzione — Château Gaillard sulla Senna: simbolo della Normandia angioina prima che Filippo Augusto conquistasse il ducato nel 1204',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [1.29, 49.14],
+    },
+  ],
+
+  // ── Roger II arc ─────────────────────────────────────────────────
+
+  'r2-hauteville-arrival': [
+    {
+      src: '/story/norman-expansion/bari-san-nicola-adriatic.jpg',
+      alt: {
+        en: 'Reconstruction — Norman mercenary foothold on the Adriatic: Bari and Apulia before the Hautevilles turned to Sicily',
+        fr: 'Reconstitution — avant-poste mercenaire normand sur l\'Adriatique : Bari et les Pouilles avant que les Hauteville ne se tournent vers la Sicile',
+        es: 'Reconstrucción — pie normando mercenario en el Adriático: Bari y Apulia antes de que los Hauteville volvieran a Sicilia',
+        it: 'Ricostruzione — avamposto mercenario normanno sull\'Adriatico: Bari e Puglia prima che gli Altavilla puntassero alla Sicilia',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'bari',
+    },
+  ],
+
+  'r2-birth-sicily': [
+    {
+      src: '/story/norman-expansion/messina-strait-norman-ships.jpg',
+      alt: {
+        en: 'Reconstruction — ships in the Strait of Messina, gateway to Arab-held Sicily where Roger II was born into conquest',
+        fr: 'Reconstitution — navires dans le détroit de Messine, porte de la Sicile arabe où naquit Roger II au sein de la conquête',
+        es: 'Reconstrucción — naves en el estrecho de Mesina, puerta de la Sicilia árabe donde nació Roger II en plena conquista',
+        it: 'Ricostruzione — navi nello stretto di Messina, porta della Sicilia araba dove nacque Ruggero II nel pieno della conquista',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'messina',
+    },
+  ],
+
+  'r2-mainland-claim': [
+    {
+      src: '/story/norman-expansion/bari-san-nicola-adriatic.jpg',
+      alt: {
+        en: 'Reconstruction — Apulian coast and Bari: Roger II\'s bid to unite mainland Norman Italy with Sicily after 1127',
+        fr: 'Reconstitution — côte apulienne et Bari : la tentative de Roger II d\'unir l\'Italie normande continentale à la Sicile après 1127',
+        es: 'Reconstrucción — costa apulia y Bari: la empresa de Roger II de unir la Italia normanda continental con Sicilia tras 1127',
+        it: 'Ricostruzione — costa pugliese e Bari: la mossa di Ruggero II per unire l\'Italia normanna continentale alla Sicilia dopo il 1127',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'bari',
+    },
+  ],
+
+  'r2-crowned-king': [
+    {
+      src: '/story/norman-expansion/monreale-cathedral.jpg',
+      alt: {
+        en: 'Monreale Cathedral — Norman Sicily\'s golden-age architecture around Roger II\'s coronation as king in 1130',
+        fr: 'Cathédrale de Monreale — l\'architecture de l\'âge d\'or de la Sicile normande autour du couronnement de Roger II en 1130',
+        es: 'Catedral de Monreale — arquitectura del siglo de oro de la Sicilia normanda en torno a la coronación de Roger II en 1130',
+        it: 'Cattedrale di Monreale — architettura dell\'età d\'oro della Sicilia normanna intorno all\'incoronazione di Ruggero II nel 1130',
+      },
+      credit: {
+        en: 'Photo: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  'r2-palermo-capital': [
+    {
+      src: '/story/norman-expansion/cappella-palatina-palermo.jpg',
+      alt: {
+        en: 'Interior of the Cappella Palatina, Palermo — Byzantine mosaics, Arabic muqarnas, and Latin liturgy in one Norman royal chapel',
+        fr: 'Intérieur de la chapelle Palatine, Palerme — mosaïques byzantines, muqarnas arabes et liturgie latine dans une chapelle royale normande',
+        es: 'Interior de la Capilla Palatina, Palermo — mosaicos bizantinos, muqarnas árabes y liturgia latina en una capilla real normanda',
+        it: 'Interno della Cappella Palatina, Palermo — mosaici bizantini, muqarnas arabi e liturgia latina in una cappella reale normanna',
+      },
+      credit: {
+        en: 'Photo: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        fr: 'Photo : Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        es: 'Foto: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        it: 'Foto: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  'r2-administration': [
+    {
+      src: '/story/norman-expansion/cappella-palatina-palermo.jpg',
+      alt: {
+        en: 'Palermo\'s royal chapel court — emblem of Roger II\'s multilingual chancery, diwān treasury, and codified Assizes of Ariano',
+        fr: 'La cour de la chapelle palatine — emblème de la chancellerie multilingue de Roger II, du trésor diwān et des Assises d\'Ariano codifiées',
+        es: 'La corte de la capilla palatina — emblema de la cancillería multilingüe de Roger II, el tesoro diwān y las Assizes de Ariano codificadas',
+        it: 'La corte della cappella palatina — emblema della cancelleria multilingue di Ruggero II, del tesoro diwān e delle Assise di Ariano codificate',
+      },
+      credit: {
+        en: 'Photo: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        fr: 'Photo : Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        es: 'Foto: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+        it: 'Foto: Andrea Schaffer, Wikimedia Commons (CC BY 2.0)',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  'r2-africa-mediterranean': [
+    {
+      src: '/story/norman-expansion/norman-fleet-mahdia-africa.jpg',
+      alt: {
+        en: 'Reconstruction — Roger II\'s fleets on the African littoral: Mahdia, Tripoli, and the Norman “Kingdom of Africa”',
+        fr: 'Reconstitution — les flottes de Roger II sur le littoral africain : Mahdia, Tripoli et le « Royaume d\'Afrique » normand',
+        es: 'Reconstrucción — las flotas de Roger II en el litoral africano: Mahdia, Trípoli y el «Reino de África» normando',
+        it: 'Ricostruzione — le flotte di Ruggero II sul litorale africano: Mahdia, Tripoli e il «Regno d\'Africa» normanno',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mahdia',
+    },
+  ],
+
+  'r2-al-idrisi': [
+    {
+      src: '/story/norman-expansion/tabula-rogeriana-style-map.jpg',
+      alt: {
+        en: 'Reconstruction — al-Idrisi\'s Tabula Rogeriana (1154): Roger II\'s silver world map and geographic encyclopaedia',
+        fr: 'Reconstitution — la Tabula Rogeriana d\'al-Idrisi (1154) : carte du monde d\'argent et encyclopédie géographique de Roger II',
+        es: 'Reconstrucción — la Tabula Rogeriana de al-Idrisi (1154): mapamundi plateado y enciclopedia geográfica de Roger II',
+        it: 'Ricostruzione — la Tabula Rogeriana di al-Idrisi (1154): mappa del mondo d\'argento e enciclopedia geografica di Ruggero II',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  'r2-death-legacy': [
+    {
+      src: '/story/norman-expansion/monreale-cathedral.jpg',
+      alt: {
+        en: 'Monreale Cathedral — legacy of Norman Sicily after Roger II: law, plural administration, and enduring Arab-Norman art',
+        fr: 'Cathédrale de Monreale — héritage de la Sicile normande après Roger II : droit, administration plurielle et art arabo-normand durable',
+        es: 'Catedral de Monreale — legado de la Sicilia normanda tras Roger II: derecho, administración plural y arte arabo-normando perdurable',
+        it: 'Cattedrale di Monreale — eredità della Sicilia normanna dopo Ruggero II: diritto, amministrazione plurale e arte arabo-normanna duratura',
+      },
+      credit: {
+        en: 'Photo: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'cefalu',
+    },
+  ],
+
+  // ── Robert Guiscard arc ───────────────────────────────────────────
+
+  'rg-hauteville-origins': [
+    {
+      src: '/story/william-conqueror/falaise-castle.jpg',
+      alt: {
+        en: 'Château de Falaise — the ducal fortress of Normandy evoking the petty lordships of the Cotentin where Tancred of Hauteville raised twelve sons',
+        fr: 'Château de Falaise — la forteresse ducale de Normandie évoquant les petites seigneuries du Cotentin où Tancrède de Hauteville éleva douze fils',
+        es: 'Castillo de Falaise — la fortaleza ducal de Normandía que evoca las pequeñas señorías del Cotentin donde Tancredo de Hauteville crió a doce hijos',
+        it: 'Castello di Falaise — la fortezza ducale della Normandia che evoca le piccole signorie del Cotentin dove Tancredi d\'Altavilla crebbe dodici figli',
+      },
+      credit: {
+        en: 'Photo: Nitot, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Photo : Nitot, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Foto: Nitot, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Foto: Nitot, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'caen',
+    },
+  ],
+
+  'rg-arrival-italy': [
+    {
+      src: '/story/norman-expansion/melfi-castle-apulia.jpg',
+      alt: {
+        en: 'Reconstruction — Melfi and the Apulian interior where Robert Guiscard built his war-band in the 1040s–1050s',
+        fr: 'Reconstitution — Melfi et l\'intérieur des Pouilles où Robert Guiscard forma sa bande armée dans les années 1040-1050',
+        es: 'Reconstrucción — Melfi y el interior de Apulia donde Roberto Guiscardo forjó su banda armada en las décadas de 1040-1050',
+        it: 'Ricostruzione — Melfi e l\'entroterra pugliese dove Roberto il Guiscardo costruì la sua banda armata negli anni 1040-1050',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+
+  'rg-papal-alliance': [
+    {
+      src: '/story/norman-expansion/melfi-castle-apulia.jpg',
+      alt: {
+        en: 'Reconstruction — Melfi (1059): Nicholas II invests Robert as duke, turning a Norman brigand into a papal vassal',
+        fr: 'Reconstitution — Melfi (1059) : Nicolas II investit Robert comme duc, transformant un brigand normand en vassal pontifical',
+        es: 'Reconstrucción — Melfi (1059): Nicolás II inviste a Roberto como duque, convirtiendo a un bandolero normando en vasallo papal',
+        it: 'Ricostruzione — Melfi (1059): Niccolò II investe Roberto come duca, trasformando un brigante normanno in vassallo papale',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+
+  'rg-fall-of-bari': [
+    {
+      src: '/story/norman-expansion/bari-san-nicola-adriatic.jpg',
+      alt: {
+        en: 'Reconstruction — Bari after 1071: end of Byzantine Italy and Robert Guiscard\'s Adriatic capital',
+        fr: 'Reconstitution — Bari après 1071 : fin de l\'Italie byzantine et capitale adriatique de Robert Guiscard',
+        es: 'Reconstrucción — Bari tras 1071: fin de la Italia bizantina y capital adriática de Roberto Guiscardo',
+        it: 'Ricostruzione — Bari dopo il 1071: fine dell\'Italia bizantina e capitale adriatica di Roberto il Guiscardo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'bari',
+    },
+  ],
+
+  'rg-sicily-campaign': [
+    {
+      src: '/story/norman-expansion/messina-strait-norman-ships.jpg',
+      alt: {
+        en: 'Reconstruction — Messina and the Sicilian campaign: Robert and Roger\'s bridgehead into Arab Sicily (1061–1091)',
+        fr: 'Reconstitution — Messine et la campagne de Sicile : tête de pont de Robert et Roger dans la Sicile arabe (1061-1091)',
+        es: 'Reconstrucción — Mesina y la campaña de Sicilia: cabeza de puente de Roberto y Rogelio en la Sicilia árabe (1061-1091)',
+        it: 'Ricostruzione — Messina e la campagna di Sicilia: testa di ponte di Roberto e Ruggero nella Sicilia araba (1061-1091)',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'messina',
+    },
+  ],
+
+  'rg-salerno-capital': [
+    {
+      src: '/story/norman-expansion/salerno-medieval-cityscape.jpg',
+      alt: {
+        en: 'Reconstruction — Salerno as Robert Guiscard\'s capital after 1076: Lombard medical school under Norman rule',
+        fr: 'Reconstitution — Salerne comme capitale de Robert Guiscard après 1076 : l\'école de médecine lombarde sous le régime normand',
+        es: 'Reconstrucción — Salerno como capital de Roberto Guiscardo tras 1076: la escuela médica lombarda bajo dominio normando',
+        it: 'Ricostruzione — Salerno capitale di Roberto il Guiscardo dopo il 1076: la scuola medica longobarda sotto il dominio normanno',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'salerno',
+    },
+  ],
+
+  'rg-durazzo-campaign': [
+    {
+      src: '/story/norman-expansion/durazzo-adriatic-roman-heritage.jpg',
+      alt: {
+        en: 'Reconstruction — Durazzo (Dyrrachium), 1081: Robert Guiscard\'s Norman cavalry shatters the Byzantine line on the Via Egnatia',
+        fr: 'Reconstitution — Durazzo (Dyrrachium), 1081 : la cavalerie normande de Robert Guiscard brise la ligne byzantine sur la Via Egnatia',
+        es: 'Reconstrucción — Durazzo (Dirraquio), 1081: la caballería normanda de Roberto Guiscardo rompe la línea bizantina en la Vía Egnatia',
+        it: 'Ricostruzione — Durazzo (Dyrrachium), 1081: la cavalleria normanna di Roberto il Guiscardo spezza la linea bizantina sulla Via Egnatia',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'durazzo',
+    },
+  ],
+
+  'rg-rome-rescue': [
+    {
+      src: '/story/norman-expansion/castel-santangelo-rome.jpg',
+      alt: {
+        en: 'Castel Sant\'Angelo, Rome — where Gregory VII was besieged in 1084 before Robert Guiscard\'s Norman army rescued, then sacked, the city',
+        fr: 'Château Saint-Ange, Rome — où Grégoire VII fut assiégé en 1084 avant que l\'armée normande de Robert Guiscard ne délivre puis mette Rome à sac',
+        es: 'Castel Sant\'Angelo, Roma — donde Gregorio VII fue asediado en 1084 antes de que el ejército normando de Roberto Guiscardo rescatara y saqueara la ciudad',
+        it: 'Castel Sant\'Angelo, Roma — dove Gregorio VII fu assediato nel 1084 prima che l\'esercito normanno di Roberto il Guiscardo liberasse e saccheggiasse la città',
+      },
+      credit: {
+        en: 'Photo: Adrian104, Wikimedia Commons (public domain)',
+        fr: 'Photo : Adrian104, Wikimedia Commons (domaine public)',
+        es: 'Foto: Adrian104, Wikimedia Commons (dominio público)',
+        it: 'Foto: Adrian104, Wikimedia Commons (pubblico dominio)',
+      },
+      center: [12.466, 41.902],
+    },
+  ],
+
+  'rg-death-legacy': [
+    {
+      src: '/story/norman-expansion/monreale-cathedral.jpg',
+      alt: {
+        en: 'Monreale — symbol of the Hauteville Mediterranean: from Apulia to Sicily, Robert Guiscard\'s line reshaped the medieval map',
+        fr: 'Monreale — symbole de la Méditerranée des Hauteville : des Pouilles à la Sicile, la lignée de Robert Guiscard redessina la carte médiévale',
+        es: 'Monreale — símbolo del Mediterráneo de los Hauteville: de Apulia a Sicilia, la línea de Roberto Guiscardo redibujó el mapa medieval',
+        it: 'Monreale — simbolo del Mediterraneo degli Altavilla: dalla Puglia alla Sicilia, la linea di Roberto il Guiscardo ridisegnò la carta medievale',
+      },
+      credit: {
+        en: 'Photo: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: pjt56, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'palermo',
+    },
+  ],
+
+  // ── Bohemond of Antioch arc ───────────────────────────────────────
+
+  'boh-guiscard-son': [
+    {
+      src: '/story/norman-expansion/bari-san-nicola-adriatic.jpg',
+      alt: {
+        en: 'Reconstruction — Apulian harbours where Bohemond grew up: son of Robert Guiscard, trained in the wars of southern Italy',
+        fr: 'Reconstitution — ports apuliens où grandit Bohémond : fils de Robert Guiscard, formé aux guerres d\'Italie du Sud',
+        es: 'Reconstrucción — puertos apulios donde creció Bohemundo: hijo de Roberto Guiscardo, formado en las guerras del sur de Italia',
+        it: 'Ricostruzione — porti pugliesi dove crebbe Boemondo: figlio di Roberto il Guiscardo, formato alle guerre dell\'Italia meridionale',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'bari',
+    },
+  ],
+
+  'boh-italian-wars': [
+    {
+      src: '/story/norman-expansion/taranto-gulf-norman.jpg',
+      alt: {
+        en: 'Reconstruction — the heel around Taranto: Bohemond\'s principality before the First Crusade called him east',
+        fr: 'Reconstitution — le talon autour de Tarente : la principauté de Bohémond avant que la Première Croisade ne l\'appelle vers l\'Orient',
+        es: 'Reconstrucción — el talón en torno a Tarento: el principado de Bohemundo antes de que la Primera Cruzada le llamara al Este',
+        it: 'Ricostruzione — il tallone intorno a Taranto: il principato di Boemondo prima che la Prima Crociata lo chiamasse verso Oriente',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'taranto',
+    },
+  ],
+
+  'boh-crusade-begins': [
+    {
+      src: '/story/norman-expansion/durazzo-adriatic-roman-heritage.jpg',
+      alt: {
+        en: 'Reconstruction — Durazzo again in 1096: Bohemond\'s crusaders cross the Adriatic on Robert Guiscard\'s invasion road',
+        fr: 'Reconstitution — Durazzo à nouveau en 1096 : les croisés de Bohémond traversent l\'Adriatique sur la route d\'invasion de Robert Guiscard',
+        es: 'Reconstrucción — Durazzo de nuevo en 1096: los cruzados de Bohemundo cruzan el Adriático por la ruta de invasión de Roberto Guiscardo',
+        it: 'Ricostruzione — Durazzo di nuovo nel 1096: i crociati di Boemondo attraversano l\'Adriatico sulla via d\'invasione di Roberto il Guiscardo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'durazzo',
+    },
+  ],
+
+  'boh-constantinople-oath': [
+    {
+      src: '/story/norman-expansion/hagia-sophia-istanbul.jpg',
+      alt: {
+        en: 'Hagia Sophia, Constantinople — where Alexios Komnenos extracted oaths from Crusader princes, including Bohemond, in 1097',
+        fr: 'Sainte-Sophie, Constantinople — où Alexis Comnène arracha des serments aux princes croisés, dont Bohémond, en 1097',
+        es: 'Santa Sofía, Constantinopla — donde Alejo Comneno extrajo juramentos a los príncipes cruzados, entre ellos Bohemundo, en 1097',
+        it: 'Santa Sofia, Costantinopoli — dove Alessio Comneno strinse giuramenti dai principi crociati, incluso Boemondo, nel 1097',
+      },
+      credit: {
+        en: 'Photo: Arild Vågen, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Arild Vågen, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Arild Vågen, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Arild Vågen, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'constantinople',
+    },
+  ],
+
+  'boh-dorylaeum-march': [
+    {
+      src: '/story/norman-expansion/crusade-dorylaeum-1097.jpg',
+      alt: {
+        en: 'Reconstruction — Crusaders at Dorylaeum (1097): Bohemond\'s vanguard holds the Seljuk ambush until relief arrives',
+        fr: 'Reconstitution — Croisés à Dorylée (1097) : l\'avant-garde de Bohémond tient l\'embuscade seldjoukide jusqu\'aux renforts',
+        es: 'Reconstrucción — Cruzados en Dorylaeum (1097): la vanguardia de Bohemundo aguanta la emboscada selyúcida hasta los refuerzos',
+        it: 'Ricostruzione — Crociati a Dorylaeum (1097): l\'avanguardia di Boemondo resiste all\'imboscata selgiuchida fino ai rinforzi',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'dorylaeum',
+    },
+  ],
+
+  'boh-siege-antioch': [
+    {
+      src: '/story/norman-expansion/siege-antioch-1098.jpg',
+      alt: {
+        en: 'Reconstruction — eight-month siege of Antioch (1097–1098): Bohemond\'s Normans take the city through Firouz\'s tower',
+        fr: 'Reconstitution — siège d\'Antioche de huit mois (1097-1098) : les Normands de Bohémond prennent la ville par la tour de Firouz',
+        es: 'Reconstrucción — sitio de ocho meses de Antioquía (1097-1098): los normandos de Bohemundo toman la ciudad por la torre de Firuz',
+        it: 'Ricostruzione — assedio di otto mesi di Antiochia (1097-1098): i normanni di Boemondo prendono la città dalla torre di Firuz',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'antioch',
+    },
+  ],
+
+  'boh-holy-lance': [
+    {
+      src: '/story/norman-expansion/holy-lance-sortie-antioch-1098.jpg',
+      alt: {
+        en: 'Reconstruction — sortie from Antioch (28 June 1098): Bohemond leads the charge after the Holy Lance relic rallies the army',
+        fr: 'Reconstitution — sortie d\'Antioche (28 juin 1098) : Bohémond mène la charge après que la relique de la Sainte Lance a rallié l\'armée',
+        es: 'Reconstrucción — salida de Antioquía (28 de junio de 1098): Bohemundo lidera la carga tras la reliquia de la Santa Lanza',
+        it: 'Ricostruzione — sortita da Antiochia (28 giugno 1098): Boemondo guida la carica dopo che la reliquia della Sacra Lancia rianima l\'esercito',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'antioch',
+    },
+  ],
+
+  'boh-captivity': [
+    {
+      src: '/story/norman-expansion/bohemond-captivity-1100s.jpg',
+      alt: {
+        en: 'Reconstruction — Bohemond captive (1100–1103): Danishmend Turks hold the Prince of Antioch until a vast ransom is paid',
+        fr: 'Reconstitution — Bohémond captif (1100-1103) : les Turcs danishmendides retiennent le prince d\'Antioche jusqu\'à une rançon énorme',
+        es: 'Reconstrucción — Bohemundo cautivo (1100-1103): los turcos danishméndides retienen al príncipe de Antioquía hasta un enorme rescate',
+        it: 'Ricostruzione — Boemondo prigioniero (1100-1103): i turchi danishmend tengono il principe di Antiochia fino a un enorme riscatto',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'antioch',
+    },
+  ],
+
+  'boh-devol-death': [
+    {
+      src: '/story/norman-expansion/durazzo-adriatic-roman-heritage.jpg',
+      alt: {
+        en: 'Reconstruction — failed second siege of Durazzo (1107–1108): Bohemond signs the Treaty of Devol; Antioch becomes a Byzantine fief',
+        fr: 'Reconstitution — second siège manqué de Durazzo (1107-1108) : Bohémond signe le traité de Devol ; Antioche devient un fief byzantin',
+        es: 'Reconstrucción — segundo sitio fallido de Durazzo (1107-1108): Bohemundo firma el Tratado de Devol; Antioquía queda como feudo bizantino',
+        it: 'Ricostruzione — secondo assedio fallito di Durazzo (1107-1108): Boemondo firma il trattato di Devol; Antiochia diventa feudo bizantino',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'durazzo',
     },
   ],
 };
