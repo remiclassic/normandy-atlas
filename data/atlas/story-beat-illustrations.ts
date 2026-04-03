@@ -5,6 +5,8 @@ import type { StoryBeatIllustrationSlide } from '@/core/types';
  * Images live under `public/story/<arc>/` and are served as static assets.
  *   - william-conqueror: Bayeux Tapestry (public domain, CC0) + CC BY-SA photos.
  *   - guillaume-couture: 17th–19th-century maps, engravings, and paintings (public domain).
+ *   - viking-age: Commons photos and PD painting reproductions + AI where needed.
+ *   - norman-origins: Commons (abbey, Vinland, manuscript) + AI reconstructions + reuse of Viking / William assets where apt.
  *
  * Each key maps to a single slide or an array of slides.
  * Slides with placeId / center get their own map pin and gallery anchor.
@@ -1689,6 +1691,561 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
       },
       center: [1.0, 50.0],
+    },
+  ],
+
+  // ── Viking Age (era + arc) ───────────────────────────────────────
+
+  'beat-viking-raids': [
+    {
+      src: '/story/viking-age/oseberg-ship.jpg',
+      alt: {
+        en: 'The Oseberg ship (ca. 820 CE) at the Viking Ship Museum, Oslo — a burial longship emblematic of Scandinavian seafaring power in the Viking Age',
+        fr: 'Le navire d\'Oseberg (v. 820 apr. J.-C.) au musée des navires vikings d\'Oslo — un longship funéraire emblématique de la puissance maritime scandinave à l\'ère viking',
+        es: 'El barco de Oseberg (c. 820 d. C.) en el Museo de Barcos Vikingos de Oslo — un longship funerario emblemático del poder marítimo escandinavo en la era vikinga',
+        it: 'La nave di Oseberg (ca. 820 d.C.) al Museo delle navi vichinghe di Oslo — un longship funerario emblematico del potere marittimo scandinavo nell\'età vichinga',
+      },
+      credit: {
+        en: 'Photo: Larry Lamsa, Wikimedia Commons (CC BY 2.0)',
+        fr: 'Photo : Larry Lamsa, Wikimedia Commons (CC BY 2.0)',
+        es: 'Foto: Larry Lamsa, Wikimedia Commons (CC BY 2.0)',
+        it: 'Foto: Larry Lamsa, Wikimedia Commons (CC BY 2.0)',
+      },
+      placeId: 'seine-estuary',
+    },
+  ],
+
+  'beat-frankish-weakness': [
+    {
+      src: '/story/viking-age/lower-seine-contested-frontier.jpg',
+      alt: {
+        en: 'Reconstruction — the lower Seine as a contested Frankish frontier before the 911 treaty, with Norse fleets and camps along the river corridor',
+        fr: 'Reconstitution — la basse Seine comme frontière franque contestée avant le traité de 911, avec flottes et campements scandinaves le long du corridor fluvial',
+        es: 'Reconstrucción — el bajo Sena como frontera franca disputada antes del tratado de 911, con flotas y campamentos escandinavos a lo largo del corredor fluvial',
+        it: 'Ricostruzione — la bassa Senna come frontiera franca contesa prima del trattato dell\'911, con flotte e accampamenti scandinavi lungo il corridoio fluviale',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'va-arc-first-raids': [
+    {
+      src: '/story/frankish-carolingian/first-norse-raids-seine-841.jpg',
+      alt: {
+        en: '841 — Norse longships in the Seine estuary: the first major raids on Rouen and Jumièges',
+        fr: '841 — drakkars scandinaves dans l\'estuaire de la Seine : les premiers grands raids contre Rouen et Jumièges',
+        es: '841 — longships escandinavos en el estuario del Sena: las primeras grandes incursiones contra Rouen y Jumièges',
+        it: '841 — longship scandinavi nell\'estuario della Senna: le prime grandi scorrerie contro Rouen e Jumièges',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'jumieges',
+    },
+  ],
+
+  'va-arc-seine-highway': [
+    {
+      src: '/story/viking-age/viking-winter-camp-seine-islands.jpg',
+      alt: {
+        en: 'Reconstruction — Viking fleets wintering on Seine river islands in the mid-9th century, using the waterway as a repeat invasion corridor',
+        fr: 'Reconstitution — flottes vikings hivernant sur les îles de la Seine au milieu du IXe siècle, utilisant le fleuve comme corridor d\'invasion répété',
+        es: 'Reconstrucción — flotas vikingas invernan en islas del Sena a mediados del siglo IX, usando el río como corredor de invasión recurrente',
+        it: 'Ricostruzione — flotte vichinghe che svernano sulle isole della Senna a metà IX secolo, usando il fiume come corridoio d\'invasione ripetuto',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'paris',
+    },
+  ],
+
+  'va-arc-wider-raids': [
+    {
+      src: '/story/viking-age/viking-raids-loire-rhine-seine.jpg',
+      alt: {
+        en: 'Reconstruction — Viking longships penetrating the Loire, Seine, and Rhine corridors of Carolingian Francia in the mid-9th century',
+        fr: 'Reconstitution — longships vikings pénétrant les corridors de la Loire, de la Seine et du Rhin de la Francie carolingienne au milieu du IXe siècle',
+        es: 'Reconstrucción — longships vikingos penetrando los corredores del Loira, Sena y Rin de la Francia carolingia a mediados del siglo IX',
+        it: 'Ricostruzione — longship vichinghi che penetrano i corridoi della Loira, della Senna e del Reno nella Francia carolingia a metà IX secolo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'nantes',
+    },
+  ],
+
+  'va-arc-siege-of-paris': [
+    {
+      src: '/story/viking-age/siege-paris-885-schnetz.jpg',
+      alt: {
+        en: 'Jean-Victor Schnetz (1837) — Count Odo defends Paris against Viking besiegers during the siege of 885–886',
+        fr: 'Jean-Victor Schnetz (1837) — le comte Eudes défend Paris contre les assiégeants vikings pendant le siège de 885-886',
+        es: 'Jean-Victor Schnetz (1837) — el conde Odon defiende París contra los asediadores vikingos durante el sitio de 885-886',
+        it: 'Jean-Victor Schnetz (1837) — il conte Oddone difende Parigi dagli assedianti vichinghi durante l\'assedio dell\'885-886',
+      },
+      credit: {
+        en: 'Jean-Victor Schnetz, Count Eudes defends Paris (1837), public domain. Photo: Giogo, Wikimedia Commons (CC BY-SA 4.0)',
+        fr: 'Jean-Victor Schnetz, Le comte Eudes défend Paris (1837), domaine public. Photo : Giogo, Wikimedia Commons (CC BY-SA 4.0)',
+        es: 'Jean-Victor Schnetz, El conde Odon defiende París (1837), dominio público. Foto: Giogo, Wikimedia Commons (CC BY-SA 4.0)',
+        it: 'Jean-Victor Schnetz, Il conte Oddone difende Parigi (1837), pubblico dominio. Foto: Giogo, Wikimedia Commons (CC BY-SA 4.0)',
+      },
+      placeId: 'paris',
+    },
+  ],
+
+  'va-arc-danelaw-england': [
+    {
+      src: '/story/viking-age/cuerdale-hoard-viking-silver.jpg',
+      alt: {
+        en: 'Viking hacksilver from the Cuerdale hoard (buried c. 905), British Museum — bullion wealth from the Scandinavian penetration of England',
+        fr: 'Argent viking en coupes (trésor de Cuerdale, enfoui v. 905), British Museum — richesse en lingots de la pénétration scandinave en Angleterre',
+        es: 'Plata vikinga en trozos del tesoro de Cuerdale (enterrado c. 905), Museo Británico — riqueza en lingotes de la penetración escandinava en Inglaterra',
+        it: 'Argento vichingo tagliato dal tesoro di Cuerdale (sepolto ca. 905), British Museum — ricchezza in lingotti della penetrazione scandinava in Inghilterra',
+      },
+      credit: {
+        en: 'Photo: JMiall, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : JMiall, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: JMiall, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: JMiall, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'york-jorvik',
+    },
+  ],
+
+  'va-arc-norse-gaelic': [
+    {
+      src: '/story/viking-age/norse-gaelic-maritime-world.jpg',
+      alt: {
+        en: 'Reconstruction — Norse longships and coastal settlement in the Norse-Gaelic sphere (Scotland, Ireland, Irish Sea), late 9th century',
+        fr: 'Reconstitution — drakkars et comptoir côtier dans la sphère norso-gaélique (Écosse, Irlande, mer d\'Irlande), fin du IXe siècle',
+        es: 'Reconstrucción — longships y asentamiento costero en el mundo norso-gaélico (Escocia, Irlanda, mar de Irlanda), finales del siglo IX',
+        it: 'Ricostruzione — longship e insediamento costiero nella sfera norreno-gaelica (Scozia, Irlanda, mare d\'Irlanda), fine IX secolo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'dublin',
+    },
+  ],
+
+  'va-arc-varangian-east': [
+    {
+      src: '/story/viking-age/varangian-rivers-eastern-trade.jpg',
+      alt: {
+        en: 'Reconstruction — Swedish Varangians on eastern European rivers, trading toward Kiev and Byzantine markets in the Viking Age',
+        fr: 'Reconstitution — Varègues suédois sur les fleuves d\'Europe orientale, commerçant vers Kiev et les marchés byzantins à l\'ère viking',
+        es: 'Reconstrucción — varegos suecos en los ríos de Europa oriental, comerciando hacia Kiev y los mercados bizantinos en la era vikinga',
+        it: 'Ricostruzione — variaghi svedesi sui fiumi dell\'Europa orientale, verso Kiev e i mercati bizantini nell\'età vichinga',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'kiev',
+    },
+  ],
+
+  'va-arc-from-raids-to-treaty': [
+    {
+      src: '/story/viking-age/treaty-saint-clair-epte-911.jpg',
+      alt: {
+        en: 'Reconstruction — the 911 treaty between Charles the Simple and the Viking leader Rollo at Saint-Clair-sur-Epte, founding the Norman principality',
+        fr: 'Reconstitution — le traité de 911 entre Charles le Simple et le chef viking Rollon à Saint-Clair-sur-Epte, fondant la principauté normande',
+        es: 'Reconstrucción — el tratado de 911 entre Carlos el Simple y el caudillo vikingo Rollo en Saint-Clair-sur-Epte, que funda el principado normando',
+        it: 'Ricostruzione — il trattato dell\'911 tra Carlo il Semplice e il capo vichingo Rollone a Saint-Clair-sur-Epte, che fonda la principaltà normanna',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'saint-clair-sur-epte',
+    },
+  ],
+
+  // ── Norman origins (era + arcs) ──────────────────────────────────
+
+  'beat-normandy-formation': [
+    {
+      src: '/story/norman-origins/normandy-hybrid-formation.jpg',
+      alt: {
+        en: 'Reconstruction — mid-10th-century Normandy: Norse settlers merging with Frankish language, law, and Christianity along the lower Seine',
+        fr: 'Reconstitution — Normandie du milieu du Xe siècle : colons scandinaves fusionnant avec la langue, le droit et le christianisme francs le long de la basse Seine',
+        es: 'Reconstrucción — Normandía a mediados del siglo X: colonos escandinavos fundiéndose con la lengua, el derecho y el cristianismo francos en el bajo Sena',
+        it: 'Ricostruzione — Normandia a metà X secolo: coloni scandinavi che si fondono con lingua, diritto e cristianesimo franchi lungo la bassa Senna',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'no-arc-treaty': [
+    {
+      src: '/story/viking-age/treaty-saint-clair-epte-911.jpg',
+      alt: {
+        en: 'Reconstruction — the 911 Treaty of Saint-Clair-sur-Epte: Charles the Simple grants Rollo the lower Seine, nucleus of the duchy',
+        fr: 'Reconstitution — le traité de Saint-Clair-sur-Epte (911) : Charles le Simple concède à Rollon la basse Seine, noyau du duché',
+        es: 'Reconstrucción — el Tratado de Saint-Clair-sur-Epte (911): Carlos el Simple concede a Rollo el bajo Sena, núcleo del ducado',
+        it: 'Ricostruzione — il trattato di Saint-Clair-sur-Epte (911): Carlo il Semplice concede a Rollone la bassa Senna, nucleo del ducato',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'no-arc-danish-migration': [
+    {
+      src: '/story/norman-origins/danish-migration-to-normandy.jpg',
+      alt: {
+        en: 'Reconstruction — Danish North Sea networks and the Danelaw feeding settlers and traders into early Norman Rouen after 911',
+        fr: 'Reconstitution — réseaux danois de la mer du Nord et Danelaw alimentant colons et marchands vers le Rouen normand primitif après 911',
+        es: 'Reconstrucción — redes danesas del mar del Norte y el Danelaw aportando colonos y comerciantes al Rouen normando inicial tras el 911',
+        it: 'Ricostruzione — reti danesi del Mare del Nord e Danelaw che alimentano coloni e mercanti verso la primigenia Rouen normanna dopo il 911',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'denmark-origin',
+    },
+  ],
+
+  'no-arc-celtic-sea': [
+    {
+      src: '/story/viking-age/norse-gaelic-maritime-world.jpg',
+      alt: {
+        en: 'Reconstruction — Norwegian route via the Celtic Sea to the Cotentin and Channel Islands, parallel to the Danish Seine corridor',
+        fr: 'Reconstitution — route norvégienne par la mer Celtique vers le Cotentin et les îles Anglo-Normandes, parallèle au corridor danois de la Seine',
+        es: 'Reconstrucción — ruta noruega por el mar Celta hacia el Cotentin y las islas del Canal, paralela al corredor danés del Sena',
+        it: 'Ricostruzione — rotta norvegese via mare Celtico verso Cotentin e isole della Manica, parallela al corridoio danese della Senna',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'cotentin-landing',
+    },
+  ],
+
+  'no-arc-territorial-growth': [
+    {
+      src: '/story/norman-origins/normandy-territorial-expansion-933.jpg',
+      alt: {
+        en: 'Reconstruction — westward expansion of the duchy: Bessin (924), Cotentin and Avranchin (933), shaping medieval Normandy',
+        fr: 'Reconstitution — expansion vers l\'ouest du duché : Bessin (924), Cotentin et Avranchin (933), formant la Normandie médiévale',
+        es: 'Reconstrucción — expansión occidental del ducado: Bessin (924), Cotentin y Avranchin (933), perfilando la Normandía medieval',
+        it: 'Ricostruzione — espansione verso ovest del ducato: Bessin (924), Cotentin e Avranchin (933), che danno forma alla Normandia medievale',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'caen',
+    },
+  ],
+
+  'no-arc-cultural-fusion': [
+    {
+      src: '/story/norman-origins/abbaye-jumieges-ruins.jpg',
+      alt: {
+        en: 'Ruins of Jumièges Abbey — sacked in the Viking Age, restored and endowed by Norman dukes as Norse settlers embraced Christianity',
+        fr: 'Ruines de l\'abbaye de Jumièges — pillée à l\'ère viking, restaurée et dotée par les ducs normands tandis que les colons scandinaves embrassaient le christianisme',
+        es: 'Ruinas de la abadía de Jumièges — saqueada en la era vikinga, restaurada y dotada por los duques normandos al abrazar el cristianismo los colonos escandinavos',
+        it: 'Rovine dell\'abbazia di Jumièges — saccheggiata nell\'età vichinga, restaurata e dotata dai duchi normanni mentre i coloni scandinavi abbracciavano il cristianesimo',
+      },
+      credit: {
+        en: 'Photo: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'jumieges',
+    },
+  ],
+
+  'no-arc-wider-viking-world': [
+    {
+      src: '/story/norman-origins/norman-viking-world-network.jpg',
+      alt: {
+        en: 'Reconstruction — Normandy as one node in the Viking Age world: Atlantic, British Isles, Rus routes, and the Mediterranean edge',
+        fr: 'Reconstitution — la Normandie comme nœud du monde viking : Atlantique, îles britanniques, routes de la Rus et frange méditerranéenne',
+        es: 'Reconstrucción — Normandía como nodo del mundo vikingo: Atlántico, islas británicas, rutas de la Rus y franja mediterránea',
+        it: 'Ricostruzione — la Normandia come nodo del mondo vichingo: Atlantico, isole britanniche, rotte della Rus e lembo mediterraneo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [10.0, 55.0],
+    },
+  ],
+
+  'no-arc-duchy-consolidated': [
+    {
+      src: '/story/william-conqueror/abbaye-aux-hommes.jpg',
+      alt: {
+        en: 'Abbaye aux Hommes (Saint-Étienne), Caen — symbol of reform, piety, and ducal power in mid-11th-century Normandy',
+        fr: 'Abbaye aux Hommes (Saint-Étienne), Caen — symbole de réforme, de piété et du pouvoir ducal dans la Normandie du milieu du XIe siècle',
+        es: 'Abadía de los Hombres (Saint-Étienne), Caen — símbolo de reforma, piedad y poder ducal en la Normandía de mediados del siglo XI',
+        it: 'Abbazia degli Uomini (Saint-Étienne), Caen — simbolo di riforma, pietà e potere ducale nella Normandia a metà XI secolo',
+      },
+      credit: {
+        en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'caen',
+    },
+  ],
+
+  'no-arc-eve-of-conquest': [
+    {
+      src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
+      alt: {
+        en: 'Bayeux Tapestry — horses and soldiers board the invasion fleet, evoking the force Duke William assembled on the eve of 1066',
+        fr: 'Tapisserie de Bayeux — chevaux et soldats embarquent dans la flotte d\'invasion, évoquant la force que le duc Guillaume rassembla à la veille de 1066',
+        es: 'Tapiz de Bayeux — caballos y soldados embarcan en la flota de invasión, evocando la fuerza que el duque Guillermo reunió en vísperas de 1066',
+        it: 'Arazzo di Bayeux — cavalli e soldati imbarcano nella flotta d\'invasione, evocando la forza che il duca Guglielmo radunò alla vigilia del 1066',
+      },
+      credit: {
+        en: 'Bayeux Tapestry. Wikimedia Commons (public domain)',
+        fr: 'Tapisserie de Bayeux. Wikimedia Commons (domaine public)',
+        es: 'Tapiz de Bayeux. Wikimedia Commons (dominio público)',
+        it: 'Arazzo di Bayeux. Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'rollo-treaty-epte': [
+    {
+      src: '/story/viking-age/treaty-saint-clair-epte-911.jpg',
+      alt: {
+        en: 'Reconstruction — Rollo and Charles the Simple at Saint-Clair-sur-Epte (911): baptismal fealty, defence of the Seine, and the birth of Normandy',
+        fr: 'Reconstitution — Rollon et Charles le Simple à Saint-Clair-sur-Epte (911) : foi baptismale, défense de la Seine et naissance de la Normandie',
+        es: 'Reconstrucción — Rollo y Carlos el Simple en Saint-Clair-sur-Epte (911): homenaje bautismal, defensa del Sena y nacimiento de Normandía',
+        it: 'Ricostruzione — Rollone e Carlo il Semplice a Saint-Clair-sur-Epte (911): fedeltà battesimale, difesa della Senna e nascita della Normandia',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'saint-clair-sur-epte',
+    },
+  ],
+
+  'rollo-baptism-rouen': [
+    {
+      src: '/story/norman-origins/rollo-baptism-rouen.jpg',
+      alt: {
+        en: 'Reconstruction — baptism of Rollo at Rouen after 911, taking the name Robert and signalling rule through Frankish institutions',
+        fr: 'Reconstitution — baptême de Rollon à Rouen après 911, prenant le nom de Robert et annonçant un gouvernement par les institutions franques',
+        es: 'Reconstrucción — bautismo de Rollo en Rouen tras el 911, con el nombre Roberto, señal de gobierno por las instituciones francas',
+        it: 'Ricostruzione — battesimo di Rollone a Rouen dopo il 911, con il nome Roberto, segno di governo tramite le istituzioni franche',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'rollo-consolidation': [
+    {
+      src: '/story/norman-origins/rollo-consolidation-seine.jpg',
+      alt: {
+        en: 'Reconstruction — Rollo consolidates the lower Seine in the 910s–920s: land grants, restored churches, Norse–Frankish settlement',
+        fr: 'Reconstitution — Rollon consolide la basse Seine dans les années 910-920 : concessions, églises restaurées, peuplement norro-franc',
+        es: 'Reconstrucción — Rollo consolida el bajo Sena en la década de 910-920: concesiones, iglesias restauradas, asentamiento noro-franco',
+        it: 'Ricostruzione — Rollone consolida la bassa Senna negli anni 910-920: concessioni, chiese restaurate, insediamento norreno-franco',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'seine-estuary',
+    },
+  ],
+
+  'rollo-death-succession': [
+    {
+      src: '/story/norman-origins/rollo-death-rouen-dynasty.jpg',
+      alt: {
+        en: 'Reconstruction — death of Rollo at Rouen c. 928 and succession by William Longsword, seed of the future Norman dynasty',
+        fr: 'Reconstitution — mort de Rollon à Rouen v. 928 et succession de Guillaume Longue-Épée, germe de la future dynastie normande',
+        es: 'Reconstrucción — muerte de Rollo en Rouen hacia 928 y sucesión de Guillermo Espada Larga, germen de la futura dinastía normanda',
+        it: 'Ricostruzione — morte di Rollone a Rouen ca. 928 e successione di Guglielmo Spada Lunga, germe della futura dinastia normanna',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'leif-ch2-edge-of-known': [
+    {
+      src: '/story/norman-origins/leif-greenland-eastern-settlement.jpg',
+      alt: {
+        en: 'Reconstruction — Greenland Eastern Settlement in the late 900s: Norse farms between ice and ocean, Leif Erikson\'s harsh cradle',
+        fr: 'Reconstitution — l\'Établissement oriental du Groenland à la fin des années 900 : fermes norroises entre glace et océan, berceau austère de Leif Erikson',
+        es: 'Reconstrucción — Asentamiento Oriental de Groenlandia a finales del siglo X: granjas noruegas entre hielo y océano, cuna severa de Leif Erikson',
+        it: 'Ricostruzione — Insediamento orientale della Groenlandia alla fine del X secolo: fattorie norrene tra ghiaccio e oceano, culla aspra di Leif Erikson',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'greenland',
+    },
+  ],
+
+  'leif-ch3-crossing': [
+    {
+      src: '/story/norman-origins/leif-atlantic-crossing-1000.jpg',
+      alt: {
+        en: 'Reconstruction — Norse ships crossing the open Atlantic c. 1000 from Greenland toward the coasts of North America',
+        fr: 'Reconstitution — navires norrois traversant l\'Atlantique ouvert v. 1000 du Groenland vers les côtes d\'Amérique du Nord',
+        es: 'Reconstrucción — naves noruegas cruzando el Atlántico abierto hacia el año 1000 desde Groenlandia hacia las costas de América del Norte',
+        it: 'Ricostruzione — navi norrene attraversano l\'Atlantico aperto verso il 1000 dalla Groenlandia verso le coste del Nord America',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'greenland',
+    },
+  ],
+
+  'leif-ch4-vinland': [
+    {
+      src: '/story/norman-origins/lanse-aux-meadows-longhouse.jpg',
+      alt: {
+        en: 'Interior of the reconstructed Norse longhouse at L\'Anse aux Meadows, Newfoundland — the only confirmed Norse site in the Americas',
+        fr: 'Intérieur de la maison longue norroise reconstituée à L\'Anse aux Meadows, Terre-Neuve — le seul site norrois confirmé en Amérique',
+        es: 'Interior de la casa larga noruega reconstruida en L\'Anse aux Meadows, Terranova — el único yacimiento noruego confirmado en América',
+        it: 'Interno della lunga casa norrena ricostruita a L\'Anse aux Meadows, Terranova — l\'unico sito norreno confermato nelle Americhe',
+      },
+      credit: {
+        en: 'Photo: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: D. Gordon E. Robertson, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'vinland',
+    },
+  ],
+
+  'leif-ch5-failure': [
+    {
+      src: '/story/norman-origins/leif-vinland-withdrawal-tension.jpg',
+      alt: {
+        en: 'Reconstruction — why Vinland failed: vast distance, thin supply lines, and tension with Indigenous peoples ended Norse settlement within a decade',
+        fr: 'Reconstitution — pourquoi le Vinland échoua : distance immense, lignes d\'approvisionnement fragiles et tensions avec les peuples autochtones mirent fin à l\'établissement norrois en une décennie',
+        es: 'Reconstrucción — por qué fracasó Vinlandia: gran distancia, líneas de suministro débiles y tensión con los pueblos indígenas acabaron con el asentamiento noruego en una década',
+        it: 'Ricostruzione — perché il Vinland fallì: distanza enorme, linee di rifornimento deboli e tensioni con i popoli indigeni misero fine all\'insediamento norreno in un decennio',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'vinland',
+    },
+  ],
+
+  'leif-ch6-forgotten': [
+    {
+      src: '/story/norman-origins/flateyjarbok-manuscript.jpg',
+      alt: {
+        en: 'Flateyjarbók (c. 1390) — Icelandic compilation preserving sagas of Greenland, Vinland, and the Norse Atlantic',
+        fr: 'Flateyjarbók (v. 1390) — compilation islandaise préservant les sagas du Groenland, du Vinland et de l\'Atlantique norrois',
+        es: 'Flateyjarbók (c. 1390) — compilación islandesa que conserva sagas de Groenlandia, Vinlandia y el Atlántico noruego',
+        it: 'Flateyjarbók (ca. 1390) — compilazione islandese che conserva saghe della Groenlandia, del Vinland e dell\'Atlantico norreno',
+      },
+      credit: {
+        en: 'Flateyjarbók illumination (c. 1390). Wikimedia Commons (public domain)',
+        fr: 'Enluminure de la Flateyjarbók (v. 1390). Wikimedia Commons (domaine public)',
+        es: 'Miniatura de la Flateyjarbók (c. 1390). Wikimedia Commons (dominio público)',
+        it: 'Miniatura della Flateyjarbók (ca. 1390). Wikimedia Commons (pubblico dominio)',
+      },
+      placeId: 'iceland',
+    },
+  ],
+
+  'leif-ch7-bridge-normans': [
+    {
+      src: '/story/norman-origins/leif-bridge-norse-norman-parallel.jpg',
+      alt: {
+        en: 'Reconstruction — c. 1000: Norse Greenland and Vinland beside a transforming Normandy — shared ancestry, diverging French and Atlantic paths',
+        fr: 'Reconstitution — v. 1000 : Groenland et Vinland norrois à côté d\'une Normandie en transformation — ancêtres communs, voies française et atlantique divergentes',
+        es: 'Reconstrucción — hacia el 1000: Groenlandia y Vinlandia noruegos junto a una Normandía en transformación — ancestros comunes, caminos francés y atlántico divergentes',
+        it: 'Ricostruzione — verso il 1000: Groenlandia e Vinland norreni accanto a una Normandia in trasformazione — antenati comuni, percorsi francese e atlantico divergenti',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
     },
   ],
 };
