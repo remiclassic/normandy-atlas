@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter, Crimson_Pro } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 
 const META_PIXEL_INIT = `!function(f,b,e,v,n,t,s)
@@ -42,22 +41,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`} suppressHydrationWarning>
       <head>
-        <Script
-          id="theme-restore"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
-          }}
-        />
-        <Script
-          id="text-size-restore"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
-          }}
-        />
         <noscript>
           <img
             height={1}
@@ -69,14 +52,35 @@ export default function RootLayout({
         </noscript>
       </head>
       <body>
-        <Script
-          id="meta-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: META_PIXEL_INIT }}
+        {/*
+          Use plain <script> in this Server Component layout. next/script maps to client behavior that
+          triggers React 19 "Scripts inside React components are never executed on the client" in Next 16.
+          These tags are emitted as real HTML and run in the browser when parsed.
+        */}
+        <script
+          id="theme-restore"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
+          }}
+        />
+        <script
+          id="text-size-restore"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
+          }}
         />
         {children}
+        <script
+          id="meta-pixel"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: META_PIXEL_INIT }}
+        />
+        <GoogleAnalytics gaId="G-Q97Y9MCQ0T" />
       </body>
-      <GoogleAnalytics gaId="G-Q97Y9MCQ0T" />
     </html>
   );
 }

@@ -147,6 +147,12 @@ interface MapStore {
 
   locale: AtlasLocale;
   onboardingPhase: OnboardingPhase;
+  /**
+   * Bumped when guided tour startup needs React-local chrome (mobile menu, sheets, modals) to close.
+   * Shell and panels subscribe so FTUE never stacks on half-open drawers.
+   */
+  guidedTourShellResetNonce: number;
+  requestGuidedTourShellUiReset: () => void;
   /** App chrome only — map basemap uses `basemapMode`. */
   uiTheme: UiTheme;
   textSize: TextSizeMode;
@@ -277,6 +283,9 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   cinematicFlythroughProgress: 0,
   locale: DEFAULT_LOCALE,
   onboardingPhase: 'intro' as OnboardingPhase,
+  guidedTourShellResetNonce: 0,
+  requestGuidedTourShellUiReset: () =>
+    set((s) => ({ guidedTourShellResetNonce: s.guidedTourShellResetNonce + 1 })),
   uiTheme: DEFAULT_UI_THEME,
   textSize: DEFAULT_TEXT_SIZE,
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,

@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, memo, useCallback, useMemo, useState } from 'react';
+import { Fragment, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
 import type { NormanExpansionPreset, NormanNodePeriod } from '@/lib/store';
@@ -887,7 +887,17 @@ export default function LayerPanel() {
   const [sectionOpen, setSectionOpen] = useState(makeAllSectionsOpen);
   const layers = useMapStore((s) => s.layers);
   const toggleLayer = useMapStore((s) => s.toggleLayer);
+  const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
+  const prevGuidedTourNonceRef = useRef(guidedTourShellResetNonce);
   const isMobile = useIsMobile();
+
+  // Guided tour startup closes the mobile layers sheet so anchors and spotlight match the collapsed chrome.
+  useEffect(() => {
+    if (guidedTourShellResetNonce === prevGuidedTourNonceRef.current) return;
+    prevGuidedTourNonceRef.current = guidedTourShellResetNonce;
+    if (guidedTourShellResetNonce === 0) return;
+    setOpen(false);
+  }, [guidedTourShellResetNonce]);
 
   const handleToggle = useCallback(
     (id: string) => toggleLayer(id),

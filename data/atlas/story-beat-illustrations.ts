@@ -1270,4 +1270,197 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
       center: [1.5, 49.0],
     },
   ],
+
+  // ── Neustria ───────────────────────────────────────────────────────
+  //   - Jumièges abbey ruins: CC BY-SA 3.0, JDesplats
+  //   - Merovingian tremissis: CC BY 2.0, Portable Antiquities Scheme
+  //   - Château des Ducs de Bretagne, Nantes: CC BY-SA 2.0 FR, Yann Chemineau
+  //   - Childeric I gold bees (Gallica): public domain (France)
+
+  'beat-neustria': [
+    {
+      src: '/story/neustria/merovingian-tremissis.jpg',
+      alt: {
+        en: 'Merovingian gold tremissis (late 6th–7th century) — coinage like this circulated in the Frankish sub-kingdoms that divided post-Roman Gaul',
+        fr: 'Tremissis d\'or mérovingien (fin VIe–VIIe siècle) — une monnaie comme celle-ci circulait dans les sous-royaumes francs qui partageaient la Gaule post-romaine',
+        es: 'Tremís merovingio de oro (finales del siglo VI–VII) — monedas como esta circulaban en los subreinos francos que dividían la Galia posromana',
+        it: 'Tremisse merovingio d\'oro (fine VI–VII secolo) — monete come questa circolavano nei sotto-regni franchi che dividevano la Gallia post-romana',
+      },
+      credit: {
+        en: 'Photo: Portable Antiquities Scheme, Wikimedia Commons (CC BY 2.0)',
+        fr: 'Photo : Portable Antiquities Scheme, Wikimedia Commons (CC BY 2.0)',
+        es: 'Foto: Portable Antiquities Scheme, Wikimedia Commons (CC BY 2.0)',
+        it: 'Foto: Portable Antiquities Scheme, Wikimedia Commons (CC BY 2.0)',
+      },
+      center: [1.5, 48.8],
+    },
+  ],
+
+  'neu-arc-birth-of-neustria': [
+    {
+      src: '/story/neustria/childeric-gold-bees.jpg',
+      alt: {
+        en: 'Gold bees from the treasure of Childeric I — royal Frankish grave goods from the dynasty that produced Clovis, whose death in 511 split the realm into Neustria and sister kingdoms',
+        fr: 'Abeilles en or du trésor de Childéric Ier — parure royale franque de la dynastie qui produisit Clovis, dont la mort en 511 partagea le royaume entre Neustrie et royaumes sœurs',
+        es: 'Abejas de oro del tesoro de Childerico I — ajuar real franco de la dinastía que engendró a Clodoveo, cuya muerte en 511 dividió el reino entre Neustria y reinos hermanos',
+        it: 'Api d\'oro dal tesoro di Childerico I — corredo reale franco della dinastia che diede Clodoveo, la cui morte nel 511 divise il regno tra Neustria e regni sorelli',
+      },
+      credit: {
+        en: 'Gallica / Bibliothèque nationale de France (public domain)',
+        fr: 'Gallica / Bibliothèque nationale de France (domaine public)',
+        es: 'Gallica / Bibliothèque nationale de France (dominio público)',
+        it: 'Gallica / Bibliothèque nationale de France (pubblico dominio)',
+      },
+      placeId: 'paris',
+    },
+    {
+      src: '/story/neustria/birth-neustria-511.jpg',
+      alt: {
+        en: 'The partition of the Frankish realm after Clovis\'s death, 511 AD — scribes mark Neustria on a map of the Seine basin between Paris and Rouen',
+        fr: 'Le partage du royaume franc après la mort de Clovis, 511 apr. J.-C. — des scribes inscrivent Neustrie sur une carte du bassin de la Seine entre Paris et Rouen',
+        es: 'La partición del reino franco tras la muerte de Clodoveo, 511 d. C. — escribanos marcan Neustria en un mapa de la cuenca del Sena entre París y Rouen',
+        it: 'La spartizione del regno franco dopo la morte di Clodoveo, 511 d.C. — scribi segnano la Neustria su una mappa del bacino della Senna tra Parigi e Rouen',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [1.5, 48.8],
+    },
+  ],
+
+  'neu-arc-paris-rouen-axis': [
+    {
+      src: '/story/neustria/paris-rouen-seine-axis.jpg',
+      alt: {
+        en: 'The Seine corridor linking Paris and Rouen, 6th century AD — royal barges and grain boats move tolls and harvests along the spine of Neustrian power',
+        fr: 'Le corridor de la Seine reliant Paris et Rouen, VIe siècle apr. J.-C. — barges royales et bateaux de céréales transportent péages et récoltes le long de l\'épine dorsale du pouvoir neustrien',
+        es: 'El corredor del Sena entre París y Rouen, siglo VI d. C. — barcazas reales y barcos de grano mueven peajes y cosechas a lo largo del eje del poder de Neustria',
+        it: 'Il corridoio della Senna tra Parigi e Rouen, VI secolo d.C. — chiatte reali e imbarcazioni di grano trasportano pedaggi e raccolti lungo la spina dorsale del potere neustrale',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'rouen',
+    },
+  ],
+
+  'neu-arc-neustria-austrasia': [
+    {
+      src: '/story/neustria/neustria-vs-austrasia.jpg',
+      alt: {
+        en: 'Neustria and Austrasia at war — rival Frankish armies face each other across the Merovingian heartland, late 6th century',
+        fr: 'Neustrie et Austrasie en guerre — armées franques rivales s\'affrontent au cœur du monde mérovingien, fin du VIe siècle',
+        es: 'Neustria y Austrasia en guerra — ejércitos francos rivales se enfrentan en el corazón del mundo merovingio, finales del siglo VI',
+        it: 'Neustria e Austrasia in guerra — eserciti franchi rivali si affrontano nel cuore del mondo merovingio, fine VI secolo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [2.0, 49.0],
+    },
+  ],
+
+  'neu-arc-merovingian-courts': [
+    {
+      src: '/story/neustria/merovingian-court-roi-faineant.jpg',
+      alt: {
+        en: 'Merovingian court in 7th-century Neustria — a ceremonial king on the throne while the mayor of the palace wields real power in the shadows of Paris',
+        fr: 'Cour mérovingienne en Neustrie au VIIe siècle — un roi de cérémonie sur le trône tandis que le maire du palais exerce le pouvoir réel dans l\'ombre de Paris',
+        es: 'Corte merovingia en Neustria del siglo VII — un rey ceremonial en el trono mientras el mayordomo de palacio ejerce el poder real a la sombra de París',
+        it: 'Corte merovingia nella Neustria del VII secolo — un re cerimoniale sul trono mentre il maggiordomo di palazzo esercita il potere reale nell\'ombra di Parigi',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'paris',
+    },
+  ],
+
+  'neu-arc-jumieges': [
+    {
+      src: '/story/neustria/abbaye-jumieges.jpg',
+      alt: {
+        en: 'Ruins of Jumièges Abbey on the lower Seine — founded c. 654, one of the richest Merovingian monastic houses before Viking raids',
+        fr: 'Ruines de l\'abbaye de Jumièges sur la basse Seine — fondée v. 654, l\'une des maisons monastiques mérovingiennes les plus riches avant les raids vikings',
+        es: 'Ruinas de la abadía de Jumièges en el bajo Sena — fundada c. 654, una de las casas monásticas merovingias más ricas antes de las incursiones vikingas',
+        it: 'Rovine dell\'abbazia di Jumièges sulla bassa Senna — fondata c. 654, una delle case monastiche merovingie più ricche prima delle incursioni vichinghe',
+      },
+      credit: {
+        en: 'Photo: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        fr: 'Photo : JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        es: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+        it: 'Foto: JDesplats, Wikimedia Commons (CC BY-SA 3.0)',
+      },
+      placeId: 'jumieges',
+    },
+  ],
+
+  'neu-arc-nantes-breton-march': [
+    {
+      src: '/story/neustria/nantes-chateau-ducs-bretagne.jpg',
+      alt: {
+        en: 'Château des Ducs de Bretagne, Nantes — fortress at the Loire estuary on Neustria\'s western march toward Brittany',
+        fr: 'Château des ducs de Bretagne, Nantes — forteresse à l\'estuaire de la Loire sur la marche occidentale de la Neustrie vers la Bretagne',
+        es: 'Castillo de los duques de Bretaña, Nantes — fortaleza en el estuario del Loira en la marca occidental de Neustria hacia Bretaña',
+        it: 'Castello dei duchi di Bretagna, Nantes — fortezza all\'estuario della Loira sulla marca occidentale della Neustria verso la Bretagna',
+      },
+      credit: {
+        en: 'Photo: Yann Chemineau, Wikimedia Commons (CC BY-SA 2.0 FR)',
+        fr: 'Photo : Yann Chemineau, Wikimedia Commons (CC BY-SA 2.0 FR)',
+        es: 'Foto: Yann Chemineau, Wikimedia Commons (CC BY-SA 2.0 FR)',
+        it: 'Foto: Yann Chemineau, Wikimedia Commons (CC BY-SA 2.0 FR)',
+      },
+      placeId: 'nantes',
+    },
+  ],
+
+  'neu-arc-tertry': [
+    {
+      src: '/story/neustria/battle-of-tertry-687.jpg',
+      alt: {
+        en: 'The Battle of Tertry, 687 AD — Pippin of Herstal\'s Austrasians shatter the Neustrian army near Saint-Quentin, shifting power to the future Carolingians',
+        fr: 'La bataille de Tertry, 687 apr. J.-C. — les Austrasiens de Pépin de Herstal brisent l\'armée neustrienne près de Saint-Quentin, faisant basculer le pouvoir vers les futurs Carolingiens',
+        es: 'La batalla de Tertry, 687 d. C. — los austrasianos de Pippín de Heristal destrozan el ejército neustriano cerca de San Quintín, desplazando el poder hacia los futuros carolingios',
+        it: 'La battaglia di Tertry, 687 d.C. — gli austrasiani di Pipino di Herstal annientano l\'esercito neustrale vicino a Saint-Quentin, spostando il potere verso i futuri carolingi',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [3.25, 49.85],
+    },
+  ],
+
+  'neu-arc-carolingian-dawn': [
+    {
+      src: '/story/neustria/carolingian-dawn-neustria.jpg',
+      alt: {
+        en: 'Carolingian dawn over the Seine valley — Pippin the Short\'s dynasty inherits Neustria\'s abbeys, river trade, and Paris–Rouen axis for a new empire',
+        fr: 'L\'aube carolingienne sur la vallée de la Seine — la dynastie de Pépin le Bref hérite des abbayes, du commerce fluvial et de l\'axe Paris–Rouen de la Neustrie pour un nouvel empire',
+        es: 'El amanecer carolingio sobre el valle del Sena — la dinastía de Pipino el Breve hereda las abadías, el comercio fluvial y el eje París–Rouen de Neustria para un nuevo imperio',
+        it: 'L\'alba carolingia sulla valle della Senna — la dinastia di Pipino il Breve eredita abbazie, commercio fluviale e asse Parigi–Rouen della Neustria per un nuovo impero',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      center: [1.2, 49.0],
+    },
+  ],
 };

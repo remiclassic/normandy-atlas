@@ -3,6 +3,7 @@
 import { memo, useCallback, useRef, useState, useEffect, type MouseEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, isOnboardingDone } from '@/lib/store';
+import { resetUiForGuidedTour, startGuidedTourFromCleanState } from '@/lib/guided-tour-ui';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
@@ -177,6 +178,7 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
   const phase = useMapStore((s) => s.onboardingPhase);
   const setPhase = useMapStore((s) => s.setOnboardingPhase);
   const [hydrated, setHydrated] = useState(false);
+  const initialFtuePrepRef = useRef(false);
 
   useEffect(() => {
     if (isOnboardingDone()) {
@@ -184,6 +186,31 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
     }
     setHydrated(true);
   }, [setPhase]);
+
+  useEffect(() => {
+    if (phase === 'complete') initialFtuePrepRef.current = false;
+  }, [phase]);
+
+  /**
+   * First visit (or any session where onboarding is active): clear competing chrome once so mobile FTUE
+   * does not start over an open sheet or selection. Replay also calls `resetUiForGuidedTour` explicitly.
+   * Deferred with setTimeout(0) so Zustand updates run after the mount commit (avoids React 19
+   * "state update on a component that hasn't mounted yet" when the shell re-renders mid-mount).
+   */
+  useEffect(() => {
+    if (!hydrated) return;
+    if (phase === 'complete') return;
+    if (initialFtuePrepRef.current) return;
+    initialFtuePrepRef.current = true;
+    let cancelled = false;
+    const id = window.setTimeout(() => {
+      if (!cancelled) void resetUiForGuidedTour();
+    }, 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(id);
+    };
+  }, [hydrated, phase]);
 
   const handleEnter = useCallback(() => {
     setPhase('flying');
@@ -195,7 +222,7 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
 
   const onIntroExitComplete = useCallback(() => {
     if (useMapStore.getState().onboardingPhase === 'flying') {
-      useMapStore.getState().setOnboardingPhase('guided');
+      void startGuidedTourFromCleanState('guided');
     }
   }, []);
 

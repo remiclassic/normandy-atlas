@@ -2,6 +2,7 @@
 
 import { memo, useCallback } from 'react';
 import { useMapStore } from '@/lib/store';
+import { startGuidedTourFromCleanState } from '@/lib/guided-tour-ui';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 
 const ReplayTourButton = memo(function ReplayTourButton({
@@ -9,13 +10,12 @@ const ReplayTourButton = memo(function ReplayTourButton({
 }: {
   fullWidth?: boolean;
 }) {
-  const setPhase = useMapStore((s) => s.setOnboardingPhase);
   const phase = useMapStore((s) => s.onboardingPhase);
 
   const handleReplay = useCallback(() => {
     if (phase !== 'complete') return;
-    setPhase('intro');
-  }, [setPhase, phase]);
+    void startGuidedTourFromCleanState('intro');
+  }, [phase]);
 
   if (phase !== 'complete') return null;
 

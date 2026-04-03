@@ -190,6 +190,26 @@ export default function AtlasHomeShell() {
   }, []);
   const closeSupport = useCallback(() => setSupportOpen(false), []);
 
+  const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
+  const prevGuidedTourShellNonceRef = useRef(guidedTourShellResetNonce);
+  /**
+   * When FTUE requests a clean layout, collapse shell-owned surfaces before the tour measures anchors.
+   * (Map store reset runs in `resetUiForGuidedTour`; this handles React-local drawer/modal state only.)
+   */
+  useEffect(() => {
+    if (guidedTourShellResetNonce === prevGuidedTourShellNonceRef.current) return;
+    prevGuidedTourShellNonceRef.current = guidedTourShellResetNonce;
+    if (guidedTourShellResetNonce === 0) return;
+    setMobileMenuOpen(false);
+    setStoryLibraryOpen(false);
+    closeStoryLauncher();
+    setCreditsOpen(false);
+    setNormanOverviewOpen(false);
+    setRoadmapOpen(false);
+    setSupportOpen(false);
+    setLedgerOpen(false);
+  }, [closeStoryLauncher, guidedTourShellResetNonce]);
+
   const handleCreditsFromMenu = useCallback(() => {
     closeMobileMenu();
     openCredits();
