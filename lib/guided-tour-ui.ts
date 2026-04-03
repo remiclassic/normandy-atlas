@@ -6,7 +6,8 @@ import { useMapStore } from '@/lib/store';
  */
 export function resetMapStoreForGuidedTour(): void {
   const s = useMapStore.getState();
-  // Ledger timer + pulse — endLedgerCelebration clears module timeout and idle phase.
+  // Order: clear celebration + selection/story/migration first so nothing re-opens chrome; then bump
+  // `guidedTourShellResetNonce` so LayerPanel, EraSelector, and AtlasHomeShell collapse local UI.
   s.endLedgerCelebration();
   s.closeDetail();
   s.stopStory();
@@ -16,8 +17,8 @@ export function resetMapStoreForGuidedTour(): void {
   s.requestGuidedTourShellUiReset();
 }
 
-/** Extra time after rAF so drawer / sheet exit animations can start before tour measures anchors. */
-const LAYOUT_SETTLE_MS = 140;
+/** Extra time after rAF so mobile menu spring + bottom sheets can begin closing before tour measures anchors. */
+const LAYOUT_SETTLE_MS = 300;
 
 /**
  * Full guided-tour prep: map store + shell nonce, then wait for layout to settle (panels close, then measure).

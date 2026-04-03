@@ -177,6 +177,7 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
 }) {
   const phase = useMapStore((s) => s.onboardingPhase);
   const setPhase = useMapStore((s) => s.setOnboardingPhase);
+  const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
   const [hydrated, setHydrated] = useState(false);
   const initialFtuePrepRef = useRef(false);
 
@@ -241,7 +242,10 @@ const AtlasWelcomeGate = memo(function AtlasWelcomeGate({
       </AnimatePresence>
       <AnimatePresence>
         {phase === 'guided' && (
-          <GuidedAtlasOverlay key="guided" onComplete={handleComplete} />
+          <GuidedAtlasOverlay
+            key={`guided-${guidedTourShellResetNonce}`}
+            onComplete={handleComplete}
+          />
         )}
       </AnimatePresence>
     </>

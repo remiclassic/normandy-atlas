@@ -181,6 +181,12 @@ export default function AtlasHomeShell() {
     setLedgerOpen(false);
   }, []);
 
+  const storyMode = useMapStore((s) => s.storyMode);
+  useEffect(() => {
+    document.documentElement.classList.toggle('atlas-story-open', storyMode);
+    return () => document.documentElement.classList.remove('atlas-story-open');
+  }, [storyMode]);
+
   const [supportOpen, setSupportOpen] = useState(false);
   const openSupport = useCallback(() => {
     setCreditsOpen(false);
@@ -521,7 +527,11 @@ export default function AtlasHomeShell() {
             <MigrationExplorerPanel />
           </div>
           {/* Mobile: hybrid dock replaces stacked idle buttons; desktop: pass-through */}
-          <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-20 max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
+          {/*
+            Mobile: z-[50] so children (story bar z-40, etc.) sit above map-anchored layers (pins z-[5],
+            layer stack z-20). A z-20 wrapper trapped story UI below illustration pins in the same column.
+          */}
+          <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-[50] max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
             <CinematicFlythroughBar />
             <StoryModeBar onOpenLauncher={openStoryLauncher} />
             <MobilePlayDock onOpenLauncher={openStoryLauncher} />

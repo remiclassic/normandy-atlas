@@ -4060,4 +4060,367 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
       placeId: 'gaspe-peninsula',
     },
   ],
+
+  // ── William Iron Arm arc ────────────────────────────────────────
+  'wia-cotentin-origins': [
+    {
+      src: '/story/norman-expansion/falaise-ducal-fortress.jpg',
+      alt: {
+        en: 'Château de Falaise — the ducal fortress evoking the petty lordships of the Cotentin where the Hauteville brothers were raised',
+        fr: 'Château de Falaise — la forteresse ducale évoquant les petites seigneuries du Cotentin où les frères Hauteville furent élevés',
+        es: 'Castillo de Falaise — la fortaleza ducal que evoca las pequeñas señorías del Cotentin donde se criaron los hermanos Hauteville',
+        it: 'Castello di Falaise — la fortezza ducale che evoca le piccole signorie del Cotentin dove crebbero i fratelli Altavilla',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'cosedia-coutances',
+    },
+  ],
+  'wia-mercenary-arrival': [
+    {
+      src: '/story/norman-expansion/aversa-campania-gateway.jpg',
+      alt: {
+        en: 'Reconstruction — Aversa, the first Norman county in Italy, granted to Rainulf Drengot in 1030',
+        fr: 'Reconstitution — Aversa, le premier comté normand en Italie, accordé à Rainulf Drengot en 1030',
+        es: 'Reconstrucción — Aversa, el primer condado normando en Italia, concedido a Rainulf Drengot en 1030',
+        it: 'Ricostruzione — Aversa, la prima contea normanna in Italia, concessa a Rainulf Drengot nel 1030',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'aversa',
+    },
+  ],
+  'wia-apulian-warfare': [
+    {
+      src: '/story/norman-expansion/melfi-castle-hilltop.jpg',
+      alt: {
+        en: 'Reconstruction — Melfi and the Apulian highlands, theatre of Norman mercenary warfare in the 1030s–1040s',
+        fr: 'Reconstitution — Melfi et les hautes terres des Pouilles, théâtre de la guerre mercenaire normande dans les années 1030-1040',
+        es: 'Reconstrucción — Melfi y las tierras altas de Apulia, escenario de la guerra mercenaria normanda en las décadas de 1030-1040',
+        it: 'Ricostruzione — Melfi e gli altopiani pugliesi, teatro della guerra mercenaria normanna negli anni 1030-1040',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+  'wia-battle-olivento': [
+    {
+      src: '/story/norman-expansion/olivento-cavalry-charge.jpg',
+      alt: {
+        en: 'Reconstruction — the Battle of Olivento (1041): William\'s Norman cavalry breaks the Byzantine line',
+        fr: 'Reconstitution — la bataille d\'Olivento (1041) : la cavalerie normande de Guillaume brise la ligne byzantine',
+        es: 'Reconstrucción — la batalla de Olivento (1041): la caballería normanda de Guillermo rompe la línea bizantina',
+        it: 'Ricostruzione — la battaglia di Olivento (1041): la cavalleria normanna di Guglielmo sfonda la linea bizantina',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+  'wia-count-apulia': [
+    {
+      src: '/story/norman-expansion/melfi-castle-hilltop.jpg',
+      alt: {
+        en: 'Melfi castle — seat of Norman power in Apulia after William Iron Arm was acclaimed count in 1042',
+        fr: 'Le château de Melfi — siège du pouvoir normand dans les Pouilles après l\'acclamation de Guillaume Bras-de-Fer comme comte en 1042',
+        es: 'Castillo de Melfi — sede del poder normando en Apulia tras la aclamación de Guillermo Brazo de Hierro como conde en 1042',
+        it: 'Castello di Melfi — sede del potere normanno in Puglia dopo l\'acclamazione di Guglielmo Braccio di Ferro a conte nel 1042',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+  'wia-death-legacy': [
+    {
+      src: '/story/norman-expansion/apulian-landscape-legacy.jpg',
+      alt: {
+        en: 'Reconstruction — the Apulian landscape that William Iron Arm won and his brothers would expand into a Mediterranean empire',
+        fr: 'Reconstitution — le paysage des Pouilles que Guillaume Bras-de-Fer conquit et que ses frères étendraient en un empire méditerranéen',
+        es: 'Reconstrucción — el paisaje de Apulia que Guillermo Brazo de Hierro ganó y que sus hermanos expandirían en un imperio mediterráneo',
+        it: 'Ricostruzione — il paesaggio pugliese che Guglielmo Braccio di Ferro conquistò e che i suoi fratelli avrebbero espanso in un impero mediterraneo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'melfi',
+    },
+  ],
+
+  // ── Sichelgaita arc ─────────────────────────────────────────────
+  'sg-lombard-salerno': [
+    {
+      src: '/story/norman-expansion/salerno-cathedral-lombard.jpg',
+      alt: {
+        en: 'Salerno — the Lombard principality where Sichelgaita was born, home to the oldest medical school in Europe',
+        fr: 'Salerne — la principauté lombarde où naquit Sichelgaita, siège de la plus ancienne école de médecine d\'Europe',
+        es: 'Salerno — el principado lombardo donde nació Sichelgaita, sede de la escuela de medicina más antigua de Europa',
+        it: 'Salerno — il principato longobardo dove nacque Sichelgaita, sede della più antica scuola di medicina d\'Europa',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'salerno',
+    },
+  ],
+  'sg-marriage-guiscard': [
+    {
+      src: '/story/norman-expansion/salerno-guiscard-court.jpg',
+      alt: {
+        en: 'Reconstruction — the court at Salerno where Sichelgaita married Robert Guiscard, c. 1058',
+        fr: 'Reconstitution — la cour de Salerne où Sichelgaita épousa Robert Guiscard, v. 1058',
+        es: 'Reconstrucción — la corte en Salerno donde Sichelgaita se casó con Roberto Guiscardo, c. 1058',
+        it: 'Ricostruzione — la corte a Salerno dove Sichelgaita sposò Roberto il Guiscardo, c. 1058',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'salerno',
+    },
+  ],
+  'sg-on-campaign': [
+    {
+      src: '/story/norman-expansion/sichelgaita-armoured-rider.jpg',
+      alt: {
+        en: 'Reconstruction — Sichelgaita in armour riding at the head of Norman troops in southern Italy',
+        fr: 'Reconstitution — Sichelgaita en armure chevauchant en tête des troupes normandes en Italie du Sud',
+        es: 'Reconstrucción — Sichelgaita con armadura cabalgando al frente de las tropas normandas en el sur de Italia',
+        it: 'Ricostruzione — Sichelgaita in armatura cavalca alla testa delle truppe normanne nell\'Italia meridionale',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'bari',
+    },
+  ],
+  'sg-durazzo': [
+    {
+      src: '/story/norman-expansion/durazzo-adriatic-roman-heritage.jpg',
+      alt: {
+        en: 'Reconstruction — the Battle of Durazzo (1081): Sichelgaita rallies fleeing Norman troops against the Byzantine Varangian Guard',
+        fr: 'Reconstitution — la bataille de Durazzo (1081) : Sichelgaita rallie les troupes normandes en fuite face à la Garde varangienne byzantine',
+        es: 'Reconstrucción — la batalla de Durazzo (1081): Sichelgaita reagrupa las tropas normandas en huida frente a la Guardia Varega bizantina',
+        it: 'Ricostruzione — la battaglia di Durazzo (1081): Sichelgaita raduna le truppe normanne in fuga contro la Guardia Variaga bizantina',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'durazzo',
+    },
+  ],
+  'sg-succession': [
+    {
+      src: '/story/norman-expansion/salerno-cathedral-lombard.jpg',
+      alt: {
+        en: 'Salerno — where Sichelgaita secured the succession of her son Roger Borsa over Bohemond after Guiscard\'s death in 1085',
+        fr: 'Salerne — où Sichelgaita assura la succession de son fils Roger Borsa sur Bohémond après la mort de Guiscard en 1085',
+        es: 'Salerno — donde Sichelgaita aseguró la sucesión de su hijo Roger Borsa sobre Bohemundo tras la muerte de Guiscardo en 1085',
+        it: 'Salerno — dove Sichelgaita assicurò la successione del figlio Ruggero Borsa su Boemondo dopo la morte del Guiscardo nel 1085',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'salerno',
+    },
+  ],
+  'sg-legacy': [
+    {
+      src: '/story/norman-expansion/salerno-guiscard-court.jpg',
+      alt: {
+        en: 'Salerno — Sichelgaita\'s city, where one of the medieval world\'s few documented female battlefield commanders lived and died',
+        fr: 'Salerne — la ville de Sichelgaita, où l\'une des rares femmes chefs de guerre documentées du monde médiéval vécut et mourut',
+        es: 'Salerno — la ciudad de Sichelgaita, donde una de las pocas mujeres comandantes de batalla documentadas del mundo medieval vivió y murió',
+        it: 'Salerno — la città di Sichelgaita, dove una delle pochissime donne comandanti in battaglia documentate del mondo medievale visse e morì',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'salerno',
+    },
+  ],
+
+  // ── Odo of Bayeux arc ───────────────────────────────────────────
+  'ob-half-brother': [
+    {
+      src: '/story/norman-expansion/bayeux-cathedral-norman.jpg',
+      alt: {
+        en: 'Bayeux Cathedral — the Norman see where Odo was installed as bishop around 1049',
+        fr: 'La cathédrale de Bayeux — le siège normand où Odon fut installé comme évêque vers 1049',
+        es: 'Catedral de Bayeux — la sede normanda donde Odón fue instalado como obispo hacia 1049',
+        it: 'Cattedrale di Bayeux — la sede normanna dove Odone fu insediato come vescovo verso il 1049',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'bayeux',
+    },
+  ],
+  'ob-hastings': [
+    {
+      src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
+      alt: {
+        en: 'The Bayeux Tapestry — depicting Odo at the Battle of Hastings, mounted, in armour, with a club in his hand',
+        fr: 'La Tapisserie de Bayeux — représentant Odon à la bataille de Hastings, monté, en armure, une massue à la main',
+        es: 'El Tapiz de Bayeux — que muestra a Odón en la batalla de Hastings, montado, con armadura y una maza en la mano',
+        it: 'L\'Arazzo di Bayeux — che raffigura Odone alla battaglia di Hastings, a cavallo, in armatura, con una mazza in mano',
+      },
+      credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)', es: 'Tapiz de Bayeux, siglo XI. Wikimedia Commons (dominio público)', it: 'Arazzo di Bayeux, XI sec. Wikimedia Commons (pubblico dominio)' },
+      placeId: 'hastings',
+    },
+  ],
+  'ob-earl-kent': [
+    {
+      src: '/story/norman-expansion/london-tower-norman.jpg',
+      alt: {
+        en: 'Reconstruction — Norman London after 1066: Odo as Earl of Kent controlled Dover and the gateway to the capital',
+        fr: 'Reconstitution — Londres normand après 1066 : Odon, comte de Kent, contrôlait Douvres et la porte de la capitale',
+        es: 'Reconstrucción — Londres normando después de 1066: Odón como conde de Kent controlaba Dover y la puerta de la capital',
+        it: 'Ricostruzione — Londra normanna dopo il 1066: Odone come conte di Kent controllava Dover e la porta della capitale',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'london',
+    },
+  ],
+  'ob-regent': [
+    {
+      src: '/story/norman-expansion/london-tower-norman.jpg',
+      alt: {
+        en: 'Reconstruction — Norman England under Odo\'s regency: castles, forest law, and the Harrying of the North',
+        fr: 'Reconstitution — l\'Angleterre normande sous la régence d\'Odon : châteaux, loi forestière et la Dévastation du Nord',
+        es: 'Reconstrucción — la Inglaterra normanda bajo la regencia de Odón: castillos, ley forestal y la Devastación del Norte',
+        it: 'Ricostruzione — l\'Inghilterra normanna sotto la reggenza di Odone: castelli, legge forestale e la Devastazione del Nord',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'london',
+    },
+  ],
+  'ob-tapestry': [
+    {
+      src: '/story/norman-expansion/bayeux-tapestry-detail.jpg',
+      alt: {
+        en: 'The Bayeux Tapestry — 70 metres of embroidered propaganda traditionally attributed to Odo\'s patronage',
+        fr: 'La Tapisserie de Bayeux — 70 mètres de propagande brodée traditionnellement attribuée au mécénat d\'Odon',
+        es: 'El Tapiz de Bayeux — 70 metros de propaganda bordada tradicionalmente atribuida al mecenazgo de Odón',
+        it: 'L\'Arazzo di Bayeux — 70 metri di propaganda ricamata tradizionalmente attribuita al mecenatismo di Odone',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'bayeux',
+    },
+  ],
+  'ob-fall': [
+    {
+      src: '/story/norman-expansion/palermo-norman-cathedral.jpg',
+      alt: {
+        en: 'Palermo — where Odo of Bayeux died in 1097 on the First Crusade, ending a life at the intersection of war, religion, and power',
+        fr: 'Palerme — où Odon de Bayeux mourut en 1097 lors de la Première Croisade, achevant une vie au croisement de la guerre, de la religion et du pouvoir',
+        es: 'Palermo — donde Odón de Bayeux murió en 1097 durante la Primera Cruzada, acabando una vida en la intersección de guerra, religión y poder',
+        it: 'Palermo — dove Odone di Bayeux morì nel 1097 durante la Prima Crociata, chiudendo una vita all\'incrocio di guerra, religione e potere',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'palermo',
+    },
+  ],
+
+  // ── Hereward the Wake arc ───────────────────────────────────────
+  'hw-anglo-saxon-england': [
+    {
+      src: '/story/norman-expansion/anglo-saxon-england-landscape.jpg',
+      alt: {
+        en: 'Reconstruction — Anglo-Saxon England before 1066: a prosperous kingdom of churches, manors, and established law',
+        fr: 'Reconstitution — l\'Angleterre anglo-saxonne avant 1066 : un royaume prospère d\'églises, de manoirs et de droit établi',
+        es: 'Reconstrucción — la Inglaterra anglosajona antes de 1066: un reino próspero de iglesias, señoríos y derecho establecido',
+        it: 'Ricostruzione — l\'Inghilterra anglosassone prima del 1066: un regno prospero di chiese, manieri e diritto consolidato',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'london',
+    },
+  ],
+  'hw-conquest-dispossession': [
+    {
+      src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
+      alt: {
+        en: 'The Norman invasion fleet crossing the Channel — 1066, the year that ended Anglo-Saxon England',
+        fr: 'La flotte d\'invasion normande traversant la Manche — 1066, l\'année qui mit fin à l\'Angleterre anglo-saxonne',
+        es: 'La flota de invasión normanda cruzando el Canal — 1066, el año que puso fin a la Inglaterra anglosajona',
+        it: 'La flotta d\'invasione normanna attraversa la Manica — 1066, l\'anno che pose fine all\'Inghilterra anglosassone',
+      },
+      credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)', es: 'Tapiz de Bayeux, siglo XI. Wikimedia Commons (dominio público)', it: 'Arazzo di Bayeux, XI sec. Wikimedia Commons (pubblico dominio)' },
+      placeId: 'hastings',
+    },
+  ],
+  'hw-return': [
+    {
+      src: '/story/norman-expansion/fenland-marshes-ely.jpg',
+      alt: {
+        en: 'Reconstruction — the fenlands of eastern England where Hereward emerged as leader of the English resistance',
+        fr: 'Reconstitution — les marécages de l\'est de l\'Angleterre où Hereward émergea comme chef de la résistance anglaise',
+        es: 'Reconstrucción — los pantanos del este de Inglaterra donde Hereward emergió como líder de la resistencia inglesa',
+        it: 'Ricostruzione — le paludi dell\'Inghilterra orientale dove Hereward emerse come capo della resistenza inglese',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'ely',
+    },
+  ],
+  'hw-fenland-fortress': [
+    {
+      src: '/story/norman-expansion/isle-of-ely-abbey.jpg',
+      alt: {
+        en: 'Reconstruction — the Isle of Ely, a natural fortress of marshes and waterways where English rebels held out against Norman power',
+        fr: 'Reconstitution — l\'île d\'Ely, une forteresse naturelle de marais et de voies d\'eau où les rebelles anglais résistèrent au pouvoir normand',
+        es: 'Reconstrucción — la isla de Ely, una fortaleza natural de pantanos y vías acuáticas donde los rebeldes ingleses resistieron al poder normando',
+        it: 'Ricostruzione — l\'isola di Ely, una fortezza naturale di paludi e corsi d\'acqua dove i ribelli inglesi resistettero al potere normanno',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'ely',
+    },
+  ],
+  'hw-siege-ely': [
+    {
+      src: '/story/norman-expansion/ely-causeway-siege.jpg',
+      alt: {
+        en: 'Reconstruction — the siege of Ely (1071): William orders a causeway built across the marshes to reach the English garrison',
+        fr: 'Reconstitution — le siège d\'Ely (1071) : Guillaume ordonne la construction d\'une chaussée à travers les marais pour atteindre la garnison anglaise',
+        es: 'Reconstrucción — el asedio de Ely (1071): Guillermo ordena construir una calzada a través de los pantanos para alcanzar la guarnición inglesa',
+        it: 'Ricostruzione — l\'assedio di Ely (1071): Guglielmo ordina la costruzione di una strada rialzata attraverso le paludi per raggiungere la guarnigione inglese',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'ely',
+    },
+  ],
+  'hw-legend': [
+    {
+      src: '/story/norman-expansion/fenland-marshes-ely.jpg',
+      alt: {
+        en: 'The fenlands — where Hereward vanished into legend, becoming a proto-Robin Hood of English resistance',
+        fr: 'Les marécages — où Hereward disparut dans la légende, devenant un proto-Robin des Bois de la résistance anglaise',
+        es: 'Los pantanos — donde Hereward desapareció en la leyenda, convirtiéndose en un proto-Robin Hood de la resistencia inglesa',
+        it: 'Le paludi — dove Hereward scomparve nella leggenda, diventando un proto-Robin Hood della resistenza inglese',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'ely',
+    },
+  ],
+  'hw-other-side': [
+    {
+      src: '/story/norman-expansion/domesday-book-record.jpg',
+      alt: {
+        en: 'The Domesday Book (1086) — William\'s survey that recorded the total transfer of English landholding to Norman lords',
+        fr: 'Le Domesday Book (1086) — le recensement de Guillaume consignant le transfert total des domaines anglais aux seigneurs normands',
+        es: 'El Domesday Book (1086) — el censo de Guillermo que registró la transferencia total de las tierras inglesas a señores normandos',
+        it: 'Il Domesday Book (1086) — il censimento di Guglielmo che registrò il trasferimento totale delle terre inglesi ai signori normanni',
+      },
+      credit: { en: 'AI-generated reconstruction — no suitable public-domain photograph available', fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible', es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada', it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile' },
+      placeId: 'london',
+    },
+  ],
 };

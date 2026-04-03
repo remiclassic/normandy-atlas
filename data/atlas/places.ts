@@ -1422,4 +1422,25 @@ export const atlasPlaces: Place[] = [
       'norman-origins': { visibility: 'faded', label: 'South English Coast', affiliationTags: ['Anglo-Saxon'], pedagogyIndex: 5 },
     },
   },
+  {
+    id: 'bayeux',
+    kind: 'city',
+    coordinates: [-0.70, 49.28],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-origins': { visibility: 'normal', label: 'Bayeux', affiliationTags: ['Norman', 'bishopric'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'Bayeux', affiliationTags: ['Norman', 'Tapestry'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'ely',
+    kind: 'abstract_node',
+    coordinates: [0.26, 52.40],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Ely', affiliationTags: ['English resistance', 'fenland'], pedagogyIndex: 4 },
+    },
+  },
 ];

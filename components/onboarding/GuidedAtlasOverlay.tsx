@@ -246,7 +246,7 @@ function GuidedAtlasOverlay({ onComplete }: { onComplete: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed inset-0 ${isCompact ? 'z-[95]' : 'z-[90]'}`}
+      className={`fixed inset-0 ${isCompact ? 'z-[95] pt-[env(safe-area-inset-top,0px)]' : 'z-[90]'}`}
     >
       {/* Dim + cutout */}
       <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>

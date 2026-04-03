@@ -5281,4 +5281,762 @@ export const atlasStoryBeats: StoryBeat[] = [
       },
     },
   },
+
+  // ── William Iron Arm lifetime guided arc ─────────────────────────
+  {
+    id: 'wia-cotentin-origins',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'places',
+      center: [-1.44, 49.05],
+      zoom: 8.0,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['cosedia-coutances'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Sons of a minor lord',
+      body: {
+        en: 'Tancred of Hauteville was a minor Norman lord near Coutances in the Cotentin — the rocky, windswept western peninsula of Normandy, far from the ducal court at Rouen. He held modest lands, but he had twelve sons and no inheritance to divide among them. The Cotentin bred hard men with limited prospects, and for the eldest sons of the petty aristocracy, the only path to land and status lay elsewhere. Beginning in the 1030s, the Hauteville brothers left Normandy one by one, heading south toward the fragmented, war-torn lands of the Italian Mezzogiorno.',
+        fr: 'Tancrède de Hauteville était un petit seigneur normand près de Coutances dans le Cotentin — la péninsule rocheuse et ventée de l\'ouest de la Normandie, loin de la cour ducale de Rouen. Il détenait des terres modestes, mais il avait douze fils et aucun héritage à diviser entre eux. Le Cotentin forgeait des hommes durs aux perspectives limitées, et pour les fils aînés de la petite aristocratie, la seule voie vers la terre et le statut menait ailleurs. À partir des années 1030, les frères Hauteville quittèrent la Normandie un par un, se dirigeant vers le sud, vers les terres fragmentées et déchirées par la guerre du Mezzogiorno italien.',
+      },
+    },
+    anchorYear: 1010,
+  },
+  {
+    id: 'wia-mercenary-arrival',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'places',
+      center: [14.2, 40.9],
+      zoom: 6.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['aversa'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Mercenaries in the Mezzogiorno',
+      body: {
+        en: 'Norman adventurers reached southern Italy in the early eleventh century — pilgrims and mercenaries drawn by the region\'s chronic instability. Lombard princes, Byzantine governors, and Arab emirs all hired Norman swords. The first real foothold came in 1030, when Rainulf Drengot received the county of Aversa from the Duke of Naples in exchange for military service. Word filtered back to Normandy: there was land and glory to be won in the south. For the Hauteville brothers, Aversa was proof that a Norman without an inheritance could build one with a sword.',
+        fr: 'Des aventuriers normands atteignirent l\'Italie du Sud au début du XIe siècle — pèlerins et mercenaires attirés par l\'instabilité chronique de la région. Princes lombards, gouverneurs byzantins et émirs arabes engageaient tous des épées normandes. Le premier véritable point d\'ancrage vint en 1030, quand Rainulf Drengot reçut le comté d\'Aversa du duc de Naples en échange de services militaires. La nouvelle remonta jusqu\'en Normandie : il y avait des terres et de la gloire à conquérir dans le sud. Pour les frères Hauteville, Aversa prouvait qu\'un Normand sans héritage pouvait s\'en forger un par l\'épée.',
+      },
+    },
+    anchorYear: 1030,
+  },
+  {
+    id: 'wia-apulian-warfare',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'bbox',
+      center: [15.5, 40.5],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['melfi', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'War in Apulia',
+      body: {
+        en: 'William, the eldest of Tancred\'s sons to reach Italy, arrived in the late 1030s. Southern Italy was a three-way war zone: Lombard princes fighting to survive, Byzantine governors trying to restore imperial authority, and Norman mercenary bands selling their services to whichever side paid best. William joined the Byzantine-led expedition against Arab Sicily in 1038 — a venture that exposed him to the region\'s military dynamics and convinced him that Norman arms could do more than serve others. When the expedition collapsed amid Byzantine treachery and mutual distrust, the Normans returned to the mainland with a clearer sense of their own power.',
+        fr: 'Guillaume, l\'aîné des fils de Tancrède à atteindre l\'Italie, arriva à la fin des années 1030. L\'Italie du Sud était une zone de guerre à trois camps : princes lombards luttant pour survivre, gouverneurs byzantins cherchant à restaurer l\'autorité impériale, et bandes de mercenaires normands vendant leurs services au plus offrant. Guillaume rejoignit l\'expédition byzantine contre la Sicile arabe en 1038 — une entreprise qui lui révéla les dynamiques militaires de la région et le convainquit que les armes normandes pouvaient faire plus que servir autrui. Quand l\'expédition s\'effondra dans la traîtrise byzantine et la défiance mutuelle, les Normands revinrent sur le continent avec une conscience plus claire de leur propre puissance.',
+      },
+    },
+    anchorYear: 1038,
+  },
+  {
+    id: 'wia-battle-olivento',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'places',
+      center: [15.53, 40.99],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['melfi'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Iron Arm at Olivento',
+      body: {
+        en: 'In 1041, the Norman mercenaries turned against their Byzantine employers. At the Battle of Olivento, William led the Norman cavalry in a devastating charge that broke the Byzantine line. It was here, according to the chroniclers, that he earned the epithet "Iron Arm" — either from shattering an enemy\'s shield with a single sword blow, or from his tireless fighting throughout the day. The victory was the first of three in quick succession that shattered Byzantine military authority in Apulia and established the Normans as a political force in their own right.',
+        fr: 'En 1041, les mercenaires normands se retournèrent contre leurs employeurs byzantins. À la bataille d\'Olivento, Guillaume mena la cavalerie normande dans une charge dévastatrice qui brisa la ligne byzantine. C\'est là, selon les chroniqueurs, qu\'il gagna le surnom de « Bras-de-Fer » — soit pour avoir brisé le bouclier d\'un ennemi d\'un seul coup d\'épée, soit pour son combat infatigable tout au long de la journée. Cette victoire fut la première d\'une série de trois qui anéantirent l\'autorité militaire byzantine dans les Pouilles et établirent les Normands comme une force politique à part entière.',
+      },
+    },
+    anchorYear: 1041,
+  },
+  {
+    id: 'wia-count-apulia',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'places',
+      center: [15.53, 40.99],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['melfi'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Count of Apulia',
+      body: {
+        en: 'After the victories of 1041, the Normans needed a leader of their own. They chose William — not by feudal grant or birthright, but by acclamation among fighting men who respected battlefield reputation above all else. As Count of Apulia, William distributed conquered lands among Norman followers, establishing the feudal structure that his brothers would later expand into a kingdom. Melfi became the administrative centre of this new Norman power — a hilltop fortress that would host the papal investiture of Robert Guiscard a generation later.',
+        fr: 'Après les victoires de 1041, les Normands avaient besoin d\'un chef. Ils choisirent Guillaume — non par concession féodale ni droit de naissance, mais par acclamation de guerriers qui respectaient la réputation au combat par-dessus tout. En tant que comte d\'Apulie, Guillaume distribua les terres conquises entre les fidèles normands, établissant la structure féodale que ses frères étendraient plus tard en un royaume. Melfi devint le centre administratif de cette nouvelle puissance normande — une forteresse au sommet d\'une colline qui accueillerait l\'investiture papale de Robert Guiscard une génération plus tard.',
+      },
+    },
+    anchorYear: 1042,
+  },
+  {
+    id: 'wia-death-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'william-iron-arm',
+    camera: {
+      target: 'bbox',
+      center: [14.5, 40.8],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['melfi', 'aversa'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'A short life, a long shadow',
+      body: {
+        en: 'William Iron Arm died around 1046, probably in his forties, having held the county of Apulia for barely four years. His tenure was brief, but the precedent was irreversible: Normans now held territory in southern Italy not as mercenaries but as lords. His brothers Drogo and then Humphrey succeeded him, and after Humphrey came the sixth son — Robert, called Guiscard — who would transform the family\'s Apulian county into a Mediterranean empire. Every Hauteville achievement that followed — the Kingdom of Sicily, the Principality of Antioch, Roger II\'s multicultural court — grew from the foothold William Iron Arm carved out with his sword.',
+        fr: 'Guillaume Bras-de-Fer mourut vers 1046, probablement la quarantaine, après avoir détenu le comté d\'Apulie à peine quatre ans. Son règne fut bref, mais le précédent était irréversible : les Normands tenaient désormais un territoire en Italie du Sud non comme mercenaires, mais comme seigneurs. Ses frères Drogon puis Onfroy lui succédèrent, et après Onfroy vint le sixième fils — Robert, dit Guiscard — qui transformerait le comté familial des Pouilles en un empire méditerranéen. Chaque exploit des Hauteville qui suivit — le royaume de Sicile, la principauté d\'Antioche, la cour multiculturelle de Roger II — germa du point d\'appui que Guillaume Bras-de-Fer avait conquis par l\'épée.',
+      },
+    },
+    anchorYear: 1046,
+  },
+
+  // ── Sichelgaita lifetime guided arc ──────────────────────────────
+  {
+    id: 'sg-lombard-salerno',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'places',
+      center: [14.77, 40.68],
+      zoom: 8.0,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Princess of Salerno',
+      body: {
+        en: 'Born around 1040, Sichelgaita was the daughter of Guaimar IV, the Lombard Prince of Salerno — one of the last independent Lombard states in southern Italy. She grew up in a city famous for its medical school, its trade connections, and its precarious independence between Byzantine, Arab, and Norman ambitions. Unlike most noblewomen of her era, she was trained in arms — a Lombard tradition among the princely house of Salerno that would define her extraordinary life.',
+        fr: 'Née vers 1040, Sichelgaita était la fille de Guaimar IV, prince lombard de Salerne — l\'un des derniers États lombards indépendants d\'Italie du Sud. Elle grandit dans une cité célèbre pour son école de médecine, ses liens commerciaux et son indépendance précaire entre ambitions byzantines, arabes et normandes. Contrairement à la plupart des nobles de son époque, elle fut formée aux armes — une tradition lombarde de la maison princière de Salerne qui définirait sa vie extraordinaire.',
+      },
+    },
+    anchorYear: 1040,
+  },
+  {
+    id: 'sg-marriage-guiscard',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'bbox',
+      center: [15.0, 40.7],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno', 'melfi'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Marriage to the Wily',
+      body: {
+        en: 'Around 1058, Sichelgaita married Robert Guiscard, who repudiated his first wife Alberada to seal the alliance. The marriage was strategic: it gave Robert legitimacy among the Lombard population he was conquering, and gave Salerno a powerful protector. But the partnership went beyond politics. Sichelgaita rode with Robert on campaign, commanded troops in her own right, and became his most trusted advisor. The marriage also had a political casualty: Robert\'s eldest son Bohemond, now displaced in the succession by Sichelgaita\'s son Roger Borsa.',
+        fr: 'Vers 1058, Sichelgaita épousa Robert Guiscard, qui répudia sa première femme Alberada pour sceller l\'alliance. Le mariage était stratégique : il donnait à Robert une légitimité auprès de la population lombarde qu\'il conquérait, et offrait à Salerne un protecteur puissant. Mais le partenariat dépassait la politique. Sichelgaita accompagna Robert en campagne, commanda des troupes de plein droit et devint sa conseillère la plus fiable. Le mariage eut aussi une victime politique : le fils aîné de Robert, Bohémond, désormais écarté de la succession au profit du fils de Sichelgaita, Roger Borsa.',
+      },
+    },
+    anchorYear: 1058,
+  },
+  {
+    id: 'sg-on-campaign',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'bbox',
+      center: [15.5, 40.5],
+      zoom: 6.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno', 'bari'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'A princess in armour',
+      body: {
+        en: 'Contemporary chroniclers describe Sichelgaita in terms normally reserved for warriors. She wore full armour, rode at the head of troops, and was present at multiple sieges during the Norman conquest of southern Italy. Anna Comnena, the Byzantine princess-historian, compared her to Athena — a comparison that mixed admiration with horror. In an era when noblewomen were expected to govern households and pray for their husbands\' souls, Sichelgaita governed provinces and fought for her husband\'s empire.',
+        fr: 'Les chroniqueurs contemporains décrivent Sichelgaita en des termes habituellement réservés aux guerriers. Elle portait l\'armure complète, chevauchait en tête des troupes et était présente à plusieurs sièges lors de la conquête normande de l\'Italie du Sud. Anne Comnène, la princesse-historienne byzantine, la compara à Athéna — une comparaison mêlant admiration et horreur. À une époque où l\'on attendait des nobles qu\'elles gouvernent les foyers et prient pour l\'âme de leurs époux, Sichelgaita gouvernait des provinces et combattait pour l\'empire de son mari.',
+      },
+    },
+    anchorYear: 1071,
+  },
+  {
+    id: 'sg-durazzo',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'places',
+      center: [19.45, 41.32],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['durazzo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The charge at Durazzo',
+      body: {
+        en: 'At the Battle of Durazzo in 1081, Sichelgaita\'s role entered the historical record with unusual clarity. When Norman troops began to waver under a Byzantine counterattack led by the Varangian Guard, Sichelgaita reportedly rallied the fleeing soldiers, brandishing a spear and shaming them back into line. Anna Comnena\'s account — hostile to the Normans but respectful of Sichelgaita\'s courage — describes her as "a second Pallas" riding at the head of her troops. The Normans regrouped and won the battle. It remains one of the most detailed accounts of a medieval woman in combat.',
+        fr: 'Lors de la bataille de Durazzo en 1081, le rôle de Sichelgaita entra dans le récit historique avec une clarté inhabituelle. Quand les troupes normandes commencèrent à faiblir sous une contre-attaque byzantine menée par la Garde varangienne, Sichelgaita aurait rallié les soldats en fuite, brandissant une lance et les rappelant à l\'ordre. Le récit d\'Anne Comnène — hostile aux Normands mais respectueux du courage de Sichelgaita — la décrit comme « une seconde Pallas » chevauchant en tête de ses troupes. Les Normands se regroupèrent et remportèrent la bataille. C\'est l\'un des récits les plus détaillés d\'une femme médiévale au combat.',
+      },
+    },
+    anchorYear: 1081,
+  },
+  {
+    id: 'sg-succession',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'bbox',
+      center: [14.8, 40.7],
+      zoom: 7.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Mother of a dynasty',
+      body: {
+        en: 'When Robert Guiscard died on Cephalonia in 1085, the succession he and Sichelgaita had arranged held — barely. Their son Roger Borsa inherited the duchy over Bohemond, Robert\'s firstborn by Alberada. Sichelgaita had spent years building the alliances and papal support that made this possible. It was she who had secured Pope Gregory VII\'s recognition of Roger Borsa\'s claim. Bohemond, the greater warrior, was left with Taranto and a burning grievance that would drive him to the First Crusade — and to carve out his own principality at the edge of the known world.',
+        fr: 'Quand Robert Guiscard mourut à Céphalonie en 1085, la succession qu\'il avait arrangée avec Sichelgaita tint — de justesse. Leur fils Roger Borsa hérita du duché aux dépens de Bohémond, le premier-né de Robert par Alberada. Sichelgaita avait passé des années à bâtir les alliances et le soutien papal qui rendirent cela possible. C\'est elle qui avait obtenu la reconnaissance par le pape Grégoire VII des droits de Roger Borsa. Bohémond, le plus grand guerrier, se retrouva avec Tarente et un ressentiment brûlant qui le pousserait vers la Première Croisade — et à se tailler sa propre principauté aux confins du monde connu.',
+      },
+    },
+    anchorYear: 1085,
+  },
+  {
+    id: 'sg-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'sichelgaita',
+    camera: {
+      target: 'places',
+      center: [14.77, 40.68],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['salerno'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Warrior, regent, and the silence of the sources',
+      body: {
+        en: 'Sichelgaita died around 1090, probably in Salerno. She had been princess, wife, warrior, diplomat, and de facto regent. Yet she appears in most histories as a footnote to Robert Guiscard\'s career — when she appears at all. The sources that mention her are almost exclusively hostile: Anna Comnena wrote as a Byzantine enemy, and Latin chroniclers rarely gave women extended treatment. What survives is enough to mark her as one of the very few documented female battlefield commanders of the medieval period — and a reminder that the Norman world was more complex than its male-dominated chronicles suggest.',
+        fr: 'Sichelgaita mourut vers 1090, probablement à Salerne. Elle avait été princesse, épouse, guerrière, diplomate et régente de fait. Pourtant elle n\'apparaît dans la plupart des histoires que comme une note de bas de page dans la carrière de Robert Guiscard — quand elle apparaît. Les sources qui la mentionnent sont presque exclusivement hostiles : Anne Comnène écrivait en ennemie byzantine, et les chroniqueurs latins accordaient rarement un traitement étendu aux femmes. Ce qui survit suffit à la marquer comme l\'une des très rares femmes chefs de guerre documentées de la période médiévale — et un rappel que le monde normand était plus complexe que ses chroniques dominées par les hommes ne le suggèrent.',
+      },
+    },
+    anchorYear: 1090,
+  },
+
+  // ── Odo of Bayeux lifetime guided arc ────────────────────────────
+  {
+    id: 'ob-half-brother',
+    eraId: 'norman-origins',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'places',
+      center: [-0.70, 49.28],
+      zoom: 8.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bayeux'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The duke\'s brother, the bishop\'s ring',
+      body: {
+        en: 'Odo was the half-brother of William, Duke of Normandy — son of Herleva and Herluin de Conteville. Around 1049, barely into his twenties, William appointed him Bishop of Bayeux. The appointment was political patronage: Odo was too young, too untrained, and too obviously installed to serve family interests. But the Norman Church operated under ducal authority, and William needed loyal men in every power centre. Bayeux, with its cathedral and its strategic position in the Bessin, was one of the most important sees in the duchy.',
+        fr: 'Odon était le demi-frère de Guillaume, duc de Normandie — fils d\'Herleva et d\'Herluin de Conteville. Vers 1049, à peine la vingtaine, Guillaume le nomma évêque de Bayeux. La nomination relevait du patronage politique : Odon était trop jeune, trop peu formé et trop manifestement placé pour servir les intérêts familiaux. Mais l\'Église normande fonctionnait sous l\'autorité ducale, et Guillaume avait besoin d\'hommes loyaux dans chaque centre de pouvoir. Bayeux, avec sa cathédrale et sa position stratégique dans le Bessin, était l\'un des sièges les plus importants du duché.',
+      },
+    },
+    anchorYear: 1049,
+  },
+  {
+    id: 'ob-hastings',
+    eraId: 'norman-expansion',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'places',
+      center: [0.57, 50.86],
+      zoom: 8.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['hastings'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The bishop at Hastings',
+      body: {
+        en: 'When William crossed the Channel in September 1066, Odo crossed with him. At the Battle of Hastings on 14 October, he fought — or at least commanded — despite his episcopal status. Canon law forbade clerics from shedding blood, so tradition holds that Odo wielded a mace rather than a sword: blunt force rather than edged weapon, a distinction that satisfied the letter of the law while ignoring its spirit. Whether or not this detail is literally true, Odo was present on the battlefield, rallying troops and coordinating the reserve. The Bayeux Tapestry depicts him mounted, in armour, with a club in his hand, at the heart of the action.',
+        fr: 'Quand Guillaume traversa la Manche en septembre 1066, Odon traversa avec lui. À la bataille de Hastings le 14 octobre, il combattit — ou du moins commanda — malgré son statut épiscopal. Le droit canon interdisait aux clercs de verser le sang, aussi la tradition veut qu\'Odon ait manié une masse plutôt qu\'une épée : force contondante plutôt que tranchante, une distinction qui satisfaisait la lettre de la loi tout en en ignorant l\'esprit. Que ce détail soit littéralement vrai ou non, Odon était présent sur le champ de bataille, ralliant les troupes et coordonnant la réserve. La Tapisserie de Bayeux le représente monté, en armure, une massue à la main, au cœur de l\'action.',
+      },
+    },
+    anchorYear: 1066,
+  },
+  {
+    id: 'ob-earl-kent',
+    eraId: 'norman-expansion',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 51.2],
+      zoom: 6.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'hastings'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Earl of Kent — the richest man in England',
+      body: {
+        en: 'William rewarded Odo lavishly. He became Earl of Kent — the county that controlled Dover, the shortest crossing to Normandy, and the gateway to London. By the time of the Domesday Book in 1086, Odo held more land in England than anyone except the king himself. He governed England as regent during William\'s absences in Normandy, wielding both secular and ecclesiastical authority in a combination that would have been unthinkable anywhere else in Christendom. Half-priest, half-warlord — the embodiment of Norman energy.',
+        fr: 'Guillaume récompensa Odon généreusement. Il devint comte de Kent — le comté qui contrôlait Douvres, la traversée la plus courte vers la Normandie, et la porte de Londres. Au moment du Domesday Book en 1086, Odon détenait plus de terres en Angleterre que quiconque hormis le roi lui-même. Il gouverna l\'Angleterre comme régent pendant les absences de Guillaume en Normandie, exerçant à la fois l\'autorité séculière et ecclésiastique — une combinaison impensable partout ailleurs dans la chrétienté. Mi-prêtre, mi-seigneur de guerre — l\'incarnation de l\'énergie normande.',
+      },
+    },
+    anchorYear: 1067,
+  },
+  {
+    id: 'ob-regent',
+    eraId: 'norman-expansion',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'bbox',
+      center: [-0.5, 52.0],
+      zoom: 5.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'york-jorvik'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Regent and enforcer',
+      body: {
+        en: 'As William shuttled between Normandy and England, Odo governed in his absence — putting down revolts, administering justice, and collecting taxes with an efficiency that earned him both respect and hatred. He was not a gentle ruler. When the north of England rebelled, Odo was among those who enforced William\'s devastating "Harrying of the North" in 1069–1070, which depopulated vast stretches of Yorkshire. He combined the moral authority of a bishop with the coercive power of an earl, and he used both without hesitation.',
+        fr: 'Tandis que Guillaume faisait la navette entre la Normandie et l\'Angleterre, Odon gouvernait en son absence — matant les révoltes, rendant la justice et collectant les impôts avec une efficacité qui lui valut respect et haine. Il n\'était pas un souverain doux. Quand le nord de l\'Angleterre se rebella, Odon fut parmi ceux qui exécutèrent la dévastatrice « Dévastation du Nord » de Guillaume en 1069–1070, qui dépeupla de vastes étendues du Yorkshire. Il combinait l\'autorité morale d\'un évêque et le pouvoir coercitif d\'un comte, et il usait des deux sans hésitation.',
+      },
+    },
+    anchorYear: 1070,
+  },
+  {
+    id: 'ob-tapestry',
+    eraId: 'norman-expansion',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'places',
+      center: [-0.70, 49.28],
+      zoom: 8.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['bayeux'],
+      regionIds: ['normandy'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'The Tapestry — propaganda in thread',
+      body: {
+        en: 'The Bayeux Tapestry — a 70-metre embroidered narrative of the Norman Conquest — is traditionally attributed to Odo\'s patronage, probably commissioned for the consecration of Bayeux Cathedral in 1077. Odo appears repeatedly in its panels, always in a favourable light: blessing the meal before Hastings, rallying the troops, present at every crucial moment. Whether he actually commissioned it remains debated, but the Tapestry\'s emphasis on his role is unmistakable. It is one of the most important historical documents of the Middle Ages — and if Odo did commission it, it is also one of the most sophisticated pieces of political propaganda ever woven.',
+        fr: 'La Tapisserie de Bayeux — un récit brodé de 70 mètres sur la conquête normande — est traditionnellement attribuée au mécénat d\'Odon, probablement commandée pour la consécration de la cathédrale de Bayeux en 1077. Odon apparaît à plusieurs reprises dans ses panneaux, toujours sous un jour favorable : bénissant le repas avant Hastings, ralliant les troupes, présent à chaque moment décisif. Qu\'il l\'ait réellement commandée reste débattu, mais l\'insistance de la Tapisserie sur son rôle est indéniable. C\'est l\'un des documents historiques les plus importants du Moyen Âge — et si Odon l\'a commandée, c\'est aussi l\'une des pièces de propagande politique les plus sophistiquées jamais tissées.',
+      },
+    },
+    anchorYear: 1077,
+  },
+  {
+    id: 'ob-fall',
+    eraId: 'norman-expansion',
+    arcId: 'odo-bayeux',
+    camera: {
+      target: 'bbox',
+      center: [6.0, 45.0],
+      zoom: 4.5,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'bayeux', 'palermo'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Arrest, rebellion, and exile',
+      body: {
+        en: 'In 1082, William arrested Odo — his own half-brother — on charges of planning an unauthorized military expedition to Italy, possibly to seek the papacy itself. The arrest was dramatic: William insisted he was imprisoning not the Bishop of Bayeux (which would require papal authority) but the Earl of Kent (which was the king\'s prerogative). Odo spent five years in prison. Released after William\'s death in 1087, he rebelled against William Rufus in favour of Robert Curthose, was defeated, and was expelled from England permanently. He died on the First Crusade at Palermo in February 1097 — a fitting end for a man who had spent his life at the intersection of war, religion, and power.',
+        fr: 'En 1082, Guillaume fit arrêter Odon — son propre demi-frère — sous l\'accusation d\'avoir planifié une expédition militaire non autorisée vers l\'Italie, peut-être pour briguer la papauté elle-même. L\'arrestation fut dramatique : Guillaume insista sur le fait qu\'il emprisonnait non l\'évêque de Bayeux (ce qui aurait requis l\'autorité papale) mais le comte de Kent (ce qui relevait de la prérogative royale). Odon passa cinq ans en prison. Libéré après la mort de Guillaume en 1087, il se rebella contre Guillaume le Roux en faveur de Robert Courteheuse, fut vaincu et expulsé d\'Angleterre définitivement. Il mourut lors de la Première Croisade à Palerme en février 1097 — une fin digne d\'un homme qui avait passé sa vie au croisement de la guerre, de la religion et du pouvoir.',
+      },
+    },
+    anchorYear: 1082,
+  },
+
+  // ── Hereward the Wake lifetime guided arc ────────────────────────
+  {
+    id: 'hw-anglo-saxon-england',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'bbox',
+      center: [-0.5, 52.5],
+      zoom: 5.5,
+      durationMs: 2400,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'york-jorvik'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'England before the storm',
+      body: {
+        en: 'Before 1066, England was a prosperous Anglo-Saxon kingdom — its wealth visible in its churches, its tax records, and its sophisticated system of local government. The Danelaw had long been absorbed, but Scandinavian heritage ran deep in the eastern counties. Men like Hereward — probably a minor thegn from Lincolnshire — lived in a world where English, Danish, and Norwegian influences mixed freely. The land was rich, the law was established, and the king\'s peace held. It was a world about to be destroyed.',
+        fr: 'Avant 1066, l\'Angleterre était un royaume anglo-saxon prospère — sa richesse visible dans ses églises, ses registres fiscaux et son système sophistiqué de gouvernance locale. Le Danelaw avait été absorbé depuis longtemps, mais l\'héritage scandinave restait profond dans les comtés de l\'est. Des hommes comme Hereward — probablement un thegn mineur du Lincolnshire — vivaient dans un monde où les influences anglaises, danoises et norvégiennes se mêlaient librement. La terre était riche, la loi établie et la paix du roi maintenue. C\'était un monde sur le point d\'être détruit.',
+      },
+    },
+    anchorYear: 1060,
+  },
+  {
+    id: 'hw-conquest-dispossession',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 51.5],
+      zoom: 5.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['hastings', 'london'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Conquest and dispossession',
+      body: {
+        en: 'When William won at Hastings and was crowned on Christmas Day 1066, the political order of England was shattered. Over the next five years, the entire Anglo-Saxon aristocracy was systematically replaced by Norman lords. Estates were confiscated, English thegns were reduced to tenants on their own land, and a new French-speaking ruling class imposed its will through castle-building, forest laws, and the redistribution of every major landholding in the kingdom. For men like Hereward, the Conquest was not a distant political event — it was personal ruin.',
+        fr: 'Quand Guillaume l\'emporta à Hastings et fut couronné le jour de Noël 1066, l\'ordre politique anglais fut brisé. Au cours des cinq années suivantes, toute l\'aristocratie anglo-saxonne fut systématiquement remplacée par des seigneurs normands. Les domaines furent confisqués, les thegns anglais réduits au rang de tenanciers sur leurs propres terres, et une nouvelle classe dirigeante francophone imposa sa volonté par la construction de châteaux, les lois forestières et la redistribution de chaque grand domaine du royaume. Pour des hommes comme Hereward, la Conquête n\'était pas un événement politique lointain — c\'était la ruine personnelle.',
+      },
+    },
+    anchorYear: 1066,
+  },
+  {
+    id: 'hw-return',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 52.5],
+      zoom: 6.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['ely'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The return',
+      body: {
+        en: 'Hereward\'s early life is wrapped in legend, and separating fact from fiction is difficult. He may have been exiled before the Conquest and returned around 1069 to find his family\'s lands seized by Normans. What is documented is that by 1070, he had emerged as the leader of English resistance in the fenlands of eastern England — a landscape of marshes, islands, and waterways that made conventional Norman cavalry warfare nearly impossible. Peterborough Abbey\'s chronicle records his raid on the abbey in 1070 to prevent its wealth from falling into Norman hands.',
+        fr: 'La jeunesse de Hereward est enveloppée de légende, et séparer le fait de la fiction est difficile. Il fut peut-être exilé avant la Conquête et revint vers 1069 pour trouver les terres de sa famille saisies par les Normands. Ce qui est documenté, c\'est qu\'en 1070, il avait émergé comme le chef de la résistance anglaise dans les marécages de l\'est de l\'Angleterre — un paysage de marais, d\'îles et de voies d\'eau qui rendait la guerre de cavalerie normande conventionnelle quasi impossible. La chronique de l\'abbaye de Peterborough relate son raid sur l\'abbaye en 1070 pour empêcher ses richesses de tomber aux mains des Normands.',
+      },
+    },
+    anchorYear: 1069,
+  },
+  {
+    id: 'hw-fenland-fortress',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'places',
+      center: [0.26, 52.40],
+      zoom: 8.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['ely'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The fen country',
+      body: {
+        en: 'The fenlands around Ely were a natural fortress. Miles of waterlogged marshland, navigable only by those who knew the hidden causeways, surrounded the Isle of Ely — a raised island of dry ground anchored by the great abbey. Hereward and his followers established themselves here, joined by dispossessed English thegns, Danish raiders, and monks who refused Norman authority. For over a year, the fens held. Norman cavalry was useless in the marshes, and the garrison on the isle could not be starved out while they controlled the waterways.',
+        fr: 'Les marécages autour d\'Ely formaient une forteresse naturelle. Des kilomètres de terres inondées, navigables uniquement par ceux qui connaissaient les chaussées cachées, entouraient l\'île d\'Ely — un îlot de terre ferme ancré par la grande abbaye. Hereward et ses partisans s\'y établirent, rejoints par des thegns anglais dépossédés, des pillards danois et des moines refusant l\'autorité normande. Pendant plus d\'un an, les marais tinrent bon. La cavalerie normande était inutile dans les marécages, et la garnison de l\'île ne pouvait être affamée tant qu\'elle contrôlait les voies d\'eau.',
+      },
+    },
+    anchorYear: 1070,
+  },
+  {
+    id: 'hw-siege-ely',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'places',
+      center: [0.26, 52.40],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['ely'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The siege of Ely',
+      body: {
+        en: 'In 1071, William moved against Ely with the full weight of Norman military engineering. He ordered a causeway built across the marshes — a massive feat of construction through hostile terrain. The first attempt failed: the causeway collapsed under the weight of armoured men and horses. William tried again, bringing up siege towers and attempting a frontal assault. The English resistance held for months. Eventually, the monks of Ely — facing the destruction of their abbey — negotiated a surrender, reportedly showing the Normans a safe path through the fens. Hereward himself escaped. What happened to him afterward is unknown.',
+        fr: 'En 1071, Guillaume marcha contre Ely avec toute la puissance du génie militaire normand. Il ordonna la construction d\'une chaussée à travers les marais — un exploit massif de construction en terrain hostile. La première tentative échoua : la chaussée s\'effondra sous le poids des hommes en armure et des chevaux. Guillaume réessaya, faisant avancer des tours de siège et tentant un assaut frontal. La résistance anglaise tint pendant des mois. Finalement, les moines d\'Ely — face à la destruction de leur abbaye — négocièrent une reddition, révélant apparemment aux Normands un chemin sûr à travers les marais. Hereward lui-même s\'échappa. Ce qui lui advint ensuite est inconnu.',
+      },
+    },
+    anchorYear: 1071,
+  },
+  {
+    id: 'hw-legend',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'bbox',
+      center: [0.0, 52.5],
+      zoom: 6.0,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['ely'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The outlaw and the legend',
+      body: {
+        en: 'After Ely, Hereward vanished from the historical record. Later medieval sources — the Gesta Herewardi, compiled in the twelfth century — transformed him into a romantic outlaw figure: a guerrilla leader who harassed the Normans from the fenlands, a proto-Robin Hood fighting for the dispossessed. How much of this is true is impossible to determine. What matters is that the legend persisted — evidence that the trauma of the Norman Conquest was never fully forgotten by the English, and that resistance, even failed resistance, became a touchstone of English identity.',
+        fr: 'Après Ely, Hereward disparut des archives historiques. Des sources médiévales ultérieures — la Gesta Herewardi, compilée au XIIe siècle — le transformèrent en figure romantique de hors-la-loi : un chef de guérilla harcelant les Normands depuis les marais, un proto-Robin des Bois combattant pour les dépossédés. Quelle part de vérité contient cette légende est impossible à déterminer. Ce qui compte, c\'est que la légende perdura — preuve que le traumatisme de la Conquête normande ne fut jamais totalement oublié par les Anglais, et que la résistance, même vaincue, devint une pierre de touche de l\'identité anglaise.',
+      },
+    },
+    anchorYear: 1075,
+  },
+  {
+    id: 'hw-other-side',
+    eraId: 'norman-expansion',
+    arcId: 'hereward-the-wake',
+    camera: {
+      target: 'bbox',
+      center: [-0.5, 52.0],
+      zoom: 5.0,
+      durationMs: 2500,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['london', 'ely', 'york-jorvik'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The other side of conquest',
+      body: {
+        en: 'The Norman Conquest was the most successful military takeover in medieval European history. Within twenty years, an entire aristocracy was replaced, a new language imposed on the ruling class, and the landscape reshaped with castles, cathedrals, and forest enclosures. The Domesday Book of 1086 records the transfer in meticulous detail. But every conquest has two stories. Hereward\'s resistance, however brief and ultimately futile, represents the English experience of the Conquest: dispossession, resistance, defeat, and the long, slow accommodation to a new order that would take centuries to fully absorb.',
+        fr: 'La conquête normande fut la prise de pouvoir militaire la plus réussie de l\'histoire médiévale européenne. En vingt ans, une aristocratie entière fut remplacée, une nouvelle langue imposée à la classe dirigeante, et le paysage remodelé par des châteaux, des cathédrales et des réserves forestières. Le Domesday Book de 1086 consigne le transfert dans un détail méticuleux. Mais toute conquête a deux histoires. La résistance de Hereward, aussi brève et finalement futile qu\'elle fût, représente l\'expérience anglaise de la Conquête : dépossession, résistance, défaite, et la lente et longue accommodation à un nouvel ordre qu\'il faudrait des siècles pour pleinement absorber.',
+      },
+    },
+    anchorYear: 1086,
+  },
 ];

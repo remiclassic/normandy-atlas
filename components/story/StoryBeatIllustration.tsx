@@ -286,7 +286,6 @@ export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, loc
         onClick={handleOpen}
         className="group relative w-12 h-12 rounded-lg overflow-hidden border-2 border-gold/50 hover:border-gold shadow-lg cursor-zoom-in transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         aria-label={alt}
-        style={{ pointerEvents: 'auto' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

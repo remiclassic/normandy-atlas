@@ -124,9 +124,14 @@ export function StoryIllustrationMapOverlay({
 
   if (pins.length === 0 || positions.length === 0) return null;
 
+  /**
+   * Map layer stack (inside MapCanvas): basemap z-0 → pins z-[5] → map chrome (e.g. terrain) z-20.
+   * Keeping pins below z-20 ensures fixed/absolute story UI (dock z-50) always wins; previously z-30
+   * escaped above a z-20 parent and overlapped the story card on mobile.
+   */
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[30]"
+      className="pointer-events-none absolute inset-0 z-[5] opacity-[0.68] transition-opacity duration-300"
       data-story-illustration-pin=""
     >
       {pins.map((pin, i) => {
@@ -156,7 +161,7 @@ const OverlayPin = memo(function OverlayPin({
 }) {
   const openGallery = useMapStore((s) => s.openStoryImageGallery);
 
-  const handleClick = useCallback(() => {
+  const handleOpen = useCallback(() => {
     openGallery(pin.beatId, pin.slideIndex);
   }, [openGallery, pin.beatId, pin.slideIndex]);
 
@@ -172,7 +177,7 @@ const OverlayPin = memo(function OverlayPin({
       <StoryBeatMapPin
         illustration={pin.slide}
         locale={locale as 'en' | 'fr' | 'es' | 'it'}
-        onOpenOverride={handleClick}
+        onOpenOverride={handleOpen}
       />
     </div>
   );

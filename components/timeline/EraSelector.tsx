@@ -419,6 +419,16 @@ export default function EraSelector({
   const scrollRef = useRef<HTMLDivElement>(null);
   const jumpContainerRef = useRef<HTMLDivElement>(null);
   const [jumpOpen, setJumpOpen] = useState(false);
+  const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
+  const prevGuidedTourNonceRef = useRef(guidedTourShellResetNonce);
+
+  /** Full-screen era sheet / popover would sit under FTUE but still consume layout; close on tour prep. */
+  useEffect(() => {
+    if (guidedTourShellResetNonce === prevGuidedTourNonceRef.current) return;
+    prevGuidedTourNonceRef.current = guidedTourShellResetNonce;
+    if (guidedTourShellResetNonce === 0) return;
+    setJumpOpen(false);
+  }, [guidedTourShellResetNonce]);
 
   const model = useMemo(() => getEraSelectorModel(atlasMode, locale), [atlasMode, locale]);
   const { groups, flatIds, byId } = model;
