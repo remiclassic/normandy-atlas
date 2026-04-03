@@ -344,16 +344,16 @@ const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] 
 const LAYER_PANEL_SECTION_KEYS = ['basemap', 'atlas', 'prehistory', 'norman-expansion', 'normandy', 'exploration', 'colonial', 'viking-world'] as const;
 type LayerPanelSectionKey = (typeof LAYER_PANEL_SECTION_KEYS)[number];
 
-function makeAllSectionsOpen(): Record<LayerPanelSectionKey, boolean> {
+function makeAllSectionsCollapsed(): Record<LayerPanelSectionKey, boolean> {
   return {
-    basemap: true,
-    atlas: true,
-    prehistory: true,
-    'norman-expansion': true,
-    normandy: true,
-    exploration: true,
-    colonial: true,
-    'viking-world': true,
+    basemap: false,
+    atlas: false,
+    prehistory: false,
+    'norman-expansion': false,
+    normandy: false,
+    exploration: false,
+    colonial: false,
+    'viking-world': false,
   };
 }
 
@@ -884,7 +884,7 @@ function LayerPanelContent({
 
 export default function LayerPanel() {
   const [open, setOpen] = useState(false);
-  const [sectionOpen, setSectionOpen] = useState(makeAllSectionsOpen);
+  const [sectionOpen, setSectionOpen] = useState(makeAllSectionsCollapsed);
   const layers = useMapStore((s) => s.layers);
   const toggleLayer = useMapStore((s) => s.toggleLayer);
   const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
@@ -910,11 +910,19 @@ export default function LayerPanel() {
 
   const handleClose = useCallback(() => setOpen(false), []);
 
+  const handleTogglePanelOpen = useCallback(() => {
+    setOpen((wasOpen) => {
+      const next = !wasOpen;
+      if (next) setSectionOpen(makeAllSectionsCollapsed());
+      return next;
+    });
+  }, []);
+
   return (
     <div className="relative">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={handleTogglePanelOpen}
         className={`flex items-center gap-2 rounded-xl glass-panel-elevated px-3.5 py-2.5 text-[13px] transition-all duration-200 touch-target ${
           open
             ? 'text-text border-gold/25 shadow-[0_0_0_1px_rgba(196,169,98,0.12)]'

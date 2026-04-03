@@ -1372,6 +1372,12 @@ const STRINGS = {
     es: 'Entendido',
     it: 'Capito',
   },
+  'detail.fab.hintStoryEra': {
+    en: 'Era details & context',
+    fr: 'Détails et contexte de l\'époque',
+    es: 'Detalles y contexto de la era',
+    it: 'Dettagli e contesto dell\'era',
+  },
   'detail.fab.aria': {
     en: 'Open place story and details',
     fr: 'Ouvrir le récit et les détails du lieu',

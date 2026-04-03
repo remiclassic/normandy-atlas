@@ -242,13 +242,13 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
       step0ExpandedRef.current = true;
       const beatEraId = currentBeat?.eraId;
       if (beatEraId) {
-        selectFeature(beatEraId, 'era-info', { expandDetail: true });
+        selectFeature(beatEraId, 'era-info', { expandDetail: !isMobile });
       }
     }
     if (stepIndex > 0) {
       step0ExpandedRef.current = false;
     }
-  }, [storyMode, stepIndex, atlasMode, currentBeat?.eraId, selectFeature]);
+  }, [storyMode, stepIndex, atlasMode, currentBeat?.eraId, selectFeature, isMobile]);
 
   const isActive = storyMode && (currentBeat || currentLegacyStep);
 

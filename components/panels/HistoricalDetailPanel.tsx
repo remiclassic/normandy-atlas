@@ -2060,18 +2060,27 @@ const HINT_STORAGE_KEY = 'atlas_detail_fab_hint_v1';
 function MobileDetailReopenFab({ onReopen }: { onReopen: () => void }) {
   const reducedMotion = useReducedMotion();
   const locale = useMapStore((s) => s.locale);
+  const storyMode = useMapStore((s) => s.storyMode);
+  const selectionKind = useMapStore((s) => s.selectionKind);
+  const isStoryEra = storyMode && selectionKind === 'era-info';
   const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
+    if (isStoryEra) {
+      setShowHint(true);
+      return;
+    }
     try {
       if (!localStorage.getItem(HINT_STORAGE_KEY)) setShowHint(true);
     } catch { /* private browsing */ }
-  }, []);
+  }, [isStoryEra]);
 
   const dismissHint = useCallback(() => {
     setShowHint(false);
-    try { localStorage.setItem(HINT_STORAGE_KEY, '1'); } catch { /* */ }
-  }, []);
+    if (!isStoryEra) {
+      try { localStorage.setItem(HINT_STORAGE_KEY, '1'); } catch { /* */ }
+    }
+  }, [isStoryEra]);
 
   const handleClick = useCallback(() => {
     dismissHint();
@@ -2131,7 +2140,7 @@ function MobileDetailReopenFab({ onReopen }: { onReopen: () => void }) {
             style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px var(--color-chrome-tooltip-ring)' }}
           >
             <p className="text-[11px] leading-snug text-parchment/90">
-              {t('detail.fab.hint', locale)}
+              {t(isStoryEra ? 'detail.fab.hintStoryEra' : 'detail.fab.hint', locale)}
             </p>
             <button
               type="button"
