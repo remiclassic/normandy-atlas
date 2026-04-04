@@ -1963,7 +1963,7 @@ function MobileDetailSheet({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/30"
+            className="fixed inset-0 z-[85] bg-black/45 backdrop-blur-[2px]"
             onClick={onClose}
           />
           <motion.aside
@@ -1976,8 +1976,7 @@ function MobileDetailSheet({
             dragConstraints={{ top: 0 }}
             dragElastic={0.2}
             onDragEnd={handleDragEnd}
-            className="atlas-bottom-sheet z-45"
-            style={{ maxHeight: '80dvh' }}
+            className="atlas-bottom-sheet atlas-mobile-detail-fullscreen"
           >
             <div className="sheet-handle" />
 
@@ -2019,6 +2018,7 @@ const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
 };
 
 function CollapsedRail({ onExpand }: { onExpand: () => void }) {
+  const locale = useMapStore((s) => s.locale);
   return (
     <motion.button
       initial={{ opacity: 0, x: 8 }}
@@ -2027,16 +2027,14 @@ function CollapsedRail({ onExpand }: { onExpand: () => void }) {
       transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
       onClick={onExpand}
       aria-expanded={false}
-      aria-label="Expand detail panel"
-      className="z-30 flex h-full w-10 flex-shrink-0 flex-col items-center justify-center border-l border-chrome-border-strong bg-chrome-popover/80 text-text-dim hover:text-text-muted hover:bg-chrome-popover transition-colors duration-150 cursor-pointer"
+      aria-label={t('detail.fab.aria', locale)}
+      className="z-30 flex h-full w-10 flex-shrink-0 flex-col items-center justify-center border-l border-chrome-border-strong bg-chrome-popover/80 hover:bg-chrome-popover transition-colors duration-150 cursor-pointer"
       style={{
         backdropFilter: 'blur(40px) saturate(1.2)',
         WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
       }}
     >
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-60">
-        <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
     </motion.button>
   );
 }
@@ -2165,6 +2163,7 @@ export default function HistoricalDetailPanel() {
   const eraId = useMapStore((s) => s.eraId);
   const closeDetail = useMapStore((s) => s.closeDetail);
   const setExpanded = useMapStore((s) => s.setDetailPanelExpanded);
+  const storyMode = useMapStore((s) => s.storyMode);
   const isMobile = useIsMobile();
 
   const show = detailOpen && !!selectedId;
@@ -2174,6 +2173,18 @@ export default function HistoricalDetailPanel() {
 
   const dwellStartRef = useRef<number>(0);
   const lastEmittedRef = useRef<string | null>(null);
+  const prevStoryModeRef = useRef(false);
+
+  useEffect(() => {
+    if (!isMobile) {
+      prevStoryModeRef.current = storyMode;
+      return;
+    }
+    if (storyMode && !prevStoryModeRef.current) {
+      setExpanded(false);
+    }
+    prevStoryModeRef.current = storyMode;
+  }, [isMobile, storyMode, setExpanded]);
 
   useEffect(() => {
     if (!show || !selectedId || !selectionKind) return;

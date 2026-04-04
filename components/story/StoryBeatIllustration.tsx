@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState, type PointerEvent, type MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { pickI18n } from '@/lib/locale';
@@ -264,6 +264,8 @@ interface MapPinProps {
 
 export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, locale, onOpenOverride }: MapPinProps) {
   const [open, setOpen] = useState(false);
+  const tapStartRef = useRef<{ x: number; y: number; pid: number } | null>(null);
+  const suppressClickRef = useRef(false);
 
   const src = publicAssetUrl(illustration.src);
   const alt = pickI18n(illustration.alt, locale);
@@ -279,29 +281,77 @@ export const StoryBeatMapPin = memo(function StoryBeatMapPin({ illustration, loc
 
   const handleClose = useCallback(() => setOpen(false), []);
 
+  const onPointerDown = useCallback((e: PointerEvent<HTMLButtonElement>) => {
+    tapStartRef.current = { x: e.clientX, y: e.clientY, pid: e.pointerId };
+    if (e.pointerType === 'touch') {
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        /* some browsers */
+      }
+    }
+  }, []);
+
+  const onPointerUp = useCallback(
+    (e: PointerEvent<HTMLButtonElement>) => {
+      const start = tapStartRef.current;
+      tapStartRef.current = null;
+      if (!start || start.pid !== e.pointerId) return;
+      if (e.pointerType !== 'touch' && e.pointerType !== 'pen') return;
+      if (Math.hypot(e.clientX - start.x, e.clientY - start.y) > 20) return;
+      suppressClickRef.current = true;
+      window.setTimeout(() => {
+        suppressClickRef.current = false;
+      }, 450);
+      handleOpen();
+    },
+    [handleOpen],
+  );
+
+  const onPointerCancel = useCallback(() => {
+    tapStartRef.current = null;
+  }, []);
+
+  const onClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      if (suppressClickRef.current) {
+        e.preventDefault();
+        return;
+      }
+      handleOpen();
+    },
+    [handleOpen],
+  );
+
   return (
     <>
       <button
         type="button"
-        onClick={handleOpen}
-        className="group relative w-12 h-12 rounded-lg overflow-hidden border-2 border-gold/50 hover:border-gold shadow-lg cursor-zoom-in transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 touch-target"
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerCancel}
+        onClick={onClick}
+        className="group relative inline-flex shrink-0 cursor-zoom-in flex-col items-center justify-end px-3 pb-0 pt-2 max-md:px-4 max-md:pt-4 touch-target transition-transform duration-150 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 [-webkit-tap-highlight-color:transparent]"
         aria-label={alt}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <span className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-200" />
-        <svg
-          className="absolute bottom-0.5 right-0.5 opacity-0 group-hover:opacity-80 transition-opacity duration-200 drop-shadow"
-          width="10" height="10" viewBox="0 0 16 16" fill="none"
-        >
-          <path d="M6 2H3a1 1 0 00-1 1v3m8-4h3a1 1 0 011 1v3m0 4v3a1 1 0 01-1 1h-3M2 10v3a1 1 0 001 1h3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border-2 border-gold/50 shadow-lg transition-all duration-200 group-hover:border-gold max-md:group-hover:scale-[1.06] group-hover:scale-110">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          />
+          <span className="pointer-events-none absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/0" />
+          <svg
+            className="pointer-events-none absolute bottom-0.5 right-0.5 opacity-0 transition-opacity duration-200 group-hover:opacity-80 drop-shadow"
+            width="10" height="10" viewBox="0 0 16 16" fill="none"
+            aria-hidden
+          >
+            <path d="M6 2H3a1 1 0 00-1 1v3m8-4h3a1 1 0 011 1v3m0 4v3a1 1 0 01-1 1h-3M2 10v3a1 1 0 001 1h3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
       </button>
 
       {!onOpenOverride && (

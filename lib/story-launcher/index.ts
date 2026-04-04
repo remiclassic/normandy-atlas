@@ -5,6 +5,7 @@ export type {
   StoryLauncherItem,
   StoryLauncherItemKind,
   StoryLauncherSection,
+  StoryLauncherSectionEmphasis,
   StoryLauncherSectionVariant,
   StoryLauncherModel,
 } from './types';

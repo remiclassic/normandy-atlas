@@ -147,13 +147,14 @@ function buildContextualSection(
 
   return {
     sectionId: 'contextual',
-    title: t('launcher.section.recommended', locale),
+    title: t('launcher.section.thisEra', locale),
     variant: 'hero',
     items,
+    emphasis: 'era',
   };
 }
 
-/** 2. Story Arcs — curated list from library meta. */
+/** 2. Arcs not mapped to the current era in `atlasEraArcs` (vs “In this era”). */
 function buildArcsSection(
   ctx: StoryLauncherContextInput,
   progressMap: Record<string, StoryProgressRecord>,
@@ -197,9 +198,10 @@ function buildArcsSection(
 
   return {
     sectionId: 'arcs',
-    title: t('launcher.section.arcs', locale),
+    title: t('launcher.section.otherPeriodsArcs', locale),
     variant: 'list',
     items,
+    emphasis: 'atlas',
   };
 }
 
@@ -246,6 +248,7 @@ function buildJourneysSection(
     title: t('launcher.section.journeys', locale),
     variant: 'list',
     items,
+    emphasis: 'atlas',
   };
 }
 
@@ -273,6 +276,7 @@ function buildFlythroughsSection(
     title: t('launcher.section.flythroughs', locale),
     variant: 'list',
     items,
+    emphasis: 'era',
   };
 }
 
@@ -280,11 +284,12 @@ function buildFlythroughsSection(
 // Section registry — ordered; empty sections are omitted.
 // ---------------------------------------------------------------------------
 
+/** Era-scoped blocks first, then atlas-wide catalog (clearer hierarchy in the sheet). */
 const SECTION_BUILDERS: SectionBuilder[] = [
   buildContextualSection,
+  buildFlythroughsSection,
   buildArcsSection,
   buildJourneysSection,
-  buildFlythroughsSection,
 ];
 
 // ---------------------------------------------------------------------------

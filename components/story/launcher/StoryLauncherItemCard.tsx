@@ -6,6 +6,8 @@ import type { StoryLauncherItem } from '@/lib/story-launcher';
 interface Props {
   item: StoryLauncherItem;
   onLaunch: (item: StoryLauncherItem) => void;
+  /** Muted list styling for atlas-wide catalog rows. */
+  listEmphasis?: 'era' | 'atlas';
 }
 
 const PlayIcon = memo(function PlayIcon() {
@@ -19,14 +21,20 @@ const PlayIcon = memo(function PlayIcon() {
 const StoryLauncherItemCard = memo(function StoryLauncherItemCard({
   item,
   onLaunch,
+  listEmphasis = 'era',
 }: Props) {
   const handleClick = useCallback(() => onLaunch(item), [item, onLaunch]);
+  const atlas = listEmphasis === 'atlas';
 
   return (
     <button
       type="button"
       onClick={handleClick}
-      className="group flex w-full min-h-[48px] items-center gap-3 rounded-xl bg-chrome-fill-badge/40 hover:bg-chrome-fill-badge/70 px-4 py-3 text-left transition-all duration-200 touch-target"
+      className={`group flex w-full ${atlas ? 'min-h-[44px]' : 'min-h-[48px]'} items-center gap-3 rounded-xl px-4 ${atlas ? 'py-2.5' : 'py-3'} text-left transition-all duration-200 touch-target ${
+        atlas
+          ? 'bg-chrome-fill-badge/25 hover:bg-chrome-fill-badge/45 border border-border/25 hover:border-border/45'
+          : 'bg-chrome-fill-badge/40 hover:bg-chrome-fill-badge/70'
+      }`}
     >
       {item.thumb && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -43,11 +51,21 @@ const StoryLauncherItemCard = memo(function StoryLauncherItemCard({
         </span>
       )}
       <div className="min-w-0 flex-1">
-        <span className="block text-[13px] font-medium text-text-muted group-hover:text-parchment transition-colors leading-snug">
+        <span
+          className={`block font-medium transition-colors leading-snug ${
+            atlas
+              ? 'text-[12px] text-text-dim/75 group-hover:text-text-muted'
+              : 'text-[13px] text-text-muted group-hover:text-parchment'
+          }`}
+        >
           {item.title}
         </span>
         {item.subtitle && (
-          <span className="block text-[11px] text-text-dim/70 leading-snug mt-0.5 line-clamp-1">
+          <span
+            className={`block leading-snug mt-0.5 line-clamp-1 ${
+              atlas ? 'text-[10px] text-text-dim/55' : 'text-[11px] text-text-dim/70'
+            }`}
+          >
             {item.subtitle}
           </span>
         )}

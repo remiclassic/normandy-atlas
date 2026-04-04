@@ -574,6 +574,18 @@ html.text-size-large .maplibregl-ctrl-attrib {
   overscroll-behavior: contain;
 }
 
+/* Map detail panel (mobile): full viewport, above story dock / play chrome (z-50) */
+.atlas-bottom-sheet.atlas-mobile-detail-fullscreen {
+  top: 0;
+  max-height: none;
+  height: 100dvh;
+  z-index: 86;
+  border-radius: 0;
+  border: none;
+  padding-top: env(safe-area-inset-top);
+  box-shadow: none;
+}
+
 /* Mobile floating action group */
 .atlas-fab-group {
   position: fixed;

@@ -67,10 +67,34 @@ export function StoryIllustrationMapOverlay({
     const map = mapRef.current;
     if (!map || pins.length === 0) {
       setPositions([]);
+      useMapStore.getState().setStoryCardTopPx(null);
       return;
     }
 
     let rafId = 0;
+    let lastTop: number | null = null;
+
+    const syncStoryCardTop = (next: ({ x: number; y: number } | null)[]) => {
+      const setTop = useMapStore.getState().setStoryCardTopPx;
+      const valid = next.filter((p): p is { x: number; y: number } => p != null);
+      if (valid.length === 0) {
+        if (lastTop !== null) {
+          lastTop = null;
+          setTop(null);
+        }
+        return;
+      }
+      const maxPinBottom = Math.max(...valid.map((p) => p.y - 8));
+      const gap = 16;
+      const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+      const minStoryBand = 200;
+      const maxTop = Math.max(96, vh - minStoryBand);
+      const nextTop = Math.min(Math.max(0, maxPinBottom + gap), maxTop);
+      if (lastTop == null || Math.abs(lastTop - nextTop) >= 4) {
+        lastTop = nextTop;
+        setTop(nextTop);
+      }
+    };
 
     const update = () => {
       try {
@@ -80,8 +104,10 @@ export function StoryIllustrationMapOverlay({
           return { x: p.x, y: p.y };
         });
         setPositions(next);
+        syncStoryCardTop(next);
       } catch {
         setPositions([]);
+        useMapStore.getState().setStoryCardTopPx(null);
       }
     };
 
@@ -125,13 +151,11 @@ export function StoryIllustrationMapOverlay({
   if (pins.length === 0 || positions.length === 0) return null;
 
   /**
-   * Map layer stack (inside MapCanvas): basemap z-0 → pins z-[5] → map chrome (e.g. terrain) z-20.
-   * Keeping pins below z-20 ensures fixed/absolute story UI (dock z-50) always wins; previously z-30
-   * escaped above a z-20 parent and overlapped the story card on mobile.
+   * z-[21]: above map/deck host; keeps pins pickable. Story chrome remains outside this subtree (shell z-50).
    */
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[5] opacity-[0.68] transition-opacity duration-300"
+      className="pointer-events-none absolute inset-0 z-[21] opacity-[0.68] transition-opacity duration-300"
       data-story-illustration-pin=""
     >
       {pins.map((pin, i) => {
@@ -167,7 +191,7 @@ const OverlayPin = memo(function OverlayPin({
 
   return (
     <div
-      className="pointer-events-auto absolute"
+      className="pointer-events-auto absolute z-[22] touch-manipulation hover:z-[24] focus-within:z-[24]"
       style={{
         left: pos.x,
         top: pos.y,

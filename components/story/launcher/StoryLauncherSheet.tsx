@@ -14,6 +14,7 @@ import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { buildStoryLauncherModel } from '@/lib/story-launcher';
 import type { StoryLauncherItem } from '@/lib/story-launcher';
+import { getStoryEraDisplayTitle } from '@/lib/story-era-title';
 import { t } from '@/lib/ui-strings';
 import StoryLauncherContent from './StoryLauncherContent';
 
@@ -30,6 +31,7 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
 }: Props) {
   const locale = useLocale();
   const eraId = useMapStore((s) => s.eraId);
+  const atlasMode = useMapStore((s) => s.atlasMode);
   const isMobile = useIsMobile();
   const startStory = useMapStore((s) => s.startStory);
   const startFlythrough = useMapStore((s) => s.startCinematicFlythrough);
@@ -38,6 +40,16 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
   const model = useMemo(
     () => (open ? buildStoryLauncherModel({ eraId, locale }) : { sections: [] }),
     [open, eraId, locale],
+  );
+
+  const eraTitle = useMemo(
+    () => getStoryEraDisplayTitle(eraId, locale, atlasMode),
+    [eraId, locale, atlasMode],
+  );
+
+  const dialogAriaLabel = useMemo(
+    () => `${t('launcher.title', locale)} — ${eraTitle}`,
+    [locale, eraTitle],
   );
 
   // Escape to close
@@ -80,6 +92,23 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
     onBrowseAll?.();
   }, [onClose, onBrowseAll]);
 
+  const libraryFooter = onBrowseAll ? (
+    <div className="shrink-0 border-t border-border/50 bg-[var(--color-surface-elevated)] backdrop-blur-md px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <button
+        type="button"
+        onClick={handleBrowseAll}
+        className="w-full rounded-xl border border-gold/25 bg-gold/[0.07] hover:bg-gold/[0.12] hover:border-gold/40 px-4 py-3 text-left transition-all duration-200 touch-target shadow-sm"
+      >
+        <span className="block text-[13px] font-semibold text-parchment">
+          {t('launcher.browseAll', locale)}
+        </span>
+        <span className="block text-[10px] text-text-dim/65 mt-0.5">
+          {t('launcher.browseAll.hint', locale)}
+        </span>
+      </button>
+    </div>
+  ) : null;
+
   const handleDragEnd = useCallback(
     (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
       if (info.offset.y > 100 || info.velocity.y > 500) onClose();
@@ -109,7 +138,7 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
               key="launcher-sheet"
               role="dialog"
               aria-modal="true"
-              aria-label={t('launcher.title', locale)}
+              aria-label={dialogAriaLabel}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
@@ -126,10 +155,12 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
                 <StoryLauncherContent
                   model={model}
                   locale={locale}
+                  eraTitle={eraTitle}
                   onLaunch={handleLaunch}
-                  onBrowseAll={onBrowseAll ? handleBrowseAll : undefined}
+                  embedIntro
                 />
               </div>
+              {libraryFooter}
             </motion.div>
           </>
         )}
@@ -156,7 +187,7 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
             key="launcher-dialog-desktop"
             role="dialog"
             aria-modal="true"
-            aria-label={t('launcher.title', locale)}
+            aria-label={dialogAriaLabel}
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
@@ -167,16 +198,24 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
               ref={sheetRef}
               className="pointer-events-auto w-full max-w-lg max-h-[75vh] rounded-2xl glass-panel-elevated border border-border overflow-hidden flex flex-col"
             >
-              {/* Header */}
-              <div className="flex items-center justify-between px-5 pt-4 pb-2 border-b border-border/40">
-                <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-dim/60">
-                  {t('launcher.title', locale)}
-                </h2>
+              {/* Header — era-first framing */}
+              <div className="flex items-start justify-between gap-3 px-5 pt-4 pb-3 border-b border-border/40">
+                <div className="min-w-0 space-y-1 pr-1">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/70">
+                    {t('launcher.headline.kicker', locale)}
+                  </p>
+                  <h2 className="text-[15px] font-semibold text-parchment leading-snug">
+                    {eraTitle}
+                  </h2>
+                  <p className="text-[10px] text-text-dim/60 leading-relaxed">
+                    {t('launcher.tagline', locale)}
+                  </p>
+                </div>
                 <button
                   type="button"
                   onClick={onClose}
                   aria-label={t('launcher.aria.close', locale)}
-                  className="flex items-center justify-center w-7 h-7 rounded-lg hover:bg-chrome-fill-badge text-text-dim hover:text-parchment transition-colors touch-target"
+                  className="flex shrink-0 items-center justify-center w-7 h-7 rounded-lg hover:bg-chrome-fill-badge text-text-dim hover:text-parchment transition-colors touch-target"
                 >
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                     <path d="M3 3l8 8M11 3l-8 8" />
@@ -189,9 +228,10 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
                   model={model}
                   locale={locale}
                   onLaunch={handleLaunch}
-                  onBrowseAll={onBrowseAll ? handleBrowseAll : undefined}
+                  embedIntro={false}
                 />
               </div>
+              {libraryFooter}
             </div>
           </motion.div>
         </>

@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { useMemo, useEffect, useCallback, useRef, type CSSProperties } from 'react';
+import { motion, AnimatePresence, useReducedMotion, type PanInfo } from 'motion/react';
 import { useMobileStoryPeek } from '@/hooks/use-mobile-story-peek';
 import { useMapStore } from '@/lib/store';
 import { normanAtlanticStory } from '@/data/stories';
@@ -56,8 +56,25 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
   const setStoryMapFollow = useMapStore((s) => s.setStoryMapFollow);
   const selectFeature = useMapStore((s) => s.selectFeature);
   const setDetailPanelExpanded = useMapStore((s) => s.setDetailPanelExpanded);
+  const storyCardTopPx = useMapStore((s) => s.storyCardTopPx);
 
   const isMobile = useIsMobile();
+  /** Mobile: story shell starts here; at least ~upper half of viewport stays map-only. Merged with illustration-pin bottom when available. */
+  const mobileStoryBandTopPx = useMemo(() => {
+    if (!isMobile || typeof window === 'undefined') return 0;
+    const vh = window.innerHeight;
+    const minMapTopPx = Math.round(vh * 0.46);
+    if (storyCardTopPx == null) return minMapTopPx;
+    return Math.max(storyCardTopPx, minMapTopPx);
+  }, [isMobile, storyCardTopPx]);
+  const storyNarrativeMaxStyle: CSSProperties | undefined = useMemo(() => {
+    if (!isMobile || typeof window === 'undefined') return undefined;
+    const vh = window.innerHeight;
+    const chrome = 148;
+    const raw = vh - mobileStoryBandTopPx - chrome;
+    const h = Math.max(112, Math.min(raw, vh * 0.38));
+    return { maxHeight: h };
+  }, [isMobile, mobileStoryBandTopPx]);
   const reducedMotion = !!useReducedMotion();
   const cinematic = isCinematicArc(storyArc);
   const atlasBeats = useMemo(() => getStoryBeats(storyArc), [storyArc]);
@@ -290,6 +307,35 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
     goToStep(i);
   }, [resetPeek, goToStep]);
 
+  const handleStorySwipeEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      if (!isMobile || celebrating || peekAnimating) return;
+      const off = 48;
+      const vel = 380;
+      const wantNext = info.offset.x < -off || info.velocity.x < -vel;
+      const wantPrev = info.offset.x > off || info.velocity.x > vel;
+      if (wantNext === wantPrev) return;
+      if (wantNext) {
+        resetPeek();
+        if (isLast) handleFinish();
+        else handleNext();
+        return;
+      }
+      if (wantPrev && !isFirst) handlePrev();
+    },
+    [
+      isMobile,
+      celebrating,
+      peekAnimating,
+      resetPeek,
+      isLast,
+      handleFinish,
+      handleNext,
+      handlePrev,
+      isFirst,
+    ],
+  );
+
   // ─── Cinematic right-rail (desktop) — gated by CINEMATIC_RIGHT_RAIL_ENABLED ───
   if (isActive && cinematic && !isMobile && CINEMATIC_RIGHT_RAIL_ENABLED) {
     const chapterLabels = storyArc ? CHAPTER_LABELS[storyArc] : undefined;
@@ -498,13 +544,19 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 48 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className={`z-40 left-0 right-0 pointer-events-auto ${
+            className={`z-40 left-0 right-0 ${
               isMobile
-                ? 'fixed bottom-0 pb-[env(safe-area-inset-bottom)]'
-                : 'absolute bottom-0 pb-[env(safe-area-inset-bottom)]'
+                ? 'pointer-events-none fixed flex min-h-0 flex-col justify-end overflow-hidden pb-[env(safe-area-inset-bottom)]'
+                : 'pointer-events-auto absolute bottom-0 pb-[env(safe-area-inset-bottom)]'
             }`}
+            style={isMobile ? { top: mobileStoryBandTopPx, bottom: 0 } : undefined}
           >
             <motion.div
+              className={
+                isMobile
+                  ? 'pointer-events-auto flex min-h-0 w-full max-h-full flex-1 flex-col justify-end'
+                  : undefined
+              }
               style={isMobile ? { y: peekY } : undefined}
               drag={isMobile ? 'y' : false}
               dragControls={dragControls}
@@ -513,17 +565,22 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
               dragElastic={0.15}
               onDragEnd={handlePeekDragEnd}
             >
-            <div className="mx-auto max-w-2xl mb-3 sm:mb-6 px-3 sm:px-4">
-              <div ref={peekCardRef} className="rounded-2xl glass-panel-elevated overflow-hidden">
+            <div
+              className={`mx-auto max-w-2xl px-3 sm:mb-6 sm:px-4 ${isMobile ? 'mb-0 flex min-h-0 max-h-full flex-1 flex-col' : 'mb-3'}`}
+            >
+              <div
+                ref={peekCardRef}
+                className={`rounded-2xl glass-panel-elevated overflow-hidden ${isMobile ? 'flex min-h-0 max-h-full flex-1 flex-col' : ''}`}
+              >
                 {isMobile && (
                   <div
-                    className="flex justify-center pt-2.5 pb-1 touch-none cursor-grab active:cursor-grabbing"
+                    className="flex shrink-0 justify-center pt-2.5 pb-1 touch-none cursor-grab active:cursor-grabbing"
                     onPointerDown={(e) => { if (!peekAnimating) dragControls.start(e); }}
                   >
                     <div className="w-8 h-[3px] rounded-full bg-text-dim/30" />
                   </div>
                 )}
-                <div className="relative h-[2px] bg-chrome-shade-strong">
+                <div className="relative h-[2px] shrink-0 bg-chrome-shade-strong">
                   <motion.div
                     className={`absolute inset-y-0 left-0 bg-gradient-to-r ${
                       cinematic ? 'from-emerald-400/60 to-emerald-300/40' : 'from-gold/60 to-gold/40'
@@ -533,7 +590,7 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                   />
                 </div>
 
-                <div className="flex items-center justify-between px-4 pt-2.5 sm:px-6 sm:pt-3">
+                <div className="flex shrink-0 items-center justify-between px-4 pt-2.5 sm:px-6 sm:pt-3">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim">
                     {stepIndex + 1} / {totalSteps}
                   </span>
@@ -576,7 +633,7 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
 
                 {/* View mode toggle for cinematic on mobile */}
                 {cinematic && (
-                  <div className="px-4 pt-1.5 sm:px-6">
+                  <div className="shrink-0 px-4 pt-1.5 sm:px-6">
                     <div className="flex rounded-md bg-chrome-shade-strong p-0.5">
                       <button
                         onClick={() => setStoryViewMode('exploration')}
@@ -602,29 +659,54 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                   </div>
                 )}
 
-                <div className="px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4 max-h-[38vh] overflow-y-auto overscroll-y-contain sm:max-h-none sm:overflow-y-visible">
-                  <AnimatePresence mode="wait">
+                {(() => {
+                  const narrativeInner = (
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${stepId}-${storyViewMode}`}
+                        initial={{ opacity: 0, x: 24 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -24 }}
+                        transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                      >
+                        {stepChapter && (
+                          <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50 mb-1.5">
+                            {stepChapter}
+                          </span>
+                        )}
+                        <h3 className="text-base sm:text-lg font-display font-bold text-parchment mb-1.5 sm:mb-2 tracking-[-0.01em]">
+                          {stepTitle}
+                        </h3>
+                        <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
+                      </motion.div>
+                    </AnimatePresence>
+                  );
+                  const scrollShellCls = isMobile
+                    ? 'min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4 sm:max-h-none sm:overflow-y-visible'
+                    : 'max-h-[38vh] overflow-y-auto overscroll-y-contain px-4 pt-2.5 pb-3 sm:px-6 sm:pt-3 sm:pb-4 sm:max-h-none sm:overflow-y-visible';
+                  if (!isMobile) {
+                    return <div className={scrollShellCls}>{narrativeInner}</div>;
+                  }
+                  return (
                     <motion.div
-                      key={`${stepId}-${storyViewMode}`}
-                      initial={{ opacity: 0, x: 24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -24 }}
-                      transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                      drag="x"
+                      dragDirectionLock
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.22}
+                      onDragEnd={handleStorySwipeEnd}
+                      className="flex min-h-0 min-w-0 flex-1 flex-col"
                     >
-                      {stepChapter && (
-                        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50 mb-1.5">
-                          {stepChapter}
-                        </span>
-                      )}
-                      <h3 className="text-base sm:text-lg font-display font-bold text-parchment mb-1.5 sm:mb-2 tracking-[-0.01em]">
-                        {stepTitle}
-                      </h3>
-                      <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
+                      <div
+                        className={`${scrollShellCls} touch-pan-y`}
+                        style={storyNarrativeMaxStyle}
+                      >
+                        {narrativeInner}
+                      </div>
                     </motion.div>
-                  </AnimatePresence>
-                </div>
+                  );
+                })()}
 
-                <div className="flex items-center justify-between px-3.5 pb-3 pt-1 sm:px-5 sm:pb-4">
+                <div className="flex shrink-0 items-center justify-between px-3.5 pb-3 pt-1 sm:px-5 sm:pb-4">
                   <button
                     onClick={handleStop}
                     disabled={celebrating}

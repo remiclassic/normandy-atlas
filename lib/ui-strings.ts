@@ -1392,10 +1392,34 @@ const STRINGS = {
     it: 'Esplora i racconti',
   },
   'launcher.title': {
-    en: 'Story Launcher',
-    fr: 'Lanceur de récits',
-    es: 'Lanzador de historias',
-    it: 'Lanciatore di racconti',
+    en: 'Stories',
+    fr: 'Récits',
+    es: 'Historias',
+    it: 'Racconti',
+  },
+  'launcher.headline.kicker': {
+    en: 'Stories',
+    fr: 'Récits',
+    es: 'Historias',
+    it: 'Racconti',
+  },
+  'launcher.tagline': {
+    en: 'Picks for the era shown on your map. Open the library to browse every arc and journey.',
+    fr: 'Sélection pour l\u2019\u00e9poque affich\u00e9e sur votre carte. Ouvrez la biblioth\u00e8que pour parcourir tous les arcs et parcours.',
+    es: 'Selección para la época que ves en el mapa. Abre la biblioteca para ver todos los arcos y recorridos.',
+    it: 'Scelti per l\u2019epoca mostrata sulla mappa. Apri la biblioteca per tutti gli archi e i percorsi.',
+  },
+  'launcher.moreFromLibrary': {
+    en: 'More from the library',
+    fr: 'Plus depuis la biblioth\u00e8que',
+    es: 'Más de la biblioteca',
+    it: 'Altro dalla biblioteca',
+  },
+  'launcher.section.thisEra': {
+    en: 'In this era',
+    fr: 'Dans cette \u00e9poque',
+    es: 'En esta época',
+    it: 'In quest\u2019epoca',
   },
   'launcher.section.recommended': {
     en: 'Recommended for you',
@@ -1403,11 +1427,11 @@ const STRINGS = {
     es: 'Recomendado para ti',
     it: 'Consigliato per te',
   },
-  'launcher.section.arcs': {
-    en: 'Story Arcs',
-    fr: 'Arcs narratifs',
-    es: 'Arcos narrativos',
-    it: 'Archi narrativi',
+  'launcher.section.otherPeriodsArcs': {
+    en: 'Other periods & arcs',
+    fr: 'Autres p\u00e9riodes et arcs',
+    es: 'Otras \u00e9pocas y arcos',
+    it: 'Altri periodi e archi',
   },
   'launcher.section.journeys': {
     en: 'Full Journeys',
@@ -1446,10 +1470,16 @@ const STRINGS = {
     it: 'Cronaca completa dell\'atlante',
   },
   'launcher.browseAll': {
-    en: 'Browse all stories',
-    fr: 'Parcourir toutes les histoires',
-    es: 'Ver todas las historias',
-    it: 'Sfoglia tutte le storie',
+    en: 'Open full story library',
+    fr: 'Ouvrir la biblioth\u00e8que compl\u00e8te',
+    es: 'Abrir la biblioteca completa',
+    it: 'Apri la biblioteca completa',
+  },
+  'launcher.browseAll.hint': {
+    en: 'Every arc, journey, and filter',
+    fr: 'Tous les arcs, parcours et filtres',
+    es: 'Todos los arcos, recorridos y filtros',
+    it: 'Tutti gli archi, percorsi e filtri',
   },
   'launcher.aria.close': {
     en: 'Close story launcher',

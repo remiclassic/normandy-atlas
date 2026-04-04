@@ -12,8 +12,9 @@ import {
 const VISIBLE_STRIP_PX = 64;
 /** Generous upper bound for drag constraint; snap logic picks the real target. */
 const DRAG_LIMIT_PX = 500;
-const SNAP_OFFSET_PX = 80;
-const SNAP_VELOCITY = 300;
+/** Slightly lower = commits peek/open with a shorter drag. */
+const SNAP_OFFSET_PX = 64;
+const SNAP_VELOCITY = 280;
 
 /**
  * Manages the mobile story-card "peek" gesture: drag the card down to expose
@@ -39,9 +40,9 @@ export function useMobileStoryPeek(enabled: boolean, reducedMotion: boolean) {
         return;
       }
       await animate(peekY, target, {
-        type: 'spring',
-        damping: 28,
-        stiffness: 300,
+        type: 'tween',
+        duration: 0.2,
+        ease: [0.22, 1, 0.36, 1],
       });
     },
     [peekY, reducedMotion],

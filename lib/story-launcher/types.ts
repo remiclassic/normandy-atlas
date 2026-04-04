@@ -47,11 +47,16 @@ export interface StoryLauncherItem {
 
 export type StoryLauncherSectionVariant = 'hero' | 'list';
 
+/** Era-scoped sections (arcs + flythroughs for current era) vs broader atlas catalog. */
+export type StoryLauncherSectionEmphasis = 'era' | 'atlas';
+
 export interface StoryLauncherSection {
   sectionId: string;
   title: string;
   variant: StoryLauncherSectionVariant;
   items: StoryLauncherItem[];
+  /** Visual grouping: stronger chrome for current-era content, muted for catalog. */
+  emphasis?: StoryLauncherSectionEmphasis;
 }
 
 // -- Top-level model --------------------------------------------------------

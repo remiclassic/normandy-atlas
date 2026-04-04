@@ -114,6 +114,11 @@ interface MapStore {
   storyViewMode: 'exploration' | 'impact';
   /** Image gallery state for multi-slide story illustrations. */
   storyImageGallery: { open: boolean; activeIndex: number; beatId: string | null };
+  /**
+   * Mobile: fixed `top` (px) for the story dock so narrative sits below on-map illustration pins.
+   * null = default bottom-hugging layout.
+   */
+  storyCardTopPx: number | null;
   activeJourneyId: string | null;
 
   migrationExplorerOpen: boolean;
@@ -191,6 +196,7 @@ interface MapStore {
   openStoryImageGallery: (beatId: string, index?: number) => void;
   setStoryImageGalleryIndex: (index: number) => void;
   closeStoryImageGallery: () => void;
+  setStoryCardTopPx: (px: number | null) => void;
   setActiveJourney: (journeyId: string | null) => void;
   applyNormanExpansionPreset: (preset: NormanExpansionPreset) => void;
   setMigrationExplorerOpen: (open: boolean) => void;
@@ -264,6 +270,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   storyMapFollow: true,
   storyViewMode: 'exploration' as 'exploration' | 'impact',
   storyImageGallery: { open: false, activeIndex: 0, beatId: null },
+  storyCardTopPx: null,
   activeJourneyId: null,
 
   migrationExplorerOpen: false,
@@ -294,7 +301,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
 
   advanceLedgerCelebration: () => {
-    set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration' as 'exploration' | 'impact', activeJourneyId: null, ledgerCelebrationPhase: 'idle' });
+    set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration' as 'exploration' | 'impact', activeJourneyId: null, ledgerCelebrationPhase: 'idle', storyCardTopPx: null });
     pulseLedgerAttention();
   },
 
@@ -333,6 +340,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       storyMapFollow: true,
       storyViewMode: 'exploration' as 'exploration' | 'impact',
       activeJourneyId: null,
+      storyCardTopPx: null,
     }),
 
   setEra: (id) =>
@@ -418,9 +426,10 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       cinematicFlythrough: null,
       cinematicFlythroughProgress: 0,
       storyImageGallery: { open: false, activeIndex: 0, beatId: null },
+      storyCardTopPx: null,
     });
   },
-  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, storyImageGallery: { open: false, activeIndex: 0, beatId: null } }),
+  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, storyImageGallery: { open: false, activeIndex: 0, beatId: null }, storyCardTopPx: null }),
 
   nextStoryStep: () =>
     set((s) => ({
@@ -452,6 +461,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
 
   closeStoryImageGallery: () =>
     set({ storyImageGallery: { open: false, activeIndex: 0, beatId: null } }),
+
+  setStoryCardTopPx: (px) => set({ storyCardTopPx: px }),
 
   setActiveJourney: (journeyId) => set({ activeJourneyId: journeyId }),
 
@@ -495,6 +506,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       storyArc: null,
       storyMapFollow: true,
       storyViewMode: 'exploration' as 'exploration' | 'impact',
+      storyCardTopPx: null,
     }),
 
   stopCinematicFlythrough: () =>

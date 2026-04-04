@@ -27,10 +27,36 @@ const crimson = Crimson_Pro({
   weight: ['400', '600', '700'],
 });
 
+const siteTitle = 'Norman Atlas — A Living Map of People, Movement, and Time';
+const siteDescription =
+  'A dynamic historical atlas exploring the origins, movements, and global influence of the Normans. Navigate through time from Neolithic Normandy to the expansion of Norman culture across Europe and beyond.';
+
+function siteUrl(): URL {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) {
+    return new URL(explicit.endsWith('/') ? explicit.slice(0, -1) : explicit);
+  }
+  if (process.env.VERCEL_URL) {
+    return new URL(`https://${process.env.VERCEL_URL}`);
+  }
+  return new URL('http://localhost:3000');
+}
+
 export const metadata: Metadata = {
-  title: 'Norman Atlas — A Living Map of People, Movement, and Time',
-  description:
-    'A dynamic historical atlas exploring the origins, movements, and global influence of the Normans. Navigate through time from Neolithic Normandy to the expansion of Norman culture across Europe and beyond.',
+  metadataBase: siteUrl(),
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
