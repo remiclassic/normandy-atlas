@@ -1,8 +1,8 @@
 'use client';
 
-import { memo, useCallback, useRef, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Download, Upload, RotateCcw, Flame, Trophy } from 'lucide-react';
+import { ArrowLeft, Flame, Trophy } from 'lucide-react';
 import { useLocale } from '@/hooks/use-atlas';
 import {
   useLedgerStats,
@@ -13,25 +13,21 @@ import {
   type AtlasRole,
 } from '@/hooks/useAtlasProgress';
 import { useHasMounted } from '@/hooks/use-has-mounted';
-import { exportProgressJSON, importProgressJSON, resetProgress } from '@/lib/progress';
 import { evaluateChallengeProgress, readProgress } from '@/lib/progress';
 import { atlasChallenges } from '@/data/atlas/challenges';
-import { notifyProgressListeners } from '@/hooks/useAtlasProgress';
 import { pickI18n } from '@/lib/locale';
-import { t, type UiStringKey } from '@/lib/ui-strings';
+import { t } from '@/lib/ui-strings';
 import type { AtlasLocale } from '@/core/types';
 import ProfileAchievementsGrid from '@/components/profile/ProfileAchievementsGrid';
+import {
+  ATLAS_ROLE_LABEL_KEY,
+  AtlasCoveragePillsGrid,
+  ProgressDataActions,
+} from '@/components/progress/atlas-progress-shared';
 
 // ---------------------------------------------------------------------------
-// Role display
+// Role flavour copy (profile hero only)
 // ---------------------------------------------------------------------------
-
-const ROLE_LABEL_KEY: Record<AtlasRole, UiStringKey> = {
-  explorer: 'ledger.role.explorer',
-  historian: 'ledger.role.historian',
-  cartographer: 'ledger.role.cartographer',
-  chronicler: 'ledger.role.chronicler',
-};
 
 const ROLE_COPY: Record<AtlasRole, { en: string; fr: string }> = {
   explorer: {
@@ -40,7 +36,7 @@ const ROLE_COPY: Record<AtlasRole, { en: string; fr: string }> = {
   },
   historian: {
     en: 'You linger on detail panels, absorbing context and primary sources.',
-    fr: 'Vous prenez le temps de lire les panneaux et d\'absorber les sources.',
+    fr: "Vous prenez le temps de lire les panneaux et d'absorber les sources.",
   },
   cartographer: {
     en: 'Routes and journeys define your atlas experience.',
@@ -53,32 +49,18 @@ const ROLE_COPY: Record<AtlasRole, { en: string; fr: string }> = {
 };
 
 // ---------------------------------------------------------------------------
-// Compact stat pill
-// ---------------------------------------------------------------------------
-
-const StatPill = memo(function StatPill({ label, value, total }: { label: string; value: number; total: number }) {
-  const pct = total > 0 ? Math.round((value / total) * 100) : 0;
-  return (
-    <div className="flex flex-col items-center rounded-lg border border-chrome-border bg-chrome-fill px-4 py-3">
-      <span className="text-[18px] font-bold tabular-nums text-parchment">
-        {value}<span className="text-[13px] font-normal text-text-dim">/{total}</span>
-      </span>
-      <span className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-text-muted/60">{label}</span>
-      <div className="mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-chrome-fill-active">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-gold/40 to-gold/25 transition-[width] duration-700 ease-out"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </div>
-  );
-});
-
-// ---------------------------------------------------------------------------
 // Streak + Rank badges
 // ---------------------------------------------------------------------------
 
-const StreakBadge = memo(function StreakBadge({ current, best, locale }: { current: number; best: number; locale: AtlasLocale }) {
+const StreakBadge = memo(function StreakBadge({
+  current,
+  best,
+  locale,
+}: {
+  current: number;
+  best: number;
+  locale: AtlasLocale;
+}) {
   if (current === 0 && best === 0) return null;
   return (
     <div className="flex items-center gap-2 rounded-lg border border-chrome-border bg-chrome-fill px-3 py-2">
@@ -143,7 +125,7 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
 
   return (
     <div className="rounded-lg border border-gold/10 bg-gold/[0.02] px-4 py-3">
-      <div className="flex items-center justify-between mb-2">
+      <div className="mb-2 flex items-center justify-between">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50">
           {t('challenge.heading', locale)}
         </p>
@@ -153,8 +135,8 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
           </span>
         )}
       </div>
-      <p className="text-[13px] font-medium text-parchment mb-1">{pickI18n(def.title, locale)}</p>
-      <p className="text-[11px] text-text-muted/70 mb-3">{pickI18n(def.description, locale)}</p>
+      <p className="mb-1 text-[13px] font-medium text-parchment">{pickI18n(def.title, locale)}</p>
+      <p className="mb-3 text-[11px] text-text-muted/70">{pickI18n(def.description, locale)}</p>
       <div className="space-y-1.5">
         {def.objectives.map((obj) => {
           const current = objectiveProgress[obj.id] ?? 0;
@@ -166,7 +148,7 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
                 <span className={met ? 'text-gold/70' : 'text-text-dim/60'}>
                   {pickI18n(obj.label, locale)}
                 </span>
-                <span className={`tabular-nums font-medium ${met ? 'text-gold/70' : 'text-text-muted'}`}>
+                <span className={`font-medium tabular-nums ${met ? 'text-gold/70' : 'text-text-muted'}`}>
                   {Math.min(current, obj.target)}/{obj.target}
                 </span>
               </div>
@@ -185,79 +167,6 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
 });
 
 // ---------------------------------------------------------------------------
-// Data management buttons
-// ---------------------------------------------------------------------------
-
-const DataActions = memo(function DataActions({ locale }: { locale: AtlasLocale }) {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleExport = useCallback(() => {
-    const blob = new Blob([exportProgressJSON()], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'norman-atlas-progress.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  }, []);
-
-  const handleImport = useCallback(() => {
-    fileInputRef.current?.click();
-  }, []);
-
-  const onFileSelected = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === 'string') {
-        if (importProgressJSON(reader.result)) notifyProgressListeners();
-      }
-    };
-    reader.readAsText(file);
-    e.target.value = '';
-  }, []);
-
-  const handleReset = useCallback(() => {
-    const msg = t('ledger.reset.confirm', locale);
-    if (window.confirm(msg)) {
-      resetProgress();
-      notifyProgressListeners();
-    }
-  }, [locale]);
-
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <input ref={fileInputRef} type="file" accept=".json" className="hidden" onChange={onFileSelected} />
-      <button
-        type="button"
-        onClick={handleExport}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-chrome-border px-3 py-1.5 text-[11px] font-medium text-text-muted transition-colors hover:bg-chrome-fill hover:text-parchment"
-      >
-        <Download className="h-3 w-3" strokeWidth={1.5} />
-        {t('ledger.export', locale)}
-      </button>
-      <button
-        type="button"
-        onClick={handleImport}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-chrome-border px-3 py-1.5 text-[11px] font-medium text-text-muted transition-colors hover:bg-chrome-fill hover:text-parchment"
-      >
-        <Upload className="h-3 w-3" strokeWidth={1.5} />
-        {t('ledger.import', locale)}
-      </button>
-      <button
-        type="button"
-        onClick={handleReset}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-red-500/20 px-3 py-1.5 text-[11px] font-medium text-red-400/70 transition-colors hover:bg-red-500/10 hover:text-red-400"
-      >
-        <RotateCcw className="h-3 w-3" strokeWidth={1.5} />
-        {t('ledger.reset', locale)}
-      </button>
-    </div>
-  );
-});
-
-// ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
@@ -267,7 +176,6 @@ export default function ProfilePage() {
   const stats = useLedgerStats();
   const role = useInferredRole();
   const gamStats = useGamificationStats();
-  const T = stats.coverageTotals;
 
   const displayStats = mounted
     ? stats
@@ -286,7 +194,6 @@ export default function ProfilePage() {
 
   return (
     <div className="fixed inset-0 flex flex-col" style={{ background: 'var(--color-background)' }}>
-      {/* Top bar */}
       <header
         className="shrink-0 border-b px-4 py-3 sm:px-6"
         style={{ borderColor: 'var(--color-border)', background: 'var(--color-chrome-fill)' }}
@@ -297,34 +204,31 @@ export default function ProfilePage() {
             className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[12px] font-medium text-text-muted transition-colors hover:bg-chrome-fill hover:text-parchment"
           >
             <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2} />
-            {locale === 'fr' ? 'Retour à la carte' : 'Back to map'}
+            {t('storyLibrary.backToMap', locale)}
           </Link>
           <div className="flex-1" />
           <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-text-dim/50">
-            {locale === 'fr' ? 'Profil du voyageur' : 'Traveller Profile'}
+            {t('profile.pageHeader', locale)}
           </span>
         </div>
       </header>
 
-      {/* Scrollable content */}
       <main className="flex-1 overflow-y-auto scrollbar-thin">
         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-          {/* Hero: role + rank + streak */}
           <section className="mb-8">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/60 mb-1">
-              {t(ROLE_LABEL_KEY[displayRole], locale)}
+            <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/60">
+              {t(ATLAS_ROLE_LABEL_KEY[displayRole], locale)}
             </p>
             <h1
               className="font-display text-[24px] font-bold tracking-tight sm:text-[28px]"
               style={{ color: 'var(--color-parchment)' }}
             >
-              {locale === 'fr' ? 'Votre parcours' : 'Your Journey'}
+              {t('profile.journeyTitle', locale)}
             </h1>
             <p className="mt-1 text-[13px] leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
               {pickI18n(ROLE_COPY[displayRole], locale)}
             </p>
 
-            {/* Rank + Streak row */}
             {mounted && (
               <div className="mt-4 flex flex-wrap gap-3">
                 <RankBadge locale={locale} />
@@ -337,24 +241,14 @@ export default function ProfilePage() {
             )}
           </section>
 
-          {/* Stats row with coverage bars */}
-          <section className="mb-10 grid grid-cols-3 gap-3 sm:grid-cols-6">
-            <StatPill label={t('ledger.places', locale)} value={displayStats.places} total={T.places} />
-            <StatPill label={t('ledger.regions', locale)} value={displayStats.regions} total={T.regions} />
-            <StatPill label={t('ledger.journeys', locale)} value={displayStats.journeys} total={T.journeys} />
-            <StatPill label={t('ledger.segments', locale)} value={displayStats.segments} total={T.segments} />
-            <StatPill label={t('ledger.eras', locale)} value={displayStats.eras} total={T.eras} />
-            <StatPill label={t('ledger.stories', locale)} value={displayStats.storiesCompleted} total={T.stories} />
-          </section>
+          <AtlasCoveragePillsGrid locale={locale} stats={displayStats} />
 
-          {/* Weekly Challenge */}
           {mounted && (
             <section className="mb-10">
               <ChallengeCard locale={locale} />
             </section>
           )}
 
-          {/* Achievements grid */}
           <section className="mb-10">
             <h2
               className="mb-5 font-display text-[18px] font-semibold"
@@ -365,12 +259,11 @@ export default function ProfilePage() {
             <ProfileAchievementsGrid locale={locale} />
           </section>
 
-          {/* Data management */}
           <section className="border-t pt-6 pb-12" style={{ borderColor: 'var(--color-border)' }}>
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-text-dim/50">
-              {locale === 'fr' ? 'Données' : 'Data'}
+              {t('profile.dataSection', locale)}
             </p>
-            <DataActions locale={locale} />
+            <ProgressDataActions locale={locale} variant="page" />
           </section>
         </div>
       </main>
