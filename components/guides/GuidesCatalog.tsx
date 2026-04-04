@@ -1,3 +1,4 @@
+import type { Ref } from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import type { DigitalGuideArchive } from '@/data/digital-guides';
@@ -66,10 +67,13 @@ function ArchiveSectionHeader({ archive }: { archive: DigitalGuideArchive }) {
 export function GuidesCatalog({
   sections,
   suppressShellChrome = false,
+  scrollContainerRef,
 }: {
   sections: GuidesCatalogSection[];
   /** When true, omit built-in header bars (parent provides map-aligned chrome + tabs). */
   suppressShellChrome?: boolean;
+  /** Optional ref on the primary vertical scroll surface (e.g. hub swipe navigation). */
+  scrollContainerRef?: Ref<HTMLDivElement>;
 }) {
   const firstSlug = sections[0]?.archive.slug ?? 'guides';
 
@@ -126,8 +130,11 @@ export function GuidesCatalog({
         </>
       )}
 
-      <div className={`relative z-10 flex-1 overflow-y-auto scrollbar-thin ${suppressShellChrome ? 'min-h-0' : ''}`}>
-        <div className="relative mx-auto max-w-6xl px-5 pb-28 pt-10 md:px-8 md:pt-14">
+      <div
+        ref={scrollContainerRef}
+        className={`relative z-10 flex-1 overflow-y-auto scrollbar-thin ${suppressShellChrome ? 'min-h-0' : ''}`}
+      >
+        <div className="relative mx-auto max-w-6xl pb-[max(7rem,env(safe-area-inset-bottom)+4.5rem)] pt-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-28 md:pt-14">
           {sections.map(({ archive, products }, index) => {
             const gridId = `${archive.slug}-grid`;
 

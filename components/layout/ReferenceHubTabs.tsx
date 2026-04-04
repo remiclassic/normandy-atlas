@@ -6,74 +6,56 @@ import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { atlasSubpageBackChipClass } from '@/components/layout/AtlasSubpageChromeHeader';
 import { useLocale } from '@/hooks/use-atlas';
-import { pickI18n } from '@/lib/locale';
-import { digitalGuidesTooltipLabel } from '@/lib/digital-guides-ui';
-import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
+import { getReferenceHubTabDefs } from '@/lib/reference-hub-tabs';
 import { t } from '@/lib/ui-strings';
 
-const tabBtn =
-  'shrink-0 whitespace-nowrap rounded-md px-2.5 py-1.5 text-[length:var(--atlas-text-sm)] font-semibold uppercase tracking-wide transition-colors sm:px-3 sm:text-[length:var(--atlas-text-base)]';
+const tabActive =
+  'bg-chrome-fill-active text-parchment shadow-[inset_0_0_0_1px_rgba(196,169,98,0.25)]';
+const tabInactive = 'text-text-muted hover:bg-chrome-fill-badge hover:text-parchment';
+
+const tabLinkClass =
+  'flex min-h-11 touch-manipulation items-center justify-center rounded-md text-center text-[length:var(--atlas-text-sm)] font-semibold uppercase tracking-wide transition-colors sm:text-[length:var(--atlas-text-base)]' +
+  ' min-w-0 flex-1 px-2 py-2.5 md:min-h-10 md:flex-none md:snap-start md:shrink-0 md:px-3 md:py-1.5';
 
 /**
- * Secondary nav: back to map (absolute left); tab cluster centered in the full bar (viewport center, aligned with content below).
- * No hub tab — /reference is reached from the map “Guides & reference” control only.
+ * Hub tabs; back-to-map on `md+` lives here, on smaller viewports in `AtlasSubpageChromeHeader`.
+ * Below `md`, tabs are a full-width segmented row (no horizontal scroll). From `md`, back + hub links are centered as a group. Prefs/tools stay in the menu.
  */
 const ReferenceHubTabs = memo(function ReferenceHubTabs() {
   const pathname = usePathname() ?? '';
   const locale = useLocale();
-  const guidesPublic = isDigitalGuidesPublic();
 
-  const tabs = useMemo(() => {
-    const journal = {
-      href: '/journal',
-      label: t('atlasJournal.tooltip.label', locale),
-      match: (p: string) => p === '/journal' || p.startsWith('/journal/'),
-    };
-    const companion = {
-      href: '/companion',
-      label: t('companion.title', locale),
-      match: (p: string) => p === '/companion' || p.startsWith('/companion/'),
-    };
-    const guides = {
-      href: '/guides',
-      label: pickI18n(digitalGuidesTooltipLabel, locale),
-      match: (p: string) => p === '/guides' || p.startsWith('/guides/'),
-    };
-    if (guidesPublic) {
-      return [guides, journal, companion];
-    }
-    return [journal, companion];
-  }, [guidesPublic, locale]);
+  const tabs = useMemo(() => getReferenceHubTabDefs(locale), [locale]);
 
   const backLabel = t('companion.back', locale);
 
   return (
     <nav
       aria-label={t('referenceHub.tabsAria', locale)}
-      className="relative w-full shrink-0 border-b border-chrome-border/60 py-2 sm:py-2.5"
+      className="relative w-full shrink-0 border-b border-chrome-border/60"
       style={{ background: 'var(--color-chrome-fill)' }}
     >
-      <Link
-        href="/"
-        className={`${atlasSubpageBackChipClass} absolute left-3 top-1/2 z-10 -translate-y-1/2 sm:left-4`}
-        aria-label={backLabel}
-      >
-        <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
-        <span className="max-w-[9rem] truncate sm:max-w-none">{backLabel}</span>
-      </Link>
-      <div className="mx-auto flex w-full max-w-6xl justify-center px-5 md:px-8">
-        <div className="flex max-w-full flex-wrap items-center justify-center gap-1 sm:gap-1.5">
+      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col items-stretch gap-2 py-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:gap-3 sm:py-2.5 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-2 md:px-8">
+        <Link
+          href="/"
+          className={`${atlasSubpageBackChipClass} hidden max-w-[min(46vw,10.5rem)] shrink-0 touch-manipulation items-center justify-center max-sm:min-h-11 md:inline-flex md:max-w-none`}
+          aria-label={backLabel}
+        >
+          <ArrowLeft className="h-3.5 w-3.5 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
+          <span className="min-w-0 truncate">{backLabel}</span>
+        </Link>
+
+        <div
+          className="flex min-h-11 min-w-0 w-full justify-center gap-1.5 md:min-h-0 md:w-auto md:max-w-full md:flex-wrap md:justify-center"
+          role="presentation"
+        >
           {tabs.map((tab) => {
             const active = tab.match(pathname);
             return (
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`${tabBtn} ${
-                  active
-                    ? 'bg-chrome-fill-active text-parchment shadow-[inset_0_0_0_1px_rgba(196,169,98,0.25)]'
-                    : 'text-text-muted hover:bg-chrome-fill-badge hover:text-parchment'
-                }`}
+                className={`${tabLinkClass} truncate ${active ? tabActive : tabInactive}`}
                 aria-current={active ? 'page' : undefined}
               >
                 {tab.label}

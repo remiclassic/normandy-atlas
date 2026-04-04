@@ -2,7 +2,7 @@
 
 ## A Guide to Places, Time, and Evidence
 
-This volume is the official companion to **Norman Atlas**, an interactive historical atlas. It is written for readers who want to understand not only the history the map explores, but the *cartographic argument* the software makes: how time is framed, how territory is shaded, how movement is drawn, and how evidence is labelled.
+This volume is the companion to **Norman Atlas**, an interactive historical atlas. It is written for readers who want to understand not only the history the map explores, but the *cartographic argument* the software makes: how time is framed, how territory is shaded, how movement is drawn, and how evidence is labelled.
 
 :::scenario-brief
 **Objective:** Finish able to split *narrative* from *UI contract* — same geography, two reading speeds.  

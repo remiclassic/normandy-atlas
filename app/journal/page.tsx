@@ -27,6 +27,8 @@ import { buildMapHref } from '@/lib/map-deep-link';
 import { listResumableStoryRows } from '@/lib/story-resume';
 import { readStoryProgressMap } from '@/lib/story-progress';
 import type { AtlasLocale } from '@/core/types';
+import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
+import { useReferenceHubSwipeNav } from '@/hooks/use-reference-hub-swipe-nav';
 
 interface TocItem {
   id: string;
@@ -66,7 +68,7 @@ const SectionHeading = memo(function SectionHeading({ id, children }: { id: stri
   return (
     <h2
       id={id}
-      className="journal-section-h2 scroll-mt-20 font-display font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)]"
+      className="journal-section-h2 scroll-mt-[var(--atlas-hub-sticky-offset,7.75rem)] font-display font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)]"
     >
       {children}
     </h2>
@@ -531,6 +533,8 @@ export default function JournalPage() {
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
 
+  useReferenceHubSwipeNav(contentRef, { disabled: mobileTocOpen });
+
   const stopLedgerPulseOnJournalNavigate = useCallback(() => {
     useMapStore.getState().endLedgerCelebration();
   }, []);
@@ -624,7 +628,7 @@ export default function JournalPage() {
         Skip to content
       </a>
 
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader
           onOpenToolsMenu={() => setToolsOpen(true)}
           mobileToc={{
@@ -653,7 +657,7 @@ export default function JournalPage() {
             className="absolute inset-0 z-20 md:hidden"
             style={{ background: 'var(--color-surface-glass)', backdropFilter: 'blur(20px)' }}
           >
-            <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin p-6">
+            <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin px-6 pb-6 pt-[max(1.5rem,env(safe-area-inset-top)+0.75rem)]">
               <SectionLabel>{locale === 'fr' ? 'Sommaire' : 'Contents'}</SectionLabel>
               <TocNav items={tocItems} activeId={activeSection} onItemClick={scrollToSection} />
             </div>
@@ -663,12 +667,10 @@ export default function JournalPage() {
         {/* Content */}
         <div
           ref={contentRef}
-          className="relative z-10 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin px-5 py-10 md:px-8 md:py-14"
+          className="relative z-10 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pb-[max(2.5rem,env(safe-area-inset-bottom)+1.5rem)] md:px-8 md:py-14 md:pb-14"
         >
           <div className="max-w-3xl">
-            <h1 className="journal-main-title mb-10 scroll-mt-20 font-display font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)] sm:mb-12">
-              {t('atlasJournal.tooltip.label', locale)}
-            </h1>
+            <h1 className="sr-only">{t('atlasJournal.tooltip.label', locale)}</h1>
             {/* Welcome */}
             {welcomeCopy && (
               <section>

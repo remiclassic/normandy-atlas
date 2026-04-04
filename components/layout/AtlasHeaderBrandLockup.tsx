@@ -13,11 +13,14 @@ export const AtlasHeaderBrandLockup = memo(function AtlasHeaderBrandLockup({
   className = '',
   /** Stronger contrast (e.g. menu drawer on dark popover) */
   emphasis = false,
+  /** Hide subtitle (not the `|`) below `xl` to free header space (chrome headers only). */
+  collapseSubtitleNarrow = false,
 }: {
   subtitle: string;
   as?: 'h1' | 'div';
   className?: string;
   emphasis?: boolean;
+  collapseSubtitleNarrow?: boolean;
 }) {
   const locale = useLocale();
   const name = t('credits.eyebrow', locale);
@@ -31,9 +34,14 @@ export const AtlasHeaderBrandLockup = memo(function AtlasHeaderBrandLockup({
     ? 'shrink-0 translate-y-px text-[13px] font-extralight leading-none text-text-dim/55 sm:text-[14px]'
     : 'shrink-0 translate-y-px text-[13px] font-extralight leading-none text-text-muted/45 sm:text-[14px]';
 
+  const pipeNarrowCls =
+    collapseSubtitleNarrow ? 'hidden xl:inline' : '';
+
   const subCls = emphasis
     ? 'min-w-0 flex-1 text-[10px] font-medium leading-snug text-text-dim sm:truncate sm:text-[11px]'
     : 'min-w-0 flex-1 text-[9px] font-medium leading-snug tracking-wide text-text-muted/65 sm:truncate sm:text-[10px]';
+
+  const subNarrowCls = collapseSubtitleNarrow ? 'hidden xl:block' : '';
 
   return (
     <Tag
@@ -41,10 +49,10 @@ export const AtlasHeaderBrandLockup = memo(function AtlasHeaderBrandLockup({
       {...(Tag === 'h1' ? { 'aria-label': fullLabel } : {})}
     >
       <span className={nameCls}>{name}</span>
-      <span className={pipeCls} aria-hidden>
+      <span className={`${pipeCls} ${pipeNarrowCls}`} aria-hidden>
         |
       </span>
-      <span className={subCls}>{subtitle}</span>
+      <span className={`${subCls} ${subNarrowCls}`}>{subtitle}</span>
     </Tag>
   );
 });

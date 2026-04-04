@@ -239,7 +239,7 @@ export function CompanionMarkdown({ source }: { source: string }) {
       blocks.push(
         <h3
           key={`b${blk++}`}
-          className="companion-heading-h3 mt-8 mb-3 scroll-mt-24 font-display font-semibold uppercase tracking-[0.04em]"
+          className="companion-heading-h3 mt-8 mb-3 scroll-mt-[var(--atlas-hub-sticky-offset,7.75rem)] font-display font-semibold uppercase tracking-[0.04em]"
           style={{ color: 'var(--color-gold-muted)' }}
         >
           {renderInline(line.slice(4).trim(), `h3-${blk}`)}
@@ -255,7 +255,7 @@ export function CompanionMarkdown({ source }: { source: string }) {
         <h2
           key={`b${blk++}`}
           id={slugifyHeading(label)}
-          className="companion-h2 companion-heading-h2 mt-12 mb-4 scroll-mt-24 border-b pb-2 font-display font-semibold uppercase tracking-[0.05em]"
+          className="companion-h2 companion-heading-h2 mt-12 mb-4 scroll-mt-[var(--atlas-hub-sticky-offset,7.75rem)] border-b pb-2 font-display font-semibold uppercase tracking-[0.05em]"
           style={{ borderColor: 'var(--color-border)', color: 'var(--color-gold)' }}
         >
           {renderInline(label, `h2-${blk}`)}

@@ -223,7 +223,10 @@ export default function AtlasHomeShell() {
         <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
-        <div className="flex shrink-0 items-center gap-1" data-onboarding="theme">
+        <div
+          className="hidden shrink-0 items-center gap-1 xl:flex"
+          data-onboarding="theme"
+        >
           <ChromeIconTooltip
             label={t('textSize.tooltip.label', locale)}
             hint={t('textSize.tooltip.hint', locale)}
@@ -354,6 +357,7 @@ export default function AtlasHomeShell() {
                   {storyLibraryOpen ? (
                     <AtlasHeaderBrandLockup
                       as="h1"
+                      collapseSubtitleNarrow
                       subtitle={t('storyLibrary.subtitle', locale)}
                     />
                   ) : (
@@ -362,7 +366,11 @@ export default function AtlasHomeShell() {
                       hint={t('header.tagline', locale)}
                       wrapperClassName="inline-flex min-w-0 max-w-full items-center"
                     >
-                      <AtlasHeaderBrandLockup as="h1" subtitle={t('header.tagline', locale)} />
+                      <AtlasHeaderBrandLockup
+                        as="h1"
+                        collapseSubtitleNarrow
+                        subtitle={t('header.tagline', locale)}
+                      />
                     </ChromeIconTooltip>
                   )}
                 </div>

@@ -4,9 +4,9 @@ import { extractCompanionToc, getCompanionSource } from '@/lib/load-companion';
 import './companion-tactical.css';
 import './print.css';
 
-const title = 'Reading the Norman Atlas — Official companion | Norman Atlas';
+const title = 'Reading the Norman Atlas — Companion | Norman Atlas';
 const description =
-  'Official companion to Norman Atlas: narrative geography plus tactical UI notes — eras, layers, evidence grades, scenarios, and the atlas contract.';
+  'Companion to Norman Atlas: narrative geography plus tactical UI notes — eras, layers, evidence grades, scenarios, and the atlas contract.';
 
 export const metadata: Metadata = {
   title,

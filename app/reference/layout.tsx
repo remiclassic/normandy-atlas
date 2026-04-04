@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 const title = 'Guides & reference — Norman Atlas';
 const description =
-  'Atlas journal, official companion, and digital guides: one place to choose how you read and explore the atlas.';
+  'Atlas journal, companion, and digital guides: one place to choose how you read and explore the atlas.';
 
 export const metadata: Metadata = {
   title,

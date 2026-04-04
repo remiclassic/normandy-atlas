@@ -299,16 +299,6 @@ html.text-size-large {
   --atlas-text-3xl: 28px;
 }
 
-/* Atlas Journal: main title scales with Text size (Aa) preference */
-.journal-main-title {
-  font-size: clamp(1.5rem, 4vw, 2.35rem);
-  line-height: 1.12;
-}
-
-html.text-size-large .journal-main-title {
-  font-size: clamp(1.62rem, 4.2vw, 2.65rem);
-}
-
 .journal-section-h2 {
   font-size: clamp(1.25rem, 3.2vw, 1.85rem);
 }

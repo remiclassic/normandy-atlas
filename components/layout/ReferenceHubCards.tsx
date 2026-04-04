@@ -173,11 +173,11 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
             </>
           );
 
-          const frameClass = `group relative flex h-full min-h-[28rem] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-chrome-border-strong bg-[var(--color-surface)] shadow-[var(--shadow-panel)] transition-[border-color,box-shadow] duration-300 md:min-h-0 hover:border-gold/35 hover:shadow-[0_12px_40px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background`;
+          const frameClass = `group relative flex h-full min-h-[22rem] w-full min-w-0 flex-col overflow-hidden rounded-lg border border-chrome-border-strong bg-[var(--color-surface)] shadow-[var(--shadow-panel)] transition-[border-color,box-shadow] duration-300 md:min-h-0 hover:border-gold/35 hover:shadow-[0_12px_40px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background`;
 
           if (card.disabled) {
             return (
-              <li key={card.key} className="flex h-full min-h-[28rem] md:min-h-0">
+              <li key={card.key} className="flex h-full min-h-[22rem] md:min-h-0">
                 <div
                   className={`${frameClass} cursor-not-allowed opacity-[0.72] hover:border-chrome-border-strong hover:shadow-[var(--shadow-panel)]`}
                   aria-disabled="true"
@@ -189,7 +189,7 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
           }
 
           return (
-            <li key={card.key} className="flex h-full min-h-[28rem] md:min-h-0">
+            <li key={card.key} className="flex h-full min-h-[22rem] md:min-h-0">
               <Link
                 href={card.href}
                 onClick={card.onNavigate}

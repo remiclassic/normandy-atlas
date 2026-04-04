@@ -10,6 +10,8 @@ import { useMapStore } from '@/lib/store';
 import { t } from '@/lib/ui-strings';
 import { CompanionMarkdown } from '@/lib/companion-markdown';
 import { companionCampaignNav } from '@/content/companion/meta';
+import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
+import { useReferenceHubSwipeNav } from '@/hooks/use-reference-hub-swipe-nav';
 
 export interface CompanionFlatTocItem {
   id: string;
@@ -94,6 +96,8 @@ export default function CompanionShell({
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
 
+  useReferenceHubSwipeNav(contentRef, { disabled: mobileTocOpen });
+
   const stopLedgerPulseOnJournalNavigate = useCallback(() => {
     useMapStore.getState().endLedgerCelebration();
   }, []);
@@ -156,7 +160,7 @@ export default function CompanionShell({
         Skip to content
       </a>
 
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <div className="companion-hide-print">
           <AtlasSubpageChromeHeader
             onOpenToolsMenu={() => setToolsOpen(true)}
@@ -189,7 +193,7 @@ export default function CompanionShell({
             className="companion-hide-print absolute inset-0 z-20 md:hidden"
             style={{ background: 'var(--color-surface-glass)', backdropFilter: 'blur(20px)' }}
           >
-            <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin p-6">
+            <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin px-6 pb-6 pt-[max(1.5rem,env(safe-area-inset-top)+0.75rem)]">
               <SectionLabel>{t('companion.contents', locale)}</SectionLabel>
               <CompanionTocNav
                 ariaLabel={t('companion.tocNavAria', locale)}
@@ -204,7 +208,7 @@ export default function CompanionShell({
         <main
           id="companion-content"
           ref={contentRef}
-          className="companion-print-main relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin bg-[var(--color-background)] px-5 py-10 md:px-8 md:py-14"
+          className="companion-print-main relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin bg-[var(--color-background)] py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pb-[max(2.5rem,env(safe-area-inset-bottom)+1.5rem)] md:px-8 md:py-14 md:pb-14"
         >
           <CompanionMarkdown source={source} />
           <div className="h-24" />
