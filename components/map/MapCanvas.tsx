@@ -128,7 +128,7 @@ function pickAtlasRouteSegment(
   return picks[0].object as ResolvedSegment;
 }
 
-function atlasRouteTooltipFields(seg: ResolvedSegment): Pick<TooltipData, 'title' | 'subtitle' | 'detail'> {
+function atlasRouteTooltipFields(seg: ResolvedSegment): Pick<TooltipData, 'title' | 'subtitle' | 'detail' | 'hint'> {
   const locale = useMapStore.getState().locale;
   const journeyName = seg.journeyId ? pickI18n(getJourney(seg.journeyId)?.name ?? { en: '' }, locale) || undefined : undefined;
   const normanNote = seg.normanOriginNote ? pickI18n(seg.normanOriginNote, locale) : undefined;
@@ -137,6 +137,7 @@ function atlasRouteTooltipFields(seg: ResolvedSegment): Pick<TooltipData, 'title
     title: seg.segmentTooltip ? pickI18n(seg.segmentTooltip, locale) : seg.id.replace(/^seg-/, '').replace(/-/g, ' '),
     subtitle,
     detail: seg.segmentDetail ? pickI18n(seg.segmentDetail, locale) : undefined,
+    hint: seg.readingLinks?.length ? 'Click for details & sources' : undefined,
   };
 }
 

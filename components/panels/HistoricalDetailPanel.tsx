@@ -36,6 +36,7 @@ import { emitProgressEvent } from '@/lib/progress';
 import type { AtlasEventType } from '@/lib/progress';
 import type { SelectionKind } from '@/types';
 import YdnaLineageDetail from './YdnaLineageDetail';
+import ReadingLinksSection from '@/components/atlas/ReadingLinksSection';
 
 const CATEGORY_LABELS: Record<SettlementCategory, string> = {
   city: 'City',
@@ -582,6 +583,8 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
           <p className="text-[13px] leading-[1.75] text-text-muted">{pickI18n(person.legacy, locale)}</p>
         </div>
       )}
+
+      <ReadingLinksSection links={person.readingLinks} locale={locale} />
 
       {person.surname && person.surnameOriginCategory && (
         <>
@@ -1873,6 +1876,8 @@ function AtlasRouteDetail({ segmentId, eraId }: { segmentId: string; eraId: stri
               </p>
             </div>
           )}
+
+          <ReadingLinksSection links={segment.readingLinks} locale={locale} className="pt-2 border-t border-chrome-border" />
 
           {journey?.id === 'journey-couture' && (journey.surnameNote || journey.longForm) && (
             <div className="space-y-4 pt-4 border-t border-chrome-border-strong">

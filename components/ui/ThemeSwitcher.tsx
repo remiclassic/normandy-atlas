@@ -10,7 +10,7 @@ import type { UiTheme } from '@/lib/ui-theme';
 const BTN =
   'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-200';
 
-function ThemeSwitcherInner() {
+function ThemeSwitcherInner({ embedded = false }: { embedded?: boolean }) {
   const locale = useLocale();
   const uiTheme = useMapStore((s) => s.uiTheme);
   const setUiTheme = useMapStore((s) => s.setUiTheme);
@@ -24,7 +24,11 @@ function ThemeSwitcherInner() {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
+      className={
+        embedded
+          ? 'flex items-center gap-0.5'
+          : 'flex items-center gap-0.5 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm'
+      }
       role="group"
       aria-label={t('theme.label', locale)}
     >

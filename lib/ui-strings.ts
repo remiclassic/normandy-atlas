@@ -109,6 +109,27 @@ const STRINGS = {
     it: 'Era corrente',
     de: 'Aktuelle Epoche',
   },
+  'header.moreTools': {
+    en: 'More tools',
+    fr: 'Autres outils',
+    es: 'Más herramientas',
+    it: 'Altri strumenti',
+    de: 'Weitere Werkzeuge',
+  },
+  'header.moreTools.hint': {
+    en: 'Changelog, share, replay tour',
+    fr: 'Journal des mises à jour, partage, relecture guidée',
+    es: 'Novedades, compartir, repetir visita guiada',
+    it: 'Novità, condividi, ripeti tour guidato',
+    de: 'Änderungsprotokoll, Teilen, Tour erneut',
+  },
+  'header.moreTools.replayTour': {
+    en: 'Replay guided tour',
+    fr: 'Rejouer la visite guidée',
+    es: 'Repetir visita guiada',
+    it: 'Ripeti tour guidato',
+    de: 'Geführte Tour erneut starten',
+  },
 
   'theme.label': {
     en: 'Interface',
@@ -2140,6 +2161,56 @@ const STRINGS = {
     es: 'Paso {n}',
     it: 'Passo {n}',
     de: 'Schritt {n}',
+  },
+  // --- Sources & reading links -----------------------------------------------
+  'sources.sectionTitle': {
+    en: 'Sources & reading',
+    fr: 'Sources & lectures',
+    es: 'Fuentes y lecturas',
+    it: 'Fonti e letture',
+    de: 'Quellen & Lektüre',
+  },
+  'sources.opensExternal': {
+    en: 'Opens in a new tab',
+    fr: 'S\'ouvre dans un nouvel onglet',
+    es: 'Se abre en una pestaña nueva',
+    it: 'Si apre in una nuova scheda',
+    de: 'Öffnet in neuem Tab',
+  },
+  'sources.kind.primary': {
+    en: 'Primary',
+    fr: 'Primaire',
+    es: 'Primaria',
+    it: 'Primaria',
+    de: 'Primär',
+  },
+  'sources.kind.synthesis': {
+    en: 'Synthesis',
+    fr: 'Synthèse',
+    es: 'Síntesis',
+    it: 'Sintesi',
+    de: 'Synthese',
+  },
+  'sources.kind.popular': {
+    en: 'Popular',
+    fr: 'Grand public',
+    es: 'Divulgación',
+    it: 'Divulgazione',
+    de: 'Populär',
+  },
+  'sources.kind.museum': {
+    en: 'Museum',
+    fr: 'Musée',
+    es: 'Museo',
+    it: 'Museo',
+    de: 'Museum',
+  },
+  'sources.kind.database': {
+    en: 'Database',
+    fr: 'Base de données',
+    es: 'Base de datos',
+    it: 'Banca dati',
+    de: 'Datenbank',
   },
 } as const satisfies StringTable;
 

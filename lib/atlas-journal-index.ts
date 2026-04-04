@@ -196,7 +196,7 @@ function buildSegmentRows(locale: AtlasLocale): JournalIndexRow[] {
         id: s.id,
         title,
         excerpt,
-        searchText: haystack(title, excerpt, s.id, s.kind, ...s.eraIds),
+        searchText: haystack(title, excerpt, s.id, s.kind, ...s.eraIds, ...(s.readingLinks ?? []).map((l) => pickI18n(l.label, locale))),
         mapLink: buildMapHref({ era: eraId, segment: s.id }),
         meta: { eraId, kind: s.kind },
       };

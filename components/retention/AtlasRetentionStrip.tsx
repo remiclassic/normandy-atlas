@@ -82,6 +82,29 @@ const AtlasHeaderRetentionChips = memo(function AtlasHeaderRetentionChips({
     );
   }
 
+  if (hasStreak && hasChallenge) {
+    const combinedHint = `${streakLabel} · ${challengeLabel}`;
+    return (
+      <ChromeIconTooltip label={combinedHint}>
+        <Link
+          href="/profile"
+          className="flex h-5 max-w-[200px] shrink-0 items-center gap-1.5 rounded-md border border-chrome-border/35 bg-chrome-fill/35 px-1.5 text-[10px] font-medium tabular-nums backdrop-blur-sm transition-colors duration-200 hover:border-chrome-border/55 hover:bg-chrome-fill"
+          aria-label={combinedHint}
+        >
+          <span className="flex min-w-0 items-center gap-0.5 text-ember/75">
+            <Flame className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden />
+            <span className="truncate">{streakLabel}</span>
+          </span>
+          <span className="h-2.5 w-px shrink-0 bg-chrome-divider/80" aria-hidden />
+          <span className="flex min-w-0 items-center gap-0.5 text-gold/65">
+            <Trophy className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden />
+            <span className="truncate">{challengeLabel}</span>
+          </span>
+        </Link>
+      </ChromeIconTooltip>
+    );
+  }
+
   return (
     <>
       {hasStreak && (

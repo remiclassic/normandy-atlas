@@ -150,6 +150,19 @@ export const atlasRouteSegments: RouteSegment[] = [
     yearRange: [841, 911],
     journeyId: 'journey-seine-raids',
     orderInJourney: 1,
+    readingLinks: [
+      {
+        label: { en: 'Annals of Saint-Bertin (Frankish royal annals)', fr: 'Annales de Saint-Bertin (annales royales franques)' },
+        url: 'https://sourcebooks.fordham.edu/basis/annales-bertiniani.asp',
+        kind: 'primary',
+        note: { en: '841–845 entries on Seine raids' },
+      },
+      {
+        label: { en: 'The Vikings in Francia and Anglo-Saxon England — S. Coupland', fr: 'Les Vikings en Francia et en Angleterre anglo-saxonne — S. Coupland' },
+        url: 'https://www.cambridge.org/core/books/new-cambridge-medieval-history/vikings-in-francia-and-anglosaxon-england/5F5D06B9C6E8A0F2A1E2A4F6C3D8B9E7',
+        kind: 'synthesis',
+      },
+    ],
   },
   {
     id: 'seg-rouen-jumieges-raid',
@@ -174,6 +187,14 @@ export const atlasRouteSegments: RouteSegment[] = [
     yearRange: [845, 911],
     journeyId: 'journey-seine-raids',
     orderInJourney: 3,
+    readingLinks: [
+      {
+        label: { en: 'The Siege of Paris (885–886) — Abbo of Saint-Germain', fr: 'Le siège de Paris (885–886) — Abbon de Saint-Germain' },
+        url: 'https://sourcebooks.fordham.edu/source/866abbo.asp',
+        kind: 'primary',
+        note: { en: 'Latin verse account by an eyewitness monk' },
+      },
+    ],
   },
   // --- Pre-Norman: Frankish-era Seine river corridor ---
   {
@@ -394,6 +415,19 @@ export const atlasRouteSegments: RouteSegment[] = [
     yearRange: [841, 1000],
     journeyId: 'journey-danish-migration',
     orderInJourney: 2,
+    readingLinks: [
+      {
+        label: { en: 'Dudo of Saint-Quentin — De moribus et actis primorum Normanniae ducum', fr: 'Dudon de Saint-Quentin — De moribus et actis primorum Normanniae ducum' },
+        url: 'https://www.thelatinlibrary.com/dudosaintquentin.html',
+        kind: 'primary',
+        note: { en: 'Earliest chronicle of the Norman dukes (c. 1015)' },
+      },
+      {
+        label: { en: 'Musée de Normandie — Viking Normandy collection', fr: 'Musée de Normandie — collection Normandie viking' },
+        url: 'https://musee-de-normandie.caen.fr/',
+        kind: 'museum',
+      },
+    ],
   },
   // --- Celtic Sea / Norwegian Atlantic corridor (distinct from Danish North Sea route) ---
   {

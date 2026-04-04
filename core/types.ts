@@ -108,6 +108,17 @@ export type SegmentKind =
 
 export type EvidenceLevel = 'documentary_cluster' | 'synthesis' | 'archaeological' | 'tradition';
 
+// --- Reading Links (curated external references) ---
+
+export type ReadingLinkKind = 'primary' | 'synthesis' | 'popular' | 'museum' | 'database';
+
+export interface AtlasReadingLink {
+  label: I18nString;
+  url: string;
+  note?: I18nString;
+  kind?: ReadingLinkKind;
+}
+
 export interface RouteSegment {
   id: string;
   fromPlaceId: string;
@@ -129,6 +140,7 @@ export interface RouteSegment {
   normanRelated?: boolean;
   /** Specific note about the Norman-origin connection (birthplace, affiliation). */
   normanOriginNote?: I18nString;
+  readingLinks?: AtlasReadingLink[];
 }
 
 export interface ResolvedSegment extends RouteSegment {
@@ -148,6 +160,7 @@ export interface Journey {
   longForm?: I18nString;
   /** Optional etymology / name sidebar (kept separate from longForm for layout). */
   surnameNote?: I18nString;
+  readingLinks?: AtlasReadingLink[];
 }
 
 export interface ResolvedJourney extends Journey {
@@ -221,6 +234,7 @@ export interface StoryBeat {
   illustrations?: StoryBeatIllustrationSlide[];
   /** Alternate focus / copy / camera used when "Historical impact" view is active. */
   impactVariant?: StoryBeatImpactVariant;
+  readingLinks?: AtlasReadingLink[];
 }
 
 // --- Timeline Markers ---
@@ -252,6 +266,7 @@ export interface TimelineMarker {
   label: I18nString;
   action?: TimelineMarkerAction;
   detail?: I18nString;
+  readingLinks?: AtlasReadingLink[];
 }
 
 // --- People ---
@@ -298,6 +313,7 @@ export interface Person {
   guidedStoryArcId?: string;
   /** Norman identity or atlas-inclusion rationale, surfaced in the person detail panel. */
   atlasThroughline?: AtlasThroughline;
+  readingLinks?: AtlasReadingLink[];
 }
 
 // --- Methodology / Atlas Contract ---

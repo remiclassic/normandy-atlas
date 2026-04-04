@@ -16,6 +16,7 @@ import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
 import { emitProgressEvent } from '@/lib/progress';
+import ReadingLinksSection from '@/components/atlas/ReadingLinksSection';
 
 const CINEMATIC_ARC_IDS = new Set(['leif-erikson']);
 
@@ -462,6 +463,7 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                     <p className="text-[13px] leading-[1.85] text-text-muted/90">
                       {stepBody}
                     </p>
+                    <ReadingLinksSection links={rawBeat?.readingLinks} locale={locale} className="mt-4" />
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -687,6 +689,7 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                           {stepTitle}
                         </h3>
                         <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
+                        <ReadingLinksSection links={rawBeat?.readingLinks} locale={locale} className="mt-3" />
                       </motion.div>
                     </AnimatePresence>
                   );

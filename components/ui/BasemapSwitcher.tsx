@@ -9,7 +9,7 @@ import { t } from '@/lib/ui-strings';
 const BTN =
   'flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-200';
 
-function BasemapSwitcherInner() {
+function BasemapSwitcherInner({ embedded = false }: { embedded?: boolean }) {
   const locale = useLocale();
   const basemapMode = useMapStore((s) => s.basemapMode);
   const setBasemapMode = useMapStore((s) => s.setBasemapMode);
@@ -23,7 +23,11 @@ function BasemapSwitcherInner() {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
+      className={
+        embedded
+          ? 'flex items-center gap-0.5'
+          : 'flex items-center gap-0.5 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm'
+      }
       role="group"
       aria-label={t('basemap.group', locale)}
     >

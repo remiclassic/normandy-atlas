@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather, Share2 } from 'lucide-react';
+import AtlasHeaderMoreMenu from '@/components/layout/AtlasHeaderMoreMenu';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -24,7 +25,7 @@ import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
-import { ChangelogModal, ChangelogIconButton } from '@/components/layout/ChangelogModal';
+import { ChangelogModal } from '@/components/layout/ChangelogModal';
 import { SupportModal } from '@/components/layout/SupportModal';
 
 /** Set to true to restore Support the Atlas in the header, mobile menu, and creator modal. */
@@ -291,129 +292,134 @@ export default function AtlasHomeShell() {
 
   const desktopUtilitySlot = useMemo(
     () => (
-      <div className="flex items-center gap-0.5 text-text-muted/80">
-        {!storyLibraryOpen && <ReplayTourButton />}
-        <span data-onboarding="stories">
-          {storyLibraryOpen ? (
-            <ChromeIconTooltip
-              label={t('storyLibrary.backToMap', locale)}
-              hint={t('storyLibrary.subtitle', locale)}
-            >
-              <button
-                ref={storyLibraryCloseRef}
-                type="button"
-                onClick={closeStoryLibrary}
-                className="flex shrink-0 items-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
-                aria-label={t('storyLibrary.backToMap', locale)}
+      <div className="flex min-w-0 items-center gap-2 text-text-muted/80">
+        <div className="flex min-w-0 items-center gap-0.5 rounded-md border border-chrome-border/45 bg-chrome-fill/35 px-0.5 py-0.5 backdrop-blur-sm">
+          <span data-onboarding="stories">
+            {storyLibraryOpen ? (
+              <ChromeIconTooltip
+                label={t('storyLibrary.backToMap', locale)}
+                hint={t('storyLibrary.subtitle', locale)}
               >
-                <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
-                <span className="hidden sm:inline">{t('storyLibrary.backToMap', locale)}</span>
-              </button>
-            </ChromeIconTooltip>
-          ) : (
-            <ChromeIconTooltip
-              label={t('storyLibrary.tooltip.label', locale)}
-              hint={t('storyLibrary.tooltip.hint', locale)}
-            >
-              <button
-                type="button"
-                onClick={openStoryLibrary}
-                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
-                aria-label={t('storyLibrary.aria.open', locale)}
+                <button
+                  ref={storyLibraryCloseRef}
+                  type="button"
+                  onClick={closeStoryLibrary}
+                  className="flex shrink-0 items-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
+                  aria-label={t('storyLibrary.backToMap', locale)}
+                >
+                  <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
+                  <span className="hidden sm:inline">{t('storyLibrary.backToMap', locale)}</span>
+                </button>
+              </ChromeIconTooltip>
+            ) : (
+              <ChromeIconTooltip
+                label={t('storyLibrary.tooltip.label', locale)}
+                hint={t('storyLibrary.tooltip.hint', locale)}
               >
-                <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-              </button>
-            </ChromeIconTooltip>
-          )}
-        </span>
-        <ChromeIconTooltip
-          label={t('normanOverview.tooltip.label', locale)}
-          hint={t('normanOverview.tooltip.hint', locale)}
-        >
-          <NormanOverviewIconButton
-            onOpen={openNormanOverview}
-            ariaLabel={t('normanOverview.aria.open', locale)}
-            className={eraAccentHover}
+                <button
+                  type="button"
+                  onClick={openStoryLibrary}
+                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
+                  aria-label={t('storyLibrary.aria.open', locale)}
+                >
+                  <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+                </button>
+              </ChromeIconTooltip>
+            )}
+          </span>
+          <ChromeIconTooltip
+            label={t('normanOverview.tooltip.label', locale)}
+            hint={t('normanOverview.tooltip.hint', locale)}
+          >
+            <NormanOverviewIconButton
+              onOpen={openNormanOverview}
+              ariaLabel={t('normanOverview.aria.open', locale)}
+              className={eraAccentHover}
+            />
+          </ChromeIconTooltip>
+          <ChromeIconTooltip
+            label={t('atlasJournal.tooltip.label', locale)}
+            hint={t('atlasJournal.tooltip.hint', locale)}
+          >
+            <Link
+              href="/journal"
+              onClick={stopLedgerPulseOnJournalNavigate}
+              className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+              aria-label={t('atlasJournal.aria.open', locale)}
+            >
+              <Library className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+            </Link>
+          </ChromeIconTooltip>
+          <ChromeIconTooltip
+            label={t('profile.tooltip.label', locale)}
+            hint={t('profile.tooltip.hint', locale)}
+          >
+            <Link
+              href="/profile"
+              className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+              aria-label={t('profile.aria.open', locale)}
+            >
+              <Award className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+            </Link>
+          </ChromeIconTooltip>
+        </div>
+
+        <div className="flex min-w-0 shrink-0 items-center gap-1.5">
+          <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
+          <ChromeIconTooltip
+            label={t('ledger.tooltip.label', locale)}
+            hint={t('ledger.tooltip.hint', locale)}
+          >
+            <motion.button
+              key={ledgerAttentionActive ? 'ledger-attention' : 'ledger-idle'}
+              type="button"
+              onClick={openLedgerAndEndCelebration}
+              animate={ledgerAttentionActive
+                ? { scale: [1, 1.15, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
+                : { scale: 1 }}
+              transition={ledgerAttentionActive ? { duration: 0.8, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
+              className="flex h-5 w-5 shrink-0 items-center justify-center rounded transition-[background] duration-200 hover:bg-chrome-fill"
+              style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-muted)', opacity: 0.7 }}
+              aria-label={t('ledger.aria.open', locale)}
+              data-ledger-entry
+            >
+              <BookOpen className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+            </motion.button>
+          </ChromeIconTooltip>
+          <AtlasHeaderMoreMenu
+            onShare={handleShareView}
+            onOpenChangelog={openChangelog}
+            storyLibraryOpen={storyLibraryOpen}
           />
-        </ChromeIconTooltip>
-        <ChromeIconTooltip
-          label={t('atlasJournal.tooltip.label', locale)}
-          hint={t('atlasJournal.tooltip.hint', locale)}
+        </div>
+
+        <div className="hidden h-3 w-px shrink-0 bg-chrome-divider sm:block" aria-hidden />
+
+        <div
+          className="flex shrink-0 items-center gap-1 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
+          data-onboarding="theme"
         >
-          <Link
-            href="/journal"
-            onClick={stopLedgerPulseOnJournalNavigate}
-            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-            aria-label={t('atlasJournal.aria.open', locale)}
+          <ChromeIconTooltip
+            label={t('textSize.tooltip.label', locale)}
+            hint={t('textSize.tooltip.hint', locale)}
           >
-            <Library className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-          </Link>
-        </ChromeIconTooltip>
-        <ChromeIconTooltip
-          label={t('profile.tooltip.label', locale)}
-          hint={t('profile.tooltip.hint', locale)}
-        >
-          <Link
-            href="/profile"
-            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-            aria-label={t('profile.aria.open', locale)}
-          >
-            <Award className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-          </Link>
-        </ChromeIconTooltip>
-        <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
-        <ChromeIconTooltip
-          label={t('ledger.tooltip.label', locale)}
-          hint={t('ledger.tooltip.hint', locale)}
-        >
-          <motion.button
-            key={ledgerAttentionActive ? 'ledger-attention' : 'ledger-idle'}
-            type="button"
-            onClick={openLedgerAndEndCelebration}
-            animate={ledgerAttentionActive
-              ? { scale: [1, 1.15, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
-              : { scale: 1 }}
-            transition={ledgerAttentionActive ? { duration: 0.8, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
-            className="flex h-5 w-5 shrink-0 items-center justify-center rounded transition-[background] duration-200 hover:bg-chrome-fill"
-            style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-muted)', opacity: 0.7 }}
-            aria-label={t('ledger.aria.open', locale)}
-            data-ledger-entry
-          >
-            <BookOpen className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-          </motion.button>
-        </ChromeIconTooltip>
-        <ChromeIconTooltip
-          label={t('changelog.tooltip.label', locale)}
-          hint={t('changelog.tooltip.hint', locale)}
-        >
-          <ChangelogIconButton onOpen={openChangelog} ariaLabel={t('changelog.aria.open', locale)} />
-        </ChromeIconTooltip>
-        <ChromeIconTooltip
-          label={t('shareView.tooltip.label', locale)}
-          hint={t('shareView.tooltip.hint', locale)}
-        >
-          <button
-            type="button"
-            onClick={handleShareView}
-            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-            aria-label={t('shareView.aria', locale)}
-          >
-            <Share2 className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-          </button>
-        </ChromeIconTooltip>
-        <div className="mx-0.5 h-3 w-px bg-chrome-divider" />
-        <ChromeIconTooltip
-          label={t('textSize.tooltip.label', locale)}
-          hint={t('textSize.tooltip.hint', locale)}
-        >
-          <TextSizeMenu />
-        </ChromeIconTooltip>
-        <span className="flex items-center gap-0.5" data-onboarding="theme">
-          <ThemeSwitcher />
-          {!storyLibraryOpen && <BasemapSwitcher />}
-        </span>
-        <BackgroundMusic floating={false} />
-        <LanguageSwitcher />
+            <TextSizeMenu />
+          </ChromeIconTooltip>
+          <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+          <ThemeSwitcher embedded />
+          {!storyLibraryOpen && (
+            <>
+              <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+              <BasemapSwitcher embedded />
+            </>
+          )}
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1">
+          <BackgroundMusic floating={false} />
+          <LanguageSwitcher />
+        </div>
+
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
       </div>
     ),

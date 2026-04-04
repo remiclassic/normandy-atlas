@@ -229,6 +229,24 @@ export const atlasPeople: Person[] = [
         de: 'Fondateur de la principauté normande',
       },
     },
+    readingLinks: [
+      {
+        label: { en: 'Dudo of Saint-Quentin — History of the Normans (c. 1015)', fr: 'Dudon de Saint-Quentin — Histoire des Normands (v. 1015)' },
+        url: 'https://www.thelatinlibrary.com/dudosaintquentin.html',
+        kind: 'primary',
+        note: { en: 'Earliest ducal chronicle, commissioned by Richard I' },
+      },
+      {
+        label: { en: 'David Crouch — The Normans: The History of a Dynasty', fr: 'David Crouch — Les Normands : l\'histoire d\'une dynastie' },
+        url: 'https://www.bloomsbury.com/uk/normans-9781852855956/',
+        kind: 'synthesis',
+      },
+      {
+        label: { en: 'Bayeux Museum — Viking origins of Normandy', fr: 'Musée de Bayeux — Origines vikings de la Normandie' },
+        url: 'https://www.bayeuxmuseum.com/',
+        kind: 'museum',
+      },
+    ],
   },
   {
     id: 'william-the-conqueror',
