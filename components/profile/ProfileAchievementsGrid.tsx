@@ -72,10 +72,7 @@ function groupByCategory(milestones: Record<string, { unlockedAt: number }>): Re
 
 function achievementIconFrameClass(unlocked: boolean): string {
   return [
-    'relative shrink-0 overflow-hidden rounded-sm',
-    'border-2 border-[var(--color-border-bright)]',
-    'bg-[linear-gradient(165deg,#252016_0%,#120f0c_45%,#0a0908_100%)]',
-    'shadow-[inset_0_1px_0_rgba(255,255,255,0.06),inset_0_-8px_24px_rgba(0,0,0,0.45)]',
+    'relative shrink-0 overflow-hidden rounded-sm atlas-profile-achievement-icon-frame',
     unlocked ? 'ring-1 ring-[var(--color-gold)]/25' : 'opacity-95',
   ].join(' ');
 }
@@ -110,8 +107,8 @@ const AchievementRow = memo(function AchievementRow({
         'border-l-[3px] transition-[background,box-shadow] duration-200',
         TIER_ACCENT[def.tier],
         unlocked
-          ? 'bg-[linear-gradient(90deg,rgba(196,169,98,0.07)_0%,rgba(19,22,31,0.92)_18%,rgba(13,15,22,0.72)_100%)] hover:bg-[linear-gradient(90deg,rgba(196,169,98,0.11)_0%,rgba(19,22,31,0.95)_18%,rgba(13,15,22,0.82)_100%)]'
-          : 'bg-[var(--color-background)]/60 hover:bg-[var(--color-surface)]/85',
+          ? 'atlas-profile-achievement-row-unlocked'
+          : 'bg-background/60 hover:bg-surface/85',
       ].join(' ')}
     >
       {/* Primary icon — square “achievement tile” */}
@@ -130,20 +127,22 @@ const AchievementRow = memo(function AchievementRow({
         ) : (
           <div
             className={`flex h-full w-full items-center justify-center text-[1.35rem] leading-none select-none ${
-              isSecret ? 'opacity-20' : unlocked ? 'opacity-90 drop-shadow-[0_0_8px_rgba(196,169,98,0.35)]' : 'opacity-25 grayscale'
+              isSecret ? 'opacity-20' : unlocked ? 'opacity-90 drop-shadow-[0_0_8px_var(--color-gold-glow)]' : 'opacity-25 grayscale'
             }`}
           >
-            {isSecret ? <HelpCircle className="h-5 w-5 text-white/30" /> : CATEGORY_ICON[def.category]}
+            {isSecret ? <HelpCircle className="h-5 w-5 text-text-dim/45" /> : CATEGORY_ICON[def.category]}
           </div>
         )}
         {!unlocked && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/25">
-            <Lock className="h-4 w-4 text-white/45" strokeWidth={2} aria-hidden />
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[color-mix(in_srgb,var(--color-foreground)_14%,transparent)]">
+            <Lock className="h-4 w-4 text-text-muted/80" strokeWidth={2} aria-hidden />
           </div>
         )}
         <span
           className={`pointer-events-none absolute bottom-0.5 right-0.5 rounded px-0.5 text-[8px] font-bold leading-none tabular-nums ${
-            unlocked ? 'bg-black/55 text-[var(--color-gold-bright)]' : 'bg-black/50 text-white/35'
+            unlocked
+              ? 'bg-[color-mix(in_srgb,var(--color-foreground)_58%,transparent)] text-[var(--color-gold-bright)]'
+              : 'bg-[color-mix(in_srgb,var(--color-foreground)_45%,transparent)] text-text-dim/70'
           }`}
         >
           {TIER_LABELS[def.tier]}
@@ -154,7 +153,7 @@ const AchievementRow = memo(function AchievementRow({
       <div className="min-w-0 flex-1 py-0.5">
         <p
           className={`font-sans text-[13px] font-bold leading-tight tracking-tight sm:text-[14px] ${
-            isSecret ? 'text-[var(--color-text-dim)]/40 italic' : unlocked ? 'text-[var(--color-blue-bright)] [data-ui-theme=light]:text-[var(--color-blue)]' : 'text-[var(--color-text-dim)]'
+            isSecret ? 'text-[var(--color-text-dim)]/40 italic' : unlocked ? 'text-[var(--color-blue-bright)]' : 'text-[var(--color-text-dim)]'
           }`}
         >
           {displayTitle}
@@ -171,7 +170,7 @@ const AchievementRow = memo(function AchievementRow({
       <div className="flex shrink-0 flex-col items-end gap-1 sm:flex-row sm:items-center sm:gap-3">
         <span
           className={`font-sans text-[13px] font-semibold tabular-nums sm:text-[14px] ${
-            unlocked ? 'text-[var(--color-blue-bright)] [data-ui-theme=light]:text-[var(--color-blue)]' : 'text-[var(--color-text-dim)]/70'
+            unlocked ? 'text-[var(--color-blue-bright)]' : 'text-[var(--color-text-dim)]/70'
           }`}
         >
           {unlocked ? '100%' : isSecret ? '\u2014' : '0%'}
@@ -194,14 +193,14 @@ const AchievementRow = memo(function AchievementRow({
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-sm opacity-50 grayscale">
-              {isSecret ? <HelpCircle className="h-4 w-4 text-white/20" /> : CATEGORY_ICON[def.category]}
+              {isSecret ? <HelpCircle className="h-4 w-4 text-text-dim/35" /> : CATEGORY_ICON[def.category]}
             </div>
           )}
         </div>
 
         <div
           className={`flex h-9 w-9 items-center justify-center rounded-sm border border-[var(--color-border-bright)] sm:h-10 sm:w-10 ${
-            unlocked ? 'bg-[var(--color-gold)]/12 text-[var(--color-gold-bright)]' : 'bg-black/20 text-[var(--color-text-dim)]/50'
+            unlocked ? 'bg-[var(--color-gold)]/12 text-[var(--color-gold-bright)]' : 'bg-chrome-fill-active text-[var(--color-text-dim)]/50'
           }`}
         >
           {unlocked ? <Check className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={2.5} /> : <Lock className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={2} />}
@@ -232,7 +231,7 @@ function ProfileAchievementsGrid({ locale }: { locale: AtlasLocale }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]/90 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-4">
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]/90 p-3 shadow-[inset_0_1px_0_var(--color-chrome-inset-highlight)] sm:p-4">
         <div className="flex flex-wrap items-end justify-between gap-2">
           <div>
             <p className="font-sans text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-gold-muted)]">
@@ -240,13 +239,13 @@ function ProfileAchievementsGrid({ locale }: { locale: AtlasLocale }) {
             </p>
             <p className="mt-1 font-sans text-[12px] text-[var(--color-text-muted)]">{summaryText}</p>
           </div>
-          <span className="font-sans text-[20px] font-bold tabular-nums text-[var(--color-blue-bright)] [data-ui-theme=light]:text-[var(--color-blue)] sm:text-[22px]">
+          <span className="font-sans text-[20px] font-bold tabular-nums text-[var(--color-blue-bright)] sm:text-[22px]">
             {barPct}%
           </span>
         </div>
-        <div className="mt-3 h-2 overflow-hidden rounded-full bg-black/35 ring-1 ring-[var(--color-border)]">
+        <div className="atlas-profile-achievements-progress-track mt-3 h-2 overflow-hidden rounded-full">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-[var(--color-gold-muted)] via-[var(--color-gold)] to-[var(--color-gold-bright)] shadow-[0_0_12px_rgba(196,169,98,0.35)] transition-[width] duration-700 ease-out"
+            className="h-full rounded-full bg-gradient-to-r from-[var(--color-gold-muted)] via-[var(--color-gold)] to-[var(--color-gold-bright)] shadow-[0_0_12px_var(--color-gold-glow)] transition-[width] duration-700 ease-out"
             style={{ width: `${barPct}%` }}
           />
         </div>
@@ -257,7 +256,7 @@ function ProfileAchievementsGrid({ locale }: { locale: AtlasLocale }) {
         if (items.length === 0) return null;
         return (
           <section key={cat} className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-chrome-popover)]/40 shadow-[var(--shadow-panel)]">
-            <div className="border-b border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,transparent_100%)] px-3 py-2 sm:px-4">
+            <div className="border-b border-[var(--color-border)] bg-[linear-gradient(180deg,var(--color-chrome-gradient-top)_0%,transparent_100%)] px-3 py-2 sm:px-4">
               <h3 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-gold)]/85">
                 {pickI18n(CATEGORY_LABELS[cat], locale)}
               </h3>

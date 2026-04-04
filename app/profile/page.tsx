@@ -59,12 +59,12 @@ const ROLE_COPY: Record<AtlasRole, { en: string; fr: string }> = {
 const StatPill = memo(function StatPill({ label, value, total }: { label: string; value: number; total: number }) {
   const pct = total > 0 ? Math.round((value / total) * 100) : 0;
   return (
-    <div className="flex flex-col items-center rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+    <div className="flex flex-col items-center rounded-lg border border-chrome-border bg-chrome-fill px-4 py-3">
       <span className="text-[18px] font-bold tabular-nums text-parchment">
         {value}<span className="text-[13px] font-normal text-text-dim">/{total}</span>
       </span>
       <span className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-text-muted/60">{label}</span>
-      <div className="mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-white/[0.04]">
+      <div className="mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-chrome-fill-active">
         <div
           className="h-full rounded-full bg-gradient-to-r from-gold/40 to-gold/25 transition-[width] duration-700 ease-out"
           style={{ width: `${pct}%` }}
@@ -81,8 +81,8 @@ const StatPill = memo(function StatPill({ label, value, total }: { label: string
 const StreakBadge = memo(function StreakBadge({ current, best, locale }: { current: number; best: number; locale: AtlasLocale }) {
   if (current === 0 && best === 0) return null;
   return (
-    <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2">
-      <Flame className="h-4 w-4 text-orange-400/70" strokeWidth={2} />
+    <div className="flex items-center gap-2 rounded-lg border border-chrome-border bg-chrome-fill px-3 py-2">
+      <Flame className="h-4 w-4 text-ember/80" strokeWidth={2} />
       <div>
         <p className="text-[13px] font-semibold tabular-nums text-parchment">
           {t('streak.days', locale).replace('{n}', String(current))}
@@ -133,7 +133,7 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
 
   if (!challengeData) {
     return (
-      <div className="rounded-lg border border-white/[0.04] bg-white/[0.015] px-4 py-3 text-center">
+      <div className="rounded-lg border border-chrome-border bg-chrome-fill px-4 py-3 text-center">
         <p className="text-[11px] text-text-dim/50">{t('challenge.noCurrent', locale)}</p>
       </div>
     );
@@ -170,7 +170,7 @@ const ChallengeCard = memo(function ChallengeCard({ locale }: { locale: AtlasLoc
                   {Math.min(current, obj.target)}/{obj.target}
                 </span>
               </div>
-              <div className="mt-0.5 h-[3px] overflow-hidden rounded-full bg-white/[0.04]">
+              <div className="mt-0.5 h-[3px] overflow-hidden rounded-full bg-chrome-fill-active">
                 <div
                   className={`h-full rounded-full transition-[width] duration-500 ${met ? 'bg-gold/50' : 'bg-gold/25'}`}
                   style={{ width: `${pct}%` }}
