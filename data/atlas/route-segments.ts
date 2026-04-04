@@ -152,13 +152,13 @@ export const atlasRouteSegments: RouteSegment[] = [
     orderInJourney: 1,
     readingLinks: [
       {
-        label: { en: 'Annals of Saint-Bertin (Frankish royal annals)', fr: 'Annales de Saint-Bertin (annales royales franques)' },
+        label: { en: 'Annals of Saint-Bertin (Frankish royal annals)', fr: 'Annales de Saint-Bertin (annales royales franques)', de: 'Annales von Saint-Bertin (fränkisches Königreichsannale)' },
         url: 'https://sourcebooks.fordham.edu/basis/annales-bertiniani.asp',
         kind: 'primary',
-        note: { en: '841–845 entries on Seine raids' },
+        note: { en: '841–845 entries on Seine raids', de: 'Einträge 841–845 zu Raubzügen an der Seine' },
       },
       {
-        label: { en: 'The Vikings in Francia and Anglo-Saxon England — S. Coupland', fr: 'Les Vikings en Francia et en Angleterre anglo-saxonne — S. Coupland' },
+        label: { en: 'The Vikings in Francia and Anglo-Saxon England — S. Coupland', fr: 'Les Vikings en Francia et en Angleterre anglo-saxonne — S. Coupland', de: 'Die Wikinger im Frankenreich und im angelsächsischen England — S. Coupland' },
         url: 'https://www.cambridge.org/core/books/new-cambridge-medieval-history/vikings-in-francia-and-anglosaxon-england/5F5D06B9C6E8A0F2A1E2A4F6C3D8B9E7',
         kind: 'synthesis',
       },
@@ -189,10 +189,10 @@ export const atlasRouteSegments: RouteSegment[] = [
     orderInJourney: 3,
     readingLinks: [
       {
-        label: { en: 'The Siege of Paris (885–886) — Abbo of Saint-Germain', fr: 'Le siège de Paris (885–886) — Abbon de Saint-Germain' },
+        label: { en: 'The Siege of Paris (885–886) — Abbo of Saint-Germain', fr: 'Le siège de Paris (885–886) — Abbon de Saint-Germain', de: 'Die Belagerung von Paris (885–886) — Abbo von Saint-Germain' },
         url: 'https://sourcebooks.fordham.edu/source/866abbo.asp',
         kind: 'primary',
-        note: { en: 'Latin verse account by an eyewitness monk' },
+        note: { en: 'Latin verse account by an eyewitness monk', de: 'Lateinischer Versbericht eines mönchischen Augenzeugen' },
       },
     ],
   },
@@ -417,13 +417,13 @@ export const atlasRouteSegments: RouteSegment[] = [
     orderInJourney: 2,
     readingLinks: [
       {
-        label: { en: 'Dudo of Saint-Quentin — De moribus et actis primorum Normanniae ducum', fr: 'Dudon de Saint-Quentin — De moribus et actis primorum Normanniae ducum' },
+        label: { en: 'Dudo of Saint-Quentin — De moribus et actis primorum Normanniae ducum', fr: 'Dudon de Saint-Quentin — De moribus et actis primorum Normanniae ducum', de: 'Dudo von Saint-Quentin — De moribus et actis primorum Normanniae ducum' },
         url: 'https://www.thelatinlibrary.com/dudosaintquentin.html',
         kind: 'primary',
-        note: { en: 'Earliest chronicle of the Norman dukes (c. 1015)' },
+        note: { en: 'Earliest chronicle of the Norman dukes (c. 1015)', de: 'Früheste Chronik der normannischen Herzöge (um 1015)' },
       },
       {
-        label: { en: 'Musée de Normandie — Viking Normandy collection', fr: 'Musée de Normandie — collection Normandie viking' },
+        label: { en: 'Musée de Normandie — Viking Normandy collection', fr: 'Musée de Normandie — collection Normandie viking', de: 'Musée de Normandie — Sammlung Wikinger-Normandie' },
         url: 'https://musee-de-normandie.caen.fr/',
         kind: 'museum',
       },

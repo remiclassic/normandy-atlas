@@ -277,15 +277,15 @@ export const atlasStoryBeats: StoryBeat[] = [
     aiSlot: 'explain_selection',
     readingLinks: [
       {
-        label: { en: 'Treaty of Saint-Clair-sur-Epte (911) — Encyclopaedia Britannica', fr: 'Traité de Saint-Clair-sur-Epte (911) — Encyclopaedia Britannica' },
+        label: { en: 'Treaty of Saint-Clair-sur-Epte (911) — Encyclopaedia Britannica', fr: 'Traité de Saint-Clair-sur-Epte (911) — Encyclopaedia Britannica', de: 'Vertrag von Saint-Clair-sur-Epte (911) — Encyclopaedia Britannica' },
         url: 'https://www.britannica.com/event/Treaty-of-Saint-Clair-sur-Epte',
         kind: 'popular',
       },
       {
-        label: { en: 'Pierre Bauduin — Le monde franc et les Vikings', fr: 'Pierre Bauduin — Le monde franc et les Vikings' },
+        label: { en: 'Pierre Bauduin — Le monde franc et les Vikings', fr: 'Pierre Bauduin — Le monde franc et les Vikings', de: 'Pierre Bauduin — Le monde franc et les Vikings' },
         url: 'https://www.editions-albin-michel.fr/le-monde-franc-et-les-vikings-9782226448712',
         kind: 'synthesis',
-        note: { en: 'Authoritative French-language study of Carolingian–Norse interaction', fr: 'Étude de référence sur les interactions carolingiennes–norses' },
+        note: { en: 'Authoritative French-language study of Carolingian–Norse interaction', fr: 'Étude de référence sur les interactions carolingiennes–norses', de: 'Maßgebliche französischsprachige Studie zur karolingisch-nordischen Begegnung' },
       },
     ],
   },
