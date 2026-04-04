@@ -46,7 +46,7 @@ import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
 import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
 import SessionGuard from '@/components/progress/SessionGuard';
 import ProgressRemoteSync from '@/components/progress/ProgressRemoteSync';
-import AtlasRetentionStrip from '@/components/retention/AtlasRetentionStrip';
+import AtlasHeaderRetentionChips from '@/components/retention/AtlasRetentionStrip';
 import { getArcEntriesForEra, arcChromeStyle } from '@/data/atlas/era-arcs';
 import { shareOrCopy } from '@/lib/progress/share';
 import { buildCurrentViewShareUrl } from '@/lib/map-view-link';
@@ -361,6 +361,7 @@ export default function AtlasHomeShell() {
             <Award className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
           </Link>
         </ChromeIconTooltip>
+        <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ChromeIconTooltip
           label={t('ledger.tooltip.label', locale)}
           hint={t('ledger.tooltip.hint', locale)}
@@ -485,6 +486,8 @@ export default function AtlasHomeShell() {
                 </Link>
               )}
 
+              <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} compact />
+
               <div className="min-w-0 flex-1 flex justify-end">
                 <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} compact />
               </div>
@@ -557,7 +560,6 @@ export default function AtlasHomeShell() {
         {!storyLibraryOpen && <AtlasTimelineRail />}
       </header>
 
-      {!storyLibraryOpen && <AtlasRetentionStrip />}
 
       {/* ─── Mobile ledger attention chip (10s after accomplishments) ── */}
       <AnimatePresence>
