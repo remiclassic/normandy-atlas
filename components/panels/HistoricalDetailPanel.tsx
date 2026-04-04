@@ -440,10 +440,14 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
     );
   }
 
+  const identityText = framing.identityLabel
+    ? pickI18n(framing.identityLabel, locale as Parameters<typeof pickI18n>[1])
+    : undefined;
+
   if (compact) {
     return (
       <span className="inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border text-sky-300/60 bg-sky-400/[0.04] border-sky-400/10">
-        {locale === 'fr' ? 'Lié à l\'atlas' : locale === 'es' ? 'Incluido en el atlas' : locale === 'it' ? 'Nell\'atlante' : 'Atlas inclusion'}
+        {identityText ?? (locale === 'fr' ? 'Lié à l\'atlas' : locale === 'es' ? 'Incluido en el atlas' : locale === 'it' ? 'Nell\'atlante' : 'Atlas inclusion')}
       </span>
     );
   }
@@ -451,7 +455,7 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
   return (
     <div className="rounded-md border border-sky-400/10 bg-sky-400/[0.03] px-3 py-2 mt-1">
       <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-sky-300/50 block mb-1">
-        {locale === 'fr' ? 'Pourquoi cet atlas' : locale === 'es' ? 'Por qué este atlas' : locale === 'it' ? 'Perché in questo atlante' : 'Why this atlas'}
+        {identityText ?? (locale === 'fr' ? 'Pourquoi cet atlas' : locale === 'es' ? 'Por qué este atlas' : locale === 'it' ? 'Perché in questo atlante' : 'Why this atlas')}
       </span>
       <p className="text-[11px] text-text-muted/80 leading-relaxed">
         {pickI18n(framing.rationale, locale as Parameters<typeof pickI18n>[1])}

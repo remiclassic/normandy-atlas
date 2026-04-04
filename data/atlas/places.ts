@@ -131,6 +131,18 @@ export const atlasPlaces: Place[] = [
     regionId: 'channel-coast',
     layer: 'europe',
     eraStates: {
+      'norman-origins': {
+        visibility: 'normal',
+        label: 'Saint Peter Port (Guernsey)',
+        affiliationTags: ['Channel Islands', 'Normandy', 'ducal'],
+        pedagogyIndex: 3,
+      },
+      'norman-expansion': {
+        visibility: 'normal',
+        label: 'Saint Peter Port (Guernsey)',
+        affiliationTags: ['Channel Islands', 'Anglo-Norman', 'Crown'],
+        pedagogyIndex: 3,
+      },
       'new-france-foundations': {
         visibility: 'normal',
         label: 'Saint Peter Port (Guernsey)',
@@ -142,6 +154,21 @@ export const atlasPlaces: Place[] = [
         label: 'Saint Peter Port',
         affiliationTags: ['Channel Islands', 'Norman world'],
         pedagogyIndex: 2,
+      },
+    },
+  },
+  {
+    id: 'mont-orgueil',
+    kind: 'fort',
+    coordinates: [-2.012, 49.198],
+    regionId: 'channel-coast',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': {
+        visibility: 'emphasized',
+        label: 'Mont Orgueil (Jersey)',
+        affiliationTags: ['Channel Islands', 'Anglo-Norman', 'fortress'],
+        pedagogyIndex: 5,
       },
     },
   },
@@ -650,8 +677,9 @@ export const atlasPlaces: Place[] = [
     regionId: 'neustria',
     layer: 'europe',
     eraStates: {
-      'viking-age': { visibility: 'hidden', label: 'Channel Islands', affiliationTags: ['Norse'], pedagogyIndex: 2 },
-      'norman-origins': { visibility: 'hidden', label: 'Channel Islands', affiliationTags: ['Norse'], pedagogyIndex: 2 },
+      'viking-age': { visibility: 'faded', label: 'Channel Islands', affiliationTags: ['Norse'], pedagogyIndex: 2 },
+      'norman-origins': { visibility: 'normal', label: 'Channel Islands', affiliationTags: ['Normandy', 'ducal'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'normal', label: 'Channel Islands', affiliationTags: ['Anglo-Norman', 'Crown'], pedagogyIndex: 4 },
     },
   },
   // --- Confirmed Viking-era sites (global) ---
@@ -780,6 +808,7 @@ export const atlasPlaces: Place[] = [
     eraStates: {
       'viking-age': { visibility: 'emphasized', label: 'Jórvík (York)', affiliationTags: ['Danelaw', 'Viking capital'], pedagogyIndex: 5 },
       'norman-origins': { visibility: 'normal', label: 'York', affiliationTags: ['Anglo-Scandinavian'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'York', affiliationTags: ['Anglo-Norman', 'north', 'Harrying'], pedagogyIndex: 5 },
     },
   },
   {
@@ -836,6 +865,7 @@ export const atlasPlaces: Place[] = [
     eraStates: {
       'viking-age': { visibility: 'emphasized', label: 'Constantinople (Miklagarðr)', affiliationTags: ['Byzantine', 'Varangian Guard'], pedagogyIndex: 5 },
       'norman-origins': { visibility: 'normal', label: 'Constantinople', affiliationTags: ['Byzantine'], pedagogyIndex: 4 },
+      'norman-expansion': { visibility: 'emphasized', label: 'Constantinople', affiliationTags: ['Byzantine', 'Crusader', 'oaths'], pedagogyIndex: 5 },
     },
   },
   {
@@ -1104,6 +1134,47 @@ export const atlasPlaces: Place[] = [
     layer: 'europe',
     eraStates: {
       'norman-expansion': { visibility: 'emphasized', label: 'Dorylaeum', affiliationTags: ['battle', 'Crusader'], pedagogyIndex: 5 },
+    },
+  },
+  // --- Crusade Levant / Cyprus places ---
+  {
+    id: 'jerusalem',
+    kind: 'city',
+    coordinates: [35.23, 31.78],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Jerusalem', affiliationTags: ['Crusader', 'Kingdom of Jerusalem'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'edessa',
+    kind: 'city',
+    coordinates: [38.79, 37.17],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Edessa', affiliationTags: ['Crusader', 'Armenian', 'county'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'tiberias',
+    kind: 'city',
+    coordinates: [35.53, 32.79],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Tiberias (Galilee)', affiliationTags: ['Crusader', 'Norman', 'Galilee'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'limassol',
+    kind: 'port',
+    coordinates: [33.04, 34.68],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Limassol (Cyprus)', affiliationTags: ['Third Crusade', 'Angevin', 'Cyprus'], pedagogyIndex: 4 },
     },
   },
   // --- Robert Guiscard arc places ---
@@ -1441,6 +1512,319 @@ export const atlasPlaces: Place[] = [
     layer: 'europe',
     eraStates: {
       'norman-expansion': { visibility: 'emphasized', label: 'Ely', affiliationTags: ['English resistance', 'fenland'], pedagogyIndex: 4 },
+    },
+  },
+  // --- 1066 campaign & early conquest places ---
+  {
+    id: 'pevensey',
+    kind: 'abstract_node',
+    coordinates: [0.33, 50.82],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Pevensey', affiliationTags: ['Norman', 'landing', '1066'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'stamford-bridge',
+    kind: 'abstract_node',
+    coordinates: [-0.92, 53.99],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Stamford Bridge', affiliationTags: ['battle', 'Norwegian defeat', '1066'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'westminster',
+    kind: 'abstract_node',
+    coordinates: [-0.14, 51.50],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Westminster', affiliationTags: ['coronation', 'Anglo-Norman', 'abbey'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'dover',
+    kind: 'city',
+    coordinates: [1.31, 51.13],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Dover', affiliationTags: ['Anglo-Norman', 'Channel crossing', 'Kent'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'durham',
+    kind: 'city',
+    coordinates: [-1.57, 54.78],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Durham', affiliationTags: ['Anglo-Norman', 'prince-bishopric', 'cathedral'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'exeter',
+    kind: 'city',
+    coordinates: [-3.53, 50.72],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Exeter', affiliationTags: ['Anglo-Norman', 'siege', 'southwest'], pedagogyIndex: 4 },
+    },
+  },
+  // --- Anglo-Norman expansion places ---
+  {
+    id: 'winchester',
+    kind: 'city',
+    coordinates: [-1.31, 51.06],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Winchester', affiliationTags: ['Anglo-Norman', 'capital', 'treasury'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'oxford',
+    kind: 'city',
+    coordinates: [-1.26, 51.75],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Oxford', affiliationTags: ['Anglo-Norman', 'castle'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'lincoln',
+    kind: 'city',
+    coordinates: [-0.54, 53.23],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Lincoln', affiliationTags: ['Anglo-Norman', 'battle'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'canterbury',
+    kind: 'city',
+    coordinates: [1.08, 51.28],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Canterbury', affiliationTags: ['Anglo-Norman', 'archbishopric'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'chepstow',
+    kind: 'abstract_node',
+    coordinates: [-2.67, 51.64],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Chepstow', affiliationTags: ['Anglo-Norman', 'marcher castle'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'cardiff',
+    kind: 'city',
+    coordinates: [-3.18, 51.48],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Cardiff', affiliationTags: ['Anglo-Norman', 'marcher castle'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'pembroke',
+    kind: 'abstract_node',
+    coordinates: [-4.95, 51.67],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Pembroke', affiliationTags: ['Anglo-Norman', 'marcher castle'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'rhuddlan',
+    kind: 'abstract_node',
+    coordinates: [-3.47, 53.29],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Rhuddlan', affiliationTags: ['Anglo-Norman', 'north march'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'wexford',
+    kind: 'city',
+    coordinates: [-6.46, 52.34],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Wexford', affiliationTags: ['Anglo-Norman', 'Ireland'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'waterford',
+    kind: 'city',
+    coordinates: [-7.11, 52.26],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Waterford', affiliationTags: ['Anglo-Norman', 'Ireland'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'ferns',
+    kind: 'abstract_node',
+    coordinates: [-6.50, 52.59],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Ferns', affiliationTags: ['Leinster', 'Ireland'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'carrickfergus',
+    kind: 'city',
+    coordinates: [-5.81, 54.71],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Carrickfergus', affiliationTags: ['Anglo-Norman', 'Ireland', 'Ulster'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'kilkenny',
+    kind: 'city',
+    coordinates: [-7.25, 52.65],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Kilkenny', affiliationTags: ['Anglo-Norman', 'Ireland'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'dundalk',
+    kind: 'abstract_node',
+    coordinates: [-6.40, 54.00],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Dundalk', affiliationTags: ['Anglo-Norman', 'Ireland'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'edinburgh',
+    kind: 'city',
+    coordinates: [-3.19, 55.95],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Edinburgh', affiliationTags: ['Scotland', 'Anglo-Norman court'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'jedburgh',
+    kind: 'abstract_node',
+    coordinates: [-2.55, 55.48],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Jedburgh', affiliationTags: ['Scotland', 'Anglo-Norman abbey'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'dunfermline',
+    kind: 'abstract_node',
+    coordinates: [-3.44, 56.07],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Dunfermline', affiliationTags: ['Scotland', 'royal burgh'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'northallerton',
+    kind: 'abstract_node',
+    coordinates: [-1.43, 54.34],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Northallerton', affiliationTags: ['Anglo-Norman', 'Battle of the Standard'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'northampton',
+    kind: 'abstract_node',
+    coordinates: [-0.90, 52.24],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Northampton', affiliationTags: ['Anglo-Norman', 'council'], pedagogyIndex: 3 },
+    },
+  },
+  // ── Additional places for notable-figures batch ───────────────────
+  {
+    id: 'poitiers',
+    kind: 'city',
+    coordinates: [0.34, 46.58],
+    regionId: 'frankish-core',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Poitiers', affiliationTags: ['Aquitaine', 'Angevin'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'le-mans',
+    kind: 'city',
+    coordinates: [0.20, 47.99],
+    regionId: 'frankish-core',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Le Mans', affiliationTags: ['Anjou', 'Plantagenet'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'boulogne',
+    kind: 'city',
+    coordinates: [1.61, 50.73],
+    regionId: 'frankish-core',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Boulogne', affiliationTags: ['County of Boulogne', 'ally'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'pavia',
+    kind: 'city',
+    coordinates: [9.16, 45.19],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'faded', label: 'Pavia', affiliationTags: ['Lombard Italy', 'scholar'], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'aosta',
+    kind: 'city',
+    coordinates: [7.32, 45.74],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'faded', label: 'Aosta', affiliationTags: ['Alpine', 'scholar'], pedagogyIndex: 2 },
+    },
+  },
+  {
+    id: 'montfort-lamaury',
+    kind: 'abstract_node',
+    coordinates: [1.82, 48.78],
+    regionId: 'frankish-core',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'faded', label: 'Montfort-l\'Amaury', affiliationTags: ['Île-de-France', 'baronial'], pedagogyIndex: 2 },
     },
   },
 ];

@@ -25,12 +25,12 @@ export interface NewlyUnlocked {
  * Returns the list of milestones unlocked during this call.
  */
 export function evaluateAllMilestones(progress: ProgressV2): NewlyUnlocked[] {
-  const { aggregates, milestones, story } = progress;
+  const { aggregates, milestones, story, gamification } = progress;
   const unlocked: NewlyUnlocked[] = [];
 
   for (const def of atlasMilestones) {
     if (milestones[def.id]) continue;
-    if (def.predicate(aggregates, story)) {
+    if (def.predicate(aggregates, story, gamification)) {
       const record: MilestoneRecord = { unlockedAt: Date.now() };
       milestones[def.id] = record;
       unlocked.push({ def, record });

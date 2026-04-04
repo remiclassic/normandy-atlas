@@ -3,19 +3,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import StoryLibraryPanel from '@/components/story/StoryLibraryPanel';
-import {
-  useHydrateLocale,
-  useHydrateUiTheme,
-  useHydrateTextSize,
-  useLocale,
-} from '@/hooks/use-atlas';
+import { useLocale } from '@/hooks/use-atlas';
 import { buildStoryLibraryRows } from '@/lib/story-library-build';
 import { arcIdToProgressKey, FULL_TIMELINE_PROGRESS_KEY } from '@/lib/story-progress';
 
 export default function StoriesPageClient() {
-  useHydrateLocale();
-  useHydrateUiTheme();
-  useHydrateTextSize();
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();

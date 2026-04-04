@@ -274,6 +274,20 @@ export const atlasTimelineMarkers: TimelineMarker[] = [
     action: { type: 'flyToCamera', center: [0.5, 50.9], zoom: 7 },
   },
 
+  {
+    id: 'tm-channel-islands-1204',
+    kind: 'treaty',
+    year: 1204,
+    eraIds: ['norman-expansion'],
+    label: { en: '1204 — Channel Islands remain with Crown', fr: '1204 — Les îles restent sous la Couronne', it: '1204 — Le isole restano con la Corona' },
+    detail: {
+      en: 'When Philip Augustus conquered continental Normandy in 1204, the Channel Islands stayed with the English crown. Islanders retained Norman customary law and their own courts — the origin of today\'s Crown Dependencies.',
+      fr: 'Lorsque Philippe Auguste conquit la Normandie continentale en 1204, les îles Anglo-Normandes restèrent sous la couronne anglaise. Les insulaires conservèrent le droit coutumier normand et leurs propres tribunaux — à l\'origine des dépendances de la Couronne actuelles.',
+      it: 'Quando Filippo Augusto conquistò la Normandia continentale nel 1204, le Isole del Canale restarono con la corona inglese. Gli isolani conservarono il diritto consuetudinario normanno e i propri tribunali — l\'origine delle attuali dipendenze della Corona.',
+    },
+    action: { type: 'flyToCamera', center: [-2.1, 49.4], zoom: 7.5 },
+  },
+
   // ── Norman Expansion ──────────────────────────────────────────────
   {
     id: 'tm-first-crusade',

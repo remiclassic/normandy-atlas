@@ -5,9 +5,20 @@ export type {
   EntityEngagement,
   MilestoneRecord,
   ProgressV2,
+  ShareMoments,
+  Gamification,
+  StreakState,
+  ChallengesState,
+  ChallengeActive,
+  ChallengeHistoryEntry,
 } from './schema';
 
-export { PROGRESS_STORAGE_KEY, SCHEMA_VERSION, createEmptyProgress } from './schema';
+export {
+  PROGRESS_STORAGE_KEY,
+  SCHEMA_VERSION,
+  createEmptyProgress,
+  createEmptyGamification,
+} from './schema';
 
 export {
   readProgress,
@@ -31,9 +42,13 @@ export {
   countDistinctJourneys,
   countDistinctSegments,
   countErasVisited,
+  countDistinctJournalSections,
   hasEngagedEntity,
   hasEngagedAllInSet,
   countEngagedInSet,
+  sumDwellMsForKind,
+  countEntitiesWithMinDwell,
+  totalEngagedEntities,
 } from './aggregates';
 
 export {
@@ -57,10 +72,29 @@ export {
   enqueueDiscovery,
   peekQueue,
   dequeueToast,
+  drainMilestones,
   queueLength,
   subscribeToastQueue,
+  markModalShown,
+  canShowModal,
   type ToastPayload,
   type ToastKind,
 } from './toast-queue';
+
+export { updateStreak } from './streaks';
+
+export {
+  ensureWeeklyChallenge,
+  evaluateChallengeProgress,
+  maybeCompleteChallengeAndArchive,
+} from './challenges';
+
+export {
+  enqueueShareMoment,
+  peekShareMoment,
+  dequeueShareMoment,
+  subscribeShareMomentQueue,
+  type ShareMomentPayload,
+} from './share-moment-queue';
 
 export { resolveEntityLabel } from './discovery-label';

@@ -27,12 +27,24 @@ export const atlasRegions: AtlasRegion[] = [
     eraStates: {
       'neolithic-normandy': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
       'bronze-age-channel': { visibility: 'faded', borderStyle: 'soft', fillIntent: 'culture' },
+      'norman-origins': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
+      'norman-expansion': { visibility: 'emphasized', borderStyle: 'hard', fillIntent: 'frontier' },
     },
     narrativeByEra: {
       'neolithic-normandy': {
         en: 'The Channel Islands shared the same Atlantic-facing megalithic world as the Cotentin coast. Passage graves such as La Hougue Bie in Jersey rank among the finest Neolithic monuments in western Europe.',
         fr: 'Les îles Anglo-Normandes participaient au même monde mégalithique atlantique que la côte du Cotentin. Des tombes à couloir comme La Hougue Bie à Jersey comptent parmi les plus beaux monuments néolithiques d\'Europe occidentale.',
         it: 'Le Isole del Canale condividevano lo stesso mondo megalitico atlantico della costa del Cotentin. Tombe a corridoio come La Hougue Bie a Jersey figurano tra i più bei monumenti neolitici dell\'Europa occidentale.',
+      },
+      'norman-origins': {
+        en: 'The Channel Islands entered the duchy of Normandy alongside the Cotentin in 933. Governed by ducal law and integrated into the maritime economy of the Norman Channel coast, they formed the duchy\'s western sea frontier — waypoints on the same Norse Celtic Sea corridor that had fed western Normandy with Norwegian settlers.',
+        fr: 'Les îles Anglo-Normandes entrèrent dans le duché de Normandie en même temps que le Cotentin en 933. Régies par le droit ducal et intégrées dans l\'économie maritime de la côte normande de la Manche, elles formaient la frontière maritime occidentale du duché — relais sur le même corridor celte norrois qui avait amené des colons norvégiens dans l\'ouest normand.',
+        it: 'Le Isole del Canale entrarono nel ducato di Normandia insieme al Cotentin nel 933. Governate dal diritto ducale e integrate nell\'economia marittima della costa normanna della Manica, formavano la frontiera marittima occidentale del ducato — scali sullo stesso corridoio celtico norreno che aveva portato coloni norvegesi nella Normandia occidentale.',
+      },
+      'norman-expansion': {
+        en: 'After 1204, when continental Normandy fell to France, the Channel Islands remained tied to the English crown — not as English territory but as the duke\'s insular possession. They retained Norman customary law, their own courts, and their Norman French speech. Mont Orgueil castle on Jersey and Castle Cornet on Guernsey anchored the islands\' defence against repeated French raids.',
+        fr: 'Après 1204, lorsque la Normandie continentale tomba sous la couronne de France, les îles Anglo-Normandes restèrent liées à la couronne anglaise — non comme territoire anglais mais comme possession insulaire du duc. Elles conservèrent le droit coutumier normand, leurs propres tribunaux et leur parler franco-normand. Le château de Mont Orgueil à Jersey et Castle Cornet à Guernesey ancrent la défense des îles contre les raids français répétés.',
+        it: 'Dopo il 1204, quando la Normandia continentale cadde in mano alla Francia, le Isole del Canale restarono legate alla corona inglese — non come territorio inglese ma come possedimento insulare del duca. Conservarono il diritto consuetudinario normanno, i propri tribunali e il loro parlare franconormanno. Mont Orgueil a Jersey e Castle Cornet a Guernsey ancoravano la difesa delle isole contro i ripetuti raid francesi.',
       },
     },
   },
@@ -209,6 +221,7 @@ export const atlasRegions: AtlasRegion[] = [
       'frankish-carolingian': { visibility: 'faded', borderStyle: 'soft', fillIntent: 'frontier' },
       'viking-age': { visibility: 'emphasized', borderStyle: 'disputed', fillIntent: 'contested' },
       'norman-origins': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
+      'norman-expansion': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'frontier' },
     },
     narrativeByEra: {
       'frankish-carolingian': {

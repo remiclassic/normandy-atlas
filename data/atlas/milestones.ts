@@ -1,6 +1,9 @@
-import type { Aggregates, EntityEngagement } from '@/lib/progress/schema';
+import type { Aggregates, EntityEngagement, Gamification } from '@/lib/progress/schema';
 import type { StoryProgressRecord } from '@/lib/story-progress';
+import { arcIdToProgressKey } from '@/lib/story-progress';
 import type { I18nString } from '@/core/types';
+import { storyLibraryMetaList } from '@/data/atlas/story-library-meta';
+import { getBeatCount } from '@/core/story/engine';
 
 // ---------------------------------------------------------------------------
 // Milestone definitions — declarative predicates over aggregates + story.
@@ -15,15 +18,20 @@ export type MilestoneCategory =
 
 export type MilestoneTier = 1 | 2 | 3;
 
+export type MilestoneReveal = 'always' | 'secret';
+
 export interface MilestoneDef {
   id: string;
   category: MilestoneCategory;
   tier: MilestoneTier;
   title: I18nString;
   description: I18nString;
+  /** 'secret' hides title/description until unlocked (default: 'always'). */
+  reveal?: MilestoneReveal;
   predicate: (
     agg: Aggregates,
     story: Record<string, StoryProgressRecord>,
+    gamification?: Gamification,
   ) => boolean;
 }
 
@@ -49,6 +57,17 @@ function hasAllJourneys(agg: Aggregates, ids: readonly string[]): boolean {
 
 function hasAllPlaces(agg: Aggregates, ids: readonly string[]): boolean {
   return ids.every((id) => id in agg.places);
+}
+
+function countEntitiesAboveDwell(
+  bucket: Record<string, EntityEngagement>,
+  minDwellMs: number,
+): number {
+  let count = 0;
+  for (const e of Object.values(bucket)) {
+    if (e.dwellMs >= minDwellMs) count++;
+  }
+  return count;
 }
 
 // ---------------------------------------------------------------------------
@@ -274,8 +293,14 @@ export const atlasMilestones: MilestoneDef[] = [
       en: 'Complete every story arc in the atlas.',
       fr: 'Terminez chaque arc narratif de l\'atlas.',
     },
-    predicate: (_agg, story) =>
-      Object.values(story).filter((r) => r.completed).length >= 8,
+    predicate: (_agg, story) => {
+      const namedArcs = storyLibraryMetaList.filter(
+        (m) => m.arcId != null && getBeatCount(m.arcId) > 0,
+      );
+      return namedArcs.every(
+        (m) => story[arcIdToProgressKey(m.arcId)]?.completed === true,
+      );
+    },
   },
 
   // ── Evidence (depth of engagement) ──────────────────────────────────
@@ -312,5 +337,124 @@ export const atlasMilestones: MilestoneDef[] = [
     },
     predicate: (agg) =>
       countKeys(agg.places) + countKeys(agg.regions) + countKeys(agg.journeys) >= 40,
+  },
+
+  // ── Depth milestones (dwell-time quality) ────────────────────────────
+  {
+    id: 'depth-patient-reader',
+    category: 'evidence',
+    tier: 2,
+    title: { en: 'Patient Reader', fr: 'Lecteur patient' },
+    description: {
+      en: 'Spend 30+ seconds reading 5 different place panels.',
+      fr: 'Passez 30 s+ à lire 5 panneaux de lieux différents.',
+    },
+    predicate: (agg) => countEntitiesAboveDwell(agg.places, 30_000) >= 5,
+  },
+  {
+    id: 'depth-immersed',
+    category: 'evidence',
+    tier: 3,
+    title: { en: 'Deeply Immersed', fr: 'Profondément immergé' },
+    description: {
+      en: 'Spend over 15 minutes total reading detail panels.',
+      fr: 'Passez plus de 15 minutes au total à lire les panneaux.',
+    },
+    predicate: (agg) => agg.totalSessionMs >= 900_000,
+  },
+
+  // ── Journal milestones ──────────────────────────────────────────────
+  {
+    id: 'journal-first-section',
+    category: 'evidence',
+    tier: 1,
+    title: { en: 'Journal Entry', fr: 'Entrée de journal' },
+    description: {
+      en: 'Read your first journal section.',
+      fr: 'Lisez votre première section du journal.',
+    },
+    predicate: (agg) => countKeys(agg.journalSections ?? {}) >= 1,
+  },
+  {
+    id: 'journal-five-sections',
+    category: 'evidence',
+    tier: 2,
+    title: { en: 'Avid Reader', fr: 'Lecteur assidu' },
+    description: {
+      en: 'Read 5 journal sections.',
+      fr: 'Lisez 5 sections du journal.',
+    },
+    predicate: (agg) => countKeys(agg.journalSections ?? {}) >= 5,
+  },
+
+  // ── Streak milestones ───────────────────────────────────────────────
+  {
+    id: 'streak-three',
+    category: 'chronology',
+    tier: 1,
+    title: { en: 'Three-Day Voyage', fr: 'Voyage de trois jours' },
+    description: {
+      en: 'Explore the atlas 3 days in a row.',
+      fr: 'Explorez l\'atlas 3 jours de suite.',
+    },
+    predicate: (_agg, _story, gam) => (gam?.streaks.currentStreak ?? 0) >= 3,
+  },
+  {
+    id: 'streak-seven',
+    category: 'chronology',
+    tier: 2,
+    title: { en: 'Week-Long Expedition', fr: 'Expédition d\'une semaine' },
+    description: {
+      en: 'Maintain a 7-day exploration streak.',
+      fr: 'Maintenez une série d\'exploration de 7 jours.',
+    },
+    predicate: (_agg, _story, gam) => (gam?.streaks.longestStreak ?? 0) >= 7,
+  },
+  {
+    id: 'streak-thirty',
+    category: 'chronology',
+    tier: 3,
+    title: { en: 'Month of Discovery', fr: 'Mois de découvertes' },
+    description: {
+      en: 'Achieve a 30-day exploration streak.',
+      fr: 'Atteignez une série d\'exploration de 30 jours.',
+    },
+    reveal: 'secret',
+    predicate: (_agg, _story, gam) => (gam?.streaks.longestStreak ?? 0) >= 30,
+  },
+
+  // ── Hidden / secret milestones ──────────────────────────────────────
+  {
+    id: 'secret-night-owl',
+    category: 'evidence',
+    tier: 2,
+    title: { en: 'Night Owl', fr: 'Oiseau de nuit' },
+    description: {
+      en: 'Explore the atlas between midnight and 4 AM.',
+      fr: 'Explorez l\'atlas entre minuit et 4 h du matin.',
+    },
+    reveal: 'secret',
+    predicate: (agg) => {
+      for (const e of Object.values(agg.places)) {
+        const h = new Date(e.firstSeen).getHours();
+        if (h >= 0 && h < 4) return true;
+      }
+      return false;
+    },
+  },
+  {
+    id: 'secret-completionist',
+    category: 'cartography',
+    tier: 3,
+    title: { en: 'Completionist', fr: 'Complétionniste' },
+    description: {
+      en: 'Explore every place, region, and journey in the atlas.',
+      fr: 'Explorez chaque lieu, région et voyage de l\'atlas.',
+    },
+    reveal: 'secret',
+    predicate: (agg) =>
+      countKeys(agg.places) >= 40 &&
+      countKeys(agg.regions) >= 10 &&
+      countKeys(agg.journeys) >= 10,
   },
 ];

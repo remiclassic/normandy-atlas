@@ -8,7 +8,7 @@ import { isMigrationEra } from '@/core/migration/engine';
 import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-france-timeline';
 import type { SelectionKind } from '@/types';
 import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocale } from '@/core/types';
-import { DEFAULT_LOCALE, readStoredLocale, persistLocale } from '@/lib/locale';
+import { DEFAULT_LOCALE, persistLocale } from '@/lib/locale';
 import type { UiTheme } from '@/lib/ui-theme';
 import { DEFAULT_UI_THEME, persistUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
 import type { TextSizeMode } from '@/lib/text-size';

@@ -42,6 +42,8 @@ export const atlasRegionsGeoJson: RegionFeatureCollection = {
         namesByEra: {
           'neolithic-normandy': 'Channel Islands',
           'bronze-age-channel': 'Channel Islands',
+          'norman-origins': 'Channel Islands (Duchy of Normandy)',
+          'norman-expansion': 'Channel Islands (Crown Dependency)',
         },
         color: '#7a6b52',
       },

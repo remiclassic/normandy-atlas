@@ -257,7 +257,7 @@ export interface TimelineMarker {
 // --- People ---
 
 export type NarrativeWeight = 'anchor' | 'supporting' | 'minor';
-export type MigrationChannel = 'normandy_port' | 'perche' | 'brittany_coast' | 'aunis_saintonge' | 'paris_region' | 'loire_valley' | 'poitou' | 'other';
+export type MigrationChannel = 'normandy_port' | 'perche' | 'brittany_coast' | 'aunis_saintonge' | 'paris_region' | 'loire_valley' | 'poitou' | 'low_countries' | 'italian_peninsula' | 'english_polity' | 'other';
 export type ProvenanceConfidence = 'documented' | 'network' | 'uncertain';
 
 export type SurnameOriginCategory =
@@ -271,7 +271,7 @@ export type SurnameOriginCategory =
 /** Structured Norman/atlas framing for the person detail panel. */
 export type AtlasThroughline =
   | { kind: 'norman'; descriptor?: I18nString }
-  | { kind: 'inclusion'; rationale: I18nString };
+  | { kind: 'inclusion'; rationale: I18nString; identityLabel?: I18nString };
 
 export interface Person {
   id: string;

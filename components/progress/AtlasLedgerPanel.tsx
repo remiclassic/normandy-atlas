@@ -2,8 +2,9 @@
 
 import { memo, useMemo, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Flame } from 'lucide-react';
 import { useLocale } from '@/hooks/use-atlas';
-import { useProgress, useLedgerStats, useInferredRole, type AtlasRole } from '@/hooks/useAtlasProgress';
+import { useProgress, useLedgerStats, useInferredRole, useGamificationStats, type AtlasRole } from '@/hooks/useAtlasProgress';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import type { UiStringKey } from '@/lib/ui-strings';
@@ -17,6 +18,7 @@ import {
 import { notifyProgressListeners } from '@/hooks/useAtlasProgress';
 import type { AtlasLocale } from '@/core/types';
 import CuratorPickBanner from './CuratorPickBanner';
+import ShareCard from './ShareCard';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -38,12 +40,21 @@ const CATEGORY_LABELS: Record<MilestoneCategory, { en: string; fr: string }> = {
 };
 
 function StatRow({ label, current, total }: { label: string; current: number; total: number }) {
+  const pct = total > 0 ? Math.round((current / total) * 100) : 0;
   return (
-    <div className="flex items-center justify-between py-1.5">
-      <span className="text-[12px] text-text-muted">{label}</span>
-      <span className="text-[13px] font-semibold text-parchment tabular-nums">
-        {current}/{total}
-      </span>
+    <div className="py-1.5">
+      <div className="flex items-center justify-between">
+        <span className="text-[12px] text-text-muted">{label}</span>
+        <span className="text-[13px] font-semibold text-parchment tabular-nums">
+          {current}/{total}
+        </span>
+      </div>
+      <div className="mt-1 h-[2px] overflow-hidden rounded-full bg-white/[0.04]">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-gold/40 to-gold/20 transition-[width] duration-500"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
     </div>
   );
 }
@@ -64,6 +75,7 @@ function TierBadge({ tier }: { tier: number }) {
 const CoverageSection = memo(function CoverageSection({ locale }: { locale: AtlasLocale }) {
   const stats = useLedgerStats();
   const role = useInferredRole();
+  const gamStats = useGamificationStats();
   const T = stats.coverageTotals;
 
   return (
@@ -76,6 +88,16 @@ const CoverageSection = memo(function CoverageSection({ locale }: { locale: Atla
           {t(ROLE_STRING_KEYS[role], locale)}
         </span>
       </div>
+
+      {gamStats.streak.currentStreak > 0 && (
+        <div className="flex items-center gap-1.5 mb-3 text-[11px] text-orange-400/70">
+          <Flame className="h-3.5 w-3.5" strokeWidth={2} />
+          <span className="font-medium">
+            {t('streak.days', locale).replace('{n}', String(gamStats.streak.currentStreak))}
+          </span>
+        </div>
+      )}
+
       <div className="space-y-0">
         <StatRow label={t('ledger.places', locale)} current={stats.places} total={T.places} />
         <StatRow label={t('ledger.regions', locale)} current={stats.regions} total={T.regions} />
@@ -121,29 +143,34 @@ const MilestonesSection = memo(function MilestonesSection({ locale }: { locale: 
                 {pickI18n(CATEGORY_LABELS[cat], locale)}
               </p>
               <div className="space-y-1.5">
-                {items.map(({ def, unlocked }) => (
-                  <div
-                    key={def.id}
-                    className={`flex items-start gap-2.5 rounded-lg px-2.5 py-2 transition-colors ${
-                      unlocked ? 'bg-gold/5' : 'opacity-50'
-                    }`}
-                  >
-                    <TierBadge tier={def.tier} />
-                    <div className="min-w-0 flex-1">
-                      <p className={`text-[12px] font-medium leading-snug ${unlocked ? 'text-parchment' : 'text-text-dim'}`}>
-                        {pickI18n(def.title, locale)}
-                      </p>
-                      <p className="text-[11px] text-text-dim/70 leading-snug mt-0.5">
-                        {pickI18n(def.description, locale)}
-                      </p>
+                {items.map(({ def, unlocked }) => {
+                  const isSecret = def.reveal === 'secret' && !unlocked;
+                  const title = isSecret ? t('milestone.hidden.title', locale) : pickI18n(def.title, locale);
+                  const desc = isSecret ? t('milestone.hidden.description', locale) : pickI18n(def.description, locale);
+                  return (
+                    <div
+                      key={def.id}
+                      className={`flex items-start gap-2.5 rounded-lg px-2.5 py-2 transition-colors ${
+                        unlocked ? 'bg-gold/5' : 'opacity-50'
+                      }`}
+                    >
+                      <TierBadge tier={def.tier} />
+                      <div className="min-w-0 flex-1">
+                        <p className={`text-[12px] font-medium leading-snug ${isSecret ? 'text-text-dim/40 italic' : unlocked ? 'text-parchment' : 'text-text-dim'}`}>
+                          {title}
+                        </p>
+                        <p className={`text-[11px] leading-snug mt-0.5 ${isSecret ? 'text-text-dim/30 italic' : 'text-text-dim/70'}`}>
+                          {desc}
+                        </p>
+                      </div>
+                      {unlocked && (
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 mt-0.5 text-gold/60">
+                          <path d="M3 7.5l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
                     </div>
-                    {unlocked && (
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 mt-0.5 text-gold/60">
-                        <path d="M3 7.5l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           );
@@ -357,6 +384,13 @@ function AtlasLedgerPanel({ open, onClose }: { open: boolean; onClose: () => voi
                   <MilestonesSection locale={locale} />
                   <div className="h-px bg-chrome-divider" />
                   <ExpeditionsSection locale={locale} />
+                  <div className="h-px bg-chrome-divider" />
+                  <div>
+                    <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/50 mb-3">
+                      {t('ledger.shareProgressHeading', locale)}
+                    </h3>
+                    <ShareCard />
+                  </div>
                 </>
               )}
               <div className="h-px bg-chrome-divider" />

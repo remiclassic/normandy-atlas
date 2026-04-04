@@ -7,6 +7,7 @@ import {
   createEmptyProgress,
   type ProgressV2,
 } from './schema';
+import { migrateV2toV3 } from './merge';
 
 // ---------------------------------------------------------------------------
 // localStorage read / write with quota handling and v1→v2 migration.
@@ -48,11 +49,12 @@ function migrateFromV1(): ProgressV2 {
   return progress;
 }
 
-/** Validate and deserialize a raw blob. */
+/** Validate and deserialize a raw blob, migrating v2→v3 if needed. */
 function parseBlob(raw: string): ProgressV2 | null {
   try {
     const obj = JSON.parse(raw);
     if (obj?.schemaVersion === SCHEMA_VERSION) return obj as ProgressV2;
+    if (obj?.schemaVersion === 2) return migrateV2toV3(obj);
   } catch { /* corrupt */ }
   return null;
 }

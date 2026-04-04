@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   basePath,
   // Keep `_next` chunk URLs aligned with basePath (must stay a string; never `undefined`).
   assetPrefix: basePath,
+  /** Static export has no Image Optimization API — emit plain img src for `next/image`. */
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

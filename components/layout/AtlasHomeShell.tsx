@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
-import { ArrowLeft, Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -29,7 +30,7 @@ import { SupportModal } from '@/components/layout/SupportModal';
 /** Set to true to restore Support the Atlas in the header, mobile menu, and creator modal. */
 const SUPPORT_ATLAS_ENABLED = false;
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
-import { useHydrateLocale, useHydrateUiTheme, useHydrateTextSize, useLocale } from '@/hooks/use-atlas';
+import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
@@ -40,6 +41,7 @@ import { BackgroundMusic } from '@/components/audio/BackgroundMusic';
 import AtlasLedgerPanel from '@/components/progress/AtlasLedgerPanel';
 import CuratorToast from '@/components/progress/CuratorToast';
 import MilestoneCelebrationModal from '@/components/progress/MilestoneCelebrationModal';
+import ShareMomentModal from '@/components/progress/ShareMomentModal';
 import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
 import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
 import SessionGuard from '@/components/progress/SessionGuard';
@@ -112,9 +114,7 @@ function MobileMenuDrawer({
 }
 
 export default function AtlasHomeShell() {
-  useHydrateLocale();
-  useHydrateUiTheme();
-  useHydrateTextSize();
+  const router = useRouter();
   const locale = useLocale();
   const isMobile = useIsMobile();
   const eraId = useMapStore((s) => s.eraId);
@@ -269,6 +269,11 @@ export default function AtlasHomeShell() {
     openLedgerAndEndCelebration();
   }, [closeMobileMenu, openLedgerAndEndCelebration]);
 
+  const handleProfileFromMenu = useCallback(() => {
+    closeMobileMenu();
+    router.push('/profile');
+  }, [closeMobileMenu, router]);
+
   const desktopUtilitySlot = useMemo(
     () => (
       <div className="flex items-center gap-0.5 text-text-muted/80">
@@ -327,6 +332,18 @@ export default function AtlasHomeShell() {
             aria-label={t('atlasJournal.aria.open', locale)}
           >
             <Library className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+          </Link>
+        </ChromeIconTooltip>
+        <ChromeIconTooltip
+          label={t('profile.tooltip.label', locale)}
+          hint={t('profile.tooltip.hint', locale)}
+        >
+          <Link
+            href="/profile"
+            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+            aria-label={t('profile.aria.open', locale)}
+          >
+            <Award className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
           </Link>
         </ChromeIconTooltip>
         <ChromeIconTooltip
@@ -427,6 +444,16 @@ export default function AtlasHomeShell() {
                 >
                   <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
                 </button>
+              )}
+
+              {!storyLibraryOpen && (
+                <Link
+                  href="/profile"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-parchment transition-colors touch-target"
+                  aria-label={t('profile.aria.open', locale)}
+                >
+                  <Award className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
+                </Link>
               )}
 
               <div className="min-w-0 flex-1 flex justify-end">
@@ -638,6 +665,14 @@ export default function AtlasHomeShell() {
               <BookOpen className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
               {t('ledger.mobileDrawer.label', locale)}
             </button>
+            <button
+              type="button"
+              onClick={handleProfileFromMenu}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <Award className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+              {t('profile.mobileDrawer.label', locale)}
+            </button>
             <ReplayTourButton fullWidth />
           </div>
 
@@ -704,6 +739,7 @@ export default function AtlasHomeShell() {
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
       <AtlasLedgerPanel open={ledgerOpen} onClose={closeLedger} />
       <CuratorToast />
+      <ShareMomentModal />
       <MilestoneCelebrationModal />
       <LedgerRecordedOverlay />
       <StoryEraIntroOverlay />

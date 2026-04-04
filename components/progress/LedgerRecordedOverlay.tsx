@@ -1,19 +1,52 @@
 'use client';
 
-import { memo, useEffect, useRef, useCallback } from 'react';
+import { memo, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
+import { useProgress } from '@/hooks/useAtlasProgress';
+import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
+import { storyLibraryMetaList } from '@/data/atlas/story-library-meta';
+import { shareOrCopy, buildPublicShareUrl } from '@/lib/progress/share';
+import type { AtlasLocale } from '@/core/types';
+
+function storyArcDisplayTitle(arcId: string | null, locale: AtlasLocale): string {
+  const meta = storyLibraryMetaList.find((m) => m.arcId === arcId);
+  if (meta?.displayTitle) return pickI18n(meta.displayTitle, locale);
+  return locale === 'fr' ? 'Récit' : 'Story';
+}
 
 const HOLD_MS = 2800;
 
 function LedgerRecordedOverlay() {
   const locale = useLocale();
   const phase = useMapStore((s) => s.ledgerCelebrationPhase);
+  const storyArc = useMapStore((s) => s.storyArc);
   const advance = useMapStore((s) => s.advanceLedgerCelebration);
+  const progress = useProgress();
   const holdTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const showing = phase === 'overlay';
+
+  const completedStoryCount = useMemo(
+    () => Object.values(progress.story).filter((r) => r.completed).length,
+    [progress.story],
+  );
+  const showFirstArcShare = completedStoryCount === 1;
+
+  const arcTitle = useMemo(
+    () => (showing ? storyArcDisplayTitle(storyArc, locale) : ''),
+    [showing, storyArc, locale],
+  );
+
+  const handleShareArc = useCallback(async () => {
+    if (!arcTitle) return;
+    await shareOrCopy({
+      title: 'Norman Atlas',
+      text: t('share.firstStory.shareBody', locale).replace('{title}', arcTitle),
+      url: buildPublicShareUrl({}),
+    });
+  }, [arcTitle, locale]);
 
   const reducedMotion =
     typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -82,13 +115,24 @@ function LedgerRecordedOverlay() {
               {t('story.seal.subtitle', locale)}
             </p>
 
-            <button
-              type="button"
-              onClick={dismiss}
-              className="relative rounded-lg border border-chrome-border px-5 py-1.5 text-[12px] font-medium text-text-dim hover:bg-chrome-fill hover:text-text-muted transition-colors"
-            >
-              {t('milestone.modal.continue', locale)}
-            </button>
+            <div className="relative flex flex-wrap items-center justify-center gap-3">
+              {showFirstArcShare && (
+                <button
+                  type="button"
+                  onClick={handleShareArc}
+                  className="rounded-lg border border-gold/20 bg-gold/8 px-5 py-1.5 text-[12px] font-medium text-gold hover:bg-gold/15 hover:border-gold/30 transition-colors"
+                >
+                  {t('milestone.modal.share', locale)}
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={dismiss}
+                className="rounded-lg border border-chrome-border px-5 py-1.5 text-[12px] font-medium text-text-dim hover:bg-chrome-fill hover:text-text-muted transition-colors"
+              >
+                {t('milestone.modal.continue', locale)}
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       )}

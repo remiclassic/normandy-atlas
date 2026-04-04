@@ -1,13 +1,13 @@
 import type { StoryProgressRecord } from '@/lib/story-progress';
 
 // ---------------------------------------------------------------------------
-// Progress V2 — unified schema for the atlas gamification layer.
+// Progress V3 — unified schema for the atlas gamification layer.
 // All data is stored in a single localStorage blob.
 // ---------------------------------------------------------------------------
 
 export const PROGRESS_STORAGE_KEY = 'norman-atlas-progress-v2';
 export const LEGACY_STORY_STORAGE_KEY = 'norman-atlas-story-progress-v1';
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 /** Cap the event tail to keep the blob under ~60 KB. */
 export const MAX_EVENT_TAIL = 300;
@@ -53,6 +53,7 @@ export interface Aggregates {
   regions: Record<string, EntityEngagement>;
   segments: Record<string, EntityEngagement>;
   journeys: Record<string, EntityEngagement>;
+  journalSections: Record<string, EntityEngagement>;
   eraCoverage: Record<string, number>;
   totalSessionMs: number;
 }
@@ -63,7 +64,44 @@ export interface MilestoneRecord {
   unlockedAt: number;
 }
 
+// --- Gamification ----------------------------------------------------------
+
+export interface StreakState {
+  /** ISO date string in the user's local calendar (YYYY-MM-DD). */
+  lastActiveLocalDate: string;
+  currentStreak: number;
+  longestStreak: number;
+  lastStreakMilestoneNotified?: string;
+}
+
+export interface ChallengeActive {
+  id: string;
+  startedAtLocalDate: string;
+  progress: Record<string, number>;
+}
+
+export interface ChallengeHistoryEntry {
+  id: string;
+  completedAt: number;
+  tier?: number;
+}
+
+export interface ChallengesState {
+  active: ChallengeActive | null;
+  history: ChallengeHistoryEntry[];
+}
+
+export interface Gamification {
+  streaks: StreakState;
+  challenges: ChallengesState;
+}
+
 // --- Root blob -------------------------------------------------------------
+
+/** One-time share prompts (persisted so we do not re-offer). */
+export interface ShareMoments {
+  firstExplorationShown?: boolean;
+}
 
 export interface ProgressV2 {
   schemaVersion: typeof SCHEMA_VERSION;
@@ -73,6 +111,8 @@ export interface ProgressV2 {
   events: AtlasEvent[];
   /** ISO date of last persist, for session resumption. */
   lastPersistedAt: string;
+  shareMoments?: ShareMoments;
+  gamification?: Gamification;
 }
 
 // --- Defaults --------------------------------------------------------------
@@ -83,9 +123,22 @@ export function createEmptyAggregates(): Aggregates {
     regions: {},
     segments: {},
     journeys: {},
+    journalSections: {},
     eraCoverage: {},
     totalSessionMs: 0,
   };
+}
+
+export function createEmptyStreaks(): StreakState {
+  return { lastActiveLocalDate: '', currentStreak: 0, longestStreak: 0 };
+}
+
+export function createEmptyChallenges(): ChallengesState {
+  return { active: null, history: [] };
+}
+
+export function createEmptyGamification(): Gamification {
+  return { streaks: createEmptyStreaks(), challenges: createEmptyChallenges() };
 }
 
 export function createEmptyProgress(): ProgressV2 {
@@ -96,5 +149,6 @@ export function createEmptyProgress(): ProgressV2 {
     milestones: {},
     events: [],
     lastPersistedAt: new Date().toISOString(),
+    gamification: createEmptyGamification(),
   };
 }

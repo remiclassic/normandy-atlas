@@ -3058,6 +3058,37 @@ export const atlasStoryBeats: StoryBeat[] = [
     anchorYear: 933,
   },
   {
+    id: 'no-arc-channel-islands-ducal',
+    eraId: 'norman-origins',
+    arcId: 'norman-origins',
+    camera: {
+      target: 'bbox',
+      center: [-2.1, 49.4],
+      zoom: 7.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['channel-islands-node', 'saint-peter-port', 'cotentin-landing'],
+      regionIds: ['channel-islands-neolithic', 'channel-coast'],
+      routeSegmentIds: ['seg-celtic-to-channel-islands'],
+      journeyIds: ['journey-celtic-sea-route'],
+    },
+    presentation: {
+      routeHighlightMode: 'journey',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The Channel Islands Enter the Duchy',
+      body: {
+        en: 'When William Longsword annexed the Cotentin and Avranchin in 933, the nearby Channel Islands fell within the same ducal orbit. Jersey, Guernsey, and their smaller neighbours had been waypoints on the Norwegian Celtic Sea route that fed western Normandy — the same corridor described by archaeologists tracing Norse place-names and burial customs across the Cotentin. Under ducal authority the islands became an offshore extension of Normandy: governed by the same law, subject to the same Church, and integrated into the maritime economy linking the Cotentin coast to the wider Norman world. They were never peripheral — they were the duchy\'s western sea frontier.',
+        fr: 'Lorsque Guillaume Longue-Épée annexa le Cotentin et l\'Avranchin en 933, les îles Anglo-Normandes voisines entrèrent dans la même orbite ducale. Jersey, Guernesey et leurs petites voisines avaient été des relais sur la route norvégienne de la mer Celtique qui alimentait l\'ouest normand — le même corridor décrit par les archéologues retraçant les toponymes et les coutumes funéraires scandinaves à travers le Cotentin. Sous l\'autorité ducale, les îles devinrent une extension insulaire de la Normandie : régies par le même droit, rattachées à la même Église, et intégrées dans l\'économie maritime reliant la côte du Cotentin au monde normand. Elles ne furent jamais périphériques — elles étaient la frontière maritime occidentale du duché.',
+      },
+    },
+    anchorYear: 933,
+  },
+  {
     id: 'no-arc-cultural-fusion',
     eraId: 'norman-origins',
     arcId: 'norman-origins',
@@ -3178,6 +3209,36 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1066,
   },
+  {
+    id: 'no-arc-channel-islands-anglo-norman',
+    eraId: 'norman-origins',
+    arcId: 'norman-origins',
+    camera: {
+      target: 'bbox',
+      center: [-1.0, 49.6],
+      zoom: 6.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['channel-islands-node', 'saint-peter-port', 'rouen', 'caen'],
+      regionIds: ['channel-islands-neolithic', 'normandy', 'channel-coast'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['origins'],
+    },
+    copy: {
+      title: 'Offshore Normandy on the Eve of Conquest',
+      body: {
+        en: 'By 1066 the Channel Islands had been part of the duchy for over a century. They shared its reformed Church, its feudal tenures, and its Norman French speech. When Duke William crossed the Channel to seize the English crown, the islands entered a personal union: their lord was now both duke of Normandy and king of England. This was not an English acquisition of foreign territory — it was a Norman polity whose ruler happened to add England to his domains. The islands\' fate would hinge on that distinction when the union later fractured.',
+        fr: 'En 1066, les îles Anglo-Normandes faisaient partie du duché depuis plus d\'un siècle. Elles partageaient son Église réformée, ses tenures féodales et sa langue franco-normande. Lorsque le duc Guillaume traversa la Manche pour s\'emparer de la couronne anglaise, les îles entrèrent dans une union personnelle : leur seigneur était désormais à la fois duc de Normandie et roi d\'Angleterre. Il ne s\'agissait pas d\'une acquisition anglaise de territoire étranger — c\'était une entité normande dont le souverain ajoutait l\'Angleterre à ses domaines. Le sort des îles tiendrait à cette distinction lorsque l\'union se briserait.',
+      },
+    },
+    anchorYear: 1066,
+  },
 
   // ── Norman Expansion Arc beats ────────────────────────────────────
   {
@@ -3216,13 +3277,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'norman-expansion',
     camera: {
       target: 'bbox',
-      center: [0.0, 50.5],
-      zoom: 5.0,
+      center: [-0.3, 51.0],
+      zoom: 4.8,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['rouen', 'caen', 'hastings', 'london'],
+      placeIds: ['rouen', 'caen', 'pevensey', 'hastings', 'stamford-bridge', 'westminster', 'london', 'york-jorvik'],
       regionIds: ['normandy'],
       routeSegmentIds: [],
     },
@@ -3276,13 +3337,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'norman-expansion',
     camera: {
       target: 'bbox',
-      center: [25.0, 38.0],
-      zoom: 3.6,
+      center: [30.0, 35.5],
+      zoom: 3.2,
       durationMs: 2200,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['antioch', 'bari'],
+      placeIds: ['antioch', 'bari', 'jerusalem', 'tiberias', 'edessa', 'limassol'],
       regionIds: [],
       routeSegmentIds: [],
     },
@@ -3384,11 +3445,71 @@ export const atlasStoryBeats: StoryBeat[] = [
     copy: {
       title: 'Assimilation & Legacy',
       body: {
-        en: 'By the thirteenth century the Norman world was dissolving into larger identities — English, French, Sicilian. Normandy itself was conquered by Philip Augustus in 1204, severing the cross-Channel duchy. Yet Norman legacies endured: common law in England, cathedral architecture from Durham to Monreale, feudal land tenure from Ireland to the Levant, and a diaspora of surnames, charters, and castle ruins stretching across three continents.',
-        fr: 'Au XIIIe siècle, le monde normand se fondait dans des identités plus larges — anglaise, française, sicilienne. La Normandie elle-même fut conquise par Philippe Auguste en 1204, rompant le duché transmanche. Pourtant, les héritages normands perdurèrent : la common law en Angleterre, l\'architecture des cathédrales de Durham à Monreale, le régime foncier féodal de l\'Irlande au Levant, et une diaspora de patronymes, de chartes et de ruines de châteaux sur trois continents.',
+        en: 'By the thirteenth century the Norman world was dissolving into larger identities — English, French, Sicilian. Continental Normandy was conquered by Philip Augustus in 1204, severing the mainland duchy from the English crown. Yet Norman legacies endured: common law in England, cathedral architecture from Durham to Monreale, feudal land tenure from Ireland to the Levant, and a diaspora of surnames, charters, and castle ruins stretching across three continents.',
+        fr: 'Au XIIIe siècle, le monde normand se fondait dans des identités plus larges — anglaise, française, sicilienne. La Normandie continentale fut conquise par Philippe Auguste en 1204, séparant le duché de la couronne anglaise. Pourtant, les héritages normands perdurèrent : la common law en Angleterre, l\'architecture des cathédrales de Durham à Monreale, le régime foncier féodal de l\'Irlande au Levant, et une diaspora de patronymes, de chartes et de ruines de châteaux sur trois continents.',
       },
     },
     anchorYear: 1204,
+  },
+  {
+    id: 'ne-arc-channel-islands-after-1204',
+    eraId: 'norman-expansion',
+    arcId: 'norman-expansion',
+    camera: {
+      target: 'bbox',
+      center: [-2.1, 49.4],
+      zoom: 7.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['channel-islands-node', 'saint-peter-port', 'mont-orgueil'],
+      regionIds: ['channel-islands-neolithic', 'channel-coast'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'The 1204 Fork: Islands Without the Duchy',
+      body: {
+        en: 'When Philip Augustus conquered continental Normandy in 1204, the cross-Channel duchy was split in two. Mainland Normandy became part of the French kingdom. But the Channel Islands chose — or were kept by — the English crown. Islanders swore loyalty to King John not as English subjects but as the duke\'s people: they retained their Norman customary law, their feudal land tenures, and their own courts. This anomaly became permanent. The islands were never absorbed into England, never governed by Parliament, and never lost their Norman legal identity. The 1204 fork is the origin story of today\'s Crown Dependencies — self-governing territories owing allegiance to the crown but constitutionally distinct from the United Kingdom.',
+        fr: 'Lorsque Philippe Auguste conquit la Normandie continentale en 1204, le duché transmanche fut coupé en deux. La Normandie du continent devint partie du royaume de France. Mais les îles Anglo-Normandes choisirent — ou furent retenues par — la couronne anglaise. Les insulaires prêtèrent allégeance au roi Jean non comme sujets anglais, mais comme peuple du duc : ils conservèrent leur droit coutumier normand, leurs tenures féodales et leurs propres tribunaux. Cette anomalie devint permanente. Les îles ne furent jamais absorbées par l\'Angleterre, jamais gouvernées par le Parlement, et ne perdirent jamais leur identité juridique normande. La fracture de 1204 est l\'origine des actuelles dépendances de la Couronne — des territoires autonomes liés à la couronne mais constitutionnellement distincts du Royaume-Uni.',
+      },
+    },
+    anchorYear: 1205,
+  },
+  {
+    id: 'ne-arc-channel-islands-frontier',
+    eraId: 'norman-expansion',
+    arcId: 'norman-expansion',
+    camera: {
+      target: 'places',
+      center: [-2.1, 49.2],
+      zoom: 8.5,
+      durationMs: 2000,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['mont-orgueil', 'channel-islands-node', 'saint-peter-port'],
+      regionIds: ['channel-islands-neolithic'],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Fortress Islands: Mont Orgueil and the Norman Frontier',
+      body: {
+        en: 'After 1204 the Channel Islands became a contested frontier between the French and English crowns. Mont Orgueil castle on Jersey\'s east coast — commanding the sea approach from Normandy — was fortified on a scale that announced the islands\' strategic value. French raids struck repeatedly through the thirteenth and fourteenth centuries; Guernsey\'s Castle Cornet guarded Saint Peter Port. Between sieges, the islands sustained a bilingual maritime economy trading with both French and English coasts. Their courts administered Norman customary law long after the mainland had absorbed Roman-canon procedure. Jèrriais and Guernésiais — insular descendants of Norman French — survived as living spoken languages into the modern era. These were not frozen relics of 1066 but evolved communities that kept a distinctive Norman legal and linguistic identity precisely because their separation from the mainland after 1204 shielded them from Parisian centralisation.',
+        fr: 'Après 1204, les îles Anglo-Normandes devinrent une frontière disputée entre les couronnes de France et d\'Angleterre. Le château de Mont Orgueil sur la côte est de Jersey — dominant l\'approche maritime depuis la Normandie — fut fortifié à une échelle qui traduisait la valeur stratégique des îles. Les raids français frappèrent à répétition aux XIIIe et XIVe siècles ; Castle Cornet à Guernesey protégeait Saint-Pierre-Port. Entre les sièges, les îles entretinrent une économie maritime bilingue commerçant avec les côtes française et anglaise. Leurs tribunaux administrèrent le droit coutumier normand bien après que le continent eut adopté la procédure romano-canonique. Le jèrriais et le guernesiais — descendants insulaires du franco-normand — survécurent comme langues parlées vivantes jusqu\'à l\'époque moderne. Ce n\'étaient pas des reliques figées de 1066 mais des communautés évoluées qui préservèrent une identité juridique et linguistique normande distincte précisément parce que leur séparation du continent après 1204 les protégea de la centralisation parisienne.',
+      },
+    },
+    anchorYear: 1300,
   },
 
   // ── Normandy to the New World — transatlantic arc ────────────────
@@ -4038,13 +4159,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'william-conqueror',
     camera: {
       target: 'bbox',
-      center: [0.3, 50.5],
-      zoom: 6.0,
+      center: [-0.3, 51.5],
+      zoom: 5.5,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['saint-valery-sur-somme', 'hastings', 'london'],
+      placeIds: ['saint-valery-sur-somme', 'pevensey', 'hastings', 'stamford-bridge', 'york-jorvik', 'london'],
       regionIds: ['normandy'],
       routeSegmentIds: [],
     },
@@ -4067,14 +4188,14 @@ export const atlasStoryBeats: StoryBeat[] = [
     eraId: 'norman-expansion',
     arcId: 'william-conqueror',
     camera: {
-      target: 'places',
-      center: [-0.13, 51.51],
-      zoom: 7.5,
-      durationMs: 2000,
+      target: 'bbox',
+      center: [-0.8, 52.5],
+      zoom: 5.0,
+      durationMs: 2200,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['london', 'hastings'],
+      placeIds: ['westminster', 'london', 'york-jorvik', 'durham', 'exeter'],
       regionIds: [],
       routeSegmentIds: [],
     },
@@ -4914,13 +5035,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'bohemond-antioch',
     camera: {
       target: 'bbox',
-      center: [37.0, 38.0],
-      zoom: 5.0,
+      center: [37.5, 36.7],
+      zoom: 4.8,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['antioch'],
+      placeIds: ['antioch', 'edessa', 'jerusalem'],
       regionIds: [],
       routeSegmentIds: [],
     },
@@ -4967,6 +5088,68 @@ export const atlasStoryBeats: StoryBeat[] = [
       },
     },
     anchorYear: 1111,
+  },
+
+  // ── Tancred of Galilee & Richard the Lionheart beats ─────────────
+  {
+    id: 'ne-tancred-galilee',
+    eraId: 'norman-expansion',
+    arcId: 'norman-expansion',
+    camera: {
+      target: 'bbox',
+      center: [35.5, 32.5],
+      zoom: 6.5,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['tiberias', 'jerusalem', 'antioch'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Tancred — the Hauteville in Galilee',
+      body: {
+        en: 'While Bohemond fixed on Antioch, his nephew Tancred marched south with the main Crusader army. After the fall of Jerusalem in July 1099, Tancred carved out a lordship in Galilee centred on Tiberias — imposing Norman-style feudalism on a landscape of Galilean hills, Arab villages, and Christian pilgrimage sites. He was among the first Crusaders to enter Jerusalem, and he seized Bethlehem the day before the city fell. When Bohemond was captured by the Danishmend Turks in 1100, Tancred returned north to govern Antioch as regent — the only Norman who held power in both Crusader states. He died in 1112, still in his thirties, having spent his entire adult life fighting in the East.',
+        fr: 'Tandis que Bohémond se fixait sur Antioche, son neveu Tancrède marcha vers le sud avec le gros de l\'armée croisée. Après la chute de Jérusalem en juillet 1099, Tancrède se tailla une seigneurie en Galilée centrée sur Tibériade — imposant un féodalisme de type normand à un paysage de collines galiléennes, de villages arabes et de lieux de pèlerinage chrétien. Il fut parmi les premiers Croisés à entrer dans Jérusalem, et s\'empara de Bethléem la veille de la chute de la ville. Quand Bohémond fut capturé par les Turcs danishmendides en 1100, Tancrède remonta au nord pour gouverner Antioche comme régent — le seul Normand à avoir détenu le pouvoir dans les deux États croisés. Il mourut en 1112, n\'ayant pas encore la quarantaine, après avoir passé toute sa vie adulte à combattre en Orient.',
+      },
+    },
+    anchorYear: 1099,
+  },
+  {
+    id: 'ne-richard-cyprus',
+    eraId: 'norman-expansion',
+    arcId: 'norman-expansion',
+    camera: {
+      target: 'bbox',
+      center: [33.5, 34.8],
+      zoom: 6.0,
+      durationMs: 2200,
+      easing: 'easeInOutCubic',
+    },
+    focus: {
+      placeIds: ['limassol', 'jerusalem'],
+      regionIds: [],
+      routeSegmentIds: [],
+    },
+    presentation: {
+      routeHighlightMode: 'none',
+      dimOthers: true,
+      pulse: ['destinations'],
+    },
+    copy: {
+      title: 'Richard the Lionheart — Cyprus and the Third Crusade',
+      body: {
+        en: 'A century after Bohemond, a different Norman legacy reached the Holy Land. Richard I of England — great-great-grandson of William the Conqueror — set out on the Third Crusade in 1190. En route, his fleet was scattered by a storm off Cyprus. The island\'s ruler, the Byzantine rebel Isaac Komnenos, seized Richard\'s shipwrecked soldiers and his betrothed Berengaria of Navarre. Richard responded with characteristic fury: he conquered the entire island in a matter of weeks, marrying Berengaria at Limassol in May 1191. He then sold Cyprus to the Templars and later to Guy de Lusignan, establishing a Crusader kingdom that would outlast every Frankish foothold on the mainland. Richard went on to recapture Acre and fight Saladin to a truce — but it was the seizure of Cyprus, an improvisation born of a storm, that proved the most durable Norman-descended achievement of the later Crusades.',
+        fr: 'Un siècle après Bohémond, un autre héritage normand atteignit la Terre Sainte. Richard Ier d\'Angleterre — arrière-arrière-petit-fils de Guillaume le Conquérant — se lança dans la Troisième Croisade en 1190. En chemin, sa flotte fut dispersée par une tempête au large de Chypre. Le maître de l\'île, le rebelle byzantin Isaac Comnène, captura les soldats naufragés de Richard et sa fiancée Bérengère de Navarre. Richard répondit avec sa fureur caractéristique : il conquit l\'île entière en quelques semaines, épousant Bérengère à Limassol en mai 1191. Il vendit ensuite Chypre aux Templiers puis à Guy de Lusignan, fondant un royaume croisé qui survivrait à toutes les possessions franques du continent. Richard reconquit Acre et combattit Saladin jusqu\'à une trêve — mais c\'est la prise de Chypre, improvisation née d\'une tempête, qui s\'avéra la réalisation la plus durable d\'ascendance normande des Croisades tardives.',
+      },
+    },
+    anchorYear: 1191,
   },
 
   // ── Leif Erikson cinematic arc ─────────────────────────────────────
@@ -5713,13 +5896,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'odo-bayeux',
     camera: {
       target: 'bbox',
-      center: [0.0, 51.2],
+      center: [0.5, 51.2],
       zoom: 6.5,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['london', 'hastings'],
+      placeIds: ['london', 'dover', 'canterbury'],
       regionIds: [],
       routeSegmentIds: [],
     },
@@ -5743,13 +5926,13 @@ export const atlasStoryBeats: StoryBeat[] = [
     arcId: 'odo-bayeux',
     camera: {
       target: 'bbox',
-      center: [-0.5, 52.0],
-      zoom: 5.5,
+      center: [-0.5, 52.8],
+      zoom: 5.0,
       durationMs: 2000,
       easing: 'easeInOutCubic',
     },
     focus: {
-      placeIds: ['london', 'york-jorvik'],
+      placeIds: ['london', 'york-jorvik', 'durham'],
       regionIds: [],
       routeSegmentIds: [],
     },
@@ -6038,6 +6221,692 @@ export const atlasStoryBeats: StoryBeat[] = [
       },
     },
     anchorYear: 1086,
+  },
+
+  // ── Henry I — the lion of justice ────────────────────────────────
+  {
+    id: 'h1-rufus-death',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'bbox', center: [-1.5, 51.0], zoom: 7.0, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['winchester', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'The arrow in the New Forest',
+      body: {
+        en: 'On 2 August 1100, William Rufus was killed by an arrow while hunting in the New Forest. Whether it was murder or accident remains debated. His younger brother Henry rode immediately to Winchester, seized the royal treasury, and had himself crowned at Westminster within three days. Speed was everything: his elder brother Robert Curthose was returning from the First Crusade and had a strong claim. Henry\'s lightning coup secured the English crown for a ruler who would transform royal administration.',
+        fr: 'Le 2 août 1100, Guillaume le Roux fut tué par une flèche lors d\'une chasse dans la New Forest. Meurtre ou accident, le débat reste ouvert. Son frère cadet Henri galopa aussitôt vers Winchester, s\'empara du trésor royal et se fit couronner à Westminster en trois jours. La rapidité était cruciale : son frère aîné Robert Courteheuse revenait de la Première Croisade avec une prétention solide. Le coup de force d\'Henri assura la couronne anglaise à un souverain qui allait transformer l\'administration royale.',
+      },
+    },
+    anchorYear: 1100,
+  },
+  {
+    id: 'h1-coronation-charter',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'places', center: [-0.13, 51.51], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Charter of Liberties',
+      body: {
+        en: 'At his coronation, Henry issued a charter promising to end the abuses of William Rufus — arbitrary taxation, exploitation of Church lands, and oppressive forest law. It was the first time an English king had bound himself by written promises to his subjects. The charter was political calculation, not idealism: Henry needed baronial support against his brother. But the precedent mattered. A century later, the barons who drafted Magna Carta would cite Henry I\'s charter as their model.',
+        fr: 'Lors de son couronnement, Henri publia une charte promettant de mettre fin aux abus de Guillaume le Roux — fiscalité arbitraire, exploitation des terres ecclésiastiques et lois forestières oppressives. C\'était la première fois qu\'un roi anglais s\'engageait par écrit envers ses sujets. La charte relevait du calcul politique, non de l\'idéalisme : Henri avait besoin du soutien des barons contre son frère. Mais le précédent comptait. Un siècle plus tard, les barons qui rédigèrent la Magna Carta citeraient la charte d\'Henri Ier comme modèle.',
+      },
+    },
+    anchorYear: 1100,
+  },
+  {
+    id: 'h1-tinchebray',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'bbox', center: [-0.7, 49.5], zoom: 6.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london', 'caen'], regionIds: ['normandy'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Tinchebray — Normandy reunited',
+      body: {
+        en: 'In 1106, Henry invaded Normandy and defeated Robert Curthose at the Battle of Tinchebray. Robert was captured and imprisoned for the remaining twenty-eight years of his life. For the first time since the Conqueror\'s death, England and Normandy were united under one ruler. Henry governed both with an iron grip, crossing the Channel repeatedly, spending more time in Normandy than any of his predecessors. The cross-Channel state that William I had built was restored — and this time, it would be run by the most effective administrator medieval Europe had seen.',
+        fr: 'En 1106, Henri envahit la Normandie et vainquit Robert Courteheuse à la bataille de Tinchebray. Robert fut capturé et emprisonné pour les vingt-huit années restantes de sa vie. Pour la première fois depuis la mort du Conquérant, l\'Angleterre et la Normandie étaient réunies sous un seul souverain. Henri gouverna les deux d\'une main de fer, traversant la Manche sans relâche, passant plus de temps en Normandie qu\'aucun de ses prédécesseurs. L\'État transmanche bâti par Guillaume Ier était restauré — et cette fois, il serait dirigé par l\'administrateur le plus efficace que l\'Europe médiévale eût connu.',
+      },
+    },
+    anchorYear: 1106,
+  },
+  {
+    id: 'h1-exchequer',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'places', center: [-1.31, 51.06], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['winchester', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Exchequer and the king\'s justice',
+      body: {
+        en: 'Henry I built the most sophisticated royal administration in western Europe. The Exchequer — named for the chequered cloth on which accounts were calculated — became a permanent institution at Winchester, auditing every penny owed to the crown. Royal justices rode circuits through England, imposing the king\'s law in baronial courts. Roger of Salisbury, Henry\'s chief minister, created a bureaucracy that could govern even when the king was in Normandy. It was government by system rather than personality — and it would outlast the dynasty that built it.',
+        fr: 'Henri Ier bâtit l\'administration royale la plus sophistiquée d\'Europe occidentale. L\'Échiquier — nommé d\'après le tissu à carreaux sur lequel on calculait les comptes — devint une institution permanente à Winchester, auditant chaque denier dû à la couronne. Des juges royaux parcouraient l\'Angleterre en tournées, imposant la loi du roi dans les cours seigneuriales. Roger de Salisbury, le principal ministre d\'Henri, créa une bureaucratie capable de gouverner même en l\'absence du roi en Normandie. C\'était un gouvernement par le système plutôt que par la personnalité — et il survivrait à la dynastie qui l\'avait construit.',
+      },
+    },
+    anchorYear: 1110,
+  },
+  {
+    id: 'h1-white-ship',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'places', center: [-1.26, 49.67], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['barfleur'], regionIds: ['normandy'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'The White Ship — a dynasty drowned',
+      body: {
+        en: 'On the night of 25 November 1120, the White Ship struck a rock leaving Barfleur harbour and sank in the Channel. Among the dead was William Adelin, Henry\'s only legitimate son and heir. The chronicler Orderic Vitalis wrote that Henry never smiled again. The disaster destroyed the succession plan Henry had spent two decades building. He forced his barons to swear allegiance to his daughter Matilda — an unprecedented step that would set the stage for civil war. A single shipwreck altered the course of English history.',
+        fr: 'Dans la nuit du 25 novembre 1120, la Blanche-Nef heurta un rocher en quittant le port de Barfleur et sombra dans la Manche. Parmi les morts se trouvait Guillaume Adelin, unique fils légitime et héritier d\'Henri. Le chroniqueur Orderic Vital écrivit qu\'Henri ne sourit plus jamais. Le désastre anéantit le plan de succession que Henri avait mis vingt ans à construire. Il contraignit ses barons à jurer allégeance à sa fille Mathilde — une démarche sans précédent qui allait préparer le terrain à la guerre civile. Un seul naufrage modifia le cours de l\'histoire anglaise.',
+      },
+    },
+    anchorYear: 1120,
+  },
+  {
+    id: 'h1-death-succession',
+    eraId: 'norman-expansion',
+    arcId: 'henry-i-england',
+    camera: { target: 'bbox', center: [0.0, 50.0], zoom: 5.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['rouen', 'london', 'winchester'], regionIds: ['normandy'], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Death at Lyons-la-Forêt — the kingdom unravels',
+      body: {
+        en: 'Henry I died on 1 December 1135 at Lyons-la-Forêt in Normandy, reportedly after eating a surfeit of lampreys. He had reigned for thirty-five years — the longest of any Norman king. His death triggered exactly the crisis he had feared. Despite the oaths sworn to Matilda, Stephen of Blois crossed the Channel and seized the crown within weeks. The administrative machine Henry had built would survive, but the political order he had held together by force of will shattered. England was about to descend into nearly two decades of civil war.',
+        fr: 'Henri Ier mourut le 1er décembre 1135 à Lyons-la-Forêt en Normandie, dit-on après avoir mangé trop de lamproies. Il avait régné trente-cinq ans — le plus long règne de tous les rois normands. Sa mort déclencha exactement la crise qu\'il avait redoutée. Malgré les serments prêtés à Mathilde, Étienne de Blois traversa la Manche et s\'empara de la couronne en quelques semaines. La machine administrative bâtie par Henri survivrait, mais l\'ordre politique qu\'il avait maintenu par sa volonté se brisa. L\'Angleterre allait plonger dans près de deux décennies de guerre civile.',
+      },
+    },
+    anchorYear: 1135,
+  },
+
+  // ── The Anarchy — when the crown broke ──────────────────────────
+  {
+    id: 'an-stephen-coup',
+    eraId: 'norman-expansion',
+    arcId: 'the-anarchy',
+    camera: { target: 'bbox', center: [-0.13, 51.51], zoom: 6.5, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london', 'winchester'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Stephen seizes the crown',
+      body: {
+        en: 'When Henry I died in December 1135, his nephew Stephen of Blois moved with extraordinary speed. He crossed the Channel, won the support of the citizens of London and the bishop of Winchester, and was crowned at Westminster on 22 December — before Matilda could react. Stephen was brave, generous, and personally likeable, but he lacked Henry I\'s iron will and administrative instinct. His reign would test whether the Anglo-Norman state could survive a weak king.',
+        fr: 'À la mort d\'Henri Ier en décembre 1135, son neveu Étienne de Blois agit avec une rapidité extraordinaire. Il traversa la Manche, gagna le soutien des Londoniens et de l\'évêque de Winchester, et fut couronné à Westminster le 22 décembre — avant que Mathilde ne puisse réagir. Étienne était brave, généreux et personnellement aimable, mais il n\'avait ni la volonté de fer d\'Henri Ier ni son instinct administratif. Son règne allait tester si l\'État anglo-normand pouvait survivre à un roi faible.',
+      },
+    },
+    anchorYear: 1135,
+  },
+  {
+    id: 'an-matilda-arrives',
+    eraId: 'norman-expansion',
+    arcId: 'the-anarchy',
+    camera: { target: 'bbox', center: [-2.0, 51.5], zoom: 6.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london', 'winchester'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Matilda lands — the war begins',
+      body: {
+        en: 'In September 1139, the Empress Matilda landed in England with a small force, supported by her half-brother Robert of Gloucester. England split. The west country and much of the Midlands declared for Matilda; the south-east and London held for Stephen. For the next decade, neither side could deliver a knockout blow. Castles changed hands, barons switched allegiance, and the countryside suffered. The Anglo-Saxon Chronicle recorded that "Christ and his saints slept" — the most famous description of medieval anarchy in the English language.',
+        fr: 'En septembre 1139, l\'impératrice Mathilde débarqua en Angleterre avec une petite force, soutenue par son demi-frère Robert de Gloucester. L\'Angleterre se divisa. L\'ouest et une grande partie des Midlands se déclarèrent pour Mathilde ; le sud-est et Londres tinrent pour Étienne. Pendant une décennie, aucun camp ne put porter le coup décisif. Des châteaux changèrent de mains, des barons retournèrent leur allégeance, et les campagnes souffrirent. La Chronique anglo-saxonne nota que « le Christ et ses saints dormaient » — la plus célèbre description de l\'anarchie médiévale en langue anglaise.',
+      },
+    },
+    anchorYear: 1139,
+  },
+  {
+    id: 'an-lincoln-battle',
+    eraId: 'norman-expansion',
+    arcId: 'the-anarchy',
+    camera: { target: 'places', center: [-0.54, 53.23], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['lincoln'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Lincoln — the king captured',
+      body: {
+        en: 'On 2 February 1141, the forces of Robert of Gloucester defeated Stephen\'s army at the Battle of Lincoln. Stephen himself was captured — dragged from the fighting after his sword broke and he was felled by a stone. It was the only time in medieval English history that a reigning king was taken prisoner on an English battlefield. Matilda seemed on the verge of victory. She marched on London to claim the crown.',
+        fr: 'Le 2 février 1141, les forces de Robert de Gloucester vainquirent l\'armée d\'Étienne à la bataille de Lincoln. Étienne lui-même fut capturé — arraché aux combats après que son épée se brisa et qu\'il fut frappé par une pierre. C\'est la seule fois dans l\'histoire médiévale anglaise qu\'un roi régnant fut fait prisonnier sur un champ de bataille anglais. Mathilde semblait au bord de la victoire. Elle marcha sur Londres pour réclamer la couronne.',
+      },
+    },
+    anchorYear: 1141,
+  },
+  {
+    id: 'an-oxford-escape',
+    eraId: 'norman-expansion',
+    arcId: 'the-anarchy',
+    camera: { target: 'places', center: [-1.26, 51.75], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['oxford'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The escape from Oxford',
+      body: {
+        en: 'The Londoners drove Matilda out before she could be crowned. The war swung back. By December 1142, Stephen had besieged Matilda in Oxford Castle. She escaped in one of the war\'s most famous episodes: crossing the frozen Thames at night, cloaked in white against the snow, with just three or four companions. She reached Wallingford and fought on. The escape became a symbol of the entire conflict — dramatic, inconclusive, and impossible to resolve by force alone.',
+        fr: 'Les Londoniens chassèrent Mathilde avant qu\'elle ne fût couronnée. La guerre bascula de nouveau. En décembre 1142, Étienne assiégeait Mathilde dans le château d\'Oxford. Elle s\'échappa dans l\'un des épisodes les plus célèbres de la guerre : traversant la Tamise gelée de nuit, drapée de blanc sur la neige, avec seulement trois ou quatre compagnons. Elle atteignit Wallingford et continua le combat. L\'évasion devint le symbole du conflit entier — dramatique, indécise et impossible à résoudre par la force seule.',
+      },
+    },
+    anchorYear: 1142,
+  },
+  {
+    id: 'an-treaty-winchester',
+    eraId: 'norman-expansion',
+    arcId: 'the-anarchy',
+    camera: { target: 'places', center: [-1.31, 51.06], zoom: 7.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['winchester', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Treaty of Winchester — peace at last',
+      body: {
+        en: 'After Eustace, Stephen\'s eldest son, died suddenly in 1153, the exhausted parties finally found a compromise. The Treaty of Winchester (also called the Treaty of Wallingford) recognised Stephen as king for life but named Matilda\'s son Henry Plantagenet as his heir. Stephen died on 25 October 1154, and Henry II succeeded without opposition. The Anarchy was over. Henry inherited a battered kingdom, but also the administrative machinery that Henry I had built — a foundation on which the Angevin empire would be raised.',
+        fr: 'Après la mort subite d\'Eustache, fils aîné d\'Étienne, en 1153, les partis épuisés trouvèrent enfin un compromis. Le traité de Winchester (aussi appelé traité de Wallingford) reconnut Étienne comme roi à vie mais désigna le fils de Mathilde, Henri Plantagenêt, comme héritier. Étienne mourut le 25 octobre 1154, et Henri II lui succéda sans opposition. L\'Anarchie était terminée. Henri héritait d\'un royaume meurtri, mais aussi de la machine administrative bâtie par Henri Ier — un socle sur lequel serait édifié l\'empire angevin.',
+      },
+    },
+    anchorYear: 1153,
+  },
+
+  // ── The March of Wales — castles on the frontier ────────────────
+  {
+    id: 'mw-fitzosbern-chepstow',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'places', center: [-2.67, 51.64], zoom: 8.5, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['chepstow'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Chepstow — the first stone castle in Wales',
+      body: {
+        en: 'William fitzOsbern, one of William the Conqueror\'s closest companions, was made Earl of Hereford and given the task of securing the Welsh border. Around 1067 he began building Chepstow Castle — a great stone keep perched on limestone cliffs above the River Wye. It was the earliest datable stone castle in Britain, and it sent a message: the Normans were here to stay. From Chepstow, fitzOsbern pushed into Gwent, imposing Norman lordship on a landscape the Anglo-Saxons had never controlled.',
+        fr: 'Guillaume fitzOsbern, l\'un des plus proches compagnons de Guillaume le Conquérant, fut fait comte de Hereford et chargé de sécuriser la frontière galloise. Vers 1067, il commença la construction du château de Chepstow — un grand donjon de pierre perché sur des falaises calcaires au-dessus de la rivière Wye. C\'était le plus ancien château de pierre datable de Grande-Bretagne, et il portait un message : les Normands étaient là pour rester. Depuis Chepstow, fitzOsbern pénétra dans le Gwent, imposant la seigneurie normande sur un paysage que les Anglo-Saxons n\'avaient jamais contrôlé.',
+      },
+    },
+    anchorYear: 1067,
+  },
+  {
+    id: 'mw-cardiff-south',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'places', center: [-3.18, 51.48], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['cardiff', 'chepstow'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Cardiff and the southern march',
+      body: {
+        en: 'Robert fitzHamon seized Glamorgan around 1091, building a motte-and-bailey castle at Cardiff that became the anchor of Norman power in south Wales. The southern march advanced rapidly: Norman lords established castles at Neath, Swansea, and Kidwelly, carving out lordships in the fertile coastal lowlands while Welsh princes retained the mountainous interior. The pattern — Norman-held lowlands, Welsh-held uplands — would define the March of Wales for two centuries.',
+        fr: 'Robert fitzHamon s\'empara du Glamorgan vers 1091, construisant un château à motte à Cardiff qui devint l\'ancre du pouvoir normand dans le sud du Pays de Galles. La marche du sud progressa rapidement : des seigneurs normands établirent des châteaux à Neath, Swansea et Kidwelly, se taillant des seigneuries dans les plaines côtières fertiles tandis que les princes gallois conservaient l\'intérieur montagneux. Ce schéma — plaines normandes, hauteurs galloises — définirait la Marche du Pays de Galles pendant deux siècles.',
+      },
+    },
+    anchorYear: 1091,
+  },
+  {
+    id: 'mw-rhuddlan-north',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'places', center: [-3.47, 53.29], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['rhuddlan'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Rhuddlan and the northern front',
+      body: {
+        en: 'In the north, Hugh d\'Avranches (Hugh the Fat), Earl of Chester, and his cousin Robert of Rhuddlan pushed deep into Gwynedd in the 1070s and 1080s. Robert built a castle at Rhuddlan on the river Clwyd and raided as far as Snowdonia. But the northern advance was precarious. In 1093, Robert of Rhuddlan was killed by a Welsh raiding party, and the Welsh princes of Gwynedd — particularly Gruffudd ap Cynan — fought a generation-long war of resistance that would eventually push the Norman frontier back.',
+        fr: 'Au nord, Hugues d\'Avranches (Hugues le Gros), comte de Chester, et son cousin Robert de Rhuddlan pénétrèrent profondément dans le Gwynedd dans les années 1070 et 1080. Robert construisit un château à Rhuddlan sur la rivière Clwyd et mena des raids jusqu\'à Snowdonia. Mais l\'avancée septentrionale était précaire. En 1093, Robert de Rhuddlan fut tué par un parti de pillards gallois, et les princes gallois du Gwynedd — en particulier Gruffudd ap Cynan — menèrent une guerre de résistance d\'une génération qui finirait par repousser la frontière normande.',
+      },
+    },
+    anchorYear: 1073,
+  },
+  {
+    id: 'mw-pembroke-west',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'places', center: [-4.95, 51.67], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['pembroke'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Pembroke — gateway to the Irish Sea',
+      body: {
+        en: 'Arnulf de Montgomery established Pembroke Castle in 1093, pushing the Norman frontier to the far south-west tip of Wales. Pembroke became more than a border fortress: it was the natural embarkation point for Ireland, and its lords — the de Clare family, who later took the title Earl of Pembroke — would play central roles in the Anglo-Norman invasion of Ireland. The castle that Arnulf built on a limestone promontory overlooking the Haven would remain the strategic key to the Irish Sea for centuries.',
+        fr: 'Arnulf de Montgomery fonda le château de Pembroke en 1093, poussant la frontière normande jusqu\'à la pointe sud-ouest du Pays de Galles. Pembroke devint plus qu\'une forteresse frontalière : c\'était le point d\'embarquement naturel vers l\'Irlande, et ses seigneurs — la famille de Clare, qui prendrait plus tard le titre de comte de Pembroke — joueraient des rôles centraux dans l\'invasion anglo-normande de l\'Irlande. Le château qu\'Arnulf construisit sur un promontoire calcaire dominant le Haven resterait la clé stratégique de la mer d\'Irlande pendant des siècles.',
+      },
+    },
+    anchorYear: 1093,
+  },
+  {
+    id: 'mw-owain-gwynedd',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'bbox', center: [-3.8, 52.5], zoom: 6.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['rhuddlan', 'cardiff'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: false, pulse: ['destinations'] },
+    copy: {
+      title: 'Owain Gwynedd — the Welsh counter-offensive',
+      body: {
+        en: 'By the mid-twelfth century, the Welsh had learned from their Norman adversaries. Owain Gwynedd, prince of Gwynedd from 1137 to 1170, unified northern Wales and pushed the Norman marcher lords back from their deepest penetrations. In 1157, he fought Henry II\'s invasion to a standstill in the forests of Gwynedd. Owain adopted Norman military techniques — castle-building, heavy cavalry — while maintaining Welsh law and language. The March became a true frontier: not a line of advance but a contested zone where Norman and Welsh power structures coexisted.',
+        fr: 'Au milieu du XIIe siècle, les Gallois avaient appris de leurs adversaires normands. Owain Gwynedd, prince de Gwynedd de 1137 à 1170, unifia le nord du Pays de Galles et repoussa les seigneurs normands de leurs pénétrations les plus profondes. En 1157, il tint en échec l\'invasion d\'Henri II dans les forêts du Gwynedd. Owain adopta les techniques militaires normandes — construction de châteaux, cavalerie lourde — tout en maintenant le droit et la langue gallois. La Marche devint une véritable frontière : non une ligne d\'avancée mais une zone contestée où structures de pouvoir normandes et galloises coexistaient.',
+      },
+    },
+    anchorYear: 1157,
+  },
+  {
+    id: 'mw-legacy-march',
+    eraId: 'norman-expansion',
+    arcId: 'march-of-wales',
+    camera: { target: 'bbox', center: [-3.2, 52.0], zoom: 5.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['chepstow', 'cardiff', 'pembroke', 'rhuddlan'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'A frontier that never closed',
+      body: {
+        en: 'The March of Wales was never a single campaign but a two-century process of castle-building, intermarriage, revolt, and accommodation. Norman lords adopted Welsh customs; Welsh princes adopted Norman institutions. The marcher lordships — semi-independent territories answerable neither fully to the English crown nor to Welsh law — created a political patchwork unique in medieval Europe. The frontier would not be closed until Edward I\'s conquest in the 1280s, but the Anglo-Norman imprint — in castles, place-names, and legal traditions — is still visible across Wales today.',
+        fr: 'La Marche du Pays de Galles ne fut jamais une campagne unique mais un processus de deux siècles mêlant construction de châteaux, mariages mixtes, révoltes et accommodements. Les seigneurs normands adoptèrent des coutumes galloises ; les princes gallois adoptèrent des institutions normandes. Les seigneuries de marche — territoires semi-indépendants ne relevant pleinement ni de la couronne anglaise ni du droit gallois — créèrent un patchwork politique unique en Europe médiévale. La frontière ne serait fermée qu\'avec la conquête d\'Édouard Ier dans les années 1280, mais l\'empreinte anglo-normande — dans les châteaux, les toponymes et les traditions juridiques — reste visible dans tout le Pays de Galles aujourd\'hui.',
+      },
+    },
+    anchorYear: 1170,
+  },
+
+  // ── Anglo-Norman Ireland — Strongbow and the crown ──────────────
+  {
+    id: 'ani-dublin-hiberno-norse',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-6.27, 53.35], zoom: 7.5, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Dublin — the Hiberno-Norse gateway',
+      body: {
+        en: 'Before any Norman set foot in Ireland, Dublin was already one of the great trading cities of the Irish Sea world. Founded as a Viking longphort in the ninth century, it had evolved into a Hiberno-Norse town of merchants, craftsmen, and warrior-kings. Its harbour connected Ireland to the Norse networks of York, Chester, and the Isle of Man. When Anglo-Norman adventurers began looking westward across the Irish Sea in the 1160s, Dublin was the prize they all wanted.',
+        fr: 'Avant qu\'aucun Normand ne foule l\'Irlande, Dublin était déjà l\'une des grandes villes marchandes du monde de la mer d\'Irlande. Fondée comme longphort viking au IXe siècle, elle avait évolué en ville hiberno-nordique de marchands, artisans et rois-guerriers. Son port reliait l\'Irlande aux réseaux scandinaves de York, Chester et l\'île de Man. Quand les aventuriers anglo-normands commencèrent à regarder vers l\'ouest à travers la mer d\'Irlande dans les années 1160, Dublin était le prix qu\'ils convoitaient tous.',
+      },
+    },
+    anchorYear: 1160,
+  },
+  {
+    id: 'ani-diarmait-exile',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'bbox', center: [-5.5, 52.0], zoom: 6.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['ferns', 'pembroke'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Diarmait Mac Murchada — a king seeks Norman swords',
+      body: {
+        en: 'In 1166, Diarmait Mac Murchada, king of Leinster, was driven from Ireland by a coalition of rival Irish kings led by Ruaidrí Ua Conchobair of Connacht. Diarmait crossed to England and sought help from Henry II, who granted him permission to recruit among the Anglo-Norman lords of the Welsh March. Diarmait found willing allies — ambitious marcher barons with military expertise and an appetite for land. The bargain he struck would open Ireland to Anglo-Norman intervention for centuries.',
+        fr: 'En 1166, Diarmait Mac Murchada, roi de Leinster, fut chassé d\'Irlande par une coalition de rois irlandais rivaux menée par Ruaidrí Ua Conchobair de Connacht. Diarmait passa en Angleterre et sollicita l\'aide d\'Henri II, qui l\'autorisa à recruter parmi les seigneurs anglo-normands de la Marche galloise. Diarmait trouva des alliés empressés — des barons de marche ambitieux dotés d\'une expertise militaire et d\'un appétit de terres. Le marché qu\'il conclut allait ouvrir l\'Irlande à l\'intervention anglo-normande pour des siècles.',
+      },
+    },
+    anchorYear: 1166,
+  },
+  {
+    id: 'ani-strongbow-wexford',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-6.46, 52.34], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['wexford', 'ferns'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Strongbow lands — Wexford falls',
+      body: {
+        en: 'In May 1169, the first Anglo-Norman force landed near Wexford — a small contingent of archers and men-at-arms from Pembroke. They took Wexford quickly. The following year, Richard de Clare, Earl of Pembroke — known as Strongbow — arrived with a much larger army. He captured Waterford, married Diarmait\'s daughter Aoife, and was promised the succession to Leinster. Anglo-Norman cavalry, crossbowmen, and castle-building techniques overwhelmed Irish forces accustomed to different styles of warfare.',
+        fr: 'En mai 1169, la première force anglo-normande débarqua près de Wexford — un petit contingent d\'archers et d\'hommes d\'armes venus de Pembroke. Ils prirent Wexford rapidement. L\'année suivante, Richard de Clare, comte de Pembroke — surnommé Strongbow — arriva avec une armée bien plus importante. Il prit Waterford, épousa Aoife, fille de Diarmait, et reçut la promesse de succession au trône de Leinster. La cavalerie anglo-normande, les arbalétriers et les techniques de construction de châteaux submergèrent les forces irlandaises habituées à d\'autres formes de guerre.',
+      },
+    },
+    anchorYear: 1170,
+  },
+  {
+    id: 'ani-dublin-falls',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-6.27, 53.35], zoom: 7.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin', 'waterford'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Dublin taken — the prize of Ireland',
+      body: {
+        en: 'In September 1170, Strongbow\'s forces stormed Dublin, driving out the Hiberno-Norse garrison. It was the turning point. Dublin gave the Anglo-Normans a fortified port, a trade hub, and the strategic centre of eastern Ireland. Diarmait died in 1171, and Strongbow claimed Leinster. The speed and scale of the Anglo-Norman takeover alarmed Henry II, who saw his own vassal becoming an independent power. The king decided to intervene personally.',
+        fr: 'En septembre 1170, les forces de Strongbow prirent Dublin d\'assaut, chassant la garnison hiberno-nordique. Ce fut le tournant. Dublin offrit aux Anglo-Normands un port fortifié, un centre commercial et le cœur stratégique de l\'est de l\'Irlande. Diarmait mourut en 1171, et Strongbow revendiqua le Leinster. La rapidité et l\'ampleur de la prise de pouvoir anglo-normande alarmèrent Henri II, qui voyait son propre vassal devenir une puissance indépendante. Le roi décida d\'intervenir personnellement.',
+      },
+    },
+    anchorYear: 1170,
+  },
+  {
+    id: 'ani-henry-ii-lands',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'bbox', center: [-6.5, 52.8], zoom: 6.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['waterford', 'dublin', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Henry II — the crown takes control',
+      body: {
+        en: 'In October 1171, Henry II landed at Waterford with a massive army — the first English king to set foot in Ireland. His purpose was not conquest but control: he came to assert royal authority over Strongbow and the other Anglo-Norman lords, and to receive the submission of the Irish kings. Most Irish kings submitted without a fight, accepting Henry as overlord. Dublin was granted to the crown. Henry established the Lordship of Ireland — a constitutional arrangement that would bind Ireland to the English crown for eight centuries.',
+        fr: 'En octobre 1171, Henri II débarqua à Waterford avec une armée massive — le premier roi anglais à fouler le sol irlandais. Son but n\'était pas la conquête mais le contrôle : il venait affirmer l\'autorité royale sur Strongbow et les autres seigneurs anglo-normands, et recevoir la soumission des rois irlandais. La plupart se soumirent sans combattre, acceptant Henri comme suzerain. Dublin fut concédé à la couronne. Henri établit la Seigneurie d\'Irlande — un arrangement constitutionnel qui lierait l\'Irlande à la couronne anglaise pendant huit siècles.',
+      },
+    },
+    anchorYear: 1171,
+  },
+  {
+    id: 'ani-treaty-windsor',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-6.27, 53.35], zoom: 7.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin', 'waterford'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Treaty of Windsor — two Irelands on paper',
+      body: {
+        en: 'In 1175, Henry II and Ruaidrí Ua Conchobair, the last recognised High King of Ireland, agreed the Treaty of Windsor. Ruaidrí acknowledged Henry as overlord and retained authority over the Gaelic west, while the Anglo-Norman lords kept Leinster, Meath, and the Norse port towns. On paper the treaty drew a line between two Irelands — one Anglo-Norman, one Gaelic. In practice, neither side respected the boundary for long, but the treaty crystallised a partition that would haunt Irish politics for centuries.',
+        fr: 'En 1175, Henri II et Ruaidrí Ua Conchobair, le dernier haut-roi d\'Irlande reconnu, conclurent le traité de Windsor. Ruaidrí reconnaissait Henri comme suzerain et conservait l\'autorité sur l\'ouest gaélique, tandis que les seigneurs anglo-normands gardaient le Leinster, le Meath et les villes portuaires scandinaves. Sur le papier, le traité traçait une ligne entre deux Irlandes — l\'une anglo-normande, l\'autre gaélique. En pratique, aucun des deux camps ne respecta longtemps la frontière, mais le traité cristallisa une partition qui hanterait la politique irlandaise pendant des siècles.',
+      },
+    },
+    anchorYear: 1175,
+  },
+  {
+    id: 'ani-ulster-de-courcy',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-5.81, 54.71], zoom: 7.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['carrickfergus', 'dublin'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'John de Courcy — the conquest of Ulster',
+      body: {
+        en: 'In 1177, the Anglo-Norman knight John de Courcy launched an unauthorised invasion of Ulster with a small force. He defeated the local king Ruaidrí Mac Duinn Sléibe and seized Downpatrick, then built a great castle at Carrickfergus on Belfast Lough — the strongest Anglo-Norman fortress in Ireland. De Courcy carved out a virtually independent lordship in the north-east, importing settlers, founding monasteries, and minting his own coins. His adventure showed that Anglo-Norman expansion in Ireland was driven as much by individual ambition as by royal policy.',
+        fr: 'En 1177, le chevalier anglo-normand Jean de Courcy lança une invasion non autorisée de l\'Ulster avec une petite troupe. Il vainquit le roi local Ruaidrí Mac Duinn Sléibe, s\'empara de Downpatrick, puis érigea un grand château à Carrickfergus sur le lough de Belfast — la plus puissante forteresse anglo-normande d\'Irlande. De Courcy se tailla une seigneurie quasi indépendante dans le nord-est, important des colons, fondant des monastères et frappant sa propre monnaie. Son aventure montra que l\'expansion anglo-normande en Irlande était portée autant par l\'ambition individuelle que par la politique royale.',
+      },
+    },
+    anchorYear: 1177,
+  },
+  {
+    id: 'ani-john-lordship',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'bbox', center: [-6.5, 52.8], zoom: 6.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin', 'waterford'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Lord John — a prince in Ireland',
+      body: {
+        en: 'In 1185, Henry II sent his youngest son John to Ireland as Lord of Ireland — the first member of the English royal family to hold the title. John was nineteen and the visit was a disaster: he alienated both the Irish kings and the Anglo-Norman settlers. Yet the institutional machinery he brought — royal justiciars, a chancery, the beginnings of shire government — planted seeds that would outlast his humiliation. When John returned as king in 1210, the administrative framework he imposed would define English governance in Ireland for generations.',
+        fr: 'En 1185, Henri II envoya son plus jeune fils Jean en Irlande comme seigneur d\'Irlande — le premier membre de la famille royale anglaise à porter ce titre. Jean avait dix-neuf ans et la visite fut un désastre : il s\'aliéna les rois irlandais comme les colons anglo-normands. Pourtant, la machine institutionnelle qu\'il apporta — des justiciers royaux, une chancellerie, les prémices d\'une administration de comtés — planta des graines qui survivraient à son humiliation. Quand Jean revint en roi en 1210, le cadre administratif qu\'il imposa définirait la gouvernance anglaise en Irlande pour des générations.',
+      },
+    },
+    anchorYear: 1185,
+  },
+  {
+    id: 'ani-john-expedition-1210',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'bbox', center: [-6.5, 53.0], zoom: 6.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin', 'waterford', 'carrickfergus'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'King John\'s expedition — the crown reasserts control',
+      body: {
+        en: 'In 1210, King John crossed to Ireland with the largest royal army yet seen there. His targets were not the Gaelic Irish but his own barons: Hugh de Lacy, who had seized the earldom of Ulster, and William de Braose, a fugitive from English justice. John marched north, expelled de Lacy, and forced every Anglo-Norman lord to submit. He reissued English law, built royal castles at Dublin and elsewhere, and tightened the machinery of royal government. The expedition established that the Lordship of Ireland was a dependency of the English crown, not a playground for baronial adventurers.',
+        fr: 'En 1210, le roi Jean traversa en Irlande avec la plus grande armée royale jamais vue sur l\'île. Ses cibles n\'étaient pas les Irlandais gaéliques mais ses propres barons : Hugues de Lacy, qui s\'était emparé du comté d\'Ulster, et Guillaume de Braose, un fugitif de la justice anglaise. Jean marcha vers le nord, expulsa de Lacy et força chaque seigneur anglo-normand à se soumettre. Il réémit le droit anglais, construisit des châteaux royaux à Dublin et ailleurs, et resserra les rouages du gouvernement royal. L\'expédition établit que la seigneurie d\'Irlande était une dépendance de la couronne anglaise, et non un terrain de jeu pour les aventuriers baroniaux.',
+      },
+    },
+    anchorYear: 1210,
+  },
+  {
+    id: 'ani-bruce-invasion',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-6.40, 54.00], zoom: 7.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dundalk', 'dublin', 'carrickfergus'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Bruce invasion — Ireland\'s forgotten war',
+      body: {
+        en: 'In 1315, Edward Bruce — brother of Scotland\'s Robert the Bruce — landed at Carrickfergus with a Scottish army and declared himself King of Ireland. For three years he ravaged the Anglo-Norman colony, defeating English forces repeatedly and marching as far south as Limerick. The invasion coincided with the Great Famine of 1315–1317, and the combined devastation shattered Anglo-Norman power outside the east coast. Edward Bruce was killed at the Battle of Faughart near Dundalk in 1318, but the colony never fully recovered. The invasion marked the beginning of the Gaelic resurgence that would steadily erode English control.',
+        fr: 'En 1315, Édouard Bruce — frère de Robert Bruce d\'Écosse — débarqua à Carrickfergus avec une armée écossaise et se proclama roi d\'Irlande. Pendant trois ans il ravagea la colonie anglo-normande, battant les forces anglaises à plusieurs reprises et marchant jusqu\'à Limerick. L\'invasion coïncida avec la Grande Famine de 1315-1317, et la dévastation combinée brisa le pouvoir anglo-normand en dehors de la côte est. Édouard Bruce fut tué à la bataille de Faughart près de Dundalk en 1318, mais la colonie ne s\'en remit jamais pleinement. L\'invasion marqua le début de la résurgence gaélique qui allait éroder progressivement le contrôle anglais.',
+      },
+    },
+    anchorYear: 1316,
+  },
+  {
+    id: 'ani-statutes-kilkenny',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'places', center: [-7.25, 52.65], zoom: 7.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['kilkenny', 'dublin'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Statutes of Kilkenny — drawing the line',
+      body: {
+        en: 'In 1366, the Irish Parliament met at Kilkenny and passed the most famous legislation of medieval Ireland. The Statutes of Kilkenny prohibited the English colonists from speaking Irish, adopting Irish dress, marrying Irish partners, or using Brehon law. The statutes were a panicked reaction to the Gaelicisation of the Anglo-Norman settlers — proof that the colony was losing its distinct identity. In practice the statutes were unenforceable outside the Pale, but they formalised the cultural frontier between "English Ireland" and "Gaelic Ireland" that would define the island\'s politics deep into the early modern period.',
+        fr: 'En 1366, le Parlement irlandais se réunit à Kilkenny et adopta la législation la plus célèbre de l\'Irlande médiévale. Les Statuts de Kilkenny interdisaient aux colons anglais de parler irlandais, d\'adopter le costume irlandais, de se marier avec des Irlandais ou de recourir au droit brehon. Les statuts étaient une réaction paniquée à la gaélicisation des colons anglo-normands — la preuve que la colonie perdait son identité distincte. En pratique, les statuts étaient inapplicables en dehors du Pale, mais ils formalisèrent la frontière culturelle entre « l\'Irlande anglaise » et « l\'Irlande gaélique » qui définirait la politique de l\'île bien avant dans la période moderne.',
+      },
+    },
+    anchorYear: 1366,
+  },
+  {
+    id: 'ani-legacy-lordship',
+    eraId: 'norman-expansion',
+    arcId: 'anglonorman-ireland',
+    camera: { target: 'bbox', center: [-7.0, 53.0], zoom: 5.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['dublin', 'waterford', 'wexford', 'kilkenny', 'carrickfergus'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Two Irelands — the Norman legacy',
+      body: {
+        en: 'Two centuries after Strongbow\'s landing, the Anglo-Norman colony had contracted to a strip of the east coast — the Pale around Dublin — and a handful of fortified towns. The west and north were firmly Gaelic; in between, families who had arrived as conquerors now spoke Irish, followed Brehon law, and married into Gaelic dynasties. They became, as the famous phrase went, "more Irish than the Irish themselves." The Norman imprint endured in castles, town charters, common law, and the very idea that Ireland was a lordship of the English crown — an inheritance that would shape the island\'s troubled relationship with England for centuries to come.',
+        fr: 'Deux siècles après le débarquement de Strongbow, la colonie anglo-normande s\'était rétrécie à une bande de la côte est — le Pale autour de Dublin — et une poignée de villes fortifiées. L\'ouest et le nord étaient fermement gaéliques ; entre les deux, des familles arrivées en conquérants parlaient désormais irlandais, suivaient le droit brehon et s\'alliaient aux dynasties gaéliques. Elles devinrent, selon l\'expression célèbre, « plus irlandaises que les Irlandais eux-mêmes ». L\'empreinte normande perdura dans les châteaux, les chartes urbaines, la common law et l\'idée même que l\'Irlande était une seigneurie de la couronne anglaise — un héritage qui façonnerait la relation tourmentée de l\'île avec l\'Angleterre pendant des siècles.',
+      },
+    },
+    anchorYear: 1400,
+  },
+
+  // ── David I — the Norman king of Scots ──────────────────────────
+  {
+    id: 'ds-english-upbringing',
+    eraId: 'norman-expansion',
+    arcId: 'david-i-scotland',
+    camera: { target: 'places', center: [-0.13, 51.51], zoom: 7.0, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'A Scottish prince at the English court',
+      body: {
+        en: 'David, youngest son of Malcolm III and the English princess Margaret, spent his formative years at the court of Henry I of England. He absorbed Anglo-Norman culture — feudal landholding, monastic reform, castle-building, the rituals of chivalry. When he returned to Scotland, first as Earl of Huntingdon and then as king in 1124, he brought with him a vision of how a kingdom should be governed. He also brought Anglo-Norman followers who would become some of Scotland\'s most powerful families: Bruce, Stewart, Comyn, Balliol.',
+        fr: 'David, plus jeune fils de Malcolm III et de la princesse anglaise Marguerite, passa ses années de formation à la cour d\'Henri Ier d\'Angleterre. Il absorba la culture anglo-normande — tenure féodale, réforme monastique, construction de châteaux, rituels chevaleresques. Quand il revint en Écosse, d\'abord comme comte de Huntingdon puis comme roi en 1124, il apportait une vision de la façon dont un royaume devait être gouverné. Il amena aussi des partisans anglo-normands qui deviendraient certaines des familles les plus puissantes d\'Écosse : Bruce, Stewart, Comyn, Balliol.',
+      },
+    },
+    anchorYear: 1100,
+  },
+  {
+    id: 'ds-foundations',
+    eraId: 'norman-expansion',
+    arcId: 'david-i-scotland',
+    camera: { target: 'bbox', center: [-2.8, 55.8], zoom: 6.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['jedburgh', 'dunfermline', 'edinburgh'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Abbeys, burghs, and a feudal kingdom',
+      body: {
+        en: 'David I transformed Scotland through Anglo-Norman institutions. He founded or patronised at least fifteen major monasteries — Jedburgh, Kelso, Melrose, Holyrood, Dunfermline — importing monks from England and France. He created royal burghs with trading privileges, introduced a feudal land system with knights\' fees and baronies, and established a system of sheriffs and royal justiciars modelled on the English Exchequer. Scotland\'s existing Gaelic and Norse institutions were not destroyed but overlaid with a Norman-style administrative framework.',
+        fr: 'David Ier transforma l\'Écosse par les institutions anglo-normandes. Il fonda ou patronna au moins quinze grands monastères — Jedburgh, Kelso, Melrose, Holyrood, Dunfermline — important des moines d\'Angleterre et de France. Il créa des bourgs royaux avec des privilèges commerciaux, introduisit un système foncier féodal avec fiefs de chevaliers et baronnies, et établit un système de shérifs et de justiciers royaux calqué sur l\'Échiquier anglais. Les institutions gaéliques et scandinaves existantes de l\'Écosse ne furent pas détruites mais recouvertes d\'un cadre administratif de style normand.',
+      },
+    },
+    anchorYear: 1128,
+  },
+  {
+    id: 'ds-battle-standard',
+    eraId: 'norman-expansion',
+    arcId: 'david-i-scotland',
+    camera: { target: 'places', center: [-1.43, 54.34], zoom: 8.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['northallerton', 'edinburgh'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Battle of the Standard — Anglo-Normans on both sides',
+      body: {
+        en: 'In 1138, during the Anarchy, David invaded northern England in support of his niece Matilda. At Northallerton on 22 August, his army was defeated by an English force rallied around a mast bearing the banners of northern saints — the "Standard." The irony was unmistakable: Anglo-Norman knights fought on both sides. David\'s army included Norman lords from his own court alongside Gaelic levies from the Highlands. The battle demonstrated how thoroughly Anglo-Norman military culture had penetrated Scotland — and how the Anarchy had blurred the line between English and Scottish politics.',
+        fr: 'En 1138, pendant l\'Anarchie, David envahit le nord de l\'Angleterre pour soutenir sa nièce Mathilde. À Northallerton le 22 août, son armée fut battue par une force anglaise ralliée autour d\'un mât portant les bannières des saints du nord — le « Standard ». L\'ironie était flagrante : des chevaliers anglo-normands combattaient des deux côtés. L\'armée de David comprenait des seigneurs normands de sa propre cour aux côtés de levées gaéliques des Highlands. La bataille démontra à quel point la culture militaire anglo-normande avait pénétré l\'Écosse — et comment l\'Anarchie avait brouillé la frontière entre politique anglaise et écossaise.',
+      },
+    },
+    anchorYear: 1138,
+  },
+  {
+    id: 'ds-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'david-i-scotland',
+    camera: { target: 'bbox', center: [-3.0, 56.0], zoom: 6.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['edinburgh', 'dunfermline', 'jedburgh'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Davidian revolution',
+      body: {
+        en: 'David I died at Carlisle in 1153. Historians call his reign the "Davidian revolution" — the most concentrated period of institutional change in Scottish history. The Anglo-Norman families he settled in Scotland — Bruce in Annandale, Stewart in Renfrewshire, Balliol in Galloway — would contest the Scottish crown for centuries. The monasteries, burghs, and administrative structures he created formed the backbone of the medieval Scottish state. Scotland was not conquered by the Normans; it was reshaped by a Scottish king who had learned their methods.',
+        fr: 'David Ier mourut à Carlisle en 1153. Les historiens appellent son règne la « révolution davidienne » — la période de changement institutionnel la plus concentrée de l\'histoire écossaise. Les familles anglo-normandes qu\'il installa en Écosse — Bruce dans l\'Annandale, Stewart dans le Renfrewshire, Balliol dans le Galloway — disputeraient la couronne écossaise pendant des siècles. Les monastères, bourgs et structures administratives qu\'il créa formèrent la colonne vertébrale de l\'État écossais médiéval. L\'Écosse ne fut pas conquise par les Normands ; elle fut remodelée par un roi écossais qui avait appris leurs méthodes.',
+      },
+    },
+    anchorYear: 1153,
+  },
+
+  // ── William the Lion — Scotland and the Angevins ────────────────
+  {
+    id: 'wl-accession',
+    eraId: 'norman-expansion',
+    arcId: 'william-lion-and-angevin',
+    camera: { target: 'places', center: [-3.19, 55.95], zoom: 7.0, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['edinburgh'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'William the Lion — a young king\'s ambition',
+      body: {
+        en: 'William became king of Scots in 1165 at the age of twenty-two, succeeding his brother Malcolm IV. He inherited David I\'s Anglo-Norman institutions and his grandfather\'s claim to the earldom of Northumbria — a claim that would drive Scottish foreign policy for his entire reign. William was energetic, stubborn, and determined to recover the northern English counties that David I had held during the Anarchy but that Henry II had forced Malcolm IV to surrender. Scotland under William was a feudal kingdom looking south.',
+        fr: 'Guillaume devint roi d\'Écosse en 1165 à vingt-deux ans, succédant à son frère Malcolm IV. Il héritait des institutions anglo-normandes de David Ier et de la revendication de son grand-père sur le comté de Northumbrie — une prétention qui guiderait la politique étrangère écossaise pendant tout son règne. Guillaume était énergique, obstiné et déterminé à récupérer les comtés du nord de l\'Angleterre que David Ier avait tenus pendant l\'Anarchie mais qu\'Henri II avait forcé Malcolm IV à abandonner. L\'Écosse sous Guillaume était un royaume féodal regardant vers le sud.',
+      },
+    },
+    anchorYear: 1165,
+  },
+  {
+    id: 'wl-alnwick-capture',
+    eraId: 'norman-expansion',
+    arcId: 'william-lion-and-angevin',
+    camera: { target: 'bbox', center: [-1.7, 55.4], zoom: 7.0, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['edinburgh'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Alnwick — the king in chains',
+      body: {
+        en: 'In 1174, William invaded northern England during the great rebellion against Henry II. On 13 July, while besieging Alnwick Castle in fog, he was surprised by an English force and captured. A Scottish king in English chains — it was a humiliation without precedent. William was taken south to Normandy, where Henry forced him to sign the Treaty of Falaise. Scotland became a feudal vassal of England, its castles garrisoned by English troops, its Church subordinated to Canterbury. The treaty was the harshest terms any Scottish king had ever accepted.',
+        fr: 'En 1174, Guillaume envahit le nord de l\'Angleterre pendant la grande révolte contre Henri II. Le 13 juillet, alors qu\'il assiégeait le château d\'Alnwick dans le brouillard, il fut surpris par une force anglaise et capturé. Un roi écossais enchaîné par les Anglais — une humiliation sans précédent. Guillaume fut emmené en Normandie, où Henri le contraignit à signer le traité de Falaise. L\'Écosse devint vassale féodale de l\'Angleterre, ses châteaux garnis de troupes anglaises, son Église subordonnée à Cantorbéry. Le traité imposait les conditions les plus dures jamais acceptées par un roi écossais.',
+      },
+    },
+    anchorYear: 1174,
+  },
+  {
+    id: 'wl-quitclaim',
+    eraId: 'norman-expansion',
+    arcId: 'william-lion-and-angevin',
+    camera: { target: 'bbox', center: [-1.5, 54.0], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['edinburgh', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The Quitclaim of Canterbury — freedom bought',
+      body: {
+        en: 'In 1189, the new English king Richard I needed money for the Third Crusade. William seized the opportunity: he paid Richard 10,000 marks of silver — an enormous sum — to cancel the Treaty of Falaise. The Quitclaim of Canterbury restored Scottish independence and freed the Scottish Church from English control. It was a diplomatic masterstroke purchased at a price William could barely afford. Scotland was free again, but the underlying tension between the two kingdoms — English claims to overlordship, Scottish insistence on sovereignty — would define Anglo-Scottish relations for centuries.',
+        fr: 'En 1189, le nouveau roi anglais Richard Ier avait besoin d\'argent pour la Troisième Croisade. Guillaume saisit l\'occasion : il paya Richard 10 000 marcs d\'argent — une somme énorme — pour annuler le traité de Falaise. La Quitclaim de Canterbury restaura l\'indépendance écossaise et libéra l\'Église d\'Écosse du contrôle anglais. Ce fut un coup diplomatique magistral acheté à un prix que Guillaume pouvait à peine se permettre. L\'Écosse était libre de nouveau, mais la tension sous-jacente entre les deux royaumes — les prétentions anglaises à la suzeraineté, l\'insistance écossaise sur la souveraineté — définirait les relations anglo-écossaises pendant des siècles.',
+      },
+    },
+    anchorYear: 1189,
+  },
+  {
+    id: 'wl-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'william-lion-and-angevin',
+    camera: { target: 'bbox', center: [-3.0, 56.0], zoom: 5.5, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['edinburgh', 'dunfermline'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'The longest reign — Scotland between two worlds',
+      body: {
+        en: 'William the Lion reigned for forty-nine years — the longest of any medieval Scottish king — dying in 1214. His Scotland was thoroughly Anglo-Norman in its institutions: feudal tenure, burgh charters, Augustinian and Cistercian abbeys, royal justice administered by sheriffs. Yet it remained a distinct kingdom with its own laws, Church, and identity. The Anglo-Norman transformation of Scotland was not colonisation but adoption — a ruling class that chose Norman methods to build a stronger state. The families William settled and the institutions he strengthened would carry Scotland through the Wars of Independence and beyond.',
+        fr: 'Guillaume le Lion régna quarante-neuf ans — le plus long règne de tout roi écossais médiéval — mourant en 1214. Son Écosse était profondément anglo-normande dans ses institutions : tenure féodale, chartes de bourgs, abbayes augustiniennes et cisterciennes, justice royale administrée par des shérifs. Pourtant elle restait un royaume distinct avec ses propres lois, Église et identité. La transformation anglo-normande de l\'Écosse ne fut pas une colonisation mais une adoption — une classe dirigeante qui choisit les méthodes normandes pour bâtir un État plus fort. Les familles que Guillaume installa et les institutions qu\'il renforça porteraient l\'Écosse à travers les guerres d\'Indépendance et au-delà.',
+      },
+    },
+    anchorYear: 1214,
+  },
+
+  // ── Thomas Becket — murder in the cathedral ─────────────────────
+  {
+    id: 'tb-chancellor',
+    eraId: 'norman-expansion',
+    arcId: 'thomas-becket',
+    camera: { target: 'places', center: [-0.13, 51.51], zoom: 8.0, durationMs: 2400, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'The king\'s man',
+      body: {
+        en: 'Thomas Becket rose from the London merchant class to become Henry II\'s chancellor in 1155 — the most powerful minister in England. He was everything the young king needed: brilliant, tireless, and utterly loyal. He lived in magnificent style, led military campaigns in France, and managed the machinery of Angevin government. Henry trusted him completely. When the archbishopric of Canterbury fell vacant in 1162, Henry had what seemed an obvious solution: make Becket archbishop, and control both Church and state through one man.',
+        fr: 'Thomas Becket s\'éleva de la bourgeoisie marchande de Londres pour devenir le chancelier d\'Henri II en 1155 — le ministre le plus puissant d\'Angleterre. Il était tout ce dont le jeune roi avait besoin : brillant, infatigable et d\'une loyauté absolue. Il vivait dans un faste magnifique, menait des campagnes militaires en France et gérait la machinerie du gouvernement angevin. Henri lui faisait entièrement confiance. Quand l\'archevêché de Cantorbéry devint vacant en 1162, Henri eut ce qui semblait une solution évidente : faire de Becket archevêque, et contrôler Église et État à travers un seul homme.',
+      },
+    },
+    anchorYear: 1155,
+  },
+  {
+    id: 'tb-archbishop-conflict',
+    eraId: 'norman-expansion',
+    arcId: 'thomas-becket',
+    camera: { target: 'places', center: [1.08, 51.28], zoom: 7.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['canterbury', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Archbishop — and the king\'s enemy',
+      body: {
+        en: 'The plan backfired spectacularly. Once consecrated archbishop, Becket transformed himself from royal servant to champion of Church independence. He resigned the chancellorship, adopted an austere lifestyle, and opposed Henry on every front — Church courts, ecclesiastical appointments, royal taxation of clergy. Henry was stunned and furious. Their friendship curdled into the bitterest political feud in English medieval history. The Constitutions of Clarendon (1164), Henry\'s attempt to define and limit Church privileges, became the flashpoint.',
+        fr: 'Le plan se retourna spectaculairement. Une fois consacré archevêque, Becket se transforma de serviteur royal en champion de l\'indépendance de l\'Église. Il renonça à la chancellerie, adopta un style de vie austère et s\'opposa à Henri sur tous les fronts — tribunaux ecclésiastiques, nominations cléricales, imposition royale du clergé. Henri fut stupéfait et furieux. Leur amitié se mua en la querelle politique la plus amère de l\'histoire médiévale anglaise. Les Constitutions de Clarendon (1164), tentative d\'Henri de définir et limiter les privilèges ecclésiastiques, devinrent le point d\'ignition.',
+      },
+    },
+    anchorYear: 1164,
+  },
+  {
+    id: 'tb-exile',
+    eraId: 'norman-expansion',
+    arcId: 'thomas-becket',
+    camera: { target: 'bbox', center: [1.0, 50.0], zoom: 5.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['canterbury', 'northampton'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['origins'] },
+    copy: {
+      title: 'Exile and obstinacy',
+      body: {
+        en: 'After the Council of Northampton in October 1164 — where Henry attempted to try Becket for contempt and financial misconduct — Becket fled England. He spent six years in exile in France, appealing to Pope Alexander III, excommunicating Henry\'s supporters, and refusing every compromise. Henry and Becket were locked in a struggle that neither could win and neither would abandon. The exile poisoned Anglo-Norman politics: bishops were torn between king and pope, barons between feudal loyalty and religious conscience.',
+        fr: 'Après le concile de Northampton en octobre 1164 — où Henri tenta de juger Becket pour outrage et malversation financière — Becket s\'enfuit d\'Angleterre. Il passa six ans en exil en France, faisant appel au pape Alexandre III, excommuniant les partisans d\'Henri et refusant tout compromis. Henri et Becket étaient enfermés dans une lutte qu\'aucun ne pouvait gagner et qu\'aucun ne voulait abandonner. L\'exil empoisonna la politique anglo-normande : les évêques étaient tiraillés entre roi et pape, les barons entre loyauté féodale et conscience religieuse.',
+      },
+    },
+    anchorYear: 1164,
+  },
+  {
+    id: 'tb-murder',
+    eraId: 'norman-expansion',
+    arcId: 'thomas-becket',
+    camera: { target: 'places', center: [1.08, 51.28], zoom: 8.5, durationMs: 2000, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['canterbury'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Murder in the cathedral — 29 December 1170',
+      body: {
+        en: 'Becket returned to Canterbury in December 1170 after a fragile reconciliation. Within weeks, he excommunicated three bishops who had supported Henry. The king, in Normandy, erupted in rage — and four knights took his words as a command. On 29 December, Reginald fitzUrse, Hugh de Morville, William de Tracy, and Richard le Breton entered Canterbury Cathedral and killed Becket before the altar. The murder shocked Christendom. Within three years Becket was canonised, Canterbury became the greatest pilgrimage site in England, and Henry was forced to do public penance at Becket\'s tomb.',
+        fr: 'Becket revint à Cantorbéry en décembre 1170 après une réconciliation fragile. En quelques semaines, il excommunia trois évêques qui avaient soutenu Henri. Le roi, en Normandie, explosa de rage — et quatre chevaliers prirent ses paroles pour un ordre. Le 29 décembre, Reginald fitzUrse, Hugues de Morville, Guillaume de Tracy et Richard le Breton entrèrent dans la cathédrale de Cantorbéry et tuèrent Becket devant l\'autel. Le meurtre choqua la chrétienté. En trois ans, Becket fut canonisé, Cantorbéry devint le plus grand lieu de pèlerinage d\'Angleterre, et Henri fut contraint de faire pénitence publique sur la tombe de Becket.',
+      },
+    },
+    anchorYear: 1170,
+  },
+  {
+    id: 'tb-legacy',
+    eraId: 'norman-expansion',
+    arcId: 'thomas-becket',
+    camera: { target: 'places', center: [1.08, 51.28], zoom: 7.0, durationMs: 2200, easing: 'easeInOutCubic' },
+    focus: { placeIds: ['canterbury', 'london'], regionIds: [], routeSegmentIds: [] },
+    presentation: { routeHighlightMode: 'none', dimOthers: true, pulse: ['destinations'] },
+    copy: {
+      title: 'Saint, symbol, and the limits of royal power',
+      body: {
+        en: 'The Becket affair defined the limits of Anglo-Norman kingship. Henry II was the most powerful monarch in western Europe, yet he could not bend the Church to his will. The cult of St Thomas became an international phenomenon — pilgrims from across Europe flowed to Canterbury for centuries. More importantly, Becket\'s stand established a principle that would echo through English constitutional history: that there were boundaries even a king could not cross, and that conscience could stand against power. The Angevin legal reforms survived; so did the Church\'s independence.',
+        fr: 'L\'affaire Becket définit les limites de la royauté anglo-normande. Henri II était le monarque le plus puissant d\'Europe occidentale, pourtant il ne put plier l\'Église à sa volonté. Le culte de saint Thomas devint un phénomène international — des pèlerins de toute l\'Europe affluèrent à Cantorbéry pendant des siècles. Plus important encore, la résistance de Becket établit un principe qui résonnerait à travers l\'histoire constitutionnelle anglaise : qu\'il existait des limites qu\'un roi ne pouvait franchir, et que la conscience pouvait résister au pouvoir. Les réformes juridiques angevines survécurent ; l\'indépendance de l\'Église aussi.',
+      },
+    },
+    anchorYear: 1173,
   },
 
   // ── Samuel de Champlain guided arc ──────────────────────────────────

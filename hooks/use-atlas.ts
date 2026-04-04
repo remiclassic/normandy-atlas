@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useLayoutEffect } from 'react';
 import { useMapStore, VIKING_MOVEMENT_ERA_IDS } from '@/lib/store';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
 import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
@@ -30,10 +30,12 @@ import type {
 } from '@/core/types';
 import type { RegionFeatureCollection } from '@/types';
 
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 /** Hydrate locale from localStorage once on the client — call in a top-level shell. */
 export function useHydrateLocale(): void {
   const setLocale = useMapStore((s) => s.setLocale);
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const stored = readStoredLocale();
     if (stored !== useMapStore.getState().locale) {
       setLocale(stored);
@@ -43,7 +45,7 @@ export function useHydrateLocale(): void {
 
 /** Sync UI theme from localStorage with Zustand (blocking script already set `data-ui-theme`). */
 export function useHydrateUiTheme(): void {
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const stored = readStoredUiTheme();
     applyUiThemeToDocument(stored);
     useMapStore.setState({ uiTheme: stored });
@@ -52,7 +54,7 @@ export function useHydrateUiTheme(): void {
 
 /** Sync text-size preference from localStorage with Zustand (blocking script already set classList). */
 export function useHydrateTextSize(): void {
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const stored = readStoredTextSize();
     applyTextSizeToDocument(stored);
     useMapStore.setState({ textSize: stored });

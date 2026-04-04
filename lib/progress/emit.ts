@@ -1,10 +1,13 @@
 import type { AtlasEvent, AtlasEventType } from './schema';
 import { readProgress, updateProgress } from './storage';
-import { foldEvent } from './aggregates';
+import { foldEvent, totalEngagedEntities } from './aggregates';
 import { evaluateAllMilestones } from './milestones-eval';
 import { notifyProgressListeners } from '@/hooks/useAtlasProgress';
 import { useMapStore } from '@/lib/store';
 import { enqueueMilestones, enqueueDiscovery } from './toast-queue';
+import { enqueueShareMoment } from './share-moment-queue';
+import { updateStreak } from './streaks';
+import { ensureWeeklyChallenge, maybeCompleteChallengeAndArchive } from './challenges';
 
 // ---------------------------------------------------------------------------
 // Single entry point for the UI to record a progress event.
@@ -28,6 +31,10 @@ function scheduleMilestoneEval(): void {
   run(() => {
     evalScheduled = false;
     const progress = readProgress();
+
+    ensureWeeklyChallenge(progress);
+    maybeCompleteChallengeAndArchive(progress);
+
     const newlyUnlocked = evaluateAllMilestones(progress);
     if (newlyUnlocked.length > 0) {
       updateProgress(progress);
@@ -68,14 +75,29 @@ export function emitProgressEvent(
     ? !(id in (progress.aggregates[bucket] as Record<string, unknown>))
     : false;
 
+  const isFirstEverMapTouch =
+    Boolean(bucket) &&
+    isFirstSeen &&
+    DISCOVERY_TYPES.has(type) &&
+    totalEngagedEntities(progress.aggregates) === 0 &&
+    !progress.shareMoments?.firstExplorationShown;
+
   foldEvent(progress.aggregates, e);
   progress.events.push(e);
+
+  updateStreak(progress, type);
+
+  if (isFirstEverMapTouch) {
+    progress.shareMoments = { ...progress.shareMoments, firstExplorationShown: true };
+    enqueueShareMoment({ kind: 'first-exploration', entityId: id, eventType: type });
+  }
+
   updateProgress(progress);
   scheduleMilestoneEval();
 
   notifyProgressListeners();
 
-  if (isFirstSeen && DISCOVERY_TYPES.has(type)) {
+  if (isFirstSeen && DISCOVERY_TYPES.has(type) && !isFirstEverMapTouch) {
     enqueueDiscovery(id, type);
   }
 

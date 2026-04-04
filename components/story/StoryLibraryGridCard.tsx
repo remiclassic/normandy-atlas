@@ -16,6 +16,8 @@ interface Props {
   uiTheme: UiTheme;
   progress?: StoryProgressRecord;
   variant: 'medium' | 'standard';
+  /** Horizontal shelves (e.g. continue watching): keep 16:9 for every category; People arcs are otherwise portrait in grids. */
+  forceLandscapeAspect?: boolean;
   isSelected?: boolean;
   onSelect: (row: StoryLibraryRowModel) => void;
   onHoverEnter?: (row: StoryLibraryRowModel) => void;
@@ -28,6 +30,7 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
   uiTheme,
   progress,
   variant,
+  forceLandscapeAspect = false,
   isSelected,
   onSelect,
   onHoverEnter,
@@ -66,11 +69,11 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
 
   const isPeople = row.meta.category === 'People';
   const aspectClass =
-    isPeople
-      ? 'aspect-[3/4]'
-      : variant === 'medium'
+    forceLandscapeAspect || !isPeople
+      ? variant === 'medium'
         ? 'aspect-[16/10]'
-        : 'aspect-video';
+        : 'aspect-video'
+      : 'aspect-[3/4]';
 
   const metaLine = useMemo(() => {
     const parts: string[] = [];

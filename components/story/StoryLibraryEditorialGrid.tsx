@@ -103,6 +103,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
                   uiTheme={uiTheme}
                   progress={progressMap[row.progressKey]}
                   variant="standard"
+                  forceLandscapeAspect
                   isSelected={row.progressKey === selectedKey}
                   onSelect={onSelect}
                   onHoverEnter={onHoverEnter}

@@ -10,23 +10,27 @@ export interface ChannelBadge {
 }
 
 export const CHANNEL_BADGES: Record<MigrationChannel, ChannelBadge> = {
-  normandy_port:   { label: 'Norman',           tone: 'norman' },
-  perche:          { label: 'Percheron',         tone: 'perche' },
-  brittany_coast:  { label: 'Breton',            tone: 'brittany' },
-  aunis_saintonge: { label: 'Aunis–Saintonge',   tone: 'aunis' },
-  paris_region:    { label: 'Paris region',       tone: 'paris' },
-  loire_valley:    { label: 'Loire Valley',       tone: 'neutral' },
-  poitou:          { label: 'Poitou',             tone: 'neutral' },
-  other:           { label: 'Other French',       tone: 'neutral' },
+  normandy_port:     { label: 'Norman',           tone: 'norman' },
+  perche:            { label: 'Percheron',         tone: 'perche' },
+  brittany_coast:    { label: 'Breton',            tone: 'brittany' },
+  aunis_saintonge:   { label: 'Aunis–Saintonge',   tone: 'aunis' },
+  paris_region:      { label: 'Paris region',       tone: 'paris' },
+  loire_valley:      { label: 'Loire Valley',       tone: 'neutral' },
+  poitou:            { label: 'Poitou',             tone: 'neutral' },
+  low_countries:     { label: 'Low Countries',      tone: 'neutral' },
+  italian_peninsula: { label: 'Italian',            tone: 'neutral' },
+  english_polity:    { label: 'English realm',      tone: 'neutral' },
+  other:             { label: 'Other French',       tone: 'neutral' },
 };
 
 const CHANNEL_ORDER: MigrationChannel[] = [
-  'normandy_port', 'perche', 'brittany_coast', 'aunis_saintonge', 'paris_region', 'other',
+  'normandy_port', 'perche', 'brittany_coast', 'aunis_saintonge', 'paris_region',
+  'loire_valley', 'poitou', 'low_countries', 'italian_peninsula', 'english_polity', 'other',
 ];
 
 export function getMigrationChannelBadge(channel?: MigrationChannel): ChannelBadge {
   if (channel && CHANNEL_BADGES[channel]) return CHANNEL_BADGES[channel];
-  return { label: 'French origins', tone: 'neutral' };
+  return { label: 'Origins', tone: 'neutral' };
 }
 
 export interface FilterOption {

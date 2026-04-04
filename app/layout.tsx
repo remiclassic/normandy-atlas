@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter, Crimson_Pro } from 'next/font/google';
+import { LOCALE_STORAGE_KEY } from '@/lib/locale';
+import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
+import ClientBootstrap from '@/components/layout/ClientBootstrap';
 import './globals.css';
+
+/** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
+const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE_STORAGE_KEY)};if(localStorage.getItem(sk))return;var m=document.cookie.match(/(?:^|;\\s*)${NORMAN_GEO_LOCALE_COOKIE}=([^;]*)/);var v=m?decodeURIComponent(m[1].trim()):'';if(v==='fr'||v==='es'||v==='it')localStorage.setItem(sk,v);}catch(e){}})();`;
 
 const META_PIXEL_INIT = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -78,31 +85,32 @@ export default function RootLayout({
         </noscript>
       </head>
       <body>
-        {/*
-          Use plain <script> in this Server Component layout. next/script maps to client behavior that
-          triggers React 19 "Scripts inside React components are never executed on the client" in Next 16.
-          These tags are emitted as real HTML and run in the browser when parsed.
-        */}
-        <script
+        <Script
           id="theme-restore"
-          suppressHydrationWarning
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html:
               "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
           }}
         />
-        <script
+        <Script
           id="text-size-restore"
-          suppressHydrationWarning
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html:
               "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
           }}
         />
+        <Script
+          id="locale-geo-bootstrap"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: localeGeoBootstrapScript }}
+        />
+        <ClientBootstrap />
         {children}
-        <script
+        <Script
           id="meta-pixel"
-          suppressHydrationWarning
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: META_PIXEL_INIT }}
         />
         <GoogleAnalytics gaId="G-Q97Y9MCQ0T" />

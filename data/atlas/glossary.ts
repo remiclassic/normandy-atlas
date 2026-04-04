@@ -166,4 +166,22 @@ export const atlasGlossary: GlossaryEntry[] = [
     },
     seeAlso: ['story-mode'],
   },
+  {
+    id: 'crown-dependency',
+    term: { en: 'Crown Dependency', fr: 'Dépendance de la Couronne' },
+    definition: {
+      en: 'A self-governing territory that owes allegiance to the British crown but is not part of the United Kingdom. Jersey and Guernsey became Crown Dependencies after 1204, when continental Normandy fell to France but the Channel Islands remained with the English king. They retained Norman customary law and their own legislatures.',
+      fr: 'Un territoire autonome lié à la couronne britannique mais ne faisant pas partie du Royaume-Uni. Jersey et Guernesey devinrent des dépendances de la Couronne après 1204, lorsque la Normandie continentale tomba sous la France mais que les îles Anglo-Normandes restèrent avec le roi d\u2019Angleterre. Elles conservèrent le droit coutumier normand et leurs propres législatures.',
+    },
+    seeAlso: ['neustria'],
+  },
+  {
+    id: 'bailiwick',
+    term: { en: 'Bailiwick', fr: 'Bailliage' },
+    definition: {
+      en: 'The administrative jurisdiction of a bailli (bailiff). The Channel Islands are divided into two bailiwicks \u2014 Jersey and Guernsey \u2014 each with its own Royal Court descended from the medieval Norman judicial system. The term itself is a relic of ducal Normandy\u2019s administrative vocabulary.',
+      fr: 'La juridiction administrative d\u2019un bailli. Les \u00eeles Anglo-Normandes sont divis\u00e9es en deux bailliages \u2014 Jersey et Guernesey \u2014 chacun avec sa propre Cour royale h\u00e9riti\u00e8re du syst\u00e8me judiciaire normand m\u00e9di\u00e9val. Le terme lui-m\u00eame est un vestige du vocabulaire administratif de la Normandie ducale.',
+    },
+    seeAlso: ['crown-dependency'],
+  },
 ];

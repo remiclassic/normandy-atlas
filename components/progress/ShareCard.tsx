@@ -29,12 +29,25 @@ function ShareCard() {
   const handleShare = useCallback(async () => {
     const url = buildPublicShareUrl({});
     const T = stats.coverageTotals;
+    const places = t('ledger.places', locale);
+    const journeys = t('ledger.journeys', locale);
+    const eras = t('ledger.eras', locale);
+    const stories = t('ledger.stories', locale);
+    const milestones = t('ledger.milestones', locale);
+    const text =
+      locale === 'fr'
+        ? `J’ai exploré ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} et ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} sur le Norman Atlas.`
+        : locale === 'es'
+          ? `He explorado ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} y ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} en el Norman Atlas.`
+          : locale === 'it'
+            ? `Ho esplorato ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} e ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} sul Norman Atlas.`
+            : `I explored ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories}, and ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} on the Norman Atlas.`;
     await shareOrCopy({
       title: 'Norman Atlas',
-      text: `I explored ${stats.places}/${T.places} places, ${stats.journeys}/${T.journeys} journeys, and ${stats.eras}/${T.eras} eras on the Norman Atlas.`,
+      text,
       url,
     });
-  }, [stats]);
+  }, [stats, locale]);
 
   if (stats.places === 0) return null;
 
@@ -59,10 +72,11 @@ function ShareCard() {
         </div>
       </div>
       <button
+        type="button"
         onClick={handleShare}
         className="text-[12px] text-gold/70 hover:text-gold px-3 py-1.5 rounded-md border border-gold/15 hover:border-gold/25 transition-colors"
       >
-        {locale === 'fr' ? 'Partager' : 'Share'}
+        {t('milestone.modal.share', locale)}
       </button>
     </div>
   );

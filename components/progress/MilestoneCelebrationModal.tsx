@@ -4,10 +4,12 @@ import { memo, useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   subscribeToastQueue,
-  dequeueToast,
   peekQueue,
-  type ToastPayload,
+  drainMilestones,
+  markModalShown,
+  canShowModal,
 } from '@/lib/progress/toast-queue';
+import type { NewlyUnlocked } from '@/lib/progress/milestones-eval';
 import { shareOrCopy, buildPublicShareUrl } from '@/lib/progress/share';
 import { useLocale } from '@/hooks/use-atlas';
 import { pickI18n } from '@/lib/locale';
@@ -15,14 +17,14 @@ import { t } from '@/lib/ui-strings';
 import type { MilestoneDef } from '@/data/atlas/milestones';
 
 const TIER_BADGE: Record<number, string> = {
-  2: '★★',
-  3: '★★★',
+  2: '\u2605\u2605',
+  3: '\u2605\u2605\u2605',
 };
 
 function MilestoneCelebrationModal() {
   const locale = useLocale();
   const [current, setCurrent] = useState<MilestoneDef | null>(null);
-  const [queueCount, setQueueCount] = useState(0);
+  const [extraCount, setExtraCount] = useState(0);
   const processingRef = useRef(false);
 
   const processNext = useCallback(() => {
@@ -32,17 +34,28 @@ function MilestoneCelebrationModal() {
       setCurrent(null);
       return;
     }
-    const payload = dequeueToast()!;
-    processingRef.current = true;
-    setCurrent(payload.milestone!.def);
-    // Count remaining tier 2+ milestones in queue
-    let count = 0;
-    let peek = peekQueue();
-    while (peek && peek.kind === 'milestone' && peek.milestone && peek.milestone.def.tier >= 2) {
-      count++;
-      break;
+
+    if (!canShowModal()) {
+      processingRef.current = false;
+      setCurrent(null);
+      return;
     }
-    setQueueCount(count);
+
+    const batch: NewlyUnlocked[] = drainMilestones()
+      .filter((m) => m.def.tier >= 2);
+
+    if (batch.length === 0) {
+      processingRef.current = false;
+      setCurrent(null);
+      return;
+    }
+
+    processingRef.current = true;
+    markModalShown();
+
+    const best = batch.reduce((a, b) => (b.def.tier > a.def.tier ? b : a), batch[0]);
+    setCurrent(best.def);
+    setExtraCount(batch.length - 1);
   }, []);
 
   useEffect(() => {
@@ -90,7 +103,7 @@ function MilestoneCelebrationModal() {
             className="relative rounded-2xl border border-gold/20 bg-chrome-popover/95 backdrop-blur-xl shadow-2xl max-w-sm w-[calc(100vw-2rem)] p-6 text-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-2xl mb-2 select-none">{TIER_BADGE[current.tier] ?? '★'}</div>
+            <div className="text-2xl mb-2 select-none">{TIER_BADGE[current.tier] ?? '\u2605'}</div>
 
             <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-gold/60 mb-1.5">
               {t('milestone.modal.sealed', locale)}
@@ -102,9 +115,9 @@ function MilestoneCelebrationModal() {
               {pickI18n(current.description, locale)}
             </p>
 
-            {queueCount > 0 && (
+            {extraCount > 0 && (
               <p className="text-[11px] text-text-dim mb-3">
-                +{queueCount} {t('milestone.modal.more', locale)}
+                +{extraCount} {t('milestone.modal.more', locale)}
               </p>
             )}
 

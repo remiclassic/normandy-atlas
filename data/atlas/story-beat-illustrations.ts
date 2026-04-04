@@ -287,7 +287,7 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         es: 'Tapiz de Bayeux, escenas 29–31. Foto: Myrabella, Wikimedia Commons (CC0)',
         it: 'Arazzo di Bayeux, scene 29–31. Foto: Myrabella, Wikimedia Commons (CC0)',
       },
-      placeId: 'london',
+      placeId: 'westminster',
     },
   ],
 
@@ -2999,6 +2999,25 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
     },
   ],
 
+  'no-arc-channel-islands-ducal': [
+    {
+      src: '/story/norman-origins/channel-islands-ducal-harbour.jpg',
+      alt: {
+        en: 'Reconstruction — a Norman-era harbour on the Channel Islands, c. 10th century: small vessels link the insular duchy to the Cotentin coast',
+        fr: 'Reconstitution — un port normand des îles Anglo-Normandes, v. Xe siècle : de petites embarcations relient le duché insulaire à la côte du Cotentin',
+        es: 'Reconstrucción — un puerto normando en las islas del Canal, c. siglo X: pequeñas embarcaciones enlazan el ducado insular con la costa del Cotentin',
+        it: 'Ricostruzione — un porto normanno sulle Isole del Canale, c. X secolo: piccole imbarcazioni collegano il ducato insulare alla costa del Cotentin',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'channel-islands-node',
+    },
+  ],
+
   'no-arc-cultural-fusion': [
     {
       src: '/story/norman-origins/abbaye-jumieges-ruins.jpg',
@@ -3072,6 +3091,25 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Arazzo di Bayeux. Wikimedia Commons (pubblico dominio)',
       },
       placeId: 'rouen',
+    },
+  ],
+
+  'no-arc-channel-islands-anglo-norman': [
+    {
+      src: '/story/norman-origins/channel-islands-anglo-norman-church.jpg',
+      alt: {
+        en: 'Reconstruction — a Norman parish church on Jersey, c. 1060s: the islands shared the duchy\'s reformed Church and feudal tenures before the Conquest',
+        fr: 'Reconstitution — une église paroissiale normande à Jersey, v. années 1060 : les îles partageaient l\'Église réformée et les tenures féodales du duché avant la Conquête',
+        es: 'Reconstrucción — una iglesia parroquial normanda en Jersey, c. década de 1060: las islas compartían la Iglesia reformada y las tenencias feudales del ducado antes de la Conquista',
+        it: 'Ricostruzione — una chiesa parrocchiale normanna a Jersey, c. anni 1060: le isole condividevano la Chiesa riformata e le tenenze feudali del ducato prima della Conquista',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'channel-islands-node',
     },
   ],
 
@@ -3341,6 +3379,54 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
       },
       placeId: 'antioch',
     },
+    {
+      src: '/story/norman-expansion/crusade-jerusalem-1099.jpg',
+      alt: {
+        en: 'Reconstruction — Crusader assault on Jerusalem (July 1099): the goal Bohemond chose not to pursue, taken by Godfrey of Bouillon',
+        fr: 'Reconstitution — assaut croisé sur Jérusalem (juillet 1099) : l\'objectif que Bohémond choisit de ne pas poursuivre, pris par Godefroy de Bouillon',
+        es: 'Reconstrucción — asalto cruzado a Jerusalén (julio de 1099): el objetivo que Bohemundo eligió no perseguir, tomado por Godofredo de Bouillón',
+        it: 'Ricostruzione — assalto crociato a Gerusalemme (luglio 1099): l\'obiettivo che Boemondo scelse di non inseguire, preso da Goffredo di Buglione',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'jerusalem',
+    },
+    {
+      src: '/story/norman-expansion/tancred-galilee-tiberias.jpg',
+      alt: {
+        en: 'Reconstruction — Tancred in Galilee: the Hauteville nephew who held Tiberias and governed the Principality in Bohemond\'s absence',
+        fr: 'Reconstitution — Tancrède en Galilée : le neveu Hauteville qui tint Tibériade et gouverna la principauté en l\'absence de Bohémond',
+        es: 'Reconstrucción — Tancredo en Galilea: el sobrino Hauteville que mantuvo Tiberíades y gobernó el principado en ausencia de Bohemundo',
+        it: 'Ricostruzione — Tancredi in Galilea: il nipote Altavilla che tenne Tiberiade e governò il principato in assenza di Boemondo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'tiberias',
+    },
+    {
+      src: '/story/norman-expansion/richard-cyprus-limassol-1191.jpg',
+      alt: {
+        en: 'Reconstruction — Richard the Lionheart lands at Limassol, Cyprus (1191): an Angevin king of Norman descent seizes the island en route to the Third Crusade',
+        fr: 'Reconstitution — Richard Cœur de Lion débarque à Limassol, Chypre (1191) : un roi angevin d\'ascendance normande s\'empare de l\'île en route vers la Troisième Croisade',
+        es: 'Reconstrucción — Ricardo Corazón de León desembarca en Limasol, Chipre (1191): un rey angevino de ascendencia normanda toma la isla camino de la Tercera Cruzada',
+        it: 'Ricostruzione — Riccardo Cuor di Leone sbarca a Limassol, Cipro (1191): un re angioino di ascendenza normanna conquista l\'isola in rotta verso la Terza Crociata',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'limassol',
+    },
   ],
 
   'ne-arc-periphery': [
@@ -3397,6 +3483,44 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
       },
       center: [1.29, 49.14],
+    },
+  ],
+
+  'ne-arc-channel-islands-after-1204': [
+    {
+      src: '/story/norman-expansion/channel-islands-1204-fork.jpg',
+      alt: {
+        en: 'Reconstruction — the Channel Islands after 1204: Jersey and Guernsey remain tied to the English crown while continental Normandy falls to France',
+        fr: 'Reconstitution — les îles Anglo-Normandes après 1204 : Jersey et Guernesey restent liées à la couronne anglaise tandis que la Normandie continentale tombe sous la France',
+        es: 'Reconstrucción — las islas del Canal después de 1204: Jersey y Guernsey permanecen vinculadas a la corona inglesa mientras la Normandía continental cae ante Francia',
+        it: 'Ricostruzione — le Isole del Canale dopo il 1204: Jersey e Guernsey restano legate alla corona inglese mentre la Normandia continentale cade in mano alla Francia',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'channel-islands-node',
+    },
+  ],
+
+  'ne-arc-channel-islands-frontier': [
+    {
+      src: '/story/norman-expansion/mont-orgueil-castle-jersey.jpg',
+      alt: {
+        en: 'Mont Orgueil castle, Jersey — medieval fortress commanding the sea approach from Normandy, symbol of the islands\' contested frontier after 1204',
+        fr: 'Château de Mont Orgueil, Jersey — forteresse médiévale dominant l\'approche maritime depuis la Normandie, symbole de la frontière contestée des îles après 1204',
+        es: 'Castillo de Mont Orgueil, Jersey — fortaleza medieval que domina el acceso marítimo desde Normandía, símbolo de la frontera disputada de las islas después de 1204',
+        it: 'Castello di Mont Orgueil, Jersey — fortezza medievale che domina l\'accesso marittimo dalla Normandia, simbolo della frontiera contesa delle isole dopo il 1204',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'mont-orgueil',
     },
   ],
 
@@ -3919,6 +4043,44 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
     },
   ],
 
+  'ne-tancred-galilee': [
+    {
+      src: '/story/norman-expansion/tancred-galilee-tiberias.jpg',
+      alt: {
+        en: 'Reconstruction — Tancred in Galilee: the Hauteville nephew who held Tiberias and governed the Principality in Bohemond\'s absence',
+        fr: 'Reconstitution — Tancrède en Galilée : le neveu Hauteville qui tint Tibériade et gouverna la principauté en l\'absence de Bohémond',
+        es: 'Reconstrucción — Tancredo en Galilea: el sobrino Hauteville que mantuvo Tiberíades y gobernó el principado en ausencia de Bohemundo',
+        it: 'Ricostruzione — Tancredi in Galilea: il nipote Altavilla che tenne Tiberiade e governò il principato in assenza di Boemondo',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'tiberias',
+    },
+  ],
+
+  'ne-richard-cyprus': [
+    {
+      src: '/story/norman-expansion/richard-cyprus-limassol-1191.jpg',
+      alt: {
+        en: 'Reconstruction — Richard the Lionheart lands at Limassol, Cyprus (1191): an Angevin king of Norman descent seizes the island en route to the Third Crusade',
+        fr: 'Reconstitution — Richard Cœur de Lion débarque à Limassol, Chypre (1191) : un roi angevin d\'ascendance normande s\'empare de l\'île en route vers la Troisième Croisade',
+        es: 'Reconstrucción — Ricardo Corazón de León desembarca en Limasol, Chipre (1191): un rey angevino de ascendencia normanda toma la isla camino de la Tercera Cruzada',
+        it: 'Ricostruzione — Riccardo Cuor di Leone sbarca a Limassol, Cipro (1191): un re angioino di ascendenza normanna conquista l\'isola in rotta verso la Terza Crociata',
+      },
+      credit: {
+        en: 'AI-generated reconstruction — no suitable public-domain photograph available',
+        fr: 'Reconstitution générée par IA — aucune photographie libre de droits disponible',
+        es: 'Reconstrucción generada por IA — no se encontró fotografía de dominio público adecuada',
+        it: 'Ricostruzione generata da IA — nessuna fotografia di pubblico dominio disponibile',
+      },
+      placeId: 'limassol',
+    },
+  ],
+
   // ── Age of Exploration ─────────────────────────────────────────────
   //   - Honfleur / Dieppe / Le Havre: Wikimedia Commons (CC BY-SA)
   //   - Gaspé (Point Newport): Wm. Notman & Son, c. 1900 — public domain (McCord Stewart Museum)
@@ -4298,7 +4460,7 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         es: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
         it: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
       },
-      placeId: 'london',
+      placeId: 'dover',
     },
   ],
   'ob-regent': [
@@ -4316,7 +4478,7 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
         es: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
         it: 'Foto: Wikimedia Commons (CC BY-SA 3.0)',
       },
-      placeId: 'london',
+      placeId: 'york-jorvik',
     },
   ],
   'ob-tapestry': [
@@ -4478,6 +4640,62 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
       placeId: 'london',
     },
   ],
+
+  // ── Henry I — the lion of justice ──
+  'h1-rufus-death': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Winchester — where Henry I seized the treasury after William Rufus\'s death', fr: 'Winchester — où Henri Ier s\'empara du trésor après la mort de Guillaume le Roux' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'winchester' }],
+  'h1-coronation-charter': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Westminster — Henry I\'s coronation and the Charter of Liberties', fr: 'Westminster — le couronnement d\'Henri Ier et la Charte des libertés' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'london' }],
+  'h1-tinchebray': [{ src: '/story/william-conqueror/abbaye-aux-hommes.jpg', alt: { en: 'Normandy — reunited under Henry I after the Battle of Tinchebray', fr: 'Normandie — réunie sous Henri Ier après la bataille de Tinchebray' }, credit: { en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)', fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)' }, placeId: 'caen' }],
+  'h1-exchequer': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'The Exchequer at Winchester — the administrative heart of Henry I\'s England', fr: 'L\'Échiquier de Winchester — le cœur administratif de l\'Angleterre d\'Henri Ier' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'winchester' }],
+  'h1-white-ship': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'The White Ship disaster at Barfleur — 25 November 1120', fr: 'Le désastre de la Blanche-Nef à Barfleur — 25 novembre 1120' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'barfleur' }],
+  'h1-death-succession': [{ src: '/story/william-conqueror/abbaye-aux-hommes.jpg', alt: { en: 'Rouen — near where Henry I died at Lyons-la-Forêt in 1135', fr: 'Rouen — près de l\'endroit où Henri Ier mourut à Lyons-la-Forêt en 1135' }, credit: { en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)', fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)' }, placeId: 'rouen' }],
+
+  // ── The Anarchy ──
+  'an-stephen-coup': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Westminster — Stephen of Blois seized the crown in December 1135', fr: 'Westminster — Étienne de Blois s\'empara de la couronne en décembre 1135' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'london' }],
+  'an-matilda-arrives': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'The Empress Matilda lands in England — 1139', fr: 'L\'impératrice Mathilde débarque en Angleterre — 1139' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'london' }],
+  'an-lincoln-battle': [{ src: '/story/william-conqueror/bayeux-tapestry-hastings.jpg', alt: { en: 'The Battle of Lincoln — King Stephen captured, 1141', fr: 'La bataille de Lincoln — le roi Étienne capturé, 1141' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'lincoln' }],
+  'an-oxford-escape': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Oxford Castle — Matilda\'s dramatic escape across the frozen Thames, 1142', fr: 'Le château d\'Oxford — l\'évasion dramatique de Mathilde à travers la Tamise gelée, 1142' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'oxford' }],
+  'an-treaty-winchester': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'Winchester — the treaty that ended the Anarchy and named Henry Plantagenet as heir', fr: 'Winchester — le traité qui mit fin à l\'Anarchie et désigna Henri Plantagenêt comme héritier' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'winchester' }],
+
+  // ── March of Wales ──
+  'mw-fitzosbern-chepstow': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Chepstow Castle — the first stone castle in Wales, built c. 1067', fr: 'Château de Chepstow — le premier château de pierre au Pays de Galles, bâti vers 1067' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'chepstow' }],
+  'mw-cardiff-south': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Cardiff Castle — the Norman motte that anchored the southern march', fr: 'Château de Cardiff — la motte normande qui ancra la marche méridionale' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'cardiff' }],
+  'mw-rhuddlan-north': [{ src: '/story/william-conqueror/bayeux-tapestry-knights.jpg', alt: { en: 'The northern march — Norman cavalry pushing into Gwynedd', fr: 'La marche septentrionale — la cavalerie normande pénétrant dans le Gwynedd' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'rhuddlan' }],
+  'mw-pembroke-west': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Pembroke Castle — gateway to the Irish Sea', fr: 'Château de Pembroke — porte de la mer d\'Irlande' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'pembroke' }],
+  'mw-owain-gwynedd': [{ src: '/story/william-conqueror/bayeux-tapestry-knights.jpg', alt: { en: 'Gwynedd — the Welsh counter-offensive under Owain Gwynedd', fr: 'Gwynedd — la contre-offensive galloise sous Owain Gwynedd' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' } }],
+  'mw-legacy-march': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'The March of Wales — a two-century frontier of castles, conquest, and accommodation', fr: 'La Marche du Pays de Galles — une frontière de deux siècles de châteaux, conquête et accommodement' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' } }],
+
+  // ── Anglo-Norman Ireland ──
+  'ani-dublin-hiberno-norse': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'Dublin — the Hiberno-Norse trading city coveted by Anglo-Norman adventurers', fr: 'Dublin — la ville marchande hiberno-nordique convoitée par les aventuriers anglo-normands' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+  'ani-diarmait-exile': [{ src: '/story/william-conqueror/bayeux-tapestry-oath.jpg', alt: { en: 'Diarmait Mac Murchada seeks Norman swords at the Welsh March', fr: 'Diarmait Mac Murchada cherche des épées normandes à la Marche galloise' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'pembroke' }],
+  'ani-strongbow-wexford': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'The Anglo-Norman landing near Wexford — 1169', fr: 'Le débarquement anglo-normand près de Wexford — 1169' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'wexford' }],
+  'ani-dublin-falls': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Dublin falls to Strongbow\'s forces — September 1170', fr: 'Dublin tombe aux mains des forces de Strongbow — septembre 1170' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+  'ani-henry-ii-lands': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Henry II lands at Waterford — the first English king in Ireland, 1171', fr: 'Henri II débarque à Waterford — le premier roi anglais en Irlande, 1171' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'waterford' }],
+  'ani-treaty-windsor': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'The Treaty of Windsor — partition of Ireland between Anglo-Norman lords and Gaelic kings, 1175', fr: 'Le traité de Windsor — partition de l\'Irlande entre seigneurs anglo-normands et rois gaéliques, 1175' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+  'ani-ulster-de-courcy': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'Carrickfergus Castle — John de Courcy\'s stronghold in Ulster', fr: 'Château de Carrickfergus — la forteresse de Jean de Courcy en Ulster' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'carrickfergus' }],
+  'ani-john-lordship': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Lord John arrives in Ireland — the beginnings of royal administration, 1185', fr: 'Le seigneur Jean arrive en Irlande — les débuts de l\'administration royale, 1185' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+  'ani-john-expedition-1210': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'King John\'s expedition to Ireland — the crown reasserts control, 1210', fr: 'L\'expédition du roi Jean en Irlande — la couronne reprend le contrôle, 1210' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+  'ani-bruce-invasion': [{ src: '/story/william-conqueror/bayeux-tapestry-hastings.jpg', alt: { en: 'The Bruce invasion — Edward Bruce\'s Scottish army ravages the Anglo-Norman colony, 1315–1318', fr: 'L\'invasion Bruce — l\'armée écossaise d\'Édouard Bruce ravage la colonie anglo-normande, 1315-1318' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'dundalk' }],
+  'ani-statutes-kilkenny': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'The Statutes of Kilkenny — the Anglo-Norman colony legislates against Gaelicisation, 1366', fr: 'Les Statuts de Kilkenny — la colonie anglo-normande légifère contre la gaélicisation, 1366' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'kilkenny' }],
+  'ani-legacy-lordship': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'Two Irelands — the Norman legacy of castles, law, and a frontier that never closed', fr: 'Deux Irlandes — l\'héritage normand de châteaux, de droit et d\'une frontière jamais refermée' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'dublin' }],
+
+  // ── David I — Scotland ──
+  'ds-english-upbringing': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'The English court — where Prince David absorbed Anglo-Norman culture', fr: 'La cour anglaise — où le prince David absorba la culture anglo-normande' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'london' }],
+  'ds-foundations': [{ src: '/story/william-conqueror/abbaye-aux-hommes.jpg', alt: { en: 'Scottish abbeys — David I founded monasteries modelled on Norman institutions', fr: 'Abbayes écossaises — David Ier fonda des monastères calqués sur les institutions normandes' }, credit: { en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)', fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)' }, placeId: 'jedburgh' }],
+  'ds-battle-standard': [{ src: '/story/william-conqueror/bayeux-tapestry-hastings.jpg', alt: { en: 'The Battle of the Standard at Northallerton — Anglo-Normans on both sides, 1138', fr: 'La bataille de l\'Étendard à Northallerton — des Anglo-Normands des deux côtés, 1138' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'northallerton' }],
+  'ds-legacy': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'The Davidian revolution — the institutional transformation of medieval Scotland', fr: 'La révolution davidienne — la transformation institutionnelle de l\'Écosse médiévale' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'edinburgh' }],
+
+  // ── William the Lion ──
+  'wl-accession': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Edinburgh — seat of William the Lion\'s ambitions', fr: 'Édimbourg — siège des ambitions de Guillaume le Lion' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'edinburgh' }],
+  'wl-alnwick-capture': [{ src: '/story/william-conqueror/bayeux-tapestry-hastings.jpg', alt: { en: 'Alnwick — William the Lion captured in the fog, 1174', fr: 'Alnwick — Guillaume le Lion capturé dans le brouillard, 1174' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'edinburgh' }],
+  'wl-quitclaim': [{ src: '/story/william-conqueror/domesday-book.jpg', alt: { en: 'The Quitclaim of Canterbury — Scotland buys back its sovereignty, 1189', fr: 'La Quitclaim de Canterbury — l\'Écosse rachète sa souveraineté, 1189' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'edinburgh' }],
+  'wl-legacy': [{ src: '/story/william-conqueror/abbaye-aux-hommes.jpg', alt: { en: 'Scotland\'s Anglo-Norman institutions — the legacy of William the Lion', fr: 'Les institutions anglo-normandes de l\'Écosse — l\'héritage de Guillaume le Lion' }, credit: { en: 'Photo: Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)', fr: 'Photo : Thomas Hirsch, Wikimedia Commons (CC BY-SA 3.0)' }, placeId: 'edinburgh' }],
+
+  // ── Thomas Becket ──
+  'tb-chancellor': [{ src: '/story/william-conqueror/tower-of-london.jpg', alt: { en: 'London — where Thomas Becket rose to become Henry II\'s chancellor', fr: 'Londres — où Thomas Becket s\'éleva au rang de chancelier d\'Henri II' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'london' }],
+  'tb-archbishop-conflict': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Canterbury Cathedral — where Becket defied his king', fr: 'La cathédrale de Cantorbéry — où Becket défia son roi' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'canterbury' }],
+  'tb-exile': [{ src: '/story/william-conqueror/bayeux-tapestry-fleet.jpg', alt: { en: 'Becket\'s exile — six years in France, 1164–1170', fr: 'L\'exil de Becket — six ans en France, 1164–1170' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'canterbury' }],
+  'tb-murder': [{ src: '/story/william-conqueror/bayeux-tapestry-hastings.jpg', alt: { en: 'Murder in the Cathedral — 29 December 1170', fr: 'Meurtre dans la cathédrale — 29 décembre 1170' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'canterbury' }],
+  'tb-legacy': [{ src: '/story/william-conqueror/bayeux-tapestry-coronation.jpg', alt: { en: 'Canterbury — Becket\'s shrine became England\'s greatest pilgrimage destination', fr: 'Cantorbéry — le sanctuaire de Becket devint le plus grand lieu de pèlerinage d\'Angleterre' }, credit: { en: 'Bayeux Tapestry, 11th century. Wikimedia Commons (public domain)', fr: 'Tapisserie de Bayeux, XIe siècle. Wikimedia Commons (domaine public)' }, placeId: 'canterbury' }],
 
   // ── Samuel de Champlain ──
   'chpl-beat-brouage': [{ src: '/story/new-france-foundations/la-rochelle-vieux-port-lisch.jpg', alt: { en: 'La Rochelle harbour — gateway to the Saintonge coast where Champlain was born', fr: 'Port de La Rochelle — porte de la côte saintongeaise où naquit Champlain' }, credit: { en: 'Wikimedia Commons (public domain)', fr: 'Wikimedia Commons (domaine public)' }, placeId: 'la-rochelle' }],

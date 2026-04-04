@@ -22,6 +22,8 @@ function touchEntity(
 export function foldEvent(agg: Aggregates, e: AtlasEvent): void {
   const dwell = e.dwellMs ?? 0;
 
+  if (!agg.journalSections) agg.journalSections = {};
+
   switch (e.t) {
     case 'place_open':
       touchEntity(agg.places, e.id, dwell, e.at);
@@ -42,6 +44,7 @@ export function foldEvent(agg: Aggregates, e: AtlasEvent): void {
     case 'story_arc_complete':
       break;
     case 'journal_section_view':
+      touchEntity(agg.journalSections, e.id, dwell, e.at);
       break;
   }
 
@@ -49,6 +52,8 @@ export function foldEvent(agg: Aggregates, e: AtlasEvent): void {
 }
 
 // --- Derived selectors (pure) ----------------------------------------------
+
+export type EntityKind = 'places' | 'regions' | 'segments' | 'journeys' | 'journalSections';
 
 export function countDistinctPlaces(agg: Aggregates): number {
   return Object.keys(agg.places).length;
@@ -68,6 +73,10 @@ export function countDistinctSegments(agg: Aggregates): number {
 
 export function countErasVisited(agg: Aggregates): number {
   return Object.keys(agg.eraCoverage).length;
+}
+
+export function countDistinctJournalSections(agg: Aggregates): number {
+  return Object.keys(agg.journalSections ?? {}).length;
 }
 
 export function hasEngagedEntity(
@@ -92,4 +101,39 @@ export function countEngagedInSet(
   ids: readonly string[],
 ): number {
   return ids.filter((id) => id in agg[kind]).length;
+}
+
+// --- Depth helpers (dwell-time analysis) -----------------------------------
+
+export function sumDwellMsForKind(agg: Aggregates, kind: EntityKind): number {
+  const bucket = agg[kind];
+  if (!bucket || typeof bucket !== 'object') return 0;
+  let total = 0;
+  for (const e of Object.values(bucket as Record<string, EntityEngagement>)) {
+    total += e.dwellMs;
+  }
+  return total;
+}
+
+export function countEntitiesWithMinDwell(
+  agg: Aggregates,
+  kind: EntityKind,
+  minDwellMs: number,
+): number {
+  const bucket = agg[kind];
+  if (!bucket || typeof bucket !== 'object') return 0;
+  let count = 0;
+  for (const e of Object.values(bucket as Record<string, EntityEngagement>)) {
+    if (e.dwellMs >= minDwellMs) count++;
+  }
+  return count;
+}
+
+export function totalEngagedEntities(agg: Aggregates): number {
+  return (
+    Object.keys(agg.places).length +
+    Object.keys(agg.regions).length +
+    Object.keys(agg.journeys).length +
+    Object.keys(agg.segments).length
+  );
 }

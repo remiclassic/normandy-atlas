@@ -1418,6 +1418,42 @@ const STRINGS = {
     es: '¡Acabo de desbloquear "{title}" en el Norman Atlas!',
     it: 'Ho appena sbloccato "{title}" sul Norman Atlas!',
   },
+  'share.firstExploration.sealed': {
+    en: 'First entry in your ledger',
+    fr: 'Première entrée dans votre registre',
+    es: 'Primera entrada en tu registro',
+    it: 'Prima voce nel tuo registro',
+  },
+  'share.firstExploration.title': {
+    en: 'You opened: {label}',
+    fr: 'Vous avez ouvert : {label}',
+    es: 'Has abierto: {label}',
+    it: 'Hai aperto: {label}',
+  },
+  'share.firstExploration.subtitle': {
+    en: 'Share the Norman Atlas with someone who loves maps and history.',
+    fr: 'Partagez le Norman Atlas avec quelqu’un qui aime les cartes et l’histoire.',
+    es: 'Comparte el Norman Atlas con alguien a quien le gusten los mapas y la historia.',
+    it: 'Condividi il Norman Atlas con chi ama mappe e storia.',
+  },
+  'share.firstExploration.shareBody': {
+    en: 'I just started exploring the Norman Atlas — first stop: {label}',
+    fr: 'Je viens de commencer à explorer le Norman Atlas — premier arrêt : {label}',
+    es: 'Acabo de empezar a explorar el Norman Atlas — primera parada: {label}',
+    it: 'Ho appena iniziato a esplorare il Norman Atlas — prima tappa: {label}',
+  },
+  'share.firstStory.shareBody': {
+    en: 'I finished my first story arc on the Norman Atlas: "{title}"',
+    fr: 'J’ai terminé mon premier arc narratif sur le Norman Atlas : « {title} »',
+    es: 'Terminé mi primer arco narrativo en el Norman Atlas: «{title}»',
+    it: 'Ho completato il mio primo arco narrativo sul Norman Atlas: «{title}»',
+  },
+  'ledger.shareProgressHeading': {
+    en: 'Share your progress',
+    fr: 'Partager votre progression',
+    es: 'Comparte tu progreso',
+    it: 'Condividi i tuoi progressi',
+  },
   'story.seal.recorded': {
     en: 'Arc recorded in your ledger',
     fr: 'Arc enregistré dans votre registre',
@@ -1441,6 +1477,49 @@ const STRINGS = {
     fr: 'Ouvrir le registre',
     es: 'Abrir registro',
     it: 'Apri registro',
+  },
+
+  'profile.tooltip.label': {
+    en: 'Traveller Profile',
+    fr: 'Profil du voyageur',
+    es: 'Perfil del viajero',
+    it: 'Profilo del viaggiatore',
+  },
+  'profile.tooltip.hint': {
+    en: 'Your achievements, stats, and exploration record.',
+    fr: 'Vos réalisations, statistiques et historique d\'exploration.',
+    es: 'Tus logros, estadísticas e historial de exploración.',
+    it: 'I tuoi traguardi, statistiche e cronologia di esplorazione.',
+  },
+  'profile.aria.open': {
+    en: 'Open traveller profile',
+    fr: 'Ouvrir le profil du voyageur',
+    es: 'Abrir perfil del viajero',
+    it: 'Apri profilo del viaggiatore',
+  },
+  'profile.mobileDrawer.label': {
+    en: 'Traveller Profile',
+    fr: 'Profil du voyageur',
+    es: 'Perfil del viajero',
+    it: 'Profilo del viaggiatore',
+  },
+  'profile.achievements.summary': {
+    en: 'Achievements',
+    fr: 'Succès',
+    es: 'Logros',
+    it: 'Obiettivi',
+  },
+  'profile.achievements.unlockedCount': {
+    en: '{unlocked} of {total} unlocked',
+    fr: '{unlocked} sur {total} débloqués',
+    es: '{unlocked} de {total} desbloqueados',
+    it: '{unlocked} di {total} sbloccati',
+  },
+  'profile.achievement.tier': {
+    en: 'Tier {tier}',
+    fr: 'Niveau {tier}',
+    es: 'Nivel {tier}',
+    it: 'Grado {tier}',
   },
 
   // --- Detail FAB (mobile reopen) ---
@@ -1576,6 +1655,90 @@ const STRINGS = {
     fr: '~{min} min',
     es: '~{min} min',
     it: '~{min} min',
+  },
+
+  // --- Gamification: Rank & Streak -----------------------------------------
+  'rank.novice': {
+    en: 'Novice',
+    fr: 'Novice',
+  },
+  'rank.apprentice': {
+    en: 'Apprentice',
+    fr: 'Apprenti',
+  },
+  'rank.journeyman': {
+    en: 'Journeyman',
+    fr: 'Compagnon',
+  },
+  'rank.adept': {
+    en: 'Adept',
+    fr: 'Adepte',
+  },
+  'rank.scholar': {
+    en: 'Scholar',
+    fr: 'Érudit',
+  },
+  'rank.master': {
+    en: 'Master',
+    fr: 'Maître',
+  },
+  'rank.grandMaster': {
+    en: 'Grand Master',
+    fr: 'Grand Maître',
+  },
+  'rank.label': {
+    en: 'Atlas Rank',
+    fr: 'Rang de l\'Atlas',
+  },
+  'streak.label': {
+    en: 'Streak',
+    fr: 'Série',
+  },
+  'streak.days': {
+    en: '{n} day streak',
+    fr: 'Série de {n} jours',
+  },
+  'streak.best': {
+    en: 'Best: {n}',
+    fr: 'Record : {n}',
+  },
+
+  // --- Gamification: Challenges --------------------------------------------
+  'challenge.heading': {
+    en: 'Weekly Challenge',
+    fr: 'Défi de la semaine',
+  },
+  'challenge.completed': {
+    en: 'Completed',
+    fr: 'Terminé',
+  },
+  'challenge.progress': {
+    en: '{done}/{total}',
+    fr: '{done}/{total}',
+  },
+  'challenge.noCurrent': {
+    en: 'No challenge this week',
+    fr: 'Aucun défi cette semaine',
+  },
+
+  // --- Gamification: Coverage bars -----------------------------------------
+  'coverage.percent': {
+    en: '{pct}%',
+    fr: '{pct} %',
+  },
+  'coverage.label': {
+    en: 'Completion',
+    fr: 'Progression',
+  },
+
+  // --- Gamification: Hidden milestones -------------------------------------
+  'milestone.hidden.title': {
+    en: '???',
+    fr: '???',
+  },
+  'milestone.hidden.description': {
+    en: 'Continue exploring to reveal this milestone.',
+    fr: 'Continuez à explorer pour révéler ce jalon.',
   },
 } as const satisfies StringTable;
 
