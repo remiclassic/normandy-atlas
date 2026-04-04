@@ -11,7 +11,8 @@ import { pickI18n } from '@/lib/locale';
 import { STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
 import { arcIdToProgressKey } from '@/lib/story-progress';
-import { getEraRange } from '@/core/era/engine';
+import { getAtlasEra, getAtlasEras, getEraRange } from '@/core/era/engine';
+import type { AtlasEra } from '@/core/types';
 
 export interface FocusStats {
   uniquePlaces: number;
@@ -34,6 +35,8 @@ export interface StoryLibraryRowModel {
   focusStats: FocusStats;
   /** Poster credit string (already locale-resolved). */
   posterCredit: string | null;
+  /** Atlas era ids touched by this arc’s beats (for library filters). */
+  relatedEraIds: string[];
 }
 
 function resolveBeatTitle(beat: StoryBeat, locale: AtlasLocale): string {
@@ -95,6 +98,15 @@ function computeTimelineRange(
   return { start: min, end: max };
 }
 
+function relatedEraIdsForRow(meta: StoryLibraryMeta, beats: StoryBeat[]): string[] {
+  const s = new Set<string>();
+  for (const b of beats) {
+    if (b.eraId) s.add(b.eraId);
+  }
+  if (meta.recommendedEraId) s.add(meta.recommendedEraId);
+  return [...s].sort();
+}
+
 function computeFocusStats(beats: StoryBeat[]): FocusStats {
   const places = new Set<string>();
   const regions = new Set<string>();
@@ -154,10 +166,20 @@ export function buildStoryLibraryRows(locale: AtlasLocale): StoryLibraryRowModel
       timelineRange: computeTimelineRange(beats),
       focusStats: computeFocusStats(beats),
       posterCredit: resolvePosterCredit(meta, resolvedSrc, locale),
+      relatedEraIds: relatedEraIdsForRow(meta, beats),
     });
   }
 
   return rows;
+}
+
+/** Atlas eras that appear in at least one library row, in default atlas order. */
+export function storyLibraryAtlasErasWithStories(rows: StoryLibraryRowModel[]): AtlasEra[] {
+  const used = new Set<string>();
+  for (const r of rows) {
+    for (const id of r.relatedEraIds) used.add(id);
+  }
+  return getAtlasEras().filter((e) => used.has(e.id));
 }
 
 export function pickFeaturedRow(rows: StoryLibraryRowModel[]): StoryLibraryRowModel | null {
@@ -196,4 +218,23 @@ export function groupRowsByCategory(
   }
 
   return map;
+}
+
+/** Normalized text for filtering the story library (title, hook, blurb, chapter titles). */
+export function storyLibraryRowSearchHaystack(row: StoryLibraryRowModel, locale: AtlasLocale): string {
+  const title = row.meta.displayTitle
+    ? pickI18n(row.meta.displayTitle, locale)
+    : row.arcEntry
+      ? pickI18n(row.arcEntry.label, locale)
+      : '';
+  const hook = row.meta.hook ? pickI18n(row.meta.hook, locale) : '';
+  const blurb = pickI18n(row.meta.blurb, locale);
+  const chapters = row.chapterTitles.join(' ');
+  const eraLabels = row.relatedEraIds
+    .map((id) => {
+      const era = getAtlasEra(id);
+      return era ? pickI18n(era.label, locale) : '';
+    })
+    .join(' ');
+  return `${title} ${hook} ${blurb} ${chapters} ${eraLabels}`.toLowerCase();
 }

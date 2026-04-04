@@ -38,6 +38,7 @@ export function StoryIllustrationMapOverlay({
   const storyArc = useMapStore((s) => s.storyArc);
   const stepIndex = useMapStore((s) => s.storyStepIndex);
   const storyViewMode = useMapStore((s) => s.storyViewMode);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
   const locale = useMapStore((s) => s.locale);
 
   const pins = useMemo((): ResolvedPin[] => {
@@ -146,9 +147,9 @@ export function StoryIllustrationMapOverlay({
         /* map may already be destroyed */
       }
     };
-  }, [mapInstanceGeneration, pins, mapRef]);
+  }, [mapInstanceGeneration, pins, mapRef, storyEraIntroActive]);
 
-  if (pins.length === 0 || positions.length === 0) return null;
+  if (storyEraIntroActive || pins.length === 0 || positions.length === 0) return null;
 
   /**
    * z-[21]: above map/deck host; keeps pins pickable. Story chrome remains outside this subtree (shell z-50).

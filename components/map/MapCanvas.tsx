@@ -1933,20 +1933,25 @@ export default function MapCanvas() {
 
   const basemapMode = useMapStore((s) => s.basemapMode);
   const parchmentWaterAtmosphere = useMapStore((s) => s.parchmentWaterAtmosphere);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
 
   return (
     <>
       <div
-        className="absolute inset-0 w-full h-full"
+        className={`absolute inset-0 w-full h-full transition-[filter] duration-300 ease-out ${
+          storyEraIntroActive ? 'blur-[10px] sm:blur-[12px]' : ''
+        }`}
         data-basemap={basemapMode}
         style={{ background: basemapMode === 'parchment' ? '#e8dcc8' : '#0a0c12' }}
       >
         <div ref={containerRef} className="atlas-maplibre-host absolute inset-0 z-0 h-full w-full" />
         <StoryIllustrationMapOverlay mapRef={mapRef} mapInstanceGeneration={mapInstanceGeneration} />
         <StoryImageGallery />
-        <div className="pointer-events-auto absolute top-3 right-3 z-20">
-          <TerrainToggle />
-        </div>
+        {!storyEraIntroActive ? (
+          <div className="pointer-events-auto absolute top-3 right-3 z-20">
+            <TerrainToggle />
+          </div>
+        ) : null}
         {basemapMode === 'parchment' ? (
           <ParchmentMapChrome bearing={mapBearing} waterAtmosphere={parchmentWaterAtmosphere} />
         ) : null}

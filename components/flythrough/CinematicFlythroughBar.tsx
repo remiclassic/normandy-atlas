@@ -21,6 +21,7 @@ export default function CinematicFlythroughBar() {
   const locale = useMapStore((s) => s.locale);
   const startFlythrough = useMapStore((s) => s.startCinematicFlythrough);
   const stopFlythrough = useMapStore((s) => s.stopCinematicFlythrough);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
 
   const isMobile = useIsMobile();
   const isActive = flythrough !== null;
@@ -46,6 +47,8 @@ export default function CinematicFlythroughBar() {
 
   const handleStop = useCallback(() => stopFlythrough(), [stopFlythrough]);
   const handleStart = useCallback((id: string) => startFlythrough(id), [startFlythrough]);
+
+  if (storyEraIntroActive) return null;
 
   return (
     <>

@@ -26,6 +26,8 @@ export interface JournalIndexRow {
   excerpt: string;
   searchText: string;
   mapLink: string;
+  /** Focus the story library on this arc (chronicle) without starting playback. */
+  libraryLink?: string;
   meta?: { eraId?: string; regionId?: string; arcId?: string | null; kind?: string };
 }
 
@@ -217,6 +219,12 @@ function buildStoryRows(locale: AtlasLocale): JournalIndexRow[] {
       mapLink: step
         ? buildMapHref({ story: step.arc ?? '', step: step.stepIndex })
         : buildMapHref({ era: beat.eraId }),
+      libraryLink: step
+        ? buildMapHref({
+            library: true,
+            libraryArc: step.arc ?? '',
+          })
+        : undefined,
       meta: { eraId: beat.eraId, arcId: beat.arcId ?? null },
     };
   });

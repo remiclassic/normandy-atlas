@@ -43,6 +43,7 @@ import MilestoneCelebrationModal from '@/components/progress/MilestoneCelebratio
 import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
 import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
 import SessionGuard from '@/components/progress/SessionGuard';
+import ProgressRemoteSync from '@/components/progress/ProgressRemoteSync';
 import { getArcEntriesForEra, arcChromeStyle } from '@/data/atlas/era-arcs';
 
 function MobileMenuDrawer({
@@ -139,8 +140,29 @@ export default function AtlasHomeShell() {
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
   const [storyLibraryOpen, setStoryLibraryOpen] = useState(false);
+  const [storyLibraryBootstrap, setStoryLibraryBootstrap] = useState<{
+    focusProgressKey?: string;
+    openDetail?: boolean;
+  } | null>(null);
   const openStoryLibrary = useCallback(() => setStoryLibraryOpen(true), []);
-  const closeStoryLibrary = useCallback(() => setStoryLibraryOpen(false), []);
+  const closeStoryLibrary = useCallback(() => {
+    setStoryLibraryOpen(false);
+    setStoryLibraryBootstrap(null);
+  }, []);
+
+  const libraryOpenRequest = useMapStore((s) => s.libraryOpenRequest);
+  useEffect(() => {
+    if (!libraryOpenRequest) return;
+    const req = libraryOpenRequest;
+    queueMicrotask(() => {
+      setStoryLibraryOpen(true);
+      setStoryLibraryBootstrap({
+        focusProgressKey: req.focusProgressKey,
+        openDetail: req.openDetail,
+      });
+      useMapStore.getState().clearStoryLibraryRequest();
+    });
+  }, [libraryOpenRequest]);
 
   const [storyLauncherOpen, setStoryLauncherOpen] = useState(false);
   const openStoryLauncher = useCallback(() => setStoryLauncherOpen(true), []);
@@ -182,6 +204,7 @@ export default function AtlasHomeShell() {
   }, []);
 
   const storyMode = useMapStore((s) => s.storyMode);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
   useEffect(() => {
     document.documentElement.classList.toggle('atlas-story-open', storyMode);
     return () => document.documentElement.classList.remove('atlas-story-open');
@@ -366,7 +389,9 @@ export default function AtlasHomeShell() {
     <StoryLauncherContext.Provider value={storyLauncherCtx}>
     <div className="flex h-dvh w-screen flex-col overflow-hidden bg-background">
       {/* ─── Header ─────────────────────────────────────────── */}
-      <header className="relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
+      <header
+        className={`relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-opacity duration-200 ${storyEraIntroActive ? 'opacity-0' : ''}`}
+      >
         {isMobile ? (
           /* ── Mobile compact header ─────────────────────── */
           <div className="flex flex-col pointer-events-auto">
@@ -478,7 +503,7 @@ export default function AtlasHomeShell() {
 
       {/* ─── Mobile ledger attention chip (10s after accomplishments) ── */}
       <AnimatePresence>
-        {isMobile && ledgerAttentionActive && (
+        {isMobile && ledgerAttentionActive && !storyEraIntroActive && (
           <motion.div
             initial={{ opacity: 0, y: -14, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -509,18 +534,21 @@ export default function AtlasHomeShell() {
 
       {/* ─── Main content ───────────────────────────────────── */}
       <div className="relative flex min-h-0 min-w-0 flex-1">
-        <div className="relative min-h-0 min-w-0 flex-1" data-onboarding="map">
+        <div
+          className={`relative min-h-0 min-w-0 flex-1 ${storyEraIntroActive ? 'overflow-hidden' : ''}`}
+          data-onboarding="map"
+        >
           <MapLoader />
           <MapDeepLinkSync />
           <div className="vignette-overlay absolute inset-0" aria-hidden />
 
           {/* Map overlay panels, repositioned for mobile to clear the play dock */}
           <div
-            className={`absolute z-20 flex flex-col items-start gap-2 ${
+            className={`absolute z-20 flex flex-col items-start gap-2 transition-opacity duration-200 ${
               isMobile
                 ? 'bottom-20 left-3 right-3'
                 : 'bottom-28 left-5'
-            }`}
+            } ${storyEraIntroActive ? 'pointer-events-none opacity-0' : ''}`}
             data-onboarding="layers"
           >
             <LayerPanel />
@@ -531,7 +559,13 @@ export default function AtlasHomeShell() {
             Mobile: z-[50] so children (story bar z-40, etc.) sit above map-anchored layers (pins z-[5],
             layer stack z-20). A z-20 wrapper trapped story UI below illustration pins in the same column.
           */}
-          <div className="max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-[50] max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents">
+          <div
+            className={`max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-[50] max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents transition-opacity duration-200 ${
+              storyEraIntroActive
+                ? 'pointer-events-none opacity-0 max-[767px]:opacity-0 [&>*]:md:opacity-0 [&>*]:md:pointer-events-none'
+                : ''
+            }`}
+          >
             <CinematicFlythroughBar />
             <StoryModeBar onOpenLauncher={openStoryLauncher} />
             <MobilePlayDock onOpenLauncher={openStoryLauncher} />
@@ -548,6 +582,8 @@ export default function AtlasHomeShell() {
           open={storyLibraryOpen}
           onClose={closeStoryLibrary}
           useShellChrome
+          bootstrap={storyLibraryBootstrap}
+          onBootstrapConsumed={() => setStoryLibraryBootstrap(null)}
         />
       </div>
 
@@ -672,6 +708,7 @@ export default function AtlasHomeShell() {
       <LedgerRecordedOverlay />
       <StoryEraIntroOverlay />
       <SessionGuard />
+      <ProgressRemoteSync />
     </div>
     </StoryLauncherContext.Provider>
   );

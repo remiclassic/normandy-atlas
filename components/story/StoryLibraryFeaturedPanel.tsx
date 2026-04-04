@@ -11,6 +11,7 @@ import { arcChromeStyle } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import { t, type UiStringKey } from '@/lib/ui-strings';
+import { STORY_LIBRARY_EMPTY_HERO_POSTER } from '@/lib/story-library-empty-hero';
 import { ChevronLeft, ChevronRight, Play, RotateCcw } from 'lucide-react';
 
 const CATEGORY_KEY: Record<StoryCategory, UiStringKey> = {
@@ -109,9 +110,54 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
   );
 
   if (!row || !derived) {
+    const emptyPoster = publicAssetUrl(STORY_LIBRARY_EMPTY_HERO_POSTER);
     return (
-      <div className="relative flex h-full items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e1a] via-[#0f1628] to-[#0a0e1a]" />
+      <div className="relative flex h-full flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={emptyPoster}
+            alt=""
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+        </div>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(6,8,18,0.97) 0%, rgba(6,8,18,0.78) 30%, rgba(6,8,18,0.38) 55%, rgba(6,8,18,0.18) 78%, rgba(6,8,18,0.45) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(6,8,18,0.8) 0%, rgba(6,8,18,0.4) 40%, rgba(6,8,18,0.12) 65%, transparent 85%)',
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            boxShadow: 'inset 0 0 120px 40px rgba(6,8,18,0.5)',
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.08) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.08) 40px)',
+          }}
+        />
+        <div className="relative z-[1] flex flex-col gap-3 p-6 pb-8 sm:p-8 sm:pb-10 lg:p-10 lg:pb-12 max-w-xl">
+          <p className="font-display text-xl sm:text-2xl font-semibold leading-snug text-parchment pr-4">
+            {t('storyLibrary.heroEmpty.title', locale)}
+          </p>
+          <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/55">
+            {t('storyLibrary.heroEmpty.hint', locale)}
+          </p>
+        </div>
       </div>
     );
   }

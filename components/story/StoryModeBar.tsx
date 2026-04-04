@@ -57,6 +57,7 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
   const selectFeature = useMapStore((s) => s.selectFeature);
   const setDetailPanelExpanded = useMapStore((s) => s.setDetailPanelExpanded);
   const storyCardTopPx = useMapStore((s) => s.storyCardTopPx);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
 
   const isMobile = useIsMobile();
   /** Mobile: story shell starts here; at least ~upper half of viewport stays map-only. Merged with illustration-pin bottom when available. */
@@ -335,6 +336,9 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
       isFirst,
     ],
   );
+
+  /** Era/arc fullscreen intro: hide all story chrome (motion opacity overrides shell opacity-0). */
+  if (storyEraIntroActive) return null;
 
   // ─── Cinematic right-rail (desktop) — gated by CINEMATIC_RIGHT_RAIL_ENABLED ───
   if (isActive && cinematic && !isMobile && CINEMATIC_RIGHT_RAIL_ENABLED) {

@@ -17,10 +17,13 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
   label,
   hint,
   children,
+  wrapperRole,
 }: {
   label: string;
   hint?: string;
   children: ReactNode;
+  /** e.g. "presentation" when wrapping tabs so role="tablist" lists the buttons correctly */
+  wrapperRole?: 'presentation';
 }) {
   const wrapRef = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
@@ -124,6 +127,7 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
     <>
       <span
         ref={wrapRef}
+        role={wrapperRole}
         className="inline-flex items-center"
         onPointerEnter={show}
         onPointerLeave={scheduleHide}

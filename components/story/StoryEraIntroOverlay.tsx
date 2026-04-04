@@ -44,6 +44,7 @@ function StoryEraIntroOverlay() {
   const atlasMode = useMapStore((s) => s.atlasMode);
   const storyArc = useMapStore((s) => s.storyArc);
   const locale: AtlasLocale = useMapStore((s) => s.locale);
+  const setStoryEraIntroActive = useMapStore((s) => s.setStoryEraIntroActive);
 
   const lastShownEraRef = useRef<string | null>(null);
   /** Named-arc intro shown for this arc session (reset when story exits or arc changes). */
@@ -161,6 +162,12 @@ function StoryEraIntroOverlay() {
       if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    setStoryEraIntroActive(visible !== null);
+  }, [visible, setStoryEraIntroActive]);
+
+  useEffect(() => () => setStoryEraIntroActive(false), [setStoryEraIntroActive]);
 
   const { title, groupLabel, dateRangeStr, summary } = useMemo(() => {
     if (!visible) {

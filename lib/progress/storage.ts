@@ -112,6 +112,9 @@ function schedulePersist(): void {
   persistTimer = setTimeout(() => {
     persistTimer = null;
     if (cachedProgress) writeProgressImmediate(cachedProgress);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('norman-atlas-progress-flush'));
+    }
   }, DEBOUNCE_MS);
 }
 

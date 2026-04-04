@@ -371,13 +371,24 @@ const IndexCard = memo(function IndexCard({
             {row.excerpt}
           </p>
         )}
-        <Link
-          href={row.mapLink}
-          className="inline-flex items-center gap-1 text-[11px] mt-1.5 underline underline-offset-2 transition-colors"
-          style={{ color: 'var(--color-gold)' }}
-        >
-          {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
-        </Link>
+        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1.5">
+          <Link
+            href={row.mapLink}
+            className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors"
+            style={{ color: 'var(--color-gold)' }}
+          >
+            {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
+          </Link>
+          {row.libraryLink && (
+            <Link
+              href={row.libraryLink}
+              className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors"
+              style={{ color: 'var(--color-gold)' }}
+            >
+              {t('journal.openInLibrary', locale)}
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

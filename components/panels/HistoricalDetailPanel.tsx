@@ -2164,6 +2164,7 @@ export default function HistoricalDetailPanel() {
   const closeDetail = useMapStore((s) => s.closeDetail);
   const setExpanded = useMapStore((s) => s.setDetailPanelExpanded);
   const storyMode = useMapStore((s) => s.storyMode);
+  const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
   const isMobile = useIsMobile();
 
   const show = detailOpen && !!selectedId;
@@ -2208,6 +2209,8 @@ export default function HistoricalDetailPanel() {
       }
     };
   }, [show, selectedId, selectionKind, eraId]);
+
+  if (storyEraIntroActive) return null;
 
   if (isMobile) {
     return (

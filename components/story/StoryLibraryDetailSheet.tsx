@@ -10,6 +10,7 @@ import type { StoryCategory, StoryTone } from '@/data/atlas/story-library-meta';
 import { arcChromeStyle } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
+import { buildMapHref } from '@/lib/map-deep-link';
 import { t, type UiStringKey } from '@/lib/ui-strings';
 import { getAtlasEra } from '@/core/era/engine';
 import { X, Play, RotateCcw, Link2, ChevronDown, MapPin, Globe, Route } from 'lucide-react';
@@ -67,6 +68,9 @@ interface Props {
   onClose: () => void;
   onPlay: () => void;
   onResume: () => void;
+  relatedRows?: StoryLibraryRowModel[];
+  onSelectRelated?: (row: StoryLibraryRowModel) => void;
+  resolveRowTitle?: (row: StoryLibraryRowModel) => string;
 }
 
 export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
@@ -77,9 +81,12 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
   onClose,
   onPlay,
   onResume,
+  relatedRows = [],
+  onSelectRelated,
+  resolveRowTitle,
 }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<'playback' | 'library' | null>(null);
   const [chaptersExpanded, setChaptersExpanded] = useState(false);
   const reducedMotion = useReducedMotion();
 
@@ -102,17 +109,33 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
     return () => window.removeEventListener('keydown', onKey, true);
   }, [row, onClose]);
 
-  const onCopyLink = useCallback(() => {
+  const copyPlaybackLink = useCallback(() => {
     if (!row || typeof window === 'undefined') return;
-    const u = new URL(window.location.href);
-    u.search = '';
+    const u = new URL(window.location.origin + window.location.pathname);
     u.searchParams.set('story', row.meta.arcId ?? '');
     u.searchParams.set('step', String(progress?.lastStep ?? 0));
     void navigator.clipboard.writeText(u.toString()).then(() => {
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+      setCopied('playback');
+      window.setTimeout(() => setCopied((c) => (c === 'playback' ? null : c)), 2000);
     });
   }, [row, progress?.lastStep]);
+
+  const copyLibraryLink = useCallback(() => {
+    if (!row || typeof window === 'undefined') return;
+    const href = buildMapHref(
+      {
+        library: true,
+        libraryArc: row.meta.arcId === null ? '' : row.meta.arcId,
+        libraryDetail: true,
+      },
+      window.location.pathname === '/stories' ? '/stories' : '/',
+    );
+    const u = new URL(href, window.location.origin);
+    void navigator.clipboard.writeText(u.toString()).then(() => {
+      setCopied('library');
+      window.setTimeout(() => setCopied((c) => (c === 'library' ? null : c)), 2000);
+    });
+  }, [row]);
 
   const toggleChapters = useCallback(() => setChaptersExpanded((v) => !v), []);
 
@@ -360,6 +383,40 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                       )}
                     </motion.div>
                   )}
+
+                  {relatedRows.length > 0 && onSelectRelated && (
+                    <motion.div className="space-y-2" variants={reducedMotion ? {} : sectionVariants}>
+                      <p
+                        className="text-[10px] font-semibold uppercase tracking-[0.18em]"
+                        style={{ color: 'var(--color-text-dim)' }}
+                      >
+                        {t('storyLibrary.section.related', locale)}
+                      </p>
+                      <ul className="space-y-1.5">
+                        {relatedRows.map((r) => (
+                          <li key={r.progressKey}>
+                            <button
+                              type="button"
+                              onClick={() => onSelectRelated(r)}
+                              className="w-full rounded-md border px-3 py-2 text-left text-[12px] font-medium transition-colors hover:bg-white/[0.04]"
+                              style={{
+                                borderColor: 'var(--color-chrome-border)',
+                                color: 'var(--color-parchment)',
+                              }}
+                            >
+                              {resolveRowTitle
+                                ? resolveRowTitle(r)
+                                : r.meta.displayTitle
+                                  ? pickI18n(r.meta.displayTitle, locale)
+                                  : r.arcEntry
+                                    ? pickI18n(r.arcEntry.label, locale)
+                                    : ''}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
                 </div>
 
                 {/* Right column: details + actions */}
@@ -427,13 +484,27 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                     )}
                     <button
                       type="button"
-                      onClick={onCopyLink}
+                      onClick={copyPlaybackLink}
                       className="flex h-10 items-center justify-center gap-2 rounded-md px-3 text-[12px] transition-colors"
                       style={{ color: 'var(--color-text-dim)' }}
-                      aria-label={t('storyLibrary.copyLink', locale)}
+                      aria-label={t('storyLibrary.copyPlaybackLink', locale)}
                     >
                       <Link2 className="h-3.5 w-3.5 opacity-70" />
-                      {copied ? t('storyLibrary.linkCopied', locale) : t('storyLibrary.copyLink', locale)}
+                      {copied === 'playback'
+                        ? t('storyLibrary.linkCopied', locale)
+                        : t('storyLibrary.copyPlaybackLink', locale)}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={copyLibraryLink}
+                      className="flex h-10 items-center justify-center gap-2 rounded-md px-3 text-[12px] transition-colors"
+                      style={{ color: 'var(--color-text-dim)' }}
+                      aria-label={t('storyLibrary.copyLibraryLink', locale)}
+                    >
+                      <Link2 className="h-3.5 w-3.5 opacity-70" />
+                      {copied === 'library'
+                        ? t('storyLibrary.linkCopied', locale)
+                        : t('storyLibrary.copyLibraryLink', locale)}
                     </button>
                   </motion.div>
                 </div>

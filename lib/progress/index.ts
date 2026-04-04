@@ -19,6 +19,12 @@ export {
 } from './storage';
 
 export {
+  mergeProgressV2,
+  parseProgressV2Json,
+  safeProgressOrEmpty,
+} from './merge';
+
+export {
   foldEvent,
   countDistinctPlaces,
   countDistinctRegions,

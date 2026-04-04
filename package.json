@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "favicon": "node scripts/make-favicon.mjs",
-    "export:normandy-geo": "npx tsx scripts/export-normandy-geo.ts"
+    "export:normandy-geo": "npx tsx scripts/export-normandy-geo.ts",
+    "story:i18n-report": "npx tsx scripts/story-beat-i18n-coverage.ts"
   },
   "dependencies": {
     "@deck.gl/core": "^9.2.11",

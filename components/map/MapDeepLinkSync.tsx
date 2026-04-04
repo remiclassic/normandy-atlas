@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useMapStore } from '@/lib/store';
 import { isValidAtlasEra } from '@/core/era/engine';
 import { getBeatCount } from '@/core/story/engine';
+import { arcIdToProgressKey, FULL_TIMELINE_PROGRESS_KEY } from '@/lib/story-progress';
 
 /**
  * Reads URL query parameters once on mount, applies them to the map store,
@@ -54,16 +55,31 @@ export default function MapDeepLinkSync() {
     else if (segment) selectFeature(segment, 'atlas-route');
     else if (journey) selectFeature(journey, 'atlas-journey');
 
-    const storyParam = params.get('story');
-    if (storyParam !== null) {
-      const arcId = storyParam || undefined;
-      const stepParam = params.get('step');
-      let stepIndex = 0;
-      if (stepParam != null) {
-        const idx = Math.max(0, Math.min(Number(stepParam), getBeatCount(arcId ?? null) - 1));
-        if (Number.isFinite(idx)) stepIndex = idx;
+    const lib = params.get('library');
+    if (lib === '1' || lib === 'true') {
+      let focusProgressKey: string | undefined;
+      if (params.has('libraryArc')) {
+        const a = params.get('libraryArc') ?? '';
+        focusProgressKey =
+          a === '' ? FULL_TIMELINE_PROGRESS_KEY : arcIdToProgressKey(a);
       }
-      startStory(arcId ?? null, { stepIndex });
+      const openDetail = params.get('libraryDetail') === '1';
+      useMapStore.getState().requestStoryLibraryOpen({ focusProgressKey, openDetail });
+    } else {
+      const storyParam = params.get('story');
+      if (storyParam !== null) {
+        const arcId = storyParam || undefined;
+        const stepParam = params.get('step');
+        let stepIndex = 0;
+        if (stepParam != null) {
+          const idx = Math.max(
+            0,
+            Math.min(Number(stepParam), getBeatCount(arcId ?? null) - 1),
+          );
+          if (Number.isFinite(idx)) stepIndex = idx;
+        }
+        startStory(arcId ?? null, { stepIndex });
+      }
     }
 
     window.history.replaceState({}, '', window.location.pathname);

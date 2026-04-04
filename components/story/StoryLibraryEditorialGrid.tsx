@@ -32,6 +32,10 @@ interface Props {
   onSelect: (row: StoryLibraryRowModel) => void;
   onHoverEnter?: (row: StoryLibraryRowModel) => void;
   onHoverLeave?: () => void;
+  /** In-progress arcs (e.g. continue watching); shown above categories when filter is All and not searching. */
+  continueWatchingRows?: StoryLibraryRowModel[];
+  /** When true, render a single "Results" section (search mode). */
+  searchMode?: boolean;
 }
 
 export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid({
@@ -44,10 +48,21 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
   onSelect,
   onHoverEnter,
   onHoverLeave,
+  continueWatchingRows = [],
+  searchMode = false,
 }: Props) {
   const reducedMotion = useReducedMotion();
 
   const sections = useMemo(() => {
+    if (searchMode) {
+      if (rows.length === 0) return [];
+      return [
+        {
+          label: t('storyLibrary.searchResults', locale),
+          rows,
+        },
+      ];
+    }
     if (filter === 'all') {
       const result: { label: string; rows: StoryLibraryRowModel[] }[] = [];
       for (const cat of STORY_CATEGORY_ORDER) {
@@ -62,45 +77,89 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
     const filtered = rows.filter((r) => r.meta.category === filter);
     if (filtered.length === 0) return [];
     return [{ label: t(CATEGORY_KEY[filter], locale), rows: filtered }];
-  }, [rows, filter, locale]);
+  }, [rows, filter, locale, searchMode]);
+
+  const showContinue =
+    !searchMode &&
+    filter === 'all' &&
+    continueWatchingRows.length > 0;
 
   return (
     <div className="space-y-6 px-4 pb-8 lg:px-5">
-      <AnimatePresence mode="popLayout" initial={false}>
-        {sections.map((section) => (
-          <motion.section
-            key={section.label}
-            layout={!reducedMotion}
-            initial={reducedMotion ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reducedMotion ? undefined : { opacity: 0, y: -6 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
+      {showContinue && (
+        <section aria-label={t('storyLibrary.continueWatching', locale)}>
+          <h3
+            className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em]"
+            style={{ color: 'rgba(255,255,255,0.4)' }}
           >
-            <h3
-              className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em]"
-              style={{ color: 'rgba(255,255,255,0.4)' }}
-            >
-              {section.label}
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {section.rows.map((row, i) => (
+            {t('storyLibrary.continueWatching', locale)}
+          </h3>
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin -mx-1 px-1">
+            {continueWatchingRows.map((row) => (
+              <div key={row.progressKey} className="w-[min(220px,72vw)] shrink-0">
                 <StoryLibraryGridCard
-                  key={row.progressKey}
                   row={row}
                   locale={locale}
                   uiTheme={uiTheme}
                   progress={progressMap[row.progressKey]}
-                  variant={i < 2 ? 'medium' : 'standard'}
+                  variant="standard"
                   isSelected={row.progressKey === selectedKey}
                   onSelect={onSelect}
                   onHoverEnter={onHoverEnter}
                   onHoverLeave={onHoverLeave}
                 />
-              ))}
-            </div>
-          </motion.section>
-        ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <AnimatePresence mode="popLayout" initial={false}>
+        {sections.length === 0 ? (
+          <p
+            className="py-8 text-center text-[13px]"
+            style={{ color: 'rgba(255,255,255,0.35)' }}
+          >
+            {searchMode
+              ? t('storyLibrary.searchEmpty', locale)
+              : t('storyLibrary.filterEmpty', locale)}
+          </p>
+        ) : (
+          sections.map((section) => (
+            <motion.section
+              key={section.label}
+              layout={!reducedMotion}
+              initial={reducedMotion ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reducedMotion ? undefined : { opacity: 0, y: -6 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              <h3
+                className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em]"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+              >
+                {section.label}
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {section.rows.map((row, i) => (
+                  <StoryLibraryGridCard
+                    key={row.progressKey}
+                    row={row}
+                    locale={locale}
+                    uiTheme={uiTheme}
+                    progress={progressMap[row.progressKey]}
+                    variant={searchMode ? 'standard' : i < 2 ? 'medium' : 'standard'}
+                    isSelected={row.progressKey === selectedKey}
+                    onSelect={onSelect}
+                    onHoverEnter={onHoverEnter}
+                    onHoverLeave={onHoverLeave}
+                  />
+                ))}
+              </div>
+            </motion.section>
+          ))
+        )}
       </AnimatePresence>
     </div>
   );

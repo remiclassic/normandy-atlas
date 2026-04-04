@@ -114,6 +114,9 @@ interface MapStore {
   storyViewMode: 'exploration' | 'impact';
   /** Image gallery state for multi-slide story illustrations. */
   storyImageGallery: { open: boolean; activeIndex: number; beatId: string | null };
+  /** Fullscreen era/arc intro overlay is up — shell hides chrome so only the map shows through the scrim. */
+  storyEraIntroActive: boolean;
+  setStoryEraIntroActive: (active: boolean) => void;
   /**
    * Mobile: fixed `top` (px) for the story dock so narrative sits below on-map illustration pins.
    * null = default bottom-hugging layout.
@@ -215,6 +218,11 @@ interface MapStore {
   setCinematicFlythroughProgress: (progress: number) => void;
   setCinematicFlythroughAct: (actIndex: number) => void;
   setOnboardingPhase: (phase: OnboardingPhase) => void;
+
+  /** One-shot: open story library from URL deep link (consumed by AtlasHomeShell / standalone page). */
+  libraryOpenRequest: { focusProgressKey?: string; openDetail?: boolean } | null;
+  requestStoryLibraryOpen: (req: { focusProgressKey?: string; openDetail?: boolean }) => void;
+  clearStoryLibraryRequest: () => void;
 }
 
 function initialAtlasLayers(): Record<string, boolean> {
@@ -270,6 +278,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   storyMapFollow: true,
   storyViewMode: 'exploration' as 'exploration' | 'impact',
   storyImageGallery: { open: false, activeIndex: 0, beatId: null },
+  storyEraIntroActive: false,
+  setStoryEraIntroActive: (active) => set({ storyEraIntroActive: active }),
   storyCardTopPx: null,
   activeJourneyId: null,
 
@@ -298,10 +308,14 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
   ledgerAttentionActive: false,
 
+  libraryOpenRequest: null as { focusProgressKey?: string; openDetail?: boolean } | null,
+  requestStoryLibraryOpen: (req) => set({ libraryOpenRequest: { ...req } }),
+  clearStoryLibraryRequest: () => set({ libraryOpenRequest: null }),
+
   startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
 
   advanceLedgerCelebration: () => {
-    set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration' as 'exploration' | 'impact', activeJourneyId: null, ledgerCelebrationPhase: 'idle', storyCardTopPx: null });
+    set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration' as 'exploration' | 'impact', activeJourneyId: null, ledgerCelebrationPhase: 'idle', storyCardTopPx: null, storyEraIntroActive: false });
     pulseLedgerAttention();
   },
 
@@ -341,6 +355,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       storyViewMode: 'exploration' as 'exploration' | 'impact',
       activeJourneyId: null,
       storyCardTopPx: null,
+      storyEraIntroActive: false,
     }),
 
   setEra: (id) =>
@@ -427,9 +442,10 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
       cinematicFlythroughProgress: 0,
       storyImageGallery: { open: false, activeIndex: 0, beatId: null },
       storyCardTopPx: null,
+      storyEraIntroActive: false,
     });
   },
-  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, storyImageGallery: { open: false, activeIndex: 0, beatId: null }, storyCardTopPx: null }),
+  stopStory: () => set({ storyMode: false, storyArc: null, storyMapFollow: true, storyViewMode: 'exploration', activeJourneyId: null, storyImageGallery: { open: false, activeIndex: 0, beatId: null }, storyCardTopPx: null, storyEraIntroActive: false }),
 
   nextStoryStep: () =>
     set((s) => ({
