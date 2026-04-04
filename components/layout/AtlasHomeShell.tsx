@@ -315,6 +315,30 @@ export default function AtlasHomeShell() {
         <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
+        <div
+          className="flex shrink-0 items-center gap-1 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
+          data-onboarding="theme"
+        >
+          <ChromeIconTooltip
+            label={t('textSize.tooltip.label', locale)}
+            hint={t('textSize.tooltip.hint', locale)}
+          >
+            <TextSizeMenu />
+          </ChromeIconTooltip>
+          <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+          <ThemeSwitcher embedded />
+          {!storyLibraryOpen && (
+            <>
+              <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+              <BasemapSwitcher embedded />
+            </>
+          )}
+          <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+          <BackgroundMusic floating={false} />
+          <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
+          <LanguageSwitcher />
+        </div>
+
         <ChromeIconTooltip
           label={t('header.settingsMenu', locale)}
           hint={t('header.settingsMenu.hint', locale)}
