@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather } from 'lucide-react';
+import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather, Share2 } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -46,7 +46,10 @@ import LedgerRecordedOverlay from '@/components/progress/LedgerRecordedOverlay';
 import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip';
 import SessionGuard from '@/components/progress/SessionGuard';
 import ProgressRemoteSync from '@/components/progress/ProgressRemoteSync';
+import AtlasRetentionStrip from '@/components/retention/AtlasRetentionStrip';
 import { getArcEntriesForEra, arcChromeStyle } from '@/data/atlas/era-arcs';
+import { shareOrCopy } from '@/lib/progress/share';
+import { buildCurrentViewShareUrl } from '@/lib/map-view-link';
 
 function MobileMenuDrawer({
   open,
@@ -274,6 +277,18 @@ export default function AtlasHomeShell() {
     router.push('/profile');
   }, [closeMobileMenu, router]);
 
+  const [shareToast, setShareToast] = useState<'copied' | 'shared' | 'failed' | null>(null);
+  const shareToastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const handleShareView = useCallback(async () => {
+    closeMobileMenu();
+    const url = buildCurrentViewShareUrl();
+    const result = await shareOrCopy({ title: 'Norman Atlas', text: '', url });
+    setShareToast(result);
+    clearTimeout(shareToastTimer.current);
+    shareToastTimer.current = setTimeout(() => setShareToast(null), 2200);
+  }, [closeMobileMenu]);
+
   const desktopUtilitySlot = useMemo(
     () => (
       <div className="flex items-center gap-0.5 text-text-muted/80">
@@ -372,6 +387,19 @@ export default function AtlasHomeShell() {
         >
           <RoadmapIconButton onOpen={openRoadmap} ariaLabel={t('roadmap.aria.open', locale)} />
         </ChromeIconTooltip>
+        <ChromeIconTooltip
+          label={t('shareView.tooltip.label', locale)}
+          hint={t('shareView.tooltip.hint', locale)}
+        >
+          <button
+            type="button"
+            onClick={handleShareView}
+            className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+            aria-label={t('shareView.aria', locale)}
+          >
+            <Share2 className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+          </button>
+        </ChromeIconTooltip>
         <div className="mx-0.5 h-3 w-px bg-chrome-divider" />
         <ChromeIconTooltip
           label={t('textSize.tooltip.label', locale)}
@@ -391,6 +419,7 @@ export default function AtlasHomeShell() {
     [
       closeStoryLibrary,
       eraAccentHover,
+      handleShareView,
       ledgerAttentionActive,
       locale,
       openLedgerAndEndCelebration,
@@ -527,6 +556,8 @@ export default function AtlasHomeShell() {
 
         {!storyLibraryOpen && <AtlasTimelineRail />}
       </header>
+
+      {!storyLibraryOpen && <AtlasRetentionStrip />}
 
       {/* ─── Mobile ledger attention chip (10s after accomplishments) ── */}
       <AnimatePresence>
@@ -673,6 +704,14 @@ export default function AtlasHomeShell() {
               <Award className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
               {t('profile.mobileDrawer.label', locale)}
             </button>
+            <button
+              type="button"
+              onClick={handleShareView}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+            >
+              <Share2 className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+              {t('shareView.mobileDrawer.label', locale)}
+            </button>
             <ReplayTourButton fullWidth />
           </div>
 
@@ -745,6 +784,33 @@ export default function AtlasHomeShell() {
       <StoryEraIntroOverlay />
       <SessionGuard />
       <ProgressRemoteSync />
+
+      {/* Share-view toast */}
+      <AnimatePresence>
+        {shareToast && (
+          <motion.div
+            key="share-toast"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.25 }}
+            className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] rounded-lg border px-4 py-2 text-[12px] font-semibold shadow-lg backdrop-blur-lg ${
+              shareToast === 'failed'
+                ? 'border-red-500/30 bg-red-950/80 text-red-300'
+                : 'border-gold/30 bg-chrome-popover/95 text-gold'
+            }`}
+          >
+            {t(
+              shareToast === 'copied'
+                ? 'shareView.copied'
+                : shareToast === 'shared'
+                  ? 'shareView.shared'
+                  : 'shareView.failed',
+              locale,
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
     </StoryLauncherContext.Provider>
   );

@@ -101,6 +101,7 @@ import {
   resolveSlideAnchor,
 } from '@/core';
 import { NORMAN_ROUTE_COLOR } from '@/core/presentation/styles';
+import { registerMapViewReader, unregisterMapViewReader } from '@/lib/map-view-reader';
 import type { ResolvedSegment, MigrationOverlayContext, MigrationDataset } from '@/core/types';
 import type { ResolvedFlowArc } from '@/core/migration/engine';
 import type { RouteRecord } from '@/types';
@@ -754,6 +755,7 @@ export default function MapCanvas() {
       canvasRecoveryCleanup = null;
       readyRef.current = false;
       interactionsAttachedRef.current = false;
+      unregisterMapViewReader();
       const m = mapRef.current;
       if (m) {
         try {
@@ -865,6 +867,13 @@ export default function MapCanvas() {
       mapRef.current = map;
       bumpMapInstance();
       attachCanvasRecovery(map);
+
+      registerMapViewReader(() => {
+        const m = mapRef.current;
+        if (!m) return null;
+        const c = m.getCenter();
+        return { lng: c.lng, lat: c.lat, zoom: m.getZoom(), bearing: m.getBearing(), pitch: m.getPitch() };
+      });
 
       map.on('load', async () => {
         if (!map) return;
@@ -1318,6 +1327,18 @@ export default function MapCanvas() {
 
         readyRef.current = true;
         tryRunOnboardingFly(map);
+
+        // Flush any pending fly target set before the map was ready (e.g. deep link).
+        const pending = useMapStore.getState().pendingFlyTarget;
+        if (pending) {
+          useMapStore.getState().setPendingFlyTarget(null);
+          flyToCamera(map, {
+            center: pending.center,
+            zoom: pending.zoom,
+            bearing: pending.bearing,
+            pitch: pending.pitch,
+          });
+        }
       });
 
       if (containerRef.current) {
@@ -1717,7 +1738,12 @@ export default function MapCanvas() {
         const map = mapRef.current;
         if (!map || !readyRef.current) return;
         useMapStore.getState().setPendingFlyTarget(null);
-        flyToCamera(map, { center: target.center, zoom: target.zoom });
+        flyToCamera(map, {
+          center: target.center,
+          zoom: target.zoom,
+          bearing: target.bearing,
+          pitch: target.pitch,
+        });
       },
     );
   }, []);

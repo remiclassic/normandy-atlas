@@ -1125,6 +1125,48 @@ const STRINGS = {
     es: 'Cerrar hoja de ruta',
     it: 'Chiudi la finestra della roadmap',
   },
+  'shareView.tooltip.label': {
+    en: 'Share this view',
+    fr: 'Partager cette vue',
+    es: 'Compartir esta vista',
+    it: 'Condividi questa vista',
+  },
+  'shareView.tooltip.hint': {
+    en: 'Copy a link that restores this exact map position, era, and layers.',
+    fr: 'Copier un lien qui restaure cette position, cette époque et ces couches.',
+    es: 'Copiar un enlace que restaura esta posición, era y capas.',
+    it: 'Copia un link che ripristina posizione, era e livelli della mappa.',
+  },
+  'shareView.aria': {
+    en: 'Copy shareable link to this view',
+    fr: 'Copier le lien partageable vers cette vue',
+    es: 'Copiar enlace para compartir esta vista',
+    it: 'Copia il link condivisibile di questa vista',
+  },
+  'shareView.copied': {
+    en: 'Link copied!',
+    fr: 'Lien copié !',
+    es: '¡Enlace copiado!',
+    it: 'Link copiato!',
+  },
+  'shareView.shared': {
+    en: 'Shared!',
+    fr: 'Partagé !',
+    es: '¡Compartido!',
+    it: 'Condiviso!',
+  },
+  'shareView.failed': {
+    en: 'Could not copy link',
+    fr: 'Impossible de copier le lien',
+    es: 'No se pudo copiar el enlace',
+    it: 'Impossibile copiare il link',
+  },
+  'shareView.mobileDrawer.label': {
+    en: 'Share this view',
+    fr: 'Partager cette vue',
+    es: 'Compartir esta vista',
+    it: 'Condividi questa vista',
+  },
   'roadmap.modal.sectionLabel': {
     en: 'Planned work',
     fr: 'Travaux prévus',
@@ -1769,6 +1811,40 @@ const STRINGS = {
   'milestone.hidden.description': {
     en: 'Continue exploring to reveal this milestone.',
     fr: 'Continuez à explorer pour révéler ce jalon.',
+  },
+
+  // --- Retention strip ------------------------------------------------------
+  'retention.continue': {
+    en: 'Continue',
+    fr: 'Reprendre',
+    es: 'Continuar',
+    it: 'Continua',
+  },
+  'retention.streakDays': {
+    en: '{n}-day streak',
+    fr: 'Série de {n} j',
+    es: 'Racha de {n} días',
+    it: 'Serie di {n} giorni',
+  },
+  'retention.challengeProgress': {
+    en: 'Challenge {done}/{total}',
+    fr: 'Défi {done}/{total}',
+    es: 'Desafío {done}/{total}',
+    it: 'Sfida {done}/{total}',
+  },
+
+  // --- Journal resume section -----------------------------------------------
+  'journal.resume.heading': {
+    en: 'Pick Up Where You Left Off',
+    fr: 'Reprenez là où vous en étiez',
+    es: 'Retoma donde lo dejaste',
+    it: 'Riprendi da dove eri rimasto',
+  },
+  'journal.resume.step': {
+    en: 'Step {n}',
+    fr: 'Étape {n}',
+    es: 'Paso {n}',
+    it: 'Passo {n}',
   },
 } as const satisfies StringTable;
 

@@ -23,6 +23,8 @@ export interface MapDeepLinkParams {
   libraryArc?: string | null;
   /** Open the detail sheet when the library loads. */
   libraryDetail?: boolean;
+  /** Base64url-encoded map-view payload (camera + layers + timeline). */
+  view?: string;
 }
 
 export function buildMapHref(params: MapDeepLinkParams, pathname = '/'): string {
@@ -40,6 +42,7 @@ export function buildMapHref(params: MapDeepLinkParams, pathname = '/'): string 
   if (params.library) qs.set('library', '1');
   if (params.libraryArc !== undefined) qs.set('libraryArc', params.libraryArc ?? '');
   if (params.libraryDetail) qs.set('libraryDetail', '1');
+  if (params.view) qs.set('view', params.view);
   const str = qs.toString();
   return str ? `${pathname}?${str}` : pathname;
 }

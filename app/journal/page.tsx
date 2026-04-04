@@ -20,6 +20,8 @@ import { exportProgressJSON, importProgressJSON, resetProgress, emitProgressEven
 import { t } from '@/lib/ui-strings';
 import { atlasContract } from '@/data/atlas/methodology';
 import { buildMapHref } from '@/lib/map-deep-link';
+import { listResumableStoryRows } from '@/lib/story-resume';
+import { readStoryProgressMap } from '@/lib/story-progress';
 import type { AtlasLocale } from '@/core/types';
 
 interface TocItem {
@@ -27,25 +29,33 @@ interface TocItem {
   label: string;
 }
 
-function useTocItems(locale: AtlasLocale): TocItem[] {
-  return useMemo(() => [
-    { id: 'welcome', label: locale === 'fr' ? 'Accueil' : 'Welcome' },
-    { id: 'how-to-use', label: locale === 'fr' ? 'Comment utiliser' : 'How to use' },
-    { id: 'your-ledger', label: locale === 'fr' ? 'Votre registre' : 'Your Ledger' },
-    { id: 'timeline', label: locale === 'fr' ? 'Chronologie' : 'Timeline' },
-    { id: 'arcs', label: locale === 'fr' ? 'Arcs narratifs' : 'Story arcs' },
-    { id: 'norman-surnames', label: locale === 'fr' ? 'Patronymes normands' : 'Norman surnames' },
-    { id: 'index-concepts', label: locale === 'fr' ? 'Concepts' : 'Concepts' },
-    { id: 'index-places', label: locale === 'fr' ? 'Lieux' : 'Places' },
-    { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
-    { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
-    { id: 'index-segments', label: locale === 'fr' ? 'Segments de route' : 'Route Segments' },
-    { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
-    { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
-    { id: 'expeditions', label: locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions' },
-    { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
-    { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
-  ], [locale]);
+function useTocItems(locale: AtlasLocale, hasResumable: boolean): TocItem[] {
+  return useMemo(() => {
+    const items: TocItem[] = [
+      { id: 'welcome', label: locale === 'fr' ? 'Accueil' : 'Welcome' },
+    ];
+    if (hasResumable) {
+      items.push({ id: 'resume', label: locale === 'fr' ? 'Reprendre' : 'Resume' });
+    }
+    items.push(
+      { id: 'how-to-use', label: locale === 'fr' ? 'Comment utiliser' : 'How to use' },
+      { id: 'your-ledger', label: locale === 'fr' ? 'Votre registre' : 'Your Ledger' },
+      { id: 'timeline', label: locale === 'fr' ? 'Chronologie' : 'Timeline' },
+      { id: 'arcs', label: locale === 'fr' ? 'Arcs narratifs' : 'Story arcs' },
+      { id: 'norman-surnames', label: locale === 'fr' ? 'Patronymes normands' : 'Norman surnames' },
+      { id: 'index-concepts', label: locale === 'fr' ? 'Concepts' : 'Concepts' },
+      { id: 'index-places', label: locale === 'fr' ? 'Lieux' : 'Places' },
+      { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
+      { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
+      { id: 'index-segments', label: locale === 'fr' ? 'Segments de route' : 'Route Segments' },
+      { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
+      { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
+      { id: 'expeditions', label: locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions' },
+      { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
+      { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
+    );
+    return items;
+  }, [locale, hasResumable]);
 }
 
 const SectionHeading = memo(function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
@@ -491,7 +501,19 @@ const TocNav = memo(function TocNav({
 
 export default function JournalPage() {
   const locale = useLocale();
-  const tocItems = useTocItems(locale);
+  const progress = useProgress();
+
+  const resumableRows = useMemo(
+    () => listResumableStoryRows(locale).slice(0, 3),
+    [locale, progress], // eslint-disable-line react-hooks/exhaustive-deps -- progress triggers re-derive
+  );
+
+  const resumableProgressMap = useMemo(() => {
+    if (resumableRows.length === 0) return {};
+    return readStoryProgressMap();
+  }, [resumableRows, progress]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const tocItems = useTocItems(locale, resumableRows.length > 0);
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState('welcome');
   const [glossarySearch, setGlossarySearch] = useState('');
@@ -651,6 +673,50 @@ export default function JournalPage() {
                 <SectionHeading id="welcome">{pickI18n(welcomeCopy.heading, locale)}</SectionHeading>
                 <Prose>{pickI18n(welcomeCopy.body, locale)}</Prose>
               </section>
+            )}
+
+            {resumableRows.length > 0 && (
+              <>
+                <SectionDivider />
+                <section>
+                  <SectionHeading id="resume">{t('journal.resume.heading', locale)}</SectionHeading>
+                  <div className="mt-3 space-y-2">
+                    {resumableRows.map((row) => {
+                      const title = row.meta.displayTitle
+                        ? pickI18n(row.meta.displayTitle, locale)
+                        : row.arcEntry
+                          ? pickI18n(row.arcEntry.label, locale)
+                          : '';
+                      const step = resumableProgressMap[row.progressKey]?.lastStep ?? 0;
+                      const pct = row.sceneCount > 0 ? Math.round(((step + 1) / row.sceneCount) * 100) : 0;
+                      return (
+                        <Link
+                          key={row.progressKey}
+                          href={buildMapHref({ story: row.meta.arcId ?? '', step })}
+                          className="flex items-center gap-3 rounded-lg border px-4 py-3 transition-colors hover:bg-chrome-fill"
+                          style={{ borderColor: 'var(--color-border)' }}
+                        >
+                          <div className="min-w-0 flex-1">
+                            <p className="truncate text-[13px] font-medium" style={{ color: 'var(--color-parchment)' }}>
+                              {title}
+                            </p>
+                            <p className="text-[11px] tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
+                              {t('journal.resume.step', locale).replace('{n}', String(step + 1))} / {row.sceneCount}
+                            </p>
+                          </div>
+                          <div className="h-1.5 w-16 shrink-0 overflow-hidden rounded-full" style={{ background: 'var(--color-chrome-fill-active)' }}>
+                            <div
+                              className="h-full rounded-full"
+                              style={{ width: `${pct}%`, background: 'var(--color-gold)', opacity: 0.5 }}
+                            />
+                          </div>
+                          <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-40" strokeWidth={1.5} aria-hidden />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </section>
+              </>
             )}
 
             <SectionDivider />

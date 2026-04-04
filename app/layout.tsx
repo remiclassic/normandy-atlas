@@ -83,29 +83,30 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-      </head>
-      <body>
-        <Script
+        {/*
+          Inline scripts in <head> so React 19 does not warn about <script> in the body tree.
+          They still run before first paint when the document is parsed.
+        */}
+        <script
           id="theme-restore"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html:
               "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
           }}
         />
-        <Script
+        <script
           id="text-size-restore"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html:
               "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
           }}
         />
-        <Script
+        <script
           id="locale-geo-bootstrap"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: localeGeoBootstrapScript }}
         />
+      </head>
+      <body>
         <ClientBootstrap />
         {children}
         <Script
