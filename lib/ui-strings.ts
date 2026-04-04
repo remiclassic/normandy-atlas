@@ -1100,30 +1100,30 @@ const STRINGS = {
     it: 'Sostenere l\'Atlante',
   },
 
-  // --- Roadmap / what’s next ---
-  'roadmap.tooltip.label': {
-    en: 'What’s next',
-    fr: 'La suite',
-    es: 'Qué sigue',
-    it: 'Prossimi passi',
+  // --- Changelog / recent updates ---
+  'changelog.tooltip.label': {
+    en: 'Recent updates',
+    fr: 'Mises à jour récentes',
+    es: 'Actualizaciones recientes',
+    it: 'Aggiornamenti recenti',
   },
-  'roadmap.tooltip.hint': {
-    en: 'Planned content, Norman diaspora coverage, and upcoming atlas features.',
-    fr: 'Contenu prévu, couverture de la diaspora normande et fonctionnalités à venir.',
-    es: 'Contenido planeado, la diáspora normanda y funciones futuras del atlas.',
-    it: 'Contenuti previsti, diaspora normanna e funzioni in arrivo sull’atlante.',
+  'changelog.tooltip.hint': {
+    en: 'Shipped features, new stories, and atlas improvements.',
+    fr: 'Fonctionnalités livrées, nouveaux récits et améliorations de l’atlas.',
+    es: 'Funciones publicadas, nuevas historias y mejoras del atlas.',
+    it: 'Funzionalità rilasciate, nuove storie e miglioramenti dell’atlante.',
   },
-  'roadmap.aria.open': {
-    en: 'Open roadmap and planned updates',
-    fr: 'Ouvrir la feuille de route et les mises à jour prévues',
-    es: 'Abrir hoja de ruta y actualizaciones previstas',
-    it: 'Apri roadmap e aggiornamenti previsti',
+  'changelog.aria.open': {
+    en: 'Open recent updates',
+    fr: 'Ouvrir les mises à jour récentes',
+    es: 'Abrir actualizaciones recientes',
+    it: 'Apri aggiornamenti recenti',
   },
-  'roadmap.aria.close': {
-    en: 'Close roadmap dialog',
-    fr: 'Fermer la feuille de route',
-    es: 'Cerrar hoja de ruta',
-    it: 'Chiudi la finestra della roadmap',
+  'changelog.aria.close': {
+    en: 'Close updates dialog',
+    fr: 'Fermer les mises à jour',
+    es: 'Cerrar actualizaciones',
+    it: 'Chiudi la finestra degli aggiornamenti',
   },
   'shareView.tooltip.label': {
     en: 'Share this view',
@@ -1167,23 +1167,23 @@ const STRINGS = {
     es: 'Compartir esta vista',
     it: 'Condividi questa vista',
   },
-  'roadmap.modal.sectionLabel': {
-    en: 'Planned work',
-    fr: 'Travaux prévus',
-    es: 'Trabajo planeado',
-    it: 'Lavoro previsto',
+  'changelog.modal.sectionLabel': {
+    en: 'Recent updates',
+    fr: 'Mises à jour récentes',
+    es: 'Actualizaciones recientes',
+    it: 'Aggiornamenti recenti',
   },
-  'roadmap.modal.title': {
-    en: 'What we’re building next',
-    fr: 'Ce que nous développons ensuite',
-    es: 'Qué estamos construyendo',
-    it: 'Cosa stiamo costruendo',
+  'changelog.modal.title': {
+    en: 'What’s new',
+    fr: 'Quoi de neuf',
+    es: 'Novedades',
+    it: 'Novità',
   },
-  'roadmap.mobileDrawer.label': {
-    en: 'What’s next / roadmap',
-    fr: 'La suite / feuille de route',
-    es: 'Qué sigue / hoja de ruta',
-    it: 'Prossimi passi / roadmap',
+  'changelog.mobileDrawer.label': {
+    en: 'Recent updates',
+    fr: 'Mises à jour récentes',
+    es: 'Actualizaciones recientes',
+    it: 'Aggiornamenti recenti',
   },
 
   'coutureStory.surnameHeading': {

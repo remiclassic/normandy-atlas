@@ -575,7 +575,7 @@ export default function AtlasTimelineRail() {
         <div
           ref={railRef}
           className="relative min-w-0 touch-none select-none"
-          style={{ height: 22 }}
+          style={{ height: 22, minHeight: 44, paddingBlock: 11 }}
           role="slider"
           tabIndex={0}
           aria-valuemin={min}

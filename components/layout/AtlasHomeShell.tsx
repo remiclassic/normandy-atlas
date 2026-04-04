@@ -24,7 +24,7 @@ import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
-import { RoadmapModal, RoadmapIconButton } from '@/components/layout/RoadmapModal';
+import { ChangelogModal, ChangelogIconButton } from '@/components/layout/ChangelogModal';
 import { SupportModal } from '@/components/layout/SupportModal';
 
 /** Set to true to restore Support the Atlas in the header, mobile menu, and creator modal. */
@@ -182,9 +182,9 @@ export default function AtlasHomeShell() {
     }
   }, [storyLibraryOpen]);
 
-  const [roadmapOpen, setRoadmapOpen] = useState(false);
-  const openRoadmap = useCallback(() => setRoadmapOpen(true), []);
-  const closeRoadmap = useCallback(() => setRoadmapOpen(false), []);
+  const [changelogOpen, setChangelogOpen] = useState(false);
+  const openChangelog = useCallback(() => setChangelogOpen(true), []);
+  const closeChangelog = useCallback(() => setChangelogOpen(false), []);
 
   const [ledgerOpen, setLedgerOpen] = useState(false);
   const openLedger = useCallback(() => setLedgerOpen(true), []);
@@ -217,7 +217,7 @@ export default function AtlasHomeShell() {
   const openSupport = useCallback(() => {
     setCreditsOpen(false);
     setNormanOverviewOpen(false);
-    setRoadmapOpen(false);
+    setChangelogOpen(false);
     setSupportOpen(true);
   }, []);
   const closeSupport = useCallback(() => setSupportOpen(false), []);
@@ -237,7 +237,7 @@ export default function AtlasHomeShell() {
     closeStoryLauncher();
     setCreditsOpen(false);
     setNormanOverviewOpen(false);
-    setRoadmapOpen(false);
+    setChangelogOpen(false);
     setSupportOpen(false);
     setLedgerOpen(false);
   }, [closeStoryLauncher, guidedTourShellResetNonce]);
@@ -262,10 +262,10 @@ export default function AtlasHomeShell() {
     openSupport();
   }, [closeMobileMenu, openSupport]);
 
-  const handleRoadmapFromMenu = useCallback(() => {
+  const handleChangelogFromMenu = useCallback(() => {
     closeMobileMenu();
-    openRoadmap();
-  }, [closeMobileMenu, openRoadmap]);
+    openChangelog();
+  }, [closeMobileMenu, openChangelog]);
 
   const handleLedgerFromMenu = useCallback(() => {
     closeMobileMenu();
@@ -382,10 +382,10 @@ export default function AtlasHomeShell() {
           </motion.button>
         </ChromeIconTooltip>
         <ChromeIconTooltip
-          label={t('roadmap.tooltip.label', locale)}
-          hint={t('roadmap.tooltip.hint', locale)}
+          label={t('changelog.tooltip.label', locale)}
+          hint={t('changelog.tooltip.hint', locale)}
         >
-          <RoadmapIconButton onOpen={openRoadmap} ariaLabel={t('roadmap.aria.open', locale)} />
+          <ChangelogIconButton onOpen={openChangelog} ariaLabel={t('changelog.aria.open', locale)} />
         </ChromeIconTooltip>
         <ChromeIconTooltip
           label={t('shareView.tooltip.label', locale)}
@@ -424,7 +424,7 @@ export default function AtlasHomeShell() {
       locale,
       openLedgerAndEndCelebration,
       openNormanOverview,
-      openRoadmap,
+      openChangelog,
       openStoryLibrary,
       stopLedgerPulseOnJournalNavigate,
       storyLibraryOpen,
@@ -674,11 +674,11 @@ export default function AtlasHomeShell() {
             </Link>
             <button
               type="button"
-              onClick={handleRoadmapFromMenu}
+              onClick={handleChangelogFromMenu}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
             >
               <Signpost className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
-              {t('roadmap.mobileDrawer.label', locale)}
+              {t('changelog.mobileDrawer.label', locale)}
             </button>
             <button
               type="button"
@@ -773,7 +773,7 @@ export default function AtlasHomeShell() {
         onOpenSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
       />
       <NormanOverviewModal open={normanOverviewOpen} onClose={closeNormanOverview} />
-      <RoadmapModal open={roadmapOpen} onClose={closeRoadmap} />
+      <ChangelogModal open={changelogOpen} onClose={closeChangelog} />
       {SUPPORT_ATLAS_ENABLED && <SupportModal open={supportOpen} onClose={closeSupport} />}
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
       <AtlasLedgerPanel open={ledgerOpen} onClose={closeLedger} />

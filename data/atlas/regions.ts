@@ -245,6 +245,16 @@ export const atlasRegions: AtlasRegion[] = [
       'royal-new-france': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
       'atlantic-imprint': { visibility: 'faded', borderStyle: 'soft', fillIntent: 'culture' },
     },
+    narrativeByEra: {
+      'norman-expansion': {
+        en: 'After 1066 the duchy sat at the centre of the cross-Channel state. Norman dukes were English kings; barons held estates on both sides of the water. Rouen remained the administrative capital, Caen the favoured ducal seat, and the Seine corridor the economic spine linking Channel ports to Paris-basin trade. When Philip Augustus conquered the duchy in 1204, cross-Channel lordship fractured \u2014 but Norman customary law, cathedral schools, and port towns endured as regional anchors.',
+        fr: 'Apr\u00e8s 1066, le duch\u00e9 se trouvait au c\u0153ur de l\u2019\u00c9tat transmanche. Les ducs normands \u00e9taient rois d\u2019Angleterre ; les barons d\u00e9tenaient des domaines des deux c\u00f4t\u00e9s de l\u2019eau. Rouen restait la capitale administrative, Caen le si\u00e8ge ducal privil\u00e9gi\u00e9, et le corridor de la Seine l\u2019\u00e9pine dorsale \u00e9conomique reliant les ports de la Manche au commerce du bassin parisien. Lorsque Philippe Auguste conquit le duch\u00e9 en 1204, les seigneuries transmanche se fractur\u00e8rent \u2014 mais le droit coutumier normand, les \u00e9coles cath\u00e9drales et les villes portuaires perdur\u00e8rent comme ancrages r\u00e9gionaux.',
+      },
+      'age-of-exploration': {
+        en: 'By the late fifteenth century, Normandy\u2019s Channel ports \u2014 Dieppe, Honfleur, Rouen \u2014 were launching Atlantic ventures. Shipbuilders, navigators, and merchant-investors from the pays de Caux and the Seine estuary financed and crewed some of the earliest French voyages to the New World, including Verrazzano\u2019s 1524 expedition and Cartier\u2019s 1534 crossing.',
+        fr: '\u00c0 la fin du XVe si\u00e8cle, les ports normands de la Manche \u2014 Dieppe, Honfleur, Rouen \u2014 lan\u00e7aient des entreprises atlantiques. Constructeurs, navigateurs et marchands-investisseurs du pays de Caux et de l\u2019estuaire de la Seine financ\u00e8rent et arm\u00e8rent certains des premiers voyages fran\u00e7ais vers le Nouveau Monde, dont l\u2019exp\u00e9dition de Verrazzano en 1524 et la travers\u00e9e de Cartier en 1534.',
+      },
+    },
   },
   {
     id: 'perche',

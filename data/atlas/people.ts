@@ -123,6 +123,56 @@ export const atlasPeople: Person[] = [
       it: 'La spartizione cui contribuì creò la frammentazione politica che fece della bassa Senna un vuoto di autorità — premessa dell\'insediamento vichingo.',
     },
   },
+  // ──────────── Viking-era Seine raiders ────────────
+  {
+    id: 'ragnar-seine',
+    displayName: 'Ragnar (845 raider)',
+    birthYear: 800,
+    deathYear: 865,
+    roles: ['chieftain', 'raider'],
+    originPlaceId: 'denmark-origin',
+    destinationPlaceIds: ['rouen'],
+    narrativeWeight: 'supporting',
+    relevantEraIds: ['viking-age'],
+    confidence: 'uncertain',
+    originLabel: {
+      en: 'Norse chieftain who sacked Paris in 845; identity blurred with later saga tradition',
+      fr: 'Chef nordique qui pilla Paris en 845 ; identit\u00e9 m\u00eal\u00e9e \u00e0 la tradition des sagas ult\u00e9rieures',
+    },
+    bio: {
+      en: 'In March 845 a fleet of roughly 120 ships sailed up the Seine, overwhelmed Carolingian defences, and sacked Paris on Easter Sunday. Charles the Bald paid 7,000 pounds of silver \u2014 the first recorded Danegeld to a Seine Viking force. The attack proved the river corridor was indefensible and began a cycle of raiding-and-tribute that would last seven decades.',
+      fr: 'En mars 845, une flotte d\u2019environ 120 navires remonta la Seine, submergea les d\u00e9fenses carolingiennes et pilla Paris le dimanche de P\u00e2ques. Charles le Chauve paya 7\u00a0000 livres d\u2019argent \u2014 le premier Danegeld document\u00e9 \u00e0 une force viking de la Seine. L\u2019attaque prouva que le corridor fluvial \u00e9tait ind\u00e9fendable et initia un cycle de raids et tributs qui durerait sept d\u00e9cennies.',
+    },
+    legacy: {
+      en: 'The 845 raid opened the Seine as a permanent Viking operating theatre. Every subsequent Norse campaign in the region \u2014 including Rollo\u2019s \u2014 followed the route this attack established.',
+      fr: 'Le raid de 845 ouvrit la Seine comme th\u00e9\u00e2tre d\u2019op\u00e9rations viking permanent. Chaque campagne norroise ult\u00e9rieure dans la r\u00e9gion \u2014 y compris celle de Rollon \u2014 emprunta la route \u00e9tablie par cette attaque.',
+    },
+  },
+  // ──────────── Norman origins: early dukes ────────────
+  {
+    id: 'richard-i-normandy',
+    displayName: 'Richard I, Duke of Normandy',
+    birthYear: 933,
+    deathYear: 996,
+    roles: ['duke', 'diplomat', 'reformer'],
+    originPlaceId: 'rouen',
+    destinationPlaceIds: ['rouen'],
+    narrativeWeight: 'supporting',
+    relevantEraIds: ['norman-origins'],
+    confidence: 'documented',
+    originLabel: {
+      en: 'Called "the Fearless"; Rollo\'s grandson who consolidated the duchy',
+      fr: 'Surnomm\u00e9 \u00ab Sans-Peur \u00bb ; petit-fils de Rollon qui consolida le duch\u00e9',
+    },
+    bio: {
+      en: 'Richard I survived kidnapping by the French king as a child and ruled Normandy for over fifty years. He invited Benedictine monks to reform Norman monasteries, married into the Danish royal house to keep Scandinavian alliances alive, and brokered the peace between the English king \u00c6thelred and the papacy. Under his governance the duchy evolved from a Norse war-band territory into a recognisable French principality with its own legal customs and church hierarchy.',
+      fr: 'Richard Ier survit \u00e0 un enl\u00e8vement par le roi de France \u00e9tant enfant et r\u00e9gna sur la Normandie pendant plus de cinquante ans. Il invita des moines b\u00e9n\u00e9dictins \u00e0 r\u00e9former les monast\u00e8res normands, \u00e9pousa une princesse de la maison royale danoise pour maintenir les alliances scandinaves, et n\u00e9gocia la paix entre le roi anglais \u00c6thelred et la papaut\u00e9. Sous sa gouvernance, le duch\u00e9 \u00e9volua d\u2019un territoire de bande guerri\u00e8re norroise vers une principaut\u00e9 fran\u00e7aise reconnaissable avec ses propres coutumes juridiques et sa hi\u00e9rarchie eccl\u00e9siastique.',
+    },
+    legacy: {
+      en: 'His reign transformed Normandy from a Viking settlement into a stable Christian duchy. The monastic revival he sponsored gave the duchy the literate administrative class that his descendants would deploy across England and the Mediterranean.',
+      fr: 'Son r\u00e8gne transforma la Normandie d\u2019un \u00e9tablissement viking en un duch\u00e9 chr\u00e9tien stable. Le renouveau monastique qu\u2019il patronna donna au duch\u00e9 la classe administrative lettr\u00e9e que ses descendants d\u00e9ploieraient \u00e0 travers l\u2019Angleterre et la M\u00e9diterran\u00e9e.',
+    },
+  },
   // ──────────── Viking / early Norman figures ────────────
   {
     id: 'rollo',
@@ -2261,6 +2311,143 @@ export const atlasPeople: Person[] = [
         es: 'La encarnación suprema de la caballería anglonormanda — nacido en el mundo feudal creado por la Conquista, lo defendió hasta su último aliento y demostró que el sistema aún podía producir leyendas dos siglos después de Hastings.',
         it: 'L\'incarnazione suprema della cavalleria anglo-normanna — nato nel mondo feudale creato dalla Conquista, lo difese fino all\'ultimo respiro e dimostrò che il sistema poteva ancora produrre leggende due secoli dopo Hastings.',
       },
+    },
+  },
+  // ─── Anglo-Norman institutional depth ───
+  {
+    id: 'henry-ii-plantagenet',
+    displayName: 'Henry II',
+    birthYear: 1133,
+    deathYear: 1189,
+    roles: ['king', 'reformer', 'lawgiver'],
+    originPlaceId: 'le-mans',
+    destinationPlaceIds: ['westminster', 'rouen', 'canterbury', 'dublin', 'poitiers'],
+    narrativeWeight: 'anchor',
+    relevantEraIds: ['norman-expansion'],
+    migrationChannel: 'english_polity',
+    confidence: 'documented',
+    originLabel: {
+      en: 'Born at Le Mans; first Angevin king, ruling England, Normandy, and half of France',
+      fr: 'Né au Mans ; premier roi angevin, régnant sur l\'Angleterre, la Normandie et la moitié de la France',
+    },
+    bio: {
+      en: 'Henry II inherited Normandy and Anjou from his parents and England from his mother Matilda\'s contested claim. His marriage to Eleanor of Aquitaine doubled the territory under his crown. He reshaped English governance: the Assize of Clarendon established royal courts that superseded baronial justice, the Inquest of Sheriffs curbed local corruption, and the itinerant justices he dispatched across the realm laid the foundations of English common law.',
+      fr: 'Henri II hérita de la Normandie et de l\'Anjou par ses parents et de l\'Angleterre par la revendication contestée de sa mère Mathilde. Son mariage avec Aliénor d\'Aquitaine doubla le territoire sous sa couronne. Il transforma la gouvernance anglaise : l\'Assise de Clarendon instaura des tribunaux royaux supplantant la justice baroniale, l\'Enquête des shérifs réprima la corruption locale, et les juges itinérants qu\'il envoya à travers le royaume posèrent les fondations du droit commun anglais.',
+    },
+    legacy: {
+      en: 'His legal reforms are the direct ancestor of the common-law tradition used across the English-speaking world. The Angevin empire he built proved that the cross-Channel polity created at Hastings could grow far beyond its Norman roots — but the murder of Becket and the rebellion of his own sons showed its fracture lines.',
+      fr: 'Ses réformes juridiques sont l\'ancêtre direct de la tradition de droit commun utilisée dans le monde anglophone. L\'empire angevin qu\'il bâtit prouva que l\'entité transmanche créée à Hastings pouvait dépasser ses racines normandes — mais le meurtre de Becket et la rébellion de ses propres fils en révélèrent les lignes de fracture.',
+    },
+    atlasThroughline: {
+      kind: 'inclusion',
+      identityLabel: {
+        en: 'Angevin king, builder of English common law',
+        fr: 'Roi angevin, bâtisseur du droit commun anglais',
+      },
+      rationale: {
+        en: 'Not Norman by paternal line, but he ruled Normandy, inherited the Conquest throne, and built the legal system that made the Anglo-Norman state permanent.',
+        fr: 'Pas normand par lignée paternelle, mais il régnait sur la Normandie, hérita du trône de la Conquête et bâtit le système juridique qui rendit l\'État anglo-normand permanent.',
+      },
+    },
+  },
+  {
+    id: 'ranulf-de-glanvill',
+    displayName: 'Ranulf de Glanvill',
+    birthYear: 1112,
+    deathYear: 1190,
+    roles: ['justiciar', 'sheriff', 'legal_author'],
+    originPlaceId: 'london',
+    destinationPlaceIds: ['westminster', 'york-jorvik'],
+    narrativeWeight: 'supporting',
+    relevantEraIds: ['norman-expansion'],
+    migrationChannel: 'english_polity',
+    confidence: 'documented',
+    bio: {
+      en: 'Chief Justiciar of England under Henry II, Glanvill presided over the royal courts that replaced baronial justice with a uniform common law. The treatise attributed to him — the Tractatus de legibus — is the first systematic description of English law and procedure.',
+      fr: 'Grand Justicier d\'Angleterre sous Henri II, Glanvill présida les tribunaux royaux qui remplacèrent la justice baroniale par un droit commun uniforme. Le traité qui lui est attribué — le Tractatus de legibus — est la première description systématique du droit et de la procédure anglais.',
+    },
+    legacy: {
+      en: 'The legal architecture he administered outlived the Angevin empire itself and became the scaffold on which Magna Carta, the jury system, and parliamentary sovereignty were later built.',
+      fr: 'L\'architecture juridique qu\'il administra survécut à l\'empire angevin et devint l\'échafaudage sur lequel la Magna Carta, le système du jury et la souveraineté parlementaire furent ensuite bâtis.',
+    },
+  },
+  // ─── Mediterranean depth: Roger I ───
+  {
+    id: 'roger-i-sicily',
+    displayName: 'Roger I, Great Count of Sicily',
+    birthYear: 1031,
+    deathYear: 1101,
+    roles: ['count', 'conqueror', 'military_leader'],
+    originPlaceId: 'rouen',
+    destinationPlaceIds: ['aversa', 'melfi', 'palermo', 'messina'],
+    narrativeWeight: 'anchor',
+    relevantEraIds: ['norman-expansion'],
+    confidence: 'documented',
+    originLabel: {
+      en: 'Youngest Hauteville son; conquered Muslim Sicily over thirty years',
+      fr: 'Cadet des Hauteville ; conquit la Sicile musulmane en trente ans',
+    },
+    bio: {
+      en: 'Roger joined his brother Robert Guiscard in southern Italy and spent three decades reducing the Muslim emirates of Sicily, culminating in the fall of Noto in 1091. He governed the island as Great Count with a tolerance policy that retained Arab administrators, Greek clergy, and Latin barons side by side — a model his son Roger II would elevate into a kingdom.',
+      fr: 'Roger rejoignit son frère Robert Guiscard en Italie du Sud et passa trois décennies à réduire les émirats musulmans de Sicile, culminant avec la chute de Noto en 1091. Il gouverna l\'île en tant que Grand Comte avec une politique de tolérance qui maintint côte à côte administrateurs arabes, clergé grec et barons latins — un modèle que son fils Roger II élèverait au rang de royaume.',
+    },
+    legacy: {
+      en: 'His thirty-year conquest created the Norman Sicilian state that his son would crown as a kingdom. The multicultural governance he pioneered — Latin feudalism layered over Arab bureaucracy and Greek church structures — produced one of medieval Europe\'s most sophisticated polities.',
+      fr: 'Sa conquête de trente ans créa l\'État normand sicilien que son fils couronnerait en royaume. La gouvernance multiculturelle qu\'il inaugura — féodalité latine superposée à la bureaucratie arabe et aux structures ecclésiastiques grecques — produisit l\'une des entités politiques les plus sophistiquées de l\'Europe médiévale.',
+    },
+    atlasThroughline: {
+      kind: 'inclusion',
+      identityLabel: {
+        en: 'Norman count who conquered Sicily',
+        fr: 'Comte normand qui conquit la Sicile',
+      },
+      rationale: {
+        en: 'A Hauteville from Normandy who built the state his son Roger II would turn into medieval Europe\'s most cosmopolitan kingdom.',
+        fr: 'Un Hauteville de Normandie qui bâtit l\'État que son fils Roger II transformerait en royaume le plus cosmopolite de l\'Europe médiévale.',
+      },
+    },
+  },
+  // ─── North American / New England Norman-descent thread ───
+  {
+    id: 'pierre-chauvin-tonnetuit',
+    displayName: 'Pierre Chauvin de Tonnetuit',
+    birthYear: 1550,
+    deathYear: 1603,
+    roles: ['merchant', 'colonizer', 'fur_trader'],
+    originPlaceId: 'honfleur',
+    destinationPlaceIds: ['tadoussac'],
+    narrativeWeight: 'supporting',
+    relevantEraIds: ['age-of-exploration'],
+    migrationChannel: 'normandy_port',
+    confidence: 'documented',
+    bio: {
+      en: 'A Norman merchant from Honfleur who held the fur-trade monopoly for the St. Lawrence and attempted the first permanent French settlement at Tadoussac in 1600 — three years before Champlain. The post failed to survive winter, but it established the Normandy-to-Tadoussac route that later ventures would follow.',
+      fr: 'Marchand normand de Honfleur détenteur du monopole de la traite des fourrures sur le Saint-Laurent, il tenta le premier établissement français permanent à Tadoussac en 1600 — trois ans avant Champlain. Le poste ne survécut pas à l\'hiver, mais il établit la route Normandie-Tadoussac que les entreprises ultérieures emprunteraient.',
+    },
+    legacy: {
+      en: 'His failed Tadoussac post proved that the fur trade could sustain a Norman-Atlantic enterprise; the infrastructure and lessons passed directly to Champlain\'s successful colony.',
+      fr: 'Son poste de Tadoussac, bien que raté, prouva que la traite des fourrures pouvait soutenir une entreprise atlantique normande ; l\'infrastructure et les leçons passèrent directement à la colonie réussie de Champlain.',
+    },
+  },
+  {
+    id: 'jean-nicolet-belleborne',
+    displayName: 'Jean Nicolet de Belleborne',
+    birthYear: 1598,
+    deathYear: 1642,
+    roles: ['explorer', 'interpreter', 'diplomat'],
+    originPlaceId: 'rouen',
+    destinationPlaceIds: ['quebec-city', 'green-bay', 'great-lakes-hub'],
+    narrativeWeight: 'supporting',
+    relevantEraIds: ['new-france-foundations'],
+    migrationChannel: 'normandy_port',
+    confidence: 'documented',
+    bio: {
+      en: 'Born in Cherbourg, Normandy, Nicolet was sent by Champlain to live among the Algonquin and Nipissing peoples as a young man, learning their languages and trade customs. In 1634 he became the first known European to reach the western Great Lakes, landing at Green Bay in a Chinese damask robe — convinced he was approaching China. He spent two decades as the colony\'s most trusted interpreter and diplomat with Indigenous nations.',
+      fr: 'Né à Cherbourg en Normandie, Nicolet fut envoyé par Champlain vivre parmi les Algonquins et les Nipissings dans sa jeunesse, apprenant leurs langues et coutumes commerciales. En 1634, il devint le premier Européen connu à atteindre les Grands Lacs occidentaux, débarquant à la baie des Puants en robe de damas chinois — convaincu d\'approcher la Chine. Il passa deux décennies comme interprète et diplomate le plus fiable de la colonie auprès des nations autochtones.',
+    },
+    legacy: {
+      en: 'His westward journey opened the interior fur-trade routes that would define New France\'s continental reach, and his decades of Indigenous diplomacy established the alliance patterns that French colonists depended on for a century.',
+      fr: 'Son voyage vers l\'ouest ouvrit les routes intérieures de la traite des fourrures qui définiraient la portée continentale de la Nouvelle-France, et ses décennies de diplomatie autochtone établirent les alliances dont les colons français dépendraient pendant un siècle.',
     },
   },
 ];

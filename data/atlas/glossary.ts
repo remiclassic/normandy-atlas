@@ -184,4 +184,48 @@ export const atlasGlossary: GlossaryEntry[] = [
     },
     seeAlso: ['crown-dependency'],
   },
+  {
+    id: 'common-law',
+    term: { en: 'Common Law', fr: 'Droit commun' },
+    definition: {
+      en: 'The legal tradition originating in the royal courts of Anglo-Norman England, where judges applied consistent precedent across the realm rather than local baronial custom. Henry II\u2019s Assize of Clarendon (1166) is often cited as its foundational moment. The system spread with English colonisation and remains the basis of law in much of the Anglophone world.',
+      fr: 'La tradition juridique issue des tribunaux royaux de l\u2019Angleterre anglo-normande, o\u00f9 les juges appliquaient un pr\u00e9c\u00e9dent uniforme plut\u00f4t que les coutumes baroniales locales. L\u2019Assise de Clarendon (1166) d\u2019Henri II est souvent cit\u00e9e comme son moment fondateur. Le syst\u00e8me se r\u00e9pandit avec la colonisation anglaise et reste la base du droit dans une grande partie du monde anglophone.',
+    },
+    seeAlso: ['neustria'],
+  },
+  {
+    id: 'magna-carta',
+    term: { en: 'Magna Carta', fr: 'Magna Carta' },
+    definition: {
+      en: 'The charter sealed at Runnymede in 1215 by King John under baronial pressure. It limited royal authority over taxation, justice, and feudal rights \u2014 principles that grew directly from the tensions within the Anglo-Norman baronial class created by the Conquest. Later reissues became foundational texts of English constitutional law.',
+      fr: 'La charte scell\u00e9e \u00e0 Runnymede en 1215 par le roi Jean sous pression baroniale. Elle limita l\u2019autorit\u00e9 royale sur la fiscalit\u00e9, la justice et les droits f\u00e9odaux \u2014 des principes issus directement des tensions au sein de la classe baroniale anglo-normande cr\u00e9\u00e9e par la Conqu\u00eate. Les r\u00e9\u00e9ditions ult\u00e9rieures devinrent des textes fondateurs du droit constitutionnel anglais.',
+    },
+    seeAlso: ['common-law'],
+  },
+  {
+    id: 'hauteville',
+    term: { en: 'Hauteville', fr: 'Hauteville' },
+    definition: {
+      en: 'The Norman dynasty from Hauteville-la-Guichard (Cotentin) whose sons conquered southern Italy and Sicily in the eleventh century. Tancred de Hauteville\u2019s twelve sons \u2014 including William Iron Arm, Robert Guiscard, and Roger I \u2014 built a Mediterranean empire from a minor Norman lordship. Roger II united their conquests into the Kingdom of Sicily in 1130.',
+      fr: 'La dynastie normande de Hauteville-la-Guichard (Cotentin) dont les fils conquirent l\u2019Italie du Sud et la Sicile au XIe si\u00e8cle. Les douze fils de Tancrède de Hauteville \u2014 dont Guillaume Bras-de-Fer, Robert Guiscard et Roger Ier \u2014 b\u00e2tirent un empire m\u00e9diterran\u00e9en \u00e0 partir d\u2019une seigneurie normande mineure. Roger II unit leurs conqu\u00eates dans le Royaume de Sicile en 1130.',
+    },
+  },
+  {
+    id: 'domesday-book',
+    term: { en: 'Domesday Book', fr: 'Domesday Book' },
+    definition: {
+      en: 'The great survey of England commissioned by William the Conqueror in 1085 and completed in 1086. It recorded the ownership, value, and resources of virtually every manor in the kingdom \u2014 an administrative feat without parallel in medieval Europe. The name (from Old English d\u014dm, \u201cjudgement\u201d) reflects the finality of its assessments: there was no appeal against the Book.',
+      fr: 'Le grand inventaire de l\u2019Angleterre command\u00e9 par Guillaume le Conqu\u00e9rant en 1085 et achev\u00e9 en 1086. Il enregistra la propri\u00e9t\u00e9, la valeur et les ressources de pratiquement chaque manoir du royaume \u2014 un exploit administratif sans parall\u00e8le en Europe m\u00e9di\u00e9vale. Le nom (du vieil anglais d\u014dm, \u00ab jugement \u00bb) refl\u00e8te la finalit\u00e9 de ses \u00e9valuations : on ne faisait pas appel du Livre.',
+    },
+    seeAlso: ['common-law'],
+  },
+  {
+    id: 'assize',
+    term: { en: 'Assize', fr: 'Assise' },
+    definition: {
+      en: 'A royal legislative enactment or the travelling court that enforced it. Henry II\u2019s Assizes of Clarendon (1166) and Northampton (1176) created uniform criminal and property procedures across England, replacing local baronial justice with a system of royal judges, juries, and writs that became the backbone of common law.',
+      fr: 'Un acte l\u00e9gislatif royal ou le tribunal itin\u00e9rant qui l\u2019appliquait. Les Assises de Clarendon (1166) et de Northampton (1176) d\u2019Henri II cr\u00e9\u00e8rent des proc\u00e9dures criminelles et fonci\u00e8res uniformes en Angleterre, rempla\u00e7ant la justice baroniale locale par un syst\u00e8me de juges royaux, jurys et brefs qui devint l\u2019ossature du droit commun.',
+    },
+    seeAlso: ['common-law'],
+  },
 ];

@@ -1827,4 +1827,86 @@ export const atlasPlaces: Place[] = [
       'norman-expansion': { visibility: 'faded', label: 'Montfort-l\'Amaury', affiliationTags: ['Île-de-France', 'baronial'], pedagogyIndex: 2 },
     },
   },
+  // ── Mediterranean: places aligned with norman-expansion nodes ──
+  {
+    id: 'naples',
+    kind: 'city',
+    coordinates: [14.25, 40.85],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Naples', affiliationTags: ['Norman Italy', 'Hauteville', 'duchy'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'catania',
+    kind: 'city',
+    coordinates: [15.09, 37.50],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Catania', affiliationTags: ['Norman Sicily', 'Hauteville', 'bishopric'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'reggio-calabria',
+    kind: 'city',
+    coordinates: [15.65, 38.11],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Reggio Calabria', affiliationTags: ['Norman Italy', 'strait crossing', 'Guiscard'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'monreale',
+    kind: 'abstract_node',
+    coordinates: [13.29, 38.08],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Monreale', affiliationTags: ['Norman Sicily', 'cathedral', 'mosaics'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'mileto',
+    kind: 'abstract_node',
+    coordinates: [16.07, 38.61],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Mileto', affiliationTags: ['Norman Italy', 'Roger I', 'capital'], pedagogyIndex: 3 },
+    },
+  },
+  {
+    id: 'mdina',
+    kind: 'city',
+    coordinates: [14.40, 35.89],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'faded', label: 'Mdina', affiliationTags: ['Malta', 'Norman outpost'], pedagogyIndex: 2 },
+    },
+  },
+  // ── Anglo-Norman institutional places ──
+  {
+    id: 'clarendon',
+    kind: 'abstract_node',
+    coordinates: [-1.76, 51.05],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Clarendon', affiliationTags: ['Anglo-Norman', 'royal palace', 'assize'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'runnymede',
+    kind: 'abstract_node',
+    coordinates: [-0.56, 51.44],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Runnymede', affiliationTags: ['Anglo-Norman', 'Magna Carta', 'charter'], pedagogyIndex: 5 },
+    },
+  },
 ];

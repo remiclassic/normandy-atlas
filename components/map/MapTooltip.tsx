@@ -17,6 +17,7 @@ const MapTooltip = memo(function MapTooltip({ data }: { data: TooltipData | null
 
   return (
     <div
+      role="tooltip"
       className="map-atlas-tooltip pointer-events-none absolute z-40 max-w-[240px] rounded-lg px-3 py-2 text-left"
       style={{ left: data.x + 12, top: data.y - 12 }}
     >

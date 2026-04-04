@@ -57,6 +57,8 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
 
   useEffect(() => {
     if (!open) return;
+    const firstItem = menuRef.current?.querySelector<HTMLElement>('[role="menuitem"]');
+    firstItem?.focus();
     const onClickOutside = (e: MouseEvent) => {
       if (
         menuRef.current?.contains(e.target as Node) ||
@@ -66,7 +68,10 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
       setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setOpen(false);
+        btnRef.current?.focus();
+      }
     };
     document.addEventListener('mousedown', onClickOutside, true);
     document.addEventListener('keydown', onKey, true);
@@ -128,7 +133,7 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
                     type="button"
                     role="menuitem"
                     onClick={() => pick(mode)}
-                    className="flex w-full items-center gap-2 px-3 py-1.5 text-left transition-colors hover:bg-chrome-fill-hover"
+                    className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-hover"
                   >
                     <span className="w-4 shrink-0">
                       {textSize === mode && (
@@ -169,7 +174,7 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={t('textSize.tooltip.label', locale)}
-        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
+        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 touch-target ${
           open
             ? 'bg-chrome-fill-pressed text-parchment border-gold/35'
             : 'text-text-muted border-transparent hover:bg-chrome-fill-hover hover:text-text'
