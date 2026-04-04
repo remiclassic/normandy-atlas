@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useEffect, useRef, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
 import { useProgress } from '@/hooks/useAtlasProgress';
@@ -48,8 +48,7 @@ function LedgerRecordedOverlay() {
     });
   }, [arcTitle, locale]);
 
-  const reducedMotion =
-    typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = !!useReducedMotion();
 
   const dismiss = useCallback(() => {
     if (holdTimerRef.current) clearTimeout(holdTimerRef.current);

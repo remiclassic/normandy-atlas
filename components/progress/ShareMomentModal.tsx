@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import {
   subscribeShareMomentQueue,
   dequeueShareMoment,
@@ -58,8 +58,7 @@ function ShareMomentModal() {
     });
   }, [current, label, locale]);
 
-  const reducedMotion =
-    typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = !!useReducedMotion();
 
   return (
     <AnimatePresence>

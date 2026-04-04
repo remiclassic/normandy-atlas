@@ -4,8 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather, Share2 } from 'lucide-react';
-import AtlasHeaderMoreMenu from '@/components/layout/AtlasHeaderMoreMenu';
+import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather, Share2, Menu } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -24,7 +23,7 @@ import { StoryLauncherContext } from '@/hooks/use-story-launcher';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
 import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
-import { NormanOverviewModal, NormanOverviewIconButton } from '@/components/layout/NormanOverviewModal';
+import { NormanOverviewModal } from '@/components/layout/NormanOverviewModal';
 import { ChangelogModal } from '@/components/layout/ChangelogModal';
 import { SupportModal } from '@/components/layout/SupportModal';
 
@@ -48,20 +47,26 @@ import ExpeditionProgressChip from '@/components/progress/ExpeditionProgressChip
 import SessionGuard from '@/components/progress/SessionGuard';
 import ProgressRemoteSync from '@/components/progress/ProgressRemoteSync';
 import AtlasHeaderRetentionChips from '@/components/retention/AtlasRetentionStrip';
-import { getArcEntriesForEra, arcChromeStyle } from '@/data/atlas/era-arcs';
 import { shareOrCopy } from '@/lib/progress/share';
 import { buildCurrentViewShareUrl } from '@/lib/map-view-link';
+import { useChangelogUnread } from '@/hooks/useChangelogUnread';
 
-function MobileMenuDrawer({
+function AtlasMenuDrawer({
   open,
   onClose,
+  side = 'left',
   children,
 }: {
   open: boolean;
   onClose: () => void;
+  /** 'left' for mobile hamburger, 'right' for desktop settings */
+  side?: 'left' | 'right';
   children: React.ReactNode;
 }) {
   if (typeof document === 'undefined') return null;
+
+  const isRight = side === 'right';
+  const width = isRight ? 320 : 280;
 
   return (
     <AnimatePresence>
@@ -76,12 +81,17 @@ function MobileMenuDrawer({
             onClick={onClose}
           />
           <motion.div
-            initial={{ x: '-100%' }}
+            initial={{ x: isRight ? '100%' : '-100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
+            exit={{ x: isRight ? '100%' : '-100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className="fixed left-0 top-0 bottom-0 z-[71] w-[280px] max-w-[80vw] border-r border-chrome-border-strong bg-chrome-popover overflow-y-auto scrollbar-thin"
+            className={`fixed top-0 bottom-0 z-[71] max-w-[80vw] bg-chrome-popover overflow-y-auto scrollbar-thin ${
+              isRight
+                ? 'right-0 border-l border-chrome-border-strong'
+                : 'left-0 border-r border-chrome-border-strong'
+            }`}
             style={{
+              width,
               backdropFilter: 'blur(40px) saturate(1.2)',
               WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
               paddingTop: 'env(safe-area-inset-top)',
@@ -121,16 +131,6 @@ export default function AtlasHomeShell() {
   const router = useRouter();
   const locale = useLocale();
   const isMobile = useIsMobile();
-  const eraId = useMapStore((s) => s.eraId);
-  const uiTheme = useMapStore((s) => s.uiTheme);
-
-  const eraAccentHover = useMemo(() => {
-    const arcs = getArcEntriesForEra(eraId);
-    if (arcs.length === 0) return '';
-    const style = arcChromeStyle(arcs[0], uiTheme);
-    return style.textHover.replace('hover:', 'hover:');
-  }, [eraId, uiTheme]);
-
   const [creditsOpen, setCreditsOpen] = useState(false);
   const openCredits = useCallback(() => setCreditsOpen(true), []);
   const closeCredits = useCallback(() => setCreditsOpen(false), []);
@@ -186,6 +186,7 @@ export default function AtlasHomeShell() {
   const [changelogOpen, setChangelogOpen] = useState(false);
   const openChangelog = useCallback(() => setChangelogOpen(true), []);
   const closeChangelog = useCallback(() => setChangelogOpen(false), []);
+  const [changelogHasUnread, markChangelogRead] = useChangelogUnread();
 
   const [ledgerOpen, setLedgerOpen] = useState(false);
   const openLedger = useCallback(() => setLedgerOpen(true), []);
@@ -292,148 +293,48 @@ export default function AtlasHomeShell() {
 
   const desktopUtilitySlot = useMemo(
     () => (
-      <div className="flex min-w-0 items-center gap-2 text-text-muted/80">
-        <div className="flex min-w-0 items-center gap-0.5 rounded-md border border-chrome-border/45 bg-chrome-fill/35 px-0.5 py-0.5 backdrop-blur-sm">
-          <span data-onboarding="stories">
-            {storyLibraryOpen ? (
-              <ChromeIconTooltip
-                label={t('storyLibrary.backToMap', locale)}
-                hint={t('storyLibrary.subtitle', locale)}
-              >
-                <button
-                  ref={storyLibraryCloseRef}
-                  type="button"
-                  onClick={closeStoryLibrary}
-                  className="flex shrink-0 items-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
-                  aria-label={t('storyLibrary.backToMap', locale)}
-                >
-                  <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
-                  <span className="hidden sm:inline">{t('storyLibrary.backToMap', locale)}</span>
-                </button>
-              </ChromeIconTooltip>
-            ) : (
-              <ChromeIconTooltip
-                label={t('storyLibrary.tooltip.label', locale)}
-                hint={t('storyLibrary.tooltip.hint', locale)}
-              >
-                <button
-                  type="button"
-                  onClick={openStoryLibrary}
-                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill ${eraAccentHover || 'hover:text-parchment'}`}
-                  aria-label={t('storyLibrary.aria.open', locale)}
-                >
-                  <Clapperboard className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-                </button>
-              </ChromeIconTooltip>
-            )}
-          </span>
+      <div className="flex min-w-0 flex-1 items-center justify-end gap-2.5 text-text-muted/80">
+        {storyLibraryOpen && (
           <ChromeIconTooltip
-            label={t('normanOverview.tooltip.label', locale)}
-            hint={t('normanOverview.tooltip.hint', locale)}
+            label={t('storyLibrary.backToMap', locale)}
+            hint={t('storyLibrary.subtitle', locale)}
           >
-            <NormanOverviewIconButton
-              onOpen={openNormanOverview}
-              ariaLabel={t('normanOverview.aria.open', locale)}
-              className={eraAccentHover}
-            />
-          </ChromeIconTooltip>
-          <ChromeIconTooltip
-            label={t('atlasJournal.tooltip.label', locale)}
-            hint={t('atlasJournal.tooltip.hint', locale)}
-          >
-            <Link
-              href="/journal"
-              onClick={stopLedgerPulseOnJournalNavigate}
-              className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-              aria-label={t('atlasJournal.aria.open', locale)}
-            >
-              <Library className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-            </Link>
-          </ChromeIconTooltip>
-          <ChromeIconTooltip
-            label={t('profile.tooltip.label', locale)}
-            hint={t('profile.tooltip.hint', locale)}
-          >
-            <Link
-              href="/profile"
-              className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-              aria-label={t('profile.aria.open', locale)}
-            >
-              <Award className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-            </Link>
-          </ChromeIconTooltip>
-        </div>
-
-        <div className="flex min-w-0 shrink-0 items-center gap-1.5">
-          <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
-          <ChromeIconTooltip
-            label={t('ledger.tooltip.label', locale)}
-            hint={t('ledger.tooltip.hint', locale)}
-          >
-            <motion.button
-              key={ledgerAttentionActive ? 'ledger-attention' : 'ledger-idle'}
+            <button
+              ref={storyLibraryCloseRef}
               type="button"
-              onClick={openLedgerAndEndCelebration}
-              animate={ledgerAttentionActive
-                ? { scale: [1, 1.15, 1], color: ['rgb(212,175,55)', 'rgb(255,215,80)', 'rgb(212,175,55)'] }
-                : { scale: 1 }}
-              transition={ledgerAttentionActive ? { duration: 0.8, repeat: Infinity, ease: 'easeInOut' } : { duration: 0.2 }}
-              className="flex h-5 w-5 shrink-0 items-center justify-center rounded transition-[background] duration-200 hover:bg-chrome-fill"
-              style={ledgerAttentionActive ? undefined : { color: 'var(--color-text-muted)', opacity: 0.7 }}
-              aria-label={t('ledger.aria.open', locale)}
-              data-ledger-entry
+              onClick={closeStoryLibrary}
+              className="flex shrink-0 items-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:gap-1.5 sm:px-2.5 sm:text-[11px]"
+              aria-label={t('storyLibrary.backToMap', locale)}
             >
-              <BookOpen className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
-            </motion.button>
+              <ArrowLeft className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" strokeWidth={2.25} aria-hidden />
+              <span className="hidden sm:inline">{t('storyLibrary.backToMap', locale)}</span>
+            </button>
           </ChromeIconTooltip>
-          <AtlasHeaderMoreMenu
-            onShare={handleShareView}
-            onOpenChangelog={openChangelog}
-            storyLibraryOpen={storyLibraryOpen}
-          />
-        </div>
+        )}
 
-        <div className="hidden h-3 w-px shrink-0 bg-chrome-divider sm:block" aria-hidden />
-
-        <div
-          className="flex shrink-0 items-center gap-1 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
-          data-onboarding="theme"
-        >
-          <ChromeIconTooltip
-            label={t('textSize.tooltip.label', locale)}
-            hint={t('textSize.tooltip.hint', locale)}
-          >
-            <TextSizeMenu />
-          </ChromeIconTooltip>
-          <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
-          <ThemeSwitcher embedded />
-          {!storyLibraryOpen && (
-            <>
-              <div className="h-4 w-px shrink-0 bg-chrome-divider" aria-hidden />
-              <BasemapSwitcher embedded />
-            </>
-          )}
-        </div>
-
-        <div className="flex shrink-0 items-center gap-1">
-          <BackgroundMusic floating={false} />
-          <LanguageSwitcher />
-        </div>
-
+        <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
+
+        <ChromeIconTooltip
+          label={t('header.settingsMenu', locale)}
+          hint={t('header.settingsMenu.hint', locale)}
+        >
+          <button
+            type="button"
+            onClick={openMobileMenu}
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+            aria-label={t('header.settingsMenu', locale)}
+          >
+            <Menu className="h-[15px] w-[15px]" strokeWidth={1.5} aria-hidden />
+          </button>
+        </ChromeIconTooltip>
       </div>
     ),
     [
       closeStoryLibrary,
-      eraAccentHover,
-      handleShareView,
-      ledgerAttentionActive,
       locale,
       openLedgerAndEndCelebration,
-      openNormanOverview,
-      openChangelog,
-      openStoryLibrary,
-      stopLedgerPulseOnJournalNavigate,
+      openMobileMenu,
       storyLibraryOpen,
     ],
   );
@@ -550,7 +451,6 @@ export default function AtlasHomeShell() {
                   <CreatorAboutHeaderButton onOpen={openCredits} ariaLabel={t('credits.aria.open', locale)} />
                 </ChromeIconTooltip>
               </div>
-              <div className="min-w-0 flex-1" />
               {desktopUtilitySlot}
             </div>
 
@@ -653,8 +553,8 @@ export default function AtlasHomeShell() {
         />
       </div>
 
-      {/* ─── Mobile menu drawer ─────────────────────────────── */}
-      <MobileMenuDrawer open={mobileMenuOpen} onClose={closeMobileMenu}>
+      {/* ─── Settings & tools drawer (mobile: left, desktop: right) ── */}
+      <AtlasMenuDrawer open={mobileMenuOpen} onClose={closeMobileMenu} side={isMobile ? 'left' : 'right'}>
         <div className="space-y-6">
           <div className="space-y-2">
             <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
@@ -685,13 +585,19 @@ export default function AtlasHomeShell() {
               onClick={handleChangelogFromMenu}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
             >
-              <Signpost className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+              <span className="relative shrink-0">
+                <Signpost className="h-4 w-4 opacity-60" strokeWidth={1.5} aria-hidden />
+                {changelogHasUnread && (
+                  <span className="absolute -right-0.5 -top-0.5 h-[6px] w-[6px] rounded-full bg-emerald-400" />
+                )}
+              </span>
               {t('changelog.mobileDrawer.label', locale)}
             </button>
             <button
               type="button"
               onClick={handleStoriesFromMenu}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+              data-onboarding="stories"
             >
               <Clapperboard className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
               {t('storyLibrary.tooltip.label', locale)}
@@ -720,12 +626,20 @@ export default function AtlasHomeShell() {
               <Share2 className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
               {t('shareView.mobileDrawer.label', locale)}
             </button>
-            <ReplayTourButton fullWidth />
           </div>
 
           <div className="h-px bg-chrome-divider" />
 
           <div className="space-y-2">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
+              Help
+            </p>
+            <ReplayTourButton fullWidth />
+          </div>
+
+          <div className="h-px bg-chrome-divider" />
+
+          <div className="space-y-2" data-onboarding="theme">
             <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
               Preferences
             </p>
@@ -772,7 +686,7 @@ export default function AtlasHomeShell() {
             </button>
           </div>
         </div>
-      </MobileMenuDrawer>
+      </AtlasMenuDrawer>
 
       {/* ─── Modals ─────────────────────────────────────────── */}
       <CreditsModal
@@ -781,7 +695,7 @@ export default function AtlasHomeShell() {
         onOpenSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
       />
       <NormanOverviewModal open={normanOverviewOpen} onClose={closeNormanOverview} />
-      <ChangelogModal open={changelogOpen} onClose={closeChangelog} />
+      <ChangelogModal open={changelogOpen} onClose={closeChangelog} onSeen={markChangelogRead} />
       {SUPPORT_ATLAS_ENABLED && <SupportModal open={supportOpen} onClose={closeSupport} />}
       <AtlasWelcomeGate onOpenNormanOverview={openNormanOverview} />
       <AtlasLedgerPanel open={ledgerOpen} onClose={closeLedger} />

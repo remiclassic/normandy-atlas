@@ -13,6 +13,11 @@ import type { UiTheme } from '@/lib/ui-theme';
 import { DEFAULT_UI_THEME, persistUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
 import type { TextSizeMode } from '@/lib/text-size';
 import { DEFAULT_TEXT_SIZE, persistTextSize, applyTextSizeToDocument } from '@/lib/text-size';
+import {
+  persistReduceMotionForced,
+  computeEffectiveReducedMotion,
+  applyReducedMotionToDocument,
+} from '@/lib/reduced-motion';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -164,6 +169,8 @@ interface MapStore {
   /** App chrome only — map basemap uses `basemapMode`. */
   uiTheme: UiTheme;
   textSize: TextSizeMode;
+  /** When true, the user has force-enabled reduced motion (independent of OS). */
+  reduceMotionForced: boolean;
 
   ledgerCelebrationPhase: LedgerCelebrationPhase;
   /** True while the Atlas Ledger chrome icon should pulse (auto-clears after 10s). */
@@ -176,6 +183,7 @@ interface MapStore {
   setLocale: (locale: AtlasLocale) => void;
   setUiTheme: (theme: UiTheme) => void;
   setTextSize: (mode: TextSizeMode) => void;
+  setReduceMotionForced: (forced: boolean) => void;
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
   toggleLayer: (id: string) => void;
@@ -305,6 +313,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     set((s) => ({ guidedTourShellResetNonce: s.guidedTourShellResetNonce + 1 })),
   uiTheme: DEFAULT_UI_THEME,
   textSize: DEFAULT_TEXT_SIZE,
+  reduceMotionForced: false,
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
   ledgerAttentionActive: false,
 
@@ -341,6 +350,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     persistTextSize(mode);
     applyTextSizeToDocument(mode);
     set({ textSize: mode });
+  },
+
+  setReduceMotionForced: (forced) => {
+    persistReduceMotionForced(forced);
+    applyReducedMotionToDocument(computeEffectiveReducedMotion(forced));
+    set({ reduceMotionForced: forced });
   },
 
   setAtlasMode: (enabled) =>

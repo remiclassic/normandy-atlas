@@ -1,16 +1,25 @@
 'use client';
 
 import { memo, useCallback } from 'react';
+import { CircleHelp } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import { startGuidedTourFromCleanState } from '@/lib/guided-tour-ui';
+import { useLocale } from '@/hooks/use-atlas';
+import { t } from '@/lib/ui-strings';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 
 const ReplayTourButton = memo(function ReplayTourButton({
   fullWidth,
+  embedded,
 }: {
   fullWidth?: boolean;
+  /** Compact icon-only variant for the desktop header chrome */
+  embedded?: boolean;
 }) {
   const phase = useMapStore((s) => s.onboardingPhase);
+  const locale = useLocale();
+  const label = t('header.moreTools.replayTour', locale);
+  const hint = t('header.help.replayTour.hint', locale);
 
   const handleReplay = useCallback(() => {
     if (phase !== 'complete') return;
@@ -26,34 +35,36 @@ const ReplayTourButton = memo(function ReplayTourButton({
         onClick={handleReplay}
         className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 opacity-60">
-          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-          <text x="8" y="11.5" textAnchor="middle" fill="currentColor" fontSize="9" fontFamily="sans-serif" fontWeight="600">
-            ?
-          </text>
-        </svg>
-        Replay guided tour
+        <CircleHelp className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
+        {label}
       </button>
     );
   }
 
+  if (embedded) {
+    return (
+      <ChromeIconTooltip label={label} hint={hint}>
+        <button
+          type="button"
+          onClick={handleReplay}
+          className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+          aria-label={label}
+        >
+          <CircleHelp className="h-[13px] w-[13px]" strokeWidth={1.5} aria-hidden />
+        </button>
+      </ChromeIconTooltip>
+    );
+  }
+
   return (
-    <ChromeIconTooltip
-      label="Replay guided tour"
-      hint="Walk through the atlas introduction again."
-    >
+    <ChromeIconTooltip label={label} hint={hint}>
       <button
         type="button"
         onClick={handleReplay}
         className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-dim transition-colors duration-200 hover:bg-chrome-fill hover:text-gold/70"
-        aria-label="Replay guided tour"
+        aria-label={label}
       >
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
-          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-          <text x="8" y="11.5" textAnchor="middle" fill="currentColor" fontSize="9" fontFamily="sans-serif" fontWeight="600">
-            ?
-          </text>
-        </svg>
+        <CircleHelp className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
       </button>
     </ChromeIconTooltip>
   );

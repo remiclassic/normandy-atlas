@@ -1,5 +1,6 @@
 import type { LngLatBoundsLike, Map as MaplibreMap } from 'maplibre-gl';
 import type { RegionFeatureCollection, CameraPreset } from '@/types';
+import { readStoredReduceMotionForced, computeEffectiveReducedMotion } from '@/lib/reduced-motion';
 
 export function getFeatureCollectionBounds(fc: RegionFeatureCollection): LngLatBoundsLike {
   let minLng = Infinity;
@@ -62,6 +63,18 @@ export function flyToCamera(
   map: MaplibreMap,
   camera: CameraPreset,
 ) {
+  const target = {
+    center: camera.center,
+    zoom: camera.zoom,
+    bearing: camera.bearing ?? 0,
+    pitch: camera.pitch ?? 0,
+  };
+
+  if (computeEffectiveReducedMotion(readStoredReduceMotionForced())) {
+    map.jumpTo(target);
+    return;
+  }
+
   const currentCenter = map.getCenter();
   const dist = haversineDistance(
     [currentCenter.lng, currentCenter.lat],
@@ -70,10 +83,7 @@ export function flyToCamera(
   const duration = camera.duration ?? Math.min(5000, Math.max(1500, dist * 0.8));
 
   map.flyTo({
-    center: camera.center,
-    zoom: camera.zoom,
-    bearing: camera.bearing ?? 0,
-    pitch: camera.pitch ?? 0,
+    ...target,
     duration,
     essential: true,
     curve: 1.3,

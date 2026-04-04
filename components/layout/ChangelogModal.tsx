@@ -85,15 +85,19 @@ export const ChangelogIconButton = memo(function ChangelogIconButton({
 export const ChangelogModal = memo(function ChangelogModal({
   open,
   onClose,
+  onSeen,
 }: {
   open: boolean;
   onClose: () => void;
+  /** Called once when the modal opens so the parent can mark changelog as read. */
+  onSeen?: () => void;
 }) {
   const locale = useLocale();
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
+    onSeen?.();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -105,7 +109,7 @@ export const ChangelogModal = memo(function ChangelogModal({
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = prev;
     };
-  }, [open, onClose]);
+  }, [open, onClose, onSeen]);
 
   if (typeof document === 'undefined') return null;
 

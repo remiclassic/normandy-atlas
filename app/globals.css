@@ -527,9 +527,37 @@ html.text-size-large .maplibregl-ctrl-attrib {
 
 @media (prefers-reduced-motion: reduce) {
   .parchment-water-sheen-motion,
-  .parchment-water-noise-motion {
+  .parchment-water-noise-motion,
+  .parchment-grain-motion,
+  .onboarding-fog-1,
+  .onboarding-fog-2,
+  .cinematic-ocean-drift-motion {
     animation: none;
   }
+
+  html {
+    transition: none;
+  }
+}
+
+html.atlas-reduced-motion,
+html.atlas-reduced-motion *,
+html.atlas-reduced-motion *::before,
+html.atlas-reduced-motion *::after {
+  scroll-behavior: auto !important;
+}
+
+html.atlas-reduced-motion {
+  transition: none;
+}
+
+html.atlas-reduced-motion .parchment-water-sheen-motion,
+html.atlas-reduced-motion .parchment-water-noise-motion,
+html.atlas-reduced-motion .parchment-grain-motion,
+html.atlas-reduced-motion .onboarding-fog-1,
+html.atlas-reduced-motion .onboarding-fog-2,
+html.atlas-reduced-motion .cinematic-ocean-drift-motion {
+  animation: none;
 }
 
 /* Onboarding intro fog layers — GPU-accelerated CSS transforms, no React state */
@@ -712,6 +740,10 @@ html.text-size-large .maplibregl-ctrl-attrib {
   0%   { transform: translate(0, 0); }
   50%  { transform: translate(-30px, -20px); }
   100% { transform: translate(0, 0); }
+}
+
+.cinematic-ocean-drift-motion {
+  animation: cinematic-ocean-drift 60s linear infinite;
 }
 
 .welcome-intro-gradients {

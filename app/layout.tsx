@@ -4,7 +4,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter, Crimson_Pro } from 'next/font/google';
 import { LOCALE_STORAGE_KEY } from '@/lib/locale';
 import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
+import { REDUCE_MOTION_STORAGE_KEY } from '@/lib/reduced-motion';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
+import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
 import './globals.css';
 
 /** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
@@ -102,13 +104,22 @@ export default function RootLayout({
           }}
         />
         <script
+          id="reduce-motion-restore"
+          dangerouslySetInnerHTML={{
+            __html:
+              `(function(){try{var f=localStorage.getItem(${JSON.stringify(REDUCE_MOTION_STORAGE_KEY)})==='true';var s=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(f||s)document.documentElement.classList.add('atlas-reduced-motion');}catch(e){}})();`,
+          }}
+        />
+        <script
           id="locale-geo-bootstrap"
           dangerouslySetInnerHTML={{ __html: localeGeoBootstrapScript }}
         />
       </head>
       <body>
         <ClientBootstrap />
-        {children}
+        <AtlasMotionConfig>
+          {children}
+        </AtlasMotionConfig>
         <Script
           id="meta-pixel"
           strategy="afterInteractive"

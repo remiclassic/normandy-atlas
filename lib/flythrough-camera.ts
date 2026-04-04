@@ -1,6 +1,7 @@
 import type { Map as MaplibreMap } from 'maplibre-gl';
 import type { FlythroughPolyline } from './flythrough-path';
 import { interpolatePolyline, bearingAtPolyline } from './flythrough-path';
+import { readStoredReduceMotionForced, computeEffectiveReducedMotion } from '@/lib/reduced-motion';
 
 export interface FlythroughOptions {
   /** Total duration of the flythrough in milliseconds. */
@@ -77,6 +78,15 @@ export function runFlythrough(
 ): Promise<void> {
   const opts = { ...DEFAULTS, ...options };
   const duration = opts.durationMs;
+
+  if (computeEffectiveReducedMotion(readStoredReduceMotionForced())) {
+    if (signal?.aborted) return Promise.reject(new DOMException('Aborted', 'AbortError'));
+    const endCenter = interpolatePolyline(polyline, 1);
+    const endBearing = bearingAtPolyline(polyline, 1, 0.02);
+    map.jumpTo({ center: endCenter, zoom: opts.zoomClose, bearing: endBearing, pitch: opts.pitch });
+    onProgress?.(1);
+    return Promise.resolve();
+  }
 
   return new Promise<void>((resolve, reject) => {
     if (signal?.aborted) { reject(new DOMException('Aborted', 'AbortError')); return; }
@@ -156,7 +166,8 @@ export async function runMultiActFlythrough(
   onProgress?: (t: number) => void,
   signal?: AbortSignal,
 ): Promise<void> {
-  const pauseMs = options.interActPauseMs ?? 1500;
+  const rm = computeEffectiveReducedMotion(readStoredReduceMotionForced());
+  const pauseMs = rm ? 0 : (options.interActPauseMs ?? 1500);
 
   for (let i = 0; i < polylines.length; i++) {
     if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');

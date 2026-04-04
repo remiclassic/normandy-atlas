@@ -6,6 +6,11 @@ import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-time
 import { readStoredLocale, pickI18n as _pickI18n } from '@/lib/locale';
 import { readStoredUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
 import { readStoredTextSize, applyTextSizeToDocument } from '@/lib/text-size';
+import {
+  readStoredReduceMotionForced,
+  computeEffectiveReducedMotion,
+  applyReducedMotionToDocument,
+} from '@/lib/reduced-motion';
 import type { AtlasLocale, I18nString } from '@/core/types';
 import {
   getVisiblePlaces,
@@ -58,6 +63,23 @@ export function useHydrateTextSize(): void {
     const stored = readStoredTextSize();
     applyTextSizeToDocument(stored);
     useMapStore.setState({ textSize: stored });
+  }, []);
+}
+
+/** Sync reduced-motion preference + subscribe to OS changes so the html class stays current. */
+export function useHydrateReduceMotion(): void {
+  useIsoLayoutEffect(() => {
+    const forced = readStoredReduceMotionForced();
+    applyReducedMotionToDocument(computeEffectiveReducedMotion(forced));
+    useMapStore.setState({ reduceMotionForced: forced });
+
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onchange = () => {
+      const f = useMapStore.getState().reduceMotionForced;
+      applyReducedMotionToDocument(computeEffectiveReducedMotion(f));
+    };
+    mql.addEventListener('change', onchange);
+    return () => mql.removeEventListener('change', onchange);
   }, []);
 }
 

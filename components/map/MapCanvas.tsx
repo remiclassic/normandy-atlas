@@ -18,6 +18,7 @@ import ParchmentMapChrome from './ParchmentMapChrome';
 import { layerConfigs, getHiddenSegmentKinds } from '@/data/layers';
 import { normanAtlanticStory } from '@/data/stories';
 import { flyToCamera } from '@/lib/geo';
+import { readStoredReduceMotionForced, computeEffectiveReducedMotion } from '@/lib/reduced-motion';
 import { isMaplibreMapRenderable } from '@/lib/map-mobile-recovery';
 import {
   getRegionsGeoJsonForEra,
@@ -524,13 +525,12 @@ const CinematicOceanOverlay = memo(function CinematicOceanOverlay() {
           }}
         >
           <div
-            className="absolute inset-[-10%]"
+            className="absolute inset-[-10%] cinematic-ocean-drift-motion"
             style={{
               backgroundImage:
                 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'f\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.015\' numOctaves=\'3\' seed=\'7\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23f)\'/%3E%3C/svg%3E")',
               backgroundSize: '512px 512px',
               opacity: 0.08,
-              animation: 'cinematic-ocean-drift 60s linear infinite',
             }}
           />
         </motion.div>
@@ -1823,7 +1823,11 @@ export default function MapCanvas() {
             map.dragRotate.enable();
             map.scrollZoom.enable();
             map.doubleClickZoom.enable();
-            map.easeTo({ pitch: 0, bearing: 0, zoom: 5.8, duration: 1800 });
+            if (computeEffectiveReducedMotion(readStoredReduceMotionForced())) {
+              map.jumpTo({ pitch: 0, bearing: 0, zoom: 5.8 });
+            } else {
+              map.easeTo({ pitch: 0, bearing: 0, zoom: 5.8, duration: 1800 });
+            }
           } catch { /* map may have been destroyed */ }
         });
       },

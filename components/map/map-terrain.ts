@@ -1,4 +1,5 @@
 import type { Map as MaplibreMap, RasterDEMSourceSpecification } from 'maplibre-gl';
+import { readStoredReduceMotionForced, computeEffectiveReducedMotion } from '@/lib/reduced-motion';
 
 /**
  * Terrain 3D infrastructure for MapLibre.
@@ -94,7 +95,9 @@ export function applyTerrainRuntimeState(
     }
 
     if (!skipCameraAnimation) {
-      map.easeTo({ pitch: 52, bearing: -20, duration: 1200 });
+      const rm = computeEffectiveReducedMotion(readStoredReduceMotionForced());
+      if (rm) map.jumpTo({ pitch: 52, bearing: -20 });
+      else map.easeTo({ pitch: 52, bearing: -20, duration: 1200 });
     }
   } else {
     map.setTerrain(null);
@@ -107,7 +110,9 @@ export function applyTerrainRuntimeState(
     map.setMaxZoom(MAP_MAX_ZOOM_FLAT);
 
     if (!skipCameraAnimation) {
-      map.easeTo({ pitch: 0, bearing: 0, duration: 800 });
+      const rm = computeEffectiveReducedMotion(readStoredReduceMotionForced());
+      if (rm) map.jumpTo({ pitch: 0, bearing: 0 });
+      else map.easeTo({ pitch: 0, bearing: 0, duration: 800 });
     }
   }
 }

@@ -109,6 +109,20 @@ const STRINGS = {
     it: 'Era corrente',
     de: 'Aktuelle Epoche',
   },
+  'header.settingsMenu': {
+    en: 'Settings & tools',
+    fr: 'Paramètres et outils',
+    es: 'Ajustes y herramientas',
+    it: 'Impostazioni e strumenti',
+    de: 'Einstellungen und Werkzeuge',
+  },
+  'header.settingsMenu.hint': {
+    en: 'Navigation, preferences, updates, and more.',
+    fr: 'Navigation, préférences, mises à jour et plus.',
+    es: 'Navegación, preferencias, actualizaciones y más.',
+    it: 'Navigazione, preferenze, aggiornamenti e altro.',
+    de: 'Navigation, Einstellungen, Updates und mehr.',
+  },
   'header.moreTools': {
     en: 'More tools',
     fr: 'Autres outils',
@@ -117,11 +131,11 @@ const STRINGS = {
     de: 'Weitere Werkzeuge',
   },
   'header.moreTools.hint': {
-    en: 'Changelog, share, replay tour',
-    fr: 'Journal des mises à jour, partage, relecture guidée',
-    es: 'Novedades, compartir, repetir visita guiada',
-    it: 'Novità, condividi, ripeti tour guidato',
-    de: 'Änderungsprotokoll, Teilen, Tour erneut',
+    en: 'Updates & share',
+    fr: 'Mises à jour et partage',
+    es: 'Actualizaciones y compartir',
+    it: 'Aggiornamenti e condivisione',
+    de: 'Updates und Teilen',
   },
   'header.moreTools.replayTour': {
     en: 'Replay guided tour',
@@ -129,6 +143,13 @@ const STRINGS = {
     es: 'Repetir visita guiada',
     it: 'Ripeti tour guidato',
     de: 'Geführte Tour erneut starten',
+  },
+  'header.help.replayTour.hint': {
+    en: 'Walk through the atlas introduction again.',
+    fr: 'Parcourir à nouveau l\'introduction de l\'atlas.',
+    es: 'Recorrer de nuevo la introducción del atlas.',
+    it: 'Ripercorri l\'introduzione dell\'atlante.',
+    de: 'Die Atlas-Einführung erneut durchgehen.',
   },
 
   'theme.label': {
@@ -189,11 +210,11 @@ const STRINGS = {
     de: 'Hoher Kontrast (demnächst)',
   },
   'textSize.reducedMotion': {
-    en: 'Reduced motion (coming soon)',
-    fr: 'Mouvement réduit (bientôt)',
-    es: 'Movimiento reducido (próximamente)',
-    it: 'Movimento ridotto (in arrivo)',
-    de: 'Reduzierte Bewegung (demnächst)',
+    en: 'Reduced motion',
+    fr: 'Mouvement réduit',
+    es: 'Movimiento reducido',
+    it: 'Movimento ridotto',
+    de: 'Reduzierte Bewegung',
   },
 
   'basemap.group': {
@@ -1319,11 +1340,11 @@ const STRINGS = {
     de: 'Änderungsdialog schließen',
   },
   'shareView.tooltip.label': {
-    en: 'Share this view',
-    fr: 'Partager cette vue',
-    es: 'Compartir esta vista',
-    it: 'Condividi questa vista',
-    de: 'Diese Ansicht teilen',
+    en: 'Share map view',
+    fr: 'Partager la vue de la carte',
+    es: 'Compartir vista del mapa',
+    it: 'Condividi vista mappa',
+    de: 'Kartenansicht teilen',
   },
   'shareView.tooltip.hint': {
     en: 'Copy a link that restores this exact map position, era, and layers.',
@@ -1333,11 +1354,11 @@ const STRINGS = {
     de: 'Link kopieren, der genau diese Kartenposition, Epoche und Ebenen wiederherstellt.',
   },
   'shareView.aria': {
-    en: 'Copy shareable link to this view',
-    fr: 'Copier le lien partageable vers cette vue',
-    es: 'Copiar enlace para compartir esta vista',
-    it: 'Copia il link condivisibile di questa vista',
-    de: 'Teilbaren Link zu dieser Ansicht kopieren',
+    en: 'Copy shareable link to this map view',
+    fr: 'Copier le lien partageable de la vue de la carte',
+    es: 'Copiar enlace para compartir esta vista del mapa',
+    it: 'Copia il link condivisibile di questa vista mappa',
+    de: 'Teilbaren Link zu dieser Kartenansicht kopieren',
   },
   'shareView.copied': {
     en: 'Link copied!',
@@ -1361,11 +1382,11 @@ const STRINGS = {
     de: 'Link konnte nicht kopiert werden',
   },
   'shareView.mobileDrawer.label': {
-    en: 'Share this view',
-    fr: 'Partager cette vue',
-    es: 'Compartir esta vista',
-    it: 'Condividi questa vista',
-    de: 'Diese Ansicht teilen',
+    en: 'Share map view',
+    fr: 'Partager la vue de la carte',
+    es: 'Compartir vista del mapa',
+    it: 'Condividi vista mappa',
+    de: 'Kartenansicht teilen',
   },
   'changelog.modal.sectionLabel': {
     en: 'Recent updates',

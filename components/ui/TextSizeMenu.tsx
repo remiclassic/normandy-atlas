@@ -10,6 +10,12 @@ import { t } from '@/lib/ui-strings';
 import type { UiStringKey } from '@/lib/ui-strings';
 import type { TextSizeMode } from '@/lib/text-size';
 import { readStoredTextSize, persistTextSize, applyTextSizeToDocument } from '@/lib/text-size';
+import {
+  readStoredReduceMotionForced,
+  persistReduceMotionForced,
+  computeEffectiveReducedMotion,
+  applyReducedMotionToDocument,
+} from '@/lib/reduced-motion';
 
 const MENU_WIDTH = 200;
 
@@ -22,15 +28,20 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
   const locale = useLocale();
   const textSizeFromStore = useMapStore((s) => s.textSize);
   const setTextSizeStore = useMapStore((s) => s.setTextSize);
+  const reduceMotionFromStore = useMapStore((s) => s.reduceMotionForced);
+  const setReduceMotionStore = useMapStore((s) => s.setReduceMotionForced);
 
   const [standaloneMode, setStandaloneMode] = useState<TextSizeMode>('standard');
+  const [standaloneMotion, setStandaloneMotion] = useState(false);
 
   useEffect(() => {
     if (!standalone) return;
     setStandaloneMode(readStoredTextSize());
+    setStandaloneMotion(readStoredReduceMotionForced());
   }, [standalone]);
 
   const textSize = standalone ? standaloneMode : textSizeFromStore;
+  const reduceMotionForced = standalone ? standaloneMotion : reduceMotionFromStore;
 
   const setTextSize = useCallback(
     (mode: TextSizeMode) => {
@@ -44,6 +55,17 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
     },
     [standalone, setTextSizeStore],
   );
+
+  const toggleReduceMotion = useCallback(() => {
+    const next = !reduceMotionForced;
+    if (standalone) {
+      persistReduceMotionForced(next);
+      applyReducedMotionToDocument(computeEffectiveReducedMotion(next));
+      setStandaloneMotion(next);
+    } else {
+      setReduceMotionStore(next);
+    }
+  }, [standalone, reduceMotionForced, setReduceMotionStore]);
 
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -154,10 +176,23 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
                   <span className="w-4 shrink-0" />
                   <span className="text-[11px] text-text-dim">{t('textSize.highContrast', locale)}</span>
                 </div>
-                <div className="flex w-full items-center gap-2 px-3 py-1.5 opacity-40 cursor-default" aria-disabled="true">
-                  <span className="w-4 shrink-0" />
-                  <span className="text-[11px] text-text-dim">{t('textSize.reducedMotion', locale)}</span>
-                </div>
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={toggleReduceMotion}
+                  className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-hover"
+                >
+                  <span className="w-4 shrink-0">
+                    {reduceMotionForced && (
+                      <Check className="h-3.5 w-3.5 text-gold" strokeWidth={2} aria-hidden />
+                    )}
+                  </span>
+                  <span
+                    className={`text-[12px] ${reduceMotionForced ? 'font-semibold text-parchment' : 'text-text-muted'}`}
+                  >
+                    {t('textSize.reducedMotion', locale)}
+                  </span>
+                </button>
               </motion.div>
             ) : null}
           </AnimatePresence>,

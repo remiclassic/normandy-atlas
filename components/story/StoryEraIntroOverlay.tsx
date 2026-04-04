@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { getBeat, getBeatCount } from '@/core';
 import { normanAtlanticStory } from '@/data/stories';
@@ -53,12 +53,7 @@ function StoryEraIntroOverlay() {
   const timerBarRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<IntroPayload | null>(null);
 
-  const reducedMotion = useMemo(
-    () =>
-      typeof window !== 'undefined' &&
-      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,
-    [],
-  );
+  const reducedMotion = !!useReducedMotion();
 
   const dismiss = useCallback(() => {
     if (holdTimerRef.current) clearTimeout(holdTimerRef.current);

@@ -4,10 +4,8 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { MoreHorizontal, Share2, Signpost } from 'lucide-react';
-import { useMapStore } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
-import { startGuidedTourFromCleanState } from '@/lib/guided-tour-ui';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 
 const MENU_WIDTH = 208;
@@ -15,22 +13,19 @@ const MENU_WIDTH = 208;
 type Props = {
   onShare: () => void | Promise<void>;
   onOpenChangelog: () => void;
-  storyLibraryOpen: boolean;
+  changelogHasUnread?: boolean;
 };
 
 export default memo(function AtlasHeaderMoreMenu({
   onShare,
   onOpenChangelog,
-  storyLibraryOpen,
+  changelogHasUnread,
 }: Props) {
   const locale = useLocale();
-  const phase = useMapStore((s) => s.onboardingPhase);
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<DOMRect | null>(null);
-
-  const showReplay = !storyLibraryOpen && phase === 'complete';
 
   const toggle = useCallback(() => {
     if (!open && btnRef.current) setRect(btnRef.current.getBoundingClientRect());
@@ -38,11 +33,6 @@ export default memo(function AtlasHeaderMoreMenu({
   }, [open]);
 
   const close = useCallback(() => setOpen(false), []);
-
-  const handleReplay = useCallback(() => {
-    close();
-    void startGuidedTourFromCleanState('intro');
-  }, [close]);
 
   const handleChangelog = useCallback(() => {
     close();
@@ -115,40 +105,17 @@ export default memo(function AtlasHeaderMoreMenu({
                     '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
                 }}
               >
-                {showReplay && (
-                  <button
-                    type="button"
-                    role="menuitem"
-                    onClick={handleReplay}
-                    className="flex w-full items-center gap-2.5 px-3 py-2.5 text-left text-[12px] text-text-muted transition-colors hover:bg-chrome-fill-hover hover:text-parchment"
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-chrome-fill/80 text-text-dim">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
-                        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.2" />
-                        <text
-                          x="8"
-                          y="11.5"
-                          textAnchor="middle"
-                          fill="currentColor"
-                          fontSize="9"
-                          fontFamily="sans-serif"
-                          fontWeight="600"
-                        >
-                          ?
-                        </text>
-                      </svg>
-                    </span>
-                    {t('header.moreTools.replayTour', locale)}
-                  </button>
-                )}
                 <button
                   type="button"
                   role="menuitem"
                   onClick={handleChangelog}
                   className="flex w-full items-center gap-2.5 px-3 py-2.5 text-left text-[12px] text-text-muted transition-colors hover:bg-chrome-fill-hover hover:text-parchment"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-chrome-fill/80 text-emerald-300/70">
+                  <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-chrome-fill/80 text-emerald-300/70">
                     <Signpost className="h-[14px] w-[14px]" strokeWidth={1.5} aria-hidden />
+                    {changelogHasUnread && (
+                      <span className="absolute -right-0.5 -top-0.5 h-[6px] w-[6px] rounded-full bg-emerald-400" />
+                    )}
                   </span>
                   {t('changelog.tooltip.label', locale)}
                 </button>
