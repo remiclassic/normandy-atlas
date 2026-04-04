@@ -21,7 +21,7 @@ import { getMarkerById } from '@/data/atlas/timeline-markers';
 import { getNormanSiteArticle } from '@/data/norman-expansion/site-articles';
 import { normanNodesGeoJson } from '@/data/norman-expansion';
 import { getPlace, getAtlasEra, getAtlasRegion, getPeopleForPlace, getPeopleForRegion, getPeopleForEra, getPerson, getVisibleRegions, getVisiblePlaces, resolveDataset, getShareForEntity, getSegment, getJourney } from '@/core';
-import type { Person, PlaceKind, MigrationChannel, AtlasEra, MigrationShareRow, StatConfidence, RouteSegment, Journey } from '@/core/types';
+import type { Person, PlaceKind, MigrationChannel, AtlasEra, AtlasLocale, MigrationShareRow, StatConfidence, RouteSegment, Journey } from '@/core/types';
 import type { SettlementCategory, NormanSiteKind } from '@/types';
 import {
   getMigrationChannelBadge,
@@ -349,16 +349,28 @@ const CONFIDENCE_LABELS: Record<string, string> = {
   uncertain: 'Uncertain attribution',
 };
 
+function channelFilterAllLabel(locale: AtlasLocale, count: number): string {
+  const word =
+    locale === 'fr' ? 'Tous' :
+    locale === 'es' ? 'Todos' :
+    locale === 'it' ? 'Tutti' :
+    locale === 'de' ? 'Alle' :
+    'All';
+  return `${word} (${count})`;
+}
+
 function ChannelFilterBar({
   people,
   activeFilter,
   onFilterChange,
+  locale,
 }: {
   people: Person[];
   activeFilter: MigrationChannel | null;
   onFilterChange: (ch: MigrationChannel | null) => void;
+  locale: AtlasLocale;
 }) {
-  const filters = useMemo(() => getAvailableFilters(people), [people]);
+  const filters = useMemo(() => getAvailableFilters(people, locale), [people, locale]);
 
   if (filters.length <= 1) return null;
 
@@ -372,7 +384,7 @@ function ChannelFilterBar({
             : 'text-text-dim/50 bg-transparent border-transparent hover:bg-chrome-fill hover:border-chrome-border'
         }`}
       >
-        All ({people.length})
+        {channelFilterAllLabel(locale, people.length)}
       </button>
       {filters.map((f) => (
         <button
@@ -392,9 +404,20 @@ function ChannelFilterBar({
 }
 
 function PeopleList({ placeId, eraId }: { placeId: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale) as AtlasLocale;
   const people = useMemo(() => getPeopleForPlace(placeId, eraId), [placeId, eraId]);
   const [activeFilter, setActiveFilter] = useState<MigrationChannel | null>(null);
   const filtered = useMemo(() => filterPeopleByChannel(people, activeFilter), [people, activeFilter]);
+  const emptyFilterHint =
+    locale === 'fr'
+      ? 'Aucune figure ne correspond à ce filtre.'
+      : locale === 'es'
+        ? 'Ninguna figura coincide con este filtro.'
+        : locale === 'it'
+          ? 'Nessuna figura corrisponde a questo filtro.'
+          : locale === 'de'
+            ? 'Keine Personen entsprechen diesem Filter.'
+            : 'No figures match this filter.';
 
   if (people.length === 0) return null;
 
@@ -408,6 +431,7 @@ function PeopleList({ placeId, eraId }: { placeId: string; eraId: string }) {
             people={people}
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}
+            locale={locale}
           />
           <div className="space-y-4">
             {filtered.length > 0 ? (
@@ -415,7 +439,7 @@ function PeopleList({ placeId, eraId }: { placeId: string; eraId: string }) {
                 <PersonCard key={p.id} person={p} eraId={eraId} />
               ))
             ) : (
-              <p className="text-[12px] text-text-dim/50 italic py-2">No figures match this filter.</p>
+              <p className="text-[12px] text-text-dim/50 italic py-2">{emptyFilterHint}</p>
             )}
           </div>
         </div>
@@ -432,7 +456,7 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
     return (
       <div className={`flex items-center gap-2 flex-wrap ${compact ? '' : 'mt-1'}`}>
         <span className="inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border text-amber-300/70 bg-amber-400/[0.06] border-amber-400/15">
-          {locale === 'fr' ? 'Normand' : locale === 'es' ? 'Normando' : locale === 'it' ? 'Normanno' : 'Norman'}
+          {locale === 'fr' ? 'Normand' : locale === 'es' ? 'Normando' : locale === 'it' ? 'Normanno' : locale === 'de' ? 'Normannisch' : 'Norman'}
         </span>
         {framing.descriptor && (
           <span className="text-[11px] text-text-muted/70 italic">{pickI18n(framing.descriptor, locale as Parameters<typeof pickI18n>[1])}</span>
@@ -448,7 +472,7 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
   if (compact) {
     return (
       <span className="inline-flex items-center text-[9px] font-semibold uppercase tracking-[0.15em] px-2 py-0.5 rounded border text-sky-300/60 bg-sky-400/[0.04] border-sky-400/10">
-        {identityText ?? (locale === 'fr' ? 'Lié à l\'atlas' : locale === 'es' ? 'Incluido en el atlas' : locale === 'it' ? 'Nell\'atlante' : 'Atlas inclusion')}
+        {identityText ?? (locale === 'fr' ? 'Lié à l\'atlas' : locale === 'es' ? 'Incluido en el atlas' : locale === 'it' ? 'Nell\'atlante' : locale === 'de' ? 'Im Atlas verzeichnet' : 'Atlas inclusion')}
       </span>
     );
   }
@@ -456,7 +480,7 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
   return (
     <div className="rounded-md border border-sky-400/10 bg-sky-400/[0.03] px-3 py-2 mt-1">
       <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-sky-300/50 block mb-1">
-        {identityText ?? (locale === 'fr' ? 'Pourquoi cet atlas' : locale === 'es' ? 'Por qué este atlas' : locale === 'it' ? 'Perché in questo atlante' : 'Why this atlas')}
+        {identityText ?? (locale === 'fr' ? 'Pourquoi cet atlas' : locale === 'es' ? 'Por qué este atlas' : locale === 'it' ? 'Perché in questo atlante' : locale === 'de' ? 'Warum in diesem Atlas' : 'Why this atlas')}
       </span>
       <p className="text-[11px] text-text-muted/80 leading-relaxed">
         {pickI18n(framing.rationale, locale as Parameters<typeof pickI18n>[1])}
@@ -525,7 +549,12 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
       </div>
 
       <div className="space-y-2">
-        <FactRow label="Lifespan" value={lifespan} />
+        <FactRow
+          label={
+            locale === 'fr' ? 'Vie' : locale === 'es' ? 'Vida' : locale === 'it' ? 'Vita' : locale === 'de' ? 'Lebensspanne' : 'Lifespan'
+          }
+          value={lifespan}
+        />
       </div>
 
       {person.originLabel && (
@@ -539,13 +568,17 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
       <div className="divider-fade" />
 
       <div>
-        <SectionLabel>Biography</SectionLabel>
+        <SectionLabel>
+          {locale === 'fr' ? 'Biographie' : locale === 'es' ? 'Biografía' : locale === 'it' ? 'Biografia' : locale === 'de' ? 'Biografie' : 'Biography'}
+        </SectionLabel>
         <p className="text-[13px] leading-[1.75] text-text/85">{pickI18n(person.bio, locale)}</p>
       </div>
 
       {pickI18n(person.legacy, locale) && (
         <div>
-          <SectionLabel>Legacy</SectionLabel>
+          <SectionLabel>
+            {locale === 'fr' ? 'Héritage' : locale === 'es' ? 'Legado' : locale === 'it' ? 'Eredità' : locale === 'de' ? 'Erbe' : 'Legacy'}
+          </SectionLabel>
           <p className="text-[13px] leading-[1.75] text-text-muted">{pickI18n(person.legacy, locale)}</p>
         </div>
       )}
@@ -554,7 +587,9 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
         <>
           <div className="divider-fade" />
           <div>
-            <SectionLabel>{locale === 'fr' ? 'Patronyme normand' : 'Norman Surname'}</SectionLabel>
+            <SectionLabel>
+              {locale === 'fr' ? 'Patronyme normand' : locale === 'de' ? 'Normannischer Familienname' : 'Norman Surname'}
+            </SectionLabel>
             <div className="rounded-md border border-chrome-border bg-chrome-fill-badge p-3 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-[14px] font-display font-semibold text-parchment">{person.surname}</span>
@@ -577,7 +612,11 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
                 href="/journal#norman-surnames"
                 className="inline-flex items-center gap-1 text-[11px] text-gold hover:text-gold-bright transition-colors mt-1"
               >
-                {locale === 'fr' ? 'Voir tous les patronymes normands →' : 'View all Norman names →'}
+                {locale === 'fr'
+                  ? 'Voir tous les patronymes normands →'
+                  : locale === 'de'
+                    ? 'Alle normannischen Namen ansehen →'
+                    : 'View all Norman names →'}
               </Link>
             </div>
           </div>
@@ -608,7 +647,15 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
           }}
           className="w-full mt-3 rounded-xl border border-emerald-400/25 bg-emerald-400/[0.08] px-4 py-3 text-[13px] font-medium text-emerald-300/95 hover:bg-emerald-400/[0.14] hover:border-emerald-400/35 transition-colors"
         >
-          {locale === 'fr' ? 'Suivre le récit sur la carte' : locale === 'es' ? 'Seguir el relato en el mapa' : locale === 'it' ? 'Segui il racconto sulla mappa' : 'Follow the story on the map'}
+          {locale === 'fr'
+            ? 'Suivre le récit sur la carte'
+            : locale === 'es'
+              ? 'Seguir el relato en el mapa'
+              : locale === 'it'
+                ? 'Segui il racconto sulla mappa'
+                : locale === 'de'
+                  ? 'Die Geschichte auf der Karte verfolgen'
+                  : 'Follow the story on the map'}
         </button>
       )}
     </div>
@@ -616,6 +663,7 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
 }
 
 function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: string }) {
+  const locale = useMapStore((s) => s.locale) as AtlasLocale;
   const allPeople = useMemo(() => getPeopleForRegion(regionId, eraId), [regionId, eraId]);
   const [activeFilter, setActiveFilter] = useState<MigrationChannel | null>(null);
   const filtered = useMemo(() => filterPeopleByChannel(allPeople, activeFilter), [allPeople, activeFilter]);
@@ -677,6 +725,7 @@ function RegionPeopleSection({ regionId, eraId }: { regionId: string; eraId: str
             people={allPeople}
             activeFilter={activeFilter}
             onFilterChange={handleFilterChange}
+            locale={locale}
           />
 
           {current ? (

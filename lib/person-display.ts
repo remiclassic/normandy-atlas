@@ -23,14 +23,33 @@ export const CHANNEL_BADGES: Record<MigrationChannel, ChannelBadge> = {
   other:             { label: 'Other French',       tone: 'neutral' },
 };
 
+/** UI labels for migration-channel badges when locale is `de`. */
+const CHANNEL_BADGE_LABEL_DE: Record<MigrationChannel, string> = {
+  normandy_port: 'Normandie (Atlantikhäfen)',
+  perche: 'Perche',
+  brittany_coast: 'Bretonische Küste',
+  aunis_saintonge: 'Aunis–Saintonge',
+  paris_region: 'Raum Paris',
+  loire_valley: 'Loiretal',
+  poitou: 'Poitou',
+  low_countries: 'Niederlande',
+  italian_peninsula: 'Italienische Halbinsel',
+  english_polity: 'Englisches Reich',
+  other: 'Sonstiges Frankreich',
+};
+
 const CHANNEL_ORDER: MigrationChannel[] = [
   'normandy_port', 'perche', 'brittany_coast', 'aunis_saintonge', 'paris_region',
   'loire_valley', 'poitou', 'low_countries', 'italian_peninsula', 'english_polity', 'other',
 ];
 
-export function getMigrationChannelBadge(channel?: MigrationChannel): ChannelBadge {
-  if (channel && CHANNEL_BADGES[channel]) return CHANNEL_BADGES[channel];
-  return { label: 'Origins', tone: 'neutral' };
+export function getMigrationChannelBadge(channel?: MigrationChannel, locale: AtlasLocale = 'en'): ChannelBadge {
+  if (channel && CHANNEL_BADGES[channel]) {
+    const b = CHANNEL_BADGES[channel];
+    if (locale === 'de') return { ...b, label: CHANNEL_BADGE_LABEL_DE[channel] };
+    return b;
+  }
+  return { label: locale === 'de' ? 'Herkunft' : 'Origins', tone: 'neutral' };
 }
 
 export interface FilterOption {
@@ -40,7 +59,7 @@ export interface FilterOption {
   count: number;
 }
 
-export function getAvailableFilters(people: Person[]): FilterOption[] {
+export function getAvailableFilters(people: Person[], locale: AtlasLocale = 'en'): FilterOption[] {
   const counts = new Map<MigrationChannel, number>();
   for (const p of people) {
     const ch = p.migrationChannel ?? 'other';
@@ -50,7 +69,7 @@ export function getAvailableFilters(people: Person[]): FilterOption[] {
     .filter((ch) => counts.has(ch))
     .map((ch) => ({
       channel: ch,
-      label: CHANNEL_BADGES[ch].label,
+      label: getMigrationChannelBadge(ch, locale).label,
       tone: CHANNEL_BADGES[ch].tone,
       count: counts.get(ch)!,
     }));
@@ -77,16 +96,33 @@ export const BADGE_CLASSES: Record<BadgeTone, string> = {
  * Build a "From <place>" display string for the person's origin,
  * preferring era-specific place labels when an eraId is available.
  */
+function originFromPrefix(locale: AtlasLocale | undefined): string {
+  switch (locale) {
+    case 'fr':
+      return 'De';
+    case 'es':
+      return 'De';
+    case 'it':
+      return 'Da';
+    case 'de':
+      return 'Aus';
+    default:
+      return 'From';
+  }
+}
+
 export function getOriginDisplayLine(person: Person, eraId?: string, locale?: AtlasLocale): string | undefined {
+  const loc = locale ?? 'en';
+  const prefix = originFromPrefix(loc);
   if (eraId) {
     const eraState = getPlaceEraState(person.originPlaceId, eraId);
-    if (eraState) return `From ${eraState.label}`;
+    if (eraState) return `${prefix} ${eraState.label}`;
   }
 
   const place = getPlace(person.originPlaceId);
   if (place) {
     const firstState = Object.values(place.eraStates)[0];
-    if (firstState) return `From ${firstState.label}`;
+    if (firstState) return `${prefix} ${firstState.label}`;
   }
 
   if (person.originLabel) return pickI18n(person.originLabel, locale ?? 'en');

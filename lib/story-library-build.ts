@@ -10,6 +10,7 @@ import type { AtlasLocale, StoryBeat } from '@/core/types';
 import { pickI18n } from '@/lib/locale';
 import { STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
+import { STORY_BEAT_TITLES_DE } from '@/data/atlas/story-beat-titles-de';
 import { arcIdToProgressKey } from '@/lib/story-progress';
 import { getAtlasEra, getAtlasEras, getEraRange } from '@/core/era/engine';
 import type { AtlasEra } from '@/core/types';
@@ -46,6 +47,10 @@ function resolveBeatTitle(beat: StoryBeat, locale: AtlasLocale): string {
   }
   if (locale === 'it') {
     const t = STORY_BEAT_TITLES_IT[beat.id];
+    if (t) return t;
+  }
+  if (locale === 'de') {
+    const t = STORY_BEAT_TITLES_DE[beat.id];
     if (t) return t;
   }
   return beat.copy.title;

@@ -15,10 +15,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Anglo-Norman, Mediterranean, and atlas-wide content expansion',
       fr: 'Expansion du contenu anglo-normand, m\u00e9diterran\u00e9en et pan-atlas',
+      de: 'Erweiterung der anglonormannischen, mediterranen und Panatlas-Inhalte',
     },
     summary: {
       en: 'Henry II, Ranulf de Glanvill, Roger I of Sicily, and other figures join the atlas alongside new Mediterranean places (Naples, Catania, Monreale, Mileto, Mdina), Anglo-Norman institutional sites (Clarendon, Runnymede), story arcs for Domesday, Magna Carta, and Norman Sicily\u2019s multicultural kingdom, five new glossary entries, and region narratives for the duchy and exploration eras.',
       fr: 'Henri II, Ranulf de Glanvill, Roger Ier de Sicile et d\u2019autres figures rejoignent l\u2019atlas avec de nouveaux lieux m\u00e9diterran\u00e9ens (Naples, Catane, Monreale, Mileto, Mdina), des sites institutionnels anglo-normands (Clarendon, Runnymede), des arcs narratifs pour Domesday, la Magna Carta et le royaume multiculturel normand de Sicile, cinq nouvelles entr\u00e9es de glossaire et des r\u00e9cits de r\u00e9gion pour les \u00e9poques ducale et d\u2019exploration.',
+      de: 'Heinrich II., Ranulf von Glanvill, Roger I. von Sizilien und andere Persönlichkeiten ergänzen den Atlas mit neuen Standorten im Mittelmeerraum (Neapel, Catania, Monreale, Mileto, Mdina), anglonormannischen institutionellen Standorten (Clarendon, Runnymede), Handlungssträngen für Domesday, der Magna Carta und dem multikulturellen normannischen Königreich Sizilien, fünf neuen Glossareinträgen und Regionskonten für die Herzogs- und Erkundungsperioden.',
     },
   },
   {
@@ -27,10 +29,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Accessibility and touch-target improvements',
       fr: 'Am\u00e9liorations d\u2019accessibilit\u00e9 et des zones tactiles',
+      de: 'Verbesserungen der Zugänglichkeit und Touchzone',
     },
     summary: {
       en: 'Map tooltips now carry proper ARIA roles, the text-size menu manages focus on open and close, and the timeline rail has an expanded touch area for easier mobile scrubbing.',
       fr: 'Les infobulles de la carte portent d\u00e9sormais les bons r\u00f4les ARIA, le menu de taille de texte g\u00e8re le focus \u00e0 l\u2019ouverture et la fermeture, et la barre chronologique dispose d\u2019une zone tactile \u00e9largie pour un d\u00e9filement mobile plus facile.',
+      de: 'Die Karten-Tooltips tragen jetzt die richtigen ARIA-Rollen, das Textgrößenmenü verwaltet den Fokus beim Öffnen und Schließen und die Zeitleiste verfügt über einen erweiterten Touch-Bereich für einfacheres mobiles Scrollen.',
     },
   },
   {
@@ -39,10 +43,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Recent updates replace the roadmap',
       fr: 'Les mises \u00e0 jour r\u00e9centes remplacent la feuille de route',
+      de: 'Aktuelle Updates ersetzen die Roadmap',
     },
     summary: {
       en: 'The speculative roadmap has been replaced by a dated changelog of shipped features. What you see listed here is what actually landed in the atlas.',
       fr: 'La feuille de route sp\u00e9culative a \u00e9t\u00e9 remplac\u00e9e par un journal dat\u00e9 des fonctionnalit\u00e9s livr\u00e9es. Ce que vous voyez ici est ce qui a r\u00e9ellement \u00e9t\u00e9 d\u00e9ploy\u00e9 dans l\u2019atlas.',
+      de: 'Die spekulative Roadmap wurde durch ein veraltetes Protokoll der bereitgestellten Funktionen ersetzt. Was Sie hier sehen, ist das, was tatsächlich im Atlas eingesetzt wurde.',
     },
   },
   {
@@ -51,10 +57,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Shareable map links and retention strip',
       fr: 'Liens de carte partageables et bande de rétention',
+      de: 'Gemeinsam nutzbare Kartenlinks und Aufbewahrungsleiste',
     },
     summary: {
       en: 'You can now copy a URL that restores the exact map position, era, and layers you are viewing. A retention strip reminds returning visitors where they left off.',
       fr: 'Vous pouvez désormais copier un lien qui restaure la position exacte, l\u2019époque et les couches que vous consultez. Une bande de rétention rappelle aux visiteurs de retour où ils se sont arrêtés.',
+      de: 'Sie können jetzt einen Link kopieren, der die genaue Position, Epoche und Ebenen wiederherstellt, die Sie anzeigen. Ein Haltestreifen erinnert wiederkehrende Besucher dort, wo sie aufgehört haben.',
     },
   },
   {
@@ -63,10 +71,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Era-first story launcher and cinematic intros',
       fr: 'Lanceur d\u2019histoires par époque et introductions cinématiques',
+      de: 'Story Launcher nach Epoche und filmische Einführungen',
     },
     summary: {
       en: 'Stories now launch from an era-grouped panel with poster tiles, and each era opens with a full-screen cinematic intro overlay before the first beat begins.',
       fr: 'Les histoires se lancent depuis un panneau regroupé par époque avec affiches, et chaque époque s\u2019ouvre par une introduction cinématique plein écran avant le premier temps.',
+      de: 'Die Geschichten beginnen mit einer nach Epochen gruppierten Tafel mit Postern, und jede Epoche beginnt mit einer filmischen Einführung im Vollbildmodus vor dem ersten Takt.',
     },
   },
   {
@@ -75,10 +85,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Guided biography arcs for anchor figures',
       fr: 'Arcs biographiques guidés pour les figures majeures',
+      de: 'Geführte biografische Handlungsstränge für bedeutende Persönlichkeiten',
     },
     summary: {
       en: 'New France settlers, William Iron Arm, Sichelgaita, Odo of Bayeux, and Hereward the Wake now have full guided story arcs you can follow on the map with sourced beat-by-beat narration.',
       fr: 'Les colons de Nouvelle-France, Guillaume Bras-de-Fer, Sichelgaite, Odon de Bayeux et Hereward le Veilleur disposent désormais d\u2019arcs narratifs guidés à suivre sur la carte avec narration sourcée étape par étape.',
+      de: 'Die Siedler von Neu-Frankreich, William Bras-de-Fer, Sichelgaite, Odon von Bayeux und Hereward der Wächter, verfügen jetzt über geführte Handlungsstränge, denen sie auf der Karte mit schrittweisen Erzählungen folgen können.',
     },
   },
   {
@@ -87,10 +99,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Story beat illustrations across all eras',
       fr: 'Illustrations des étapes narratives pour toutes les époques',
+      de: 'Illustrationen von Erzählstationen für alle Epochen',
     },
     summary: {
       en: 'Every era from Neolithic through the Atlantic Imprint now has photo-pin illustrations on each story beat, giving visual anchoring to the places and events described in the narrative.',
       fr: 'Chaque époque, du Néolithique à l\u2019Empreinte atlantique, dispose désormais d\u2019illustrations sur chaque étape narrative, offrant un ancrage visuel aux lieux et événements décrits.',
+      de: 'Zu jeder Epoche, vom Neolithikum bis zum Atlantikzeitalter, gibt es jetzt Illustrationen zu jeder Erzählphase, die einen visuellen Anker für die beschriebenen Orte und Ereignisse bieten.',
     },
   },
   {
@@ -99,10 +113,12 @@ export const atlasChangelog: ChangelogEntry[] = [
     title: {
       en: 'Expedition progress, challenges, and milestones',
       fr: 'Progression d\u2019expédition, défis et jalons',
+      de: 'Expeditionsfortschritt, Herausforderungen und Meilensteine',
     },
     summary: {
       en: 'A new progress system tracks eras explored, stories completed, and places visited. Challenges and milestones reward sustained exploration, with shareable moment cards and a persistent ledger.',
       fr: 'Un nouveau système de progression suit les époques explorées, les histoires terminées et les lieux visités. Défis et jalons récompensent l\u2019exploration soutenue, avec cartes de moments partageables et un registre persistant.',
+      de: 'Ein neues Fortschrittssystem verfolgt erkundete Epochen, abgeschlossene Geschichten und besuchte Orte. Herausforderungen und Meilensteine ​​belohnen nachhaltiges Erkunden mit gemeinsam nutzbaren Momentkarten und einem dauerhaften Protokoll.',
     },
   },
 ];
@@ -112,4 +128,5 @@ export const changelogFootnote: I18nString = {
   fr: 'Une correction, une source ou une lignée à documenter ? L\u2019atlas grandit grâce à la recherche et aux contributions ; les liens soutien et créateur du menu proposent comment aider.',
   es: '\u00bfCorrecci\u00f3n, fuente o linaje que valga documentar? El atlas crece con investigaci\u00f3n y aportes; los enlaces de apoyo y creador en el men\u00fa explican c\u00f3mo colaborar.',
   it: 'Correzione, fonte o lignaggio da documentare? L\u2019atlante cresce con ricerca e contributi; dal menu, sostegno e creatore indicano come aiutare.',
+  de: 'Eine Korrektur, eine Quelle oder eine Abstammungslinie zum Dokumentieren? Der Atlas wächst durch Forschung und Beiträge; Die Links zum Support und zur Menüerstellung geben Hinweise darauf, wie Sie helfen können.',
 };

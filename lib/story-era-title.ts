@@ -1,12 +1,30 @@
-import type { AtlasLocale } from '@/core/types';
+import type { AtlasLocale, I18nString } from '@/core/types';
 import { getAtlasEra } from '@/core';
 import { pickI18n } from '@/lib/locale';
 import { getEra } from '@/data/eras';
 
-const TIMELINE_GROUP_DISPLAY: Record<string, string> = {
-  'deep-time': 'Ancient',
-  medieval: 'Medieval',
-  atlantic: 'Atlantic & Colonial',
+const TIMELINE_GROUP_DISPLAY: Record<string, I18nString> = {
+  'deep-time': {
+    en: 'Ancient',
+    fr: 'Antiquité',
+    es: 'Antigüedad',
+    it: 'Antichità',
+    de: 'Altertum',
+  },
+  medieval: {
+    en: 'Medieval',
+    fr: 'Moyen Âge',
+    es: 'Medieval',
+    it: 'Medievale',
+    de: 'Mittelalter',
+  },
+  atlantic: {
+    en: 'Atlantic & Colonial',
+    fr: 'Atlantique et colonial',
+    es: 'Atlántico y colonial',
+    it: 'Atlantico e coloniale',
+    de: 'Atlantik & Kolonialzeit',
+  },
 };
 
 const SUMMARY_TEASER_MAX = 180;
@@ -62,13 +80,13 @@ export function getStoryEraSummary(
   return teaserFromSummary(getEra(eraId)?.summary ?? '');
 }
 
-export function getStoryEraGroupLabel(
-  eraId: string,
-  atlasMode: boolean,
-): string {
+export function getStoryEraGroupLabel(eraId: string, atlasMode: boolean, locale: AtlasLocale = 'en'): string {
   if (atlasMode) {
     const group = getAtlasEra(eraId)?.timelineGroup;
-    if (group) return TIMELINE_GROUP_DISPLAY[group] ?? group;
+    if (group) {
+      const row = TIMELINE_GROUP_DISPLAY[group];
+      return row ? pickI18n(row, locale) : group;
+    }
   }
   return getEra(eraId)?.timelineGroup ?? '';
 }

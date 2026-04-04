@@ -1888,6 +1888,47 @@ export const atlasPlaces: Place[] = [
       'norman-expansion': { visibility: 'faded', label: 'Mdina', affiliationTags: ['Malta', 'Norman outpost'], pedagogyIndex: 2 },
     },
   },
+  // ── Templar-origins places ──
+  {
+    id: 'troyes',
+    kind: 'city',
+    coordinates: [4.07, 48.30],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Troyes', affiliationTags: ['Champagne', 'Council of Troyes', 'Templar'], pedagogyIndex: 5 },
+    },
+  },
+  {
+    id: 'payns',
+    kind: 'abstract_node',
+    coordinates: [3.89, 48.38],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Payns', affiliationTags: ['Champagne', 'Templar founder'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'saint-omer',
+    kind: 'city',
+    coordinates: [2.26, 50.75],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'normal', label: 'Saint-Omer', affiliationTags: ['Flanders', 'Templar co-founder'], pedagogyIndex: 4 },
+    },
+  },
+  {
+    id: 'acre',
+    kind: 'port',
+    coordinates: [35.08, 32.93],
+    regionId: 'normandy',
+    layer: 'europe',
+    eraStates: {
+      'norman-expansion': { visibility: 'emphasized', label: 'Acre', affiliationTags: ['Crusader', 'Templar', 'Kingdom of Jerusalem'], pedagogyIndex: 5 },
+    },
+  },
   // ── Anglo-Norman institutional places ──
   {
     id: 'clarendon',

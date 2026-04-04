@@ -3,7 +3,7 @@ import type { AtlasLocale, I18nString } from '@/core/types';
 export const ALL_LOCALES: AtlasLocale[] = ['en', 'fr', 'es', 'it', 'de', 'pt', 'da', 'nl'];
 
 /** Locales exposed in the UI switcher — expand as phases ship. */
-export const ENABLED_UI_LOCALES: AtlasLocale[] = ['en', 'fr', 'es', 'it'];
+export const ENABLED_UI_LOCALES: AtlasLocale[] = ['en', 'fr', 'es', 'it', 'de'];
 
 export const DEFAULT_LOCALE: AtlasLocale = 'en';
 export const LOCALE_STORAGE_KEY = 'norman-atlas-locale';

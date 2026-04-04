@@ -40,6 +40,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'De la Normandie au Nouveau Monde',
       es: 'De Normandía al Nuevo Mundo',
       it: 'Dalla Normandia al Nuovo Mondo',
+      de: 'Von der Normandie in die Neue Welt',
     },
     style: {
       text: 'text-sky-300/80',
@@ -66,6 +67,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Âge des explorations',
       es: 'Era de los descubrimientos',
       it: 'Età delle esplorazioni',
+      de: 'Zeitalter der Entdeckungen',
     },
     style: {
       text: 'text-indigo-300/80',
@@ -92,6 +94,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc Nouvelle-France',
       es: 'Arco de Nueva Francia',
       it: 'Arco della Nuova Francia',
+      de: 'Neuer Frankreich-Bogen',
     },
     style: {
       text: 'text-cyan-300/80',
@@ -118,6 +121,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Guillaume Couture — le parcours sur la carte',
       es: 'Guillaume Couture — la vida en el mapa',
       it: 'Guillaume Couture — il percorso sulla mappa',
+      de: 'Guillaume Couture — die Route auf der Karte',
     },
     style: {
       text: 'text-amber-200/85',
@@ -144,6 +148,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Normandie n\u00e9olithique',
       es: 'Arco de la Normandía neolítica',
       it: 'Arco della Normandia neolitica',
+      de: 'Neolithischer Normandie-Bogen',
     },
     style: {
       text: 'text-teal-300/80',
@@ -170,6 +175,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Manche \u00e0 l\'\u00e2ge du bronze',
       es: 'Arco del canal en la Edad del Bronce',
       it: 'Arco della Manica nell\'età del bronzo',
+      de: 'Kanalbogen in der Bronzezeit',
     },
     style: {
       text: 'text-yellow-300/80',
@@ -196,6 +202,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Gaule de l\'âge du fer',
       es: 'Arco de la Galia de la Edad del Hierro',
       it: 'Arco della Gallia dell\'età del ferro',
+      de: 'Bogen des eisenzeitlichen Galliens',
     },
     style: {
       text: 'text-lime-300/80',
@@ -222,6 +229,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Gaule romaine',
       es: 'Arco de la Galia romana',
       it: 'Arco della Gallia romana',
+      de: 'Bogen des römischen Galliens',
     },
     style: {
       text: 'text-rose-300/80',
@@ -248,6 +256,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Gaule post-romaine',
       es: 'Arco de la Galia posromana',
       it: 'Arco della Gallia post-romana',
+      de: 'Bogen des nachrömischen Galliens',
     },
     style: {
       text: 'text-stone-300/80',
@@ -274,6 +283,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la Neustrie',
       es: 'Arco de Neustria',
       it: 'Arco della Neustria',
+      de: 'Bogen von Neustrien',
     },
     style: {
       text: 'text-emerald-300/80',
@@ -300,6 +310,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc de la fronti\u00e8re carolingienne',
       es: 'Arco de la frontera carolingia',
       it: 'Arco della frontiera carolingia',
+      de: 'Karolingischer Grenzbogen',
     },
     style: {
       text: 'text-violet-300/80',
@@ -326,6 +337,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: "Arc de l'\u00e8re viking",
       es: 'Arco de la era vikinga',
       it: "Arco dell'età vichinga",
+      de: 'Wikingerzeitlicher Bogen',
     },
     style: {
       text: 'text-red-300/80',
@@ -352,6 +364,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Arc des origines normandes',
       es: 'Arco de los orígenes normandos',
       it: 'Arco delle origini normanne',
+      de: 'Bogen normannischen Ursprungs',
     },
     style: {
       text: 'text-amber-300/80',
@@ -378,6 +391,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Leif Erikson — le Vinland et au-delà',
       es: 'Leif Erikson — Vinlandia y más allá',
       it: 'Leif Erikson — Vinland e oltre',
+      de: 'Leif Erikson – Vinland und darüber hinaus',
     },
     style: {
       text: 'text-emerald-300/80',
@@ -404,6 +418,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: "Arc de l'expansion normande",
       es: 'Arco de la expansión normanda',
       it: 'Arco dell\'espansione normanna',
+      de: 'Arc of Norman-Erweiterung',
     },
     style: {
       text: 'text-orange-300/80',
@@ -430,6 +445,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Guillaume Bras-de-Fer — premier seigneur d\'Apulie',
       es: 'Guillermo Brazo de Hierro — primer señor de Apulia',
       it: 'Guglielmo Braccio di Ferro — primo signore di Puglia',
+      de: 'William Bras-de-Fer – erster Herr von Apulien',
     },
     style: {
       text: 'text-rose-300/80',
@@ -456,6 +472,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Sichelgaita — reine guerrière',
       es: 'Sichelgaita — reina guerrera',
       it: 'Sichelgaita — regina guerriera',
+      de: 'Sichelgaita – Kriegerkönigin',
     },
     style: {
       text: 'text-fuchsia-300/80',
@@ -482,6 +499,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Robert Guiscard — Le Conquérant Rusé',
       es: 'Roberto Guiscardo — El Conquistador Astuto',
       it: 'Roberto il Guiscardo — Il Conquistatore Astuto',
+      de: 'Robert Guiscard – Der schlaue Eroberer',
     },
     style: {
       text: 'text-amber-300/80',
@@ -501,6 +519,33 @@ export const atlasEraArcs: EraArcEntry[] = [
     },
   },
   {
+    arcId: 'templar-origins',
+    eraIds: ['norman-expansion'],
+    label: {
+      en: 'The Templars — Poor Fellow-Soldiers',
+      fr: 'Les Templiers — Pauvres Chevaliers',
+      es: 'Los templarios — Pobres Caballeros',
+      it: 'I Templari — Poveri Cavalieri',
+      de: 'Die Templer – Arme Ritter',
+    },
+    style: {
+      text: 'text-red-300/80',
+      textHover: 'hover:text-red-200',
+      border: 'border-red-400/15',
+      borderHover: 'hover:border-red-400/25',
+      iconBg: 'bg-red-400/10',
+      iconBgHover: 'group-hover:bg-red-400/15',
+    },
+    styleLight: {
+      text: 'text-red-950/90',
+      textHover: 'hover:text-red-950',
+      border: 'border-red-800/38',
+      borderHover: 'hover:border-red-800/52',
+      iconBg: 'bg-red-800/22',
+      iconBgHover: 'group-hover:bg-red-800/30',
+    },
+  },
+  {
     arcId: 'bohemond-antioch',
     eraIds: ['norman-expansion'],
     label: {
@@ -508,6 +553,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Bohémond — Prince d\'Antioche',
       es: 'Bohemundo — Príncipe de Antioquía',
       it: 'Boemondo — Principe di Antiochia',
+      de: 'Bohemond – Prinz von Antiochia',
     },
     style: {
       text: 'text-purple-300/80',
@@ -534,6 +580,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Roger II — Bâtisseur de Sicile',
       es: 'Roger II — Constructor de Sicilia',
       it: 'Ruggero II — Costruttore di Sicilia',
+      de: 'Roger II. – Erbauer von Sizilien',
     },
     style: {
       text: 'text-cyan-300/80',
@@ -560,6 +607,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Rollon — Du Viking au Duc',
       es: 'Rollo — Del vikingo al duque',
       it: 'Rollone — Da vichingo a duca',
+      de: 'Rollo – Vom Wikinger zum Herzog',
     },
     style: {
       text: 'text-yellow-300/80',
@@ -586,6 +634,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Guillaume le Conquérant — du bâtard au roi',
       es: 'Guillermo el Conquistador — del bastardo al rey',
       it: 'Guglielmo il Conquistatore — dal bastardo al re',
+      de: 'Wilhelm der Eroberer – vom Bastard zum König',
     },
     style: {
       text: 'text-red-300/80',
@@ -612,6 +661,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Odon de Bayeux — évêque et seigneur de guerre',
       es: 'Odón de Bayeux — obispo y señor de la guerra',
       it: 'Odone di Bayeux — vescovo e signore della guerra',
+      de: 'Odon von Bayeux – Bischof und Kriegsherr',
     },
     style: {
       text: 'text-lime-300/80',
@@ -633,70 +683,70 @@ export const atlasEraArcs: EraArcEntry[] = [
   {
     arcId: 'samuel-de-champlain',
     eraIds: ['age-of-exploration', 'new-france-foundations'],
-    label: { en: 'Samuel de Champlain — Father of New France', fr: 'Samuel de Champlain — Père de la Nouvelle-France', es: 'Samuel de Champlain — Padre de Nueva Francia', it: 'Samuel de Champlain — Padre della Nuova Francia' },
+    label: { en: 'Samuel de Champlain — Father of New France', fr: 'Samuel de Champlain — Père de la Nouvelle-France', es: 'Samuel de Champlain — Padre de Nueva Francia', it: 'Samuel de Champlain — Padre della Nuova Francia', de: 'Samuel de Champlain – Vater von Neu-Frankreich' },
     style: { text: 'text-sky-200/85', textHover: 'hover:text-sky-100', border: 'border-sky-400/20', borderHover: 'hover:border-sky-400/35', iconBg: 'bg-sky-400/12', iconBgHover: 'group-hover:bg-sky-400/18' },
     styleLight: { text: 'text-sky-950/92', textHover: 'hover:text-sky-950', border: 'border-sky-900/40', borderHover: 'hover:border-sky-900/55', iconBg: 'bg-sky-900/22', iconBgHover: 'group-hover:bg-sky-900/30' },
   },
   {
     arcId: 'jacques-cartier',
     eraIds: ['age-of-exploration'],
-    label: { en: 'Jacques Cartier — Charting the St. Lawrence', fr: 'Jacques Cartier — Cartographe du Saint-Laurent', es: 'Jacques Cartier — Cartógrafo del San Lorenzo', it: 'Jacques Cartier — Cartografo del San Lorenzo' },
+    label: { en: 'Jacques Cartier — Charting the St. Lawrence', fr: 'Jacques Cartier — Cartographe du Saint-Laurent', es: 'Jacques Cartier — Cartógrafo del San Lorenzo', it: 'Jacques Cartier — Cartografo del San Lorenzo', de: 'Jacques Cartier – Kartograph des St. Lawrence' },
     style: { text: 'text-blue-200/85', textHover: 'hover:text-blue-100', border: 'border-blue-400/20', borderHover: 'hover:border-blue-400/35', iconBg: 'bg-blue-400/12', iconBgHover: 'group-hover:bg-blue-400/18' },
     styleLight: { text: 'text-blue-950/92', textHover: 'hover:text-blue-950', border: 'border-blue-900/40', borderHover: 'hover:border-blue-900/55', iconBg: 'bg-blue-900/22', iconBgHover: 'group-hover:bg-blue-900/30' },
   },
   {
     arcId: 'pierre-dugua-de-mons',
     eraIds: ['age-of-exploration', 'new-france-foundations'],
-    label: { en: 'Pierre Dugua de Mons — the man behind the colony', fr: 'Pierre Dugua de Mons — l\'homme derrière la colonie', es: 'Pierre Dugua de Mons — el hombre detrás de la colonia', it: 'Pierre Dugua de Mons — l\'uomo dietro la colonia' },
+    label: { en: 'Pierre Dugua de Mons — the man behind the colony', fr: 'Pierre Dugua de Mons — l\'homme derrière la colonie', es: 'Pierre Dugua de Mons — el hombre detrás de la colonia', it: 'Pierre Dugua de Mons — l\'uomo dietro la colonia', de: 'Pierre Dugua de Mons – der Mann hinter der Kolonie' },
     style: { text: 'text-violet-200/85', textHover: 'hover:text-violet-100', border: 'border-violet-400/20', borderHover: 'hover:border-violet-400/35', iconBg: 'bg-violet-400/12', iconBgHover: 'group-hover:bg-violet-400/18' },
     styleLight: { text: 'text-violet-950/92', textHover: 'hover:text-violet-950', border: 'border-violet-900/40', borderHover: 'hover:border-violet-900/55', iconBg: 'bg-violet-900/22', iconBgHover: 'group-hover:bg-violet-900/30' },
   },
   {
     arcId: 'louis-hebert',
     eraIds: ['new-france-foundations'],
-    label: { en: 'Louis Hébert — first farmer of Canada', fr: 'Louis Hébert — premier agriculteur du Canada', es: 'Louis Hébert — primer agricultor de Canadá', it: 'Louis Hébert — primo agricoltore del Canada' },
+    label: { en: 'Louis Hébert — first farmer of Canada', fr: 'Louis Hébert — premier agriculteur du Canada', es: 'Louis Hébert — primer agricultor de Canadá', it: 'Louis Hébert — primo agricoltore del Canada', de: 'Louis Hébert – Kanadas erster Bauer' },
     style: { text: 'text-green-200/85', textHover: 'hover:text-green-100', border: 'border-green-400/20', borderHover: 'hover:border-green-400/35', iconBg: 'bg-green-400/12', iconBgHover: 'group-hover:bg-green-400/18' },
     styleLight: { text: 'text-green-950/92', textHover: 'hover:text-green-950', border: 'border-green-900/40', borderHover: 'hover:border-green-900/55', iconBg: 'bg-green-900/22', iconBgHover: 'group-hover:bg-green-900/30' },
   },
   {
     arcId: 'robert-giffard',
     eraIds: ['new-france-foundations'],
-    label: { en: 'Robert Giffard — the Perche recruiter', fr: 'Robert Giffard — le recruteur du Perche', es: 'Robert Giffard — el reclutador del Perche', it: 'Robert Giffard — il reclutatore del Perche' },
+    label: { en: 'Robert Giffard — the Perche recruiter', fr: 'Robert Giffard — le recruteur du Perche', es: 'Robert Giffard — el reclutador del Perche', it: 'Robert Giffard — il reclutatore del Perche', de: 'Robert Giffard – der Personalvermittler von Perche' },
     style: { text: 'text-lime-200/85', textHover: 'hover:text-lime-100', border: 'border-lime-400/20', borderHover: 'hover:border-lime-400/35', iconBg: 'bg-lime-400/12', iconBgHover: 'group-hover:bg-lime-400/18' },
     styleLight: { text: 'text-lime-950/92', textHover: 'hover:text-lime-950', border: 'border-lime-900/40', borderHover: 'hover:border-lime-900/55', iconBg: 'bg-lime-900/22', iconBgHover: 'group-hover:bg-lime-900/30' },
   },
   {
     arcId: 'pierre-boucher',
     eraIds: ['new-france-foundations', 'royal-new-france'],
-    label: { en: 'Pierre Boucher — a life as long as the colony', fr: 'Pierre Boucher — une vie aussi longue que la colonie', es: 'Pierre Boucher — una vida tan larga como la colonia', it: 'Pierre Boucher — una vita lunga come la colonia' },
+    label: { en: 'Pierre Boucher — a life as long as the colony', fr: 'Pierre Boucher — une vie aussi longue que la colonie', es: 'Pierre Boucher — una vida tan larga como la colonia', it: 'Pierre Boucher — una vita lunga come la colonia', de: 'Pierre Boucher – ein Leben so lang wie die Kolonie' },
     style: { text: 'text-orange-200/85', textHover: 'hover:text-orange-100', border: 'border-orange-400/20', borderHover: 'hover:border-orange-400/35', iconBg: 'bg-orange-400/12', iconBgHover: 'group-hover:bg-orange-400/18' },
     styleLight: { text: 'text-orange-950/92', textHover: 'hover:text-orange-950', border: 'border-orange-900/40', borderHover: 'hover:border-orange-900/55', iconBg: 'bg-orange-900/22', iconBgHover: 'group-hover:bg-orange-900/30' },
   },
   {
     arcId: 'jean-talon',
     eraIds: ['royal-new-france'],
-    label: { en: 'Jean Talon — architect of royal New France', fr: 'Jean Talon — architecte de la Nouvelle-France royale', es: 'Jean Talon — arquitecto de la Nueva Francia real', it: 'Jean Talon — architetto della Nuova Francia reale' },
+    label: { en: 'Jean Talon — architect of royal New France', fr: 'Jean Talon — architecte de la Nouvelle-France royale', es: 'Jean Talon — arquitecto de la Nueva Francia real', it: 'Jean Talon — architetto della Nuova Francia reale', de: 'Jean Talon – Architekt des königlichen Neufrankreichs' },
     style: { text: 'text-fuchsia-200/85', textHover: 'hover:text-fuchsia-100', border: 'border-fuchsia-400/20', borderHover: 'hover:border-fuchsia-400/35', iconBg: 'bg-fuchsia-400/12', iconBgHover: 'group-hover:bg-fuchsia-400/18' },
     styleLight: { text: 'text-fuchsia-950/92', textHover: 'hover:text-fuchsia-950', border: 'border-fuchsia-900/40', borderHover: 'hover:border-fuchsia-900/55', iconBg: 'bg-fuchsia-900/22', iconBgHover: 'group-hover:bg-fuchsia-900/30' },
   },
   {
     arcId: 'marguerite-bourgeoys',
     eraIds: ['new-france-foundations', 'royal-new-france'],
-    label: { en: 'Marguerite Bourgeoys — educator and saint', fr: 'Marguerite Bourgeoys — éducatrice et sainte', es: 'Marguerite Bourgeoys — educadora y santa', it: 'Marguerite Bourgeoys — educatrice e santa' },
+    label: { en: 'Marguerite Bourgeoys — educator and saint', fr: 'Marguerite Bourgeoys — éducatrice et sainte', es: 'Marguerite Bourgeoys — educadora y santa', it: 'Marguerite Bourgeoys — educatrice e santa', de: 'Marguerite Bourgeoys – Pädagogin und Heilige' },
     style: { text: 'text-pink-200/85', textHover: 'hover:text-pink-100', border: 'border-pink-400/20', borderHover: 'hover:border-pink-400/35', iconBg: 'bg-pink-400/12', iconBgHover: 'group-hover:bg-pink-400/18' },
     styleLight: { text: 'text-pink-950/92', textHover: 'hover:text-pink-950', border: 'border-pink-900/40', borderHover: 'hover:border-pink-900/55', iconBg: 'bg-pink-900/22', iconBgHover: 'group-hover:bg-pink-900/30' },
   },
   {
     arcId: 'jeanne-mance',
     eraIds: ['new-france-foundations'],
-    label: { en: 'Jeanne Mance — co-founder of Montréal', fr: 'Jeanne Mance — co-fondatrice de Montréal', es: 'Jeanne Mance — cofundadora de Montreal', it: 'Jeanne Mance — co-fondatrice di Montréal' },
+    label: { en: 'Jeanne Mance — co-founder of Montréal', fr: 'Jeanne Mance — co-fondatrice de Montréal', es: 'Jeanne Mance — cofundadora de Montreal', it: 'Jeanne Mance — co-fondatrice di Montréal', de: 'Jeanne Mance – Mitbegründerin von Montreal' },
     style: { text: 'text-rose-200/85', textHover: 'hover:text-rose-100', border: 'border-rose-400/20', borderHover: 'hover:border-rose-400/35', iconBg: 'bg-rose-400/12', iconBgHover: 'group-hover:bg-rose-400/18' },
     styleLight: { text: 'text-rose-950/92', textHover: 'hover:text-rose-950', border: 'border-rose-900/40', borderHover: 'hover:border-rose-900/55', iconBg: 'bg-rose-900/22', iconBgHover: 'group-hover:bg-rose-900/30' },
   },
   {
     arcId: 'rene-robert-la-salle',
     eraIds: ['royal-new-france'],
-    label: { en: 'La Salle — from Rouen to the Gulf', fr: 'La Salle — de Rouen au golfe', es: 'La Salle — de Rouen al golfo', it: 'La Salle — da Rouen al golfo' },
+    label: { en: 'La Salle — from Rouen to the Gulf', fr: 'La Salle — de Rouen au golfe', es: 'La Salle — de Rouen al golfo', it: 'La Salle — da Rouen al golfo', de: 'La Salle – von Rouen bis zum Golf' },
     style: { text: 'text-red-200/85', textHover: 'hover:text-red-100', border: 'border-red-400/20', borderHover: 'hover:border-red-400/35', iconBg: 'bg-red-400/12', iconBgHover: 'group-hover:bg-red-400/18' },
     styleLight: { text: 'text-red-950/92', textHover: 'hover:text-red-950', border: 'border-red-900/40', borderHover: 'hover:border-red-900/55', iconBg: 'bg-red-900/22', iconBgHover: 'group-hover:bg-red-900/30' },
   },
@@ -708,6 +758,7 @@ export const atlasEraArcs: EraArcEntry[] = [
       fr: 'Hereward le Veilleur — le dernier Anglais',
       es: 'Hereward el Vigía — el último inglés',
       it: 'Hereward il Vegliante — l\'ultimo inglese',
+      de: 'Hereward the Watcher – der letzte Engländer',
     },
     style: {
       text: 'text-teal-300/80',
@@ -729,49 +780,49 @@ export const atlasEraArcs: EraArcEntry[] = [
   {
     arcId: 'henry-i-england',
     eraIds: ['norman-expansion'],
-    label: { en: 'Henry I — the lion of justice', fr: 'Henri Ier — le lion de justice', es: 'Enrique I — el león de justicia', it: 'Enrico I — il leone di giustizia' },
+    label: { en: 'Henry I — the lion of justice', fr: 'Henri Ier — le lion de justice', es: 'Enrique I — el león de justicia', it: 'Enrico I — il leone di giustizia', de: 'Heinrich I. – der Löwe der Gerechtigkeit' },
     style: { text: 'text-amber-300/80', textHover: 'hover:text-amber-200', border: 'border-amber-400/15', borderHover: 'hover:border-amber-400/25', iconBg: 'bg-amber-400/10', iconBgHover: 'group-hover:bg-amber-400/15' },
     styleLight: { text: 'text-amber-950/90', textHover: 'hover:text-amber-950', border: 'border-amber-800/38', borderHover: 'hover:border-amber-800/52', iconBg: 'bg-amber-800/22', iconBgHover: 'group-hover:bg-amber-800/30' },
   },
   {
     arcId: 'the-anarchy',
     eraIds: ['norman-expansion'],
-    label: { en: 'The Anarchy — when the crown broke', fr: 'L\'Anarchie — quand la couronne se brisa', es: 'La Anarquía — cuando la corona se rompió', it: 'L\'Anarchia — quando la corona si spezzò' },
+    label: { en: 'The Anarchy — when the crown broke', fr: 'L\'Anarchie — quand la couronne se brisa', es: 'La Anarquía — cuando la corona se rompió', it: 'L\'Anarchia — quando la corona si spezzò', de: 'Anarchie – als die Krone zerbrach' },
     style: { text: 'text-stone-300/80', textHover: 'hover:text-stone-200', border: 'border-stone-400/15', borderHover: 'hover:border-stone-400/25', iconBg: 'bg-stone-400/10', iconBgHover: 'group-hover:bg-stone-400/15' },
     styleLight: { text: 'text-stone-950/90', textHover: 'hover:text-stone-950', border: 'border-stone-800/38', borderHover: 'hover:border-stone-800/52', iconBg: 'bg-stone-800/22', iconBgHover: 'group-hover:bg-stone-800/30' },
   },
   {
     arcId: 'march-of-wales',
     eraIds: ['norman-expansion'],
-    label: { en: 'The March of Wales — castles on the frontier', fr: 'La Marche du Pays de Galles — châteaux sur la frontière', es: 'La Marca de Gales — castillos en la frontera', it: 'La Marca del Galles — castelli sulla frontiera' },
+    label: { en: 'The March of Wales — castles on the frontier', fr: 'La Marche du Pays de Galles — châteaux sur la frontière', es: 'La Marca de Gales — castillos en la frontera', it: 'La Marca del Galles — castelli sulla frontiera', de: 'Die Mark von Wales – Burgen an der Grenze' },
     style: { text: 'text-emerald-300/80', textHover: 'hover:text-emerald-200', border: 'border-emerald-400/15', borderHover: 'hover:border-emerald-400/25', iconBg: 'bg-emerald-400/10', iconBgHover: 'group-hover:bg-emerald-400/15' },
     styleLight: { text: 'text-emerald-950/90', textHover: 'hover:text-emerald-950', border: 'border-emerald-800/38', borderHover: 'hover:border-emerald-800/52', iconBg: 'bg-emerald-800/22', iconBgHover: 'group-hover:bg-emerald-800/30' },
   },
   {
     arcId: 'anglonorman-ireland',
     eraIds: ['norman-expansion'],
-    label: { en: 'Anglo-Norman Ireland — Strongbow and the crown', fr: 'L\'Irlande anglo-normande — Strongbow et la couronne', es: 'Irlanda anglonormanda — Strongbow y la corona', it: 'Irlanda anglonormanna — Strongbow e la corona' },
+    label: { en: 'Anglo-Norman Ireland — Strongbow and the crown', fr: 'L\'Irlande anglo-normande — Strongbow et la couronne', es: 'Irlanda anglonormanda — Strongbow y la corona', it: 'Irlanda anglonormanna — Strongbow e la corona', de: 'Anglonormannisches Irland – Starker Bogen und die Krone' },
     style: { text: 'text-cyan-300/80', textHover: 'hover:text-cyan-200', border: 'border-cyan-400/15', borderHover: 'hover:border-cyan-400/25', iconBg: 'bg-cyan-400/10', iconBgHover: 'group-hover:bg-cyan-400/15' },
     styleLight: { text: 'text-cyan-950/90', textHover: 'hover:text-cyan-950', border: 'border-cyan-800/38', borderHover: 'hover:border-cyan-800/52', iconBg: 'bg-cyan-800/22', iconBgHover: 'group-hover:bg-cyan-800/30' },
   },
   {
     arcId: 'david-i-scotland',
     eraIds: ['norman-expansion'],
-    label: { en: 'David I — the Norman king of Scots', fr: 'David Ier — le roi normand d\'Écosse', es: 'David I — el rey normando de Escocia', it: 'Davide I — il re normanno di Scozia' },
+    label: { en: 'David I — the Norman king of Scots', fr: 'David Ier — le roi normand d\'Écosse', es: 'David I — el rey normando de Escocia', it: 'Davide I — il re normanno di Scozia', de: 'David I. – der normannische König von Schottland' },
     style: { text: 'text-blue-300/80', textHover: 'hover:text-blue-200', border: 'border-blue-400/15', borderHover: 'hover:border-blue-400/25', iconBg: 'bg-blue-400/10', iconBgHover: 'group-hover:bg-blue-400/15' },
     styleLight: { text: 'text-blue-950/90', textHover: 'hover:text-blue-950', border: 'border-blue-800/38', borderHover: 'hover:border-blue-800/52', iconBg: 'bg-blue-800/22', iconBgHover: 'group-hover:bg-blue-800/30' },
   },
   {
     arcId: 'william-lion-and-angevin',
     eraIds: ['norman-expansion'],
-    label: { en: 'William the Lion — Scotland and the Angevins', fr: 'Guillaume le Lion — l\'Écosse et les Angevins', es: 'Guillermo el León — Escocia y los angevinos', it: 'Guglielmo il Leone — la Scozia e gli Angioini' },
+    label: { en: 'William the Lion — Scotland and the Angevins', fr: 'Guillaume le Lion — l\'Écosse et les Angevins', es: 'Guillermo el León — Escocia y los angevinos', it: 'Guglielmo il Leone — la Scozia e gli Angioini', de: 'Wilhelm der Löwe – Schottland und die Anjou' },
     style: { text: 'text-indigo-300/80', textHover: 'hover:text-indigo-200', border: 'border-indigo-400/15', borderHover: 'hover:border-indigo-400/25', iconBg: 'bg-indigo-400/10', iconBgHover: 'group-hover:bg-indigo-400/15' },
     styleLight: { text: 'text-indigo-950/90', textHover: 'hover:text-indigo-950', border: 'border-indigo-800/38', borderHover: 'hover:border-indigo-800/52', iconBg: 'bg-indigo-800/22', iconBgHover: 'group-hover:bg-indigo-800/30' },
   },
   {
     arcId: 'thomas-becket',
     eraIds: ['norman-expansion'],
-    label: { en: 'Thomas Becket — murder in the cathedral', fr: 'Thomas Becket — meurtre dans la cathédrale', es: 'Thomas Becket — asesinato en la catedral', it: 'Thomas Becket — assassinio nella cattedrale' },
+    label: { en: 'Thomas Becket — murder in the cathedral', fr: 'Thomas Becket — meurtre dans la cathédrale', es: 'Thomas Becket — asesinato en la catedral', it: 'Thomas Becket — assassinio nella cattedrale', de: 'Thomas Becket – Mord in der Kathedrale' },
     style: { text: 'text-violet-300/80', textHover: 'hover:text-violet-200', border: 'border-violet-400/15', borderHover: 'hover:border-violet-400/25', iconBg: 'bg-violet-400/10', iconBgHover: 'group-hover:bg-violet-400/15' },
     styleLight: { text: 'text-violet-950/90', textHover: 'hover:text-violet-950', border: 'border-violet-800/38', borderHover: 'hover:border-violet-800/52', iconBg: 'bg-violet-800/22', iconBgHover: 'group-hover:bg-violet-800/30' },
   },

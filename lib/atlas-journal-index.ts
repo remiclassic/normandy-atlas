@@ -10,6 +10,7 @@ import { getStoryBeats, getStoryStepForBeatId } from '@/core/story/engine';
 import { atlasEraArcs } from '@/data/atlas/era-arcs';
 import { STORY_BEAT_TITLES_ES, STORY_BEAT_BODIES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_TITLES_IT, STORY_BEAT_BODIES_IT } from '@/data/atlas/story-beat-bodies-it';
+import { STORY_BEAT_TITLES_DE } from '@/data/atlas/story-beat-titles-de';
 import { pickI18n } from '@/lib/locale';
 import { buildMapHref } from '@/lib/map-deep-link';
 
@@ -82,6 +83,10 @@ function resolveStoryTitle(beat: StoryBeat, locale: AtlasLocale): string {
   }
   if (locale === 'it') {
     const t = STORY_BEAT_TITLES_IT[beat.id];
+    if (t) return t;
+  }
+  if (locale === 'de') {
+    const t = STORY_BEAT_TITLES_DE[beat.id];
     if (t) return t;
   }
   return beat.copy.title;

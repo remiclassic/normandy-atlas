@@ -11,6 +11,7 @@ import { t } from '@/lib/ui-strings';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { STORY_BEAT_BODIES_ES, STORY_BEAT_TITLES_ES } from '@/data/atlas/story-beat-bodies-es';
 import { STORY_BEAT_BODIES_IT, STORY_BEAT_TITLES_IT } from '@/data/atlas/story-beat-bodies-it';
+import { STORY_BEAT_TITLES_DE } from '@/data/atlas/story-beat-titles-de';
 import type { StoryBeat } from '@/core/types';
 import type { StoryStep } from '@/types';
 import { arcIdToProgressKey, markStoryArcCompleted, persistStoryProgress } from '@/lib/story-progress';
@@ -108,6 +109,10 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
     if (locale === 'it') {
       const itTitle = STORY_BEAT_TITLES_IT[currentBeat.id];
       if (itTitle) return itTitle;
+    }
+    if (locale === 'de') {
+      const deTitle = STORY_BEAT_TITLES_DE[currentBeat.id];
+      if (deTitle) return deTitle;
     }
     return currentBeat.copy.title;
   }, [currentBeat, currentLegacyStep, locale]);

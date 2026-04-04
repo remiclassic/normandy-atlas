@@ -177,7 +177,7 @@ function StoryEraIntroOverlay() {
       const eraId = visible.eraId;
       return {
         title: getStoryEraDisplayTitle(eraId, locale, atlasMode),
-        groupLabel: getStoryEraGroupLabel(eraId, atlasMode),
+        groupLabel: getStoryEraGroupLabel(eraId, atlasMode, locale),
         dateRangeStr: (() => {
           const r = getStoryEraDateRange(eraId, atlasMode);
           if (!r) return '';
@@ -191,7 +191,7 @@ function StoryEraIntroOverlay() {
     const dr = r ? `${formatYear(r.start)} \u2014 ${formatYear(r.end)}` : '';
     return {
       title: arcTitle,
-      groupLabel: getStoryEraGroupLabel(thematicEraId, atlasMode),
+      groupLabel: getStoryEraGroupLabel(thematicEraId, atlasMode, locale),
       dateRangeStr: dr,
       summary: getStoryEraDisplayTitle(thematicEraId, locale, atlasMode),
     };

@@ -41,7 +41,9 @@ function ShareCard() {
           ? `He explorado ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} y ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} en el Norman Atlas.`
           : locale === 'it'
             ? `Ho esplorato ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} e ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} sul Norman Atlas.`
-            : `I explored ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories}, and ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} on the Norman Atlas.`;
+            : locale === 'de'
+              ? `Ich habe ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories} und ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} im Norman Atlas erkundet.`
+              : `I explored ${stats.places}/${T.places} ${places}, ${stats.journeys}/${T.journeys} ${journeys}, ${stats.eras}/${T.eras} ${eras}, ${stats.storiesCompleted}/${T.stories} ${stories}, and ${stats.milestonesUnlocked}/${atlasMilestones.length} ${milestones} on the Norman Atlas.`;
     await shareOrCopy({
       title: 'Norman Atlas',
       text,

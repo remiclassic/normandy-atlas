@@ -24,11 +24,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cornwall → Cotentin — tin trade corridor',
       fr: 'Cornouailles → Cotentin — corridor du commerce de l\'étain',
       it: 'Cornovaglia → Cotentin — corridoio del commercio dello stagno',
+      de: 'Cornwall → Cotentin – Zinnhandelskorridor',
     },
     segmentDetail: {
       en: 'Tin from Cornwall crossed the Channel to reach continental networks. The Cotentin peninsula was the closest landfall, making it a natural gateway — the same coast that would later receive Viking longships.',
       fr: 'L\'étain de Cornouailles traversait la Manche pour atteindre les réseaux continentaux. Le Cotentin était le débarquement le plus proche, en faisant une porte d\'entrée naturelle — la même côte qui recevrait plus tard les drakkars vikings.',
       it: 'Lo stagno della Cornovaglia attraversava la Manica verso le reti continentali. La penisola del Cotentin era lo sbarco più vicino, una porta naturale — la stessa costa che avrebbe accolto più tardi le navi vichinghe.',
+      de: 'Kornisches Zinn überquerte den Ärmelkanal, um die kontinentalen Netze zu erreichen. Der Cotentin war der nächstgelegene Anlegeplatz und somit ein natürliches Tor – dieselbe Küste, die später die Langschiffe der Wikinger ansteuern sollte.',
     },
   },
   {
@@ -51,11 +53,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cornwall → Pays de Caux — eastern Channel route',
       fr: 'Cornouailles → Pays de Caux — route est de la Manche',
       it: 'Cornovaglia → Pays de Caux — rotta orientale della Manica',
+      de: 'Cornwall → Pays de Caux – östliche Kanalroute',
     },
     segmentDetail: {
       en: 'A longer crossing reaching the chalk coast of the Pays de Caux, later home of the Caletes.',
       fr: 'Une traversée plus longue atteignant la côte de craie du Pays de Caux, futur territoire des Calètes.',
       it: 'Una traversata più lunga verso la costa calcarea del Pays de Caux, futuro territorio dei Caleti.',
+      de: 'Eine längere Überfahrt bis zur Kreideküste des Pays de Caux, dem zukünftigen Gebiet von Calètes.',
     },
   },
   {
@@ -78,11 +82,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cotentin → Seine — coastal cabotage',
       fr: 'Cotentin → Seine — cabotage côtier',
       it: 'Cotentin → Senna — cabotaggio costiero',
+      de: 'Cotentin → Seine – Küstenkabotage',
     },
     segmentDetail: {
       en: 'Coastal traffic connected Channel landings to the Seine river system, the major inland waterway that would remain strategic for the next four millennia.',
       fr: 'Le trafic côtier reliait les sites de débarquement de la Manche au réseau fluvial de la Seine, la voie navigable intérieure majeure qui resterait stratégique pendant les quatre millénaires suivants.',
       it: 'Il traffico costiero collegava gli sbarchi della Manica alla rete fluviale della Senna, la grande via d\'acqua interna che sarebbe rimasta strategica per i quattro millenni successivi.',
+      de: 'Der Küstenverkehr verband die Anlegestellen am Ärmelkanal mit dem Seine-Flusssystem, der wichtigsten Binnenwasserstraße, die auch in den nächsten vier Jahrtausenden von strategischer Bedeutung bleiben sollte.',
     },
   },
   // --- Deep time: Iron Age Seine corridor ---
@@ -100,11 +106,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Seine corridor — Rotomagus to Lutetia',
       fr: 'Corridor de la Seine — Rotomagus à Lutetia',
       it: 'Corridoio della Senna — da Rotomagus a Lutetia',
+      de: 'Seine-Korridor – Rotomagus bis Lutetia',
     },
     segmentDetail: {
       en: 'The Seine connected Veliocasses territory to the Parisii. Under Rome this became a major grain and trade artery — the same corridor Vikings would exploit centuries later.',
       fr: 'La Seine reliait le territoire des Véliocasses aux Parisii. Sous Rome elle devint une artère majeure de grain et de commerce — le même corridor que les Vikings exploiteraient des siècles plus tard.',
       it: 'La Senna collegava il territorio dei Veliocassi ai Parisii. Sotto Roma divenne un\'arteria di cereali e commercio — lo stesso corridoio che i vichinghi avrebbero sfruttato secoli dopo.',
+      de: 'Die Seine verband das Gebiet von Véliocasses mit Parisii. Unter Rom wurde es zu einer wichtigen Getreide- und Handelsader – derselbe Korridor, den die Wikinger Jahrhunderte später nutzen würden.',
     },
   },
   {
@@ -121,11 +129,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Lower Seine — estuary to Rotomagus',
       fr: 'Basse Seine — estuaire à Rotomagus',
       it: 'Bassa Senna — dall\'estuario a Rotomagus',
+      de: 'Untere Seine – Rotomagus-Mündung',
     },
     segmentDetail: {
       en: 'Tribes and later Roman administrators used this stretch to connect the interior to Channel trade. The same geography determined where abbeys, Viking camps, and Norman castles would rise.',
       fr: 'Les tribus puis les administrateurs romains utilisèrent ce tronçon pour relier l\'intérieur au commerce de la Manche. La même géographie détermina où abbayes, camps vikings et châteaux normands s\'élèveraient.',
       it: 'Tribù e poi amministratori romani usarono questo tratto per collegare l\'entroterra al commercio della Manica. La stessa geografia determinò dove sorgerebbero abbazie, accampamenti vichinghi e castelli normanni.',
+      de: 'Die Stämme und dann die römischen Verwalter nutzten diesen Abschnitt, um das Landesinnere mit dem Kanalhandel zu verbinden. Die gleiche Geographie bestimmte, wo Abteien, Wikingerlager und normannische Burgen entstehen sollten.',
     },
   },
   // --- Pre-Norman: Viking Seine incursions ---
@@ -180,11 +190,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Seine corridor — Paris to Rouen',
       fr: 'Corridor de la Seine — Paris à Rouen',
       it: 'Corridoio della Senna — Parigi a Rouen',
+      de: 'Seine-Korridor – Paris nach Rouen',
     },
     segmentDetail: {
       en: 'The administrative and monastic artery of Carolingian Neustria. Royal tolls, abbey estates, and river traffic made this the richest inland waterway in northern Gaul.',
       fr: 'L\'artère administrative et monastique de la Neustrie carolingienne. Péages royaux, domaines abbatiaux et trafic fluvial en faisaient la voie navigable intérieure la plus riche du nord de la Gaule.',
       it: 'Arteria amministrativa e monastica della Neustria carolingia. Pedaggi reali, domini abbaziali e traffico fluviale ne facevano la via navigabile interna più ricca della Gallia settentrionale.',
+      de: 'Die Verwaltungs- und Klosterader des karolingischen Neustriens. Königliche Zölle, Abteigüter und Flussverkehr machten sie zur reichhaltigsten Binnenwasserstraße im Norden Galliens.',
     },
   },
   {
@@ -201,11 +213,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Lower Seine — Rouen to the sea',
       fr: 'Basse Seine — Rouen à la mer',
       it: 'Bassa Senna — Rouen fino al mare',
+      de: 'Untere Seine – Rouen am Meer',
     },
     segmentDetail: {
       en: 'From Rouen to the estuary, the river passed great abbeys (Jumièges, Saint-Wandrille) before reaching the Channel. This stretch was the gateway through which all seaborne trade — and later, Viking fleets — entered the Frankish heartland.',
       fr: 'De Rouen à l\'estuaire, le fleuve passait devant de grandes abbayes (Jumièges, Saint-Wandrille) avant d\'atteindre la Manche. Ce tronçon était la porte par laquelle tout le commerce maritime — et plus tard, les flottes vikings — pénétraient le cœur franc.',
       it: 'Da Rouen all\'estuario il fiume passava davanti a grandi abbazie (Jumièges, Saint-Wandrille) prima di raggiungere la Manica. Questo tratto era la porta per cui tutto il commercio marittimo — e più tardi le flotte vichinghe — penetrava nel cuore franco.',
+      de: 'Von Rouen bis zur Mündung passierte der Fluss große Abteien (Jumièges, Saint-Wandrille), bevor er den Ärmelkanal erreichte. Dieser Abschnitt war das Tor, durch das der gesamte Seehandel – und später auch die Wikingerflotten – in das Herz der Franken gelangten.',
     },
   },
   // --- Pre-Norman: settlement pressure / transition to Normandy ---
@@ -270,6 +284,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Dieppe — Atlantic crossing toward New France',
       fr: 'Dieppe — traversée atlantique vers la Nouvelle-France',
       it: 'Dieppe — traversata atlantica verso la Nuova Francia',
+      de: 'Dieppe – Atlantiküberquerung nach Neu-Frankreich',
     },
   },
   {
@@ -297,6 +312,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Honfleur — Atlantic crossing toward Montréal',
       fr: 'Honfleur — traversée atlantique vers Montréal',
       it: 'Honfleur — traversata atlantica verso Montréal',
+      de: 'Honfleur – Atlantiküberquerung nach Montreal',
     },
   },
   {
@@ -403,11 +419,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norse expansion into Celtic regions (8th–9th century)',
       fr: 'Expansion norse vers les régions celtiques (VIIIe–IXe siècle)',
       it: 'Espansione norrena verso le regioni celtiche (VIII–IX secolo)',
+      de: 'Nordische Expansion in keltische Regionen (8.–9. Jahrhundert)',
     },
     segmentDetail: {
       en: 'Norwegian activity linked to settlements in Scotland and the Isles — not the main Danish North Sea lane.',
       fr: 'Activité norvégienne liée aux implantations en Écosse et dans les îles — pas la voie danoise principale.',
       it: 'Attività norvegese legata agli insediamenti in Scozia e nelle isole — non la principale via danese del Mare del Nord.',
+      de: 'Norwegische Aktivitäten im Zusammenhang mit Siedlungen in Schottland und auf den Inseln – nicht die wichtigste dänische Route.',
     },
   },
   {
@@ -430,11 +448,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Scotland and Hebrides — Norse staging coasts',
       fr: 'Écosse et Hébrides — rivages norrois de relais',
       it: 'Scozia ed Ebridi — coste norrene di appoggio',
+      de: 'Schottland und die Hebriden – nordische Staffelküsten',
     },
     segmentDetail: {
       en: 'Orkney, Hebrides, and Irish Sea hubs connected Norwegian fleets to western Britain.',
       fr: 'Les Orcades, les Hébrides et la mer d’Irlande reliaient les flottes norvégiennes à l’ouest de la Bretagne.',
       it: 'Orcadi, Ebridi e snodi del mare d\'Irlanda collegavano le flotte norvegesi all\'ovest della Britannia.',
+      de: 'Die Orkneys, die Hebriden und die Irische See verbanden die norwegischen Flotten mit der westlichen Bretagne.',
     },
   },
   {
@@ -457,11 +477,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Hebrides → Isle of Man — Norse-Gaelic networks',
       fr: 'Hébrides → île de Man — réseaux norso-gaéliques',
       it: 'Ebridi → Isola di Man — reti norreno-gaeliche',
+      de: 'Hebriden → Isle of Man – norso-gälische Netzwerke',
     },
     segmentDetail: {
       en: 'Movement between Norse island strongholds foreshadows coin and name links to western Normandy.',
       fr: 'Les échanges entre places fortes norroises annoncent les liens monétaires et toponymiques avec l’ouest normand.',
       it: 'I collegamenti tra le roccaforti insulari norrene prefigurano legami monetari e toponomastici con la Normandia occidentale.',
+      de: 'Der Austausch zwischen nordischen Hochburgen kündigt die monetären und toponymischen Verbindungen zur westlichen Normandie an.',
     },
   },
   {
@@ -483,11 +505,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Irish Sea Viking activity hub',
       fr: 'Pôle d’activité viking en mer d’Irlande',
       it: 'Polo d\'attività vichinga nel mare d\'Irlanda',
+      de: 'Wikinger-Aktivitätszentrum in der Irischen See',
     },
     segmentDetail: {
       en: 'Raids and fleets from Irish and Manx waters could reach the Celtic Sea and Channel approaches.',
       fr: 'Raids et flottes depuis l’Irlande et Man pouvaient gagner la mer Celtique et les approches de la Manche.',
       it: 'Incursioni e flotte dalle acque irlandesi e di Man potevano raggiungere il mare Celtico e gli approcci della Manica.',
+      de: 'Überfälle und Flotten aus Irland und der Menschheit könnten die Keltische See und die Zugänge zum Ärmelkanal erreichen.',
     },
   },
   {
@@ -510,11 +534,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Celtic Sea maritime corridor',
       fr: 'Corridor maritime de la mer Celtique',
       it: 'Corridoio marittimo del mare Celtico',
+      de: 'Seekorridor der Keltischen See',
     },
     segmentDetail: {
       en: 'Continues older Celtic seafaring patterns — monks, trade — now used by Norse navigators.',
       fr: 'Prolonge d’anciennes voies maritimes celtiques — moines, échanges — réutilisées par des navigateurs norrois.',
       it: 'Prosegue antichi itinerari marittimi celtici — monaci, scambi — ora percorsi da navigatori norreni.',
+      de: 'Verlängert alte keltische Seewege – Mönche, Handel – und wird von nordischen Seefahrern wiederverwendet.',
     },
   },
   {
@@ -537,11 +563,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Around Cornwall / Land’s End — Atlantic entry',
       fr: 'Contournement des Cornouailles / Land’s End — entrée atlantique',
       it: 'Lungo la Cornovaglia / Land\'s End — ingresso atlantico',
+      de: 'Cornwall Bypass / Land’s End – Atlantic Entrance',
     },
     segmentDetail: {
       en: 'Strategic approach for raids toward Aquitaine (799) or the Loire (843 Nantes), and for Channel crossings.',
       fr: 'Approche stratégique pour des raids vers l’Aquitaine (799) ou la Loire (Nantes, 843), et pour traverser la Manche.',
       it: 'Avvicinamento strategico per incursioni verso l\'Aquitania (799) o la Loira (Nantes, 843) e per attraversare la Manica.',
+      de: 'Strategischer Ansatz für Angriffe auf Aquitanien (799) oder die Loire (Nantes, 843) und die Überquerung des Ärmelkanals.',
     },
   },
   {
@@ -563,11 +591,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Into the English Channel',
       fr: 'Dans la Manche anglaise',
       it: 'Nella Manica',
+      de: 'Im Ärmelkanal',
     },
     segmentDetail: {
       en: 'From here traffic could fork toward Cotentin, the Channel Islands, or the Seine estuary.',
       fr: 'De ce point, le trafic pouvait se diriger vers le Cotentin, les îles Anglo-Normandes ou l’estuaire de la Seine.',
       it: 'Da qui il traffico poteva dirigersi verso il Cotentin, le isole del Canale o l\'estuario della Senna.',
+      de: 'Von diesem Punkt aus könnte der Verkehr in Richtung Cotentin, zu den Kanalinseln oder zur Seine-Mündung fließen.',
     },
   },
   {
@@ -590,11 +620,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cotentin — strong Norse-Celtic influence zone',
       fr: 'Cotentin — zone forte d’influence norso-celtique',
       it: 'Cotentin — zona di forte influenza norreno-celtica',
+      de: 'Cotentin – starkes Gebiet mit norsokeltischem Einfluss',
     },
     segmentDetail: {
       en: 'Scandinavian maritime place-names and mixed cultural signals cluster in western Normandy.',
       fr: 'Toponymes scandinaves et signaux culturels mixtes se concentrent dans l’ouest normand.',
       it: 'Toponimia scandinava e segnali culturali misti si concentrano nella Normandia occidentale.',
+      de: 'Skandinavische Toponyme und gemischte kulturelle Signale konzentrieren sich auf die westliche Normandie.',
     },
   },
   {
@@ -616,11 +648,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Channel Islands — Norse maritime sphere',
       fr: 'Îles Anglo-Normandes — sphère maritime norroise',
       it: 'Isole del Canale — sfera marittima norrena',
+      de: 'Kanalinseln – Nordische Meeressphäre',
     },
     segmentDetail: {
       en: 'Island stepping-stones between Brittany, Cotentin, and cross-Channel traffic.',
       fr: 'Îlots-relais entre Bretagne, Cotentin et trafic transmanche.',
       it: 'Isole-ponte tra Bretagna, Cotentin e traffico transmanicano.',
+      de: 'Relaisinseln zwischen Bretagne, Cotentin und Verkehr über den Ärmelkanal.',
     },
   },
   {
@@ -643,11 +677,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Seine access — corridor toward Rollo’s realm',
       fr: 'Accès à la Seine — corridor vers le domaine de Rollon',
       it: 'Accesso alla Senna — corridoio verso il dominio di Rollone',
+      de: 'Zugang zur Seine – Korridor zum Rollon-Anwesen',
     },
     segmentDetail: {
       en: 'Less direct than the Danish North Sea lane, but tied to the same riverine prize: Rouen and the lower Seine.',
       fr: 'Moins directe que la route danoise, mais vers le même enjeu fluvial : Rouen et la basse Seine.',
       it: 'Meno diretta della rotta danese del Mare del Nord, ma verso la stessa posta in gioco fluviale: Rouen e la bassa Senna.',
+      de: 'Weniger direkt als die dänische Route, aber zum gleichen Flussthema: Rouen und die untere Seine.',
     },
   },
   {
@@ -669,11 +705,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Rouen — future capital of Viking Normandy',
       fr: 'Rouen — future capitale de la Normandie viking',
       it: 'Rouen — futura capitale della Normandia vichinga',
+      de: 'Rouen – zukünftige Hauptstadt der Wikinger-Normandie',
     },
     segmentDetail: {
       en: 'The Seine tied Celtic–Atlantic arrivals into the same political core that would elevate Rollo’s successors.',
       fr: 'La Seine rattachait les arrivées celtico-atlantiques au même noyau politique qui élèverait les successeurs de Rollon.',
       it: 'La Senna collegava gli arrivi celtico-atlantici allo stesso nucleo politico che avrebbe innalzato i successori di Rollone.',
+      de: 'Die Seine verband die keltisch-atlantischen Ankömmlinge mit demselben politischen Kern, der Rollos Nachfolger hervorbringen sollte.',
     },
   },
   {
@@ -725,11 +763,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Danish North Sea lane — Jutland to Jórvík',
       fr: 'Voie danoise de la mer du Nord — Jutland à Jórvík',
       it: 'Via danese del Mare del Nord — Jutland a Jórvík',
+      de: 'Dänischer Nordseeweg – Jütland nach Jórvík',
     },
     segmentDetail: {
       en: 'The main Danish route crossed the North Sea to eastern England. York (Jórvík) became the capital of the Danelaw after 866.',
       fr: 'La voie danoise principale traversait la mer du Nord vers l\'est de l\'Angleterre. York (Jórvík) devint la capitale du Danelaw après 866.',
       it: 'La principale rotta danese attraversava il Mare del Nord verso l\'est dell\'Inghilterra. York (Jórvík) divenne capitale del Danelaw dopo l\'866.',
+      de: 'Die wichtigste dänische Route führte über die Nordsee östlich von England. York (Jórvík) wurde nach 866 die Hauptstadt von Danelaw.',
     },
   },
   {
@@ -756,11 +796,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'England → Seine — Danish Channel crossing',
       fr: 'Angleterre → Seine — traversée danoise de la Manche',
       it: 'Inghilterra → Senna — traversata danese della Manica',
+      de: 'England → Seine – dänische Überquerung des Ärmelkanals',
     },
     segmentDetail: {
       en: 'From the Danelaw, fleets could sail south along the English coast and cross to the Seine estuary — the route that brought Rollo to Normandy.',
       fr: 'Depuis le Danelaw, les flottes pouvaient longer la côte anglaise vers le sud et traverser vers l\'estuaire de la Seine — la route qui amena Rollon en Normandie.',
       it: 'Dal Danelaw le flotte potevano risalire verso sud lungo la costa inglese e attraversare verso l\'estuario della Senna — la rotta che portò Rollone in Normandia.',
+      de: 'Vom Danelaw aus konnten Flotten der englischen Küste nach Süden folgen und zur Seine-Mündung überqueren – der Route, die Rollo in die Normandie brachte.',
     },
   },
   // --- Viking river routes: Loire ---
@@ -786,11 +828,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Loire valley raids — Nantes to the interior',
       fr: 'Raids dans la vallée de la Loire — Nantes vers l\'intérieur',
       it: 'Incursioni nella valle della Loira — da Nantes verso l\'interno',
+      de: 'Überfälle im Loiretal – Nantes einwärts',
     },
     segmentDetail: {
       en: 'Vikings sacked Nantes in 843 and used the Loire as a highway into central Francia. Raiding parties reached as far as Tours and Orléans.',
       fr: 'Les Vikings pillèrent Nantes en 843 et utilisèrent la Loire comme autoroute vers le centre de la Francie. Les bandes de pillards atteignirent Tours et Orléans.',
       it: 'I vichinghi saccheggiarono Nantes nell\'843 e usarono la Loira come strada verso la Francia centrale. Le bande giunsero fino a Tours e Orléans.',
+      de: 'Die Wikinger plünderten 843 Nantes und nutzten die Loire als Autobahn nach Zentralfranken. Die Plündererbanden erreichten Tours und Orléans.',
     },
   },
   // --- Viking river routes: Rhine ---
@@ -819,11 +863,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Rhine / Meuse corridor raids',
       fr: 'Raids dans le corridor Rhin / Meuse',
       it: 'Incursioni nel corridoio Reno / Mosa',
+      de: 'Razzien im Rhein-Maas-Korridor',
     },
     segmentDetail: {
       en: 'Danish fleets entered the Rhine estuary, raiding Dorestad (repeatedly from 834), Utrecht, and Cologne. The Meuse was used to penetrate Lotharingia.',
       fr: 'Les flottes danoises pénétrèrent l\'estuaire du Rhin, pillant Dorestad (à répétition dès 834), Utrecht et Cologne. La Meuse servit à pénétrer la Lotharingie.',
       it: 'Le flotte danesi penetrarono nell\'estuario del Reno, saccheggiando Dorestad (ripetutamente dal 834), Utrecht e Colonia. La Mosa servì a penetrare la Lotaringia.',
+      de: 'Die dänischen Flotten drangen in die Rheinmündung ein und plünderten Dorestad (ab 834 wiederholt), Utrecht und Köln. Die Maas diente zur Durchdringung Lotharingiens.',
     },
   },
   // --- Viking river routes: Garonne ---
@@ -847,11 +893,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Garonne / Aquitaine raids',
       fr: 'Raids en Garonne / Aquitaine',
       it: 'Incursioni in Garonna / Aquitania',
+      de: 'Razzien in der Garonne/Aquitanien',
     },
     segmentDetail: {
       en: 'Vikings raided Bordeaux (848) and penetrated the Garonne, reaching Toulouse. These southern raids were less sustained than the Seine or Loire campaigns.',
       fr: 'Les Vikings pillèrent Bordeaux (848) et pénétrèrent la Garonne, atteignant Toulouse. Ces raids méridionaux furent moins soutenus que les campagnes de la Seine ou de la Loire.',
       it: 'I vichinghi saccheggiarono Bordeaux (848) e penetrarono la Garonna fino a Tolosa. Queste incursioni meridionali furono meno durature delle campagne sulla Senna o sulla Loira.',
+      de: 'Die Wikinger plünderten Bordeaux (848) und drangen in die Garonne ein, bis sie Toulouse erreichten. Diese südlichen Überfälle waren weniger nachhaltig als die Feldzüge an der Seine oder der Loire.',
     },
   },
   // --- Eastern routes: Baltic → Ladoga → Novgorod ---
@@ -879,11 +927,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Baltic crossing — Birka to Ladoga',
       fr: 'Traversée de la Baltique — Birka à Ladoga',
       it: 'Attraversamento del Baltico — da Birka a Ladoga',
+      de: 'Überquerung der Ostsee – Birka nach Ladoga',
     },
     segmentDetail: {
       en: 'Swedish Varangians crossed the Baltic to Staraya Ladoga (Aldeigjuborg), the gateway to the Russian river system. Arabic dirhams found at Birka confirm the eastern trade link.',
       fr: 'Les Varègues suédois traversèrent la Baltique jusqu\'à Staraya Ladoga (Aldeigjuborg), porte d\'entrée du réseau fluvial russe. Les dirhams arabes trouvés à Birka confirment le lien commercial oriental.',
       it: 'I variaghi svedesi attraversarono il Baltico fino a Staraja Ladoga (Aldeigjuborg), ingresso alla rete fluviale russa. I dirham arabi ritrovati a Birka confermano il legame commerciale orientale.',
+      de: 'Die schwedischen Waräger überquerten die Ostsee nach Staraya Ladoga (Aldeigjuborg), dem Tor zum russischen Flusssystem. Die in Birka gefundenen arabischen Dirham bestätigen die östliche Handelsverbindung.',
     },
   },
   {
@@ -906,11 +956,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Ladoga → Novgorod (Holmgarðr)',
       fr: 'Ladoga → Novgorod (Holmgarðr)',
       it: 'Ladoga → Novgorod (Holmgarðr)',
+      de: 'Ladoga → Nowgorod (Holmgarðr)',
     },
     segmentDetail: {
       en: 'Varangian traders and warriors moved south from Ladoga via the Volkhov to Novgorod, which became a key Rus power centre by the mid-9th century.',
       fr: 'Marchands et guerriers varègues descendirent de Ladoga via le Volkhov jusqu\'à Novgorod, devenu un centre de pouvoir rus clé au milieu du IXe siècle.',
       it: 'Mercanti e guerrieri variaghi scendevano da Ladoga lungo il Volchov verso Novgorod, divenuto entro la metà del IX secolo un centro di potere russo decisivo.',
+      de: 'Warägerische Kaufleute und Krieger kamen von Ladoga über den Wolchow nach Nowgorod, das Mitte des 9. Jahrhunderts zu einem wichtigen Machtzentrum Russlands wurde.',
     },
   },
   // --- Dnieper route: Novgorod → Kiev → Constantinople ---
@@ -937,11 +989,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Novgorod → Kiev — the road from the Varangians to the Greeks',
       fr: 'Novgorod → Kiev — la route des Varègues aux Grecs',
       it: 'Novgorod → Kiev — la strada dai Variaghi ai Greci',
+      de: 'Nowgorod → Kiew – der Weg von den Warägern zu den Griechen',
     },
     segmentDetail: {
       en: 'The Dnieper corridor linked Novgorod to Kiev, the capital of the Rus. The Primary Chronicle records Varangian rulers establishing control along this route in the 860s–880s.',
       fr: 'Le corridor du Dniepr reliait Novgorod à Kiev, capitale de la Rus. La Chronique des temps passés rapporte l\'établissement de dirigeants varègues le long de cette route dans les années 860–880.',
       it: 'Il corridoio del Dnepr collegava Novgorod a Kiev, capitale della Rus\'. La Cronaca degli anni passati attesta variaghi che imposero il controllo lungo questa rotta negli anni 860–880.',
+      de: 'Der Dnjepr-Korridor verband Nowgorod mit Kiew, der Hauptstadt der Rus. Die Chronicle of Bygone Times dokumentiert die Gründung warägianischer Herrscher entlang dieser Route in den 860er–880er Jahren.',
     },
   },
   {
@@ -969,11 +1023,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Kiev → Constantinople — Dnieper to the Black Sea',
       fr: 'Kiev → Constantinople — Dniepr vers la mer Noire',
       it: 'Kiev → Costantinopoli — Dnepr verso il Mar Nero',
+      de: 'Kiew → Konstantinopel – Dnjepr bis zum Schwarzen Meer',
     },
     segmentDetail: {
       en: 'Rus traders navigated the Dnieper rapids to the Black Sea, reaching Constantinople for trade and military service in the Varangian Guard. Byzantine sources record Rus attacks on the city in 860 and 907.',
       fr: 'Les marchands rus naviguèrent les rapides du Dniepr jusqu\'à la mer Noire, atteignant Constantinople pour le commerce et le service militaire dans la garde varègue. Les sources byzantines mentionnent des attaques rus sur la ville en 860 et 907.',
       it: 'Mercanti rus\' percorsero le rapide del Dnepr fino al Mar Nero, raggiungendo Costantinopoli per commercio e servizio nella guardia variaga. Fonti bizantine registrano attacchi rus\' alla città nell\'860 e nel 907.',
+      de: 'Russische Kaufleute segelten über die Stromschnellen des Dnjepr zum Schwarzen Meer und erreichten Konstantinopel zum Handel und zum Militärdienst in der Warägergarde. Byzantinische Quellen erwähnen Angriffe der Rus auf die Stadt in den Jahren 860 und 907.',
     },
   },
   // --- Volga route: Novgorod → Bulgar → Caspian direction ---
@@ -1000,11 +1056,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Volga trade route — Novgorod to Bulgar',
       fr: 'Route commerciale de la Volga — Novgorod à Bulgar',
       it: 'Rotta commerciale della Volga — Novgorod a Bulgar',
+      de: 'Wolga-Handelsroute – Nowgorod nach Bulgar',
     },
     segmentDetail: {
       en: 'Varangian traders followed the Volga to Bulgar, a major entrepôt of the Volga Bulgars where furs, honey, and slaves were exchanged for Islamic silver. Thousands of Arabic dirhams found in Scandinavia attest to this corridor.',
       fr: 'Les marchands varègues suivirent la Volga jusqu\'à Bulgar, un entrepôt majeur des Bulgares de la Volga où fourrures, miel et esclaves étaient échangés contre de l\'argent islamique. Des milliers de dirhams arabes retrouvés en Scandinavie attestent de ce corridor.',
       it: 'I mercanti variaghi seguirono la Volga fino a Bulgar, grande emporio dei bulgari della Volga dove pelli, miele e schiavi si scambiavano con argento islamico. Migliaia di dirham arabi in Scandinavia testimoniano questo corridoio.',
+      de: 'Warägerische Kaufleute folgten der Wolga nach Bulgar, einem wichtigen Umschlagplatz der Wolgabulgaren, wo Pelze, Honig und Sklaven gegen islamisches Silber eingetauscht wurden. Tausende in Skandinavien gefundene arabische Dirham zeugen von diesem Korridor.',
     },
   },
   // --- Atlantic Norse: Norway → Iceland / Greenland / Vinland ---
@@ -1030,11 +1088,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norway → Iceland — settlement voyages',
       fr: 'Norvège → Islande — voyages de colonisation',
       it: 'Norvegia → Islanda — viaggi di colonizzazione',
+      de: 'Norwegen → Island – Kolonisierungsreisen',
     },
     segmentDetail: {
       en: 'Norwegian settlers colonised Iceland from c. 870, founding the Althing (930). The sagas record hundreds of landnám (land-take) families crossing the open North Atlantic.',
       fr: 'Les colons norvégiens colonisèrent l\'Islande à partir d\'env. 870, fondant l\'Althing (930). Les sagas rapportent des centaines de familles de landnám traversant l\'Atlantique Nord.',
       it: 'I coloni norvegesi colonizzarono l\'Islanda dal ca. 870, fondando l\'Althing (930). Le saghe narrano centinaia di famiglie di landnám che attraversarono l\'Atlantico del Nord aperto.',
+      de: 'Norwegische Siedler kolonisierten Island ab ca. 870, Gründung des Althing (930). In den Sagen wird von Hunderten von Landnám-Familien berichtet, die den Nordatlantik überquerten.',
     },
   },
   {
@@ -1058,11 +1118,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Iceland → Greenland — Erik the Red',
       fr: 'Islande → Groenland — Erik le Rouge',
       it: 'Islanda → Groenlandia — Erik il Rosso',
+      de: 'Island → Grönland – Erik der Rote',
     },
     segmentDetail: {
       en: 'Erik the Red established the Greenland colonies c. 985. At their peak, the Eastern and Western settlements housed some 3,000–5,000 Norse inhabitants.',
       fr: 'Erik le Rouge établit les colonies du Groenland vers 985. À leur apogée, les établissements de l\'est et de l\'ouest abritaient environ 3 000 à 5 000 habitants scandinaves.',
       it: 'Erik il Rosso fondò le colonie groenlandesi verso il 985. All\'apogeo, gli insediamenti orientale e occidentale contavano circa 3.000–5.000 abitanti norreni.',
+      de: 'Erik der Rote gründete um 985 die grönländischen Kolonien. Auf ihrem Höhepunkt lebten in den östlichen und westlichen Siedlungen etwa 3.000 bis 5.000 nordische Einwohner.',
     },
   },
   {
@@ -1086,11 +1148,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: "Greenland → Vinland (L'Anse aux Meadows)",
       fr: "Groenland → Vinland (L'Anse aux Meadows)",
       it: 'Groenlandia → Vinland (L\'Anse aux Meadows)',
+      de: 'Grönland → Vinland (L’Anse aux Meadows)',
     },
     segmentDetail: {
       en: "Leif Erikson reached North America c. 1000. The archaeological site at L'Anse aux Meadows in Newfoundland is the only confirmed Norse settlement in the Americas.",
       fr: "Leif Erikson atteignit l'Amérique du Nord vers 1000. Le site archéologique de L'Anse aux Meadows à Terre-Neuve est le seul établissement scandinave confirmé en Amérique.",
       it: 'Leif Erikson raggiunse il Nord America verso il 1000. Il sito archeologico di L\'Anse aux Meadows a Terranova è l\'unico insediamento norreno confermato nelle Americhe.',
+      de: 'Leif Erikson erreichte Nordamerika um das Jahr 1000. Die archäologische Stätte L\'Anse aux Meadows in Neufundland ist die einzige bestätigte skandinavische Siedlung in Amerika.',
     },
   },
   // --- Norwegian → British Isles direct raids ---
@@ -1114,11 +1178,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norway → Orkney — Norse jarldom',
       fr: 'Norvège → Orcades — jarldom norrois',
       it: 'Norvegia → Orcadi — jarldom norreno',
+      de: 'Norwegen → Orkney – nordischer Jarldom',
     },
     segmentDetail: {
       en: 'Norwegian chieftains settled Orkney and Shetland from the late 8th century, establishing the Norse Earldom of Orkney that lasted until 1472.',
       fr: 'Les chefs norvégiens s\'installèrent aux Orcades et aux Shetland dès la fin du VIIIe siècle, établissant le jarldom norrois des Orcades qui dura jusqu\'en 1472.',
       it: 'Capi norvegesi si stabilirono alle Orcadi e alle Shetland dalla fine dell\'VIII secolo, fondando il jarldom norreno delle Orcadi che durò fino al 1472.',
+      de: 'Ab dem späten 8. Jahrhundert ließen sich norwegische Häuptlinge auf den Orkney- und Shetlandinseln nieder und gründeten die nordische Herrschaft Orkney, die bis 1472 bestand.',
     },
   },
   {
@@ -1141,11 +1207,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Orkney → Dublin — Norse-Gaelic corridor',
       fr: 'Orcades → Dublin — corridor norso-gaélique',
       it: 'Orcadi → Dublino — corridoio norreno-gaelico',
+      de: 'Orkney → Dublin – nordisch-gälischer Korridor',
     },
     segmentDetail: {
       en: 'Norse warriors established Dublin as a longphort in 841. The Dublin-Orkney axis became a power base for Norse-Gaelic kings who intervened across the Irish Sea and into northern England.',
       fr: 'Les guerriers scandinaves établirent Dublin comme longphort en 841. L\'axe Dublin-Orcades devint une base de pouvoir pour les rois norso-gaéliques intervenant en mer d\'Irlande et dans le nord de l\'Angleterre.',
       it: 'Guerrieri norreni fondarono Dublino come longphort nell\'841. L\'asse Dublino-Orcadi divenne base di potere per re norreno-gaelici attivi nel mare d\'Irlanda e nel nord dell\'Inghilterra.',
+      de: 'Nordische Krieger gründeten Dublin im Jahr 841 als Longphort. Die Achse Dublin-Orkney wurde zur Machtbasis für nordisch-gälische Könige, die in der Irischen See und im Norden Englands intervenierten.',
     },
   },
   // --- Viking world: Baltic emporia & Danish–Swedish trade web ---
@@ -1170,11 +1238,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Denmark → Hedeby — southern Jutland emporium',
       fr: 'Danemark → Hedeby — emporium du Jutland méridional',
       it: 'Danimarca → Hedeby — emporio dello Jutland meridionale',
+      de: 'Dänemark → Haithabu – Handelszentrum Südjütland',
     },
     segmentDetail: {
       en: 'Hedeby (Haithabu) sat at the base of the Jutland peninsula, funneling Baltic and North Sea traffic. Whetstones, furs, and silver moved through this choke-point for centuries.',
       fr: 'Hedeby (Haithabu) se situait à la base de la péninsule du Jutland, canalisant le trafic de la Baltique et de la mer du Nord.',
       it: 'Hedeby (Haithabu) sorgeva alla base della penisola dello Jutland, incanalando il traffico del Baltico e del Mare del Nord.',
+      de: 'Haithabu (Haithabu) lag am Fuße der Halbinsel Jütland und kanalisierte den Handel von der Ostsee und der Nordsee.',
     },
   },
   {
@@ -1199,11 +1269,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Hedeby → Birka — Baltic crossing',
       fr: 'Hedeby → Birka — traversée de la Baltique',
       it: 'Hedeby → Birka — attraversamento del Baltico',
+      de: 'Haithabu → Birka – Ostseeüberquerung',
     },
     segmentDetail: {
       en: 'The sea road linked Denmark’s southern emporium to Sweden’s island entrepôt. Arabic silver dirhams reached Birka over this network, proof of ties to the Volga and Islamic trade.',
       fr: 'La route maritime reliait l\'emporium danois du sud à l\'entrepôt insulaire suédois. Les dirhams d\'argent arabes parvinrent à Birka via ce réseau.',
       it: 'La rotta marittima collegava l\'emporio danese meridionale all\'entrepôt svedese sull\'isola. I dirham arabi d\'argento giunsero a Birka attraverso questa rete.',
+      de: 'Der Seeweg verband das süddänische Handelszentrum mit dem schwedischen Insellager. Über dieses Netzwerk gelangten die arabischen Silberdirham nach Birka.',
     },
   },
   // --- North Atlantic stepping stones (Faroes) ---
@@ -1230,11 +1302,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norway → Faroe Islands — North Atlantic hops',
       fr: 'Norvège → Féroé — relais de l\'Atlantique Nord',
       it: 'Norvegia → Fær Øer — tappe dell\'Atlantico del Nord',
+      de: 'Norwegen → Färöer – Nordatlantik-Staffel',
     },
     segmentDetail: {
       en: 'Irish monks may have preceded Norse farmers, but from the 9th century the Faroes became a secure Norse staging archipelago before Iceland and Greenland.',
       fr: 'Des moines irlandais ont peut-être précédé les paysans scandinaves, mais dès le IXe siècle les Féroé devinrent un archipel-relais norrois avant l\'Islande et le Groenland.',
       it: 'Monaci irlandesi potrebbero aver preceduto i contadini norreni, ma dal IX secolo le Fær Øer divennero un arcipelago-ponte verso Islanda e Groenlandia.',
+      de: 'Irische Mönche mögen den skandinavischen Bauern vorausgegangen sein, aber ab dem 9. Jahrhundert wurden die Färöer-Inseln zu einem nordischen Staffelarchipel vor Island und Grönland.',
     },
   },
   {
@@ -1259,11 +1333,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Faroes → Iceland — companion route to direct Norway sailings',
       fr: 'Féroé → Islande — voie parallèle aux départs norvégiens directs',
       it: 'Fær Øer → Islanda — rotta affiancata alle partenze dirette dalla Norvegia',
+      de: 'Färöer → Island – Parallelroute zu direkten norwegischen Abflügen',
     },
     segmentDetail: {
       en: 'Many landnáms families island-hopped via the Faroes; sagas and sailing logic both favour this gentler arc across the open ocean.',
       fr: 'Nombreuses familles du landnám firent escale aux Féroé ; sagas et logique nautique favorisent cet arc plus doux sur l\'océan ouvert.',
       it: 'Molte famiglie del landnám fecero tappa alle Fær Øer; saghe e logica di navigazione favoriscono questo arco più dolce sull\'oceano aperto.',
+      de: 'Viele Familien aus dem Landnám machten auf den Färöer-Inseln Halt; Sagen und nautische Logik begünstigen diesen sanfteren Bogen auf dem offenen Ozean.',
     },
   },
   // --- Lindisfarne & the eastern English coast ---
@@ -1291,11 +1367,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Denmark / Scandinavia → Lindisfarne — opening of the English raid phase',
       fr: 'Danemark / Scandinavie → Lindisfarne — ouverture des raids anglais',
       it: 'Danimarca / Scandinavia → Lindisfarne — apertura della fase di raid inglesi',
+      de: 'Dänemark / Skandinavien → Lindisfarne – Eröffnung englischer Angriffe',
     },
     segmentDetail: {
       en: 'On 8 June 793 Norse raiders struck the monastery of Lindisfarne. Contemporary letters treated it as a shocking omen — the prototype of two centuries of Scandinavian activity in the British Isles.',
       fr: 'Le 8 juin 793 des pirates scandinaves attaquèrent le monastère de Lindisfarne. Les lettres contemporaines y virent un présage — le prototype de deux siècles d\'activité scandinave dans les îles britanniques.',
       it: 'L\'8 giugno 793 i predoni norreni colpirono il monastero di Lindisfarne. Le lettere coeve ne fecero un presagio — prototipo di due secoli di attività scandinava nelle isole britanniche.',
+      de: 'Am 8. Juni 793 griffen skandinavische Piraten das Kloster Lindisfarne an. Zeitgenössische Briefe sahen darin ein Omen – den Prototyp für zwei Jahrhunderte skandinavischer Aktivität auf den britischen Inseln.',
     },
   },
   {
@@ -1320,11 +1398,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Jórvík → Lindisfarne — Northumbrian coast',
       fr: 'Jórvík → Lindisfarne — côte northumbrienne',
       it: 'Jórvík → Lindisfarne — costa northumbrese',
+      de: 'Jórvík → Lindisfarne – Northumbrische Küste',
     },
     segmentDetail: {
       en: 'After the Great Army seized York, Norse power on the North Sea coast linked the Danelaw capital to the same monastic landscapes first hit in 793.',
       fr: 'Après la prise d\'York par la Grande Armée, le pouvoir norrois sur la côte de la mer du Nord relia la capitale du Danelaw aux paysages monastiques frappés dès 793.',
       it: 'Dopo la presa di York da parte della Grande armata, il potere norreno sulla costa del Mare del Nord collegava la capitale del Danelaw agli stessi paesaggi monastici colpiti fin dal 793.',
+      de: 'Nach der Eroberung Yorks durch die Große Armee verband die nordische Macht an der Nordseeküste die Hauptstadt Danelaw mit den bereits 793 eroberten Klosterlandschaften.',
     },
   },
   // --- Thames & Danelaw interior links ---
@@ -1350,11 +1430,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Channel → London — Thames estuary raids',
       fr: 'Manche → Londres — raids sur l\'estuaire de la Tamise',
       it: 'Manica → Londra — incursioni sull\'estuario del Tamigi',
+      de: 'Ärmelkanal → London – Überfälle auf die Themsemündung',
     },
     segmentDetail: {
       en: 'Viking fleets repeatedly probed the Thames: London was burned in 842, and later Great Army winterings tied the river to kingdom-shaking campaigns.',
       fr: 'Les flottes vikings sonderent à plusieurs reprises la Tamise : Londres fut brûlée en 842, et les hivernages de la Grande Armée lièrent le fleuve à des campagnes qui ébranlèrent les royaumes.',
       it: 'Le flotte vichinghe sondarono ripetutamente il Tamigi: Londra fu data alle fiamme nell\'842, e più tardi gli svernam della Grande armata legarono il fiume a campagne che scossero i regni.',
+      de: 'Wikingerflotten überwachten wiederholt die Themse: London wurde 842 niedergebrannt, und die Überwinterung der Großen Armee verband den Fluss mit Feldzügen, die die Königreiche erschütterten.',
     },
   },
   {
@@ -1379,11 +1461,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'London → York — Great Army corridor',
       fr: 'Londres → York — corridor de la Grande Armée',
       it: 'Londra → York — corridoio della Grande armata',
+      de: 'Korridor London → York – Grande Armée',
     },
     segmentDetail: {
       en: 'The “micel here” moved by river and road through Mercia and Northumbria, stitching the Thames basin to Scandinavian York.',
       fr: 'La « micel here » se déplaça par rivières et routes à travers le Mercia et la Northumbrie, reliant le bassin de la Tamise à York scandinave.',
       it: 'La « micel here » si mosse lungo fiumi e strade attraverso Mercia e Northumbria, collegando il bacino del Tamigi a York scandinava.',
+      de: 'Die „Mizellen hier“ bewegten sich über Flüsse und Straßen durch Mercia und Northumbria und verbanden das Themsebecken mit dem skandinavischen York.',
     },
   },
   // --- Irish Sea → Channel (raid fork) ---
@@ -1410,11 +1494,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Dublin → western Channel — Norse-Gaelic fleets toward Francia',
       fr: 'Dublin → Manche occidentale — flottes norso-gaéliques vers la Francie',
       it: 'Dublino → Manica occidentale — flotte norreno-gaeliche verso la Francia',
+      de: 'Dublin → Westlicher Kanal – norso-gälische Flotten nach Frankreich',
     },
     segmentDetail: {
       en: 'Irish Sea kings could commit longships to the same Atlantic approaches used by the Cotentin and Breton coasts — another vector into Frankish waters besides the Danish North Sea lane.',
       fr: 'Les rois de la mer d\'Irlande pouvaient engager des longs sur les mêmes approches atlantiques que les côtes du Cotentin et de Bretagne — un autre vecteur vers les eaux franques que la voie danoise du nord.',
       it: 'I re del mare d\'Irlanda potevano impegnare lunghe navi sulle stesse rotte atlantiche delle coste del Cotentin e della Bretagna — un altro vettore verso le acque franche oltre alla rotta danese del nord.',
+      de: 'Die Könige der Irischen See konnten Langschiffe auf den gleichen Zufahrtswegen zum Atlantik angreifen wie die Küsten des Cotentin und der Bretagne – ein weiterer Vektor zu fränkischen Gewässern als die dänische Route aus dem Norden.',
     },
   },
   // --- Atlantic façade → Gibraltar → Mediterranean (Western Way) ---
@@ -1443,11 +1529,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Bay of Biscay → Gibraltar — Atlantic raid highway',
       fr: 'Golfe de Gascogne → Gibraltar — autoroute de raid atlantique',
       it: 'Golfo di Biscaglia → Gibilterra — grande via di incursione atlantica',
+      de: 'Golf von Biskaya → Gibraltar – Atlantik-Raid-Highway',
     },
     segmentDetail: {
       en: 'After Viking fleets sacked Nantes (843) and probed Aquitaine, groups used the Iberian Atlantic façade to reach the Strait — prelude to raids on al-Andalus, Pamplona, and the Mediterranean.',
       fr: 'Après le sac de Nantes (843) et des incursions en Aquitaine, des groupes utilisèrent la façade atlantique ibérique pour gagner le détroit — prélude aux raids sur al-Andalus, Pampelune et la Méditerranée.',
       it: 'Dopo il sacco di Nantes (843) e le puntate in Aquitania, gruppi percorsero la facciata atlantica iberica fino allo stretto — preludio a raid su al-Andalus, Pamplona e il Mediterraneo.',
+      de: 'Nach der Plünderung von Nantes (843) und Einfällen in Aquitanien nutzten Gruppen die iberische Atlantikküste, um die Meerenge zu erreichen – ein Auftakt für Überfälle auf al-Andalus, Pamplona und das Mittelmeer.',
     },
   },
   {
@@ -1470,11 +1558,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Strait → Seville — Guadalquivir raid (844)',
       fr: 'Détroit → Séville — raid du Guadalquivir (844)',
       it: 'Stretto → Siviglia — incursione sul Guadalquivir (844)',
+      de: 'Meerenge → Sevilla – Überfall auf Guadalquivir (844)',
     },
     segmentDetail: {
       en: 'In 844 Viking ships sailed up the Guadalquivir and attacked Seville before Umayyad cavalry counterstruck. It epitomised how far western fleets could penetrate Islamic Spain.',
       fr: 'En 844 des navires vikings remontèrent le Guadalquivir et attaquèrent Séville avant la riposte de la cavalerie omeyyade. C\'est la mesure de la pénétration possible en al-Andalus.',
       it: 'Nel 844 navi vichinghe risalirono il Guadalquivir e attaccarono Siviglia prima della controffensiva della cavalleria omayyade. Simboleggia quanto lontano le flotte occidentali potessero penetrare nella Spagna islamica.',
+      de: 'Im Jahr 844 segelten Wikingerschiffe den Guadalquivir hinauf und griffen Sevilla an, bevor die Kavallerie der Umayyaden reagierte. Dies ist das Ausmaß eines möglichen Eindringens in al-Andalus.',
     },
   },
   {
@@ -1499,11 +1589,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Iberia → Sardinian waters — western Mediterranean raids',
       fr: 'Ibérie → eaux sardes — raids en Méditerranée occidentale',
       it: 'Iberia → acque sarde — incursioni nel Mediterraneo occidentale',
+      de: 'Iberien → sardische Gewässer – Überfälle im westlichen Mittelmeer',
     },
     segmentDetail: {
       en: 'From the 860s Norse groups joined Frankish, Andalusī, and Italian coastal traffic, raiding islands and ports and sometimes serving as mercenaries.',
       fr: 'Dès les années 860 des groupes norrois se mêlèrent au trafic côtier franc, andalou et italien, pillant îles et ports et parfois servant comme mercenaires.',
       it: 'Dagli anni 860 gruppi norreni si mescolarono al traffico costiero franco, andalusino e italiano, saccheggiando isole e porti e talvolta servendo come mercenari.',
+      de: 'Ab den 860er Jahren vermischten sich nordische Gruppen mit dem fränkischen, andalusischen und italienischen Küstenhandel, plünderten Inseln und Häfen und dienten manchmal als Söldner.',
     },
   },
   {
@@ -1527,11 +1619,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Tyrrhenian crossing toward Sicily',
       fr: 'Traversée tyrrhénienne vers la Sicile',
       it: 'Attraversamento tirreno verso la Sicilia',
+      de: 'Tyrrhenische Überfahrt nach Sizilien',
     },
     segmentDetail: {
       en: 'Sicily and southern Italy saw Scandinavian names in Byzantine and Arab sources — the same wide arc that later fed Norman adventurers into the Mezzogiorno.',
       fr: 'La Sicile et l\'Italie méridionale apparaissent sous des noms scandinaves dans les sources byzantines et arabes — le même grand arc qui alimentera plus tard les aventuriers normands dans le Mezzogiorno.',
       it: 'La Sicilia e l\'Italia meridionale compaiono con nomi scandinavi in fonti bizantine e arabe — lo stesso arco ampio che più tardi alimentò gli avventurieri normanni nel Mezzogiorno.',
+      de: 'Sizilien und Süditalien erscheinen unter skandinavischen Namen in byzantinischen und arabischen Quellen – derselbe große Bogen, der später normannischen Abenteurern im Mezzogiorno Antrieb geben sollte.',
     },
   },
   {
@@ -1555,11 +1649,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Sicily → Ifriqiya — central Mediterranean',
       fr: 'Sicile → Ifriqiya — Méditerranée centrale',
       it: 'Sicilia → Ifriqiya — Mediterraneo centrale',
+      de: 'Sizilien → Ifriqiya – Zentrales Mittelmeer',
     },
     segmentDetail: {
       en: 'Fatimid North Africa and Sicilian waters lay on the same sea-lanes Norse navigators used after mastering Gibraltar — distant but not mythical for 10th-century fleets.',
       fr: 'L\'Ifriqiya fatimide et les eaux siciliennes se trouvaient sur les mêmes routes maritimes que les navigateurs norrois empruntaient après avoir maîtrisé Gibraltar.',
       it: 'L\'Ifriqiya fatimide e le acque siciliane giacevano sulle stesse rotte marittime che i navigatori norreni usavano dopo aver domato Gibilterra.',
+      de: 'Die Gewässer des fatimidischen Ifriqiya und Siziliens lagen auf denselben Seewegen, die nordische Seefahrer nach der Unterwerfung Gibraltars einschlugen.',
     },
   },
   {
@@ -1583,11 +1679,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Southern Italy → Rome — city sack (846)',
       fr: 'Italie méridionale → Rome — sac de la ville (846)',
       it: 'Italia meridionale → Roma — sacco della città (846)',
+      de: 'Süditalien → Rom – Plünderung der Stadt (846)',
     },
     segmentDetail: {
       en: 'Arab-led fleets with Norse crews sacked the Leonine City in 846, a shock that spurred new papal fortifications. It shows how interconnected Mediterranean raiding had become.',
       fr: 'Des flottes dirigées par des Arabes avec des équipages norrois pillèrent la cité léonine en 846, un choc qui hâta de nouvelles fortifications pontificales.',
       it: 'Flotte a guida araba con equipaggi norreni saccheggiarono la città leonina nell\'846, uno shock che accelerò nuove fortificazioni papali.',
+      de: 'Von Arabern angeführte Flotten mit nordischen Besatzungen plünderten 846 die leonische Stadt, ein Schock, der den Bau weiterer päpstlicher Befestigungen beschleunigte.',
     },
   },
   {
@@ -1613,11 +1711,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Italy → Constantinople — southern sea lane to Miklagarðr',
       fr: 'Italie → Constantinople — voie maritime méridionale vers Miklagarðr',
       it: 'Italia → Costantinopoli — rotta meridionale verso Miklagarðr',
+      de: 'Italien → Konstantinopel – südlicher Seeweg nach Miklagarðr',
     },
     segmentDetail: {
       en: 'Alongside the Dnieper “route from the Varangians to the Greeks,” Italian and Aegean shipping offered another path for Norse mercenaries and slaves bound for the imperial capital.',
       fr: 'Outre la « route des Varègues aux Grecs » du Dniepr, le cabotage italien et égéen offrait une autre voie aux mercenaires et esclaves scandinaves vers la capitale impériale.',
       it: 'Accanto alla «strada dai Variaghi ai Greci» del Dnepr, il cabotaggio italiano ed egeo offriva un\'altra rotta per mercenari e schiavi scandinavi verso la capitale imperiale.',
+      de: 'Neben der „Varangian-Griechischen Route“ über den Dnjepr bot die italienische und ägäische Küstenschifffahrt eine weitere Route für skandinavische Söldner und Sklaven in die Reichshauptstadt.',
     },
   },
   // --- Volga silver route extension (Caspian → Islamic world) ---
@@ -1643,11 +1743,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Volga Bulgars → southern Caspian — fur and slave entrepôts',
       fr: 'Bulgares de la Volga → sud de la Caspienne — entrepôts de fourrures et d\'esclaves',
       it: 'Bulgari della Volga → Caspio meridionale — empori di pellicce e schiavi',
+      de: 'Wolgabulgaren → Südkaspisches Meer – Pelz- und Sklavenlager',
     },
     segmentDetail: {
       en: 'From Bulgar, Rus traders could skirt the Caspian to reach trans-Caspian markets where Islamic silver was exchanged for forest products — the eastern bookend of the dirham flows found in Sweden.',
       fr: 'Depuis Bulgar, les marchands rus\' pouvaient longer la Caspienne vers les marchés transcaspiens où l\'argent islamique s\'échangeait contre des produits forestiers — l\'extrémité orientale des flux de dirhams retrouvés en Suède.',
       it: 'Da Bulgar i mercanti rus\' potevano costeggiare il Caspio verso i mercati transcaspici dove l\'argento islamico si scambiava con prodotti forestali — l\'estremità orientale dei flussi di dirham ritrovati in Svezia.',
+      de: 'Von Bulgar aus konnten die Kaufleute der Rus dem Kaspischen Meer zu den transkaspischen Märkten folgen, wo islamisches Silber gegen Waldprodukte eingetauscht wurde – dem östlichen Ende der Dirham-Ströme in Schweden.',
     },
   },
   {
@@ -1671,11 +1773,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Caspian → Baghdad sphere — Islamic silver (Serkland)',
       fr: 'Caspienne → sphère de Bagdad — argent islamique (Serkland)',
       it: 'Caspio → sfera di Baghdad — argento islamico (Serkland)',
+      de: 'Kaspische → Bagdad-Sphäre – Islamisches Geld (Serkland)',
     },
     segmentDetail: {
       en: 'Arab geographers placed “Serkland” in the Islamic south; for Norse traders the label marked the distant end of river and steppe corridors that returned silver dirhams to Baltic hoards.',
       fr: 'Les géographes arabes situaient le « Serkland » au sud islamique ; pour les marchands norrois le nom marquait l\'extrémité lointaine des corridors fluviaux et steppiques qui ramenaient des dirhams vers les trésors baltes.',
       it: 'I geografi arabi collocavano il «Serkland» a sud nel mondo islamico; per i mercanti norreni l\'etichetta segnava l\'estremità lontana di corridoi fluviali e steppici che riportavano dirham ai tesori baltici.',
+      de: 'Arabische Geographen lokalisierten „Serkland“ im islamischen Süden; Für nordische Kaufleute bezeichnete der Name das entfernte Ende der Fluss- und Steppenkorridore, die Dirham zu den baltischen Schätzen brachten.',
     },
   },
   {
@@ -1697,11 +1801,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Orkney → Faroes — northern isles arc',
       fr: 'Orcades → Féroé — arc des îles du Nord',
       it: 'Orcadi → Fær Øer — arco delle isole settentrionali',
+      de: 'Orkney → Färöer-Inselbogen',
     },
     segmentDetail: {
       en: 'Short hops along the Norwegian Sea rim linked jarldoms and fishing grounds into a single Norse Atlantic cultural zone.',
       fr: 'De courtes étapes le long de la bordure de mer de Norvège reliaient jarldoms et pêcheries en une même zone culturelle norroise atlantique.',
       it: 'Brevi salti lungo il bordo del mare di Norvegia collegavano jarldom e pesca in un\'unica area culturale norrena atlantica.',
+      de: 'Kurze Etappen entlang der Küste des Norwegischen Meeres verbanden Jarland und Fischerei zu einer einzigen atlantisch-nordischen Kulturzone.',
     },
   },
   // --- Exploration routes (colonial era) ---
@@ -1725,11 +1831,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Champlain — Québec to Huronia (1615–1616)',
       fr: 'Champlain — Québec vers la Huronie (1615–1616)',
       it: 'Champlain — Québec verso l\'Huronia (1615–1616)',
+      de: 'Champlain – Quebec bis Huronia (1615–1616)',
     },
     segmentDetail: {
       en: 'Samuel de Champlain, born in Brouage (Saintonge), travelled up the St. Lawrence and Ottawa River system into the Great Lakes in 1615, reaching Huronia near Georgian Bay. This opened the western interior to French fur trade networks.',
       fr: 'Samuel de Champlain, né à Brouage (Saintonge), remonta le Saint-Laurent et le système de la rivière des Outaouais jusqu\'aux Grands Lacs en 1615, atteignant la Huronie près de la baie Georgienne. Cela ouvrit l\'intérieur occidental aux réseaux français de commerce des fourrures.',
       it: 'Samuel de Champlain, nato a Brouage (Saintonge), risalì nel 1615 il San Lorenzo e il sistema dell\'Outaouais fino ai Grandi Laghi, raggiungendo l\'Huronia presso la baia Georgiana. Aprì così l\'interno occidentale alle reti francesi del commercio delle pellicce.',
+      de: 'Samuel de Champlain, geboren in Brouage (Saintonge), reiste 1615 den Sankt-Lorenz-Strom und das Ottawa-Flusssystem hinauf zu den Großen Seen und erreichte Huronia in der Nähe der Georgian Bay. Dies öffnete das westliche Landesinnere für französische Pelzhandelsnetzwerke.',
     },
   },
   // Étienne Brûlé: deeper into the interior
@@ -1751,11 +1859,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Brûlé — Huronia to Sault Ste. Marie',
       fr: 'Brûlé — Huronie au Sault Sainte-Marie',
       it: 'Brûlé — dall\'Huronia a Sault Ste. Marie',
+      de: 'Brûlé – Huronia nach Sault Sainte-Marie',
     },
     segmentDetail: {
       en: 'Étienne Brûlé, from Champigny-sur-Marne near Paris, was one of the first Europeans to penetrate the Great Lakes, reaching Lake Superior by the early 1620s. His travels preceded formal French mapping by decades.',
       fr: 'Étienne Brûlé, originaire de Champigny-sur-Marne près de Paris, fut l\'un des premiers Européens à pénétrer les Grands Lacs, atteignant le lac Supérieur au début des années 1620. Ses voyages précédèrent de plusieurs décennies la cartographie française officielle.',
       it: 'Étienne Brûlé, originario di Champigny-sur-Marne presso Parigi, fu tra i primi europei a penetrare i Grandi Laghi, raggiungendo il lago Superiore all\'inizio degli anni 1620. I suoi viaggi anticiparono di decenni la cartografia francese ufficiale.',
+      de: 'Étienne Brûlé, ursprünglich aus Champigny-sur-Marne in der Nähe von Paris, war einer der ersten Europäer, die in die Großen Seen vordrangen und Anfang der 1620er Jahre den Oberen See erreichten. Seine Reisen waren mehrere Jahrzehnte älter als die offizielle französische Kartographie.',
     },
   },
   // Radisson & Des Groseilliers: Great Lakes fur trade routes
@@ -1777,11 +1887,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Radisson & Des Groseilliers — Montréal to Lake Superior region',
       fr: 'Radisson et Des Groseilliers — Montréal vers la région du lac Supérieur',
       it: 'Radisson e Des Groseilliers — Montréal verso la regione del lago Superiore',
+      de: 'Radisson und Des Groseilliers – Montreal bis zur Lake Superior-Region',
     },
     segmentDetail: {
       en: 'Pierre-Esprit Radisson and Médard Chouart des Groseilliers explored the upper Great Lakes and western fur country in the 1650s–1660s. Their journeys revealed the richness of the interior fur trade and ultimately led to the founding of the Hudson\'s Bay Company.',
       fr: 'Pierre-Esprit Radisson et Médard Chouart des Groseilliers explorèrent les Grands Lacs supérieurs et le pays des fourrures occidental dans les années 1650–1660.',
       it: 'Pierre-Esprit Radisson e Médard Chouart des Groseilliers esplorarono i Grandi Laghi superiori e il paese delle pellicce occidentale negli anni 1650–1660. I loro viaggi rivelarono la ricchezza del commercio delle pellicce nell\'interno e condussero in ultimo alla fondazione della Hudson\'s Bay Company.',
+      de: 'Pierre-Esprit Radisson und Médard Chouart des Groseilliers erkundeten in den 1650er–1660er Jahren die oberen Großen Seen und das westliche Pelzland.',
     },
   },
   // Jolliet & Marquette: Mississippi discovery
@@ -1803,11 +1915,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Jolliet & Marquette — Green Bay to Mississippi (1673)',
       fr: 'Jolliet et Marquette — Baie des Puants au Mississippi (1673)',
       it: 'Jolliet e Marquette — Green Bay al Mississippi (1673)',
+      de: 'Jolliet und Marquette – Stinking Bay in Mississippi (1673)',
     },
     segmentDetail: {
       en: 'Louis Jolliet and Father Jacques Marquette descended from Green Bay through the Wisconsin River to the Mississippi in 1673, confirming the great river flowed south toward the Gulf of Mexico — not west to the Pacific.',
       fr: 'Louis Jolliet et le père Jacques Marquette descendirent de la Baie des Puants par la rivière Wisconsin jusqu\'au Mississippi en 1673, confirmant que le grand fleuve coulait vers le sud en direction du golfe du Mexique.',
       it: 'Nel 1673 Louis Jolliet e padre Jacques Marquette discesero da Green Bay lungo il fiume Wisconsin fino al Mississippi, confermando che il grande fiume scorreva verso sud verso il golfo del Messico — non verso ovest verso il Pacifico.',
+      de: 'Louis Jolliet und Pater Jacques Marquette reisten 1673 den Wisconsin River von Stinking Bay hinunter zum Mississippi und bestätigten damit, dass der große Fluss nach Süden in Richtung Golf von Mexiko floss.',
     },
   },
   {
@@ -1828,11 +1942,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Jolliet & Marquette — Michilimackinac to Green Bay',
       fr: 'Jolliet et Marquette — Michilimackinac à la Baie des Puants',
       it: 'Jolliet e Marquette — Michilimackinac a Green Bay',
+      de: 'Jolliet und Marquette – Michilimackinac in der Baie des Puants',
     },
     segmentDetail: {
       en: 'Louis Jolliet (born near Québec) and Father Jacques Marquette rendezvoused at Michilimackinac before departing for the interior via Green Bay in 1673.',
       fr: 'Louis Jolliet (né près de Québec) et le père Jacques Marquette se retrouvèrent à Michilimackinac avant de partir vers l\'intérieur via la Baie des Puants en 1673.',
       it: 'Louis Jolliet (nato presso Québec) e padre Jacques Marquette si riunirono a Michilimackinac prima di partire verso l\'interno via Green Bay nel 1673.',
+      de: 'Louis Jolliet (geboren in der Nähe von Quebec) und Pater Jacques Marquette trafen sich in Michilimackinac, bevor sie 1673 über Baie des Puants ins Landesinnere zogen.',
     },
   },
   // La Salle: Mississippi to the Gulf
@@ -1852,6 +1968,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — René-Robert Cavelier de La Salle, born in Rouen, Normandy',
       fr: 'Origine normande — René-Robert Cavelier de La Salle, né à Rouen, Normandie',
       it: 'Origine normanna — René-Robert Cavelier de La Salle, nato a Rouen, Normandia',
+      de: 'Normannischer Herkunft – René-Robert Cavelier de La Salle, geboren in Rouen, Normandie',
     },
     pathCoordinates: [
       [-82.0, 44.5], [-84.0, 43.0], [-87.0, 42.0],
@@ -1861,11 +1978,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'La Salle — Great Lakes to mid-Mississippi (1679–1682)',
       fr: 'La Salle — Grands Lacs au Mississippi moyen (1679–1682)',
       it: 'La Salle — Grandi Laghi al Mississippi medio (1679–1682)',
+      de: 'La Salle – Große Seen bis mittlerer Mississippi (1679–1682)',
     },
     segmentDetail: {
       en: 'René-Robert Cavelier de La Salle, born in Rouen, Normandy, descended from the Great Lakes through the Illinois country to the Mississippi in 1682, eventually reaching the Gulf of Mexico. He claimed the entire Mississippi basin for France — "Louisiana" — in honour of Louis XIV.',
       fr: 'René-Robert Cavelier de La Salle, né à Rouen en Normandie, descendit des Grands Lacs à travers le pays des Illinois jusqu\'au Mississippi en 1682, atteignant finalement le golfe du Mexique. Il revendiqua tout le bassin du Mississippi pour la France — la « Louisiane » — en l\'honneur de Louis XIV.',
       it: 'René-Robert Cavelier de La Salle, nato a Rouen in Normandia, discese dai Grandi Laghi attraverso il paese degli Illinois fino al Mississippi nel 1682, raggiungendo infine il golfo del Messico. Rivendicò per la Francia l\'intero bacino del Mississippi — «Louisiana» — in onore di Luigi XIV.',
+      de: 'René-Robert Cavelier de La Salle, geboren in Rouen in der Normandie, kam 1682 von den Großen Seen durch das Land Illinois zum Mississippi und erreichte schließlich den Golf von Mexiko. Er beanspruchte das gesamte Mississippi-Becken für Frankreich – „Louisiana“ – zu Ehren Ludwigs XIV.',
     },
   },
   {
@@ -1884,6 +2003,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — René-Robert Cavelier de La Salle, born in Rouen, Normandy',
       fr: 'Origine normande — René-Robert Cavelier de La Salle, né à Rouen, Normandie',
       it: 'Origine normanna — René-Robert Cavelier de La Salle, nato a Rouen, Normandia',
+      de: 'Normannischer Herkunft – René-Robert Cavelier de La Salle, geboren in Rouen, Normandie',
     },
     pathCoordinates: [
       [-90.18, 38.63], [-90.5, 35.0], [-91.0, 32.0], [-90.5, 30.5], [-89.5, 29.5],
@@ -1892,11 +2012,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'La Salle — Mississippi to the Gulf of Mexico (1682)',
       fr: 'La Salle — Mississippi au golfe du Mexique (1682)',
       it: 'La Salle — Mississippi fino al golfo del Messico (1682)',
+      de: 'La Salle – Mississippi bis zum Golf von Mexiko (1682)',
     },
     segmentDetail: {
       en: 'La Salle\'s descent of the full Mississippi to the Gulf of Mexico in April 1682 was the single act that transformed New France from a St. Lawrence colony into a continental claim stretching from Hudson Bay to the Gulf.',
       fr: 'La descente du Mississippi complet par La Salle jusqu\'au golfe du Mexique en avril 1682 fut l\'acte unique qui transforma la Nouvelle-France d\'une colonie du Saint-Laurent en une revendication continentale s\'étendant de la baie d\'Hudson au Golfe.',
       it: 'La discesa dell\'intero Mississippi da parte di La Salle fino al golfo del Messico nell\'aprile 1682 fu l\'atto che trasformò la Nuova Francia da colonia del San Lorenzo in una rivendicazione continentale dalla baia di Hudson al Golfo.',
+      de: 'La Salles Abfluss des gesamten Mississippi in den Golf von Mexiko im April 1682 war der einzige Akt, der Neu-Frankreich von einer St.-Lorenz-Kolonie in einen kontinentalen Anspruch verwandelte, der sich von der Hudson Bay bis zum Golf erstreckte.',
     },
   },
   // --- Verrazzano (1524): first French-commissioned Atlantic voyage ---
@@ -1919,11 +2041,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Verrazzano — Dieppe to Cape Fear coast (1524)',
       fr: 'Verrazzano — Dieppe à la côte de Cape Fear (1524)',
       it: 'Verrazzano — Dieppe alla costa di Cape Fear (1524)',
+      de: 'Verrazzano – Dieppe bis zur Küste von Cape Fear (1524)',
     },
     segmentDetail: {
       en: 'Giovanni da Verrazzano, a Florentine sailing for King Francis I, departed from Dieppe and crossed the Atlantic in 50 days, sighting land near Cape Fear in March 1524. This was the first French-commissioned exploration of the North American coast.',
       fr: 'Giovanni da Verrazzano, un Florentin naviguant pour le roi François Ier, quitta Dieppe et traversa l\'Atlantique en 50 jours, apercevant la terre près de Cape Fear en mars 1524. Ce fut la première exploration de la côte nord-américaine commissionnée par la France.',
       it: 'Giovanni da Verrazzano, fiorentino al servizio del re Francesco I, partì da Dieppe e attraversò l\'Atlantico in 50 giorni, avvistando la costa presso Cape Fear nel marzo 1524. Fu la prima esplorazione della costa nordamericana commissionata dalla Francia.',
+      de: 'Giovanni da Verrazzano, ein Florentiner, der für König Franz I. segelte, verließ Dieppe und überquerte in 50 Tagen den Atlantik, wobei er im März 1524 Land in der Nähe von Cape Fear sichtete. Dies war die erste von Frankreich in Auftrag gegebene Erkundung der nordamerikanischen Küste.',
     },
   },
   {
@@ -1944,11 +2068,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Verrazzano — Coasting north to New York harbor (1524)',
       fr: 'Verrazzano — Cabotage vers le nord jusqu\'à la baie de New York (1524)',
       it: 'Verrazzano — Costeggiando verso nord fino alla baia di New York (1524)',
+      de: 'Verrazzano – Fahrt nach Norden zur New York Bay (1524)',
     },
     segmentDetail: {
       en: 'Verrazzano coasted northward along the barrier islands and inlets of the Atlantic seaboard, entering New York harbor in April 1524 — the first European to do so. He named the bay "Santa Margarita" and the surrounding land "Angoulême" after the French king\'s title.',
       fr: 'Verrazzano longea la côte vers le nord le long des îles barrières et des criques de la côte atlantique, entrant dans la baie de New York en avril 1524 — le premier Européen à le faire. Il nomma la baie « Santa Margarita » et la terre « Angoulême » d\'après le titre du roi de France.',
       it: 'Verrazzano costeggiò verso nord lungo le isole barriera e le insenature della costa atlantica, entrando nella baia di New York nell\'aprile 1524 — primo europeo a farlo. Battezzò la baia «Santa Margarita» e la terra circostante «Angoulême» dal titolo del re di Francia.',
+      de: 'Verrazzano segelte entlang der vorgelagerten Inseln und Buchten der Atlantikküste nach Norden und erreichte im April 1524 die New York Bay – der erste Europäer, der dies tat. Er nannte die Bucht „Santa Margarita“ und das Land „Angoulême“ nach dem Titel des Königs von Frankreich.',
     },
   },
   {
@@ -1971,11 +2097,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Verrazzano — New England to Newfoundland (1524)',
       fr: 'Verrazzano — Nouvelle-Angleterre à Terre-Neuve (1524)',
       it: 'Verrazzano — Nuova Inghilterra a Terranova (1524)',
+      de: 'Verrazzano – Neuengland nach Neufundland (1524)',
     },
     segmentDetail: {
       en: 'Verrazzano continued northeast along the coast, anchoring at Narragansett Bay for two weeks, exploring Cape Cod, the coast of Maine, Nova Scotia, and reaching Newfoundland before sailing home to Dieppe in July 1524. His letter to Francis I provided the first continuous description of the North American Atlantic coast.',
       fr: 'Verrazzano poursuivit vers le nord-est le long de la côte, mouillant à la baie de Narragansett pendant deux semaines, explorant le Cap Cod, la côte du Maine, la Nouvelle-Écosse, et atteignant Terre-Neuve avant de rentrer à Dieppe en juillet 1524.',
       it: 'Verrazzano proseguì a nordest lungo la costa, ancorando nella baia di Narragansett per due settimane, esplorando Cape Cod, la costa del Maine, la Nuova Scozia e raggiungendo Terranova prima di far ritorno a Dieppe nel luglio 1524. La sua lettera a Francesco I fornì la prima descrizione continua della costa atlantica nordamericana.',
+      de: 'Verrazzano fuhr weiter nordöstlich entlang der Küste, ankerte zwei Wochen lang in der Narragansett Bay, erkundete Cape Cod, die Küste von Maine, Nova Scotia und erreichte Neufundland, bevor er im Juli 1524 nach Dieppe zurückkehrte.',
     },
   },
   // --- Jean Nicolet (1634): first European on Lake Michigan ---
@@ -1995,6 +2123,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — Jean Nicolet, born in Cherbourg, Cotentin, Normandy',
       fr: 'Origine normande — Jean Nicolet, né à Cherbourg, Cotentin, Normandie',
       it: 'Origine normanna — Jean Nicolet, nato a Cherbourg, Cotentin, Normandia',
+      de: 'Normannischer Herkunft – Jean Nicolet, geboren in Cherbourg, Cotentin, Normandie',
     },
     pathCoordinates: [
       [-72.55, 46.35], [-76.0, 45.5], [-79.0, 44.5], [-81.0, 45.0],
@@ -2003,11 +2132,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Nicolet — Trois-Rivières to Lake Huron (1634)',
       fr: 'Nicolet — Trois-Rivières au lac Huron (1634)',
       it: 'Nicolet — Trois-Rivières al lago Huron (1634)',
+      de: 'Nicolet – Trois-Rivières zum Huronsee (1634)',
     },
     segmentDetail: {
       en: 'Jean Nicolet, born in Cherbourg, Normandy, departed from Trois-Rivières in 1634 on Champlain\'s orders to seek the "People of the Sea." He followed the Ottawa River and Nipissing portage to reach Lake Huron, retracing the route Champlain had opened two decades earlier.',
       fr: 'Jean Nicolet, né à Cherbourg en Normandie, quitta Trois-Rivières en 1634 sur les ordres de Champlain pour chercher les « Gens de Mer ». Il suivit la rivière des Outaouais et le portage du Nipissing pour atteindre le lac Huron.',
       it: 'Jean Nicolet, nato a Cherbourg in Normandia, partì da Trois-Rivières nel 1634 per ordine di Champlain alla ricerca dei «Popoli del Mare». Seguì il fiume Ottawa e il portaggio di Nipissing fino al lago Huron.',
+      de: 'Jean Nicolet, geboren in Cherbourg in der Normandie, verließ Trois-Rivières 1634 auf Champlains Befehl, um nach dem „Seevolk“ zu suchen. Er folgte dem Ottawa River und der Nipissing-Portage, um den Lake Huron zu erreichen.',
     },
   },
   {
@@ -2026,6 +2157,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — Jean Nicolet, born in Cherbourg, Cotentin, Normandy',
       fr: 'Origine normande — Jean Nicolet, né à Cherbourg, Cotentin, Normandie',
       it: 'Origine normanna — Jean Nicolet, nato a Cherbourg, Cotentin, Normandia',
+      de: 'Normannischer Herkunft – Jean Nicolet, geboren in Cherbourg, Cotentin, Normandie',
     },
     pathCoordinates: [
       [-81.0, 45.0], [-83.0, 45.8], [-84.73, 45.78],
@@ -2035,11 +2167,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Nicolet — Straits of Mackinac to Green Bay (1634)',
       fr: 'Nicolet — Détroit de Mackinac à la Baie des Puants (1634)',
       it: 'Nicolet — Stretto di Mackinac a Green Bay (1634)',
+      de: 'Nicolet – Straße von Mackinac in der Stinking Bay (1634)',
     },
     segmentDetail: {
       en: 'Nicolet passed through the Straits of Mackinac and became the first European to enter Lake Michigan, paddling down the western shore to Green Bay. He arrived wearing a Chinese silk robe and firing pistols, expecting to meet the peoples of Asia. Instead he met the Ho-Chunk (Winnebago) nation.',
       fr: 'Nicolet traversa le détroit de Mackinac et devint le premier Européen à entrer dans le lac Michigan, pagayant le long de la rive ouest jusqu\'à la Baie des Puants. Il arriva vêtu d\'une robe de soie chinoise et tirant des coups de pistolet, s\'attendant à rencontrer les peuples d\'Asie. Il rencontra plutôt la nation Ho-Chunk (Winnebago).',
       it: 'Nicolet attraversò lo stretto di Mackinac e divenne il primo europeo a entrare nel lago Michigan, pagaiando lungo la costa occidentale fino a Green Bay. Arrivò indossando una veste di seta cinese e sparando colpi di pistola, aspettandosi di incontrare i popoli d\'Asia. Incontrò invece la nazione Ho-Chunk (Winnebago).',
+      de: 'Nicolet überquerte die Straße von Mackinac und betrat als erste Europäerin den Michigansee, indem sie am Westufer entlang bis zur Stinking Bay paddelte. Er kam in einem chinesischen Seidengewand und mit schießenden Pistolen an und erwartete, die Völker Asiens zu treffen. Stattdessen traf er auf die Nation der Ho-Chunk (Winnebago).',
     },
   },
   // --- Guillaume Couture (1641–1663): Norman explorer, diplomat, first settler of Lévis ---
@@ -2059,6 +2193,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — Guillaume Couture, born in Rouen, Normandy',
       fr: 'Origine normande — Guillaume Couture, né à Rouen, Normandie',
       it: 'Origine normanna — Guillaume Couture, nato a Rouen, Normandia',
+      de: 'Normannischer Herkunft – Guillaume Couture, geboren in Rouen, Normandie',
     },
     pathCoordinates: [
       [-71.21, 46.81], [-73.57, 45.50], [-76.0, 44.5],
@@ -2068,11 +2203,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Couture — Québec to Huronia mission (1641)',
       fr: 'Couture — Québec vers la mission de Huronie (1641)',
       it: 'Couture — Québec alla missione di Huronia (1641)',
+      de: 'Couture – Quebec auf dem Weg zur Mission Huronia (1641)',
     },
     segmentDetail: {
       en: 'Guillaume Couture, born in Rouen, Normandy, arrived in New France around 1640 as a donné (lay missionary) for the Jesuits. In 1641, he traveled from Québec to the Huron missions near Georgian Bay, following the Ottawa River route. He served as a carpenter and learned several Indigenous languages.',
       fr: 'Guillaume Couture, né à Rouen en Normandie, arriva en Nouvelle-France vers 1640 comme donné (missionnaire laïc) des Jésuites. En 1641, il voyagea de Québec aux missions huronne près de la baie Georgienne, suivant la route de la rivière des Outaouais. Il servit comme charpentier et apprit plusieurs langues autochtones.',
       it: 'Guillaume Couture, nato a Rouen in Normandia, giunse nella Nuova Francia verso il 1640 come donné (missionario laico) dei Gesuiti. Nel 1641 viaggiò da Québec alle missioni urone presso la baia Georgiana, seguendo la rotta del fiume Ottawa. Servì come carpentiere e apprese diverse lingue indigene.',
+      de: 'Guillaume Couture, geboren in Rouen in der Normandie, kam um 1640 als Don (Laienmissionar) der Jesuiten nach Neufrankreich. 1641 reiste er von Quebec zu den Huronenmissionen in der Nähe der Georgian Bay und folgte dabei der Route des Ottawa River. Er arbeitete als Zimmermann und lernte mehrere indigene Sprachen.',
     },
   },
   {
@@ -2091,6 +2228,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — Guillaume Couture, born in Rouen, Normandy',
       fr: 'Origine normande — Guillaume Couture, né à Rouen, Normandie',
       it: 'Origine normanna — Guillaume Couture, nato a Rouen, Normandia',
+      de: 'Normannischer Herkunft – Guillaume Couture, geboren in Rouen, Normandie',
     },
     pathCoordinates: [
       [-72.55, 46.35], [-73.2, 45.5], [-73.5, 44.5],
@@ -2100,11 +2238,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Couture — Iroquois captivity corridor (1642–1645)',
       fr: 'Couture — Corridor de captivité iroquois (1642–1645)',
       it: 'Couture — Corridoio di cattività irochese (1642–1645)',
+      de: 'Couture – Irokesen-Gefangenschaftskorridor (1642–1645)',
     },
     segmentDetail: {
       en: 'In August 1642, Couture was captured by an Iroquois war party alongside Jesuit Isaac Jogues while returning from the Huron missions. Taken south through the Lake Champlain corridor to Mohawk territory in present-day New York, he was severely tortured but survived. Adopted by the family of a chief, he gained influence among the Mohawks and became the first Frenchman to live in Iroquois country, returning in 1645 to escort peace envoys to Trois-Rivières.',
       fr: 'En août 1642, Couture fut capturé par un parti de guerre iroquois aux côtés du jésuite Isaac Jogues en revenant des missions huronnes. Emmené vers le sud par le corridor du lac Champlain jusqu\'au territoire mohawk dans l\'actuel État de New York, il fut gravement torturé mais survécut. Adopté par la famille d\'un chef, il acquit de l\'influence parmi les Mohawks et devint le premier Français à vivre en pays iroquois, revenant en 1645 pour escorter des émissaires de paix à Trois-Rivières.',
       it: 'Nell\'agosto 1642 Couture fu catturato da un gruppo di guerra irochese insieme al gesuita Isaac Jogues mentre tornava dalle missioni urone. Condotto a sud attraverso il corridoio del lago Champlain fino al territorio mohawk nell\'odierno Stato di New York, subì gravi torture ma sopravvisse. Adottato dalla famiglia di un capo, acquisì influenza tra i Mohawk e divenne il primo francese a vivere in territorio irochese, tornando nel 1645 per scortare emissari di pace a Trois-Rivières.',
+      de: 'Im August 1642 wurde Couture von einer irokesischen Kriegspartei zusammen mit dem Jesuiten Isaac Jogues gefangen genommen, als sie von den Missionen der Huronen zurückkehrte. Er wurde durch den Lake Champlain-Korridor nach Süden in das Mohawk-Territorium im heutigen Bundesstaat New York gebracht, wo er schwer gefoltert wurde, aber überlebte. Er wurde von einer Häuptlingsfamilie adoptiert, erlangte Einfluss unter den Mohawks und lebte als erster Franzose im Land der Irokesen. 1645 kehrte er zurück, um Friedensgesandte nach Trois-Rivières zu eskortieren.',
     },
   },
   {
@@ -2123,6 +2263,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman origin — Guillaume Couture, born in Rouen, Normandy',
       fr: 'Origine normande — Guillaume Couture, né à Rouen, Normandie',
       it: 'Origine normanna — Guillaume Couture, nato a Rouen, Normandia',
+      de: 'Normannischer Herkunft – Guillaume Couture, geboren in Rouen, Normandie',
     },
     pathCoordinates: [
       [-71.21, 46.81], [-70.5, 47.5], [-70.2, 48.3],
@@ -2132,11 +2273,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Couture — Saguenay to Lake Mistassini (1663)',
       fr: 'Couture — Saguenay au lac Mistassini (1663)',
       it: 'Couture — Saguenay al lago Mistassini (1663)',
+      de: 'Couture – Saguenay zum Mistassini-See (1663)',
     },
     segmentDetail: {
       en: 'In 1663, Couture led a canoe expedition north from Québec up the Saguenay River, reaching Lake Mistassini and the Rupert River watershed toward James Bay. This northern penetration was among the deepest French forays into the subarctic interior, extending New France\'s knowledge far beyond the St. Lawrence corridor.',
       fr: 'En 1663, Couture mena une expédition en canot vers le nord depuis Québec, remontant le Saguenay, atteignant le lac Mistassini et le bassin de la rivière Rupert vers la baie James. Cette pénétration nordique fut l\'une des plus profondes incursions françaises dans l\'intérieur subarctique.',
       it: 'Nel 1663 Couture guidò una spedizione in canoa verso nord da Québec, risalendo il Saguenay fino al lago Mistassini e al bacino del fiume Rupert verso la baia di James. Questa penetrazione settentrionale fu tra le più profonde incursioni francesi nell\'interno subartico, estendendo la conoscenza della Nuova Francia ben oltre il corridoio del San Lorenzo.',
+      de: 'Im Jahr 1663 leitete Couture eine Kanu-Expedition nördlich von Quebec den Saguenay hinauf und erreichte den Lake Mistassini und das Rupert River-Becken in Richtung James Bay. Dieses Eindringen in den Norden war einer der tiefsten französischen Vorstöße in das subarktische Landesinnere.',
     },
   },
   // --- Hennepin (1680): upper Mississippi ---
@@ -2158,11 +2301,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Hennepin — Fort Crèvecoeur to Mississippi (1680)',
       fr: 'Hennepin — Fort Crèvecoeur au Mississippi (1680)',
       it: 'Hennepin — Fort Crèvecoeur al Mississippi (1680)',
+      de: 'Hennepin – Fort Crèvecoeur in Mississippi (1680)',
     },
     segmentDetail: {
       en: 'Father Louis Hennepin, a Récollet friar from the Spanish Netherlands, was sent by La Salle from Fort Crèvecoeur (near present-day Peoria, Illinois) to explore the upper Mississippi in early 1680. He descended the Illinois River to its junction with the Mississippi.',
       fr: 'Le père Louis Hennepin, un frère récollet des Pays-Bas espagnols, fut envoyé par La Salle depuis Fort Crèvecoeur (près de l\'actuelle Peoria, Illinois) pour explorer le haut Mississippi au début de 1680. Il descendit la rivière des Illinois jusqu\'à sa jonction avec le Mississippi.',
       it: 'Padre Louis Hennepin, frate recolletto dei Paesi Bassi spagnoli, fu inviato da La Salle da Fort Crèvecoeur (presso l\'odierna Peoria, Illinois) per esplorare l\'alto Mississippi all\'inizio del 1680. Discese il fiume Illinois fino alla sua confluenza con il Mississippi.',
+      de: 'Pater Louis Hennepin, ein Recollet-Mönch aus den spanischen Niederlanden, wurde Anfang 1680 von La Salle aus Fort Crèvecoeur (in der Nähe des heutigen Peoria, Illinois) geschickt, um den oberen Mississippi zu erkunden. Er reiste den Illinois River hinunter bis zu seiner Mündung in den Mississippi.',
     },
   },
   {
@@ -2184,11 +2329,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Hennepin — Up Mississippi to Falls of St. Anthony (1680)',
       fr: 'Hennepin — Remontée du Mississippi aux chutes Saint-Antoine (1680)',
       it: 'Hennepin — Risalita del Mississippi alle cascate di Sant\'Antonio (1680)',
+      de: 'Hennepin – Rückkehr des Mississippi zu den Saint-Antoine Falls (1680)',
     },
     segmentDetail: {
       en: 'Hennepin and two companions paddled north up the Mississippi. In April 1680 they were captured by a Sioux war party and carried into present-day Minnesota. During months of captivity, Hennepin reached the Falls of St. Anthony (present-day Minneapolis), which he named. He was rescued by the explorer Daniel Greysolon, Sieur du Lhut, and returned to Québec in 1681.',
       fr: 'Hennepin et deux compagnons remontèrent le Mississippi vers le nord. En avril 1680, ils furent capturés par un parti de guerre sioux et emmenés dans l\'actuel Minnesota. Durant des mois de captivité, Hennepin atteignit les chutes Saint-Antoine (l\'actuelle Minneapolis), qu\'il nomma. Il fut secouru par l\'explorateur Daniel Greysolon, sieur du Lhut, et rentra à Québec en 1681.',
       it: 'Hennepin e due compagni risalirono il Mississippi verso nord. Nell\'aprile 1680 furono catturati da un gruppo di guerra sioux e condotti nell\'odierno Minnesota. Durante mesi di cattività Hennepin raggiunse le cascate di Sant\'Antonio (l\'odierna Minneapolis), che battezzò. Fu liberato dall\'esploratore Daniel Greysolon, sieur du Lhut, e tornò a Québec nel 1681.',
+      de: 'Hennepin und zwei Gefährten segelten den Mississippi hinauf nach Norden. Im April 1680 wurden sie von einer Kriegspartei der Sioux gefangen genommen und in das heutige Minnesota gebracht. Während seiner monatelangen Gefangenschaft erreichte Hennepin die Saint-Antoine Falls (das heutige Minneapolis), die er benannte. Er wurde vom Entdecker Daniel Greysolon, Sieur du Lhut, gerettet und kehrte 1681 nach Quebec zurück.',
     },
   },
   // --- d'Iberville (1699): Gulf Coast / Louisiana founding ---
@@ -2208,6 +2355,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman heritage — Pierre Le Moyne d\'Iberville, son of Charles Le Moyne of Dieppe, Normandy',
       fr: 'Héritage normand — Pierre Le Moyne d\'Iberville, fils de Charles Le Moyne de Dieppe, Normandie',
       it: 'Eredità normanna — Pierre Le Moyne d\'Iberville, figlio di Charles Le Moyne di Dieppe, Normandia',
+      de: 'Normannisches Erbe – Pierre Le Moyne d\'Iberville, Sohn von Charles Le Moyne aus Dieppe, Normandie',
     },
     pathCoordinates: [
       [-1.15, 46.16], [-5.0, 44.0], [-15.0, 38.0],
@@ -2218,11 +2366,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'd\'Iberville — France to Gulf Coast (1699)',
       fr: 'd\'Iberville — France à la côte du Golfe (1699)',
       it: 'd\'Iberville — Francia alla costa del Golfo (1699)',
+      de: 'd\'Iberville – Frankreich an die Golfküste (1699)',
     },
     segmentDetail: {
       en: 'Pierre Le Moyne d\'Iberville, born in Montréal to Norman parents (his father Charles Le Moyne was from Dieppe, Normandy; his mother from Rouen), sailed from France in 1698 and reached the Gulf Coast in January 1699. He founded Fort Maurepas at Biloxi — the first permanent French settlement in Louisiana.',
       fr: 'Pierre Le Moyne d\'Iberville, né à Montréal de parents normands (son père Charles Le Moyne était de Dieppe, Normandie ; sa mère de Rouen), quitta la France en 1698 et atteignit la côte du Golfe en janvier 1699. Il fonda Fort Maurepas à Biloxi — le premier établissement français permanent en Louisiane.',
       it: 'Pierre Le Moyne d\'Iberville, nato a Montréal da genitori normanni (il padre Charles Le Moyne era di Dieppe, Normandia; la madre di Rouen), salpò dalla Francia nel 1698 e raggiunse la costa del Golfo nel gennaio 1699. Fondò Fort Maurepas a Biloxi — il primo insediamento francese permanente in Louisiana.',
+      de: 'Pierre Le Moyne d\'Iberville, geboren in Montreal als Sohn normannischer Eltern (sein Vater Charles Le Moyne stammte aus Dieppe in der Normandie, seine Mutter aus Rouen), verließ Frankreich 1698 und erreichte im Januar 1699 die Golfküste. Er gründete Fort Maurepas in Biloxi – die erste dauerhafte französische Siedlung in Louisiana.',
     },
   },
   {
@@ -2241,6 +2391,7 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Norman heritage — Pierre Le Moyne d\'Iberville, son of Charles Le Moyne of Dieppe, Normandy',
       fr: 'Héritage normand — Pierre Le Moyne d\'Iberville, fils de Charles Le Moyne de Dieppe, Normandie',
       it: 'Eredità normanna — Pierre Le Moyne d\'Iberville, figlio di Charles Le Moyne di Dieppe, Normandia',
+      de: 'Normannisches Erbe – Pierre Le Moyne d\'Iberville, Sohn von Charles Le Moyne aus Dieppe, Normandie',
     },
     pathCoordinates: [
       [-88.89, 30.40], [-89.2, 29.8], [-89.5, 29.5], [-89.3, 29.2],
@@ -2249,11 +2400,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'd\'Iberville — Biloxi to Mississippi mouth (1699)',
       fr: 'd\'Iberville — Biloxi à l\'embouchure du Mississippi (1699)',
       it: 'd\'Iberville — Biloxi alla foce del Mississippi (1699)',
+      de: 'd\'Iberville – Biloxi an der Mündung des Mississippi (1699)',
     },
     segmentDetail: {
       en: 'On March 2, 1699, d\'Iberville located the mouth of the Mississippi River from the sea — confirming La Salle\'s claim of seventeen years earlier. He explored upriver to the Red River before returning to the coast via bayous and lakes. This completed the French circuit from the St. Lawrence to the Gulf.',
       fr: 'Le 2 mars 1699, d\'Iberville localisa l\'embouchure du Mississippi depuis la mer — confirmant la revendication de La Salle dix-sept ans plus tôt. Il explora le fleuve en amont jusqu\'à la rivière Rouge avant de revenir à la côte par les bayous et les lacs.',
       it: 'Il 2 marzo 1699 d\'Iberville individuò la foce del Mississippi dal mare — confermando la rivendicazione di La Salle di diciassette anni prima. Risalì il fiume fino al Red River prima di tornare alla costa attraverso bayou e laghi. Completò così il circuito francese dal San Lorenzo al Golfo.',
+      de: 'Am 2. März 1699 lokalisierte d\'Iberville die Mündung des Mississippi vom Meer aus und bestätigte damit La Salles Anspruch siebzehn Jahre zuvor. Er erkundete den Fluss flussaufwärts bis zum Red River, bevor er über Bayous und Seen zur Küste zurückkehrte.',
     },
   },
   // --- La Vérendrye (1731–1743): western prairies ---
@@ -2276,11 +2429,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'La Vérendrye — Montréal to Lake Superior (1731)',
       fr: 'La Vérendrye — Montréal au lac Supérieur (1731)',
       it: 'La Vérendrye — Montréal al lago Superiore (1731)',
+      de: 'La Vérendrye – Montreal zum Lake Superior (1731)',
     },
     segmentDetail: {
       en: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, born in Trois-Rivières to a family from Anjou, departed Montréal in June 1731 with three sons, a nephew, and about 50 men to search for the "Western Sea." He followed the established Great Lakes route to Lake Superior as the first leg of his westward push.',
       fr: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, né à Trois-Rivières d\'une famille d\'Anjou, quitta Montréal en juin 1731 avec trois fils, un neveu et une cinquantaine d\'hommes à la recherche de la « Mer de l\'Ouest ». Il suivit la route établie des Grands Lacs jusqu\'au lac Supérieur.',
       it: 'Pierre Gaultier de Varennes, sieur de La Vérendrye, nato a Trois-Rivières da una famiglia dell\'Angiò, partì da Montréal nel giugno 1731 con tre figli, un nipote e circa 50 uomini alla ricerca del «Mare dell\'Ovest». Seguì la rotta consolidata dei Grandi Laghi fino al lago Superiore.',
+      de: 'Pierre Gaultier de Varennes, Sieur de La Vérendrye, geboren in Trois-Rivières als Sohn einer Familie aus Anjou, verließ Montreal im Juni 1731 mit drei Söhnen, einem Neffen und etwa fünfzig Männern auf der Suche nach dem „Westmeer“. Er folgte der etablierten Route von den Großen Seen zum Lake Superior.',
     },
   },
   {
@@ -2302,11 +2457,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'La Vérendrye — Lake Superior to Lake Winnipeg (1731–1734)',
       fr: 'La Vérendrye — Lac Supérieur au lac Winnipeg (1731–1734)',
       it: 'La Vérendrye — Lago Superiore al lago Winnipeg (1731–1734)',
+      de: 'La Vérendrye – Lake Superior bis Lake Winnipeg (1731–1734)',
     },
     segmentDetail: {
       en: 'From Lake Superior, La Vérendrye pushed west through Rainy Lake, Lake of the Woods, and the Red River to reach Lake Winnipeg by 1734, establishing a chain of trading posts (Fort St-Pierre, Fort St-Charles, Fort Maurepas) that extended New France\'s reach deep into the western interior.',
       fr: 'Depuis le lac Supérieur, La Vérendrye poussa vers l\'ouest à travers le lac à la Pluie, le lac des Bois et la rivière Rouge pour atteindre le lac Winnipeg vers 1734, établissant une chaîne de postes de traite qui étendirent la portée de la Nouvelle-France dans l\'intérieur occidental.',
       it: 'Dal lago Superiore La Vérendrye avanzò verso ovest attraverso il lago Rainy, il lago dei Boschi e il fiume Rosso fino a raggiungere il lago Winnipeg verso il 1734, stabilendo una catena di posti di commercio che estesero la presenza della Nuova Francia nell\'interno occidentale.',
+      de: 'Vom Oberen See aus drang La Vérendrye um 1734 westwärts über den Rainy Lake, den Lake of the Woods und den Red River zum Lake Winnipeg vor und errichtete eine Kette von Handelsposten, die die Reichweite von Neu-Frankreich bis ins westliche Landesinnere ausdehnte.',
     },
   },
   {
@@ -2328,11 +2485,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'La Vérendrye — Lake Winnipeg to Mandan Country (1738–1743)',
       fr: 'La Vérendrye — Lac Winnipeg au pays des Mandans (1738–1743)',
       it: 'La Vérendrye — Lago Winnipeg al paese dei Mandan (1738–1743)',
+      de: 'La Vérendrye – Lake Winnipeg im Land der Mandans (1738–1743)',
     },
     segmentDetail: {
       en: 'In 1738–1739, La Vérendrye and two sons traveled south from Fort La Reine (Portage la Prairie) across the open prairie to reach the Mandan villages on the upper Missouri River in present-day North Dakota — the first Europeans to do so. His sons later pushed further west and in 1742–1743 may have sighted the Rocky Mountains foothills near present-day Wyoming.',
       fr: 'En 1738–1739, La Vérendrye et deux de ses fils voyagèrent vers le sud depuis Fort La Reine (Portage la Prairie) à travers la prairie ouverte pour atteindre les villages mandans sur le haut Missouri dans l\'actuel Dakota du Nord — les premiers Européens à le faire. Ses fils poussèrent plus loin vers l\'ouest et en 1742–1743 aperçurent peut-être les contreforts des Rocheuses.',
       it: 'Nel 1738–1739 La Vérendrye e due figli viaggiarono a sud da Fort La Reine (Portage la Prairie) attraverso la prateria aperta fino ai villaggi Mandan sull\'alto Missouri nell\'odierno North Dakota — i primi europei a farlo. I figli spinserono ulteriormente a ovest e nel 1742–1743 avvistarono forse le prime propaggini delle Montagne Rocciose presso l\'odierno Wyoming.',
+      de: 'In den Jahren 1738–1739 reisten La Vérendrye und zwei seiner Söhne von Fort La Reine (Portage la Prairie) nach Süden über die offene Prärie, um Mandan-Dörfer am oberen Missouri im heutigen North Dakota zu erreichen – die ersten Europäer, die dies taten. Seine Söhne drangen weiter nach Westen vor und könnten zwischen 1742 und 1743 die Ausläufer der Rocky Mountains gesichtet haben.',
     },
   },
   // --- Cartier: first European charting of the St. Lawrence (1534–1542) ---
@@ -2356,11 +2515,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cartier — Saint-Malo to Gaspé (1534)',
       fr: 'Cartier — Saint-Malo à Gaspé (1534)',
       it: 'Cartier — Saint-Malo a Gaspé (1534)',
+      de: 'Cartier – Saint-Malo an Gaspé (1534)',
     },
     segmentDetail: {
       en: 'Jacques Cartier, sailing from Saint-Malo in Brittany, crossed the Atlantic in 1534 and explored the Gulf of St. Lawrence, planting a cross at Gaspé and claiming the land for France. This first voyage opened France\'s claim to North America.',
       fr: 'Jacques Cartier, parti de Saint-Malo en Bretagne, traversa l\'Atlantique en 1534 et explora le golfe du Saint-Laurent, plantant une croix à Gaspé et revendiquant la terre pour la France. Ce premier voyage ouvrit la revendication française en Amérique du Nord.',
       it: 'Jacques Cartier, salpato da Saint-Malo in Bretagna, attraversò l\'Atlantico nel 1534 ed esplorò il golfo di San Lorenzo, piantando una croce a Gaspé e rivendicando la terra per la Francia. Questo primo viaggio aprì la rivendicazione francese in Nord America.',
+      de: 'Jacques Cartier brach 1534 von Saint-Malo in der Bretagne aus auf, überquerte den Atlantik und erkundete den Sankt-Lorenz-Golf, errichtete ein Kreuz bei Gaspé und beanspruchte das Land für Frankreich. Diese erste Reise eröffnete den französischen Anspruch auf Nordamerika.',
     },
   },
   {
@@ -2382,11 +2543,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cartier — Gulf to Stadacona (1535)',
       fr: 'Cartier — golfe jusqu\'à Stadacona (1535)',
       it: 'Cartier — golfo fino a Stadacona (1535)',
+      de: 'Cartier – Golf von Stadacona (1535)',
     },
     segmentDetail: {
       en: 'On his second voyage (1535), Cartier sailed past Anticosti Island and up the St. Lawrence to the Iroquoian settlement of Stadacona (near present-day Québec), guided by Donnacona\'s sons whom he had taken to France the previous year.',
       fr: 'Lors de son deuxième voyage (1535), Cartier dépassa l\'île d\'Anticosti et remonta le Saint-Laurent jusqu\'à l\'établissement iroquoien de Stadacona (près de l\'actuelle Québec), guidé par les fils de Donnacona qu\'il avait emmenés en France l\'année précédente.',
       it: 'Nel suo secondo viaggio (1535), Cartier superò l\'isola di Anticosti e risalì il San Lorenzo fino all\'insediamento irochese di Stadacona (vicino all\'odierna Québec), guidato dai figli di Donnacona che aveva portato in Francia l\'anno precedente.',
+      de: 'Auf seiner zweiten Reise (1535) passierte Cartier die Insel Anticosti und segelte den Sankt-Lorenz-Strom hinauf zur irokischen Siedlung Stadacona (in der Nähe des heutigen Quebec), geführt von Donnaconas Söhnen, die er im Jahr zuvor nach Frankreich mitgenommen hatte.',
     },
   },
   {
@@ -2407,11 +2570,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'Cartier — Stadacona to Hochelaga (1535)',
       fr: 'Cartier — Stadacona à Hochelaga (1535)',
       it: 'Cartier — Stadacona a Hochelaga (1535)',
+      de: 'Cartier – Stadacona in Hochelaga (1535)',
     },
     segmentDetail: {
       en: 'Cartier continued upriver from Stadacona to Hochelaga (Montréal) in October 1535, reaching the Lachine Rapids. The Iroquoian town at Hochelaga was the farthest point of his penetration; rapids blocked further advance.',
       fr: 'Cartier continua en amont de Stadacona jusqu\'à Hochelaga (Montréal) en octobre 1535, atteignant les rapides de Lachine. La bourgade iroquoienne d\'Hochelaga fut le point le plus avancé de sa pénétration ; les rapides bloquaient toute progression.',
       it: 'Cartier proseguì a monte da Stadacona fino a Hochelaga (Montréal) nell\'ottobre 1535, raggiungendo le rapide di Lachine. L\'insediamento irochese di Hochelaga fu il punto più avanzato della sua penetrazione; le rapide impedivano ulteriori progressi.',
+      de: 'Cartier fuhr im Oktober 1535 weiter flussaufwärts von Stadacona nach Hochelaga (Montreal) und erreichte die Lachine Rapids. Die irokesische Stadt Hochelaga war der am weitesten fortgeschrittene Punkt ihrer Durchdringung; Die Stromschnellen blockierten jeden Fortschritt.',
     },
   },
   // ── Viking: Frisian coast / Dorestad ──────────────────────────────
@@ -2429,6 +2594,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Hedeby → Dorestad (Frisian coast trade)',
       fr: 'Hedeby → Dorestad (commerce côte frisonne)',
+      de: 'Haithabu → Dorestad (friesischer Küstenhandel)',
     },
   },
   {
@@ -2442,6 +2608,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Dorestad ↔ Utrecht (Rhine delta raids)',
       fr: 'Dorestad ↔ Utrecht (raids du delta du Rhin)',
+      de: 'Dorestad ↔ Utrecht (Überfälle im Rheindelta)',
     },
   },
   {
@@ -2458,6 +2625,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Frisian coast → Hamburg (North Sea littoral)',
       fr: 'Côte frisonne → Hambourg (littoral mer du Nord)',
+      de: 'Friesische Küste → Hamburg (Nordseeküste)',
     },
   },
   {
@@ -2471,6 +2639,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Hamburg → Hedeby (Elbe-Schlei portage corridor)',
       fr: 'Hambourg → Hedeby (corridor de portage Elbe-Schlei)',
+      de: 'Hamburg → Haithabu (Portagekorridor Elbe-Schlei)',
     },
   },
   // ── Viking: White Sea / Bjarmaland ──────────────────────────────
@@ -2488,6 +2657,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Trondheim → White Sea / Bjarmaland (fur frontier)',
       fr: 'Trondheim → Mer Blanche / Bjarmaland (frontière des fourrures)',
+      de: 'Trondheim → Weißes Meer / Bjarmaland (Pelzgrenze)',
     },
   },
   // ── Viking: Channel mesh ────────────────────────────────────────
@@ -2505,6 +2675,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Cross-Channel — South England ↔ Rouen',
       fr: 'Traversée de la Manche — Sud de l\'Angleterre ↔ Rouen',
+      de: 'Überquerung des Ärmelkanals – Südengland ↔ Rouen',
     },
   },
   {
@@ -2521,6 +2692,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'London → Dorestad (North Sea trade crossing)',
       fr: 'Londres → Dorestad (traversée commerciale mer du Nord)',
+      de: 'London → Dorestad (Nordsee-Handelsübergang)',
     },
   },
   {
@@ -2537,6 +2709,7 @@ export const atlasRouteSegments: RouteSegment[] = [
     segmentTooltip: {
       en: 'Channel → Brittany → Nantes (western raid corridor)',
       fr: 'Manche → Bretagne → Nantes (corridor de raids occidental)',
+      de: 'Ärmelkanal → Bretagne → Nantes (westlicher Angriffskorridor)',
     },
   },
   // St. Lawrence corridor (settlement, not exploration)
@@ -2555,11 +2728,13 @@ export const atlasRouteSegments: RouteSegment[] = [
       en: 'St. Lawrence Corridor — Québec to Montréal',
       fr: 'Corridor du Saint-Laurent — Québec à Montréal',
       it: 'Corridoio del San Lorenzo — Québec a Montréal',
+      de: 'St.-Lorenz-Korridor – Quebec nach Montreal',
     },
     segmentDetail: {
       en: 'The backbone of New France: a thin ribbon of seigneurial settlements along the St. Lawrence connecting the administrative capital (Québec) to the commercial hub (Montréal) via Trois-Rivières.',
       fr: 'L\'épine dorsale de la Nouvelle-France : un mince ruban d\'établissements seigneuriaux le long du Saint-Laurent reliant la capitale administrative (Québec) au centre commercial (Montréal) via Trois-Rivières.',
       it: 'Spina dorsale della Nuova Francia: un sottile nastro di insediamenti signorili lungo il San Lorenzo che collega la capitale amministrativa (Québec) al centro commerciale (Montréal) passando per Trois-Rivières.',
+      de: 'Das Rückgrat von Neu-Frankreich: ein dünnes Band herrschaftlicher Einrichtungen entlang des Sankt-Lorenz-Stroms, das die Verwaltungshauptstadt (Quebec) über Trois-Rivières mit dem Handelszentrum (Montreal) verbindet.',
     },
   },
 ];
