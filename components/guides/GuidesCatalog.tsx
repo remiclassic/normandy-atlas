@@ -3,25 +3,21 @@ import { ArrowLeft } from 'lucide-react';
 import type { DigitalGuideArchive } from '@/data/digital-guides';
 import type { ResolvedDigitalGuideProduct } from '@/lib/digital-guides-resolve';
 import { GuideProductCard } from '@/components/guides/GuideProductCard';
+import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 
 export type GuidesCatalogSection = {
   archive: DigitalGuideArchive;
   products: ResolvedDigitalGuideProduct[];
 };
 
-function NoiseBackdrop() {
-  return (
-    <div
-      className="pointer-events-none fixed inset-0 z-0 opacity-[0.035]"
-      aria-hidden
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-      }}
-    />
-  );
-}
-
-function ArchiveHero({ archive }: { archive: DigitalGuideArchive }) {
+function ArchiveHero({
+  archive,
+  titleLevel = 'h1',
+}: {
+  archive: DigitalGuideArchive;
+  titleLevel?: 'h1' | 'h2';
+}) {
+  const TitleTag = titleLevel;
   return (
     <div className="text-center">
       <p
@@ -30,9 +26,9 @@ function ArchiveHero({ archive }: { archive: DigitalGuideArchive }) {
       >
         — {archive.eyebrow} —
       </p>
-      <h1 className="font-display text-[clamp(1.5rem,4vw,2.35rem)] font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)]">
+      <TitleTag className="font-display text-[clamp(1.5rem,4vw,2.35rem)] font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)]">
         {archive.title}
-      </h1>
+      </TitleTag>
       <div className="mx-auto mt-4 max-w-xl space-y-1">
         {archive.taglines.map((line) => (
           <p key={line} className="text-[13px] leading-relaxed text-[var(--color-text-muted)]">
@@ -67,12 +63,21 @@ function ArchiveSectionHeader({ archive }: { archive: DigitalGuideArchive }) {
   );
 }
 
-export function GuidesCatalog({ sections }: { sections: GuidesCatalogSection[] }) {
+export function GuidesCatalog({
+  sections,
+  suppressShellChrome = false,
+}: {
+  sections: GuidesCatalogSection[];
+  /** When true, omit built-in header bars (parent provides map-aligned chrome + tabs). */
+  suppressShellChrome?: boolean;
+}) {
   const firstSlug = sections[0]?.archive.slug ?? 'guides';
 
   return (
-    <div className="fixed inset-0 z-0 flex flex-col bg-[var(--color-background)]">
-      <NoiseBackdrop />
+    <div
+      className={`z-0 flex flex-col bg-[var(--color-background)] ${suppressShellChrome ? 'min-h-0 flex-1' : 'fixed inset-0'}`}
+    >
+      <AtlasReadingNoiseBackdrop />
       <a
         href={`#${firstSlug}-grid`}
         className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:px-4 focus:py-2 focus:text-[13px]"
@@ -81,29 +86,47 @@ export function GuidesCatalog({ sections }: { sections: GuidesCatalogSection[] }
         Skip to guides
       </a>
 
-      <header
-        className="relative z-10 flex shrink-0 items-center gap-4 border-b px-6 py-3"
-        style={{
-          borderColor: 'var(--color-border)',
-          background: 'var(--color-surface-glass)',
-          backdropFilter: 'blur(20px)',
-        }}
-      >
-        <Link
-          href="/"
-          className="flex shrink-0 items-center gap-1.5 text-[13px] transition-colors"
-          style={{ color: 'var(--color-gold)' }}
-        >
-          <ArrowLeft size={14} aria-hidden />
-          Back to map
-        </Link>
-        <div className="h-4 w-px shrink-0 bg-[var(--color-border)]" aria-hidden />
-        <p className="font-display truncate text-[15px] font-semibold text-[var(--color-parchment)]">
-          Digital guides
-        </p>
-      </header>
+      {!suppressShellChrome && (
+        <>
+          <header
+            className="relative z-10 flex shrink-0 items-center gap-4 border-b px-6 py-3"
+            style={{
+              borderColor: 'var(--color-border)',
+              background: 'var(--color-surface-glass)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
+            <Link
+              href="/"
+              className="flex shrink-0 items-center gap-1.5 text-[13px] transition-colors"
+              style={{ color: 'var(--color-gold)' }}
+            >
+              <ArrowLeft size={14} aria-hidden />
+              Back to map
+            </Link>
+            <div className="h-4 w-px shrink-0 bg-[var(--color-border)]" aria-hidden />
+            <p className="font-display truncate text-[15px] font-semibold text-[var(--color-parchment)]">
+              Digital guides
+            </p>
+          </header>
 
-      <div className="relative z-10 flex-1 overflow-y-auto">
+          <div
+            className="relative z-10 shrink-0 border-b px-5 py-2.5 sm:px-6"
+            style={{ borderColor: 'var(--color-border)', background: 'var(--color-chrome-fill)' }}
+          >
+            <p className="text-center text-[11px] leading-relaxed sm:text-[12px]" style={{ color: 'var(--color-text-muted)' }}>
+              <Link href="/companion" className="font-medium underline-offset-2 transition-colors hover:underline" style={{ color: 'var(--color-gold)' }}>
+                Reading the Norman Atlas
+              </Link>{' '}
+              <span style={{ color: 'var(--color-text-dim)' }}>
+                — free in-app guide to eras, layers, evidence, and geography (separate from print-minded PDF titles below).
+              </span>
+            </p>
+          </div>
+        </>
+      )}
+
+      <div className={`relative z-10 flex-1 overflow-y-auto scrollbar-thin ${suppressShellChrome ? 'min-h-0' : ''}`}>
         <div className="relative mx-auto max-w-6xl px-5 pb-28 pt-10 md:px-8 md:pt-14">
           {sections.map(({ archive, products }, index) => {
             const gridId = `${archive.slug}-grid`;
@@ -113,7 +136,11 @@ export function GuidesCatalog({ sections }: { sections: GuidesCatalogSection[] }
                 key={archive.slug}
                 className={`relative ${index > 0 ? 'mt-20 border-t border-chrome-border pt-16 md:mt-24 md:pt-20' : ''}`}
               >
-                {index === 0 ? <ArchiveHero archive={archive} /> : <ArchiveSectionHeader archive={archive} />}
+                {index === 0 ? (
+                  <ArchiveHero archive={archive} titleLevel="h1" />
+                ) : (
+                  <ArchiveSectionHeader archive={archive} />
+                )}
 
                 <div
                   id={gridId}

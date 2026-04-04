@@ -4,19 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import {
-  ArrowLeft,
-  Award,
-  BookMarked,
-  Clapperboard,
-  Heart,
-  Library,
-  Signpost,
-  BookOpen,
-  Feather,
-  Share2,
-  Menu,
-} from 'lucide-react';
+import { ArrowLeft, Award, Clapperboard, Heart, BookOpen, Menu } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -33,7 +21,6 @@ import MobilePlayDock from '@/components/story/MobilePlayDock';
 import StoryLauncherSheet from '@/components/story/launcher/StoryLauncherSheet';
 import { StoryLauncherContext } from '@/hooks/use-story-launcher';
 import AtlasWelcomeGate from '@/components/onboarding/AtlasWelcomeGate';
-import ReplayTourButton from '@/components/onboarding/ReplayTourButton';
 import { CreditsModal, CreatorAboutHeaderButton } from '@/components/layout/CreditsPanel';
 import { NormanOverviewModal } from '@/components/layout/NormanOverviewModal';
 import { ChangelogModal } from '@/components/layout/ChangelogModal';
@@ -44,12 +31,6 @@ const SUPPORT_ATLAS_ENABLED = false;
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
-import { pickI18n } from '@/lib/locale';
-import {
-  digitalGuidesAriaOpen,
-  digitalGuidesTooltipHint,
-  digitalGuidesTooltipLabel,
-} from '@/lib/digital-guides-ui';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
@@ -69,82 +50,10 @@ import { shareOrCopy } from '@/lib/progress/share';
 import { buildCurrentViewShareUrl } from '@/lib/map-view-link';
 import { useChangelogUnread } from '@/hooks/useChangelogUnread';
 import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
-
-function AtlasMenuDrawer({
-  open,
-  onClose,
-  side = 'left',
-  children,
-}: {
-  open: boolean;
-  onClose: () => void;
-  /** 'left' for mobile hamburger, 'right' for desktop settings */
-  side?: 'left' | 'right';
-  children: React.ReactNode;
-}) {
-  if (typeof document === 'undefined') return null;
-
-  const isRight = side === 'right';
-  const width = isRight ? 320 : 280;
-
-  return (
-    <AnimatePresence>
-      {open && (
-        <>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[70] bg-black/40 backdrop-blur-sm"
-            onClick={onClose}
-          />
-          <motion.div
-            initial={{ x: isRight ? '100%' : '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: isRight ? '100%' : '-100%' }}
-            transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-            className={`fixed top-0 bottom-0 z-[71] max-w-[80vw] bg-chrome-popover overflow-y-auto scrollbar-thin ${
-              isRight
-                ? 'right-0 border-l border-chrome-border-strong'
-                : 'left-0 border-r border-chrome-border-strong'
-            }`}
-            style={{
-              width,
-              backdropFilter: 'blur(40px) saturate(1.2)',
-              WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
-              paddingTop: 'env(safe-area-inset-top)',
-              paddingBottom: 'env(safe-area-inset-bottom)',
-            }}
-          >
-            <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-chrome-border">
-              <div>
-                <h2 className="font-display text-[15px] font-bold text-parchment tracking-wide">
-                  Norman Atlas
-                </h2>
-                <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-text-dim mt-0.5">
-                  Settings & Tools
-                </p>
-              </div>
-              <button
-                onClick={onClose}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-chrome-fill hover:bg-chrome-fill-active text-text-dim hover:text-text-muted transition-all touch-target"
-                aria-label="Close menu"
-              >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
-            </div>
-            <div className="p-4">
-              {children}
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-}
+import { GuidesReferenceHubTrigger } from '@/components/layout/GuidesReferenceHub';
+import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLockup';
+import AtlasMenuDrawer from '@/components/layout/AtlasMenuDrawer';
+import AtlasToolsMenuBody from '@/components/layout/AtlasToolsMenuBody';
 
 export default function AtlasHomeShell() {
   const router = useRouter();
@@ -218,6 +127,15 @@ export default function AtlasHomeShell() {
     openLedger();
   }, [openLedger]);
 
+  const ledgerPanelOpenRequest = useMapStore((s) => s.ledgerPanelOpenRequest);
+  useEffect(() => {
+    if (!ledgerPanelOpenRequest) return;
+    queueMicrotask(() => {
+      openLedgerAndEndCelebration();
+      useMapStore.getState().clearLedgerPanelOpenRequest();
+    });
+  }, [ledgerPanelOpenRequest, openLedgerAndEndCelebration]);
+
   /** Pulse sits beside the journal icon; stop it when opening the journal. */
   const stopLedgerPulseOnJournalNavigate = useCallback(() => {
     useMapStore.getState().endLedgerCelebration();
@@ -264,41 +182,6 @@ export default function AtlasHomeShell() {
     setLedgerOpen(false);
   }, [closeStoryLauncher, guidedTourShellResetNonce]);
 
-  const handleCreditsFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openCredits();
-  }, [closeMobileMenu, openCredits]);
-
-  const handleOverviewFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openNormanOverview();
-  }, [closeMobileMenu, openNormanOverview]);
-
-  const handleStoriesFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openStoryLibrary();
-  }, [closeMobileMenu, openStoryLibrary]);
-
-  const handleSupportFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openSupport();
-  }, [closeMobileMenu, openSupport]);
-
-  const handleChangelogFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openChangelog();
-  }, [closeMobileMenu, openChangelog]);
-
-  const handleLedgerFromMenu = useCallback(() => {
-    closeMobileMenu();
-    openLedgerAndEndCelebration();
-  }, [closeMobileMenu, openLedgerAndEndCelebration]);
-
-  const handleProfileFromMenu = useCallback(() => {
-    closeMobileMenu();
-    router.push('/profile');
-  }, [closeMobileMenu, router]);
-
   const [shareToast, setShareToast] = useState<'copied' | 'shared' | 'failed' | null>(null);
   const shareToastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -332,31 +215,15 @@ export default function AtlasHomeShell() {
           </ChromeIconTooltip>
         )}
 
-        {guidesPublic && (
-          <ChromeIconTooltip
-            label={pickI18n(digitalGuidesTooltipLabel, locale)}
-            hint={pickI18n(digitalGuidesTooltipHint, locale)}
-          >
-            <Link
-              href="/guides"
-              className="flex h-6 max-w-[7rem] shrink-0 items-center justify-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 text-[9px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:max-w-none sm:px-2.5 sm:text-[10px]"
-              aria-label={pickI18n(digitalGuidesAriaOpen, locale)}
-            >
-              <BookMarked className="h-3 w-3 shrink-0 opacity-70 sm:h-3.5 sm:w-3.5" strokeWidth={1.5} aria-hidden />
-              <span className="hidden min-[380px]:inline">
-                {pickI18n(digitalGuidesTooltipLabel, locale)}
-              </span>
-            </Link>
-          </ChromeIconTooltip>
-        )}
+        <GuidesReferenceHubTrigger
+          guidesPublic={guidesPublic}
+          onBeforeNavigate={stopLedgerPulseOnJournalNavigate}
+        />
 
         <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
-        <div
-          className="flex shrink-0 items-center gap-1 rounded-full border border-chrome-border-strong bg-chrome-fill-badge p-0.5 backdrop-blur-sm"
-          data-onboarding="theme"
-        >
+        <div className="flex shrink-0 items-center gap-1" data-onboarding="theme">
           <ChromeIconTooltip
             label={t('textSize.tooltip.label', locale)}
             hint={t('textSize.tooltip.hint', locale)}
@@ -398,6 +265,7 @@ export default function AtlasHomeShell() {
       locale,
       openLedgerAndEndCelebration,
       openMobileMenu,
+      stopLedgerPulseOnJournalNavigate,
       storyLibraryOpen,
     ],
   );
@@ -483,12 +351,20 @@ export default function AtlasHomeShell() {
             <div className="flex items-center gap-6 px-4 py-1.5 sm:px-5" style={{ background: 'var(--color-chrome-fill)' }}>
               <div className="flex shrink-0 items-center gap-3">
                 <div className="flex flex-col gap-0">
-                  <h1 className="font-display text-[12px] font-semibold leading-none tracking-wide text-text-muted sm:text-[13px]">
-                    Norman Atlas
-                  </h1>
-                  <p className="text-[7px] font-medium uppercase leading-snug tracking-[0.2em] text-text-muted/50 sm:text-[8px]">
-                    {storyLibraryOpen ? t('storyLibrary.subtitle', locale) : t('header.tagline', locale)}
-                  </p>
+                  {storyLibraryOpen ? (
+                    <AtlasHeaderBrandLockup
+                      as="h1"
+                      subtitle={t('storyLibrary.subtitle', locale)}
+                    />
+                  ) : (
+                    <ChromeIconTooltip
+                      label={t('credits.eyebrow', locale)}
+                      hint={t('header.tagline', locale)}
+                      wrapperClassName="inline-flex min-w-0 max-w-full items-center"
+                    >
+                      <AtlasHeaderBrandLockup as="h1" subtitle={t('header.tagline', locale)} />
+                    </ChromeIconTooltip>
+                  )}
                 </div>
                 {SUPPORT_ATLAS_ENABLED && (
                   <ChromeIconTooltip
@@ -618,150 +494,22 @@ export default function AtlasHomeShell() {
 
       {/* ─── Settings & tools drawer (mobile: left, desktop: right) ── */}
       <AtlasMenuDrawer open={mobileMenuOpen} onClose={closeMobileMenu} side={isMobile ? 'left' : 'right'}>
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
-              Explore
-            </p>
-            <button
-              onClick={handleOverviewFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 opacity-60">
-                <path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" stroke="currentColor" strokeWidth="1.2" />
-              </svg>
-              {t('normanOverview.tooltip.label', locale)}
-            </button>
-            <Link
-              href="/journal"
-              onClick={() => {
-                stopLedgerPulseOnJournalNavigate();
-                closeMobileMenu();
-              }}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <Library className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} />
-              {t('atlasJournal.tooltip.label', locale)}
-            </Link>
-            {guidesPublic && (
-              <Link
-                href="/guides"
-                onClick={() => {
-                  stopLedgerPulseOnJournalNavigate();
-                  closeMobileMenu();
-                }}
-                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-              >
-                <BookMarked className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
-                {pickI18n(digitalGuidesTooltipLabel, locale)}
-              </Link>
-            )}
-            <button
-              type="button"
-              onClick={handleChangelogFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <span className="relative shrink-0">
-                <Signpost className="h-4 w-4 opacity-60" strokeWidth={1.5} aria-hidden />
-                {changelogHasUnread && (
-                  <span className="absolute -right-0.5 -top-0.5 h-[6px] w-[6px] rounded-full bg-emerald-400" />
-                )}
-              </span>
-              {t('changelog.mobileDrawer.label', locale)}
-            </button>
-            <button
-              type="button"
-              onClick={handleStoriesFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-              data-onboarding="stories"
-            >
-              <Clapperboard className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
-              {t('storyLibrary.tooltip.label', locale)}
-            </button>
-            <button
-              type="button"
-              onClick={handleLedgerFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <BookOpen className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
-              {t('ledger.mobileDrawer.label', locale)}
-            </button>
-            <button
-              type="button"
-              onClick={handleProfileFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <Award className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
-              {t('profile.mobileDrawer.label', locale)}
-            </button>
-            <button
-              type="button"
-              onClick={handleShareView}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <Share2 className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
-              {t('shareView.mobileDrawer.label', locale)}
-            </button>
-          </div>
-
-          <div className="h-px bg-chrome-divider" />
-
-          <div className="space-y-2">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
-              Help
-            </p>
-            <ReplayTourButton fullWidth />
-          </div>
-
-          <div className="h-px bg-chrome-divider" />
-
-          <div className="space-y-2" data-onboarding="theme">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-text-dim/50 mb-2">
-              Preferences
-            </p>
-            <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[13px] text-text-muted">Theme</span>
-              <ThemeSwitcher />
-            </div>
-            <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[13px] text-text-muted">Basemap</span>
-              <BasemapSwitcher />
-            </div>
-            <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[13px] text-text-muted">Text size</span>
-              <TextSizeMenu />
-            </div>
-            <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[13px] text-text-muted">Language</span>
-              <LanguageSwitcher />
-            </div>
-            <div className="flex items-center justify-between px-3 py-2">
-              <span className="text-[13px] text-text-muted">Music</span>
-              <BackgroundMusic floating={false} />
-            </div>
-          </div>
-
-          <div className="h-px bg-chrome-divider" />
-
-          <div className="space-y-2">
-            {SUPPORT_ATLAS_ENABLED && (
-              <button
-                onClick={handleSupportFromMenu}
-                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-gold/80 hover:bg-gold/8 hover:text-gold transition-colors touch-target"
-              >
-                <Heart className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
-                {t('support.mobileDrawer.label', locale)}
-              </button>
-            )}
-            <button
-              onClick={handleCreditsFromMenu}
-              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
-            >
-              <Feather className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.5} aria-hidden />
-              {t('credits.headerButtonFull', locale)}
-            </button>
-          </div>
-        </div>
+        <AtlasToolsMenuBody
+          locale={locale}
+          guidesPublic={guidesPublic}
+          changelogHasUnread={changelogHasUnread}
+          supportAtlasEnabled={SUPPORT_ATLAS_ENABLED}
+          onClose={closeMobileMenu}
+          beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
+          onNormanOverview={openNormanOverview}
+          onChangelog={openChangelog}
+          onStories={openStoryLibrary}
+          onLedger={openLedgerAndEndCelebration}
+          onProfile={() => router.push('/profile')}
+          onShare={handleShareView}
+          onCredits={openCredits}
+          onSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
+        />
       </AtlasMenuDrawer>
 
       {/* ─── Modals ─────────────────────────────────────────── */}

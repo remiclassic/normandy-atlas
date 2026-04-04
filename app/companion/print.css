@@ -1,0 +1,84 @@
+/* Print: companion book — high contrast, tactical boxes visible in grayscale */
+
+@media print {
+  .companion-root .companion-hide-print {
+    display: none !important;
+  }
+
+  .companion-root {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .companion-root .companion-print-main {
+    overflow: visible !important;
+    max-width: 100% !important;
+    padding: 0.5in !important;
+  }
+
+  .companion-root .companion-md,
+  .companion-root .companion-narrative {
+    max-width: 100% !important;
+  }
+
+  .companion-root .companion-h2,
+  .companion-root h1,
+  .companion-root h2,
+  .companion-root h3 {
+    color: #000 !important;
+    border-color: #999 !important;
+  }
+
+  .companion-root p,
+  .companion-root li {
+    color: #222 !important;
+  }
+
+  .companion-root .companion-callout {
+    border: 1px solid #333 !important;
+    background: #f5f5f5 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .companion-root .companion-callout--atlas-ui {
+    border-left: 4px solid #333 !important;
+  }
+
+  .companion-root .companion-callout--scenario {
+    border-left: 4px solid #555 !important;
+  }
+
+  .companion-root .companion-manifesto {
+    border: 2px solid #000 !important;
+    background: #fafafa !important;
+    break-inside: avoid;
+  }
+
+  .companion-root .companion-manifesto__card {
+    border: 1px solid #666 !important;
+    background: #fff !important;
+  }
+
+  .companion-root .companion-evidence {
+    border: 1px solid #333 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .companion-root .companion-figure__img {
+    max-height: 4.5in !important;
+    border: 1px solid #333 !important;
+  }
+
+  .companion-root a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+
+  .companion-root .companion-code {
+    border: 1px solid #333 !important;
+    background: #eee !important;
+    color: #000 !important;
+  }
+}

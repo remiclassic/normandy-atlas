@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useState, useMemo, useDeferredValue, useCallback, memo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Search, Menu, X, MapPin, Map, ExternalLink } from 'lucide-react';
-import TextSizeMenu from '@/components/ui/TextSizeMenu';
+import { Search, MapPin, Map, ExternalLink } from 'lucide-react';
+import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
+import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
+import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
+import { useMapStore } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
 import { pickI18n } from '@/lib/locale';
 import { getAtlasEras } from '@/core/era/engine';
@@ -62,8 +66,7 @@ const SectionHeading = memo(function SectionHeading({ id, children }: { id: stri
   return (
     <h2
       id={id}
-      className="font-display text-[20px] font-semibold scroll-mt-20"
-      style={{ color: 'var(--color-parchment)' }}
+      className="journal-section-h2 scroll-mt-20 font-display font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)]"
     >
       {children}
     </h2>
@@ -76,7 +79,7 @@ const SectionDivider = memo(function SectionDivider() {
 
 const Prose = memo(function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[13px] leading-relaxed mt-3" style={{ color: 'var(--color-text-muted)' }}>
+    <p className="text-[length:var(--atlas-text-md)] leading-relaxed mt-3" style={{ color: 'var(--color-text-muted)' }}>
       {children}
     </p>
   );
@@ -85,10 +88,10 @@ const Prose = memo(function Prose({ children }: { children: React.ReactNode }) {
 const SectionLabel = memo(function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[10px] font-medium uppercase tracking-[0.22em] mb-2"
+      className="mb-2 font-sans text-[length:var(--atlas-text-xs)] font-semibold uppercase tracking-[0.28em]"
       style={{ color: 'var(--color-gold-muted)' }}
     >
-      {children}
+      — {children} —
     </p>
   );
 });
@@ -146,7 +149,7 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
   return (
     <div className="mt-4 space-y-5">
       {isEmpty ? (
-        <p className="text-[13px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+        <p className="text-[length:var(--atlas-text-md)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
           {t('ledger.empty', locale)}
         </p>
       ) : (
@@ -157,12 +160,12 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
           >
             <div className="flex items-center gap-2 mb-3">
               <p
-                className="text-[10px] font-medium uppercase tracking-[0.22em]"
+                className="text-[length:var(--atlas-text-xs)] font-medium uppercase tracking-[0.22em]"
                 style={{ color: 'var(--color-gold-muted)' }}
               >
                 {t('ledger.coverage', locale)}
               </p>
-              <span className="text-[10px] italic" style={{ color: 'var(--color-text-dim)' }}>
+              <span className="text-[length:var(--atlas-text-xs)] italic" style={{ color: 'var(--color-text-dim)' }}>
                 {pickI18n(ROLE_LABELS[role], locale)}
               </span>
             </div>
@@ -176,10 +179,10 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
                 ['ledger.stories', stats.storiesCompleted, stats.coverageTotals.stories],
               ] as const).map(([key, cur, tot]) => (
                 <div key={key} className="flex items-center justify-between">
-                  <span className="text-[12px]" style={{ color: 'var(--color-text-muted)' }}>
+                  <span className="text-[length:var(--atlas-text-base)]" style={{ color: 'var(--color-text-muted)' }}>
                     {t(key, locale)}
                   </span>
-                  <span className="text-[13px] font-semibold tabular-nums" style={{ color: 'var(--color-parchment)' }}>
+                  <span className="text-[length:var(--atlas-text-md)] font-semibold tabular-nums" style={{ color: 'var(--color-parchment)' }}>
                     {cur}/{tot}
                   </span>
                 </div>
@@ -190,7 +193,7 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
           {unlockedMilestones.length > 0 && (
             <div>
               <p
-                className="text-[10px] font-medium uppercase tracking-[0.22em] mb-2"
+                className="text-[length:var(--atlas-text-xs)] font-medium uppercase tracking-[0.22em] mb-2"
                 style={{ color: 'var(--color-gold-muted)' }}
               >
                 {t('ledger.milestones', locale)} ({unlockedMilestones.length}/{atlasMilestones.length})
@@ -205,7 +208,7 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--color-gold)' }} className="shrink-0">
                       <path d="M3 7.5l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <span className="text-[12px]" style={{ color: 'var(--color-parchment)' }}>
+                    <span className="text-[length:var(--atlas-text-base)]" style={{ color: 'var(--color-parchment)' }}>
                       {pickI18n(m.title, locale)}
                     </span>
                   </div>
@@ -217,13 +220,13 @@ const JournalLedgerSection = memo(function JournalLedgerSection({ locale }: { lo
       )}
 
       <div className="flex flex-wrap items-center gap-2 pt-1">
-        <button onClick={handleExport} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+        <button onClick={handleExport} className="text-[length:var(--atlas-text-sm)] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
           {t('ledger.export', locale)}
         </button>
-        <button onClick={handleImport} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+        <button onClick={handleImport} className="text-[length:var(--atlas-text-sm)] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
           {t('ledger.import', locale)}
         </button>
-        <button onClick={handleReset} className="text-[11px] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
+        <button onClick={handleReset} className="text-[length:var(--atlas-text-sm)] px-2 py-1 rounded-md transition-colors" style={{ color: 'var(--color-text-dim)' }}>
           {t('ledger.reset', locale)}
         </button>
         <input ref={fileInputRef} type="file" accept=".json" className="hidden" onChange={handleFileChange} />
@@ -244,15 +247,15 @@ const TimelineSection = memo(function TimelineSection({ locale }: { locale: Atla
           style={{ borderColor: 'var(--color-border)' }}
         >
           <div className="flex items-baseline gap-2">
-            <span className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+            <span className="font-display text-[length:var(--atlas-text-lg)] font-semibold" style={{ color: 'var(--color-parchment)' }}>
               {pickI18n(era.label, locale)}
             </span>
-            <span className="text-[11px] tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
+            <span className="text-[length:var(--atlas-text-sm)] tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
               {era.range.start < 0 ? `${Math.abs(era.range.start)} BC` : era.range.start} \u2013 {era.range.end}
             </span>
           </div>
           {era.summary && (
-            <p className="text-[12px] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
+            <p className="text-[length:var(--atlas-text-base)] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
               {pickI18n(era.summary, locale)}
             </p>
           )}
@@ -271,15 +274,15 @@ const ArcsSection = memo(function ArcsSection({ locale }: { locale: AtlasLocale 
           className="rounded-lg border px-4 py-3"
           style={{ borderColor: 'var(--color-border)' }}
         >
-          <span className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+          <span className="font-display text-[length:var(--atlas-text-lg)] font-semibold" style={{ color: 'var(--color-parchment)' }}>
             {pickI18n(arc.label, locale)}
           </span>
-          <p className="text-[11px] mt-1" style={{ color: 'var(--color-text-dim)' }}>
+          <p className="text-[length:var(--atlas-text-sm)] mt-1" style={{ color: 'var(--color-text-dim)' }}>
             {arc.eraIds.length} {locale === 'fr' ? '\u00e9poques' : 'eras'}
           </p>
           <Link
             href={buildMapHref({ library: true, libraryArc: arc.arcId })}
-            className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors mt-1.5"
+            className="inline-flex items-center gap-1 text-[length:var(--atlas-text-sm)] underline underline-offset-2 transition-colors mt-1.5"
             style={{ color: 'var(--color-gold)' }}
           >
             {t('journal.openInLibrary', locale)}
@@ -310,7 +313,7 @@ const GlossarySection = memo(function GlossarySection({
   return (
     <div className="space-y-3 mt-4">
       {filtered.length === 0 && (
-        <p className="text-[13px] py-6 text-center" style={{ color: 'var(--color-text-dim)' }}>
+        <p className="text-[length:var(--atlas-text-md)] py-6 text-center" style={{ color: 'var(--color-text-dim)' }}>
           {locale === 'fr' ? 'Aucun terme trouv\u00e9.' : 'No terms found.'}
         </p>
       )}
@@ -321,14 +324,14 @@ const GlossarySection = memo(function GlossarySection({
           className="rounded-lg border px-4 py-3"
           style={{ borderColor: 'var(--color-border)' }}
         >
-          <p className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+          <p className="font-display text-[length:var(--atlas-text-lg)] font-semibold" style={{ color: 'var(--color-parchment)' }}>
             {pickI18n(entry.term, locale)}
           </p>
-          <p className="text-[12px] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-[length:var(--atlas-text-base)] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
             {pickI18n(entry.definition, locale)}
           </p>
           {entry.seeAlso && entry.seeAlso.length > 0 && (
-            <p className="text-[10px] mt-2" style={{ color: 'var(--color-text-dim)' }}>
+            <p className="text-[length:var(--atlas-text-xs)] mt-2" style={{ color: 'var(--color-text-dim)' }}>
               {locale === 'fr' ? 'Voir aussi : ' : 'See also: '}
               {entry.seeAlso.map((ref, i) => {
                 const target = atlasGlossary.find((g) => g.id === ref);
@@ -364,14 +367,14 @@ const ExpeditionsSection = memo(function ExpeditionsSection({ locale }: { locale
           style={{ borderColor: 'var(--color-border)' }}
         >
           <div className="flex items-baseline justify-between gap-2">
-            <span className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+            <span className="font-display text-[length:var(--atlas-text-lg)] font-semibold" style={{ color: 'var(--color-parchment)' }}>
               {pickI18n(exp.title, locale)}
             </span>
-            <span className="text-[10px] shrink-0 tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
+            <span className="text-[length:var(--atlas-text-xs)] shrink-0 tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
               {exp.steps.length} {locale === 'fr' ? 'étapes' : 'steps'}
             </span>
           </div>
-          <p className="text-[12px] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-[length:var(--atlas-text-base)] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
             {pickI18n(exp.description, locale)}
           </p>
         </div>
@@ -410,18 +413,18 @@ const IndexCard = memo(function IndexCard({
         aria-hidden
       />
       <div className="min-w-0 flex-1">
-        <p className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+        <p className="font-display text-[length:var(--atlas-text-lg)] font-semibold" style={{ color: 'var(--color-parchment)' }}>
           {row.title}
         </p>
         {row.excerpt && (
-          <p className="text-[12px] leading-relaxed mt-1" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-[length:var(--atlas-text-base)] leading-relaxed mt-1" style={{ color: 'var(--color-text-muted)' }}>
             {row.excerpt}
           </p>
         )}
         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1.5">
           <Link
             href={row.mapLink}
-            className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors"
+            className="inline-flex items-center gap-1 text-[length:var(--atlas-text-sm)] underline underline-offset-2 transition-colors"
             style={{ color: 'var(--color-gold)' }}
           >
             {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
@@ -429,7 +432,7 @@ const IndexCard = memo(function IndexCard({
           {row.libraryLink && (
             <Link
               href={row.libraryLink}
-              className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors"
+              className="inline-flex items-center gap-1 text-[length:var(--atlas-text-sm)] underline underline-offset-2 transition-colors"
               style={{ color: 'var(--color-gold)' }}
             >
               {t('journal.openInLibrary', locale)}
@@ -452,7 +455,7 @@ const IndexSection = memo(function IndexSection({
 }) {
   if (rows.length === 0) {
     return (
-      <p className="text-[13px] py-6 text-center" style={{ color: 'var(--color-text-dim)' }}>
+      <p className="text-[length:var(--atlas-text-md)] py-6 text-center" style={{ color: 'var(--color-text-dim)' }}>
         {emptyLabel ?? (locale === 'fr' ? 'Aucun résultat.' : 'No results.')}
       </p>
     );
@@ -483,7 +486,7 @@ const TocNav = memo(function TocNav({
             <button
               type="button"
               onClick={() => onItemClick(item.id)}
-              className="w-full text-left px-3 py-1.5 rounded-md text-[12px] transition-colors cursor-pointer"
+              className="w-full text-left px-3 py-1.5 rounded-md text-[length:var(--atlas-text-base)] transition-colors cursor-pointer"
               style={{
                 color: activeId === item.id ? 'var(--color-gold)' : 'var(--color-text-muted)',
                 background: activeId === item.id ? 'var(--color-chrome-fill)' : 'transparent',
@@ -513,13 +516,24 @@ export default function JournalPage() {
     return readStoryProgressMap();
   }, [resumableRows, progress]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const tocItems = useTocItems(locale, resumableRows.length > 0);
+  /** TOC must match SSR (no localStorage): omit Resume until after mount, then sync with real progress. */
+  const [tocClientReady, setTocClientReady] = useState(false);
+  useEffect(() => {
+    setTocClientReady(true);
+  }, []);
+
+  const tocItems = useTocItems(locale, tocClientReady && resumableRows.length > 0);
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState('welcome');
   const [glossarySearch, setGlossarySearch] = useState('');
   const [indexSearch, setIndexSearch] = useState('');
   const deferredIndexSearch = useDeferredValue(indexSearch);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+
+  const stopLedgerPulseOnJournalNavigate = useCallback(() => {
+    useMapStore.getState().endLedgerCelebration();
+  }, []);
 
   const fullIndex = useMemo(() => buildJournalIndex(locale), [locale]);
 
@@ -600,51 +614,33 @@ export default function JournalPage() {
   const methodologyCopy = journalSections.find((s) => s.id === 'methodology');
 
   return (
-    <div className="fixed inset-0 flex flex-col" style={{ background: 'var(--color-background)' }}>
+    <div className="fixed inset-0 z-0 flex flex-col bg-[var(--color-background)]">
+      <AtlasReadingNoiseBackdrop />
       <a
         href="#welcome"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded focus:text-[13px]"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded focus:text-[length:var(--atlas-text-md)]"
         style={{ background: 'var(--color-surface)', color: 'var(--color-gold)' }}
       >
         Skip to content
       </a>
 
-      <header
-        className="shrink-0 flex items-center gap-4 px-6 py-3 border-b z-10"
-        style={{ borderColor: 'var(--color-border)', background: 'var(--color-surface-glass)', backdropFilter: 'blur(20px)' }}
-      >
-        <Link
-          href="/"
-          className="flex items-center gap-1.5 text-[13px] transition-colors shrink-0"
-          style={{ color: 'var(--color-gold)' }}
-        >
-          <ArrowLeft size={14} />
-          {locale === 'fr' ? 'Retour \u00e0 la carte' : 'Back to map'}
-        </Link>
-        <div className="h-4 w-px shrink-0" style={{ background: 'var(--color-border)' }} />
-        <h1 className="font-display text-[18px] font-semibold truncate" style={{ color: 'var(--color-parchment)' }}>
-          {locale === 'fr' ? 'Journal de l\u2019Atlas' : 'Atlas Journal'}
-        </h1>
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col">
+        <AtlasSubpageChromeHeader
+          onOpenToolsMenu={() => setToolsOpen(true)}
+          mobileToc={{
+            open: mobileTocOpen,
+            onToggle: () => setMobileTocOpen((v) => !v),
+            openLabel: t('companion.tocOpen', locale),
+            closeLabel: t('companion.tocClose', locale),
+          }}
+        />
 
-        <span className="ml-auto hidden md:inline-flex">
-          <TextSizeMenu standalone />
-        </span>
+        <ReferenceHubTabs />
 
-        <button
-          type="button"
-          onClick={() => setMobileTocOpen((v) => !v)}
-          className="ml-auto md:ml-0 md:hidden flex h-8 w-8 items-center justify-center rounded-lg transition-colors cursor-pointer"
-          style={{ color: 'var(--color-text-dim)' }}
-          aria-label={mobileTocOpen ? 'Close table of contents' : 'Open table of contents'}
-        >
-          {mobileTocOpen ? <X size={16} /> : <Menu size={16} />}
-        </button>
-      </header>
-
-      <div className="flex flex-1 min-h-0 relative">
+        <div className="relative flex min-h-0 flex-1">
         {/* Desktop TOC */}
         <aside
-          className="hidden md:flex w-[200px] shrink-0 flex-col border-r py-6 px-4 overflow-y-auto"
+          className="hidden md:flex w-[200px] shrink-0 flex-col border-r py-6 px-4 overflow-y-auto scrollbar-thin"
           style={{ borderColor: 'var(--color-border)' }}
         >
           <SectionLabel>{locale === 'fr' ? 'Sommaire' : 'Contents'}</SectionLabel>
@@ -657,7 +653,7 @@ export default function JournalPage() {
             className="absolute inset-0 z-20 md:hidden"
             style={{ background: 'var(--color-surface-glass)', backdropFilter: 'blur(20px)' }}
           >
-            <div className="p-6">
+            <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin p-6">
               <SectionLabel>{locale === 'fr' ? 'Sommaire' : 'Contents'}</SectionLabel>
               <TocNav items={tocItems} activeId={activeSection} onItemClick={scrollToSection} />
             </div>
@@ -665,8 +661,14 @@ export default function JournalPage() {
         )}
 
         {/* Content */}
-        <div ref={contentRef} className="flex-1 overflow-y-auto px-6 md:px-10 py-8">
+        <div
+          ref={contentRef}
+          className="relative z-10 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin px-5 py-10 md:px-8 md:py-14"
+        >
           <div className="max-w-3xl">
+            <h1 className="journal-main-title mb-10 scroll-mt-20 font-display font-semibold uppercase tracking-[0.05em] text-[var(--color-gold)] sm:mb-12">
+              {t('atlasJournal.tooltip.label', locale)}
+            </h1>
             {/* Welcome */}
             {welcomeCopy && (
               <section>
@@ -697,10 +699,10 @@ export default function JournalPage() {
                           style={{ borderColor: 'var(--color-border)' }}
                         >
                           <div className="min-w-0 flex-1">
-                            <p className="truncate text-[13px] font-medium" style={{ color: 'var(--color-parchment)' }}>
+                            <p className="truncate text-[length:var(--atlas-text-md)] font-medium" style={{ color: 'var(--color-parchment)' }}>
                               {title}
                             </p>
-                            <p className="text-[11px] tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
+                            <p className="text-[length:var(--atlas-text-sm)] tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
                               {t('journal.resume.step', locale).replace('{n}', String(step + 1))} / {row.sceneCount}
                             </p>
                           </div>
@@ -801,7 +803,7 @@ export default function JournalPage() {
                   value={indexSearch}
                   onChange={handleIndexSearchChange}
                   placeholder={locale === 'fr' ? 'Rechercher dans l\u2019index\u2026' : 'Search the atlas index\u2026'}
-                  className="w-full pl-9 pr-3 py-2 rounded-md text-[13px] outline-none border transition-colors"
+                  className="w-full pl-9 pr-3 py-2 rounded-md text-[length:var(--atlas-text-md)] outline-none border transition-colors"
                   style={{
                     background: 'var(--color-surface)',
                     borderColor: 'var(--color-border)',
@@ -837,7 +839,7 @@ export default function JournalPage() {
                         value={glossarySearch}
                         onChange={handleGlossarySearchChange}
                         placeholder={locale === 'fr' ? 'Rechercher un terme\u2026' : 'Search terms\u2026'}
-                        className="w-full pl-9 pr-3 py-2 rounded-md text-[13px] outline-none border transition-colors"
+                        className="w-full pl-9 pr-3 py-2 rounded-md text-[length:var(--atlas-text-md)] outline-none border transition-colors"
                         style={{
                           background: 'var(--color-surface)',
                           borderColor: 'var(--color-border)',
@@ -971,7 +973,7 @@ export default function JournalPage() {
               <div className="mt-4 space-y-3">
                 <div>
                   <SectionLabel>{locale === 'fr' ? 'Qu\u2019est-ce que l\u2019ADN-Y\u00a0?' : 'What is Y-DNA?'}</SectionLabel>
-                  <p className="text-[12px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                  <p className="text-[length:var(--atlas-text-base)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
                     {locale === 'fr'
                       ? 'L\u2019ADN du chromosome Y est transmis de p\u00e8re en fils pratiquement sans changement \u00e0 chaque g\u00e9n\u00e9ration. En testant les descendants modernes, les g\u00e9n\u00e9ticiens peuvent d\u00e9duire l\u2019haplogroupe probable d\u2019un anc\u00eatre historique. Un haplogroupe (par ex. R1b, I1, G2) repr\u00e9sente une branche profonde de l\u2019arbre g\u00e9n\u00e9alogique paternel humain.'
                       : 'Y-chromosome DNA is passed from father to son virtually unchanged each generation. By testing modern descendants, geneticists can infer the probable haplogroup of a historical ancestor. A haplogroup (e.g. R1b, I1, G2) represents a deep branch on the human paternal family tree.'}
@@ -979,7 +981,7 @@ export default function JournalPage() {
                 </div>
                 <div>
                   <SectionLabel>{locale === 'fr' ? 'Avertissement' : 'Disclaimer'}</SectionLabel>
-                  <p className="text-[12px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                  <p className="text-[length:var(--atlas-text-base)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
                     {locale === 'fr'
                       ? 'Les haplogroupes sont bas\u00e9s sur des tests d\u2019ADN-Y de descendants modernes, et non sur l\u2019ADN ancien des colons eux-m\u00eames. Les \u00e9v\u00e9nements de non-paternit\u00e9 ou les adoptions non document\u00e9es \u00e0 tout point de la lign\u00e9e peuvent rompre la cha\u00eene entre la personne historique et le descendant test\u00e9.'
                       : 'Haplogroups are based on modern descendant Y-DNA testing, not on ancient DNA from the settlers themselves. Non-paternity events or undocumented adoptions at any point in the lineage can break the chain between the historical person and the tested descendant.'}
@@ -988,7 +990,7 @@ export default function JournalPage() {
                 <div className="flex items-center gap-3 mt-4">
                   <Link
                     href="/?era=new-france-foundations"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[length:var(--atlas-text-sm)] font-medium transition-colors"
                     style={{ background: 'var(--color-chrome-fill)', color: 'var(--color-gold-muted)' }}
                   >
                     <Map size={12} />
@@ -998,7 +1000,7 @@ export default function JournalPage() {
                     href="https://www.francogene.com/triangulation/y.php"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[length:var(--atlas-text-sm)] transition-colors"
                     style={{ color: 'var(--color-text-dim)' }}
                   >
                     <ExternalLink size={10} />
@@ -1022,7 +1024,7 @@ export default function JournalPage() {
                     {atlasContract.rules.map((rule, i) => (
                       <li
                         key={i}
-                        className="text-[12px] leading-relaxed pl-4 relative before:absolute before:left-0 before:top-[0.45em] before:h-1 before:w-1 before:rounded-full"
+                        className="text-[length:var(--atlas-text-base)] leading-relaxed pl-4 relative before:absolute before:left-0 before:top-[0.45em] before:h-1 before:w-1 before:rounded-full"
                         style={{ color: 'var(--color-text-muted)' }}
                       >
                         <span className="absolute left-0 top-[0.45em] h-1 w-1 rounded-full" style={{ background: 'var(--color-gold-muted)' }} />
@@ -1038,7 +1040,7 @@ export default function JournalPage() {
                     {atlasContract.forbiddenClaims.map((claim, i) => (
                       <li
                         key={i}
-                        className="text-[12px] leading-relaxed pl-4 relative"
+                        className="text-[length:var(--atlas-text-base)] leading-relaxed pl-4 relative"
                         style={{ color: 'var(--color-text-dim)' }}
                       >
                         <span className="absolute left-0 top-[0.45em] h-1 w-1 rounded-full" style={{ background: 'var(--color-text-dim)' }} />
@@ -1053,7 +1055,14 @@ export default function JournalPage() {
             <div className="h-20" />
           </div>
         </div>
+        </div>
       </div>
+
+      <AtlasSubpageToolsMenu
+        open={toolsOpen}
+        onClose={() => setToolsOpen(false)}
+        beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
+      />
     </div>
   );
 }

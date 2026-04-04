@@ -13,6 +13,15 @@ import './globals.css';
 /** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
 const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE_STORAGE_KEY)};if(localStorage.getItem(sk))return;var m=document.cookie.match(/(?:^|;\\s*)${NORMAN_GEO_LOCALE_COOKIE}=([^;]*)/);var v=m?decodeURIComponent(m[1].trim()):'';if(v==='fr'||v==='es'||v==='it'||v==='nb'||v==='sv'||v==='da')localStorage.setItem(sk,v);}catch(e){}})();`;
 
+/** Inline in `<head>` so it runs before paint; avoids `next/script` in the body (React 19 client-tree script warning). */
+const blockingPreferenceRestoreScript = [
+  "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
+  "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
+  `(function(){try{var f=localStorage.getItem(${JSON.stringify(REDUCE_MOTION_STORAGE_KEY)})==='true';var s=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(f||s)document.documentElement.classList.add('atlas-reduced-motion');}catch(e){}})();`,
+  `(function(){try{if(localStorage.getItem(${JSON.stringify(HIGH_CONTRAST_STORAGE_KEY)})==='true')document.documentElement.dataset.highContrast='true';}catch(e){}})();`,
+  localeGeoBootstrapScript,
+].join('');
+
 const META_PIXEL_INIT = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -77,6 +86,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`} suppressHydrationWarning>
       <head>
+        <script
+          id="atlas-blocking-preferences"
+          dangerouslySetInnerHTML={{ __html: blockingPreferenceRestoreScript }}
+        />
         <noscript>
           <img
             height={1}
@@ -86,42 +99,6 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {/*
-          Inline scripts in <head> so React 19 does not warn about <script> in the body tree.
-          They still run before first paint when the document is parsed.
-        */}
-        <script
-          id="theme-restore"
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;}catch(e){}})();",
-          }}
-        />
-        <script
-          id="text-size-restore"
-          dangerouslySetInnerHTML={{
-            __html:
-              "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
-          }}
-        />
-        <script
-          id="reduce-motion-restore"
-          dangerouslySetInnerHTML={{
-            __html:
-              `(function(){try{var f=localStorage.getItem(${JSON.stringify(REDUCE_MOTION_STORAGE_KEY)})==='true';var s=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(f||s)document.documentElement.classList.add('atlas-reduced-motion');}catch(e){}})();`,
-          }}
-        />
-        <script
-          id="high-contrast-restore"
-          dangerouslySetInnerHTML={{
-            __html:
-              `(function(){try{if(localStorage.getItem(${JSON.stringify(HIGH_CONTRAST_STORAGE_KEY)})==='true')document.documentElement.dataset.highContrast='true';}catch(e){}})();`,
-          }}
-        />
-        <script
-          id="locale-geo-bootstrap"
-          dangerouslySetInnerHTML={{ __html: localeGeoBootstrapScript }}
-        />
       </head>
       <body>
         <ClientBootstrap />

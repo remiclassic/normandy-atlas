@@ -235,6 +235,11 @@ interface MapStore {
   libraryOpenRequest: { focusProgressKey?: string; openDetail?: boolean } | null;
   requestStoryLibraryOpen: (req: { focusProgressKey?: string; openDetail?: boolean }) => void;
   clearStoryLibraryRequest: () => void;
+
+  /** One-shot: open expedition ledger on map after navigating from subpage settings menu. */
+  ledgerPanelOpenRequest: boolean;
+  requestLedgerPanelOpen: () => void;
+  clearLedgerPanelOpenRequest: () => void;
 }
 
 function initialAtlasLayers(): Record<string, boolean> {
@@ -325,6 +330,10 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   libraryOpenRequest: null as { focusProgressKey?: string; openDetail?: boolean } | null,
   requestStoryLibraryOpen: (req) => set({ libraryOpenRequest: { ...req } }),
   clearStoryLibraryRequest: () => set({ libraryOpenRequest: null }),
+
+  ledgerPanelOpenRequest: false,
+  requestLedgerPanelOpen: () => set({ ledgerPanelOpenRequest: true }),
+  clearLedgerPanelOpenRequest: () => set({ ledgerPanelOpenRequest: false }),
 
   startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
 

@@ -91,10 +91,23 @@ export function addRegionLayers(
     paint: {
       'fill-color': ['coalesce', ['get', 'culturalTint'], 'transparent'],
       'fill-opacity': [
-        'case',
-        ['has', 'culturalTint', ['properties']],
-        ['interpolate', ['linear'], ['zoom'], 3, 0.14, 8, 0.22],
-        0,
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        3,
+        [
+          'case',
+          ['has', 'culturalTint', ['properties']],
+          0.14,
+          0,
+        ],
+        8,
+        [
+          'case',
+          ['has', 'culturalTint', ['properties']],
+          0.22,
+          0,
+        ],
       ],
     },
     layout: {

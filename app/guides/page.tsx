@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { allGuideArchives } from '@/data/digital-guides';
 import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
 import { resolveAllGuideArchives } from '@/lib/digital-guides-resolve';
-import { GuidesCatalog } from '@/components/guides/GuidesCatalog';
+import GuidesPageChrome from '@/components/guides/GuidesPageChrome';
 
 const title = 'Digital guides \u2014 Norman Atlas library | Norman Atlas';
 const description =
@@ -19,5 +19,5 @@ export const metadata: Metadata = {
 export default function GuidesPage() {
   if (!isDigitalGuidesPublic()) notFound();
   const sections = resolveAllGuideArchives(allGuideArchives);
-  return <GuidesCatalog sections={sections} />;
+  return <GuidesPageChrome sections={sections} />;
 }

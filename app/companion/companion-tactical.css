@@ -1,0 +1,233 @@
+/* Scoped dual-track / tactical companion surfaces. Imported only from companion page. */
+
+.companion-root {
+  --companion-tactical-border: rgba(91, 127, 165, 0.45);
+  --companion-tactical-glow: rgba(91, 127, 165, 0.12);
+  --companion-scenario-border: rgba(196, 169, 98, 0.55);
+  --companion-scenario-glow: rgba(196, 169, 98, 0.1);
+  --companion-evidence-border: rgba(168, 92, 59, 0.5);
+}
+
+[data-ui-theme='light'] .companion-root {
+  --companion-tactical-border: rgba(45, 74, 110, 0.45);
+  --companion-tactical-glow: rgba(45, 74, 110, 0.08);
+  --companion-scenario-border: rgba(100, 85, 40, 0.45);
+  --companion-scenario-glow: rgba(100, 85, 40, 0.08);
+  --companion-evidence-border: rgba(120, 60, 40, 0.45);
+}
+
+.companion-code {
+  background: var(--color-chrome-fill);
+  border: 1px solid var(--color-chrome-border);
+  color: var(--color-gold-bright);
+}
+
+.companion-callout {
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-bright);
+  background: linear-gradient(135deg, var(--color-chrome-fill-badge) 0%, var(--color-surface) 100%);
+  box-shadow: 0 0 0 1px var(--color-border-glow);
+}
+
+.companion-callout__eyebrow {
+  font-family: var(--font-inter), ui-monospace, monospace;
+  font-size: var(--atlas-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.65rem 1rem 0;
+  color: var(--color-gold-muted);
+}
+
+.companion-callout__body {
+  padding: 0.5rem 1rem 1rem;
+}
+
+.companion-callout--atlas-ui {
+  border-left: 3px solid var(--companion-tactical-border);
+  background: linear-gradient(90deg, var(--companion-tactical-glow) 0%, transparent 55%);
+}
+
+.companion-callout--atlas-ui .companion-callout__eyebrow {
+  color: var(--color-blue-bright);
+}
+
+.companion-callout--scenario {
+  border-left: 3px solid var(--companion-scenario-border);
+  background: linear-gradient(90deg, var(--companion-scenario-glow) 0%, transparent 55%);
+}
+
+.companion-callout--evidence {
+  border-left: 3px solid var(--companion-evidence-border);
+}
+
+.companion-callout-list {
+  color: var(--color-text-muted);
+}
+
+/* Evidence stamps */
+.companion-evidence {
+  border-color: var(--color-border-bright);
+  background: var(--color-chrome-fill);
+  color: var(--color-text-muted);
+}
+
+.companion-evidence__icon {
+  color: var(--color-gold);
+  display: flex;
+}
+
+.companion-evidence--documentary_cluster .companion-evidence__icon {
+  color: var(--color-blue-bright);
+}
+
+.companion-evidence--synthesis .companion-evidence__icon {
+  color: var(--color-gold-bright);
+}
+
+.companion-evidence--archaeological .companion-evidence__icon {
+  color: var(--color-ember);
+}
+
+.companion-evidence--tradition .companion-evidence__icon {
+  color: var(--color-text-dim);
+}
+
+.companion-fence-unknown {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-ember);
+  color: var(--color-text-dim);
+}
+
+.companion-manifesto {
+  border: 1px solid var(--color-border-bright);
+  border-radius: 8px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: var(--color-surface);
+}
+
+.companion-manifesto__title {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.12rem, 2.8vw, 1.35rem);
+  font-weight: 700;
+  color: var(--color-parchment);
+  margin: 0 0 0.35rem;
+}
+
+html.text-size-large .companion-manifesto__title {
+  font-size: clamp(1.22rem, 2.9vw, 1.52rem);
+}
+
+.companion-manifesto__lede {
+  font-size: var(--atlas-text-base);
+  line-height: 1.5;
+  color: var(--color-text-dim);
+  margin: 0 0 1rem;
+}
+
+.companion-manifesto__grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .companion-manifesto__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.companion-manifesto__card {
+  position: relative;
+  padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background);
+}
+
+.companion-manifesto__index {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.65rem;
+  font-family: ui-monospace, monospace;
+  font-size: var(--atlas-text-xs);
+  font-weight: 700;
+  color: var(--color-gold-muted);
+}
+
+.companion-manifesto__rule {
+  margin: 0;
+  font-size: var(--atlas-text-sm);
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.companion-manifesto__forbidden {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.companion-manifesto__forbidden-title {
+  margin: 0 0 0.5rem;
+  font-size: var(--atlas-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ember);
+}
+
+.companion-manifesto__forbidden-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: var(--atlas-text-sm);
+  line-height: 1.45;
+  color: var(--color-text-dim);
+}
+
+.companion-figure__img {
+  background: var(--color-chrome-fill-badge);
+}
+
+.companion-print-break-inside-avoid {
+  break-inside: avoid;
+}
+
+.companion-toc-campaign {
+  font-size: var(--atlas-text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin: 1rem 0 0.35rem;
+  padding: 0 0.75rem;
+}
+
+/* Companion markdown headings: scale with Text size (Aa) on html */
+.companion-heading-h1 {
+  font-size: clamp(1.5rem, 4vw, 2.35rem);
+  line-height: 1.12;
+}
+
+html.text-size-large .companion-heading-h1 {
+  font-size: clamp(1.62rem, 4.2vw, 2.65rem);
+}
+
+.companion-md h2.companion-h2.companion-heading-h2 {
+  font-size: clamp(1.25rem, 3.2vw, 1.85rem);
+  line-height: 1.2;
+}
+
+html.text-size-large .companion-md h2.companion-h2.companion-heading-h2 {
+  font-size: clamp(1.32rem, 3.35vw, 2rem);
+}
+
+.companion-heading-h3 {
+  font-size: var(--atlas-text-xl);
+  line-height: 1.25;
+}
+
+.companion-toc-campaign:first-child {
+  margin-top: 0;
+}
