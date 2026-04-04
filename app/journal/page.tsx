@@ -18,6 +18,8 @@ import { atlasMilestones } from '@/data/atlas/milestones';
 import { atlasExpeditions } from '@/data/atlas/expeditions';
 import { exportProgressJSON, importProgressJSON, resetProgress, emitProgressEvent } from '@/lib/progress';
 import { t } from '@/lib/ui-strings';
+import { atlasContract } from '@/data/atlas/methodology';
+import { buildMapHref } from '@/lib/map-deep-link';
 import type { AtlasLocale } from '@/core/types';
 
 interface TocItem {
@@ -37,8 +39,10 @@ function useTocItems(locale: AtlasLocale): TocItem[] {
     { id: 'index-places', label: locale === 'fr' ? 'Lieux' : 'Places' },
     { id: 'index-regions', label: locale === 'fr' ? 'Régions' : 'Regions' },
     { id: 'index-journeys', label: locale === 'fr' ? 'Routes & voyages' : 'Routes & journeys' },
+    { id: 'index-segments', label: locale === 'fr' ? 'Segments de route' : 'Route Segments' },
     { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
     { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
+    { id: 'expeditions', label: locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions' },
     { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
     { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
   ], [locale]);
@@ -263,6 +267,13 @@ const ArcsSection = memo(function ArcsSection({ locale }: { locale: AtlasLocale 
           <p className="text-[11px] mt-1" style={{ color: 'var(--color-text-dim)' }}>
             {arc.eraIds.length} {locale === 'fr' ? '\u00e9poques' : 'eras'}
           </p>
+          <Link
+            href={buildMapHref({ library: true, libraryArc: arc.arcId })}
+            className="inline-flex items-center gap-1 text-[11px] underline underline-offset-2 transition-colors mt-1.5"
+            style={{ color: 'var(--color-gold)' }}
+          >
+            {t('journal.openInLibrary', locale)}
+          </Link>
         </div>
       ))}
     </div>
@@ -327,6 +338,32 @@ const GlossarySection = memo(function GlossarySection({
               })}
             </p>
           )}
+        </div>
+      ))}
+    </div>
+  );
+});
+
+const ExpeditionsSection = memo(function ExpeditionsSection({ locale }: { locale: AtlasLocale }) {
+  return (
+    <div className="space-y-3 mt-4">
+      {atlasExpeditions.map((exp) => (
+        <div
+          key={exp.id}
+          className="rounded-lg border px-4 py-3"
+          style={{ borderColor: 'var(--color-border)' }}
+        >
+          <div className="flex items-baseline justify-between gap-2">
+            <span className="font-display text-[14px] font-semibold" style={{ color: 'var(--color-parchment)' }}>
+              {pickI18n(exp.title, locale)}
+            </span>
+            <span className="text-[10px] shrink-0 tabular-nums" style={{ color: 'var(--color-text-dim)' }}>
+              {exp.steps.length} {locale === 'fr' ? 'étapes' : 'steps'}
+            </span>
+          </div>
+          <p className="text-[12px] leading-relaxed mt-1.5" style={{ color: 'var(--color-text-muted)' }}>
+            {pickI18n(exp.description, locale)}
+          </p>
         </div>
       ))}
     </div>
@@ -635,8 +672,8 @@ export default function JournalPage() {
               </SectionHeading>
               <Prose>
                 {locale === 'fr'
-                  ? 'Votre registre personnel suit tout ce que vous avez exploré — lieux, routes, époques et récits. Il est stocké localement dans votre navigateur.'
-                  : 'Your personal ledger tracks everything you have explored — places, routes, eras, and stories. It is stored locally in your browser.'}
+                  ? 'Votre registre personnel suit tout ce que vous avez exploré — lieux, routes, segments, époques, récits et expéditions guidées. Les défis hebdomadaires apparaissent sur votre page de profil. Tout est stocké localement dans votre navigateur.'
+                  : 'Your personal ledger tracks everything you have explored — places, routes, segments, eras, stories, and guided expeditions. Weekly challenges appear on your profile page. Everything is stored locally in your browser.'}
               </Prose>
               <JournalLedgerSection locale={locale} />
             </section>
@@ -795,6 +832,21 @@ export default function JournalPage() {
 
             <SectionDivider />
 
+            {/* Route Segments */}
+            <section>
+              <SectionHeading id="index-segments">
+                {locale === 'fr' ? 'Segments de route' : 'Route Segments'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Tronçons individuels des corridors historiques — chacun porte un niveau de preuve (documentaire, archéologique, synthèse ou tradition) pour que vous puissiez évaluer la confiance vous-même.'
+                  : 'Individual stretches of historical corridors — each carries an evidence level (documentary, archaeological, synthesis, or tradition) so you can assess confidence yourself.'}
+              </Prose>
+              <IndexSection rows={filteredByCategory.segment} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
             {/* Story */}
             <section>
               <SectionHeading id="index-story">
@@ -821,6 +873,21 @@ export default function JournalPage() {
                   : 'Viking-age archaeological sites and burials across Europe — from ancient DNA to emporia, fortresses, hoards, and runestones.'}
               </Prose>
               <IndexSection rows={filteredByCategory['viking-site']} locale={locale} />
+            </section>
+
+            <SectionDivider />
+
+            {/* Guided Expeditions */}
+            <section>
+              <SectionHeading id="expeditions">
+                {locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Les expéditions sont des parcours guidés à travers plusieurs lieux, routes et récits de l\u2019atlas. Votre progression est suivie automatiquement dans le registre de la carte.'
+                  : 'Expeditions are guided multi-step tours across places, routes, and stories in the atlas. Your progress is tracked automatically in the map ledger.'}
+              </Prose>
+              <ExpeditionsSection locale={locale} />
             </section>
 
             <SectionDivider />
@@ -882,6 +949,38 @@ export default function JournalPage() {
               <section>
                 <SectionHeading id="methodology">{pickI18n(methodologyCopy.heading, locale)}</SectionHeading>
                 <Prose>{pickI18n(methodologyCopy.body, locale)}</Prose>
+
+                <div className="mt-6">
+                  <SectionLabel>{locale === 'fr' ? 'Principes de l\u2019atlas' : 'Atlas principles'}</SectionLabel>
+                  <ul className="mt-2 space-y-2">
+                    {atlasContract.rules.map((rule, i) => (
+                      <li
+                        key={i}
+                        className="text-[12px] leading-relaxed pl-4 relative before:absolute before:left-0 before:top-[0.45em] before:h-1 before:w-1 before:rounded-full"
+                        style={{ color: 'var(--color-text-muted)' }}
+                      >
+                        <span className="absolute left-0 top-[0.45em] h-1 w-1 rounded-full" style={{ background: 'var(--color-gold-muted)' }} />
+                        {rule}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6">
+                  <SectionLabel>{locale === 'fr' ? 'Ce que l\u2019atlas ne pr\u00e9tend pas' : 'What the atlas does not claim'}</SectionLabel>
+                  <ul className="mt-2 space-y-2">
+                    {atlasContract.forbiddenClaims.map((claim, i) => (
+                      <li
+                        key={i}
+                        className="text-[12px] leading-relaxed pl-4 relative"
+                        style={{ color: 'var(--color-text-dim)' }}
+                      >
+                        <span className="absolute left-0 top-[0.45em] h-1 w-1 rounded-full" style={{ background: 'var(--color-text-dim)' }} />
+                        {claim}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </section>
             )}
 

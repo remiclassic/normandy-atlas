@@ -14,8 +14,8 @@ export const journalSections: JournalSectionCopy[] = [
       fr: 'Journal de l\u2019Atlas',
     },
     body: {
-      en: 'This journal is your companion guide to the Norman Atlas. Browse the timeline of eras, explore Norman-origin surnames carried to the New World, look up historical terms in the glossary, and learn how the atlas works.',
-      fr: 'Ce journal est votre guide compagnon de l\u2019Atlas normand. Parcourez la chronologie des \u00e9poques, explorez les patronymes d\u2019origine normande port\u00e9s jusqu\u2019au Nouveau Monde, consultez les termes historiques dans le glossaire et d\u00e9couvrez le fonctionnement de l\u2019atlas.',
+      en: 'This journal is your companion guide to the Norman Atlas. Browse the timeline of eras, explore Norman-origin surnames carried to the New World, look up historical terms in the glossary, follow guided expeditions, take on weekly challenges, and learn how the atlas works.',
+      fr: 'Ce journal est votre guide compagnon de l\u2019Atlas normand. Parcourez la chronologie des \u00e9poques, explorez les patronymes d\u2019origine normande port\u00e9s jusqu\u2019au Nouveau Monde, consultez les termes historiques dans le glossaire, suivez des exp\u00e9ditions guid\u00e9es, relevez des d\u00e9fis hebdomadaires et d\u00e9couvrez le fonctionnement de l\u2019atlas.',
     },
   },
   {
@@ -25,8 +25,8 @@ export const journalSections: JournalSectionCopy[] = [
       fr: 'Comment utiliser l\u2019Atlas',
     },
     body: {
-      en: 'The map is organized by eras \u2014 each one shows different settlements, routes, and regions. Use the timeline bar at the top to move through time. Click any point or region to see historical details. The Layers panel lets you toggle exploration routes, colonial claims, forts, and more. Story mode guides you through curated narrative chapters with animated camera movement.',
-      fr: 'La carte est organis\u00e9e par \u00e9poques \u2014 chacune affiche diff\u00e9rents \u00e9tablissements, routes et r\u00e9gions. Utilisez la barre chronologique en haut pour voyager dans le temps. Cliquez sur un point ou une r\u00e9gion pour voir les d\u00e9tails historiques. Le panneau Couches vous permet d\u2019activer les routes d\u2019exploration, les revendications coloniales, les forts, etc. Le mode histoire vous guide \u00e0 travers des chapitres narratifs avec des mouvements de cam\u00e9ra anim\u00e9s.',
+      en: 'The map is organized by eras \u2014 each one shows different settlements, routes, and regions. Use the timeline bar at the top to move through time. Click any point or region to see historical details. The Layers panel lets you toggle exploration routes, colonial claims, forts, and more. Route corridors are broken into individual segments, each tagged with an evidence level (documentary, archaeological, synthesis, or tradition). Story mode guides you through curated narrative chapters with animated camera movement. Guided expeditions offer multi-step tours across the atlas, and weekly challenges on your profile page keep exploration fresh.',
+      fr: 'La carte est organis\u00e9e par \u00e9poques \u2014 chacune affiche diff\u00e9rents \u00e9tablissements, routes et r\u00e9gions. Utilisez la barre chronologique en haut pour voyager dans le temps. Cliquez sur un point ou une r\u00e9gion pour voir les d\u00e9tails historiques. Le panneau Couches vous permet d\u2019activer les routes d\u2019exploration, les revendications coloniales, les forts, etc. Les corridors de route sont d\u00e9compos\u00e9s en segments individuels, chacun \u00e9tiquet\u00e9 avec un niveau de preuve (documentaire, arch\u00e9ologique, synth\u00e8se ou tradition). Le mode histoire vous guide \u00e0 travers des chapitres narratifs avec des mouvements de cam\u00e9ra anim\u00e9s. Les exp\u00e9ditions guid\u00e9es offrent des parcours en plusieurs \u00e9tapes \u00e0 travers l\u2019atlas, et les d\u00e9fis hebdomadaires sur votre page de profil renouvellent l\u2019exploration.',
     },
   },
   {
