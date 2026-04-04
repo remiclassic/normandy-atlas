@@ -9,8 +9,15 @@ import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-fran
 import type { SelectionKind } from '@/types';
 import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocale } from '@/core/types';
 import { DEFAULT_LOCALE, persistLocale } from '@/lib/locale';
-import type { UiTheme } from '@/lib/ui-theme';
-import { DEFAULT_UI_THEME, persistUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
+import type { UiTheme, UiThemeMode } from '@/lib/ui-theme';
+import {
+  DEFAULT_UI_THEME,
+  DEFAULT_UI_THEME_MODE,
+  persistUiThemeMode,
+  applyUiThemeToDocument,
+  resolveAppliedUiTheme,
+  getSystemPrefersLight,
+} from '@/lib/ui-theme';
 import type { TextSizeMode } from '@/lib/text-size';
 import { DEFAULT_TEXT_SIZE, persistTextSize, applyTextSizeToDocument } from '@/lib/text-size';
 import {
@@ -19,6 +26,15 @@ import {
   applyReducedMotionToDocument,
 } from '@/lib/reduced-motion';
 import { persistHighContrast, applyHighContrastToDocument } from '@/lib/high-contrast';
+import type { BasemapMode, BasemapModePreference } from '@/lib/basemap-preference';
+import {
+  DEFAULT_BASEMAP_MODE,
+  DEFAULT_BASEMAP_MODE_PREFERENCE,
+  persistBasemapModePreference,
+  resolveAppliedBasemap,
+} from '@/lib/basemap-preference';
+
+export type { BasemapMode, BasemapModePreference } from '@/lib/basemap-preference';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -50,8 +66,6 @@ const NORMAN_EXPANSION_PRESET_MATRIX: Record<NormanExpansionPreset, Record<strin
     'norman-expansion-nodes': true,
   },
 };
-
-export type BasemapMode = 'dark' | 'parchment';
 
 export type OnboardingPhase = 'intro' | 'flying' | 'guided' | 'complete';
 
@@ -103,7 +117,10 @@ interface MapStore {
   normandySimYear: number;
   atlasSimYear: number;
   normanNodePeriod: NormanNodePeriod;
+  /** Resolved map base — layers and MapCanvas consume this. */
   basemapMode: BasemapMode;
+  /** User selection; `basemapMode` is the effective style. */
+  basemapModePreference: BasemapModePreference;
   selectedFeatureId: string | null;
   selectionKind: SelectionKind | null;
   hoveredFeatureId: string | null;
@@ -167,8 +184,10 @@ interface MapStore {
    */
   guidedTourShellResetNonce: number;
   requestGuidedTourShellUiReset: () => void;
-  /** App chrome only — map basemap uses `basemapMode`. */
+  /** App chrome only — map basemap uses `basemapMode`. Resolved palette for CSS + story chrome. */
   uiTheme: UiTheme;
+  /** User-selected theme mode; `uiTheme` is the effective light/dark. */
+  uiThemeMode: UiThemeMode;
   textSize: TextSizeMode;
   /** When true, the user has force-enabled reduced motion (independent of OS). */
   reduceMotionForced: boolean;
@@ -184,7 +203,7 @@ interface MapStore {
   pulseLedgerAttention: () => void;
 
   setLocale: (locale: AtlasLocale) => void;
-  setUiTheme: (theme: UiTheme) => void;
+  setUiThemeMode: (mode: UiThemeMode) => void;
   setTextSize: (mode: TextSizeMode) => void;
   setReduceMotionForced: (forced: boolean) => void;
   setHighContrast: (enabled: boolean) => void;
@@ -195,7 +214,7 @@ interface MapStore {
   setNormandySimYear: (year: number) => void;
   setAtlasSimYear: (year: number) => void;
   setNormanNodePeriod: (period: NormanNodePeriod) => void;
-  setBasemapMode: (mode: BasemapMode) => void;
+  setBasemapModePreference: (preference: BasemapModePreference) => void;
   selectFeature: (id: string | null, kind?: SelectionKind, options?: { expandDetail?: boolean }) => void;
   hoverFeature: (id: string | null, kind?: SelectionKind) => void;
   openDetail: () => void;
@@ -282,7 +301,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   normandySimYear: NORMANDY_SIM_YEAR_DEFAULT,
   atlasSimYear: eraMidpoint(getDefaultAtlasEraId()),
   normanNodePeriod: NORMAN_NODE_PERIOD_DEFAULT,
-  basemapMode: 'dark' as BasemapMode,
+  basemapMode: DEFAULT_BASEMAP_MODE,
+  basemapModePreference: DEFAULT_BASEMAP_MODE_PREFERENCE,
   selectedFeatureId: null,
   selectionKind: null,
   hoveredFeatureId: null,
@@ -321,6 +341,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   requestGuidedTourShellUiReset: () =>
     set((s) => ({ guidedTourShellResetNonce: s.guidedTourShellResetNonce + 1 })),
   uiTheme: DEFAULT_UI_THEME,
+  uiThemeMode: DEFAULT_UI_THEME_MODE,
   textSize: DEFAULT_TEXT_SIZE,
   reduceMotionForced: false,
   highContrast: false,
@@ -354,10 +375,11 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     set({ locale });
   },
 
-  setUiTheme: (theme) => {
-    persistUiTheme(theme);
-    applyUiThemeToDocument(theme);
-    set({ uiTheme: theme });
+  setUiThemeMode: (mode) => {
+    persistUiThemeMode(mode);
+    const resolved = resolveAppliedUiTheme(mode, getSystemPrefersLight());
+    applyUiThemeToDocument(resolved);
+    set({ uiThemeMode: mode, uiTheme: resolved });
   },
 
   setTextSize: (mode) => {
@@ -429,7 +451,11 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
 
   setNormanNodePeriod: (period) => set({ normanNodePeriod: period }),
 
-  setBasemapMode: (mode) => set({ basemapMode: mode }),
+  setBasemapModePreference: (preference) => {
+    persistBasemapModePreference(preference);
+    const resolved = resolveAppliedBasemap(preference, getSystemPrefersLight());
+    set({ basemapModePreference: preference, basemapMode: resolved });
+  },
 
   toggleLayer: (id) =>
     set((s) => ({

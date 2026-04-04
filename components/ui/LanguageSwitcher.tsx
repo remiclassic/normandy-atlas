@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore } from '@/lib/store';
 import { ENABLED_UI_LOCALES, LOCALE_LABELS } from '@/lib/locale';
 import type { AtlasLocale } from '@/core/types';
+import { t } from '@/lib/ui-strings';
+import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 
 const MENU_WIDTH = 130;
 
@@ -113,35 +115,40 @@ function LanguageSwitcher() {
 
   return (
     <>
-      <button
-        ref={btnRef}
-        type="button"
-        onClick={toggle}
-        aria-label="Select language"
-        aria-expanded={open}
-        aria-haspopup="listbox"
-        className="flex items-center gap-1.5 rounded-full border border-chrome-border-strong bg-chrome-fill px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-parchment/80 backdrop-blur-sm transition-all duration-200 hover:border-gold/30 hover:text-parchment"
+      <ChromeIconTooltip
+        label={t('chrome.language.tooltip', locale)}
+        hint={t('chrome.language.hint', locale)}
       >
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="opacity-60"
+        <button
+          ref={btnRef}
+          type="button"
+          onClick={toggle}
+          aria-label={t('chrome.language.tooltip', locale)}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          className="flex items-center gap-1.5 rounded-full border border-chrome-border-strong bg-chrome-fill px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-parchment/80 backdrop-blur-sm transition-all duration-200 hover:border-gold/30 hover:text-parchment"
         >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M2 12h20" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
-        {locale.toUpperCase()}
-        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" className="opacity-40">
-          <path d="M1.5 3L4 5.5L6.5 3" />
-        </svg>
-      </button>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="opacity-60"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          {locale.toUpperCase()}
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" className="opacity-40">
+            <path d="M1.5 3L4 5.5L6.5 3" />
+          </svg>
+        </button>
+      </ChromeIconTooltip>
       {dropdown}
     </>
   );

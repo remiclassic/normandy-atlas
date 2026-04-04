@@ -3,7 +3,12 @@
 import { useEffect, useLayoutEffect } from 'react';
 import { useMapStore } from '@/lib/store';
 import { readStoredLocale } from '@/lib/locale';
-import { readStoredUiTheme, applyUiThemeToDocument } from '@/lib/ui-theme';
+import {
+  readStoredUiThemeMode,
+  applyUiThemeToDocument,
+  resolveAppliedUiTheme,
+  getSystemPrefersLight,
+} from '@/lib/ui-theme';
 import { readStoredTextSize, applyTextSizeToDocument } from '@/lib/text-size';
 import {
   readStoredReduceMotionForced,
@@ -11,6 +16,10 @@ import {
   applyReducedMotionToDocument,
 } from '@/lib/reduced-motion';
 import { readStoredHighContrast, applyHighContrastToDocument } from '@/lib/high-contrast';
+import {
+  readStoredBasemapModePreference,
+  resolveAppliedBasemap,
+} from '@/lib/basemap-preference';
 
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
@@ -25,12 +34,22 @@ export function useHydrateLocale(): void {
   }, [setLocale]);
 }
 
-/** Sync UI theme from localStorage with Zustand (blocking script already set `data-ui-theme`). */
+/** Sync UI theme mode from localStorage with Zustand (blocking script already set `data-ui-theme`). */
 export function useHydrateUiTheme(): void {
   useIsoLayoutEffect(() => {
-    const stored = readStoredUiTheme();
-    applyUiThemeToDocument(stored);
-    useMapStore.setState({ uiTheme: stored });
+    const mode = readStoredUiThemeMode();
+    const resolved = resolveAppliedUiTheme(mode, getSystemPrefersLight());
+    applyUiThemeToDocument(resolved);
+    useMapStore.setState({ uiThemeMode: mode, uiTheme: resolved });
+  }, []);
+}
+
+/** Sync basemap preference from localStorage (`data-atlas-basemap` set by blocking script when applicable). */
+export function useHydrateBasemapMode(): void {
+  useIsoLayoutEffect(() => {
+    const pref = readStoredBasemapModePreference();
+    const resolved = resolveAppliedBasemap(pref, getSystemPrefersLight());
+    useMapStore.setState({ basemapModePreference: pref, basemapMode: resolved });
   }, []);
 }
 

@@ -40,7 +40,7 @@ export default function MapDeepLinkSync() {
       const store = useMapStore.getState();
 
       if (view.base && view.base !== store.basemapMode) {
-        store.setBasemapMode(view.base);
+        store.setBasemapModePreference(view.base);
       }
       if (view.ay != null) store.setAtlasSimYear(view.ay);
       if (view.ny != null) store.setNormandySimYear(view.ny);
