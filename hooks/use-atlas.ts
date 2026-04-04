@@ -11,6 +11,7 @@ import {
   computeEffectiveReducedMotion,
   applyReducedMotionToDocument,
 } from '@/lib/reduced-motion';
+import { readStoredHighContrast, applyHighContrastToDocument } from '@/lib/high-contrast';
 import type { AtlasLocale, I18nString } from '@/core/types';
 import {
   getVisiblePlaces,
@@ -80,6 +81,15 @@ export function useHydrateReduceMotion(): void {
     };
     mql.addEventListener('change', onchange);
     return () => mql.removeEventListener('change', onchange);
+  }, []);
+}
+
+/** Sync high-contrast preference from localStorage with Zustand (blocking script already set dataset). */
+export function useHydrateHighContrast(): void {
+  useIsoLayoutEffect(() => {
+    const stored = readStoredHighContrast();
+    applyHighContrastToDocument(stored);
+    useMapStore.setState({ highContrast: stored });
   }, []);
 }
 

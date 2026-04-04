@@ -5,6 +5,7 @@ import { Inter, Crimson_Pro } from 'next/font/google';
 import { LOCALE_STORAGE_KEY } from '@/lib/locale';
 import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
 import { REDUCE_MOTION_STORAGE_KEY } from '@/lib/reduced-motion';
+import { HIGH_CONTRAST_STORAGE_KEY } from '@/lib/high-contrast';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
 import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
 import './globals.css';
@@ -108,6 +109,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html:
               `(function(){try{var f=localStorage.getItem(${JSON.stringify(REDUCE_MOTION_STORAGE_KEY)})==='true';var s=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(f||s)document.documentElement.classList.add('atlas-reduced-motion');}catch(e){}})();`,
+          }}
+        />
+        <script
+          id="high-contrast-restore"
+          dangerouslySetInnerHTML={{
+            __html:
+              `(function(){try{if(localStorage.getItem(${JSON.stringify(HIGH_CONTRAST_STORAGE_KEY)})==='true')document.documentElement.dataset.highContrast='true';}catch(e){}})();`,
           }}
         />
         <script

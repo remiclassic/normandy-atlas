@@ -203,11 +203,11 @@ const STRINGS = {
     de: 'Großer Text',
   },
   'textSize.highContrast': {
-    en: 'High contrast (coming soon)',
-    fr: 'Contraste élevé (bientôt)',
-    es: 'Alto contraste (próximamente)',
-    it: 'Alto contrasto (in arrivo)',
-    de: 'Hoher Kontrast (demnächst)',
+    en: 'High contrast',
+    fr: 'Contraste élevé',
+    es: 'Alto contraste',
+    it: 'Alto contrasto',
+    de: 'Hoher Kontrast',
   },
   'textSize.reducedMotion': {
     en: 'Reduced motion',

@@ -16,6 +16,11 @@ import {
   computeEffectiveReducedMotion,
   applyReducedMotionToDocument,
 } from '@/lib/reduced-motion';
+import {
+  readStoredHighContrast,
+  persistHighContrast,
+  applyHighContrastToDocument,
+} from '@/lib/high-contrast';
 
 const MENU_WIDTH = 200;
 
@@ -30,18 +35,23 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
   const setTextSizeStore = useMapStore((s) => s.setTextSize);
   const reduceMotionFromStore = useMapStore((s) => s.reduceMotionForced);
   const setReduceMotionStore = useMapStore((s) => s.setReduceMotionForced);
+  const highContrastFromStore = useMapStore((s) => s.highContrast);
+  const setHighContrastStore = useMapStore((s) => s.setHighContrast);
 
   const [standaloneMode, setStandaloneMode] = useState<TextSizeMode>('standard');
   const [standaloneMotion, setStandaloneMotion] = useState(false);
+  const [standaloneHC, setStandaloneHC] = useState(false);
 
   useEffect(() => {
     if (!standalone) return;
     setStandaloneMode(readStoredTextSize());
     setStandaloneMotion(readStoredReduceMotionForced());
+    setStandaloneHC(readStoredHighContrast());
   }, [standalone]);
 
   const textSize = standalone ? standaloneMode : textSizeFromStore;
   const reduceMotionForced = standalone ? standaloneMotion : reduceMotionFromStore;
+  const highContrast = standalone ? standaloneHC : highContrastFromStore;
 
   const setTextSize = useCallback(
     (mode: TextSizeMode) => {
@@ -66,6 +76,17 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
       setReduceMotionStore(next);
     }
   }, [standalone, reduceMotionForced, setReduceMotionStore]);
+
+  const toggleHighContrast = useCallback(() => {
+    const next = !highContrast;
+    if (standalone) {
+      persistHighContrast(next);
+      applyHighContrastToDocument(next);
+      setStandaloneHC(next);
+    } else {
+      setHighContrastStore(next);
+    }
+  }, [standalone, highContrast, setHighContrastStore]);
 
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -172,10 +193,23 @@ function TextSizeMenuInner({ standalone }: TextSizeMenuProps) {
 
                 <div className="mx-2.5 my-1 h-px bg-chrome-divider" />
 
-                <div className="flex w-full items-center gap-2 px-3 py-1.5 opacity-40 cursor-default" aria-disabled="true">
-                  <span className="w-4 shrink-0" />
-                  <span className="text-[11px] text-text-dim">{t('textSize.highContrast', locale)}</span>
-                </div>
+                <button
+                  type="button"
+                  role="menuitem"
+                  onClick={toggleHighContrast}
+                  className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-hover"
+                >
+                  <span className="w-4 shrink-0">
+                    {highContrast && (
+                      <Check className="h-3.5 w-3.5 text-gold" strokeWidth={2} aria-hidden />
+                    )}
+                  </span>
+                  <span
+                    className={`text-[12px] ${highContrast ? 'font-semibold text-parchment' : 'text-text-muted'}`}
+                  >
+                    {t('textSize.highContrast', locale)}
+                  </span>
+                </button>
                 <button
                   type="button"
                   role="menuitem"

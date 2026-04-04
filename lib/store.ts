@@ -18,6 +18,7 @@ import {
   computeEffectiveReducedMotion,
   applyReducedMotionToDocument,
 } from '@/lib/reduced-motion';
+import { persistHighContrast, applyHighContrastToDocument } from '@/lib/high-contrast';
 
 export { COLONIAL_ERA_IDS };
 export const NORMANDY_ERA_IDS = new Set(['norman-origins', 'viking-age']);
@@ -171,6 +172,8 @@ interface MapStore {
   textSize: TextSizeMode;
   /** When true, the user has force-enabled reduced motion (independent of OS). */
   reduceMotionForced: boolean;
+  /** When true, high-contrast CSS token overrides are active. */
+  highContrast: boolean;
 
   ledgerCelebrationPhase: LedgerCelebrationPhase;
   /** True while the Atlas Ledger chrome icon should pulse (auto-clears after 10s). */
@@ -184,6 +187,7 @@ interface MapStore {
   setUiTheme: (theme: UiTheme) => void;
   setTextSize: (mode: TextSizeMode) => void;
   setReduceMotionForced: (forced: boolean) => void;
+  setHighContrast: (enabled: boolean) => void;
   setAtlasMode: (enabled: boolean) => void;
   setEra: (id: string) => void;
   toggleLayer: (id: string) => void;
@@ -314,6 +318,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   uiTheme: DEFAULT_UI_THEME,
   textSize: DEFAULT_TEXT_SIZE,
   reduceMotionForced: false,
+  highContrast: false,
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
   ledgerAttentionActive: false,
 
@@ -356,6 +361,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     persistReduceMotionForced(forced);
     applyReducedMotionToDocument(computeEffectiveReducedMotion(forced));
     set({ reduceMotionForced: forced });
+  },
+
+  setHighContrast: (enabled) => {
+    persistHighContrast(enabled);
+    applyHighContrastToDocument(enabled);
+    set({ highContrast: enabled });
   },
 
   setAtlasMode: (enabled) =>

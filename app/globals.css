@@ -126,6 +126,100 @@
   --welcome-vignette-inner: rgba(74, 61, 48, 0.12);
 }
 
+/* ── High-contrast overrides (dark) ─────────────────────────── */
+[data-high-contrast='true'] {
+  --color-background: #000000;
+  --color-background-warm: #08080a;
+  --color-foreground: #f5f5f0;
+  --color-surface: #101114;
+  --color-surface-hover: #1a1c22;
+  --color-surface-bright: #24262e;
+  --color-surface-glass: rgba(8, 8, 12, 0.92);
+  --color-surface-elevated: rgba(8, 8, 12, 0.95);
+  --color-border: #3a3e50;
+  --color-border-bright: #50556a;
+  --color-border-glow: rgba(220, 197, 119, 0.25);
+  --color-text: #ffffff;
+  --color-text-muted: #c0bdb5;
+  --color-text-dim: #8a867e;
+  --color-gold: #e0c46e;
+  --color-gold-bright: #f0d888;
+  --color-gold-muted: #b09a50;
+  --color-gold-glow: rgba(224, 196, 110, 0.18);
+  --color-blue: #7da4cc;
+  --color-blue-bright: #9bbee0;
+  --color-parchment: #ece4cc;
+  --color-ember: #d0784e;
+  --color-ember-glow: rgba(208, 120, 78, 0.22);
+
+  --color-chrome-border: rgba(255, 255, 255, 0.16);
+  --color-chrome-border-strong: rgba(255, 255, 255, 0.24);
+  --color-chrome-fill: rgba(255, 255, 255, 0.07);
+  --color-chrome-fill-hover: rgba(255, 255, 255, 0.11);
+  --color-chrome-fill-active: rgba(255, 255, 255, 0.14);
+  --color-chrome-fill-raised: rgba(255, 255, 255, 0.09);
+  --color-chrome-fill-pressed: rgba(255, 255, 255, 0.18);
+  --color-chrome-fill-badge: rgba(255, 255, 255, 0.06);
+  --color-chrome-gradient-top: rgba(255, 255, 255, 0.14);
+  --color-chrome-gradient-bottom: rgba(255, 255, 255, 0.06);
+  --color-chrome-inset-highlight: rgba(255, 255, 255, 0.2);
+  --color-chrome-inset-soft: rgba(255, 255, 255, 0.1);
+  --color-chrome-popover: rgba(6, 6, 10, 0.98);
+  --color-chrome-tooltip-shadow: rgba(0, 0, 0, 0.7);
+  --color-chrome-tooltip-ring: rgba(255, 255, 255, 0.08);
+  --color-chrome-divider: rgba(255, 255, 255, 0.12);
+  --color-chrome-shade-strong: rgba(255, 255, 255, 0.08);
+  --color-guided-overlay: rgba(0, 0, 0, 0.72);
+  --color-guided-stroke: rgba(224, 196, 110, 0.3);
+}
+
+/* ── High-contrast overrides (light) ────────────────────────── */
+[data-high-contrast='true'][data-ui-theme='light'] {
+  --color-background: #faf6ee;
+  --color-background-warm: #f5eedf;
+  --color-foreground: #1a1408;
+  --color-surface: #f0e8d6;
+  --color-surface-hover: #e6dcc8;
+  --color-surface-bright: #ddd2bc;
+  --color-surface-glass: rgba(255, 252, 245, 0.94);
+  --color-surface-elevated: rgba(255, 250, 240, 0.97);
+  --color-border: rgba(44, 36, 25, 0.28);
+  --color-border-bright: rgba(44, 36, 25, 0.38);
+  --color-border-glow: rgba(120, 92, 30, 0.3);
+  --color-text: #0f0b04;
+  --color-text-muted: #44392a;
+  --color-text-dim: #6e5f4c;
+  --color-gold: #7a5f14;
+  --color-gold-bright: #96740e;
+  --color-gold-muted: #5e4e1c;
+  --color-gold-glow: rgba(122, 95, 20, 0.2);
+  --color-blue: #2c5578;
+  --color-blue-bright: #3d6e96;
+  --color-parchment: #2a2218;
+  --color-ember: #6e3818;
+  --color-ember-glow: rgba(110, 56, 24, 0.18);
+
+  --color-chrome-border: rgba(44, 36, 25, 0.2);
+  --color-chrome-border-strong: rgba(44, 36, 25, 0.28);
+  --color-chrome-fill: rgba(44, 36, 25, 0.07);
+  --color-chrome-fill-hover: rgba(44, 36, 25, 0.12);
+  --color-chrome-fill-active: rgba(44, 36, 25, 0.16);
+  --color-chrome-fill-raised: rgba(44, 36, 25, 0.1);
+  --color-chrome-fill-pressed: rgba(44, 36, 25, 0.2);
+  --color-chrome-fill-badge: rgba(44, 36, 25, 0.08);
+  --color-chrome-gradient-top: rgba(255, 255, 255, 0.5);
+  --color-chrome-gradient-bottom: rgba(44, 36, 25, 0.08);
+  --color-chrome-inset-highlight: rgba(255, 255, 255, 0.45);
+  --color-chrome-inset-soft: rgba(44, 36, 25, 0.1);
+  --color-chrome-popover: rgba(255, 250, 242, 0.98);
+  --color-chrome-tooltip-shadow: rgba(42, 34, 24, 0.2);
+  --color-chrome-tooltip-ring: rgba(44, 36, 25, 0.14);
+  --color-chrome-divider: rgba(44, 36, 25, 0.18);
+  --color-chrome-shade-strong: rgba(44, 36, 25, 0.1);
+  --color-guided-overlay: rgba(250, 246, 238, 0.8);
+  --color-guided-stroke: rgba(122, 95, 20, 0.45);
+}
+
 @theme inline {
   --color-background: var(--color-background);
   --color-background-warm: var(--color-background-warm);
@@ -355,6 +449,73 @@ body {
 
 [data-ui-theme='light'] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: rgba(74, 61, 48, 0.5);
+}
+
+/* ── High-contrast component overrides ──────────────────────── */
+[data-high-contrast='true'] .maplibregl-ctrl-attrib {
+  color: rgba(200, 196, 190, 0.6) !important;
+}
+
+[data-high-contrast='true'] .maplibregl-ctrl-attrib a {
+  color: rgba(200, 196, 190, 0.6) !important;
+}
+
+[data-high-contrast='true'] .maplibregl-ctrl-group {
+  background: rgba(6, 6, 10, 0.92) !important;
+  border: 1px solid rgba(80, 85, 106, 0.7) !important;
+}
+
+[data-high-contrast='true'] .maplibregl-ctrl-group button {
+  border-bottom: 1px solid rgba(80, 85, 106, 0.45) !important;
+}
+
+[data-high-contrast='true'] .maplibregl-ctrl-group button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-high-contrast='true'] .maplibregl-ctrl-group button span {
+  filter: invert(0.9) !important;
+}
+
+[data-high-contrast='true'] .scrollbar-thin {
+  scrollbar-color: rgba(80, 85, 106, 1) transparent;
+}
+
+[data-high-contrast='true'] .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(80, 85, 106, 0.7);
+}
+
+[data-high-contrast='true'] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 106, 130, 0.85);
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .maplibregl-ctrl-attrib {
+  color: rgba(44, 36, 25, 0.7) !important;
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .maplibregl-ctrl-attrib a {
+  color: rgba(44, 36, 25, 0.7) !important;
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .maplibregl-ctrl-group {
+  background: rgba(255, 250, 240, 0.96) !important;
+  border: 1px solid rgba(44, 36, 25, 0.35) !important;
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .maplibregl-ctrl-group button {
+  border-bottom-color: rgba(44, 36, 25, 0.25) !important;
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .scrollbar-thin {
+  scrollbar-color: rgba(74, 61, 48, 0.7) transparent;
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(74, 61, 48, 0.55);
+}
+
+[data-high-contrast='true'][data-ui-theme='light'] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 61, 48, 0.7);
 }
 
 /* Profile / achievements — surfaces that must read correctly in light and dark */
