@@ -130,6 +130,15 @@ export const layerConfigs: LayerConfig[] = [
     mapLayerIds: ['settlements-circles', 'settlements-labels'],
     dependsOnEra: true,
   },
+  // --- Cultural Origins overlay ---
+  {
+    id: 'cultural-origins',
+    label: 'Cultural Origins',
+    category: 'identity',
+    defaultOn: false,
+    mapLayerIds: ['regions-cultural-origins-fill'],
+    dependsOnEra: true,
+  },
   // --- Normandy overlay layers ---
   {
     id: 'normandy-micro-regions',

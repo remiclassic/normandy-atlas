@@ -39,7 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# local translation cache (fill-de-locales.mjs)
+# local translation cache (fill-de-locales.mjs, fill-i18n-locale.mjs)
 scripts/.cache-de-translations.json
 scripts/.cache-beat-titles-de.json
+scripts/.cache-i18n-locale.json
 next-env.d.ts

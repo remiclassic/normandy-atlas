@@ -9,7 +9,7 @@ import {
   getEffectiveStoryBeat,
   resolveSlideAnchor,
 } from '@/core';
-import type { StoryBeatIllustrationSlide } from '@/core/types';
+import type { AtlasLocale, StoryBeatIllustrationSlide } from '@/core/types';
 import { StoryBeatMapPin } from '@/components/story/StoryBeatIllustration';
 
 const CINEMATIC_ARC_IDS = new Set(['leif-erikson']);
@@ -182,7 +182,7 @@ const OverlayPin = memo(function OverlayPin({
 }: {
   pin: ResolvedPin;
   pos: { x: number; y: number };
-  locale: string;
+  locale: AtlasLocale;
 }) {
   const openGallery = useMapStore((s) => s.openStoryImageGallery);
 
@@ -199,11 +199,7 @@ const OverlayPin = memo(function OverlayPin({
         transform: 'translate(-50%, calc(-100% - 8px))',
       }}
     >
-      <StoryBeatMapPin
-        illustration={pin.slide}
-        locale={locale as 'en' | 'fr' | 'es' | 'it'}
-        onOpenOverride={handleOpen}
-      />
+      <StoryBeatMapPin illustration={pin.slide} locale={locale} onOpenOverride={handleOpen} />
     </div>
   );
 });

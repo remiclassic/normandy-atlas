@@ -106,6 +106,15 @@ function originFromPrefix(locale: AtlasLocale | undefined): string {
       return 'Da';
     case 'de':
       return 'Aus';
+    case 'da':
+    case 'nb':
+      return 'Fra';
+    case 'sv':
+      return 'Från';
+    case 'pt':
+      return 'De';
+    case 'nl':
+      return 'Van';
     default:
       return 'From';
   }

@@ -44,6 +44,7 @@ import {
   updateVikingBattleSource,
   REGION_SOURCE,
   SETTLEMENT_SOURCE,
+  CULTURAL_ORIGINS_FILL,
 } from './map-layers';
 import { setCartoModernBasemapOverlaysVisible } from './basemap-modern-overlays';
 import {
@@ -100,6 +101,7 @@ import {
   getJourney,
   getEffectiveStoryBeat,
   resolveSlideAnchor,
+  enrichRegionsWithCulturalOrigins,
 } from '@/core';
 import { NORMAN_ROUTE_COLOR } from '@/core/presentation/styles';
 import { registerMapViewReader, unregisterMapViewReader } from '@/lib/map-view-reader';
@@ -638,21 +640,26 @@ export default function MapCanvas() {
   const syncSources = useCallback((eraId: string) => {
     const map = mapRef.current;
     if (!map || !readyRef.current) return;
-    const { atlasMode, atlasSimYear } = useMapStore.getState();
+    const { atlasMode, atlasSimYear, layers: layersState, locale, basemapMode } = useMapStore.getState();
+    const culturalOn = layersState['cultural-origins'] ?? false;
+    const bm = basemapMode === 'parchment' ? 'parchment' as const : 'dark' as const;
+
+    const maybeEnrich = (geojson: import('@/types').RegionFeatureCollection) =>
+      culturalOn ? enrichRegionsWithCulturalOrigins(geojson, eraId, locale, bm) : geojson;
 
     if (atlasMode) {
       if (isColonialEra(eraId)) {
         clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
         const colYear = colonialYearFromEra(eraId, atlasSimYear);
-        updateRegionSource(map, getAtlasRegionsForColonialYear(eraId, colYear));
+        updateRegionSource(map, maybeEnrich(getAtlasRegionsForColonialYear(eraId, colYear)));
         updateNewFranceTerritorySource(map, getTerritoryForYear(colYear));
       } else if (VIKING_MOVEMENT_ERA_IDS.has(eraId)) {
-        updateRegionSource(map, getVikingRegionsFiltered(eraId, atlasSimYear));
+        updateRegionSource(map, maybeEnrich(getVikingRegionsFiltered(eraId, atlasSimYear)));
         applyVikingTerritoryFade(map, getVikingTerritoryFadeStates(atlasSimYear));
         updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
       } else {
         clearVikingTerritoryFade(map, [...getVikingTerritoryFadeRegionIds()]);
-        updateRegionSource(map, getAtlasRegionsGeoJsonForEra(eraId));
+        updateRegionSource(map, maybeEnrich(getAtlasRegionsGeoJsonForEra(eraId)));
         updateNewFranceTerritorySource(map, { type: 'FeatureCollection', features: [] });
       }
 
@@ -901,6 +908,21 @@ export default function MapCanvas() {
         if (!hoveredSettlementRef.current) {
           hoverFeature(id, 'region');
           map!.getCanvas().style.cursor = 'pointer';
+
+          const lState = useMapStore.getState().layers;
+          if (lState['cultural-origins']) {
+            const props = e.features[0].properties;
+            const summary = props?.culturalHoverSummary as string | undefined;
+            if (summary) {
+              showTooltip({
+                x: e.point.x,
+                y: e.point.y,
+                title: (props?.name as string) ?? id,
+                detail: summary,
+                hint: 'Click for full cultural breakdown',
+              });
+            }
+          }
         }
       });
 
@@ -912,6 +934,9 @@ export default function MapCanvas() {
         if (!hoveredSettlementRef.current) {
           hoverFeature(null);
           map!.getCanvas().style.cursor = '';
+        }
+        if (tooltipRef.current && useMapStore.getState().layers['cultural-origins']) {
+          showTooltip(null);
         }
       });
 
@@ -1468,7 +1493,10 @@ export default function MapCanvas() {
         syncOverlay(state.eraId, layers);
 
         const homelandChanged = (layers['viking-norse-homeland'] ?? true) !== (prevLayers['viking-norse-homeland'] ?? true);
+        const culturalOriginsChanged = (layers['cultural-origins'] ?? false) !== (prevLayers['cultural-origins'] ?? false);
         if (homelandChanged && VIKING_MOVEMENT_ERA_IDS.has(state.eraId)) {
+          syncSources(state.eraId);
+        } else if (culturalOriginsChanged && state.atlasMode) {
           syncSources(state.eraId);
         }
       },

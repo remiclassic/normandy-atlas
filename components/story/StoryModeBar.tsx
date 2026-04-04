@@ -130,6 +130,10 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
     }
     return pickI18n(currentBeat.copy.body, locale);
   }, [currentBeat, currentLegacyStep, locale]);
+  const identityNote = useMemo(() => {
+    if (!currentBeat?.identityLayerNote) return null;
+    return pickI18n(currentBeat.identityLayerNote, locale);
+  }, [currentBeat, locale]);
   const stepChapter = currentBeat ? undefined : currentLegacyStep?.chapterTitle;
   const stepId = currentBeat?.id ?? currentLegacyStep?.id ?? '';
 
@@ -463,6 +467,11 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                     <p className="text-[13px] leading-[1.85] text-text-muted/90">
                       {stepBody}
                     </p>
+                    {identityNote && (
+                      <p className="text-[11px] leading-[1.7] text-sky-300/50 italic mt-3 border-l-2 border-sky-400/15 pl-3">
+                        {identityNote}
+                      </p>
+                    )}
                     <ReadingLinksSection links={rawBeat?.readingLinks} locale={locale} className="mt-4" />
                   </motion.div>
                 </AnimatePresence>
@@ -689,6 +698,11 @@ export default function StoryModeBar({ onOpenLauncher }: StoryModeBarProps) {
                           {stepTitle}
                         </h3>
                         <p className="text-[12px] sm:text-[13px] leading-[1.7] text-text-muted">{stepBody}</p>
+                        {identityNote && (
+                          <p className="text-[11px] leading-[1.7] text-sky-300/50 italic mt-2 border-l-2 border-sky-400/15 pl-3">
+                            {identityNote}
+                          </p>
+                        )}
                         <ReadingLinksSection links={rawBeat?.readingLinks} locale={locale} className="mt-3" />
                       </motion.div>
                     </AnimatePresence>

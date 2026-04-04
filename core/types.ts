@@ -3,7 +3,7 @@
 // Self-contained type system for the historical atlas engine.
 // ---------------------------------------------------------------------------
 
-export type AtlasLocale = 'en' | 'fr' | 'es' | 'it' | 'de' | 'pt' | 'da' | 'nl';
+export type AtlasLocale = 'en' | 'fr' | 'es' | 'it' | 'de' | 'pt' | 'da' | 'nb' | 'sv' | 'nl';
 
 export type I18nString = { en: string } & Partial<Record<Exclude<AtlasLocale, 'en'>, string>>;
 
@@ -63,6 +63,26 @@ export interface PlaceWithState extends Place {
   currentState: PlaceEraState;
 }
 
+// --- Cultural Origins ---
+
+export type CulturalStrand =
+  | 'norse'
+  | 'frankish'
+  | 'breton'
+  | 'flemish'
+  | 'picard'
+  | 'anglo_saxon'
+  | 'gallo_roman'
+  | 'irish'
+  | 'scottish'
+  | 'welsh'
+  | 'other';
+
+export interface CulturalBlendEntry {
+  strand: CulturalStrand;
+  weight: number;
+}
+
 // --- Regions ---
 
 export type BorderStyle = 'hard' | 'soft' | 'disputed';
@@ -81,6 +101,7 @@ export interface AtlasRegion {
   geometryRef: string;
   eraStates: Record<string, RegionEraState>;
   narrativeByEra?: Record<string, I18nString>;
+  culturalInfluenceByEra?: Record<string, CulturalBlendEntry[]>;
 }
 
 export interface RegionWithState extends AtlasRegion {
@@ -161,6 +182,7 @@ export interface Journey {
   /** Optional etymology / name sidebar (kept separate from longForm for layout). */
   surnameNote?: I18nString;
   readingLinks?: AtlasReadingLink[];
+  culturalOrigins?: CulturalBlendEntry[];
 }
 
 export interface ResolvedJourney extends Journey {
@@ -235,6 +257,8 @@ export interface StoryBeat {
   /** Alternate focus / copy / camera used when "Historical impact" view is active. */
   impactVariant?: StoryBeatImpactVariant;
   readingLinks?: AtlasReadingLink[];
+  /** Short aside about blended cultural identity, rendered below the beat body when present. */
+  identityLayerNote?: I18nString;
 }
 
 // --- Timeline Markers ---
@@ -314,6 +338,7 @@ export interface Person {
   /** Norman identity or atlas-inclusion rationale, surfaced in the person detail panel. */
   atlasThroughline?: AtlasThroughline;
   readingLinks?: AtlasReadingLink[];
+  culturalOrigins?: CulturalBlendEntry[];
 }
 
 // --- Methodology / Atlas Contract ---

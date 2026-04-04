@@ -11,7 +11,7 @@ import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
 import './globals.css';
 
 /** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
-const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE_STORAGE_KEY)};if(localStorage.getItem(sk))return;var m=document.cookie.match(/(?:^|;\\s*)${NORMAN_GEO_LOCALE_COOKIE}=([^;]*)/);var v=m?decodeURIComponent(m[1].trim()):'';if(v==='fr'||v==='es'||v==='it')localStorage.setItem(sk,v);}catch(e){}})();`;
+const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE_STORAGE_KEY)};if(localStorage.getItem(sk))return;var m=document.cookie.match(/(?:^|;\\s*)${NORMAN_GEO_LOCALE_COOKIE}=([^;]*)/);var v=m?decodeURIComponent(m[1].trim()):'';if(v==='fr'||v==='es'||v==='it'||v==='nb'||v==='sv'||v==='da')localStorage.setItem(sk,v);}catch(e){}})();`;
 
 const META_PIXEL_INIT = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

@@ -184,7 +184,8 @@ export type LayerCategory =
   | 'new-france'
   | 'exploration'
   | 'colonial'
-  | 'viking-world';
+  | 'viking-world'
+  | 'identity';
 
 export interface LayerConfig {
   id: string;

@@ -29,6 +29,7 @@ export {
   getVikingTerritoryFadeStates,
   getVikingTerritoryFadeRegionIds,
   getRegionsByLayer,
+  enrichRegionsWithCulturalOrigins,
 } from './regions/engine';
 
 export {

@@ -3,7 +3,7 @@ import { DEFAULT_LOCALE } from '@/lib/locale';
 
 // ---------------------------------------------------------------------------
 // Static UI strings, keyed by message id then locale.
-// UI locales: en, fr, es, it, de (+ more in ALL_LOCALES for data).
+// UI locales: en, fr, es, it, de, da, nb, sv (+ more in ALL_LOCALES for data).
 // ---------------------------------------------------------------------------
 
 type StringTable = Record<string, Partial<Record<AtlasLocale, string>> & { en: string }>;
@@ -16,6 +16,9 @@ const STRINGS = {
     es: 'Un mapa vivo de personas, movimiento y tiempo',
     it: 'Una mappa viva di persone, movimenti e tempo',
     de: 'Eine lebendige Karte von Menschen, Bewegung und Zeit',
+    nb: 'Et levende kart over mennesker, bevegelse og tid',
+    sv: 'En levande karta över människor, rörelse och tid',
+    da: 'Et levende kort over mennesker, bevægelse og tid',
   },
   'intro.subtitle': {
     en: 'From the first settlers of Neolithic Normandy\nto the global legacy of the Normans',
@@ -23,6 +26,9 @@ const STRINGS = {
     es: 'Desde los primeros colonos de la Normandía neolítica\nhasta el legado global de los normandos',
     it: 'Dai primi abitanti della Normandia neolitica\nall\'eredità globale dei Normanni',
     de: 'Von den ersten Siedlern im neolithischen Normannien\nbis zum weltweiten Erbe der Normannen',
+    nb: 'Fra de første nybyggerne i neolitisk Normandie til normannernes globale arv',
+    sv: 'Från de första nybyggarna i neolitiska Normandie till normandernas globala arv',
+    da: 'Fra de første bosættere i det neolitiske Normandiet til normannernes globale arv',
   },
   'intro.enter': {
     en: 'Enter Atlas',
@@ -30,6 +36,9 @@ const STRINGS = {
     es: 'Entrar al Atlas',
     it: 'Entra nell\'Atlante',
     de: 'Atlas betreten',
+    nb: 'Gå inn i Atlas',
+    sv: 'Gå in i Atlas',
+    da: 'Gå ind i Atlas',
   },
   'intro.normanOverviewLink': {
     en: 'Who were the Normans? Read the overview',
@@ -40,6 +49,8 @@ const STRINGS = {
     pt: 'Quem foram os normandos? Ler a apresentação',
     da: 'Hvem var normannerne? Læs oversigten',
     nl: 'Wie waren de Normanen? Lees het overzicht',
+    nb: 'Hvem var normannerne? Les oversikten',
+    sv: 'Vilka var normanderna? Läs översikten',
   },
 
   // --- Norman overview (modal chrome; body copy: lib/norman-overview/bundles/*.ts) ---
@@ -52,6 +63,8 @@ const STRINGS = {
     pt: 'Panorama histórico',
     da: 'Historisk oversigt',
     nl: 'Historisch overzicht',
+    nb: 'Historisk oversikt',
+    sv: 'Historisk översikt',
   },
   'normanOverview.tooltip.label': {
     en: 'Who were the Normans?',
@@ -62,6 +75,8 @@ const STRINGS = {
     pt: 'Quem foram os normandos?',
     da: 'Hvem var normannerne?',
     nl: 'Wie waren de Normanen?',
+    nb: 'Hvem var normannerne?',
+    sv: 'Vilka var normanderna?',
   },
   'normanOverview.tooltip.hint': {
     en: 'Timeline context: Celts, Rome, Franks, Vikings, Normandy, and the Norman legacy.',
@@ -72,6 +87,8 @@ const STRINGS = {
     pt: 'Contexto da linha do tempo: celtas, Roma, francos, vikings, Normandia e legado normando.',
     da: 'Tidslinjekontekst: keltere, Rom, frankere, vikinger, Normandiet og normannisk arv.',
     nl: 'Tijdlijncontext: Kelten, Rome, Franken, Vikingen, Normandië en het normannische erfgoed.',
+    nb: 'Tidslinjekontekst: keltere, Roma, frankere, vikinger, Normandie og den normanniske arven.',
+    sv: 'Tidslinjekontext: kelter, Rom, franker, vikingar, Normandie och det normandiska arvet.',
   },
   'normanOverview.aria.open': {
     en: 'Open Norman history overview',
@@ -82,6 +99,8 @@ const STRINGS = {
     pt: 'Abrir panorama da história normanda',
     da: 'Åbn oversigt over normannisk historie',
     nl: 'Normannische geschiedenisoverzicht openen',
+    nb: 'Åpne Norman historieoversikt',
+    sv: 'Öppna Norman historiköversikt',
   },
   'normanOverview.aria.close': {
     en: 'Close overview',
@@ -92,6 +111,8 @@ const STRINGS = {
     pt: 'Fechar panorama',
     da: 'Luk oversigt',
     nl: 'Overzicht sluiten',
+    nb: 'Lukk oversikt',
+    sv: 'Stäng översikt',
   },
 
   // --- Header chrome ---
@@ -101,6 +122,9 @@ const STRINGS = {
     es: 'Un mapa vivo de personas, movimiento y tiempo',
     it: 'Una mappa viva di persone, movimenti e tempo',
     de: 'Eine lebendige Karte von Menschen, Bewegung und Zeit',
+    nb: 'Et levende kart over mennesker, bevegelse og tid',
+    sv: 'En levande karta över människor, rörelse och tid',
+    da: 'Et levende kort over mennesker, bevægelse og tid',
   },
   'header.currentEra': {
     en: 'Current Era',
@@ -108,6 +132,9 @@ const STRINGS = {
     es: 'Era actual',
     it: 'Era corrente',
     de: 'Aktuelle Epoche',
+    nb: 'Nåværende epoke',
+    sv: 'Nuvarande Era',
+    da: 'Nuværende æra',
   },
   'header.settingsMenu': {
     en: 'Settings & tools',
@@ -115,6 +142,9 @@ const STRINGS = {
     es: 'Ajustes y herramientas',
     it: 'Impostazioni e strumenti',
     de: 'Einstellungen und Werkzeuge',
+    nb: 'Innstillinger og verktøy',
+    sv: 'Inställningar och verktyg',
+    da: 'Indstillinger og værktøjer',
   },
   'header.settingsMenu.hint': {
     en: 'Navigation, preferences, updates, and more.',
@@ -122,6 +152,9 @@ const STRINGS = {
     es: 'Navegación, preferencias, actualizaciones y más.',
     it: 'Navigazione, preferenze, aggiornamenti e altro.',
     de: 'Navigation, Einstellungen, Updates und mehr.',
+    nb: 'Navigering, preferanser, oppdateringer og mer.',
+    sv: 'Navigering, inställningar, uppdateringar och mer.',
+    da: 'Navigation, præferencer, opdateringer og mere.',
   },
   'header.moreTools': {
     en: 'More tools',
@@ -129,6 +162,9 @@ const STRINGS = {
     es: 'Más herramientas',
     it: 'Altri strumenti',
     de: 'Weitere Werkzeuge',
+    nb: 'Flere verktøy',
+    sv: 'Fler verktyg',
+    da: 'Flere værktøjer',
   },
   'header.moreTools.hint': {
     en: 'Updates & share',
@@ -136,6 +172,9 @@ const STRINGS = {
     es: 'Actualizaciones y compartir',
     it: 'Aggiornamenti e condivisione',
     de: 'Updates und Teilen',
+    nb: 'Oppdateringer og del',
+    sv: 'Uppdateringar och dela',
+    da: 'Opdateringer og del',
   },
   'header.moreTools.replayTour': {
     en: 'Replay guided tour',
@@ -143,6 +182,9 @@ const STRINGS = {
     es: 'Repetir visita guiada',
     it: 'Ripeti tour guidato',
     de: 'Geführte Tour erneut starten',
+    nb: 'Replay guidet tur',
+    sv: 'Replay guidad tur',
+    da: 'Replay guidet tur',
   },
   'header.help.replayTour.hint': {
     en: 'Walk through the atlas introduction again.',
@@ -150,6 +192,9 @@ const STRINGS = {
     es: 'Recorrer de nuevo la introducción del atlas.',
     it: 'Ripercorri l\'introduzione dell\'atlante.',
     de: 'Die Atlas-Einführung erneut durchgehen.',
+    nb: 'Gå gjennom atlasintroduksjonen igjen.',
+    sv: 'Gå igenom atlasinledningen igen.',
+    da: 'Gå gennem atlas-introduktionen igen.',
   },
 
   'theme.label': {
@@ -158,6 +203,9 @@ const STRINGS = {
     es: 'Interfaz',
     it: 'Interfaccia',
     de: 'Oberfläche',
+    nb: 'Grensesnitt',
+    sv: 'Gränssnitt',
+    da: 'Interface',
   },
   'theme.aria.dim': {
     en: 'Dim color scheme',
@@ -165,6 +213,9 @@ const STRINGS = {
     es: 'Esquema de color suave',
     it: 'Schema colori attenuato',
     de: 'Gedämpftes Farbschema',
+    nb: 'Dim fargevalg',
+    sv: 'Dim färgschema',
+    da: 'Dim farveskema',
   },
   'theme.aria.bright': {
     en: 'Parchment color scheme',
@@ -172,6 +223,9 @@ const STRINGS = {
     es: 'Esquema pergamino',
     it: 'Schema colori pergamena',
     de: 'Pergament-Farbschema',
+    nb: 'Pergament fargevalg',
+    sv: 'Pergament färgschema',
+    da: 'Pergament farveskema',
   },
 
   'textSize.tooltip.label': {
@@ -180,6 +234,9 @@ const STRINGS = {
     es: 'Tamaño del texto',
     it: 'Dimensione del testo',
     de: 'Textgröße anpassen',
+    nb: 'Juster tekststørrelsen',
+    sv: 'Justera textstorleken',
+    da: 'Juster tekststørrelsen',
   },
   'textSize.tooltip.hint': {
     en: 'Improve readability',
@@ -187,6 +244,9 @@ const STRINGS = {
     es: 'Mejorar la legibilidad',
     it: 'Migliora la leggibilità',
     de: 'Lesbarkeit verbessern',
+    nb: 'Forbedre lesbarheten',
+    sv: 'Förbättra läsbarheten',
+    da: 'Forbedre læsbarheden',
   },
   'textSize.standard': {
     en: 'Standard text',
@@ -194,6 +254,9 @@ const STRINGS = {
     es: 'Texto estándar',
     it: 'Testo standard',
     de: 'Standardtext',
+    nb: 'Standard tekst',
+    sv: 'Standardtext',
+    da: 'Standard tekst',
   },
   'textSize.large': {
     en: 'Large text',
@@ -201,6 +264,9 @@ const STRINGS = {
     es: 'Texto grande',
     it: 'Testo grande',
     de: 'Großer Text',
+    nb: 'Stor tekst',
+    sv: 'Stor text',
+    da: 'Stor tekst',
   },
   'textSize.highContrast': {
     en: 'High contrast',
@@ -208,6 +274,9 @@ const STRINGS = {
     es: 'Alto contraste',
     it: 'Alto contrasto',
     de: 'Hoher Kontrast',
+    nb: 'Høy kontrast',
+    sv: 'Hög kontrast',
+    da: 'Høj kontrast',
   },
   'textSize.reducedMotion': {
     en: 'Reduced motion',
@@ -215,6 +284,9 @@ const STRINGS = {
     es: 'Movimiento reducido',
     it: 'Movimento ridotto',
     de: 'Reduzierte Bewegung',
+    nb: 'Redusert bevegelse',
+    sv: 'Minskad rörelse',
+    da: 'Reduceret bevægelse',
   },
 
   'basemap.group': {
@@ -223,6 +295,9 @@ const STRINGS = {
     es: 'Base del mapa',
     it: 'Base della mappa',
     de: 'Kartengrundlage',
+    nb: 'Kartgrunnlag',
+    sv: 'Kartbas',
+    da: 'Kortgrundlag',
   },
   'basemap.aria.cartographic': {
     en: 'Cartographic basemap',
@@ -230,6 +305,9 @@ const STRINGS = {
     es: 'Mapa cartográfico',
     it: 'Basemap cartografico',
     de: 'Kartografische Grundkarte',
+    nb: 'Kartografisk grunnkart',
+    sv: 'Kartografisk grundkarta',
+    da: 'Kartografisk grundkort',
   },
   'basemap.aria.manuscript': {
     en: 'Manuscript-style basemap',
@@ -237,6 +315,9 @@ const STRINGS = {
     es: 'Mapa estilo manuscrito',
     it: 'Basemap stile manoscritto',
     de: 'Handschriftlich wirkende Grundkarte',
+    nb: 'Grunnkart i manuskriptstil',
+    sv: 'Baskarta i manuskriptstil',
+    da: 'Grundkort i manuskriptstil',
   },
 
   'terrain.label': {
@@ -245,6 +326,9 @@ const STRINGS = {
     es: 'Relieve',
     it: 'Rilievo',
     de: 'Gelände',
+    nb: 'Terreng',
+    sv: 'Terräng',
+    da: 'Terræn',
   },
   'terrain.aria.toggle': {
     en: 'Toggle 3D terrain',
@@ -252,6 +336,9 @@ const STRINGS = {
     es: 'Alternar terreno 3D',
     it: 'Attiva/disattiva terreno 3D',
     de: '3D-Gelände ein-/ausblenden',
+    nb: 'Veksle mellom 3D-terreng',
+    sv: 'Växla 3D-terräng',
+    da: 'Skift 3D-terræn',
   },
 
   'layers.parchmentWater.label': {
@@ -260,6 +347,9 @@ const STRINGS = {
     es: 'Movimiento del mar y atmósfera',
     it: 'Movimento di mare e atmosfera',
     de: 'Bewegung von Meer und Atmosphäre',
+    nb: 'Hav- og atmosfærebevegelse',
+    sv: 'Havet och atmosfärens rörelse',
+    da: 'Havets og atmosfærens bevægelse',
   },
   'layers.parchmentWater.hint': {
     en: 'Subtle cool drift over the map on manuscript style (not coast-accurate).',
@@ -267,6 +357,9 @@ const STRINGS = {
     es: 'Velo frío sutil animado (estilo manuscrito; no coincide con la costa).',
     it: 'Velatura fredda animata sullo stile manoscritto (non allineata alle coste).',
     de: 'Feine kühle Bewegung über der Karte im Handschriftstil (nicht küstengenau).',
+    nb: 'Subtil kjølig drift over kartet på manuskriptstil (ikke kystnøyaktig).',
+    sv: 'Subtil cool drift över kartan på manuskriptstil (inte kustnära).',
+    da: 'Subtil cool drift over kortet på manuskriptstil (ikke kystnøjagtig).',
   },
 
   'layers.explorationYearStrict.label': {
@@ -275,6 +368,9 @@ const STRINGS = {
     es: 'Alinear rutas de exploración con el año de la línea de tiempo',
     it: 'Allinea le rotte di esplorazione all\'anno della cronologia',
     de: 'Entdeckungsrouten an das Zeitstrahl-Jahr anpassen',
+    nb: 'Match leteruter til tidslinjeåret',
+    sv: 'Matcha prospekteringsrutter till tidslinjens år',
+    da: 'Match udforskningsruter til tidslinjeåret',
   },
   'layers.explorationYearStrict.hint': {
     en: 'When on, explorer lines only appear if the year slider falls within each segment’s range. When off, all exploration routes for this era stay visible together.',
@@ -282,6 +378,9 @@ const STRINGS = {
     es: 'Activado: las líneas solo aparecen si el año cae en el rango de cada tramo. Desactivado: todas las rutas de exploración de la era permanecen visibles.',
     it: 'Attivo: le linee compaiono solo se l\'anno rientra nell\'intervallo di ogni segmento. Spento: tutte le rotte di esplorazione dell\'era restano visibili.',
     de: 'Wenn aktiv, erscheinen Entdeckerlinien nur, wenn der Jahresschieberegler im Bereich jedes Segments liegt. Wenn aus, bleiben alle Entdeckungsrouten dieser Epoche sichtbar.',
+    nb: 'Når den er på, vises utforskerlinjer bare hvis årsglidebryteren faller innenfor hvert segments område. Når den er av, forblir alle utforskningsrutene for denne epoken synlige sammen.',
+    sv: 'När den är aktiverad visas utforskarlinjerna bara om årsreglaget faller inom varje segments intervall. När avstängd förblir alla utforskningsrutter för den här eran synliga tillsammans.',
+    da: 'Når den er slået til, vises stifinderlinjer kun, hvis årsskyderen falder inden for hvert segments område. Når de er slukket, forbliver alle udforskningsruter for denne æra synlige sammen.',
   },
 
   // --- Guided tour ---
@@ -291,6 +390,9 @@ const STRINGS = {
     es: 'Un sistema histórico vivo',
     it: 'Un sistema storico vivente',
     de: 'Ein lebendiges historisches System',
+    nb: 'Et levende historisk system',
+    sv: 'Ett levande historiskt system',
+    da: 'Et levende historisk system',
   },
   'tour.step1.body': {
     en: 'This atlas is not just a map.\nIt shows how people moved, settled, and shaped the world over time, from Neolithic Normandy to the shores of New France.',
@@ -298,6 +400,9 @@ const STRINGS = {
     es: 'Este atlas no es solo un mapa.\nMuestra cómo las personas se desplazaron, se asentaron y moldearon el mundo, desde la Normandía neolítica hasta las costas de Nueva Francia.',
     it: 'Questo atlante non è solo una mappa.\nMostra come le persone si sono mosse, si sono stabilite e hanno plasmato il mondo, dalla Normandia neolitica alle coste della Nuova Francia.',
     de: 'Dieser Atlas ist nicht nur eine Karte.\nEr zeigt, wie sich Menschen bewegten, ansiedelten und im Laufe der Zeit die Welt geprägt haben – vom neolithischen Normannien bis zu den Küsten Neufrankreichs.',
+    nb: 'Dette atlaset er ikke bare et kart. Den viser hvordan mennesker flyttet, bosatte seg og formet verden over tid, fra neolitisk Normandie til kysten av New France.',
+    sv: 'Den här atlasen är inte bara en karta. Den visar hur människor flyttade, bosatte sig och formade världen över tiden, från neolitiska Normandie till Nya Frankrikes stränder.',
+    da: 'Dette atlas er ikke bare et kort. Det viser, hvordan mennesker flyttede, bosatte sig og formede verden over tid, fra neolitisk Normandiet til New Frances kyster.',
   },
   'tour.step2.title': {
     en: 'What you see',
@@ -305,6 +410,9 @@ const STRINGS = {
     es: 'Lo que verá',
     it: 'Cosa vedi',
     de: 'Was Sie sehen',
+    nb: 'Det du ser',
+    sv: 'Vad du ser',
+    da: 'Hvad du ser',
   },
   'tour.step2.body': {
     en: 'Each point represents a settlement. Lines trace migration routes. Shaded regions show zones of influence, all reconstructed from available records.',
@@ -312,6 +420,9 @@ const STRINGS = {
     es: 'Cada punto representa un asentamiento. Las líneas trazan rutas migratorias. Las regiones sombreadas muestran zonas de influencia, todo reconstruido a partir de registros disponibles.',
     it: 'Ogni punto rappresenta un insediamento. Le linee tracciano rotte migratorie. Le regioni ombreggiate mostrano zone di influenza, tutto ricostruito dalle fonti disponibili.',
     de: 'Jeder Punkt steht für eine Siedlung. Linien zeigen Migrationsrouten. Schattierte Flächen markieren Einflusszonen – alles rekonstruiert aus den verfügbaren Quellen.',
+    nb: 'Hvert punkt representerer et oppgjør. Linjer sporer migrasjonsruter. Skraverte områder viser innflytelsessoner, alle rekonstruert fra tilgjengelige poster.',
+    sv: 'Varje punkt representerar en uppgörelse. Linjer spårar migrationsvägar. Skuggade områden visar influenszoner, alla rekonstruerade från tillgängliga register.',
+    da: 'Hvert punkt repræsenterer en afregning. Linjer sporer migrationsruter. Skraverede områder viser indflydelseszoner, alle rekonstrueret ud fra tilgængelige optegnelser.',
   },
   'tour.step3.title': {
     en: 'Navigate through time',
@@ -319,6 +430,9 @@ const STRINGS = {
     es: 'Navegue a través del tiempo',
     it: 'Naviga nel tempo',
     de: 'Durch die Zeit navigieren',
+    nb: 'Naviger gjennom tiden',
+    sv: 'Navigera genom tiden',
+    da: 'Naviger gennem tiden',
   },
   'tour.step3.body': {
     en: 'The timeline is the heart of the atlas. Select an era, then drag the year slider to watch history unfold. Each era reveals different migrations, settlements, and layers of activity across the map.',
@@ -326,6 +440,9 @@ const STRINGS = {
     es: 'La línea de tiempo es el corazón del atlas. Seleccione una era y arrastre el cursor del año para ver la historia desplegarse. Cada era revela diferentes migraciones, asentamientos y capas de actividad.',
     it: 'La cronologia è il cuore dell\'atlante. Seleziona un\'epoca, poi trascina il cursore dell\'anno per vedere la storia dispiegarsi. Ogni epoca rivela migrazioni, insediamenti e attività diverse.',
     de: 'Der Zeitstrahl ist das Herz des Atlas. Wählen Sie eine Epoche und ziehen Sie den Jahresschieber, um Geschichte ablaufen zu sehen. Jede Epoche zeigt andere Migrationen, Siedlungen und Aktivitätsebenen auf der Karte.',
+    nb: 'Tidslinjen er hjertet i atlaset. Velg en epoke, og dra deretter glidebryteren for år for å se historien utfolde seg. Hver epoke avslører forskjellige migrasjoner, bosetninger og lag med aktivitet på kartet.',
+    sv: 'Tidslinjen är hjärtat i atlasen. Välj en era och dra sedan skjutreglaget för år för att se historiken utvecklas. Varje era avslöjar olika migrationer, bosättningar och lager av aktivitet över kartan.',
+    da: 'Tidslinjen er hjertet i atlasset. Vælg en epoke, og træk derefter skyderen for år for at se historien udfolde sig. Hver epoke afslører forskellige migrationer, bosættelser og aktivitetslag på tværs af kortet.',
   },
   'tour.step4.title': {
     en: 'Cinematic stories',
@@ -333,6 +450,9 @@ const STRINGS = {
     es: 'Historias cinematográficas',
     it: 'Storie cinematiche',
     de: 'Kinematische Geschichten',
+    nb: 'Filmatiske historier',
+    sv: 'Filmiska berättelser',
+    da: 'Filmiske historier',
   },
   'tour.step4.body': {
     en: 'Open the story library to follow curated journeys across the map, from the Viking Age to Norman expansion, New France, and personal histories like Guillaume Couture.\n\nEach arc guides the camera and narrates the events as they happened.',
@@ -340,6 +460,9 @@ const STRINGS = {
     es: 'Abra la biblioteca de historias para seguir recorridos guiados, desde la era vikinga hasta la expansión normanda, Nueva Francia e historias personales como Guillaume Couture.\n\nCada arco guía la cámara y narra los acontecimientos tal como sucedieron.',
     it: 'Apri la libreria per seguire percorsi guidati sulla mappa, dall\'età vichinga all\'espansione normanna, la Nuova Francia e storie personali come Guillaume Couture.\n\nOgni arco guida la telecamera e racconta gli eventi così come accaddero.',
     de: 'Öffnen Sie die Geschichtenbibliothek für kuratierte Reisen über die Karte – von der Wikingerzeit über die normannische Expansion und Neufrankreich bis zu Biografien wie Guillaume Couture.\n\nJeder Bogen lenkt die Kamera und erzählt die Ereignisse in der Reihenfolge ihres Geschehens.',
+    nb: 'Åpne historiebiblioteket for å følge kuraterte reiser over kartet, fra vikingtiden til normannisk ekspansjon, New France og personlige historier som Guillaume Couture. Hver bue styrer kameraet og forteller hendelsene mens de skjedde.',
+    sv: 'Öppna berättelsebiblioteket för att följa kurerade resor över kartan, från vikingatiden till normandisk expansion, New France och personlig historia som Guillaume Couture. Varje båge styr kameran och berättar händelserna när de hände.',
+    da: 'Åbn historiebiblioteket for at følge kuraterede rejser på tværs af kortet, fra vikingetiden til normannisk ekspansion, New France og personlige historier som Guillaume Couture. Hver bue guider kameraet og fortæller begivenhederne, mens de skete.',
   },
   'tour.step5.title': {
     en: 'Make it yours',
@@ -347,6 +470,9 @@ const STRINGS = {
     es: 'Hazlo tuyo',
     it: 'Personalizza l\'atlante',
     de: 'Machen Sie ihn zu Ihrem Atlas',
+    nb: 'Gjør det til ditt',
+    sv: 'Gör det till ditt',
+    da: 'Gør det til dit',
   },
   'tour.step5.body': {
     en: 'Switch between dark and light mode to change the interface. Toggle the basemap between cartographic and manuscript style for a different feel.\n\nYour preferences are saved automatically.',
@@ -354,6 +480,9 @@ const STRINGS = {
     es: 'Alterne entre modo oscuro y claro para cambiar la interfaz. Cambie el mapa base entre estilo cartográfico y manuscrito.\n\nSus preferencias se guardan automáticamente.',
     it: 'Passa tra modalità scura e chiara per modificare l\'interfaccia. Alterna la mappa base tra stile cartografico e manoscritto.\n\nLe tue preferenze vengono salvate automaticamente.',
     de: 'Wechseln Sie zwischen Hell- und Dunkelmodus. Schalten Sie die Grundkarte zwischen kartografischem und Handschriftstil für ein anderes Gefühl um.\n\nIhre Einstellungen werden automatisch gespeichert.',
+    nb: 'Bytt mellom mørk og lys modus for å endre grensesnittet. Veksle grunnkartet mellom kartografisk stil og manuskriptstil for en annen følelse. Preferansene dine lagres automatisk.',
+    sv: 'Växla mellan mörkt och ljust läge för att ändra gränssnittet. Växla baskartan mellan kartografi och manuskriptstil för en annan känsla. Dina inställningar sparas automatiskt.',
+    da: 'Skift mellem mørk og lys tilstand for at ændre grænsefladen. Skift basiskortet mellem kartografisk stil og manuskriptstil for en anderledes følelse. Dine præferencer gemmes automatisk.',
   },
   'tour.step6.title': {
     en: 'Layers of evidence',
@@ -361,6 +490,9 @@ const STRINGS = {
     es: 'Capas de evidencia',
     it: 'Strati di evidenza',
     de: 'Ebenen des Beleges',
+    nb: 'Lag av bevis',
+    sv: 'Lager av bevis',
+    da: 'Lag af beviser',
   },
   'tour.step6.body': {
     en: 'Some layers show documented history. Others reveal modeled influence based on historical patterns and scholarly analysis.\n\nClick any location to explore people, events, and context tied to that place and era.',
@@ -368,6 +500,9 @@ const STRINGS = {
     es: 'Algunas capas muestran historia documentada. Otras revelan influencia modelada a partir de patrones históricos y análisis académicos.\n\nHaga clic en cualquier lugar para explorar personas, eventos y contexto vinculados a ese sitio y esa era.',
     it: 'Alcuni strati mostrano la storia documentata. Altri rivelano un\'influenza modellata su schemi storici e analisi erudite.\n\nClicca su qualsiasi luogo per esplorare persone, eventi e contesto legati a quel posto e a quell\'epoca.',
     de: 'Einige Ebenen zeigen dokumentierte Geschichte. Andere modellierten Einfluss auf Grund historischer Muster und Forschung.\n\nKlicken Sie einen Ort, um Personen, Ereignisse und Kontext zu dieser Stelle und Epoche zu erkunden.',
+    nb: 'Noen lag viser dokumentert historikk. Andre avslører modellert innflytelse basert på historiske mønstre og vitenskapelig analyse. Klikk på et hvilket som helst sted for å utforske personer, hendelser og kontekst knyttet til det stedet og epoken.',
+    sv: 'Vissa lager visar dokumenterad historia. Andra avslöjar modellerat inflytande baserat på historiska mönster och vetenskaplig analys. Klicka på valfri plats för att utforska personer, händelser och sammanhang kopplade till den platsen och eran.',
+    da: 'Nogle lag viser dokumenteret historie. Andre afslører modelleret indflydelse baseret på historiske mønstre og videnskabelig analyse. Klik på et hvilket som helst sted for at udforske personer, begivenheder og kontekst knyttet til det pågældende sted og epoke.',
   },
   'tour.step7.title': {
     en: 'Start your journey',
@@ -375,6 +510,9 @@ const STRINGS = {
     es: 'Comience su viaje',
     it: 'Inizia il tuo viaggio',
     de: 'Beginnen Sie Ihre Reise',
+    nb: 'Start reisen din',
+    sv: 'Börja din resa',
+    da: 'Start din rejse',
   },
   'tour.step7.body': {
     en: 'Recommended: open the story library and start with "From Vikings to the New World." The flagship arc covers Norman settlement, expansion, and the Atlantic crossing.\n\nOr explore freely: pick any era from the timeline and follow the map wherever it leads.',
@@ -382,6 +520,9 @@ const STRINGS = {
     es: 'Recomendado: abra la biblioteca de historias y comience con «De vikingos al Nuevo Mundo». El arco principal cubre el asentamiento normando, la expansión y el cruce del Atlántico.\n\nO explore libremente: elija una era en la línea de tiempo y siga el mapa adonde lo lleve.',
     it: 'Consigliato: apri la libreria e inizia con «Dai vichinghi al Nuovo Mondo». L\'arco principale riguarda insediamento normanno, espansione e attraversata atlantica.\n\nOppure esplora liberamente: scegli un\'epoca dalla cronologia e segui la mappa ovunque ti porti.',
     de: 'Empfohlen: Öffnen Sie die Geschichtenbibliothek und starten Sie mit „Von den Wikingern zur Neuen Welt“. Der Hauptbogen behandelt normannische Ansiedlung, Expansion und die Atlantiküberquerung.\n\nOder erkunden Sie frei: Wählen Sie eine beliebige Epoche am Zeitstrahl und folgen Sie der Karte.',
+    nb: 'Anbefalt: åpne historiebiblioteket og start med «Fra vikinger til den nye verden». Flaggskipbuen dekker normannisk bosetting, utvidelse og Atlanterhavskrysset. Eller utforsk fritt: velg hvilken som helst epoke fra tidslinjen og følg kartet hvor enn det fører.',
+    sv: 'Rekommenderas: öppna berättelsebiblioteket och börja med "Från vikingar till den nya världen." Flaggskeppsbågen täcker normandiska bosättning, expansion och Atlantens korsning. Eller utforska fritt: välj vilken era som helst från tidslinjen och följ kartan vart den än leder.',
+    da: 'Anbefalet: Åbn historiebiblioteket og start med "Fra vikinger til den nye verden." Flagskibsbuen dækker normannisk bosættelse, ekspansion og Atlanterhavets krydsning. Eller udforsk frit: Vælg en hvilken som helst æra fra tidslinjen, og følg kortet, hvor end det fører hen.',
   },
 
   // --- Tour controls ---
@@ -391,6 +532,9 @@ const STRINGS = {
     es: 'Omitir',
     it: 'Salta',
     de: 'Überspringen',
+    nb: 'Hopp over',
+    sv: 'Hoppa',
+    da: 'Springe',
   },
   'tour.back': {
     en: 'Back',
@@ -398,6 +542,9 @@ const STRINGS = {
     es: 'Atrás',
     it: 'Indietro',
     de: 'Zurück',
+    nb: 'Tilbake',
+    sv: 'Tillbaka',
+    da: 'Tilbage',
   },
   'tour.next': {
     en: 'Next',
@@ -405,6 +552,9 @@ const STRINGS = {
     es: 'Siguiente',
     it: 'Avanti',
     de: 'Weiter',
+    nb: 'Neste',
+    sv: 'Nästa',
+    da: 'Næste',
   },
   'tour.begin': {
     en: 'Begin exploring',
@@ -412,6 +562,9 @@ const STRINGS = {
     es: 'Comenzar a explorar',
     it: 'Inizia a esplorare',
     de: 'Erkundung beginnen',
+    nb: 'Begynn å utforske',
+    sv: 'Börja utforska',
+    da: 'Begynd at udforske',
   },
 
   // --- Story bar ---
@@ -421,6 +574,9 @@ const STRINGS = {
     es: 'Explorar la historia',
     it: 'Esplora la storia',
     de: 'Geschichte erkunden',
+    nb: 'Utforsk historien',
+    sv: 'Utforska berättelsen',
+    da: 'Udforsk historien',
   },
   'story.exit': {
     en: 'Exit story',
@@ -428,6 +584,9 @@ const STRINGS = {
     es: 'Salir de la historia',
     it: 'Esci dalla storia',
     de: 'Geschichte verlassen',
+    nb: 'Avslutt historie',
+    sv: 'Exit story',
+    da: 'Afslut historie',
   },
   'story.continue': {
     en: 'Continue',
@@ -435,6 +594,9 @@ const STRINGS = {
     es: 'Continuar',
     it: 'Continua',
     de: 'Weiter',
+    nb: 'Fortsette',
+    sv: 'Fortsätta',
+    da: 'Fortsætte',
   },
   'story.finish': {
     en: 'Finish',
@@ -442,6 +604,9 @@ const STRINGS = {
     es: 'Finalizar',
     it: 'Fine',
     de: 'Beenden',
+    nb: 'Fullfør',
+    sv: 'Avsluta',
+    da: 'Slutte',
   },
   'story.illustration.enlarge': {
     en: 'Enlarge image',
@@ -449,6 +614,9 @@ const STRINGS = {
     es: 'Ampliar imagen',
     it: 'Ingrandisci immagine',
     de: 'Bild vergrößern',
+    nb: 'Forstørr bildet',
+    sv: 'Förstora bilden',
+    da: 'Forstør billede',
   },
   'story.illustration.close': {
     en: 'Close',
@@ -456,6 +624,9 @@ const STRINGS = {
     es: 'Cerrar',
     it: 'Chiudi',
     de: 'Schließen',
+    nb: 'Lukke',
+    sv: 'Nära',
+    da: 'Tæt',
   },
 
   // --- Story library panel ---
@@ -465,6 +636,9 @@ const STRINGS = {
     es: 'Historias',
     it: 'Storie',
     de: 'Geschichten',
+    nb: 'Historier',
+    sv: 'Berättelser',
+    da: 'Historier',
   },
   'storyLibrary.tooltip.hint': {
     en: 'Cinematic story mode: choose an arc, resume, or share a link.',
@@ -472,6 +646,9 @@ const STRINGS = {
     es: 'Modo historia: elige un arco, reanuda o comparte un enlace.',
     it: 'Modalità storia: scegli un arco, riprendi o condividi un link.',
     de: 'Kinematischer Geschichtenmodus: Bogen wählen, fortsetzen oder Link teilen.',
+    nb: 'Kinematisk historiemodus: velg en bue, gjenoppta eller del en lenke.',
+    sv: 'Filmiskt berättelseläge: välj en båge, återuppta eller dela en länk.',
+    da: 'Filmisk historietilstand: Vælg en bue, genoptag eller del et link.',
   },
   'storyLibrary.aria.open': {
     en: 'Open story library',
@@ -479,6 +656,9 @@ const STRINGS = {
     es: 'Abrir biblioteca de historias',
     it: 'Apri libreria di storie',
     de: 'Geschichtenbibliothek öffnen',
+    nb: 'Åpne historiebibliotek',
+    sv: 'Öppna berättelsebiblioteket',
+    da: 'Åbn historiebibliotek',
   },
   'storyLibrary.aria.close': {
     en: 'Close story library',
@@ -486,6 +666,9 @@ const STRINGS = {
     es: 'Cerrar biblioteca de historias',
     it: 'Chiudi libreria di storie',
     de: 'Geschichtenbibliothek schließen',
+    nb: 'Lukk historiebiblioteket',
+    sv: 'Stäng berättelsebiblioteket',
+    da: 'Luk historiebibliotek',
   },
   'storyLibrary.aria.heroCarouselStrip': {
     en: 'Featured story previews',
@@ -493,6 +676,9 @@ const STRINGS = {
     es: 'Vistas previas destacadas',
     it: 'Anteprime in evidenza',
     de: 'Vorgestellte Geschichtsvorschauen',
+    nb: 'Utvalgte historieforhåndsvisninger',
+    sv: 'Utvalda berättelseförhandsvisningar',
+    da: 'Udvalgte historieforhåndsvisninger',
   },
   'storyLibrary.aria.heroSegment': {
     en: 'Show featured story {n} of {total}',
@@ -500,6 +686,9 @@ const STRINGS = {
     es: 'Mostrar historia destacada {n} de {total}',
     it: 'Mostra storia in evidenza {n} di {total}',
     de: 'Vorgestellte Geschichte {n} von {total} anzeigen',
+    nb: 'Vis fremhevet historie {n} av {total}',
+    sv: 'Visa utvald berättelse {n} av {total}',
+    da: 'Vis fremhævet historie {n} af {total}',
   },
   'storyLibrary.title': {
     en: 'Story library',
@@ -507,6 +696,9 @@ const STRINGS = {
     es: 'Biblioteca de historias',
     it: 'Libreria di storie',
     de: 'Geschichtenbibliothek',
+    nb: 'Historiebibliotek',
+    sv: 'Berättelsebibliotek',
+    da: 'Historiebibliotek',
   },
   'storyLibrary.subtitle': {
     en: 'Choose a journey across the map',
@@ -514,6 +706,9 @@ const STRINGS = {
     es: 'Elige un recorrido sobre el mapa',
     it: 'Scegli un percorso sulla mappa',
     de: 'Wählen Sie eine Reise über die Karte',
+    nb: 'Velg en reise over kartet',
+    sv: 'Välj en resa över kartan',
+    da: 'Vælg en rejse på tværs af kortet',
   },
   'storyLibrary.featured': {
     en: 'Featured',
@@ -521,6 +716,9 @@ const STRINGS = {
     es: 'Destacado',
     it: 'In evidenza',
     de: 'Im Fokus',
+    nb: 'Utvalgte',
+    sv: 'Utvalda',
+    da: 'Udvalgte',
   },
   'storyLibrary.continueWatching': {
     en: 'Continue watching',
@@ -528,6 +726,9 @@ const STRINGS = {
     es: 'Continuar viendo',
     it: 'Continua a guardare',
     de: 'Weiteransehen',
+    nb: 'Fortsett å se',
+    sv: 'Fortsätt titta',
+    da: 'Fortsæt med at se',
   },
   'storyLibrary.browseByCategory': {
     en: 'Browse by category',
@@ -535,6 +736,9 @@ const STRINGS = {
     es: 'Explorar por categoría',
     it: 'Sfoglia per categoria',
     de: 'Nach Kategorie durchsuchen',
+    nb: 'Bla etter kategori',
+    sv: 'Bläddra efter kategori',
+    da: 'Gennemse efter kategori',
   },
   'storyLibrary.play': {
     en: 'Play',
@@ -542,6 +746,9 @@ const STRINGS = {
     es: 'Reproducir',
     it: 'Riproduci',
     de: 'Abspielen',
+    nb: 'Spille',
+    sv: 'Spela',
+    da: 'Spil',
   },
   'storyLibrary.resume': {
     en: 'Resume',
@@ -549,6 +756,9 @@ const STRINGS = {
     es: 'Reanudar',
     it: 'Riprendi',
     de: 'Fortsetzen',
+    nb: 'Gjenoppta',
+    sv: 'Resume',
+    da: 'Genoptage',
   },
   'storyLibrary.scenes': {
     en: '{count} scenes',
@@ -556,6 +766,9 @@ const STRINGS = {
     es: '{count} escenas',
     it: '{count} scene',
     de: '{count} Szenen',
+    nb: '{count} scener',
+    sv: '{count} scener',
+    da: '{count} scener',
   },
   'storyLibrary.durationMinutes': {
     en: '{count} min',
@@ -563,6 +776,9 @@ const STRINGS = {
     es: '{count} min',
     it: '{count} min',
     de: '{count} Min.',
+    nb: '{count} min',
+    sv: '{count} min',
+    da: '{count} min',
   },
   'storyLibrary.chapters': {
     en: 'Chapters',
@@ -570,6 +786,9 @@ const STRINGS = {
     es: 'Capítulos',
     it: 'Capitoli',
     de: 'Kapitel',
+    nb: 'Chapters',
+    sv: 'Kapitel',
+    da: 'kapitler',
   },
   'storyLibrary.copyLink': {
     en: 'Copy link',
@@ -577,6 +796,9 @@ const STRINGS = {
     es: 'Copiar enlace',
     it: 'Copia link',
     de: 'Link kopieren',
+    nb: 'Copy link',
+    sv: 'Kopiera länk',
+    da: 'Kopiér link',
   },
   'storyLibrary.linkCopied': {
     en: 'Link copied',
@@ -584,6 +806,9 @@ const STRINGS = {
     es: 'Enlace copiado',
     it: 'Link copiato',
     de: 'Link kopiert',
+    nb: 'Link copied',
+    sv: 'Länken har kopierats',
+    da: 'Linket er kopieret',
   },
   'storyLibrary.startsInEra': {
     en: 'Starts in: {era}',
@@ -591,6 +816,9 @@ const STRINGS = {
     es: 'Empieza en: {era}',
     it: 'Inizia in: {era}',
     de: 'Beginnt in: {era}',
+    nb: 'Starter om: {era}',
+    sv: 'Börjar om: {era}',
+    da: 'Starter om: {era}',
   },
   'storyLibrary.progressPercent': {
     en: '{pct}% complete',
@@ -598,6 +826,9 @@ const STRINGS = {
     es: '{pct} % completo',
     it: '{pct}% completato',
     de: '{pct} % abgeschlossen',
+    nb: '{pct} % fullført',
+    sv: '{pct} % klar',
+    da: '{pct} % fuldført',
   },
   'storyLibrary.badge.featured': {
     en: 'Featured',
@@ -605,6 +836,9 @@ const STRINGS = {
     es: 'Destacado',
     it: 'In evidenza',
     de: 'Im Fokus',
+    nb: 'Featured',
+    sv: 'Utvalda',
+    da: 'Udvalgte',
   },
   'storyLibrary.badge.new': {
     en: 'New',
@@ -612,6 +846,9 @@ const STRINGS = {
     es: 'Nuevo',
     it: 'Nuovo',
     de: 'Neu',
+    nb: 'New',
+    sv: 'Ny',
+    da: 'Ny',
   },
   'storyLibrary.badge.inProgress': {
     en: 'In progress',
@@ -619,6 +856,9 @@ const STRINGS = {
     es: 'En curso',
     it: 'In corso',
     de: 'Laufend',
+    nb: 'In progress',
+    sv: 'Pågår',
+    da: 'I gang',
   },
   'storyLibrary.badge.completed': {
     en: 'Completed',
@@ -626,6 +866,9 @@ const STRINGS = {
     es: 'Completado',
     it: 'Completato',
     de: 'Abgeschlossen',
+    nb: 'Completed',
+    sv: 'Avslutad',
+    da: 'Afsluttet',
   },
   'storyLibrary.category.origins': {
     en: 'Origins',
@@ -633,6 +876,9 @@ const STRINGS = {
     es: 'Orígenes',
     it: 'Origini',
     de: 'Ursprünge',
+    nb: 'Origins',
+    sv: 'Ursprung',
+    da: 'Oprindelse',
   },
   'storyLibrary.category.conquest': {
     en: 'Conquest',
@@ -640,6 +886,9 @@ const STRINGS = {
     es: 'Conquista',
     it: 'Conquista',
     de: 'Eroberung',
+    nb: 'Conquest',
+    sv: 'Erövring',
+    da: 'Erobring',
   },
   'storyLibrary.category.expansion': {
     en: 'Expansion',
@@ -647,6 +896,9 @@ const STRINGS = {
     es: 'Expansión',
     it: 'Espansione',
     de: 'Expansion',
+    nb: 'Expansion',
+    sv: 'Expansion',
+    da: 'Udvidelse',
   },
   'storyLibrary.category.exploration': {
     en: 'Exploration',
@@ -654,6 +906,9 @@ const STRINGS = {
     es: 'Exploración',
     it: 'Esplorazione',
     de: 'Erkundung',
+    nb: 'Exploration',
+    sv: 'Utforskning',
+    da: 'Udforskning',
   },
   'storyLibrary.category.newFrance': {
     en: 'New France',
@@ -661,6 +916,9 @@ const STRINGS = {
     es: 'Nueva Francia',
     it: 'Nuova Francia',
     de: 'Neufrankreich',
+    nb: 'New France',
+    sv: 'Nya Frankrike',
+    da: 'Nyt Frankrig',
   },
   'storyLibrary.category.people': {
     en: 'People',
@@ -668,6 +926,9 @@ const STRINGS = {
     es: 'Personas',
     it: 'Persone',
     de: 'Personen',
+    nb: 'People',
+    sv: 'Personer',
+    da: 'Mennesker',
   },
   'storyLibrary.category.legacy': {
     en: 'Legacy',
@@ -675,6 +936,9 @@ const STRINGS = {
     es: 'Legado',
     it: 'Eredità',
     de: 'Erbe',
+    nb: 'Legacy',
+    sv: 'Arv',
+    da: 'Arv',
   },
   'storyLibrary.moreInfo': {
     en: 'More info',
@@ -682,6 +946,9 @@ const STRINGS = {
     es: 'Más información',
     it: 'Più info',
     de: 'Mehr Infos',
+    nb: 'More info',
+    sv: 'Mer info',
+    da: 'Mere info',
   },
   'storyLibrary.tone.epic': {
     en: 'Epic',
@@ -689,6 +956,9 @@ const STRINGS = {
     es: 'Épico',
     it: 'Epico',
     de: 'Episch',
+    nb: 'Epic',
+    sv: 'Episk',
+    da: 'Episk',
   },
   'storyLibrary.tone.dark': {
     en: 'Dark',
@@ -696,6 +966,9 @@ const STRINGS = {
     es: 'Oscuro',
     it: 'Cupo',
     de: 'Düster',
+    nb: 'Dark',
+    sv: 'Mörk',
+    da: 'Mørk',
   },
   'storyLibrary.tone.exploratory': {
     en: 'Exploratory',
@@ -703,6 +976,9 @@ const STRINGS = {
     es: 'Exploratorio',
     it: 'Esplorativo',
     de: 'Erkundend',
+    nb: 'Exploratory',
+    sv: 'Utforskande',
+    da: 'Udforskende',
   },
   'storyLibrary.tone.foundational': {
     en: 'Foundational',
@@ -710,6 +986,9 @@ const STRINGS = {
     es: 'Fundacional',
     it: 'Fondativo',
     de: 'Grundlegend',
+    nb: 'Foundational',
+    sv: 'Grundläggande',
+    da: 'Grundlæggende',
   },
   'storyLibrary.tone.personal': {
     en: 'Personal',
@@ -717,6 +996,9 @@ const STRINGS = {
     es: 'Personal',
     it: 'Personale',
     de: 'Persönlich',
+    nb: 'Personal',
+    sv: 'Personlig',
+    da: 'Personlig',
   },
   'storyLibrary.timelineRange': {
     en: '{start} – {end}',
@@ -724,6 +1006,9 @@ const STRINGS = {
     es: '{start} – {end}',
     it: '{start} – {end}',
     de: '{start} – {end}',
+    nb: '{start} – {slutt}',
+    sv: '{start} – {slut}',
+    da: '{start} – {slut}',
   },
   'storyLibrary.focusPlaces': {
     en: '{count} places',
@@ -731,6 +1016,9 @@ const STRINGS = {
     es: '{count} lugares',
     it: '{count} luoghi',
     de: '{count} Orte',
+    nb: '{count} steder',
+    sv: '{count} platser',
+    da: '{count} steder',
   },
   'storyLibrary.focusRegions': {
     en: '{count} regions',
@@ -738,6 +1026,9 @@ const STRINGS = {
     es: '{count} regiones',
     it: '{count} regioni',
     de: '{count} Regionen',
+    nb: '{count} regioner',
+    sv: '{count} regioner',
+    da: '{count} regioner',
   },
   'storyLibrary.focusRoutes': {
     en: '{count} routes',
@@ -745,6 +1036,9 @@ const STRINGS = {
     es: '{count} rutas',
     it: '{count} rotte',
     de: '{count} Routen',
+    nb: '{count} ruter',
+    sv: '{count} rutter',
+    da: '{count} ruter',
   },
   'storyLibrary.imageCredit': {
     en: 'Image: {credit}',
@@ -752,6 +1046,9 @@ const STRINGS = {
     es: 'Imagen: {credit}',
     it: 'Immagine: {credit}',
     de: 'Bild: {credit}',
+    nb: 'Bilde: {kreditt}',
+    sv: 'Bild: {kredit}',
+    da: 'Billede: {kredit}',
   },
   'storyLibrary.section.overview': {
     en: 'Overview',
@@ -759,6 +1056,9 @@ const STRINGS = {
     es: 'Resumen',
     it: 'Panoramica',
     de: 'Überblick',
+    nb: 'Overview',
+    sv: 'Översikt',
+    da: 'Oversigt',
   },
   'storyLibrary.section.details': {
     en: 'Details',
@@ -766,6 +1066,9 @@ const STRINGS = {
     es: 'Detalles',
     it: 'Dettagli',
     de: 'Details',
+    nb: 'Details',
+    sv: 'Detaljer',
+    da: 'Detaljer',
   },
   'storyLibrary.section.chapters': {
     en: 'Chapters',
@@ -773,6 +1076,9 @@ const STRINGS = {
     es: 'Capítulos',
     it: 'Capitoli',
     de: 'Kapitel',
+    nb: 'Chapters',
+    sv: 'Kapitel',
+    da: 'kapitler',
   },
   'storyLibrary.showMore': {
     en: 'Show all',
@@ -780,6 +1086,9 @@ const STRINGS = {
     es: 'Mostrar todo',
     it: 'Mostra tutto',
     de: 'Alle anzeigen',
+    nb: 'Show all',
+    sv: 'Visa alla',
+    da: 'Vis alle',
   },
   'storyLibrary.showLess': {
     en: 'Show less',
@@ -787,6 +1096,9 @@ const STRINGS = {
     es: 'Mostrar menos',
     it: 'Mostra meno',
     de: 'Weniger anzeigen',
+    nb: 'Show less',
+    sv: 'Visa mindre',
+    da: 'Vis mindre',
   },
   'storyLibrary.aria.scrollLeft': {
     en: 'Scroll left',
@@ -794,6 +1106,9 @@ const STRINGS = {
     es: 'Desplazar a la izquierda',
     it: 'Scorri a sinistra',
     de: 'Nach links scrollen',
+    nb: 'Scroll left',
+    sv: 'Bläddra åt vänster',
+    da: 'Rul til venstre',
   },
   'storyLibrary.aria.scrollRight': {
     en: 'Scroll right',
@@ -801,6 +1116,9 @@ const STRINGS = {
     es: 'Desplazar a la derecha',
     it: 'Scorri a destra',
     de: 'Nach rechts scrollen',
+    nb: 'Rull til høyre',
+    sv: 'Bläddra åt höger',
+    da: 'Rul til højre',
   },
   'storyLibrary.aria.heroCarousel': {
     en: 'Featured stories rotate automatically; hover to pause.',
@@ -808,6 +1126,9 @@ const STRINGS = {
     es: 'Las historias destacadas rotan solas; pasa el cursor para pausar.',
     it: 'Le storie in evidenza scorrono automaticamente; passa sopra per mettere in pausa.',
     de: 'Vorgestellte Geschichten wechseln automatisch; mit der Maus darüber pausieren.',
+    nb: 'Utvalgte historier roterer automatisk; hold musepekeren for å pause.',
+    sv: 'Utvalda berättelser roterar automatiskt; håll muspekaren för att pausa.',
+    da: 'Udvalgte historier roterer automatisk; svæv for at holde pause.',
   },
   'storyLibrary.chronicle.title': {
     en: 'Choose Your Chronicle',
@@ -815,6 +1136,9 @@ const STRINGS = {
     es: 'Elige tu crónica',
     it: 'Scegli la tua cronaca',
     de: 'Wählen Sie Ihre Chronik',
+    nb: 'Velg din kronikk',
+    sv: 'Välj din krönika',
+    da: 'Vælg din kronik',
   },
   'storyLibrary.beginJourney': {
     en: 'Begin Journey',
@@ -822,6 +1146,9 @@ const STRINGS = {
     es: 'Comenzar el viaje',
     it: 'Inizia il viaggio',
     de: 'Reise beginnen',
+    nb: 'Begynn reisen',
+    sv: 'Börja resan',
+    da: 'Begynd rejsen',
   },
   'storyLibrary.viewChapters': {
     en: 'View Chapters',
@@ -829,6 +1156,9 @@ const STRINGS = {
     es: 'Ver capítulos',
     it: 'Vedi i capitoli',
     de: 'Kapitel ansehen',
+    nb: 'Se kapitler',
+    sv: 'Visa kapitel',
+    da: 'Se kapitler',
   },
   'storyLibrary.filter.all': {
     en: 'All',
@@ -836,6 +1166,9 @@ const STRINGS = {
     es: 'Todo',
     it: 'Tutto',
     de: 'Alle',
+    nb: 'All',
+    sv: 'Alla',
+    da: 'Alle',
   },
   'storyLibrary.filter.allEras': {
     en: 'All eras',
@@ -843,6 +1176,9 @@ const STRINGS = {
     es: 'Todas las eras',
     it: 'Tutte le epoche',
     de: 'Alle Epochen',
+    nb: 'All eras',
+    sv: 'Alla epoker',
+    da: 'Alle epoker',
   },
   'storyLibrary.aria.filterBar': {
     en: 'Filter stories by category',
@@ -850,6 +1186,9 @@ const STRINGS = {
     es: 'Filtrar historias por categoría',
     it: 'Filtra le storie per categoria',
     de: 'Geschichten nach Kategorie filtern',
+    nb: 'Filtrer historier etter kategori',
+    sv: 'Filtrera berättelser efter kategori',
+    da: 'Filtrer historier efter kategori',
   },
   'storyLibrary.aria.eraFilterBar': {
     en: 'Filter stories by historical era',
@@ -857,6 +1196,9 @@ const STRINGS = {
     es: 'Filtrar historias por época histórica',
     it: 'Filtra le storie per epoca storica',
     de: 'Geschichten nach historischer Epoche filtern',
+    nb: 'Filtrer historier etter historisk epoke',
+    sv: 'Filtrera berättelser efter historisk era',
+    da: 'Filtrer historier efter historisk æra',
   },
   'storyLibrary.backToMap': {
     en: 'Back to map',
@@ -864,6 +1206,9 @@ const STRINGS = {
     es: 'Volver al mapa',
     it: 'Torna alla mappa',
     de: 'Zurück zur Karte',
+    nb: 'Back to map',
+    sv: 'Tillbaka till kartan',
+    da: 'Tilbage til kortet',
   },
   'storyLibrary.searchPlaceholder': {
     en: 'Search chronicles',
@@ -871,6 +1216,9 @@ const STRINGS = {
     es: 'Buscar crónicas',
     it: 'Cerca nelle cronache',
     de: 'Chroniken durchsuchen',
+    nb: 'Søk i kronikker',
+    sv: 'Sök i krönikor',
+    da: 'Søg i kronikker',
   },
   'storyLibrary.searchAria': {
     en: 'Search stories by title or description',
@@ -878,6 +1226,9 @@ const STRINGS = {
     es: 'Buscar historias por título o descripción',
     it: 'Cerca storie per titolo o descrizione',
     de: 'Geschichten nach Titel oder Beschreibung suchen',
+    nb: 'Søk etter historier etter tittel eller beskrivelse',
+    sv: 'Sök berättelser efter titel eller beskrivning',
+    da: 'Søg historier efter titel eller beskrivelse',
   },
   'storyLibrary.searchResults': {
     en: 'Results',
@@ -885,6 +1236,9 @@ const STRINGS = {
     es: 'Resultados',
     it: 'Risultati',
     de: 'Ergebnisse',
+    nb: 'Results',
+    sv: 'Resultat',
+    da: 'Resultater',
   },
   'storyLibrary.searchEmpty': {
     en: 'No chronicles match your search.',
@@ -892,6 +1246,9 @@ const STRINGS = {
     es: 'Ninguna crónica coincide con tu búsqueda.',
     it: 'Nessuna cronaca corrisponde alla ricerca.',
     de: 'Keine Chronik entspricht Ihrer Suche.',
+    nb: 'Ingen kronikker samsvarer med søket ditt.',
+    sv: 'Inga krönikor matchar din sökning.',
+    da: 'Ingen kronikker matcher din søgning.',
   },
   'storyLibrary.filterEmpty': {
     en: 'Nothing in this category yet.',
@@ -899,6 +1256,9 @@ const STRINGS = {
     es: 'Nada en esta categoría por ahora.',
     it: 'Niente in questa categoria al momento.',
     de: 'In dieser Kategorie ist noch nichts.',
+    nb: 'Ingenting i denne kategorien ennå.',
+    sv: 'Inget i denna kategori ännu.',
+    da: 'Intet i denne kategori endnu.',
   },
   'storyLibrary.heroEmpty.title': {
     en: 'No chronicles match these filters',
@@ -906,6 +1266,9 @@ const STRINGS = {
     es: 'Ninguna crónica coincide con estos filtros',
     it: 'Nessuna cronaca corrisponde a questi filtri',
     de: 'Keine Chronik entspricht diesen Filtern',
+    nb: 'Ingen kronikker samsvarer med disse filtrene',
+    sv: 'Inga krönikor matchar dessa filter',
+    da: 'Ingen kronikker matcher disse filtre',
   },
   'storyLibrary.heroEmpty.hint': {
     en: 'Try another category, era, or search — or return to All to browse the full library.',
@@ -913,6 +1276,9 @@ const STRINGS = {
     es: 'Prueba otra categoría, época o búsqueda, o vuelve a Todo para ver toda la biblioteca.',
     it: 'Prova un’altra categoria, epoca o ricerca — oppure torna a Tutto per sfogliare tutta la libreria.',
     de: 'Probieren Sie eine andere Kategorie, Epoche oder Suche – oder kehren Sie zu „Alle“ zurück, um die ganze Bibliothek zu durchsuchen.',
+    nb: 'Prøv en annen kategori, epoke eller søk – eller gå tilbake til Alle for å bla gjennom hele biblioteket.',
+    sv: 'Prova en annan kategori, era eller sök - eller gå tillbaka till Alla för att bläddra i hela biblioteket.',
+    da: 'Prøv en anden kategori, æra eller søg - eller vend tilbage til Alle for at gennemse hele biblioteket.',
   },
   'storyLibrary.clearSearch': {
     en: 'Clear search',
@@ -920,6 +1286,9 @@ const STRINGS = {
     es: 'Borrar búsqueda',
     it: 'Cancella ricerca',
     de: 'Suche löschen',
+    nb: 'Tøm søk',
+    sv: 'Rensa sökning',
+    da: 'Ryd søgning',
   },
   'storyLibrary.copyPlaybackLink': {
     en: 'Copy play link',
@@ -927,6 +1296,9 @@ const STRINGS = {
     es: 'Copiar enlace de reproducción',
     it: 'Copia link di riproduzione',
     de: 'Wiedergabelink kopieren',
+    nb: 'Kopier avspillingslinken',
+    sv: 'Kopiera uppspelningslänk',
+    da: 'Kopiér afspilningslinket',
   },
   'storyLibrary.copyLibraryLink': {
     en: 'Copy library link',
@@ -934,6 +1306,9 @@ const STRINGS = {
     es: 'Copiar enlace de la biblioteca',
     it: 'Copia link alla libreria',
     de: 'Bibliothekslink kopieren',
+    nb: 'Kopier biblioteklinken',
+    sv: 'Kopiera bibliotekslänk',
+    da: 'Kopier bibliotekslinket',
   },
   'storyLibrary.section.related': {
     en: 'More in this collection',
@@ -941,6 +1316,9 @@ const STRINGS = {
     es: 'Más en esta colección',
     it: 'Altro in questa collezione',
     de: 'Mehr in dieser Sammlung',
+    nb: 'Mer i denne samlingen',
+    sv: 'Mer i denna samling',
+    da: 'Mere i denne samling',
   },
   'journal.openInLibrary': {
     en: 'Open in story library',
@@ -948,6 +1326,9 @@ const STRINGS = {
     es: 'Abrir en la biblioteca de historias',
     it: 'Apri nella libreria di storie',
     de: 'In der Geschichtenbibliothek öffnen',
+    nb: 'Åpne i historiebiblioteket',
+    sv: 'Öppna i berättelsebiblioteket',
+    da: 'Åbn i historiebiblioteket',
   },
 
   // --- Creator about modal & chrome ---
@@ -957,6 +1338,9 @@ const STRINGS = {
     es: 'Creador',
     it: 'Creatore',
     de: 'Urheber',
+    nb: 'Creator',
+    sv: 'Skapare',
+    da: 'Skaber',
   },
   'credits.headerButtonFull': {
     en: 'About the Creator',
@@ -964,6 +1348,9 @@ const STRINGS = {
     es: 'Sobre el creador',
     it: 'Il creatore',
     de: 'Über den Urheber',
+    nb: 'Om Skaperen',
+    sv: 'Om Skaparen',
+    da: 'Om Skaberen',
   },
   'credits.tooltip.label': {
     en: 'About the Creator',
@@ -971,6 +1358,9 @@ const STRINGS = {
     es: 'Sobre el creador',
     it: 'Il creatore',
     de: 'Über den Urheber',
+    nb: 'Om Skaperen',
+    sv: 'Om Skaparen',
+    da: 'Om Skaberen',
   },
   'credits.tooltip.hint': {
     en: 'The person behind this atlas, the vision, and how to work together.',
@@ -978,6 +1368,9 @@ const STRINGS = {
     es: 'La persona detrás de este atlas, la visión y cómo colaborar.',
     it: 'La persona dietro questo atlante, la visione e come collaborare.',
     de: 'Die Person hinter diesem Atlas, die Vision und wie man zusammenarbeitet.',
+    nb: 'Personen bak dette atlaset, visjonen og hvordan man kan jobbe sammen.',
+    sv: 'Personen bakom denna atlas, visionen och hur man samarbetar.',
+    da: 'Personen bag dette atlas, visionen og hvordan man arbejder sammen.',
   },
   'credits.aria.open': {
     en: 'Open about the creator',
@@ -985,6 +1378,9 @@ const STRINGS = {
     es: 'Abrir sobre el creador',
     it: 'Apri informazioni sul creatore',
     de: 'Über den Urheber öffnen',
+    nb: 'Åpen om skaperen',
+    sv: 'Öppna om skaparen',
+    da: 'Åben om skaberen',
   },
   'credits.aria.close': {
     en: 'Close',
@@ -992,6 +1388,9 @@ const STRINGS = {
     es: 'Cerrar',
     it: 'Chiudi',
     de: 'Schließen',
+    nb: 'Close',
+    sv: 'Nära',
+    da: 'Tæt',
   },
   'credits.eyebrow': {
     en: 'Norman Atlas',
@@ -999,6 +1398,9 @@ const STRINGS = {
     es: 'Norman Atlas',
     it: 'Norman Atlas',
     de: 'Norman Atlas',
+    nb: 'Norman Atlas',
+    sv: 'Norman Atlas',
+    da: 'Norman Atlas',
   },
   'credits.title': {
     en: 'Guillaume Remi Couture',
@@ -1006,6 +1408,9 @@ const STRINGS = {
     es: 'Guillaume Remi Couture',
     it: 'Guillaume Remi Couture',
     de: 'Guillaume Remi Couture',
+    nb: 'Guillaume Remi Couture',
+    sv: 'Guillaume Remi Couture',
+    da: 'Guillaume Remi Couture',
   },
   'credits.role': {
     en: 'UX/UI and interactive systems designer: game UI, digital products, and spatial storytelling.',
@@ -1013,6 +1418,9 @@ const STRINGS = {
     es: 'Diseñador UX/UI y de sistemas interactivos: UI de juegos, productos digitales y narrativa espacial.',
     it: 'Designer UX/UI e sistemi interattivi: UI di gioco, prodotti digitali e narrazione spaziale.',
     de: 'UX/UI- und Interaktionssystemdesigner: Spiel-UI, digitale Produkte und räumliches Storytelling.',
+    nb: 'UX/UI and interactive systems designer: game UI, digital products, and spatial storytelling.',
+    sv: 'UX/UI och interaktiva systemdesigner: spelgränssnitt, digitala produkter och rumslig berättelse.',
+    da: 'UX/UI og interaktiv systemdesigner: spil-UI, digitale produkter og rumlig historiefortælling.',
   },
   'credits.statusPill': {
     en: 'Available for select consulting & collaboration',
@@ -1020,6 +1428,9 @@ const STRINGS = {
     es: 'Disponible para consultoría y colaboración selectas',
     it: 'Disponibile per consulenza e collaborazione selezionate',
     de: 'Verfügbar für ausgewählte Beratung und Zusammenarbeit',
+    nb: 'Available for select consulting & collaboration',
+    sv: 'Tillgänglig för utvald rådgivning och samarbete',
+    da: 'Tilgængelig til udvalgt rådgivning og samarbejde',
   },
   'credits.thesis': {
     en: 'This atlas is also a working example of how I design layered, narrative-driven systems.',
@@ -1027,6 +1438,9 @@ const STRINGS = {
     es: 'Este atlas es también un ejemplo práctico de cómo diseño sistemas narrativos y multicapa.',
     it: 'Questo atlante è anche un esempio concreto di come progetto sistemi narrativi e stratificati.',
     de: 'Dieser Atlas ist auch ein Arbeitsbeispiel dafür, wie ich mehrschichtige, erzählerisch geführte Systeme gestalte.',
+    nb: 'This atlas is also a working example of how I design layered, narrative-driven systems.',
+    sv: 'Den här atlasen är också ett fungerande exempel på hur jag designar skiktade, narrativa system.',
+    da: 'Dette atlas er også et fungerende eksempel på, hvordan jeg designer lagdelte, narrativ-drevne systemer.',
   },
   'credits.aboutTitle': {
     en: 'About the Creator',
@@ -1034,6 +1448,9 @@ const STRINGS = {
     es: 'Sobre el creador',
     it: 'Il creatore',
     de: 'Über den Urheber',
+    nb: 'About the Creator',
+    sv: 'Om Skaparen',
+    da: 'Om Skaberen',
   },
   'credits.about1': {
     en: 'For nearly twenty years I have designed UX/UI, interactive systems, and game interfaces for products used at scale, including collaborations with companies such as Disney, where clarity, guidance, and craft define every decision.',
@@ -1041,6 +1458,9 @@ const STRINGS = {
     es: 'Durante casi veinte años he diseñado UX/UI, sistemas interactivos e interfaces de juego para productos a escala, incluyendo colaboraciones con empresas como Disney, donde claridad, orientación y oficio definen cada decisión.',
     it: 'Per quasi vent\'anni ho progettato UX/UI, sistemi interattivi e interfacce di gioco per prodotti su larga scala, incluse collaborazioni con aziende come Disney, dove chiarezza, orientamento e cura definiscono ogni scelta.',
     de: 'Seit fast zwanzig Jahren gestalte ich UX/UI, Interaktionssysteme und Spielschnittstellen für Produkte in großem Maßstab, unter anderem in Zusammenarbeit mit Unternehmen wie Disney – wo Klarheit, Orientierung und handwerkliche Qualität jede Entscheidung prägen.',
+    nb: 'For nearly twenty years I have designed UX/UI, interactive systems, and game interfaces for products used at scale, including collaborations with companies such as Disney, where clarity, guidance, and craft define every decision.',
+    sv: 'I nästan tjugo år har jag designat UX/UI, interaktiva system och spelgränssnitt för produkter som används i stor skala, inklusive samarbeten med företag som Disney, där tydlighet, vägledning och hantverk definierar varje beslut.',
+    da: 'I næsten tyve år har jeg designet UX/UI, interaktive systemer og spilgrænseflader til produkter, der bruges i stor skala, herunder samarbejder med virksomheder som Disney, hvor klarhed, vejledning og håndværk definerer enhver beslutning.',
   },
   'credits.about2': {
     en: 'Norman Atlas is personal research made tangible: history explored as a system you can move through, not a static page.',
@@ -1048,6 +1468,9 @@ const STRINGS = {
     es: 'Norman Atlas es investigación personal hecha tangible: historia explorada como un sistema por el que navegar, no una página estática.',
     it: 'Norman Atlas è ricerca personale resa tangibile: storia esplorata come un sistema da percorrere, non una pagina statica.',
     de: 'Norman Atlas ist persönliche Forschung, greifbar gemacht: Geschichte als System, das man durchwandern kann – nicht als statische Seite.',
+    nb: 'Norman Atlas is personal research made tangible: history explored as a system you can move through, not a static page.',
+    sv: 'Norman Atlas är personlig forskning som gjorts påtaglig: historia utforskad som ett system du kan förflytta dig igenom, inte en statisk sida.',
+    da: 'Norman Atlas er personlig forskning gjort håndgribelig: historie udforsket som et system, du kan bevæge dig igennem, ikke en statisk side.',
   },
   'credits.whyTitle': {
     en: 'Why This Atlas Exists',
@@ -1055,6 +1478,9 @@ const STRINGS = {
     es: 'Por qué existe este atlas',
     it: 'Perché esiste questo atlante',
     de: 'Warum es diesen Atlas gibt',
+    nb: 'Why This Atlas Exists',
+    sv: 'Varför denna atlas finns',
+    da: 'Hvorfor dette atlas eksisterer',
   },
   'credits.why1': {
     en: 'The story of the Normans goes far beyond textbooks: the migrations, the cultural transformations, the way Viking settlers became one of the most influential forces in medieval Europe. Most of that narrative is fragmented across sources and centuries.',
@@ -1062,6 +1488,9 @@ const STRINGS = {
     es: 'La historia de los normandos va mucho más allá de los libros de texto: las migraciones, las transformaciones culturales, cómo los colonos vikingos se convirtieron en una de las fuerzas más influyentes de la Europa medieval. Gran parte de esa narrativa está fragmentada entre fuentes y siglos.',
     it: 'La storia dei Normanni va ben oltre i manuali: le migrazioni, le trasformazioni culturali, come i coloni vichinghi divennero una delle forze più influenti dell\'Europa medievale. Gran parte di questa narrazione è frammentata tra fonti e secoli.',
     de: 'Die Geschichte der Normannen geht weit über Schulbücher hinaus: Migrationen, kulturelle Wandlungen, wie sich wikingerstämmige Siedler zu einer der einflussreichsten Kräfte des mittelalterlichen Europa entwickelten. Das meiste davon ist über Quellen und Jahrhunderte zerstreut.',
+    nb: 'The story of the Normans goes far beyond textbooks: the migrations, the cultural transformations, the way Viking settlers became one of the most influential forces in medieval Europe. Most of that narrative is fragmented across sources and centuries.',
+    sv: 'Normandernas berättelse går långt bortom läroböcker: folkvandringarna, de kulturella omvandlingarna, hur vikingatida bosättare blev en av de mest inflytelserika krafterna i det medeltida Europa. Det mesta av den berättelsen är fragmenterad över källor och århundraden.',
+    da: 'Normannernes historie rækker langt ud over lærebøger: Folkevandringerne, de kulturelle transformationer, den måde, vikingebosættere blev en af ​​de mest indflydelsesrige kræfter i middelalderens Europa. Det meste af den fortælling er fragmenteret på tværs af kilder og århundreder.',
   },
   'credits.why2': {
     en: 'Normandy is a turning point, where identities shifted, cultures blended, and something new emerged. That ripple spread across England, Southern Italy, the Crusader states, and eventually into New France.',
@@ -1069,6 +1498,9 @@ const STRINGS = {
     es: 'Normandía es un punto de inflexión, donde cambiaron las identidades, se mezclaron las culturas y surgió algo nuevo. Esa onda se extendió por Inglaterra, el sur de Italia, los estados cruzados y, al final, a Nueva Francia.',
     it: 'La Normandia è una svolta, dove le identità si sono trasformate, le culture fuse, e qualcosa di nuovo è emerso. Quell\'onda si è diffusa in Inghilterra, nel sud Italia, negli stati crociati e infine nella Nuova Francia.',
     de: 'Die Normandie ist ein Wendepunkt, an dem sich Identitäten verschoben, Kulturen verschmolzen und Neues entstand. Diese Welle zog über England, Süditalien, die Kreuzzugsstaaten und schließlich bis nach Neufrankreich.',
+    nb: 'Normandy is a turning point, where identities shifted, cultures blended, and something new emerged. That ripple spread across England, Southern Italy, the Crusader states, and eventually into New France.',
+    sv: 'Normandie är en vändpunkt, där identiteter förändrades, kulturer blandas och något nytt uppstod. Den krusningen spred sig över England, södra Italien, korsfararstaterna och så småningom in i Nya Frankrike.',
+    da: 'Normandiet er et vendepunkt, hvor identiteter skiftede, kulturer blandede sig, og noget nyt opstod. Den krusning spredte sig over England, Syditalien, korsfarerstaterne og til sidst ind i Ny Frankrig.',
   },
   'credits.why3': {
     en: 'I built this atlas to see that story clearly, as a connected system rather than scattered fragments.',
@@ -1076,6 +1508,9 @@ const STRINGS = {
     es: 'Construí este atlas para ver esa historia con claridad, como un sistema conectado y no como fragmentos dispersos.',
     it: 'Ho costruito questo atlante per vedere quella storia con chiarezza, come un sistema connesso anziché frammenti sparsi.',
     de: 'Ich habe diesen Atlas gebaut, um diese Geschichte klar als zusammenhängendes System zu sehen – nicht als verstreute Fragmente.',
+    nb: 'I built this atlas to see that story clearly, as a connected system rather than scattered fragments.',
+    sv: 'Jag byggde denna atlas för att se den historien tydligt, som ett sammankopplat system snarare än spridda fragment.',
+    da: 'Jeg byggede dette atlas for at se den historie klart, som et forbundet system snarere end spredte fragmenter.',
   },
   'credits.showsTitle': {
     en: 'What This Project Shows',
@@ -1083,6 +1518,9 @@ const STRINGS = {
     es: 'Lo que muestra este proyecto',
     it: 'Cosa mostra questo progetto',
     de: 'Was dieses Projekt zeigt',
+    nb: 'What This Project Shows',
+    sv: 'Vad det här projektet visar',
+    da: 'Hvad dette projekt viser',
   },
   'credits.showsIntro': {
     en: 'More than a map. A living atlas that lets you:',
@@ -1090,6 +1528,9 @@ const STRINGS = {
     es: 'Más que un mapa. Un atlas vivo que le permite:',
     it: 'Più di una mappa. Un atlante vivente che ti permette di:',
     de: 'Mehr als eine Karte. Ein lebendiger Atlas, mit dem Sie Folgendes tun können:',
+    nb: 'More than a map. A living atlas that lets you:',
+    sv: 'Mer än en karta. En levande atlas som låter dig:',
+    da: 'Mere end et kort. Et levende atlas, der lader dig:',
   },
   'credits.showsL1': {
     en: 'Follow migrations across time',
@@ -1097,6 +1538,9 @@ const STRINGS = {
     es: 'Seguir migraciones a lo largo del tiempo',
     it: 'Seguire le migrazioni nel tempo',
     de: 'Migrationen über die Zeit verfolgen',
+    nb: 'Follow migrations across time',
+    sv: 'Följ migrationer över tid',
+    da: 'Følg migrationer over tid',
   },
   'credits.showsL2': {
     en: 'Explore where people came from and where they settled',
@@ -1104,6 +1548,9 @@ const STRINGS = {
     es: 'Explorar de dónde venían las gentes y dónde se asentaron',
     it: 'Esplorare da dove venivano le genti e dove si stabilirono',
     de: 'Erforschen, woher Menschen kamen und wo sie sich niederließen',
+    nb: 'Explore where people came from and where they settled',
+    sv: 'Utforska var människor kom ifrån och var de bosatte sig',
+    da: 'Udforsk, hvor folk kom fra, og hvor de slog sig ned',
   },
   'credits.showsL3': {
     en: 'Understand how cultures evolved over centuries',
@@ -1111,6 +1558,9 @@ const STRINGS = {
     es: 'Entender cómo evolucionaron las culturas a lo largo de los siglos',
     it: 'Capire come le culture si sono evolute nel corso dei secoli',
     de: 'Verstehen, wie sich Kulturen über Jahrhunderte entwickelten',
+    nb: 'Understand how cultures evolved over centuries',
+    sv: 'Förstå hur kulturer utvecklats under århundraden',
+    da: 'Forstå, hvordan kulturer har udviklet sig gennem århundreder',
   },
   'credits.showsL4': {
     en: 'Connect events across time in a visual, spatial way',
@@ -1118,6 +1568,9 @@ const STRINGS = {
     es: 'Conectar acontecimientos a través del tiempo de forma visual y espacial',
     it: 'Collegare eventi nel tempo in modo visivo e spaziale',
     de: 'Ereignisse über die Zeit visuell und räumlich verbinden',
+    nb: 'Connect events across time in a visual, spatial way',
+    sv: 'Anslut händelser över tid på ett visuellt, rumsligt sätt',
+    da: 'Forbind begivenheder på tværs af tid på en visuel, rumlig måde',
   },
   'credits.showsOutro': {
     en: 'The same discipline I apply to complex products (structure, pacing, legibility) is what holds this experience together.',
@@ -1125,6 +1578,9 @@ const STRINGS = {
     es: 'La misma disciplina que aplico a productos complejos (estructura, ritmo, legibilidad) es lo que da cohesión a esta experiencia.',
     it: 'La stessa disciplina che applico ai prodotti complessi (struttura, ritmo, leggibilità) è ciò che tiene insieme questa esperienza.',
     de: 'Dieselbe Disziplin, die ich bei komplexen Produkten anwende (Struktur, Rhythmus, Lesbarkeit), hält diese Erfahrung zusammen.',
+    nb: 'The same discipline I apply to complex products (structure, pacing, legibility) is what holds this experience together.',
+    sv: 'Samma disciplin som jag tillämpar på komplexa produkter (struktur, tempo, läsbarhet) är det som håller denna erfarenhet samman.',
+    da: 'Den samme disciplin, som jeg anvender til komplekse produkter (struktur, tempo, læsbarhed), er det, der holder denne oplevelse sammen.',
   },
   'credits.workTitle': {
     en: 'Work With Me',
@@ -1132,6 +1588,9 @@ const STRINGS = {
     es: 'Trabajemos juntos',
     it: 'Lavoriamo insieme',
     de: 'Mit mir arbeiten',
+    nb: 'Work With Me',
+    sv: 'Jobba med mig',
+    da: 'Arbejd med mig',
   },
   'credits.workIntro': {
     en: 'If you want this level of systems thinking applied to a product, interface, or creative challenge, LinkedIn is the best way to start a conversation.',
@@ -1139,6 +1598,9 @@ const STRINGS = {
     es: 'Si desea aplicar este nivel de pensamiento sistémico a un producto, interfaz o desafío creativo, LinkedIn es la mejor forma de iniciar una conversación.',
     it: 'Se vuoi applicare questo livello di pensiero sistemico a un prodotto, un\'interfaccia o una sfida creativa, LinkedIn è il modo migliore per iniziare una conversazione.',
     de: 'Wenn Sie dieses Maß an Systemdenken auf ein Produkt, eine Oberfläche oder eine kreative Herausforderung anwenden möchten, ist LinkedIn der beste Weg, um ins Gespräch zu kommen.',
+    nb: 'If you want this level of systems thinking applied to a product, interface, or creative challenge, LinkedIn is the best way to start a conversation.',
+    sv: 'Om du vill att denna nivå av systemtänkande tillämpas på en produkt, gränssnitt eller kreativ utmaning, är LinkedIn det bästa sättet att starta en konversation.',
+    da: 'Hvis du vil have dette niveau af systemtænkning anvendt på et produkt, en grænseflade eller en kreativ udfordring, er LinkedIn den bedste måde at starte en samtale på.',
   },
   'credits.workCta': {
     en: 'Connect on LinkedIn',
@@ -1146,6 +1608,9 @@ const STRINGS = {
     es: 'Conectar en LinkedIn',
     it: 'Contattami su LinkedIn',
     de: 'Auf LinkedIn verbinden',
+    nb: 'Connect on LinkedIn',
+    sv: 'Anslut på LinkedIn',
+    da: 'Forbind på LinkedIn',
   },
   'credits.workAvailable': {
     en: 'Available for:',
@@ -1153,6 +1618,9 @@ const STRINGS = {
     es: 'Disponible para:',
     it: 'Disponibile per:',
     de: 'Verfügbar für:',
+    nb: 'Available for:',
+    sv: 'Tillgänglig för:',
+    da: 'Tilgængelig for:',
   },
   'credits.workL1': {
     en: 'UX/UI design consulting',
@@ -1160,6 +1628,9 @@ const STRINGS = {
     es: 'Consultoría de diseño UX/UI',
     it: 'Consulenza UX/UI',
     de: 'UX/UI-Designberatung',
+    nb: 'UX/UI design consulting',
+    sv: 'UX/UI designrådgivning',
+    da: 'UX/UI designrådgivning',
   },
   'credits.workL2': {
     en: 'Interactive systems & product design',
@@ -1167,6 +1638,9 @@ const STRINGS = {
     es: 'Sistemas interactivos y diseño de producto',
     it: 'Sistemi interattivi e design di prodotto',
     de: 'Interaktionssysteme und Produktdesign',
+    nb: 'Interactive systems & product design',
+    sv: 'Interaktiva system & produktdesign',
+    da: 'Interaktive systemer og produktdesign',
   },
   'credits.workL3': {
     en: 'Game UI/UX',
@@ -1174,6 +1648,9 @@ const STRINGS = {
     es: 'UI/UX de videojuegos',
     it: 'UI/UX per giochi',
     de: 'Spiel-UI/UX',
+    nb: 'Game UI/UX',
+    sv: 'Spel UI/UX',
+    da: 'Spil UI/UX',
   },
   'credits.workL4': {
     en: 'AI-assisted workflows & prototyping',
@@ -1181,6 +1658,9 @@ const STRINGS = {
     es: 'Flujos con IA y prototipado',
     it: 'Flussi assistiti dall\'IA e prototipazione',
     de: 'KI-gestützte Workflows und Prototyping',
+    nb: 'AI-assisted workflows & prototyping',
+    sv: 'AI-assisterade arbetsflöden och prototyper',
+    da: 'AI-assisterede arbejdsgange og prototyping',
   },
   'credits.supportTitle': {
     en: 'Support the Atlas',
@@ -1188,6 +1668,9 @@ const STRINGS = {
     es: 'Apoyar el Atlas',
     it: 'Sostenere l\'Atlante',
     de: 'Den Atlas unterstützen',
+    nb: 'Support the Atlas',
+    sv: 'Stöd Atlas',
+    da: 'Støt Atlas',
   },
   'credits.supportIntro': {
     en: 'Norman Atlas is an independent, long-term project. Your support funds continued research, new features, and historical expansion.',
@@ -1195,6 +1678,9 @@ const STRINGS = {
     es: 'Norman Atlas es un proyecto independiente a largo plazo. Su apoyo financia la investigación, nuevas funciones y la expansión histórica.',
     it: 'Norman Atlas è un progetto indipendente a lungo termine. Il tuo sostegno finanzia la ricerca, nuove funzionalità e l\'espansione storica.',
     de: 'Norman Atlas ist ein unabhängiges Langzeitprojekt. Ihre Unterstützung finanziert weiter Forschung, neue Funktionen und die historische Erweiterung.',
+    nb: 'Norman Atlas is an independent, long-term project. Your support funds continued research, new features, and historical expansion.',
+    sv: 'Norman Atlas är ett oberoende, långsiktigt projekt. Ditt stöd finansierar fortsatt forskning, nya funktioner och historisk expansion.',
+    da: 'Norman Atlas er et uafhængigt, langsigtet projekt. Din støtte finansierer fortsat forskning, nye funktioner og historisk ekspansion.',
   },
   'credits.supportCta': {
     en: 'View support options',
@@ -1202,6 +1688,9 @@ const STRINGS = {
     es: 'Ver opciones de apoyo',
     it: 'Vedi le opzioni di sostegno',
     de: 'Unterstützungsoptionen ansehen',
+    nb: 'View support options',
+    sv: 'Visa supportalternativ',
+    da: 'Se supportmuligheder',
   },
   'credits.ongoingTitle': {
     en: 'Ongoing Project',
@@ -1209,6 +1698,9 @@ const STRINGS = {
     es: 'Proyecto en curso',
     it: 'Progetto in evoluzione',
     de: 'Laufendes Projekt',
+    nb: 'Ongoing Project',
+    sv: 'Pågående projekt',
+    da: 'Igangværende projekt',
   },
   'credits.ongoing1': {
     en: 'This atlas is continuously evolving, with new eras, deeper accuracy, and richer data layers over time. If you are exploring now, you are early; that is part of the journey.',
@@ -1216,6 +1708,9 @@ const STRINGS = {
     es: 'Este atlas evoluciona continuamente, con nuevas épocas, mayor precisión y capas de datos más ricas con el tiempo. Si lo explora ahora, llega pronto; eso forma parte del camino.',
     it: 'Questo atlante evolve continuamente, con nuove epoche, maggiore accuratezza e strati di dati più ricchi nel tempo. Se lo esplori ora, sei in anticipo; fa parte del percorso.',
     de: 'Dieser Atlas entwickelt sich ständig weiter – mit neuen Epochen, größerer Genauigkeit und reicheren Datenebenen. Wenn Sie jetzt erkunden, sind Sie früh dabei; das gehört zur Reise.',
+    nb: 'This atlas is continuously evolving, with new eras, deeper accuracy, and richer data layers over time. If you are exploring now, you are early; that is part of the journey.',
+    sv: 'Den här atlasen utvecklas kontinuerligt, med nya epoker, djupare noggrannhet och rikare datalager över tiden. Om du utforskar nu är du tidig; det är en del av resan.',
+    da: 'Dette atlas udvikler sig løbende, med nye epoker, dybere nøjagtighed og rigere datalag over tid. Hvis du udforsker nu, er du tidligt; det er en del af rejsen.',
   },
   // --- Support modal ---
   'support.tooltip.label': {
@@ -1224,6 +1719,9 @@ const STRINGS = {
     es: 'Apoyar el Atlas',
     it: 'Sostenere l\'Atlante',
     de: 'Den Atlas unterstützen',
+    nb: 'Support the Atlas',
+    sv: 'Stöd Atlas',
+    da: 'Støt Atlas',
   },
   'support.tooltip.hint': {
     en: 'Help fund future atlas development',
@@ -1231,6 +1729,9 @@ const STRINGS = {
     es: 'Ayude a financiar el desarrollo futuro del atlas',
     it: 'Aiuta a finanziare lo sviluppo futuro dell\'atlante',
     de: 'Helfen Sie, die künftige Atlas-Entwicklung zu finanzieren',
+    nb: 'Help fund future atlas development',
+    sv: 'Hjälp till att finansiera framtida atlasutveckling',
+    da: 'Hjælp med at finansiere fremtidig udvikling af atlas',
   },
   'support.aria.open': {
     en: 'Open support options',
@@ -1238,6 +1739,9 @@ const STRINGS = {
     es: 'Abrir opciones de apoyo',
     it: 'Apri le opzioni di sostegno',
     de: 'Unterstützungsoptionen öffnen',
+    nb: 'Open support options',
+    sv: 'Öppna supportalternativ',
+    da: 'Åbn supportmuligheder',
   },
   'support.aria.close': {
     en: 'Close support dialog',
@@ -1245,6 +1749,9 @@ const STRINGS = {
     es: 'Cerrar el diálogo de apoyo',
     it: 'Chiudi la finestra di sostegno',
     de: 'Unterstützungsdialog schließen',
+    nb: 'Close support dialog',
+    sv: 'Stäng supportdialogen',
+    da: 'Luk supportdialog',
   },
   'support.headerButton': {
     en: 'Support',
@@ -1252,6 +1759,9 @@ const STRINGS = {
     es: 'Apoyar',
     it: 'Sostieni',
     de: 'Unterstützen',
+    nb: 'Support',
+    sv: 'Stöd',
+    da: 'Støtte',
   },
   'support.headerButtonFull': {
     en: 'Support the Atlas',
@@ -1259,6 +1769,9 @@ const STRINGS = {
     es: 'Apoyar el Atlas',
     it: 'Sostieni l\'Atlante',
     de: 'Den Atlas unterstützen',
+    nb: 'Support the Atlas',
+    sv: 'Stöd Atlas',
+    da: 'Støt Atlas',
   },
   'support.modal.sectionLabel': {
     en: 'Support',
@@ -1266,6 +1779,9 @@ const STRINGS = {
     es: 'Apoyo',
     it: 'Sostegno',
     de: 'Unterstützung',
+    nb: 'Support',
+    sv: 'Stöd',
+    da: 'Støtte',
   },
   'support.modal.title': {
     en: 'Support Norman Atlas',
@@ -1273,6 +1789,9 @@ const STRINGS = {
     es: 'Apoyar Norman Atlas',
     it: 'Sostenere Norman Atlas',
     de: 'Norman Atlas unterstützen',
+    nb: 'Support Norman Atlas',
+    sv: 'Stöd Norman Atlas',
+    da: 'Støt Norman Atlas',
   },
   'support.modal.body1': {
     en: 'Norman Atlas is an independent historical project built to bring the Norman story to life through maps, timelines, and cinematic exploration.',
@@ -1280,6 +1799,9 @@ const STRINGS = {
     es: 'Norman Atlas es un proyecto histórico independiente creado para dar vida a la historia normanda a través de mapas, cronologías y exploración cinematográfica.',
     it: 'Norman Atlas è un progetto storico indipendente creato per dare vita alla storia normanna attraverso mappe, cronologie ed esplorazione cinematografica.',
     de: 'Norman Atlas ist ein unabhängiges Geschichtsprojekt, das die normannische Geschichte mit Karten, Zeitstrahlen und kinematischer Erkundung lebendig macht.',
+    nb: 'Norman Atlas is an independent historical project built to bring the Norman story to life through maps, timelines, and cinematic exploration.',
+    sv: 'Norman Atlas är ett oberoende historiskt projekt byggt för att ge den normandiska historien liv genom kartor, tidslinjer och filmisk utforskning.',
+    da: 'Norman Atlas er et uafhængigt historisk projekt bygget til at bringe Norman-historien til live gennem kort, tidslinjer og filmisk udforskning.',
   },
   'support.modal.body2': {
     en: 'Your support helps fund continued development, research, new features, and historical expansion.',
@@ -1287,6 +1809,9 @@ const STRINGS = {
     es: 'Su apoyo financia el desarrollo continuo, la investigación, nuevas funciones y la expansión histórica.',
     it: 'Il tuo sostegno finanzia lo sviluppo continuo, la ricerca, nuove funzionalità e l\'espansione storica.',
     de: 'Ihre Unterstützung hilft, die laufende Entwicklung, Forschung, neue Funktionen und die historische Erweiterung zu finanzieren.',
+    nb: 'Your support helps fund continued development, research, new features, and historical expansion.',
+    sv: 'Ditt stöd hjälper till att finansiera fortsatt utveckling, forskning, nya funktioner och historisk expansion.',
+    da: 'Din støtte hjælper med at finansiere fortsat udvikling, forskning, nye funktioner og historisk ekspansion.',
   },
   'support.modal.body3': {
     en: 'If you enjoy the project and want to help it grow, you can support it below.',
@@ -1294,6 +1819,9 @@ const STRINGS = {
     es: 'Si disfruta del proyecto y quiere ayudarlo a crecer, puede apoyarlo a continuación.',
     it: 'Se apprezzi il progetto e vuoi aiutarlo a crescere, puoi sostenerlo qui sotto.',
     de: 'Wenn Ihnen das Projekt gefällt und Sie seinem Wachstum helfen möchten, können Sie es unten unterstützen.',
+    nb: 'If you enjoy the project and want to help it grow, you can support it below.',
+    sv: 'Om du tycker om projektet och vill hjälpa det att växa kan du stödja det nedan.',
+    da: 'Hvis du nyder projektet og ønsker at hjælpe det med at vokse, kan du støtte det nedenfor.',
   },
   'support.modal.cta': {
     en: 'Support the Project',
@@ -1301,6 +1829,9 @@ const STRINGS = {
     es: 'Apoyar el proyecto',
     it: 'Sostieni il progetto',
     de: 'Das Projekt unterstützen',
+    nb: 'Support the Project',
+    sv: 'Stöd projektet',
+    da: 'Støt projektet',
   },
   'support.mobileDrawer.label': {
     en: 'Support the Atlas',
@@ -1308,6 +1839,9 @@ const STRINGS = {
     es: 'Apoyar el Atlas',
     it: 'Sostenere l\'Atlante',
     de: 'Den Atlas unterstützen',
+    nb: 'Support the Atlas',
+    sv: 'Stöd Atlas',
+    da: 'Støt Atlas',
   },
 
   // --- Changelog / recent updates ---
@@ -1317,6 +1851,9 @@ const STRINGS = {
     es: 'Actualizaciones recientes',
     it: 'Aggiornamenti recenti',
     de: 'Neueste Änderungen',
+    nb: 'Recent updates',
+    sv: 'Senaste uppdateringar',
+    da: 'Seneste opdateringer',
   },
   'changelog.tooltip.hint': {
     en: 'Shipped features, new stories, and atlas improvements.',
@@ -1324,6 +1861,9 @@ const STRINGS = {
     es: 'Funciones publicadas, nuevas historias y mejoras del atlas.',
     it: 'Funzionalità rilasciate, nuove storie e miglioramenti dell’atlante.',
     de: 'Ausgelieferte Funktionen, neue Geschichten und Atlas-Verbesserungen.',
+    nb: 'Shipped features, new stories, and atlas improvements.',
+    sv: 'Levererade funktioner, nya berättelser och atlasförbättringar.',
+    da: 'Sendte funktioner, nye historier og atlas-forbedringer.',
   },
   'changelog.aria.open': {
     en: 'Open recent updates',
@@ -1331,6 +1871,9 @@ const STRINGS = {
     es: 'Abrir actualizaciones recientes',
     it: 'Apri aggiornamenti recenti',
     de: 'Neueste Änderungen öffnen',
+    nb: 'Open recent updates',
+    sv: 'Öppna de senaste uppdateringarna',
+    da: 'Åbn de seneste opdateringer',
   },
   'changelog.aria.close': {
     en: 'Close updates dialog',
@@ -1338,6 +1881,9 @@ const STRINGS = {
     es: 'Cerrar actualizaciones',
     it: 'Chiudi la finestra degli aggiornamenti',
     de: 'Änderungsdialog schließen',
+    nb: 'Close updates dialog',
+    sv: 'Stäng uppdateringsdialogrutan',
+    da: 'Luk opdateringsdialogen',
   },
   'shareView.tooltip.label': {
     en: 'Share map view',
@@ -1345,6 +1891,9 @@ const STRINGS = {
     es: 'Compartir vista del mapa',
     it: 'Condividi vista mappa',
     de: 'Kartenansicht teilen',
+    nb: 'Share map view',
+    sv: 'Dela kartvy',
+    da: 'Del kortvisning',
   },
   'shareView.tooltip.hint': {
     en: 'Copy a link that restores this exact map position, era, and layers.',
@@ -1352,6 +1901,9 @@ const STRINGS = {
     es: 'Copiar un enlace que restaura esta posición, era y capas.',
     it: 'Copia un link che ripristina posizione, era e livelli della mappa.',
     de: 'Link kopieren, der genau diese Kartenposition, Epoche und Ebenen wiederherstellt.',
+    nb: 'Copy a link that restores this exact map position, era, and layers.',
+    sv: 'Kopiera en länk som återställer denna exakta kartposition, era och lager.',
+    da: 'Kopiér et link, der gendanner denne nøjagtige kortposition, æra og lag.',
   },
   'shareView.aria': {
     en: 'Copy shareable link to this map view',
@@ -1359,6 +1911,9 @@ const STRINGS = {
     es: 'Copiar enlace para compartir esta vista del mapa',
     it: 'Copia il link condivisibile di questa vista mappa',
     de: 'Teilbaren Link zu dieser Kartenansicht kopieren',
+    nb: 'Copy shareable link to this map view',
+    sv: 'Kopiera delbar länk till den här kartvyn',
+    da: 'Kopiér delbart link til denne kortvisning',
   },
   'shareView.copied': {
     en: 'Link copied!',
@@ -1366,6 +1921,9 @@ const STRINGS = {
     es: '¡Enlace copiado!',
     it: 'Link copiato!',
     de: 'Link kopiert!',
+    nb: 'Link copied!',
+    sv: 'Länken kopierad!',
+    da: 'Linket er kopieret!',
   },
   'shareView.shared': {
     en: 'Shared!',
@@ -1373,6 +1931,9 @@ const STRINGS = {
     es: '¡Compartido!',
     it: 'Condiviso!',
     de: 'Geteilt!',
+    nb: 'Shared!',
+    sv: 'Delad!',
+    da: 'Delt!',
   },
   'shareView.failed': {
     en: 'Could not copy link',
@@ -1380,6 +1941,9 @@ const STRINGS = {
     es: 'No se pudo copiar el enlace',
     it: 'Impossibile copiare il link',
     de: 'Link konnte nicht kopiert werden',
+    nb: 'Could not copy link',
+    sv: 'Det gick inte att kopiera länken',
+    da: 'Kunne ikke kopiere linket',
   },
   'shareView.mobileDrawer.label': {
     en: 'Share map view',
@@ -1387,6 +1951,9 @@ const STRINGS = {
     es: 'Compartir vista del mapa',
     it: 'Condividi vista mappa',
     de: 'Kartenansicht teilen',
+    nb: 'Share map view',
+    sv: 'Dela kartvy',
+    da: 'Del kortvisning',
   },
   'changelog.modal.sectionLabel': {
     en: 'Recent updates',
@@ -1394,6 +1961,9 @@ const STRINGS = {
     es: 'Actualizaciones recientes',
     it: 'Aggiornamenti recenti',
     de: 'Neueste Änderungen',
+    nb: 'Recent updates',
+    sv: 'Senaste uppdateringar',
+    da: 'Seneste opdateringer',
   },
   'changelog.modal.title': {
     en: 'What’s new',
@@ -1401,6 +1971,9 @@ const STRINGS = {
     es: 'Novedades',
     it: 'Novità',
     de: 'Neuigkeiten',
+    nb: 'What’s new',
+    sv: 'Vad är nytt',
+    da: 'Hvad er nyt',
   },
   'changelog.mobileDrawer.label': {
     en: 'Recent updates',
@@ -1408,6 +1981,9 @@ const STRINGS = {
     es: 'Actualizaciones recientes',
     it: 'Aggiornamenti recenti',
     de: 'Neueste Änderungen',
+    nb: 'Recent updates',
+    sv: 'Senaste uppdateringar',
+    da: 'Seneste opdateringer',
   },
 
   'coutureStory.surnameHeading': {
@@ -1416,6 +1992,9 @@ const STRINGS = {
     es: 'El apellido Couture',
     it: 'Il cognome Couture',
     de: 'Der Name Couture',
+    nb: 'The name Couture',
+    sv: 'Namnet Couture',
+    da: 'Navnet Couture',
   },
   'coutureStory.fullStoryHeading': {
     en: 'His life in full',
@@ -1423,6 +2002,9 @@ const STRINGS = {
     es: 'Su vida, en detalle',
     it: 'La sua vita',
     de: 'Sein Leben im Überblick',
+    nb: 'His life in full',
+    sv: 'Hans liv i sin helhet',
+    da: 'Hans liv fuldt ud',
   },
   'coutureStory.followMap': {
     en: 'Follow his story on the map',
@@ -1430,6 +2012,9 @@ const STRINGS = {
     es: 'Seguir su historia en el mapa',
     it: 'Segui la sua storia sulla mappa',
     de: 'Seiner Geschichte auf der Karte folgen',
+    nb: 'Follow his story on the map',
+    sv: 'Följ hans historia på kartan',
+    da: 'Følg hans historie på kortet',
   },
   'atlasJournal.tooltip.label': {
     en: 'Atlas Journal',
@@ -1437,6 +2022,9 @@ const STRINGS = {
     es: 'Diario del Atlas',
     it: 'Diario dell\'Atlante',
     de: 'Atlas-Journal',
+    nb: 'Atlas Journal',
+    sv: 'Atlas Journal',
+    da: 'Atlas Journal',
   },
   'atlasJournal.tooltip.hint': {
     en: 'Glossary, timeline, Norman names, and how to read the atlas.',
@@ -1444,6 +2032,9 @@ const STRINGS = {
     es: 'Glosario, cronología, apellidos normandos y guía del atlas.',
     it: 'Glossario, cronologia, cognomi normanni e guida dell\'atlante.',
     de: 'Glossar, Zeitstrahl, normannische Namen und wie man den Atlas liest.',
+    nb: 'Glossary, timeline, Norman names, and how to read the atlas.',
+    sv: 'Ordlista, tidslinje, normandiska namn och hur man läser atlasen.',
+    da: 'Ordliste, tidslinje, normanniske navne og hvordan man læser atlasset.',
   },
   'atlasJournal.aria.open': {
     en: 'Open atlas journal',
@@ -1451,6 +2042,9 @@ const STRINGS = {
     es: 'Abrir el diario del atlas',
     it: 'Apri il diario dell\'atlante',
     de: 'Atlas-Journal öffnen',
+    nb: 'Open atlas journal',
+    sv: 'Öppna atlasjournal',
+    da: 'Åben atlas journal',
   },
 
   'dock.more': {
@@ -1459,6 +2053,9 @@ const STRINGS = {
     es: 'Más recorridos',
     it: 'Altri percorsi',
     de: 'Weitere Reisen',
+    nb: 'More journeys',
+    sv: 'Fler resor',
+    da: 'Flere rejser',
   },
   'dock.flythroughs': {
     en: 'Flythroughs',
@@ -1466,6 +2063,9 @@ const STRINGS = {
     es: 'Sobrevuelos',
     it: 'Sorvoli',
     de: 'Flüge',
+    nb: 'Flythroughs',
+    sv: 'Genomflygningar',
+    da: 'Gennemflugter',
   },
   'dock.stories': {
     en: 'Story Arcs',
@@ -1473,6 +2073,9 @@ const STRINGS = {
     es: 'Arcos narrativos',
     it: 'Archi narrativi',
     de: 'Geschichtenbögen',
+    nb: 'Story Arcs',
+    sv: 'Story Arcs',
+    da: 'Historiebuer',
   },
 
   'flythrough.label': {
@@ -1481,6 +2084,9 @@ const STRINGS = {
     es: 'Sobrevuelo cinematográfico',
     it: 'Sorvolo cinematico',
     de: 'Kinematischer Überflug',
+    nb: 'Cinematic Flythrough',
+    sv: 'Cinematic Flythrough',
+    da: 'Filmisk gennemflugt',
   },
   'flythrough.exit': {
     en: 'Exit flythrough',
@@ -1488,6 +2094,9 @@ const STRINGS = {
     es: 'Salir del sobrevuelo',
     it: 'Esci dal sorvolo',
     de: 'Überflug beenden',
+    nb: 'Exit flythrough',
+    sv: 'Avsluta genomgången',
+    da: 'Afslut gennemflyvning',
   },
   'flythrough.playing': {
     en: 'Flying along route...',
@@ -1495,6 +2104,9 @@ const STRINGS = {
     es: 'Sobrevolando la ruta...',
     it: 'In volo sulla rotta...',
     de: 'Flug entlang der Route…',
+    nb: 'Flying along route...',
+    sv: 'Flyger längs vägen...',
+    da: 'Flyver langs ruten...',
   },
 
   // --- Atlas Ledger / Gamification ---
@@ -1504,6 +2116,9 @@ const STRINGS = {
     es: 'Registro del atlas',
     it: 'Registro dell\'atlante',
     de: 'Atlas-Register',
+    nb: 'Atlas Ledger',
+    sv: 'Atlas Ledger',
+    da: 'Atlas Ledger',
   },
   'ledger.tooltip.hint': {
     en: 'Side panel on the map: coverage, full milestone list, expeditions, and share.',
@@ -1511,6 +2126,9 @@ const STRINGS = {
     es: 'Panel lateral en el mapa: cobertura, lista completa de hitos, expediciones y compartir.',
     it: 'Pannello laterale sulla mappa: copertura, elenco traguardi, spedizioni e condivisione.',
     de: 'Seitenleiste auf der Karte: Abdeckung, vollständige Meilensteinliste, Expeditionen und Teilen.',
+    nb: 'Side panel on the map: coverage, full milestone list, expeditions, and share.',
+    sv: 'Sidopanel på kartan: täckning, fullständig milstolpelista, expeditioner och dela.',
+    da: 'Sidepanel på kortet: dækning, fuld milepælsliste, ekspeditioner og del.',
   },
   'ledger.aria.open': {
     en: 'Open atlas ledger side panel',
@@ -1518,6 +2136,9 @@ const STRINGS = {
     es: 'Abrir el panel lateral del registro del atlas',
     it: 'Apri il pannello laterale del registro dell\'atlante',
     de: 'Atlas-Register-Seitenleiste öffnen',
+    nb: 'Open atlas ledger side panel',
+    sv: 'Öppna atlas ledger sidopanel',
+    da: 'Åbn sidepanelet i atlas ledger',
   },
   'ledger.heading': {
     en: 'Your Atlas Ledger',
@@ -1525,6 +2146,9 @@ const STRINGS = {
     es: 'Tu registro',
     it: 'Il tuo registro',
     de: 'Ihr Atlas-Register',
+    nb: 'Your Atlas Ledger',
+    sv: 'Din Atlas Ledger',
+    da: 'Din Atlas Ledger',
   },
   'ledger.coverage': {
     en: 'Coverage',
@@ -1532,6 +2156,9 @@ const STRINGS = {
     es: 'Cobertura',
     it: 'Copertura',
     de: 'Abdeckung',
+    nb: 'Coverage',
+    sv: 'Rapportering',
+    da: 'Dækning',
   },
   'ledger.milestones': {
     en: 'Milestones',
@@ -1539,6 +2166,9 @@ const STRINGS = {
     es: 'Hitos',
     it: 'Traguardi',
     de: 'Meilensteine',
+    nb: 'Milestones',
+    sv: 'Milstolpar',
+    da: 'Milepæle',
   },
   'ledger.expeditions': {
     en: 'Expeditions',
@@ -1546,6 +2176,9 @@ const STRINGS = {
     es: 'Expediciones',
     it: 'Spedizioni',
     de: 'Expeditionen',
+    nb: 'Expeditions',
+    sv: 'Expeditioner',
+    da: 'Ekspeditioner',
   },
   'ledger.places': {
     en: 'Places',
@@ -1553,6 +2186,9 @@ const STRINGS = {
     es: 'Lugares',
     it: 'Luoghi',
     de: 'Orte',
+    nb: 'Places',
+    sv: 'Platser',
+    da: 'Steder',
   },
   'ledger.regions': {
     en: 'Regions',
@@ -1560,6 +2196,9 @@ const STRINGS = {
     es: 'Regiones',
     it: 'Regioni',
     de: 'Regionen',
+    nb: 'Regions',
+    sv: 'Regioner',
+    da: 'Regioner',
   },
   'ledger.journeys': {
     en: 'Journeys',
@@ -1567,6 +2206,9 @@ const STRINGS = {
     es: 'Viajes',
     it: 'Viaggi',
     de: 'Reisen',
+    nb: 'Journeys',
+    sv: 'Resor',
+    da: 'Rejser',
   },
   'ledger.segments': {
     en: 'Segments',
@@ -1574,6 +2216,9 @@ const STRINGS = {
     es: 'Segmentos',
     it: 'Segmenti',
     de: 'Segmente',
+    nb: 'Segments',
+    sv: 'Segment',
+    da: 'Segmenter',
   },
   'ledger.eras': {
     en: 'Eras explored',
@@ -1581,6 +2226,9 @@ const STRINGS = {
     es: 'Épocas exploradas',
     it: 'Epoche esplorate',
     de: 'Erkundete Epochen',
+    nb: 'Eras explored',
+    sv: 'Eror utforskade',
+    da: 'epoker udforsket',
   },
   'ledger.stories': {
     en: 'Stories completed',
@@ -1588,6 +2236,9 @@ const STRINGS = {
     es: 'Relatos completados',
     it: 'Racconti completati',
     de: 'Abgeschlossene Geschichten',
+    nb: 'Stories completed',
+    sv: 'Berättelser avslutade',
+    da: 'Historier afsluttet',
   },
   'ledger.empty': {
     en: 'Begin exploring the atlas to fill your ledger.',
@@ -1595,6 +2246,9 @@ const STRINGS = {
     es: 'Explora el atlas para llenar tu registro.',
     it: 'Esplora l\'atlante per compilare il tuo registro.',
     de: 'Erkunden Sie den Atlas, um Ihr Register zu füllen.',
+    nb: 'Begin exploring the atlas to fill your ledger.',
+    sv: 'Börja utforska atlasen för att fylla din reskontra.',
+    da: 'Begynd at udforske atlasset for at fylde din hovedbog.',
   },
   'ledger.export': {
     en: 'Export progress',
@@ -1602,6 +2256,9 @@ const STRINGS = {
     es: 'Exportar progreso',
     it: 'Esporta progresso',
     de: 'Fortschritt exportieren',
+    nb: 'Export progress',
+    sv: 'Exportförlopp',
+    da: 'Eksportfremskridt',
   },
   'ledger.import': {
     en: 'Import progress',
@@ -1609,6 +2266,9 @@ const STRINGS = {
     es: 'Importar progreso',
     it: 'Importa progresso',
     de: 'Fortschritt importieren',
+    nb: 'Import progress',
+    sv: 'Importförlopp',
+    da: 'Importfremskridt',
   },
   'ledger.reset': {
     en: 'Reset progress',
@@ -1616,6 +2276,9 @@ const STRINGS = {
     es: 'Reiniciar',
     it: 'Reimposta',
     de: 'Fortschritt zurücksetzen',
+    nb: 'Reset progress',
+    sv: 'Återställ förloppet',
+    da: 'Nulstil fremskridt',
   },
   'ledger.reset.confirm': {
     en: 'This will erase all exploration data. Continue?',
@@ -1623,6 +2286,9 @@ const STRINGS = {
     es: 'Esto borrará todos los datos de exploración. ¿Continuar?',
     it: 'Questo cancellerà tutti i dati di esplorazione. Continuare?',
     de: 'Alle Erkundungsdaten werden gelöscht. Fortfahren?',
+    nb: 'This will erase all exploration data. Continue?',
+    sv: 'Detta kommer att radera all utforskningsdata. Fortsätta?',
+    da: 'Dette vil slette alle udforskningsdata. Fortsætte?',
   },
   'ledger.role.explorer': {
     en: 'Explorer',
@@ -1630,6 +2296,9 @@ const STRINGS = {
     es: 'Explorador',
     it: 'Esploratore',
     de: 'Entdecker',
+    nb: 'Explorer',
+    sv: 'Utforskare',
+    da: 'Explorer',
   },
   'ledger.role.historian': {
     en: 'Historian',
@@ -1637,6 +2306,9 @@ const STRINGS = {
     es: 'Historiador',
     it: 'Storico',
     de: 'Historiker',
+    nb: 'Historian',
+    sv: 'Historiker',
+    da: 'Historiker',
   },
   'ledger.role.cartographer': {
     en: 'Cartographer',
@@ -1644,6 +2316,9 @@ const STRINGS = {
     es: 'Cartógrafo',
     it: 'Cartografo',
     de: 'Kartograf',
+    nb: 'Cartographer',
+    sv: 'Kartograf',
+    da: 'Kartograf',
   },
   'ledger.role.chronicler': {
     en: 'Chronicler',
@@ -1651,6 +2326,9 @@ const STRINGS = {
     es: 'Cronista',
     it: 'Cronista',
     de: 'Chronist',
+    nb: 'Chronicler',
+    sv: 'Krönikör',
+    da: 'Kronikør',
   },
   'toast.discovered': {
     en: 'New entry recorded',
@@ -1658,6 +2336,9 @@ const STRINGS = {
     es: 'Nueva entrada registrada',
     it: 'Nuova voce registrata',
     de: 'Neuer Eintrag aufgezeichnet',
+    nb: 'New entry recorded',
+    sv: 'Ny post inspelad',
+    da: 'Nyt indlæg optaget',
   },
   'toast.milestone': {
     en: 'Milestone reached',
@@ -1665,6 +2346,9 @@ const STRINGS = {
     es: 'Hito alcanzado',
     it: 'Traguardo raggiunto',
     de: 'Meilenstein erreicht',
+    nb: 'Milestone reached',
+    sv: 'Milstolpe nådd',
+    da: 'Milepæl nået',
   },
   'ledger.mobileDrawer.label': {
     en: 'Atlas ledger (quick view)',
@@ -1672,6 +2356,9 @@ const STRINGS = {
     es: 'Registro (vista rápida)',
     it: 'Registro (vista rapida)',
     de: 'Atlas-Register (Schnellansicht)',
+    nb: 'Atlas ledger (quick view)',
+    sv: 'Atlas reskontra (snabbvy)',
+    da: 'Atlas hovedbog (hurtigt overblik)',
   },
   'expedition.inProgress': {
     en: 'In progress',
@@ -1679,6 +2366,9 @@ const STRINGS = {
     es: 'En curso',
     it: 'In corso',
     de: 'Läuft',
+    nb: 'In progress',
+    sv: 'Pågår',
+    da: 'I gang',
   },
   'expedition.completed': {
     en: 'Completed',
@@ -1686,6 +2376,9 @@ const STRINGS = {
     es: 'Completada',
     it: 'Completata',
     de: 'Abgeschlossen',
+    nb: 'Completed',
+    sv: 'Avslutad',
+    da: 'Afsluttet',
   },
   'expedition.start': {
     en: 'Begin expedition',
@@ -1693,6 +2386,9 @@ const STRINGS = {
     es: 'Comenzar expedición',
     it: 'Inizia spedizione',
     de: 'Expedition beginnen',
+    nb: 'Begin expedition',
+    sv: 'Börja expeditionen',
+    da: 'Begynd ekspeditionen',
   },
   'milestone.modal.sealed': {
     en: 'Milestone sealed',
@@ -1700,6 +2396,9 @@ const STRINGS = {
     es: 'Hito sellado',
     it: 'Traguardo sigillato',
     de: 'Meilenstein besiegelt',
+    nb: 'Milestone sealed',
+    sv: 'Milstolpe förseglad',
+    da: 'Milepæl forseglet',
   },
   'milestone.modal.continue': {
     en: 'Continue',
@@ -1707,6 +2406,9 @@ const STRINGS = {
     es: 'Continuar',
     it: 'Continua',
     de: 'Weiter',
+    nb: 'Continue',
+    sv: 'Fortsätta',
+    da: 'Fortsætte',
   },
   'milestone.modal.share': {
     en: 'Share',
@@ -1714,6 +2416,9 @@ const STRINGS = {
     es: 'Compartir',
     it: 'Condividi',
     de: 'Teilen',
+    nb: 'Share',
+    sv: 'Dela',
+    da: 'Dele',
   },
   'milestone.modal.more': {
     en: 'more milestones',
@@ -1721,6 +2426,9 @@ const STRINGS = {
     es: 'más hitos',
     it: 'altri traguardi',
     de: 'weitere Meilensteine',
+    nb: 'more milestones',
+    sv: 'fler milstolpar',
+    da: 'flere milepæle',
   },
   'milestone.share.text': {
     en: 'I just unlocked "{title}" on the Norman Atlas!',
@@ -1728,6 +2436,9 @@ const STRINGS = {
     es: '¡Acabo de desbloquear "{title}" en el Norman Atlas!',
     it: 'Ho appena sbloccato "{title}" sul Norman Atlas!',
     de: 'Ich habe gerade „{title}“ im Norman Atlas freigeschaltet!',
+    nb: 'I just unlocked "{title}" on the Norman Atlas!',
+    sv: 'Jag låste precis upp "{title}" på Norman Atlas!',
+    da: 'Jeg har lige låst "{title}" op på Norman Atlas!',
   },
   'share.firstExploration.sealed': {
     en: 'First entry in your ledger',
@@ -1735,6 +2446,9 @@ const STRINGS = {
     es: 'Primera entrada en tu registro',
     it: 'Prima voce nel tuo registro',
     de: 'Erster Eintrag in Ihrem Register',
+    nb: 'First entry in your ledger',
+    sv: 'Första posten i din reskontra',
+    da: 'Første indtastning i din hovedbog',
   },
   'share.firstExploration.title': {
     en: 'You opened: {label}',
@@ -1742,6 +2456,9 @@ const STRINGS = {
     es: 'Has abierto: {label}',
     it: 'Hai aperto: {label}',
     de: 'Sie haben geöffnet: {label}',
+    nb: 'You opened: {label}',
+    sv: 'Du öppnade: {label}',
+    da: 'Du åbnede: {label}',
   },
   'share.firstExploration.subtitle': {
     en: 'Share the Norman Atlas with someone who loves maps and history.',
@@ -1749,6 +2466,9 @@ const STRINGS = {
     es: 'Comparte el Norman Atlas con alguien a quien le gusten los mapas y la historia.',
     it: 'Condividi il Norman Atlas con chi ama mappe e storia.',
     de: 'Teilen Sie den Norman Atlas mit jemandem, der Karten und Geschichte liebt.',
+    nb: 'Share the Norman Atlas with someone who loves maps and history.',
+    sv: 'Dela Norman Atlas med någon som älskar kartor och historia.',
+    da: 'Del Norman Atlas med nogen, der elsker kort og historie.',
   },
   'share.firstExploration.shareBody': {
     en: 'I just started exploring the Norman Atlas — first stop: {label}',
@@ -1756,6 +2476,9 @@ const STRINGS = {
     es: 'Acabo de empezar a explorar el Norman Atlas — primera parada: {label}',
     it: 'Ho appena iniziato a esplorare il Norman Atlas — prima tappa: {label}',
     de: 'Ich habe gerade den Norman Atlas entdeckt — erste Station: {label}',
+    nb: 'I just started exploring the Norman Atlas — first stop: {label}',
+    sv: 'Jag har precis börjat utforska Norman Atlas — första stopp: {label}',
+    da: 'Jeg er lige begyndt at udforske Norman Atlas — første stop: {label}',
   },
   'share.firstStory.shareBody': {
     en: 'I finished my first story arc on the Norman Atlas: "{title}"',
@@ -1763,6 +2486,9 @@ const STRINGS = {
     es: 'Terminé mi primer arco narrativo en el Norman Atlas: «{title}»',
     it: 'Ho completato il mio primo arco narrativo sul Norman Atlas: «{title}»',
     de: 'Ich habe meinen ersten Geschichtenbogen im Norman Atlas abgeschlossen: „{title}“',
+    nb: 'I finished my first story arc on the Norman Atlas: "{title}"',
+    sv: 'Jag avslutade min första berättelsebåge på Norman Atlas: "{title}"',
+    da: 'Jeg afsluttede min første historiebue på Norman Atlas: "{title}"',
   },
   'ledger.shareProgressHeading': {
     en: 'Share your progress',
@@ -1770,6 +2496,9 @@ const STRINGS = {
     es: 'Comparte tu progreso',
     it: 'Condividi i tuoi progressi',
     de: 'Teilen Sie Ihren Fortschritt',
+    nb: 'Share your progress',
+    sv: 'Dela dina framsteg',
+    da: 'Del dine fremskridt',
   },
   'story.seal.recorded': {
     en: 'Arc recorded in your ledger',
@@ -1777,6 +2506,9 @@ const STRINGS = {
     es: 'Arco registrado en tu registro',
     it: 'Arco registrato nel tuo registro',
     de: 'Bogen in Ihrem Register festgehalten',
+    nb: 'Arc recorded in your ledger',
+    sv: 'Båge registreras i din reskontra',
+    da: 'Bue registreret i din hovedbog',
   },
   'expedition.chip.progress': {
     en: '{done}/{total}',
@@ -1784,6 +2516,9 @@ const STRINGS = {
     es: '{done}/{total}',
     it: '{done}/{total}',
     de: '{done}/{total}',
+    nb: '{done}/{total}',
+    sv: '{klar}/{total}',
+    da: '{done}/{total}',
   },
   'story.seal.subtitle': {
     en: 'Your progress has been saved in the Atlas Ledger.',
@@ -1791,6 +2526,9 @@ const STRINGS = {
     es: 'Tu progreso se ha guardado en el registro del atlas.',
     it: 'I tuoi progressi sono stati salvati nel registro dell\'atlante.',
     de: 'Ihr Fortschritt wurde im Atlas-Register gespeichert.',
+    nb: 'Your progress has been saved in the Atlas Ledger.',
+    sv: 'Dina framsteg har sparats i Atlas Ledger.',
+    da: 'Dine fremskridt er blevet gemt i Atlas Ledger.',
   },
   'ledger.affordance.mobile': {
     en: 'Open Ledger',
@@ -1798,6 +2536,9 @@ const STRINGS = {
     es: 'Abrir registro',
     it: 'Apri registro',
     de: 'Register öffnen',
+    nb: 'Open Ledger',
+    sv: 'Öppna Ledger',
+    da: 'Åbn Ledger',
   },
 
   'profile.tooltip.label': {
@@ -1806,6 +2547,9 @@ const STRINGS = {
     es: 'Perfil del viajero',
     it: 'Profilo del viaggiatore',
     de: 'Reisendenprofil',
+    nb: 'Traveller Profile',
+    sv: 'Resenärsprofil',
+    da: 'Rejsendes profil',
   },
   'profile.tooltip.hint': {
     en: 'Full page: rank, streak, weekly challenge, coverage overview, and achievements grid.',
@@ -1813,6 +2557,9 @@ const STRINGS = {
     es: 'Página completa: rango, racha, reto semanal, cobertura y cuadrícula de logros.',
     it: 'Pagina intera: rango, serie, sfida settimanale, copertura e griglia traguardi.',
     de: 'Volle Seite: Rang, Serie, wöchentliche Herausforderung, Abdeckungsüberblick und Erfolgsraster.',
+    nb: 'Full page: rank, streak, weekly challenge, coverage overview, and achievements grid.',
+    sv: 'Hela sidan: rankning, rad, veckovis utmaning, täckningsöversikt och prestationsrutnät.',
+    da: 'Fuld side: rang, streak, ugentlig udfordring, dækningsoversigt og præstationsgitter.',
   },
   'profile.aria.open': {
     en: 'Open traveller profile page',
@@ -1820,6 +2567,9 @@ const STRINGS = {
     es: 'Abrir la página de perfil del viajero',
     it: 'Apri la pagina profilo del viaggiatore',
     de: 'Reisendenprofil-Seite öffnen',
+    nb: 'Open traveller profile page',
+    sv: 'Öppna resenärsprofilsidan',
+    da: 'Åbn rejsendes profilside',
   },
   'profile.mobileDrawer.label': {
     en: 'Traveller profile (full page)',
@@ -1827,6 +2577,9 @@ const STRINGS = {
     es: 'Perfil del viajero (página)',
     it: 'Profilo del viaggiatore (pagina)',
     de: 'Reisendenprofil (volle Seite)',
+    nb: 'Traveller profile (full page)',
+    sv: 'Resenärsprofil (helsida)',
+    da: 'Rejseprofil (hel side)',
   },
   'profile.pageHeader': {
     en: 'Traveller profile',
@@ -1834,6 +2587,9 @@ const STRINGS = {
     es: 'Perfil del viajero',
     it: 'Profilo del viaggiatore',
     de: 'Reisendenprofil',
+    nb: 'Traveller profile',
+    sv: 'Resenärsprofil',
+    da: 'Rejsende profil',
   },
   'profile.journeyTitle': {
     en: 'Your journey',
@@ -1841,6 +2597,9 @@ const STRINGS = {
     es: 'Tu recorrido',
     it: 'Il tuo percorso',
     de: 'Ihre Reise',
+    nb: 'Your journey',
+    sv: 'Din resa',
+    da: 'Din rejse',
   },
   'profile.dataSection': {
     en: 'Data',
@@ -1848,6 +2607,9 @@ const STRINGS = {
     es: 'Datos',
     it: 'Dati',
     de: 'Daten',
+    nb: 'Data',
+    sv: 'Data',
+    da: 'Data',
   },
   'profile.achievements.summary': {
     en: 'Achievements',
@@ -1855,6 +2617,9 @@ const STRINGS = {
     es: 'Logros',
     it: 'Obiettivi',
     de: 'Erfolge',
+    nb: 'Achievements',
+    sv: 'Prestationer',
+    da: 'Præstationer',
   },
   'profile.achievements.unlockedCount': {
     en: '{unlocked} of {total} unlocked',
@@ -1862,6 +2627,9 @@ const STRINGS = {
     es: '{unlocked} de {total} desbloqueados',
     it: '{unlocked} di {total} sbloccati',
     de: '{unlocked} von {total} freigeschaltet',
+    nb: '{unlocked} of {total} unlocked',
+    sv: '{unlocked} av {total} upplåsta',
+    da: '{unlocked} af {total} oplåst',
   },
   'profile.achievement.tier': {
     en: 'Tier {tier}',
@@ -1869,6 +2637,9 @@ const STRINGS = {
     es: 'Nivel {tier}',
     it: 'Grado {tier}',
     de: 'Stufe {tier}',
+    nb: 'Tier {tier}',
+    sv: 'Nivå {nivå}',
+    da: 'Niveau {tier}',
   },
 
   // --- Detail FAB (mobile reopen) ---
@@ -1878,6 +2649,9 @@ const STRINGS = {
     es: 'Toca para explorar esta historia',
     it: 'Tocca per esplorare questa storia',
     de: 'Tippen, um diese Geschichte zu erkunden',
+    nb: 'Tap to explore this story',
+    sv: 'Tryck för att utforska den här historien',
+    da: 'Tryk for at udforske denne historie',
   },
   'detail.fab.hintDismiss': {
     en: 'Got it',
@@ -1885,6 +2659,9 @@ const STRINGS = {
     es: 'Entendido',
     it: 'Capito',
     de: 'Verstanden',
+    nb: 'Got it',
+    sv: 'Jag förstår',
+    da: 'Forstår det',
   },
   'detail.fab.hintStoryEra': {
     en: 'Era details & context',
@@ -1892,6 +2669,9 @@ const STRINGS = {
     es: 'Detalles y contexto de la era',
     it: 'Dettagli e contesto dell\'era',
     de: 'Epochendetails und Kontext',
+    nb: 'Era details & context',
+    sv: 'Era detaljer & sammanhang',
+    da: 'Era detaljer og kontekst',
   },
   'detail.fab.aria': {
     en: 'Open place story and details',
@@ -1899,6 +2679,9 @@ const STRINGS = {
     es: 'Abrir la historia y los detalles del lugar',
     it: 'Apri la storia e i dettagli del luogo',
     de: 'Ortsgeschichte und Details öffnen',
+    nb: 'Open place story and details',
+    sv: 'Öppna plats berättelse och detaljer',
+    da: 'Åbn sted historie og detaljer',
   },
   'detail.fab.tooltipLabel': {
     en: 'Information panel',
@@ -1906,6 +2689,9 @@ const STRINGS = {
     es: 'Panel de información',
     it: 'Pannello informativo',
     de: 'Infobereich',
+    nb: 'Information panel',
+    sv: 'Informationspanel',
+    da: 'Informationspanel',
   },
   'detail.fab.tooltipHint': {
     en: 'Expand for context and details about your current map selection.',
@@ -1913,6 +2699,9 @@ const STRINGS = {
     es: 'Amplía para ver contexto y detalles de tu selección en el mapa.',
     it: 'Espandi per contesto e dettagli sulla selezione sulla mappa.',
     de: 'Ausklappen für Kontext und Details zu Ihrer aktuellen Kartenauswahl.',
+    nb: 'Expand for context and details about your current map selection.',
+    sv: 'Expandera för sammanhang och detaljer om ditt aktuella kartval.',
+    da: 'Udvid for kontekst og detaljer om dit aktuelle kortvalg.',
   },
   // --- Story Launcher ---
   'launcher.open': {
@@ -1921,6 +2710,9 @@ const STRINGS = {
     es: 'Explorar historias',
     it: 'Esplora i racconti',
     de: 'Geschichten erkunden',
+    nb: 'Explore Stories',
+    sv: 'Utforska berättelser',
+    da: 'Udforsk historier',
   },
   'launcher.title': {
     en: 'Stories',
@@ -1928,6 +2720,9 @@ const STRINGS = {
     es: 'Historias',
     it: 'Racconti',
     de: 'Geschichten',
+    nb: 'Stories',
+    sv: 'Berättelser',
+    da: 'Historier',
   },
   'launcher.headline.kicker': {
     en: 'Stories',
@@ -1935,6 +2730,9 @@ const STRINGS = {
     es: 'Historias',
     it: 'Racconti',
     de: 'Geschichten',
+    nb: 'Stories',
+    sv: 'Berättelser',
+    da: 'Historier',
   },
   'launcher.tagline': {
     en: 'Picks for the era shown on your map. Open the library to browse every arc and journey.',
@@ -1942,6 +2740,9 @@ const STRINGS = {
     es: 'Selección para la época que ves en el mapa. Abre la biblioteca para ver todos los arcos y recorridos.',
     it: 'Scelti per l\u2019epoca mostrata sulla mappa. Apri la biblioteca per tutti gli archi e i percorsi.',
     de: 'Auswahl für die auf Ihrer Karte angezeigte Epoche. Öffnen Sie die Bibliothek für jeden Bogen und jede Reise.',
+    nb: 'Picks for the era shown on your map. Open the library to browse every arc and journey.',
+    sv: 'Val för eran som visas på din karta. Öppna biblioteket för att bläddra i varje båge och resa.',
+    da: 'Valg til den æra, der vises på dit kort. Åbn biblioteket for at gennemse hver eneste bue og rejse.',
   },
   'launcher.moreFromLibrary': {
     en: 'More from the library',
@@ -1949,6 +2750,9 @@ const STRINGS = {
     es: 'Más de la biblioteca',
     it: 'Altro dalla biblioteca',
     de: 'Mehr aus der Bibliothek',
+    nb: 'More from the library',
+    sv: 'Mer från biblioteket',
+    da: 'Mere fra biblioteket',
   },
   'launcher.section.thisEra': {
     en: 'In this era',
@@ -1956,6 +2760,9 @@ const STRINGS = {
     es: 'En esta época',
     it: 'In quest\u2019epoca',
     de: 'In dieser Epoche',
+    nb: 'In this era',
+    sv: 'I den här eran',
+    da: 'I denne æra',
   },
   'launcher.section.recommended': {
     en: 'Recommended for you',
@@ -1963,6 +2770,9 @@ const STRINGS = {
     es: 'Recomendado para ti',
     it: 'Consigliato per te',
     de: 'Für Sie empfohlen',
+    nb: 'Recommended for you',
+    sv: 'Rekommenderas för dig',
+    da: 'Anbefalet til dig',
   },
   'launcher.section.otherPeriodsArcs': {
     en: 'Other periods & arcs',
@@ -1970,6 +2780,9 @@ const STRINGS = {
     es: 'Otras \u00e9pocas y arcos',
     it: 'Altri periodi e archi',
     de: 'Andere Zeiten und Bögen',
+    nb: 'Other periods & arcs',
+    sv: 'Andra perioder & bågar',
+    da: 'Andre perioder og buer',
   },
   'launcher.section.journeys': {
     en: 'Full Journeys',
@@ -1977,6 +2790,9 @@ const STRINGS = {
     es: 'Recorridos completos',
     it: 'Percorsi completi',
     de: 'Vollständige Reisen',
+    nb: 'Full Journeys',
+    sv: 'Fulla resor',
+    da: 'Fuld rejser',
   },
   'launcher.section.flythroughs': {
     en: 'Cinematic Flights',
@@ -1984,6 +2800,9 @@ const STRINGS = {
     es: 'Sobrevuelos cinematográficos',
     it: 'Sorvoli cinematici',
     de: 'Kinematische Flüge',
+    nb: 'Cinematic Flights',
+    sv: 'Filmiska flygningar',
+    da: 'Filmiske flyvninger',
   },
   'launcher.contextual.continue': {
     en: 'Continue',
@@ -1991,6 +2810,9 @@ const STRINGS = {
     es: 'Continuar',
     it: 'Continua',
     de: 'Weiter',
+    nb: 'Continue',
+    sv: 'Fortsätta',
+    da: 'Fortsætte',
   },
   'launcher.badge.continue': {
     en: 'Continue',
@@ -1998,6 +2820,9 @@ const STRINGS = {
     es: 'Continuar',
     it: 'Riprendi',
     de: 'Fortsetzen',
+    nb: 'Continue',
+    sv: 'Fortsätta',
+    da: 'Fortsætte',
   },
   'launcher.badge.completed': {
     en: 'Completed',
@@ -2005,6 +2830,9 @@ const STRINGS = {
     es: 'Completado',
     it: 'Completato',
     de: 'Abgeschlossen',
+    nb: 'Completed',
+    sv: 'Avslutad',
+    da: 'Afsluttet',
   },
   'launcher.journey.full': {
     en: 'Full Atlas Chronicle',
@@ -2012,6 +2840,9 @@ const STRINGS = {
     es: 'Crónica completa del atlas',
     it: 'Cronaca completa dell\'atlante',
     de: 'Vollständige Atlas-Chronik',
+    nb: 'Full Atlas Chronicle',
+    sv: 'Hela Atlas Chronicle',
+    da: 'Fuld Atlas Chronicle',
   },
   'launcher.browseAll': {
     en: 'Open full story library',
@@ -2019,6 +2850,9 @@ const STRINGS = {
     es: 'Abrir la biblioteca completa',
     it: 'Apri la biblioteca completa',
     de: 'Ganze Geschichtenbibliothek öffnen',
+    nb: 'Open full story library',
+    sv: 'Öppna hela berättelsebiblioteket',
+    da: 'Åbn hele historiens bibliotek',
   },
   'launcher.browseAll.hint': {
     en: 'Every arc, journey, and filter',
@@ -2026,6 +2860,9 @@ const STRINGS = {
     es: 'Todos los arcos, recorridos y filtros',
     it: 'Tutti gli archi, percorsi e filtri',
     de: 'Jeder Bogen, jede Reise und jeder Filter',
+    nb: 'Every arc, journey, and filter',
+    sv: 'Varje båge, resa och filter',
+    da: 'Hver bue, rejse og filter',
   },
   'launcher.aria.close': {
     en: 'Close story launcher',
@@ -2033,6 +2870,9 @@ const STRINGS = {
     es: 'Cerrar lanzador de historias',
     it: 'Chiudi lanciatore di racconti',
     de: 'Geschichtenstarter schließen',
+    nb: 'Close story launcher',
+    sv: 'Stäng story launcher',
+    da: 'Luk historiestarteren',
   },
   'launcher.duration': {
     en: '~{min} min',
@@ -2040,6 +2880,9 @@ const STRINGS = {
     es: '~{min} min',
     it: '~{min} min',
     de: '~{min} Min.',
+    nb: '~{min} min',
+    sv: '~{min} min',
+    da: '~{min} min',
   },
 
   // --- Gamification: Rank & Streak -----------------------------------------
@@ -2047,56 +2890,89 @@ const STRINGS = {
     en: 'Novice',
     fr: 'Novice',
     de: 'Anfänger',
+    nb: 'Novice',
+    sv: 'Nybörjare',
+    da: 'Begynder',
   },
   'rank.apprentice': {
     en: 'Apprentice',
     fr: 'Apprenti',
     de: 'Lehrling',
+    nb: 'Apprentice',
+    sv: 'Lärling',
+    da: 'Lærling',
   },
   'rank.journeyman': {
     en: 'Journeyman',
     fr: 'Compagnon',
     de: 'Geselle',
+    nb: 'Journeyman',
+    sv: 'Gesäll',
+    da: 'Rejsemand',
   },
   'rank.adept': {
     en: 'Adept',
     fr: 'Adepte',
     de: 'Adept',
+    nb: 'Adept',
+    sv: 'Skicklig',
+    da: 'Adept',
   },
   'rank.scholar': {
     en: 'Scholar',
     fr: 'Érudit',
     de: 'Gelehrter',
+    nb: 'Scholar',
+    sv: 'Forskare',
+    da: 'Lærd',
   },
   'rank.master': {
     en: 'Master',
     fr: 'Maître',
     de: 'Meister',
+    nb: 'Master',
+    sv: 'Bemästra',
+    da: 'Mestre',
   },
   'rank.grandMaster': {
     en: 'Grand Master',
     fr: 'Grand Maître',
     de: 'Großmeister',
+    nb: 'Grand Master',
+    sv: 'Stormästare',
+    da: 'Stormester',
   },
   'rank.label': {
     en: 'Atlas Rank',
     fr: 'Rang de l\'Atlas',
     de: 'Atlas-Rang',
+    nb: 'Atlas Rank',
+    sv: 'Atlas rang',
+    da: 'Atlas rang',
   },
   'streak.label': {
     en: 'Streak',
     fr: 'Série',
     de: 'Serie',
+    nb: 'Streak',
+    sv: 'Strimma',
+    da: 'Streak',
   },
   'streak.days': {
     en: '{n} day streak',
     fr: 'Série de {n} jours',
     de: '{n}-Tage-Serie',
+    nb: '{n} day streak',
+    sv: '{n} dagars rad',
+    da: '{n} dages række',
   },
   'streak.best': {
     en: 'Best: {n}',
     fr: 'Record : {n}',
     de: 'Beste: {n}',
+    nb: 'Best: {n}',
+    sv: 'Bäst: {n}',
+    da: 'Bedste: {n}',
   },
 
   // --- Gamification: Challenges --------------------------------------------
@@ -2104,21 +2980,33 @@ const STRINGS = {
     en: 'Weekly Challenge',
     fr: 'Défi de la semaine',
     de: 'Wöchentliche Herausforderung',
+    nb: 'Weekly Challenge',
+    sv: 'Veckovis utmaning',
+    da: 'Ugentlig udfordring',
   },
   'challenge.completed': {
     en: 'Completed',
     fr: 'Terminé',
     de: 'Abgeschlossen',
+    nb: 'Completed',
+    sv: 'Avslutad',
+    da: 'Afsluttet',
   },
   'challenge.progress': {
     en: '{done}/{total}',
     fr: '{done}/{total}',
     de: '{done}/{total}',
+    nb: '{done}/{total}',
+    sv: '{klar}/{total}',
+    da: '{done}/{total}',
   },
   'challenge.noCurrent': {
     en: 'No challenge this week',
     fr: 'Aucun défi cette semaine',
     de: 'Diese Woche keine Herausforderung',
+    nb: 'No challenge this week',
+    sv: 'Ingen utmaning den här veckan',
+    da: 'Ingen udfordring i denne uge',
   },
 
   // --- Gamification: Coverage bars -----------------------------------------
@@ -2126,11 +3014,17 @@ const STRINGS = {
     en: '{pct}%',
     fr: '{pct} %',
     de: '{pct} %',
+    nb: '{pct}%',
+    sv: '{pct} %',
+    da: '{pct} %',
   },
   'coverage.label': {
     en: 'Completion',
     fr: 'Progression',
     de: 'Vervollständigung',
+    nb: 'Completion',
+    sv: 'Komplettering',
+    da: 'Fuldførelse',
   },
 
   // --- Gamification: Hidden milestones -------------------------------------
@@ -2138,11 +3032,17 @@ const STRINGS = {
     en: '???',
     fr: '???',
     de: '???',
+    nb: '???',
+    sv: '???',
+    da: '???',
   },
   'milestone.hidden.description': {
     en: 'Continue exploring to reveal this milestone.',
     fr: 'Continuez à explorer pour révéler ce jalon.',
     de: 'Erkunden Sie weiter, um diesen Meilenstein aufzudecken.',
+    nb: 'Continue exploring to reveal this milestone.',
+    sv: 'Fortsätt utforska för att avslöja denna milstolpe.',
+    da: 'Fortsæt med at udforske for at afsløre denne milepæl.',
   },
 
   // --- Retention strip ------------------------------------------------------
@@ -2152,6 +3052,9 @@ const STRINGS = {
     es: 'Continuar',
     it: 'Continua',
     de: 'Weiter',
+    nb: 'Continue',
+    sv: 'Fortsätta',
+    da: 'Fortsætte',
   },
   'retention.streakDays': {
     en: '{n}-day streak',
@@ -2159,6 +3062,9 @@ const STRINGS = {
     es: 'Racha de {n} días',
     it: 'Serie di {n} giorni',
     de: '{n}-Tage-Serie',
+    nb: '{n}-day streak',
+    sv: '{n}-dagars rad',
+    da: '{n}-dages række',
   },
   'retention.challengeProgress': {
     en: 'Challenge {done}/{total}',
@@ -2166,6 +3072,9 @@ const STRINGS = {
     es: 'Desafío {done}/{total}',
     it: 'Sfida {done}/{total}',
     de: 'Herausforderung {done}/{total}',
+    nb: 'Challenge {done}/{total}',
+    sv: 'Utmaning {klar}/{total}',
+    da: 'Udfordring {done}/{total}',
   },
 
   // --- Journal resume section -----------------------------------------------
@@ -2175,6 +3084,9 @@ const STRINGS = {
     es: 'Retoma donde lo dejaste',
     it: 'Riprendi da dove eri rimasto',
     de: 'Dort weitermachen, wo Sie aufgehört haben',
+    nb: 'Pick Up Where You Left Off',
+    sv: 'Fortsätt där du slutade',
+    da: 'Fortsæt, hvor du slap',
   },
   'journal.resume.step': {
     en: 'Step {n}',
@@ -2182,6 +3094,9 @@ const STRINGS = {
     es: 'Paso {n}',
     it: 'Passo {n}',
     de: 'Schritt {n}',
+    nb: 'Step {n}',
+    sv: 'Steg {n}',
+    da: 'Trin {n}',
   },
   // --- Sources & reading links -----------------------------------------------
   'sources.sectionTitle': {
@@ -2190,6 +3105,9 @@ const STRINGS = {
     es: 'Fuentes y lecturas',
     it: 'Fonti e letture',
     de: 'Quellen & Lektüre',
+    nb: 'Sources & reading',
+    sv: 'Källor & läsning',
+    da: 'Kilder og læsning',
   },
   'sources.opensExternal': {
     en: 'Opens in a new tab',
@@ -2197,6 +3115,9 @@ const STRINGS = {
     es: 'Se abre en una pestaña nueva',
     it: 'Si apre in una nuova scheda',
     de: 'Öffnet in neuem Tab',
+    nb: 'Opens in a new tab',
+    sv: 'Öppnas i en ny flik',
+    da: 'Åbner i en ny fane',
   },
   'sources.kind.primary': {
     en: 'Primary',
@@ -2204,6 +3125,9 @@ const STRINGS = {
     es: 'Primaria',
     it: 'Primaria',
     de: 'Primär',
+    nb: 'Primary',
+    sv: 'Primär',
+    da: 'Primær',
   },
   'sources.kind.synthesis': {
     en: 'Synthesis',
@@ -2211,6 +3135,9 @@ const STRINGS = {
     es: 'Síntesis',
     it: 'Sintesi',
     de: 'Synthese',
+    nb: 'Synthesis',
+    sv: 'Syntes',
+    da: 'Syntese',
   },
   'sources.kind.popular': {
     en: 'Popular',
@@ -2218,6 +3145,9 @@ const STRINGS = {
     es: 'Divulgación',
     it: 'Divulgazione',
     de: 'Populär',
+    nb: 'Popular',
+    sv: 'Populär',
+    da: 'Populær',
   },
   'sources.kind.museum': {
     en: 'Museum',
@@ -2225,6 +3155,9 @@ const STRINGS = {
     es: 'Museo',
     it: 'Museo',
     de: 'Museum',
+    nb: 'Museum',
+    sv: 'Museum',
+    da: 'Museum',
   },
   'sources.kind.database': {
     en: 'Database',
@@ -2232,6 +3165,9 @@ const STRINGS = {
     es: 'Base de datos',
     it: 'Banca dati',
     de: 'Datenbank',
+    nb: 'Database',
+    sv: 'Databas',
+    da: 'Database',
   },
 } as const satisfies StringTable;
 

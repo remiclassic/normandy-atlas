@@ -5,6 +5,7 @@ import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 export const REGION_SOURCE = 'regions';
 export const SETTLEMENT_SOURCE = 'settlements';
+export const CULTURAL_ORIGINS_FILL = 'regions-cultural-origins-fill';
 
 /** Matches atlas basemap mode for label halos and ink-friendly contrast. */
 export type MapDataTheme = 'dark' | 'parchment';
@@ -80,6 +81,24 @@ export function addRegionLayers(
           ],
         ],
       ],
+    },
+  });
+
+  map.addLayer({
+    id: 'regions-cultural-origins-fill',
+    type: 'fill',
+    source: REGION_SOURCE,
+    paint: {
+      'fill-color': ['coalesce', ['get', 'culturalTint'], 'transparent'],
+      'fill-opacity': [
+        'case',
+        ['has', 'culturalTint', ['properties']],
+        ['interpolate', ['linear'], ['zoom'], 3, 0.14, 8, 0.22],
+        0,
+      ],
+    },
+    layout: {
+      visibility: 'none',
     },
   });
 

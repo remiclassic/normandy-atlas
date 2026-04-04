@@ -4,6 +4,8 @@ import { COLONIAL_ERA_IDS } from '@/data/atlas/new-france-timeline';
 import { VIKING_TERRITORY_TIME_RULES } from '@/data/atlas/viking-timeline-phases';
 import type { AtlasRegion, RegionEraState, RegionWithState } from '@/core/types';
 import type { RegionFeatureCollection } from '@/types';
+import { blendTintColor, dominantStrandsSummary } from '@/lib/cultural-origins';
+import type { AtlasLocale } from '@/core/types';
 
 const regionMap = new Map<string, AtlasRegion>(atlasRegions.map((r) => [r.id, r]));
 
@@ -126,4 +128,34 @@ export function getRegionsByLayer(layer: string, eraId: string): RegionWithState
     }
   }
   return results;
+}
+
+/**
+ * Enrich a RegionFeatureCollection with cultural-origin tint colors and
+ * hover summary strings for the given era + locale. Properties `culturalTint`
+ * and `culturalHoverSummary` are attached only to features whose AtlasRegion
+ * has culturalInfluenceByEra data for the era.
+ */
+export function enrichRegionsWithCulturalOrigins(
+  geojson: RegionFeatureCollection,
+  eraId: string,
+  locale: AtlasLocale,
+  basemap: 'dark' | 'parchment' = 'dark',
+): RegionFeatureCollection {
+  return {
+    type: 'FeatureCollection',
+    features: geojson.features.map((f) => {
+      const region = regionMap.get(f.properties.id);
+      const blend = region?.culturalInfluenceByEra?.[eraId];
+      if (!blend || blend.length === 0) return f;
+      return {
+        ...f,
+        properties: {
+          ...f.properties,
+          culturalTint: blendTintColor(blend, basemap),
+          culturalHoverSummary: dominantStrandsSummary(blend, locale, 3),
+        },
+      };
+    }),
+  };
 }

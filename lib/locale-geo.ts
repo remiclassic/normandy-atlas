@@ -59,7 +59,7 @@ function isQuebecCanada(country: string | undefined | null, region: string | und
 
 /**
  * Map visitor country (ISO 3166-1 alpha-2) to a UI locale.
- * Only returns fr / es / it when the country is mapped; otherwise English.
+ * Returns fr / es / it / nb / sv / da when the country is mapped; otherwise English.
  */
 export function localeFromCountryCode(country: string | undefined | null): AtlasLocale {
   if (!country || country.length !== 2) return DEFAULT_LOCALE;
@@ -67,6 +67,9 @@ export function localeFromCountryCode(country: string | undefined | null): Atlas
   if (FR.has(c)) return 'fr';
   if (ES.has(c)) return 'es';
   if (IT.has(c)) return 'it';
+  if (c === 'NO') return 'nb';
+  if (c === 'SE') return 'sv';
+  if (c === 'DK') return 'da';
   return DEFAULT_LOCALE;
 }
 
@@ -82,12 +85,12 @@ export function localeFromGeo(
   return localeFromCountryCode(country);
 }
 
-/** Locale we persist on the geo cookie (fr / es / it only). */
+/** Locale we persist on the geo cookie when it matches a suggested UI language. */
 export function geoCookieLocaleValue(
   country: string | undefined | null,
   region?: string | undefined | null,
-): 'fr' | 'es' | 'it' | null {
+): 'fr' | 'es' | 'it' | 'nb' | 'sv' | 'da' | null {
   const loc = localeFromGeo(country, region ?? null);
-  if (loc === 'fr' || loc === 'es' || loc === 'it') return loc;
+  if (loc === 'fr' || loc === 'es' || loc === 'it' || loc === 'nb' || loc === 'sv' || loc === 'da') return loc;
   return null;
 }

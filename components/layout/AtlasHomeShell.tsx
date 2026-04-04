@@ -4,7 +4,19 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Award, Clapperboard, Heart, Library, Signpost, BookOpen, Feather, Share2, Menu } from 'lucide-react';
+import {
+  ArrowLeft,
+  Award,
+  BookMarked,
+  Clapperboard,
+  Heart,
+  Library,
+  Signpost,
+  BookOpen,
+  Feather,
+  Share2,
+  Menu,
+} from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -32,6 +44,12 @@ const SUPPORT_ATLAS_ENABLED = false;
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
+import { pickI18n } from '@/lib/locale';
+import {
+  digitalGuidesAriaOpen,
+  digitalGuidesTooltipHint,
+  digitalGuidesTooltipLabel,
+} from '@/lib/digital-guides-ui';
 import { t } from '@/lib/ui-strings';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
@@ -50,6 +68,7 @@ import AtlasHeaderRetentionChips from '@/components/retention/AtlasRetentionStri
 import { shareOrCopy } from '@/lib/progress/share';
 import { buildCurrentViewShareUrl } from '@/lib/map-view-link';
 import { useChangelogUnread } from '@/hooks/useChangelogUnread';
+import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
 
 function AtlasMenuDrawer({
   open,
@@ -131,6 +150,7 @@ export default function AtlasHomeShell() {
   const router = useRouter();
   const locale = useLocale();
   const isMobile = useIsMobile();
+  const guidesPublic = isDigitalGuidesPublic();
   const [creditsOpen, setCreditsOpen] = useState(false);
   const openCredits = useCallback(() => setCreditsOpen(true), []);
   const closeCredits = useCallback(() => setCreditsOpen(false), []);
@@ -312,6 +332,24 @@ export default function AtlasHomeShell() {
           </ChromeIconTooltip>
         )}
 
+        {guidesPublic && (
+          <ChromeIconTooltip
+            label={pickI18n(digitalGuidesTooltipLabel, locale)}
+            hint={pickI18n(digitalGuidesTooltipHint, locale)}
+          >
+            <Link
+              href="/guides"
+              className="flex h-6 max-w-[7rem] shrink-0 items-center justify-center gap-1 rounded-md border border-chrome-border bg-chrome-fill px-2 text-[9px] font-bold uppercase tracking-wide text-text-muted transition-colors duration-200 hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment sm:max-w-none sm:px-2.5 sm:text-[10px]"
+              aria-label={pickI18n(digitalGuidesAriaOpen, locale)}
+            >
+              <BookMarked className="h-3 w-3 shrink-0 opacity-70 sm:h-3.5 sm:w-3.5" strokeWidth={1.5} aria-hidden />
+              <span className="hidden min-[380px]:inline">
+                {pickI18n(digitalGuidesTooltipLabel, locale)}
+              </span>
+            </Link>
+          </ChromeIconTooltip>
+        )}
+
         <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
 
@@ -356,6 +394,7 @@ export default function AtlasHomeShell() {
     ),
     [
       closeStoryLibrary,
+      guidesPublic,
       locale,
       openLedgerAndEndCelebration,
       openMobileMenu,
@@ -604,6 +643,19 @@ export default function AtlasHomeShell() {
               <Library className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} />
               {t('atlasJournal.tooltip.label', locale)}
             </Link>
+            {guidesPublic && (
+              <Link
+                href="/guides"
+                onClick={() => {
+                  stopLedgerPulseOnJournalNavigate();
+                  closeMobileMenu();
+                }}
+                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13px] text-text-muted hover:bg-chrome-fill-badge hover:text-parchment transition-colors touch-target"
+              >
+                <BookMarked className="h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+                {pickI18n(digitalGuidesTooltipLabel, locale)}
+              </Link>
+            )}
             <button
               type="button"
               onClick={handleChangelogFromMenu}

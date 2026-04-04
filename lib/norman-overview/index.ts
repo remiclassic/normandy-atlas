@@ -7,6 +7,8 @@ import { bundle as it } from './bundles/it';
 import { bundle as de } from './bundles/de';
 import { bundle as pt } from './bundles/pt';
 import { bundle as da } from './bundles/da';
+import { bundle as nb } from './bundles/nb';
+import { bundle as sv } from './bundles/sv';
 import { bundle as nl } from './bundles/nl';
 
 export type { NormanOverviewBundle, NormanOverviewSection } from './types';
@@ -19,6 +21,8 @@ const BY_LOCALE: Record<AtlasLocale, NormanOverviewBundle> = {
   de,
   pt,
   da,
+  nb,
+  sv,
   nl,
 };
 

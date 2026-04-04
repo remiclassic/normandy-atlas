@@ -9,6 +9,8 @@ import { useMapStore } from '@/lib/store';
 import { useIsMobile } from '@/hooks/use-responsive';
 import { pickI18n } from '@/lib/locale';
 import { CATEGORY_META, resolveCategoryLabel } from '@/lib/norman-names';
+import { blendToBarSegments, resolveStrandLabel, type BarSegment } from '@/lib/cultural-origins';
+import { matchSurnamePatterns, formatPatternExplanation } from '@/lib/surname-patterns';
 import { getRegionRecord } from '@/data/regions-content';
 import { getSettlement } from '@/data/settlements';
 import { getEra } from '@/data/eras';
@@ -21,7 +23,7 @@ import { getMarkerById } from '@/data/atlas/timeline-markers';
 import { getNormanSiteArticle } from '@/data/norman-expansion/site-articles';
 import { normanNodesGeoJson } from '@/data/norman-expansion';
 import { getPlace, getAtlasEra, getAtlasRegion, getPeopleForPlace, getPeopleForRegion, getPeopleForEra, getPerson, getVisibleRegions, getVisiblePlaces, resolveDataset, getShareForEntity, getSegment, getJourney } from '@/core';
-import type { Person, PlaceKind, MigrationChannel, AtlasEra, AtlasLocale, MigrationShareRow, StatConfidence, RouteSegment, Journey } from '@/core/types';
+import type { Person, PlaceKind, MigrationChannel, AtlasEra, AtlasLocale, MigrationShareRow, StatConfidence, RouteSegment, Journey, CulturalBlendEntry } from '@/core/types';
 import type { SettlementCategory, NormanSiteKind } from '@/types';
 import {
   getMigrationChannelBadge,
@@ -490,6 +492,74 @@ function AtlasThroughlineBadge({ person, locale, compact = false }: { person: Pe
   );
 }
 
+function CulturalOriginsBar({ entries, locale }: { entries: CulturalBlendEntry[]; locale: AtlasLocale }) {
+  const segments = useMemo(() => blendToBarSegments(entries, locale), [entries, locale]);
+  if (segments.length === 0) return null;
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex h-2 rounded-full overflow-hidden bg-chrome-fill-badge border border-chrome-border">
+        {segments.map((seg) => (
+          <div
+            key={seg.strand}
+            className="h-full transition-all duration-300"
+            style={{ width: `${seg.weight * 100}%`, backgroundColor: seg.color }}
+            title={`${seg.label} (${Math.round(seg.weight * 100)}%)`}
+          />
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-1">
+        {segments.map((seg) => (
+          <span key={seg.strand} className="inline-flex items-center gap-1 text-[10px] text-text-muted/70">
+            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: seg.color }} />
+            {seg.label}
+            <span className="text-text-dim/50">{Math.round(seg.weight * 100)}%</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SurnameClues({ surname, locale }: { surname: string | undefined; locale: AtlasLocale }) {
+  const [open, setOpen] = useState(false);
+  const matches = useMemo(() => matchSurnamePatterns(surname), [surname]);
+
+  if (matches.length === 0) return null;
+
+  return (
+    <div className="rounded-md border border-sky-400/10 bg-sky-400/[0.03]">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between px-3 py-2 text-left group"
+      >
+        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-sky-300/50">
+          Name Clues
+        </span>
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          className={`text-sky-300/40 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+        >
+          <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div className="px-3 pb-3 space-y-2">
+          {matches.map((m) => (
+            <p key={m.id} className="text-[11px] text-text-muted/80 leading-relaxed italic">
+              {formatPatternExplanation(m, locale)}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function PersonCard({ person, eraId }: { person: Person; eraId?: string }) {
   const locale = useMapStore((s) => s.locale);
   const lifespan = `${person.birthYear}–${person.deathYear}`;
@@ -566,6 +636,15 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
 
       <AtlasThroughlineBadge person={person} locale={locale} />
 
+      {person.culturalOrigins && person.culturalOrigins.length > 0 && (
+        <div>
+          <SectionLabel>
+            {locale === 'fr' ? 'Origines culturelles' : locale === 'es' ? 'Orígenes culturales' : locale === 'it' ? 'Origini culturali' : locale === 'de' ? 'Kulturelle Ursprünge' : 'Cultural Origins'}
+          </SectionLabel>
+          <CulturalOriginsBar entries={person.culturalOrigins} locale={locale} />
+        </div>
+      )}
+
       <div className="divider-fade" />
 
       <div>
@@ -611,6 +690,7 @@ function PersonDetailExpanded({ person, eraId }: { person: Person; eraId?: strin
                   {pickI18n(person.surnameEtymology, locale)}
                 </p>
               )}
+              <SurnameClues surname={person.surname} locale={locale} />
               <Link
                 href="/journal#norman-surnames"
                 className="inline-flex items-center gap-1 text-[11px] text-gold hover:text-gold-bright transition-colors mt-1"
@@ -938,6 +1018,20 @@ function AtlasRegionDetail({ id, eraId }: { id: string; eraId: string }) {
               <p className="text-[14px] leading-[1.75] text-text/85">
                 {pickI18n(atlasRegion.narrativeByEra[eraId], locale)}
               </p>
+            </div>
+          </ContentFade>
+        </>
+      )}
+
+      {atlasRegion.culturalInfluenceByEra?.[eraId] && (
+        <>
+          <div className="divider-fade mx-7" />
+          <ContentFade delay={0.18}>
+            <div className="px-7 py-5">
+              <SectionLabel>
+                {locale === 'fr' ? 'Influences culturelles' : locale === 'es' ? 'Influencias culturales' : locale === 'it' ? 'Influenze culturali' : locale === 'de' ? 'Kulturelle Einflüsse' : 'Cultural Influences'}
+              </SectionLabel>
+              <CulturalOriginsBar entries={atlasRegion.culturalInfluenceByEra[eraId]} locale={locale} />
             </div>
           </ContentFade>
         </>

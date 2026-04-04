@@ -4,7 +4,7 @@ export const atlasRegions: AtlasRegion[] = [
   // ── Pre-Roman tribal / cultural regions ───────────────────────────
   {
     id: 'normandy-neolithic-zone',
-    name: { en: 'Armorican Coastal Plain', fr: 'Plaine côtière armoricaine', it: 'Pianura costiera armoricana', de: 'Armorikanische Küstenebene' },
+    name: { en: 'Armorican Coastal Plain', fr: 'Plaine côtière armoricaine', it: 'Pianura costiera armoricana', de: 'Armorikanische Küstenebene', nb: 'Armorikansk kystsletten', sv: 'Armorikanska kustslätten', da: 'Armorikansk kystslette' },
     layer: 'europe',
     geometryRef: 'region-normandy-neolithic-zone',
     eraStates: {
@@ -17,12 +17,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les plaines côtières et les terrasses fluviales de la future Normandie accueillirent certaines des premières communautés agricoles d\'Europe du Nord. Des monuments mégalithiques — dolmens, menhirs et allées couvertes — marquaient les sites sacrés et les limites territoriales à travers le paysage, particulièrement le long de la presqu\'île du Cotentin et des plateaux calcaires du Pays de Caux.',
         it: 'Le pianure costiere e le terrazze fluviali della futura Normandia ospitarono tra le prime comunità agricole dell\'Europa settentrionale. Monumenti megalitici — dolmen, menhir e allées couvertes — segnavano luoghi sacri e confini territoriali nel paesaggio, in particolare lungo la penisola del Cotentin e i plateau calcarei del Pays de Caux.',
         de: 'Die Küstenebenen und Flussterrassen der zukünftigen Normandie waren die Heimat einiger der ersten landwirtschaftlichen Gemeinden Nordeuropas. Megalithdenkmäler – Dolmen, Menhire und überdachte Gehwege – markierten heilige Stätten und territoriale Grenzen in der gesamten Landschaft, insbesondere entlang der Halbinsel Cotentin und den Kalksteinplateaus des Pays de Caux.',
+        nb: 'Kystslettene og elveterrassene i fremtidens Normandie støttet noen av Nord-Europas tidligste bondesamfunn. Megalittiske monumenter – dysser, menhirer og allées couvertes – markerte hellige steder og territorielle grenser over landskapet, spesielt langs Cotentin-halvøya og kalksteinsplatåene i Pays de Caux.',
+        sv: 'Kustslätterna och flodterrasserna i framtida Normandie stödde några av norra Europas tidigaste jordbrukssamhällen. Megalitiska monument - dolmens, menhirs och allées couvertes - markerade heliga platser och territoriella gränser över landskapet, särskilt längs Cotentin-halvön och kalkstensplatåerna i Pays de Caux.',
+        da: 'Det fremtidige Normandiets kystsletter og flodterrasser støttede nogle af Nordeuropas tidligste landbrugssamfund. Megalitiske monumenter - dysser, menhirs og allées couvertes - markerede hellige steder og territoriale grænser på tværs af landskabet, især langs Cotentin-halvøen og kalkstensplateauerne i Pays de Caux.',
       },
     },
   },
   {
     id: 'channel-islands-neolithic',
-    name: { en: 'Channel Islands', fr: 'Îles Anglo-Normandes', it: 'Isole del Canale', de: 'Kanalinseln' },
+    name: { en: 'Channel Islands', fr: 'Îles Anglo-Normandes', it: 'Isole del Canale', de: 'Kanalinseln', nb: 'Kanaløyene', sv: 'Kanalöarna', da: 'Kanaløerne' },
     layer: 'europe',
     geometryRef: 'region-channel-islands-neolithic',
     eraStates: {
@@ -37,24 +40,33 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les îles Anglo-Normandes participaient au même monde mégalithique atlantique que la côte du Cotentin. Des tombes à couloir comme La Hougue Bie à Jersey comptent parmi les plus beaux monuments néolithiques d\'Europe occidentale.',
         it: 'Le Isole del Canale condividevano lo stesso mondo megalitico atlantico della costa del Cotentin. Tombe a corridoio come La Hougue Bie a Jersey figurano tra i più bei monumenti neolitici dell\'Europa occidentale.',
         de: 'Die Kanalinseln waren Teil derselben atlantischen Megalithwelt wie die Küste des Cotentin. Ganggräber wie La Hougue Bie in Jersey gehören zu den schönsten neolithischen Denkmälern in Westeuropa.',
+        nb: 'Kanaløyene delte den samme megalittiske verdenen som vender mot Atlanterhavet som Cotentin-kysten. Passasjegraver som La Hougue Bie på Jersey er blant de fineste neolittiske monumentene i Vest-Europa.',
+        sv: 'Kanalöarna delade samma megalitvärld som vänder mot Atlanten som Cotentin-kusten. Gånggravar som La Hougue Bie på Jersey rankas bland de finaste neolitiska monumenten i västra Europa.',
+        da: 'Kanaløerne delte den samme atlantiske megalitiske verden som Cotentin-kysten. Passagegrave som La Hougue Bie i Jersey er blandt de fineste neolitiske monumenter i Vesteuropa.',
       },
       'norman-origins': {
         en: 'The Channel Islands entered the duchy of Normandy alongside the Cotentin in 933. Governed by ducal law and integrated into the maritime economy of the Norman Channel coast, they formed the duchy\'s western sea frontier — waypoints on the same Norse Celtic Sea corridor that had fed western Normandy with Norwegian settlers.',
         fr: 'Les îles Anglo-Normandes entrèrent dans le duché de Normandie en même temps que le Cotentin en 933. Régies par le droit ducal et intégrées dans l\'économie maritime de la côte normande de la Manche, elles formaient la frontière maritime occidentale du duché — relais sur le même corridor celte norrois qui avait amené des colons norvégiens dans l\'ouest normand.',
         it: 'Le Isole del Canale entrarono nel ducato di Normandia insieme al Cotentin nel 933. Governate dal diritto ducale e integrate nell\'economia marittima della costa normanna della Manica, formavano la frontiera marittima occidentale del ducato — scali sullo stesso corridoio celtico norreno che aveva portato coloni norvegesi nella Normandia occidentale.',
         de: 'Die Kanalinseln traten gleichzeitig mit Cotentin im Jahr 933 in das Herzogtum Normandie ein. Sie wurden durch herzogliches Recht regiert und in die maritime Wirtschaft der Kanalküste der Normandie integriert. Sie bildeten die westliche Seegrenze des Herzogtums – einen Relaispunkt auf demselben nordisch-keltischen Korridor, der norwegische Siedler in die westliche Normandie gebracht hatte.',
+        nb: 'Kanaløyene gikk inn i hertugdømmet Normandie ved siden av Cotentin i 933. Styrt av hertuglov og integrert i den maritime økonomien på den normanniske kanalkysten, dannet de hertugdømmets vestlige havgrense – veipunkter på den samme norrøne keltiske havkorridoren som hadde matet vestlige Normandie med norske nybyggere.',
+        sv: 'Kanalöarna gick in i hertigdömet Normandie vid sidan av Cotentin år 933. Styrda av hertig lag och integrerade i den maritima ekonomin på den normandiska kanalkusten, bildade de hertigdömets västra havsgräns – vägpunkter på samma norrländska Keltiska havet-korridor som hade matat västra Normandie med norska bosättare.',
+        da: 'Kanaløerne trådte ind i hertugdømmet Normandiet ved siden af ​​Cotentin i 933. Styret af hertuglig lov og integreret i den maritime økonomi på den normanniske kanalkyst, dannede de hertugdømmets vestlige søgrænse - vejpunkter på den samme korridor for det nordiske Keltiske Hav, som havde fodret det vestlige Normandiet med norske bosættere.',
       },
       'norman-expansion': {
         en: 'After 1204, when continental Normandy fell to France, the Channel Islands remained tied to the English crown — not as English territory but as the duke\'s insular possession. They retained Norman customary law, their own courts, and their Norman French speech. Mont Orgueil castle on Jersey and Castle Cornet on Guernsey anchored the islands\' defence against repeated French raids.',
         fr: 'Après 1204, lorsque la Normandie continentale tomba sous la couronne de France, les îles Anglo-Normandes restèrent liées à la couronne anglaise — non comme territoire anglais mais comme possession insulaire du duc. Elles conservèrent le droit coutumier normand, leurs propres tribunaux et leur parler franco-normand. Le château de Mont Orgueil à Jersey et Castle Cornet à Guernesey ancrent la défense des îles contre les raids français répétés.',
         it: 'Dopo il 1204, quando la Normandia continentale cadde in mano alla Francia, le Isole del Canale restarono legate alla corona inglese — non come territorio inglese ma come possedimento insulare del duca. Conservarono il diritto consuetudinario normanno, i propri tribunali e il loro parlare franconormanno. Mont Orgueil a Jersey e Castle Cornet a Guernsey ancoravano la difesa delle isole contro i ripetuti raid francesi.',
         de: 'Nach 1204, als das Festland der Normandie unter die französische Krone fiel, blieben die Kanalinseln mit der englischen Krone verbunden – nicht als englisches Territorium, sondern als Inselbesitz des Herzogs. Sie behielten das normannische Gewohnheitsrecht, ihre eigenen Gerichte und ihre französisch-normannische Sprache bei. Mont Orgueil Castle in Jersey und Castle Cornet in Guernsey bildeten den Ankerpunkt der Verteidigung der Inseln gegen wiederholte französische Überfälle.',
+        nb: 'Etter 1204, da det kontinentale Normandie falt for Frankrike, forble Kanaløyene knyttet til den engelske kronen - ikke som engelsk territorium, men som hertugens øybesittelse. De beholdt normannisk sedvanerett, sine egne domstoler og sin normanniske franske tale. Mont Orgueil-slottet på Jersey og Castle Cornet på Guernsey forankret øyenes forsvar mot gjentatte franske raid.',
+        sv: 'Efter 1204, när kontinentala Normandie föll till Frankrike, förblev Kanalöarna bundna till den engelska kronan - inte som engelskt territorium utan som hertigens öägda. De behöll normandisk sedvanerätt, sina egna domstolar och sitt normandiska franska tal. Mont Orgueil-slottet på Jersey och Castle Cornet på Guernsey förankrade öarnas försvar mot upprepade franska räder.',
+        da: 'Efter 1204, da det kontinentale Normandiet faldt til Frankrig, forblev Kanaløerne bundet til den engelske krone - ikke som engelsk territorium, men som hertugens øbesiddelse. De beholdt normannisk sædvaneret, deres egne domstole og deres normanniske franske tale. Mont Orgueil-slottet på Jersey og Castle Cornet på Guernsey forankrede øernes forsvar mod gentagne franske razziaer.',
       },
     },
   },
   {
     id: 'channel-trade-zone',
-    name: { en: 'Channel Trade Corridor', fr: 'Corridor commercial de la Manche', it: 'Corridoio commerciale della Manica', de: 'Kanalhandelskorridor' },
+    name: { en: 'Channel Trade Corridor', fr: 'Corridor commercial de la Manche', it: 'Corridoio commerciale della Manica', de: 'Kanalhandelskorridor', nb: 'Channel Trade Corridor', sv: 'Channel Trade Corridor', da: 'Kanalhandelskorridor' },
     layer: 'europe',
     geometryRef: 'region-channel-trade-zone',
     eraStates: {
@@ -66,12 +78,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'La Manche fonctionnait comme une autoroute maritime bien avant les Vikings. L\'étain de Cornouailles, le cuivre d\'Ibérie et l\'ambre de la Baltique traversaient tous les eaux de la Manche. La côte normande était un point de passage naturel — les mêmes ports et estuaires qui recevraient plus tard les drakkars vikings avaient déjà servi aux navires marchands de l\'âge du bronze pendant plus d\'un millénaire.',
         it: 'La Manica fungeva da grande via marittima molto prima dei vichinghi. Stagno della Cornovaglia, rame dall\'Iberia e ambra dal Baltico attraversavano quelle acque. La costa normanna era un punto di passaggio naturale: gli stessi porti ed estuari che avrebbero accolto le navi vichinghe avevano già servito, per oltre un millennio, le imbarcazioni mercantili dell\'età del bronzo.',
         de: 'Der Ärmelkanal fungierte schon lange vor den Wikingern als Seestraße. Zinn aus Cornwall, Kupfer aus Iberia und Bernstein aus der Ostsee gelangten alle durch die Gewässer des Ärmelkanals. Die Küste der Normandie war ein natürlicher Kreuzungspunkt – dieselben Häfen und Flussmündungen, die später Langschiffe der Wikinger anlegten, dienten bereits über ein Jahrtausend lang Handelsschiffen aus der Bronzezeit als Anlegestelle.',
+        nb: 'Den engelske kanal fungerte som en maritim motorvei lenge før vikingene. Tinn fra Cornwall, kobber fra Iberia og rav fra Østersjøen passerte alle gjennom kanalvannet. Normandies kyst var et naturlig veipunkt - de samme havnene og elvemunningene som senere mottok viking-langskip hadde allerede tjent handelsfartøyer fra bronsealderen i over et årtusen.',
+        sv: 'Engelska kanalen fungerade som en maritim motorväg långt före vikingarna. Tenn från Cornwall, koppar från Iberia och bärnsten från Östersjön passerade alla genom kanalens vatten. Normandies kust var en naturlig vägpunkt - samma hamnar och flodmynningar som senare tog emot vikingatida långskepp hade redan tjänat bronsålderns handelsfartyg i över ett årtusende.',
+        da: 'Den Engelske Kanal fungerede som en maritim motorvej længe før vikingerne. Tin fra Cornwall, kobber fra Iberia og rav fra Østersøen passerede alle gennem Kanalens farvande. Normandiets kyst var et naturligt waypoint - de samme havne og flodmundinger, som senere modtog vikingelangskibe, havde allerede tjent bronzealderens handelsfartøjer i over et årtusinde.',
       },
     },
   },
   {
     id: 'caletes',
-    name: { en: 'Caletes', fr: 'Calètes', it: 'Caleti', de: 'Calets' },
+    name: { en: 'Caletes', fr: 'Calètes', it: 'Caleti', de: 'Calets', nb: 'Caletes', sv: 'Caletes', da: 'Caletes' },
     layer: 'europe',
     geometryRef: 'region-caletes',
     eraStates: {
@@ -84,12 +99,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les Calètes contrôlaient le Pays de Caux — le plateau crayeux entre l\'estuaire de la Seine et la Bresle. Leur territoire leur donnait accès au commerce de la Manche et aux riches zones de pêche au large. Leur capitale se trouvait peut-être près de l\'actuelle Lillebonne, future Juliobona romaine.',
         it: 'I Caleti controllavano il Pays de Caux — l\'altopiano calcareo tra l\'estuario della Senna e la Bresle. Il loro territorio dava accesso al commercio della Manica e a ricche zone di pesca al largo. La capitale poteva trovarsi presso l\'attuale Lillebonne, poi Juliobona romana.',
         de: 'Die Calètes kontrollierten das Pays de Caux – das Kreideplateau zwischen der Seine-Mündung und der Bresle. Ihr Territorium verschaffte ihnen Zugang zum Ärmelkanalhandel und zu reichen Fischgründen vor der Küste. Ihre Hauptstadt lag möglicherweise in der Nähe des heutigen Lillebonne, dem späteren römischen Juliobona.',
+        nb: 'Caletes kontrollerte Pays de Caux - krittplatået mellom Seine-elvemunningen og Bresle-elven. Territoriet deres ga dem tilgang til både kanalhandel og de rike fiskefeltene utenfor kysten. Hovedstaden deres kan ha vært i nærheten av det moderne Lillebonne, senere den romerske Juliobona.',
+        sv: 'Paret Caletes kontrollerade Pays de Caux - kritplatån mellan Seines mynning och floden Bresle. Deras territorium gav dem tillgång till både kanalhandeln och de rika fiskeområdena utanför kusten. Deras huvudstad kan ha varit nära det moderna Lillebonne, senare det romerska Juliobona.',
+        da: 'Caletes kontrollerede Pays de Caux - kridtplateauet mellem Seines udmunding og Bresle-floden. Deres territorium gav dem adgang til både kanalhandel og de rige fiskepladser ud for kysten. Deres hovedstad kan have været i nærheden af ​​det moderne Lillebonne, senere det romerske Juliobona.',
       },
     },
   },
   {
     id: 'veliocasses',
-    name: { en: 'Veliocasses', fr: 'Véliocasses', it: 'Veliocassi', de: 'Veliokassetten' },
+    name: { en: 'Veliocasses', fr: 'Véliocasses', it: 'Veliocassi', de: 'Veliokassetten', nb: 'Veliocasses', sv: 'Veliocasses', da: 'Veliocasses' },
     layer: 'europe',
     geometryRef: 'region-veliocasses',
     eraStates: {
@@ -102,12 +120,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les Véliocasses étaient une puissante tribu gauloise dominant la vallée de la Seine autour de leur capitale Rotomagus (Rouen actuel). Le contrôle de la Seine leur donnait une position dominante dans le commerce intérieur. Leur territoire deviendrait plus tard le cœur de la civitas romaine des Véliocasses puis, des siècles après, le noyau de la colonie viking devenue la Normandie.',
         it: 'I Veliocassi erano una potente tribù gallica che dominava la valle della Senna attorno alla capitale Rotomagus (l\'odierna Rouen). Il controllo della Senna assicurava una posizione dominante nel commercio interno. Il loro territorio divenne poi il cuore della civitas romana dei Veliocassi e, secoli dopo, il nucleo della colonia vichinga che si trasformò in Normandia.',
         de: 'Die Véliocasses waren ein mächtiger gallischer Stamm, der das Seine-Tal rund um ihre Hauptstadt Rotomagus (heute Rouen) beherrschte. Die Kontrolle über die Seine verschaffte ihnen eine beherrschende Stellung im Binnenhandel. Ihr Territorium wurde später zum Herzstück der römischen Civitas von Véliocasses und Jahrhunderte später zum Kern der Wikingerkolonie, aus der die Normandie wurde.',
+        nb: 'Veliocasses var en mektig gallisk stamme som kommanderte Seine-dalen rundt hovedstaden deres Rotomagus (moderne Rouen). Kontroll over Seinen ga dem en dominerende posisjon i innlandshandelen. Deres territorium skulle senere bli hjertet av de romerske civitas av Veliocasses og, århundrer etter, kjernen i vikingkolonien som ble til Normandie.',
+        sv: 'Veliocasses var en mäktig gallisk stam som behärskade Seinedalen runt deras huvudstad Rotomagus (moderna Rouen). Kontroll över Seine gav dem en dominerande ställning i inlandshandeln. Deras territorium skulle senare bli hjärtat av de romerska civitas i Veliocasses och, århundraden efter, kärnan i vikingakolonin som blev Normandie.',
+        da: 'Veliocasses var en magtfuld gallisk stamme, der kommanderede Seine-dalen omkring deres hovedstad Rotomagus (nutidens Rouen). Kontrol over Seinen gav dem en dominerende stilling i indlandshandelen. Deres territorium skulle senere blive hjertet af de romerske civitas i Veliocasses og, århundreder efter, kernen i vikingekolonien, der blev til Normandiet.',
       },
     },
   },
   {
     id: 'unelli',
-    name: { en: 'Unelli', fr: 'Unelles', it: 'Unelli', de: 'Unelles' },
+    name: { en: 'Unelli', fr: 'Unelles', it: 'Unelli', de: 'Unelles', nb: 'Unelli', sv: 'Unelli', da: 'Unelli' },
     layer: 'europe',
     geometryRef: 'region-unelli',
     eraStates: {
@@ -120,12 +141,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les Unelles occupaient la presqu\'île du Cotentin et son arrière-pays. Leur position stratégique leur donnait le contrôle des traversées de la Manche vers la Bretagne. Sous Viridovix, ils résistèrent à la conquête de César en 56 av. J.-C. avant d\'être soumis. Leur capitale se trouvait peut-être à Cosedia, future Coutances sous domination romaine.',
         it: 'Gli Unelli occupavano la penisola del Cotentin e il suo entroterra. La posizione strategica consentiva di controllare le traversate della Manica verso la Britannia. Sotto Viridovice resistettero alla conquista di Cesare nel 56 a.C. prima di essere sottomessi. La capitale poteva essere a Cosedia, poi Coutances sotto il dominio romano.',
         de: 'Die Unelles besetzten die Halbinsel Cotentin und ihr Hinterland. Ihre strategische Lage ermöglichte ihnen die Kontrolle über die Kanalübergänge in die Bretagne. Unter Viridovix leisteten sie 56 v. Chr. Widerstand gegen Caesars Eroberung. BC vor der Einreichung. Ihre Hauptstadt befand sich möglicherweise in Cosedia, dem zukünftigen Coutances unter römischer Herrschaft.',
+        nb: 'Unelli okkuperte Cotentin-halvøya og dens innland. Deres strategiske posisjon ga dem kontroll over kanalovergangene til Storbritannia. Under Viridovix motsto de Cæsars erobring i 56 f.Kr. før de ble undertrykt. Hovedstaden deres kan ha vært i Cosedia, senere Coutances under romersk styre.',
+        sv: 'Unelli ockuperade Cotentin-halvön och dess inland. Deras strategiska position gav dem kontroll över kanalövergångar till Storbritannien. Under Viridovix gjorde de motstånd mot Caesars erövring 56 f.Kr. innan de blev underkuvade. Deras huvudstad kan ha varit i Cosedia, senare Coutances under romerskt styre.',
+        da: 'Unelli besatte Cotentin-halvøen og dens bagland. Deres strategiske position gav dem kontrol over kanalovergange til Storbritannien. Under Viridovix modstod de Cæsars erobring i 56 f.Kr., før de blev underkuet. Deres hovedstad kan have været i Cosedia, senere Coutances under romersk styre.',
       },
     },
   },
   {
     id: 'abrincates',
-    name: { en: 'Abrincates', fr: 'Abrincates', it: 'Abrincati', de: 'Abrinziert' },
+    name: { en: 'Abrincates', fr: 'Abrincates', it: 'Abrincati', de: 'Abrinziert', nb: 'Abrinkerer', sv: 'Abrinkerar', da: 'Abrinkerer' },
     layer: 'europe',
     geometryRef: 'region-abrincates',
     eraStates: {
@@ -138,12 +162,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les Abrincates tenaient la baie du Mont-Saint-Michel et le bocage autour d\'Avranches. Plus petits que leurs voisins, ils contrôlaient néanmoins une zone côtière clé reliant la Bretagne au reste de la Gaule. Leur nom survécut dans la ville d\'Avranches — Abrincae en latin.',
         it: 'Gli Abrincati controllavano la baia del Mont-Saint-Michel e la campagna intorno ad Avranches. Pur più piccoli dei vicini, dominavano una fascia costiera cruciale tra la Bretagna e il resto della Gallia. Il nome sopravvisse nella città di Avranches — Abrincae in latino.',
         de: 'Die Abrincates hielten die Bucht von Mont-Saint-Michel und das Bocage um Avranches. Obwohl sie kleiner als ihre Nachbarn waren, kontrollierten sie dennoch ein wichtiges Küstengebiet, das die Bretagne mit dem Rest Galliens verband. Ihr Name blieb in der Stadt Avranches erhalten – Abrincae auf Lateinisch.',
+        nb: 'Abrincatene holdt bukten Mont-Saint-Michel og det bølgende landet rundt Avranches. Mindre enn sine naboer kontrollerte de likevel en viktig kystsone som forbinder Bretagne med resten av Gallia. Navnet deres overlevde i byen Avranches - Abrincae på latin.',
+        sv: 'Abrincaterna höll bukten Mont-Saint-Michel och det böljande landet runt Avranches. Mindre än sina grannar kontrollerade de ändå en viktig kustzon som förbinder Bretagne med resten av Gallien. Deras namn överlevde i staden Avranches - Abrincae på latin.',
+        da: 'Abrincaterne holdt Mont-Saint-Michel-bugten og det bølgende land omkring Avranches. Mindre end deres naboer kontrollerede de ikke desto mindre en vigtig kystzone, der forbinder Bretagne med resten af ​​Gallien. Deres navn overlevede i byen Avranches - Abrincae på latin.',
       },
     },
   },
   {
     id: 'lugdunensis-secunda',
-    name: { en: 'Lugdunensis Secunda', fr: 'Lyonnaise seconde', it: 'Lugdunensis secunda', de: 'Zweite Lyonnaise' },
+    name: { en: 'Lugdunensis Secunda', fr: 'Lyonnaise seconde', it: 'Lugdunensis secunda', de: 'Zweite Lyonnaise', nb: 'Lugdunensis Secunda', sv: 'Lugdunensis Secunda', da: 'Lugdunensis Secunda' },
     layer: 'europe',
     geometryRef: 'region-lugdunensis-secunda',
     eraStates: {
@@ -155,13 +182,16 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'La province romaine de Lyonnaise seconde englobait l\'essentiel de la future Normandie. Rotomagus (Rouen) en était la capitale provinciale, reliée par les voies romaines à Lutetia (Paris) et aux ports de la Manche. Les infrastructures romaines — routes, aqueducs, amphithéâtres — se superposèrent au paysage celte, mais les identités tribales persistèrent sous un mince vernis romain jusqu\'au IVe siècle.',
         it: 'La provincia romana della Lugdunensis secunda comprendeva gran parte della futura Normandia. Rotomagus (Rouen) ne era la capitale, collegata da strade romane a Lutetia (Parigi) e ai porti della Manica. Strade, acquedotti, anfiteatri si sovrapposero al paesaggio celtico, ma le identità tribali persistettero sotto un sottile velo romano fino al IV secolo.',
         de: 'Die römische Provinz Lyonnaise II umfasste den größten Teil der zukünftigen Normandie. Rotomagus (Rouen) war die Provinzhauptstadt, die durch römische Straßen mit Lutetia (Paris) und den Häfen am Ärmelkanal verbunden war. Römische Infrastruktur – Straßen, Aquädukte, Amphitheater – überlagerte die keltische Landschaft, aber die Stammesidentität blieb unter einer dünnen römischen Fassade bis zum 4. Jahrhundert bestehen.',
+        nb: 'Den romerske provinsen Lugdunensis Secunda omfattet det meste av det som skulle bli Normandie. Rotomagus (Rouen) fungerte som provinshovedstad, forbundet med romerske veier til Lutetia (Paris) og kanalhavnene. Romersk infrastruktur – veier, akvedukter, amfiteatre – dekket det keltiske landskapet, men stammeidentiteter bevarte under en tynn romersk finér langt inn på 400-tallet.',
+        sv: 'Den romerska provinsen Lugdunensis Secunda omfattade det mesta av det som skulle bli Normandie. Rotomagus (Rouen) fungerade som provinshuvudstad, ansluten via romerska vägar till Lutetia (Paris) och kanalhamnarna. Romersk infrastruktur – vägar, akvedukter, amfiteatrar – överlagrade det keltiska landskapet, men stamidentiteter bestod under en tunn romersk faner långt in på 300-talet.',
+        da: 'Den romerske provins Lugdunensis Secunda omfattede det meste af det, der skulle blive til Normandiet. Rotomagus (Rouen) tjente som provinshovedstad, forbundet med romerske veje til Lutetia (Paris) og kanalhavnene. Romersk infrastruktur - veje, akvædukter, amfiteatre - overlejrede det keltiske landskab, men stammeidentiteter bestod under en tynd romersk finer langt ind i det 4. århundrede.',
       },
     },
   },
   // ── Post-Roman → Medieval regions ─────────────────────────────────
   {
     id: 'neustria',
-    name: { en: 'Neustria', fr: 'Neustrie', it: 'Neustria', de: 'Neustrien' },
+    name: { en: 'Neustria', fr: 'Neustrie', it: 'Neustria', de: 'Neustrien', nb: 'Neustria', sv: 'Neustrien', da: 'Neustrien' },
     layer: 'europe',
     geometryRef: 'region-neustria',
     eraStates: {
@@ -175,12 +205,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Sous les Carolingiens, la Neustrie perdit son identité de sous-royaume rival et fut absorbée dans l\'empire franc. La vallée de la Loire et ses villes occidentales — notamment Nantes — devinrent une zone frontière face au royaume breton semi-indépendant, tandis que le corridor de la Seine servait d\'épine dorsale administrative reliant Paris aux routes commerciales de la Manche.',
         it: 'Sotto i Carolingi la Neustria perse il ruolo di sottoregno rivale e fu assorbita nell\'impero franco. La valle della Loira e le città d\'occidente — in particolare Nantes — divennero zona di frontiera verso il regno bretone semi-indipendente, mentre il corridoio della Senna fungeva da spina dorsale amministrativa tra Parigi e le rotte commerciali della Manica.',
         de: 'Unter den Karolingern verlor Neustrien seine Identität als rivalisierendes Unterkönigreich und wurde in das Frankenreich eingegliedert. Das Loiretal und seine westlichen Städte – insbesondere Nantes – wurden zu einer Grenzzone gegenüber dem halbunabhängigen bretonischen Königreich, während der Seine-Korridor als administratives Rückgrat diente, das Paris mit den Handelsrouten des Ärmelkanals verband.',
+        nb: 'Under karolingerne mistet Neustria sin identitet som et rivaliserende underrike og ble absorbert i det bredere frankiske imperiet. Loire-dalen og dens vestlige byer - spesielt Nantes - ble en grensesone mot det semi-uavhengige bretonske riket, mens Seine-korridoren fungerte som den administrative ryggraden som koblet Paris til handelsrutene ved kanalen.',
+        sv: 'Under karolingerna förlorade Neustrien sin identitet som ett rivaliserande underrike och absorberades i det bredare frankiska imperiet. Loiredalen och dess västerländska städer – särskilt Nantes – blev en gränszon mot det halvoberoende bretonska kungadömet, medan Seine-korridoren fungerade som den administrativa ryggraden mellan Paris och kanalens handelsvägar.',
+        da: 'Under karolingerne mistede Neustrien sin identitet som et rivaliserende underrige og blev optaget i det bredere frankiske imperium. Loire-dalen og dens vestlige byer - især Nantes - blev en grænsezone mod det semi-uafhængige bretonske kongerige, mens Seine-korridoren fungerede som den administrative rygrad, der forbinder Paris med handelsruterne under Kanalen.',
       },
     },
   },
   {
     id: 'lower-seine',
-    name: { en: 'Lower Seine', fr: 'Basse-Seine', it: 'Bassa Senna', de: 'Untere Seine' },
+    name: { en: 'Lower Seine', fr: 'Basse-Seine', it: 'Bassa Senna', de: 'Untere Seine', nb: 'Nedre Seine', sv: 'Nedre Seine', da: 'Nedre Seine' },
     layer: 'europe',
     geometryRef: 'region-lower-seine',
     eraStates: {
@@ -192,18 +225,38 @@ export const atlasRegions: AtlasRegion[] = [
       'viking-age': { visibility: 'emphasized', borderStyle: 'disputed', fillIntent: 'contested' },
       'norman-origins': { visibility: 'emphasized', borderStyle: 'soft', fillIntent: 'culture' },
     },
+    culturalInfluenceByEra: {
+      'frankish-carolingian': [
+        { strand: 'frankish', weight: 0.7 },
+        { strand: 'gallo_roman', weight: 0.3 },
+      ],
+      'viking-age': [
+        { strand: 'norse', weight: 0.6 },
+        { strand: 'frankish', weight: 0.3 },
+        { strand: 'gallo_roman', weight: 0.1 },
+      ],
+      'norman-origins': [
+        { strand: 'norse', weight: 0.4 },
+        { strand: 'frankish', weight: 0.4 },
+        { strand: 'breton', weight: 0.1 },
+        { strand: 'gallo_roman', weight: 0.1 },
+      ],
+    },
     narrativeByEra: {
       'frankish-carolingian': {
         en: 'The lower Seine was the economic heart of Carolingian Neustria. Great royal abbeys — Jumièges, Saint-Wandrille, Fontenelle — controlled vast estates along the river, generating tolls, tithes, and manuscript production. Rouen served as the main urban node connecting this monastic wealth to the Channel and to Paris. This concentration of undefended riches along a single navigable waterway would prove catastrophic once Norse raiders discovered it.',
         fr: 'La basse Seine était le cœur économique de la Neustrie carolingienne. De grandes abbayes royales — Jumièges, Saint-Wandrille, Fontenelle — contrôlaient de vastes domaines le long du fleuve, générant péages, dîmes et production de manuscrits. Rouen servait de nœud urbain principal reliant cette richesse monastique à la Manche et à Paris. Cette concentration de richesses non défendues le long d\'une seule voie navigable s\'avérerait catastrophique dès que les raiders scandinaves la découvriraient.',
         it: 'La bassa Senna era il cuore economico della Neustria carolingia. Grandi abbazie reali — Jumièges, Saint-Wandrille, Fontenelle — controllavano vasti domini lungo il fiume, generando pedaggi, decime e produzione di manoscritti. Rouen era il principale nodo urbano tra questa ricchezza monastica, la Manica e Parigi. La concentrazione di ricchezze poco difese lungo un\'unica via navigabile si rivelò catastrofica quando i predoni norreni la scoprirono.',
         de: 'Die untere Seine war das wirtschaftliche Herz des karolingischen Neustriens. Große königliche Abteien – Jumièges, Saint-Wandrille, Fontenelle – kontrollierten weite Gebiete entlang des Flusses und erwirtschafteten Zölle, Zehnten und produzierten Manuskripte. Rouen diente als wichtigster städtischer Knotenpunkt, der diesen klösterlichen Reichtum mit dem Ärmelkanal und Paris verband. Diese Konzentration unverteidigten Reichtums entlang einer einzigen Wasserstraße würde sich als katastrophal erweisen, sobald skandinavische Plünderer sie entdeckten.',
+        nb: 'Nedre Seinen var det økonomiske hjertet av karolingiske Neustria. Store kongelige klostre – Jumièges, Saint-Wandrille, Fontenelle – kontrollerte enorme eiendommer langs elven, og genererte bompenger, tiende og manuskriptproduksjon. Rouen fungerte som den viktigste urbane noden som koblet denne klosterrikdommen til kanalen og til Paris. Denne konsentrasjonen av uforsvarte rikdommer langs en enkelt seilbar vannvei ville vise seg å være katastrofal når norrøne raidere oppdaget den.',
+        sv: 'Nedre Seine var det ekonomiska hjärtat i karolingiska Neustrien. Stora kungliga kloster – Jumièges, Saint-Wandrille, Fontenelle – kontrollerade stora egendomar längs floden och genererade vägtullar, tionde och manuskriptproduktion. Rouen fungerade som den huvudsakliga urbana noden som förbinder denna klosterrikedom med kanalen och Paris. Denna koncentration av oförsvarade rikedomar längs en enda farbar vattenväg skulle visa sig vara katastrofal när nordiska anfallare upptäckte den.',
+        da: 'Den nedre Seine var det økonomiske hjerte i karolingiske Neustrien. Store kongelige klostre - Jumièges, Saint-Wandrille, Fontenelle - kontrollerede store godser langs floden og genererede vejafgifter, tiende og manuskriptproduktion. Rouen tjente som den vigtigste byknudepunkt, der forbinder denne klosterrigdom med kanalen og Paris. Denne koncentration af uforsvarede rigdomme langs en enkelt sejlbar vandvej ville vise sig at være katastrofal, når de nordiske røvere opdagede det.',
       },
     },
   },
   {
     id: 'frankish-core',
-    name: { en: 'Frankish Heartland', fr: 'Cœur franc', it: 'Cuore franco', de: 'Offenes Herz' },
+    name: { en: 'Frankish Heartland', fr: 'Cœur franc', it: 'Cuore franco', de: 'Offenes Herz', nb: 'Frankish Heartland', sv: 'Frankiska hjärtat', da: 'Frankish Heartland' },
     layer: 'europe',
     geometryRef: 'region-frankish-core',
     eraStates: {
@@ -219,12 +272,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'L\'Île-de-France autour de Paris était le centre de gravité politique des territoires occidentaux de l\'empire carolingien. Palais royaux, chancelleries et assemblées opéraient depuis ce cœur, projetant l\'autorité le long de la Seine et de la Loire. Lorsque l\'empire se fractura après 840, le contrôle de ce cœur détermina qui pouvait revendiquer la couronne de Francie occidentale — et qui ne pouvait défendre ses fleuves.',
         it: 'L\'Île-de-France intorno a Parigi era il centro di gravità politico dei territori occidentali dell\'impero carolingio. Palazzi, cancellerie e assemblee operavano da quel nucleo, proiettando l\'autorità lungo Senna e Loira. Quando l\'impero si fratturò dopo l\'840, il controllo di questa terra di cuore decise chi poteva rivendicare la corona della Francia occidentale — e chi non riusciva a difendere i fiumi.',
         de: 'Die Île-de-France rund um Paris war das politische Zentrum der westlichen Gebiete des Karolingischen Reiches. Königliche Paläste, Kanzleien und Versammlungen operierten von diesem Kernland aus und strahlten ihre Autorität entlang der Seine und der Loire aus. Als das Reich nach 840 zerfiel, bestimmte die Kontrolle über dieses Kernland, wer die Krone Westfrankens für sich beanspruchen konnte – und wer seine Flüsse nicht verteidigen konnte.',
+        nb: 'Île-de-France rundt Paris var det politiske tyngdepunktet for det karolingiske imperiets vestlige territorier. Kongelige palasser, kansler og forsamlinger opererte fra denne kjernen, og projiserte autoritet utover langs Seine og Loire. Da imperiet gikk i stykker etter 840, avgjorde kontrollen over dette hjertelandet hvem som kunne kreve kronen av Vest-Francia - og hvem som ikke kunne forsvare elvene.',
+        sv: 'Île-de-France runt Paris var den politiska tyngdpunkten för det karolingiska imperiets västra territorier. Kungliga palats, kanslier och församlingar verkade från denna kärna och projicerade auktoritet utåt längs Seine och Loire. När imperiet splittrades efter 840 bestämde kontrollen över detta hjärta vem som kunde göra anspråk på Västfrankrikes krona - och vem som inte kunde försvara dess floder.',
+        da: 'Île-de-France omkring Paris var det politiske tyngdepunkt for det karolingiske imperiums vestlige områder. Kongelige paladser, kancellier og forsamlinger opererede fra denne kerne og projekterede autoritet udad langs Seinen og Loire. Da imperiet gik i stykker efter 840, afgjorde kontrollen over dette hjerteland, hvem der kunne gøre krav på Vestfrankiens krone - og hvem der ikke kunne forsvare dets floder.',
       },
     },
   },
   {
     id: 'channel-coast',
-    name: { en: 'Channel Coast', fr: 'Côte de la Manche', it: 'Costa della Manica', de: 'Kanalküste' },
+    name: { en: 'Channel Coast', fr: 'Côte de la Manche', it: 'Costa della Manica', de: 'Kanalküste', nb: 'Kanalkysten', sv: 'Kanalkusten', da: 'Kanalkysten' },
     layer: 'europe',
     geometryRef: 'region-channel-coast',
     eraStates: {
@@ -236,18 +292,34 @@ export const atlasRegions: AtlasRegion[] = [
       'norman-origins': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
       'norman-expansion': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'frontier' },
     },
+    culturalInfluenceByEra: {
+      'viking-age': [
+        { strand: 'norse', weight: 0.5 },
+        { strand: 'frankish', weight: 0.3 },
+        { strand: 'flemish', weight: 0.2 },
+      ],
+      'norman-expansion': [
+        { strand: 'frankish', weight: 0.4 },
+        { strand: 'norse', weight: 0.2 },
+        { strand: 'flemish', weight: 0.2 },
+        { strand: 'anglo_saxon', weight: 0.2 },
+      ],
+    },
     narrativeByEra: {
       'frankish-carolingian': {
         en: 'The northern Channel coast was Carolingian Gaul\'s main interface with North Sea trade. The emporium at Quentovic — near modern Étaples — handled cross-Channel commerce with Anglo-Saxon England and Frisian merchants. Charlemagne invested in coastal defence, but after 840 these exposed shores became the first targets for Scandinavian raiding fleets.',
         fr: 'La côte nord de la Manche était la principale interface de la Gaule carolingienne avec le commerce de la mer du Nord. L\'emporium de Quentovic — près de l\'actuel Étaples — gérait le commerce transmanche avec l\'Angleterre anglo-saxonne et les marchands frisons. Charlemagne investit dans la défense côtière, mais après 840 ces rivages exposés devinrent les premières cibles des flottes de raiders scandinaves.',
         it: 'La costa settentrionale della Manica era il principale punto di scambio della Gallia carolingia con il commercio del Mare del Nord. L\'emporion di Quentovic — presso l\'odierna Étaples — gestiva il traffico transmanicano con l\'Inghilterra anglosassone e i mercanti frisoni. Carlo Magno investì nella difesa costiera, ma dopo l\'840 quelle rive esposte furono tra i primi obiettivi delle flotte scandinave di razziatori.',
         de: 'Die Nordküste des Ärmelkanals war im karolingischen Gallien die wichtigste Schnittstelle zum Nordseehandel. Das Quentovic-Handelszentrum – in der Nähe des heutigen Étaples – wickelte den Handel über den Ärmelkanal mit angelsächsischen englischen und friesischen Kaufleuten ab. Karl der Große investierte in die Küstenverteidigung, doch nach 840 wurden diese exponierten Küsten zu Hauptzielen skandinavischer Plünderungsflotten.',
+        nb: 'Den nordlige kanalkysten var det karolingiske galliens viktigste grensesnitt med handelen i Nordsjøen. Emporium ved Quentovic - nær moderne Étaples - håndterte handel på tvers av kanaler med angelsaksiske England og frisiske kjøpmenn. Karl den Store investerte i kystforsvar, men etter 840 ble disse utsatte kystene de første målene for skandinaviske raidflåter.',
+        sv: 'Den norra kanalkusten var karolingiska Galliens huvudsakliga gränssnitt med handeln i Nordsjön. Emporium i Quentovic - nära moderna Étaples - hanterade handel över kanaler med anglosaxiska England och frisiska köpmän. Karl den Store investerade i kustförsvar, men efter 840 blev dessa exponerade stränder de första målen för skandinaviska plundrflottor.',
+        da: 'Den nordlige kanalkyst var det karolingiske Galliens vigtigste grænseflade med handelen i Nordsøen. Emporium i Quentovic - nær moderne Étaples - håndterede handel på tværs af kanaler med angelsaksiske England og frisiske købmænd. Karl den Store investerede i kystforsvar, men efter 840 blev disse blottede kyster de første mål for skandinaviske angrebsflåder.',
       },
     },
   },
   {
     id: 'normandy',
-    name: { en: 'Normandy', fr: 'Normandie', it: 'Normandia', de: 'Normandie' },
+    name: { en: 'Normandy', fr: 'Normandie', it: 'Normandia', de: 'Normandie', nb: 'Normandie', sv: 'Normandie', da: 'Normandiet' },
     layer: 'europe',
     geometryRef: 'region-normandy',
     eraStates: {
@@ -259,22 +331,49 @@ export const atlasRegions: AtlasRegion[] = [
       'royal-new-france': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
       'atlantic-imprint': { visibility: 'faded', borderStyle: 'soft', fillIntent: 'culture' },
     },
+    culturalInfluenceByEra: {
+      'viking-age': [
+        { strand: 'norse', weight: 0.55 },
+        { strand: 'frankish', weight: 0.35 },
+        { strand: 'gallo_roman', weight: 0.1 },
+      ],
+      'norman-origins': [
+        { strand: 'norse', weight: 0.35 },
+        { strand: 'frankish', weight: 0.4 },
+        { strand: 'breton', weight: 0.1 },
+        { strand: 'flemish', weight: 0.05 },
+        { strand: 'gallo_roman', weight: 0.1 },
+      ],
+      'norman-expansion': [
+        { strand: 'frankish', weight: 0.5 },
+        { strand: 'norse', weight: 0.2 },
+        { strand: 'breton', weight: 0.1 },
+        { strand: 'flemish', weight: 0.1 },
+        { strand: 'picard', weight: 0.1 },
+      ],
+    },
     narrativeByEra: {
       'norman-expansion': {
         en: 'After 1066 the duchy sat at the centre of the cross-Channel state. Norman dukes were English kings; barons held estates on both sides of the water. Rouen remained the administrative capital, Caen the favoured ducal seat, and the Seine corridor the economic spine linking Channel ports to Paris-basin trade. When Philip Augustus conquered the duchy in 1204, cross-Channel lordship fractured \u2014 but Norman customary law, cathedral schools, and port towns endured as regional anchors.',
         fr: 'Apr\u00e8s 1066, le duch\u00e9 se trouvait au c\u0153ur de l\u2019\u00c9tat transmanche. Les ducs normands \u00e9taient rois d\u2019Angleterre ; les barons d\u00e9tenaient des domaines des deux c\u00f4t\u00e9s de l\u2019eau. Rouen restait la capitale administrative, Caen le si\u00e8ge ducal privil\u00e9gi\u00e9, et le corridor de la Seine l\u2019\u00e9pine dorsale \u00e9conomique reliant les ports de la Manche au commerce du bassin parisien. Lorsque Philippe Auguste conquit le duch\u00e9 en 1204, les seigneuries transmanche se fractur\u00e8rent \u2014 mais le droit coutumier normand, les \u00e9coles cath\u00e9drales et les villes portuaires perdur\u00e8rent comme ancrages r\u00e9gionaux.',
         de: 'Nach 1066 war das Herzogtum das Herzstück des Kanalstaates. Die normannischen Herzöge waren Könige von England; Barone besaßen Ländereien auf beiden Seiten des Wassers. Rouen blieb die Verwaltungshauptstadt, Caen der privilegierte Herzogssitz und der Seine-Korridor das wirtschaftliche Rückgrat, das die Häfen am Ärmelkanal mit dem Handel im Pariser Becken verband. Als Philipp Augustus 1204 das Herzogtum eroberte, zerfielen die Herrschaften über den Ärmelkanal – doch normannisches Gewohnheitsrecht, Domschulen und Hafenstädte blieben als regionale Anker bestehen.',
+        nb: 'Etter 1066 satt hertugdømmet i sentrum av staten over Kanalen. Normanniske hertuger var engelske konger; baroner holdt gods på begge sider av vannet. Rouen forble den administrative hovedstaden, Caen det foretrukne hertugsetet, og Seine-korridoren den økonomiske ryggraden som forbinder kanalhavnene med handelen i Paris-bassenget. Da Philip Augustus erobret hertugdømmet i 1204, brøt herredømmet over Kanalen - men normannisk sedvanerett, katedralskoler og havnebyer bestod som regionale ankere.',
+        sv: 'Efter 1066 satt hertigdömet i centrum av staten över kanalen. Normandiska hertigar var engelska kungar; baroner höll gods på båda sidor om vattnet. Rouen förblev den administrativa huvudstaden, Caen det gynnade hertigsätet och Seinekorridoren den ekonomiska ryggraden som förbinder kanalhamnarna med handeln med Paris-bassängen. När Philip Augustus erövrade hertigdömet 1204 sprack herrskapet över kanalen - men normandisk sedvanerätt, katedralskolor och hamnstäder bestod som regionala ankare.',
+        da: 'Efter 1066 sad hertugdømmet i centrum af staten på tværs af Kanalen. Normanniske hertuger var engelske konger; baroner holdt godser på begge sider af vandet. Rouen forblev den administrative hovedstad, Caen det foretrukne hertugsæde, og Seine-korridoren den økonomiske rygrad, der forbinder kanalhavne med handel med Paris-bassinet. Da Philip Augustus erobrede hertugdømmet i 1204, gik herredømmet over Kanalen i stykker - men normannisk sædvaneret, katedralskoler og havnebyer bestod som regionale ankre.',
       },
       'age-of-exploration': {
         en: 'By the late fifteenth century, Normandy\u2019s Channel ports \u2014 Dieppe, Honfleur, Rouen \u2014 were launching Atlantic ventures. Shipbuilders, navigators, and merchant-investors from the pays de Caux and the Seine estuary financed and crewed some of the earliest French voyages to the New World, including Verrazzano\u2019s 1524 expedition and Cartier\u2019s 1534 crossing.',
         fr: '\u00c0 la fin du XVe si\u00e8cle, les ports normands de la Manche \u2014 Dieppe, Honfleur, Rouen \u2014 lan\u00e7aient des entreprises atlantiques. Constructeurs, navigateurs et marchands-investisseurs du pays de Caux et de l\u2019estuaire de la Seine financ\u00e8rent et arm\u00e8rent certains des premiers voyages fran\u00e7ais vers le Nouveau Monde, dont l\u2019exp\u00e9dition de Verrazzano en 1524 et la travers\u00e9e de Cartier en 1534.',
         de: 'Ende des 15. Jahrhunderts gründeten die normannischen Häfen am Ärmelkanal – Dieppe, Honfleur, Rouen – atlantische Unternehmen. Bauherren, Seefahrer und Handelsinvestoren aus der Caux-Region und der Seine-Mündung finanzierten und bewaffneten einige der ersten französischen Reisen in die Neue Welt, darunter Verrazzanos Expedition im Jahr 1524 und Cartiers Überfahrt im Jahr 1534.',
+        nb: 'På slutten av det femtende århundre startet Normandies kanalhavner - Dieppe, Honfleur, Rouen - Atlanterhavsprosjekter. Skipsbyggere, navigatører og handelsinvestorer fra pays de Caux og Seine-elvemunningen finansierte og besatte noen av de tidligste franske reisene til den nye verden, inkludert Verrazzanos 1524-ekspedisjon og Cartiers 1534-overfart.',
+        sv: 'I slutet av 1400-talet startade Normandies kanalhamnar - Dieppe, Honfleur, Rouen - Atlantprojekt. Skeppsbyggare, navigatörer och köpmansinvesterare från pays de Caux och Seinemynningen finansierade och bemannade några av de tidigaste franska resorna till den nya världen, inklusive Verrazzanos expedition 1524 och Cartiers korsning 1534.',
+        da: 'I slutningen af ​​det femtende århundrede lancerede Normandiets kanalhavne - Dieppe, Honfleur, Rouen - Atlanterhavsprojekter. Skibsbyggere, navigatører og handelsinvestorer fra pays de Caux og Seine-mundingen finansierede og bemandede nogle af de tidligste franske rejser til den nye verden, herunder Verrazzanos ekspedition i 1524 og Cartiers krydsning i 1534.',
       },
     },
   },
   {
     id: 'perche',
-    name: { en: 'Perche', fr: 'Perche', it: 'Perche', de: 'Barsch' },
+    name: { en: 'Perche', fr: 'Perche', it: 'Perche', de: 'Barsch', nb: 'Perche', sv: 'Perche', da: 'Perche' },
     layer: 'europe',
     geometryRef: 'region-perche',
     eraStates: {
@@ -285,7 +384,7 @@ export const atlasRegions: AtlasRegion[] = [
   },
   {
     id: 'aunis',
-    name: { en: 'Aunis / La Rochelle', fr: 'Aunis / La Rochelle', it: 'Aunis / La Rochelle', de: 'Aunis / La Rochelle' },
+    name: { en: 'Aunis / La Rochelle', fr: 'Aunis / La Rochelle', it: 'Aunis / La Rochelle', de: 'Aunis / La Rochelle', nb: 'Aunis / La Rochelle', sv: 'Aunis / La Rochelle', da: 'Aunis / La Rochelle' },
     layer: 'europe',
     geometryRef: 'region-aunis',
     eraStates: {
@@ -296,7 +395,7 @@ export const atlasRegions: AtlasRegion[] = [
   },
   {
     id: 'brittany',
-    name: { en: 'Brittany', fr: 'Bretagne', it: 'Bretagna', de: 'Bretagne' },
+    name: { en: 'Brittany', fr: 'Bretagne', it: 'Bretagna', de: 'Bretagne', nb: 'Bretagne', sv: 'Bretagne', da: 'Bretagne' },
     layer: 'europe',
     geometryRef: 'region-brittany',
     eraStates: {
@@ -304,10 +403,17 @@ export const atlasRegions: AtlasRegion[] = [
       'new-france-foundations': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
       'royal-new-france': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
     },
+    culturalInfluenceByEra: {
+      'age-of-exploration': [
+        { strand: 'breton', weight: 0.6 },
+        { strand: 'frankish', weight: 0.25 },
+        { strand: 'norse', weight: 0.15 },
+      ],
+    },
   },
   {
     id: 'new-france',
-    name: { en: 'New France', fr: 'Nouvelle-France', it: 'Nuova Francia', de: 'Neues Frankreich' },
+    name: { en: 'New France', fr: 'Nouvelle-France', it: 'Nuova Francia', de: 'Neues Frankreich', nb: 'Nytt Frankrike', sv: 'Nya Frankrike', da: 'Nyt Frankrig' },
     layer: 'americas',
     geometryRef: 'region-new-france',
     eraStates: {
@@ -318,7 +424,7 @@ export const atlasRegions: AtlasRegion[] = [
   },
   {
     id: 'acadia',
-    name: { en: 'Acadia', fr: 'Acadie', it: 'Acadia', de: 'Akadien' },
+    name: { en: 'Acadia', fr: 'Acadie', it: 'Acadia', de: 'Akadien', nb: 'Acadia', sv: 'Acadia', da: 'Acadia' },
     layer: 'americas',
     geometryRef: 'region-acadia',
     eraStates: {
@@ -329,7 +435,7 @@ export const atlasRegions: AtlasRegion[] = [
   },
   {
     id: 'ile-royale',
-    name: { en: 'Île Royale & Île Saint-Jean', fr: 'Île Royale & Île Saint-Jean', it: 'Île Royale e Île Saint-Jean', de: 'Île Royale und Île Saint-Jean' },
+    name: { en: 'Île Royale & Île Saint-Jean', fr: 'Île Royale & Île Saint-Jean', it: 'Île Royale e Île Saint-Jean', de: 'Île Royale und Île Saint-Jean', nb: 'Île Royale og Île Saint-Jean', sv: 'Île Royale och Île Saint-Jean', da: 'Île Royale og Île Saint-Jean' },
     layer: 'americas',
     geometryRef: 'region-ile-royale',
     eraStates: {
@@ -338,7 +444,7 @@ export const atlasRegions: AtlasRegion[] = [
   },
   {
     id: 'atlantic-basin',
-    name: { en: 'North Atlantic', fr: 'Atlantique Nord', it: 'Atlantico del Nord', de: 'Nordatlantik' },
+    name: { en: 'North Atlantic', fr: 'Atlantique Nord', it: 'Atlantico del Nord', de: 'Nordatlantik', nb: 'Nord-Atlanteren', sv: 'Nordatlanten', da: 'Nordatlanten' },
     layer: 'atlantic',
     geometryRef: 'region-atlantic-basin',
     eraStates: {
@@ -350,7 +456,7 @@ export const atlasRegions: AtlasRegion[] = [
   // ── Scandinavian homeland ──────────────────────────────────────────
   {
     id: 'scandinavian-homeland',
-    name: { en: 'Norse Homelands', fr: 'Terres scandinaves', it: 'Terre norrene', de: 'Skandinavische Länder' },
+    name: { en: 'Norse Homelands', fr: 'Terres scandinaves', it: 'Terre norrene', de: 'Skandinavische Länder', nb: 'Norrøne hjemland', sv: 'nordiska hemländer', da: 'nordiske hjemlande' },
     layer: 'europe',
     geometryRef: 'region-scandinavian-homeland',
     eraStates: {
@@ -364,19 +470,25 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'La péninsule scandinave et le Danemark formaient la terre d\'origine des Norrois — une région de communautés maritimes, de raids saisonniers et de réseaux commerciaux longue distance. La pression démographique, l\'ambition politique et la maîtrise de la voile poussèrent l\'expansion nordique à partir de la fin du VIIIe siècle.',
         it: 'La penisola scandinava e la Danimarca formavano la madrepatria norrena — una regione di comunità marinare, razzie stagionali e reti commerciali a lunga distanza. La pressione demografica, l\'ambizione politica e la padronanza della vela spinsero l\'espansione norrena dalla fine dell\'VIII secolo.',
         de: 'Die Skandinavische Halbinsel und Dänemark bildeten die Heimat der Nordmänner – eine Region mit maritimen Gemeinschaften, saisonalen Überfällen und Fernhandelsnetzwerken. Demografischer Druck, politischer Ehrgeiz und die Beherrschung des Segelsports trieben ab Ende des 8. Jahrhunderts die Expansion nach Norden voran.',
+        nb: 'Den skandinaviske halvøya og Danmark dannet det norrøne hjemlandet - en region med sjøfartssamfunn, sesongbaserte raiding og langdistansehandelsnettverk. Befolkningspress, politiske ambisjoner og mestring av seilteknologi drev norrøn ekspansjon utover fra slutten av 800-tallet.',
+        sv: 'Den skandinaviska halvön och Danmark bildade det nordiska hemlandet - en region med sjöfartssamhällen, säsongsbetonade räder och långdistanshandelsnätverk. Befolkningstryck, politisk ambition och behärskning av segelteknik drev norrön expansion utåt från slutet av 800-talet.',
+        da: 'Den skandinaviske halvø og Danmark dannede det nordiske hjemland - en region med søfarende samfund, sæsonbestemte razziaer og langdistancehandelsnetværk. Befolkningspres, politisk ambition og beherskelse af sejlteknologi drev den nordiske ekspansion udad fra slutningen af ​​det 8. århundrede.',
       },
       'viking-age': {
         en: 'At the height of the Viking Age, Scandinavia was the hub of a vast network stretching from Vinland in the west to Baghdad in the east. Danish kings, Norwegian jarls, and Swedish traders operated across different spheres — but all drew strength from the same homeland maritime culture that produced the longship.',
         fr: 'Au sommet de l\'ère viking, la Scandinavie était le centre d\'un vaste réseau s\'étendant de Vinland à l\'ouest jusqu\'à Bagdad à l\'est. Rois danois, jarls norvégiens et marchands suédois opéraient dans des sphères distinctes — mais tous tiraient leur force de la même culture maritime natale qui avait produit le drakkar.',
         it: 'All\'apice dell\'epoca vichinga la Scandinavia era il centro di una vasta rete che andava da Vinland a ovest fino a Bagdad a est. Re danesi, jarl norvegesi e mercanti svedesi operavano in sfere diverse — ma tutti attingevano alla stessa cultura marittima d\'origine che aveva creato la nave lunga.',
         de: 'Auf dem Höhepunkt der Wikingerzeit war Skandinavien das Zentrum eines riesigen Netzwerks, das sich von Vinland im Westen bis nach Bagdad im Osten erstreckte. Dänische Könige, norwegische Jarle und schwedische Kaufleute agierten in unterschiedlichen Bereichen – doch alle schöpften ihre Stärke aus derselben einheimischen maritimen Kultur, die das Langschiff hervorgebracht hatte.',
+        nb: 'På høyden av vikingtiden var Skandinavia navet i et enormt nettverk som strekker seg fra Vinland i vest til Bagdad i øst. Danske konger, norske jarler og svenske handelsmenn opererte på tvers av forskjellige sfærer - men alle hentet styrke fra den samme hjemlandets maritime kultur som produserte langskipet.',
+        sv: 'På höjden av vikingatiden var Skandinavien navet i ett stort nätverk som sträckte sig från Vinland i väster till Bagdad i öster. Danska kungar, norska jarlar och svenska handelsmän opererade över olika sfärer - men alla hämtade kraft från samma hemlands sjöfartskultur som producerade långskeppet.',
+        da: 'På højden af ​​vikingetiden var Skandinavien centrum for et stort netværk, der strakte sig fra Vinland i vest til Bagdad i øst. Danske konger, norske jarler og svenske handelsmænd opererede på tværs af forskellige sfærer - men alle hentede styrke fra den samme hjemlige maritime kultur, der producerede langskibet.',
       },
     },
   },
   // ── Viking-era influence zones (probabilistic, soft geometry) ───────
   {
     id: 'danelaw',
-    name: { en: 'Danelaw', fr: 'Danelaw', it: 'Danelaw', de: 'Danelaw' },
+    name: { en: 'Danelaw', fr: 'Danelaw', it: 'Danelaw', de: 'Danelaw', nb: 'Danelaw', sv: 'Danelaw', da: 'Danelaw' },
     layer: 'europe',
     geometryRef: 'region-danelaw',
     eraStates: {
@@ -389,12 +501,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Après l\'invasion de la Grande Armée païenne en 865, une grande partie de l\'est et du nord de l\'Angleterre passa sous loi et colonisation scandinave — le Danelaw. York (Jórvík) en devint la capitale politique.',
         it: 'Dopo l\'invasione della Grande armata pagana nell\'865, gran parte dell\'Inghilterra orientale e settentrionale passò sotto legge e insediamento scandinavo — il Danelaw. York (Jórvík) ne divenne la capitale politica. Questa zona d\'influenza norrena perdurò fino all\'XI secolo e plasmò la reazione anglosassone che avrebbe infine unificato l\'Inghilterra.',
         de: 'Nach der Invasion der Großen Heidenarmee im Jahr 865 gerieten weite Teile Ost- und Nordenglands unter skandinavische Herrschaft und Besiedlung – die Danelaw. York (Jórvík) wurde seine politische Hauptstadt.',
+        nb: 'Etter at den store hedenske hæren invaderte i 865, falt store deler av det østlige og nordlige England under skandinavisk lov og bosetting - Danelaw. York (Jórvík) ble dens politiske hovedstad. Denne sonen med norrøn innflytelse vedvarte inn i det 11. århundre og formet den angelsaksiske responsen som til slutt skulle forene England.',
+        sv: 'Efter att den stora hedniska armén invaderade 865 föll mycket av östra och norra England under skandinavisk lag och bosättning - Danelaw. York (Jórvík) blev dess politiska huvudstad. Denna zon av nordiskt inflytande bestod in i 1000-talet och formade det anglosaxiska svar som så småningom skulle ena England.',
+        da: 'Efter at den store hedenske hær invaderede i 865, faldt meget af det østlige og nordlige England under skandinavisk lov og bosættelse - Daneloven. York (Jórvík) blev dens politiske hovedstad. Denne zone med nordisk indflydelse bestod ind i det 11. århundrede og formede den angelsaksiske reaktion, der til sidst ville forene England.',
       },
     },
   },
   {
     id: 'norse-gaelic-sphere',
-    name: { en: 'Norse-Gaelic Sphere', fr: 'Sphère norso-gaélique', it: 'Sfera norreno-gaelica', de: 'Norso-Gälische Sphäre' },
+    name: { en: 'Norse-Gaelic Sphere', fr: 'Sphère norso-gaélique', it: 'Sfera norreno-gaelica', de: 'Norso-Gälische Sphäre', nb: 'norrøn-gælisk sfære', sv: 'nordisk-gaeliska sfären', da: 'Nordisk-gælisk sfære' },
     layer: 'europe',
     geometryRef: 'region-norse-gaelic-sphere',
     eraStates: {
@@ -407,12 +522,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les Vikings norvégiens établirent un réseau de bases à travers l\'Écosse, les Hébrides, l\'Irlande et l\'île de Man dès la fin du VIIIe siècle. Dublin, les Orcades et les Hébrides formèrent une sphère de pouvoir maritime où les cultures scandinave et gaélique fusionnèrent.',
         it: 'I vichinghi norvegesi crearono una rete di basi tra Scozia, Ebridi, Irlanda e Isola di Man dalla fine dell\'VIII secolo. Dublino, Orcadi ed Ebridi formarono una sfera di potere marittimo in cui culture norrena e gaelica si fusero in un\'identità norreno-gaelica distinta.',
         de: 'Die norwegischen Wikinger errichteten Ende des 8. Jahrhunderts ein Netzwerk von Stützpunkten in Schottland, den Hebriden, Irland und der Isle of Man. Dublin, Orkney und die Hebriden bildeten eine maritime Machtsphäre, in der skandinavische und gälische Kulturen verschmolzen.',
+        nb: 'Norske vikinger etablerte et nettverk av baser over Skottland, Hebridene, Irland og Isle of Man fra slutten av 800-tallet. Dublin, Orknøyene og Hebridene dannet en maritim maktsfære der norrøne og gæliske kulturer smeltet sammen til en distinkt norrøn-gælisk identitet.',
+        sv: 'Norska vikingar etablerade ett nätverk av baser över Skottland, Hebriderna, Irland och Isle of Man från slutet av 800-talet. Dublin, Orkney och Hebriderna bildade en maritim maktsfär där nordiska och gaeliska kulturer smälte samman till en distinkt nordisk-gaelisk identitet.',
+        da: 'Norske vikinger etablerede et netværk af baser på tværs af Skotland, Hebriderne, Irland og Isle of Man fra slutningen af ​​det 8. århundrede. Dublin, Orkneyerne og Hebriderne dannede en maritim magtsfære, hvor nordiske og gæliske kulturer smeltede sammen til en distinkt nordisk-gælisk identitet.',
       },
     },
   },
   {
     id: 'kievan-rus-zone',
-    name: { en: 'Kievan Rus', fr: 'Rus de Kiev', it: 'Rus\' di Kiev', de: 'Kiewer Rus' },
+    name: { en: 'Kievan Rus', fr: 'Rus de Kiev', it: 'Rus\' di Kiev', de: 'Kiewer Rus', nb: 'Kiev-Russland', sv: 'Kievska Ryssland', da: 'Kievan Rus' },
     layer: 'europe',
     geometryRef: 'region-kievan-rus-zone',
     eraStates: {
@@ -425,13 +543,16 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Les marchands et guerriers varègues établirent le contrôle du réseau fluvial russe dès le milieu du IXe siècle. La dynastie des Riourikides fonda une entité politique s\'étendant de Novgorod à Kiev.',
         it: 'Mercenari e guerrieri variaghi imposero il controllo sulla rete fluviale russa dalla metà del IX secolo. La dinastia dei Rjurikidi fondò un\'entità politica da Novgorod a Kiev, dominando le redditizie rotte commerciali tra Baltico, mondo bizantino e islamico.',
         de: 'Warägerische Kaufleute und Krieger erlangten Mitte des 9. Jahrhunderts die Kontrolle über das russische Flusssystem. Die Riurikiden-Dynastie gründete eine politische Einheit, die sich von Nowgorod bis Kiew erstreckte.',
+        nb: 'Varangianske handelsmenn og krigere etablerte kontroll over det russiske elvesystemet fra midten av 900-tallet. Rurikid-dynastiet grunnla en politikk som strekker seg fra Novgorod til Kiev, og kontrollerte de lukrative handelsrutene mellom Baltikum og den bysantinske og islamske verdenen.',
+        sv: 'Varangiska handlare och krigare etablerade kontroll över det ryska flodsystemet från mitten av 900-talet. Rurikiddynastin grundade en politik som sträckte sig från Novgorod till Kiev och kontrollerade de lukrativa handelsvägarna mellan Östersjön och den bysantinska och islamiska världen.',
+        da: 'Varangianske handlende og krigere etablerede kontrol over det russiske flodsystem fra midten af ​​det 9. århundrede. Rurikid-dynastiet grundlagde en politik, der strakte sig fra Novgorod til Kiev, og kontrollerede de lukrative handelsruter mellem Østersøen og den byzantinske og islamiske verden.',
       },
     },
   },
   // ── Colonial settlement zones (migration explorer) ─────────────────
   {
     id: 'colony-zone-quebec',
-    name: { en: 'Québec Region', fr: 'Région de Québec', it: 'Regione di Québec', de: 'Region Quebec' },
+    name: { en: 'Québec Region', fr: 'Région de Québec', it: 'Regione di Québec', de: 'Region Quebec', nb: 'Québec-regionen', sv: 'Québec-regionen', da: 'Québec-regionen' },
     layer: 'americas',
     geometryRef: 'region-colony-zone-quebec',
     eraStates: {
@@ -444,12 +565,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'La région de Québec — incluant la Côte-de-Beaupré, l\'Île d\'Orléans et Beauport — fut le premier et le plus dense corridor de peuplement.',
         it: 'La regione di Québec — con la Côte-de-Beaupré, l\'Île d\'Orléans e Beauport — fu il primo e più denso corridoio di insediamento, ancorato all\'abitazione fondata da Champlain nel 1608.',
         de: 'Die Region Quebec – einschließlich Côte-de-Beaupré, Île d\'Orléans und Beauport – war der erste und dichteste Siedlungskorridor.',
+        nb: 'Québec-regionen - inkludert Côte-de-Beaupré, Île d\'Orléans og Beauport - var den tidligste og tetteste bosetningskorridoren, forankret av Champlains bolig fra 1608.',
+        sv: 'Québec-regionen – inklusive Côte-de-Beaupré, Île d\'Orléans och Beauport – var den tidigaste och tätaste bosättningskorridoren, förankrad av Champlains bosättning från 1608.',
+        da: 'Québec-regionen - inklusive Côte-de-Beaupré, Île d\'Orléans og Beauport - var den tidligste og tætteste bebyggelseskorridor, forankret af Champlains beboelse fra 1608.',
       },
     },
   },
   {
     id: 'colony-zone-trois-rivieres',
-    name: { en: 'Trois-Rivières Region', fr: 'Région de Trois-Rivières', it: 'Regione di Trois-Rivières', de: 'Region Trois-Rivières' },
+    name: { en: 'Trois-Rivières Region', fr: 'Région de Trois-Rivières', it: 'Regione di Trois-Rivières', de: 'Region Trois-Rivières', nb: 'Trois-Rivières-regionen', sv: 'Trois-Rivières-regionen', da: 'Trois-Rivières-regionen' },
     layer: 'americas',
     geometryRef: 'region-colony-zone-trois-rivieres',
     eraStates: {
@@ -462,12 +586,15 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Fondée en 1634, Trois-Rivières servait de plaque tournante du commerce des fourrures entre Québec et Montréal.',
         it: 'Fondata nel 1634, Trois-Rivières fungeva da snodo del commercio delle pellicce e da ancoraggio intermedio del corridoio del San Lorenzo tra Québec e Montréal.',
         de: 'Trois-Rivières wurde 1634 gegründet und diente als Drehscheibe für den Pelzhandel zwischen Quebec und Montreal.',
+        nb: 'Trois-Rivières ble grunnlagt i 1634 og fungerte som et knutepunkt for pelshandel og midtanker i St. Lawrence-korridoren mellom Québec og Montréal.',
+        sv: 'Trois-Rivières grundades 1634 och fungerade som ett nav för pälshandel och mittankare i St. Lawrence-korridoren mellan Québec och Montréal.',
+        da: 'Trois-Rivières blev grundlagt i 1634 og fungerede som et knudepunkt for pelshandel og midteranker i St. Lawrence-korridoren mellem Québec og Montréal.',
       },
     },
   },
   {
     id: 'colony-zone-montreal',
-    name: { en: 'Montréal Region', fr: 'Région de Montréal', it: 'Regione di Montréal', de: 'Region Montreal' },
+    name: { en: 'Montréal Region', fr: 'Région de Montréal', it: 'Regione di Montréal', de: 'Region Montreal', nb: 'Montréal-regionen', sv: 'Montréal-regionen', da: 'Montréal-regionen' },
     layer: 'americas',
     geometryRef: 'region-colony-zone-montreal',
     eraStates: {
@@ -480,6 +607,9 @@ export const atlasRegions: AtlasRegion[] = [
         fr: 'Ville-Marie (Montréal) fut fondée en 1642 comme avant-poste missionnaire et devint la porte d\'entrée vers l\'intérieur des fourrures.',
         it: 'Ville-Marie (Montréal) fu fondata nel 1642 come avamposto missionario e divenne l\'ancora occidentale della colonia, porta verso l\'interno del commercio delle pellicce.',
         de: 'Ville-Marie (Montreal) wurde 1642 als Missionsaußenposten gegründet und wurde zum Tor zum Pelzinneren.',
+        nb: 'Ville-Marie (Montréal) ble grunnlagt i 1642 som en misjonærpost og vokste til koloniens vestlige anker, inngangsporten til pelshandelens indre.',
+        sv: 'Ville-Marie (Montréal) grundades 1642 som en missionärsutpost och växte till kolonins västra ankare, porten till pälshandelns inre.',
+        da: 'Ville-Marie (Montréal) blev grundlagt i 1642 som en missionærpost og voksede til koloniens vestlige anker, porten til pelshandelens indre.',
       },
     },
   },

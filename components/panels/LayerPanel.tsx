@@ -332,7 +332,7 @@ const VikingAdnaFilterControls = memo(function VikingAdnaFilterControls() {
 });
 
 const CATEGORY_SECTIONS: { key: string; label: string; categories: string[] }[] = [
-  { key: 'atlas', label: 'Atlas', categories: ['borders', 'labels', 'routes', 'settlements', 'events', 'terrain', 'claims'] },
+  { key: 'atlas', label: 'Atlas', categories: ['borders', 'labels', 'routes', 'settlements', 'events', 'terrain', 'claims', 'identity'] },
   { key: 'prehistory', label: 'Pre-Roman', categories: ['prehistory'] },
   { key: 'norman-expansion', label: 'Norman Expansion (911–1204+)', categories: ['norman-expansion'] },
   { key: 'normandy', label: 'Viking Normandy', categories: ['normandy'] },
