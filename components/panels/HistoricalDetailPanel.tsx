@@ -31,6 +31,7 @@ import {
   BADGE_CLASSES,
 } from '@/lib/person-display';
 import { t } from '@/lib/ui-strings';
+import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { emitProgressEvent } from '@/lib/progress';
 import type { AtlasEventType } from '@/lib/progress';
 import type { SelectionKind } from '@/types';
@@ -2023,23 +2024,32 @@ const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
 
 function CollapsedRail({ onExpand }: { onExpand: () => void }) {
   const locale = useMapStore((s) => s.locale);
+  const tooltipLabel = t('detail.fab.tooltipLabel', locale);
+  const tooltipHint = t('detail.fab.tooltipHint', locale);
   return (
-    <motion.button
-      initial={{ opacity: 0, x: 8 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 8 }}
-      transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-      onClick={onExpand}
-      aria-expanded={false}
-      aria-label={t('detail.fab.aria', locale)}
-      className="z-30 flex h-full w-10 flex-shrink-0 flex-col items-center justify-center border-l border-chrome-border-strong bg-chrome-popover/80 hover:bg-chrome-popover transition-colors duration-150 cursor-pointer"
-      style={{
-        backdropFilter: 'blur(40px) saturate(1.2)',
-        WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
-      }}
+    <ChromeIconTooltip
+      label={tooltipLabel}
+      hint={tooltipHint}
+      wrapperClassName="flex h-full w-10 flex-shrink-0"
     >
-      <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
-    </motion.button>
+      <motion.button
+        type="button"
+        initial={{ opacity: 0, x: 8 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 8 }}
+        transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+        onClick={onExpand}
+        aria-expanded={false}
+        aria-label={t('detail.fab.aria', locale)}
+        className="z-30 flex h-full w-full flex-col items-center justify-center border-l border-chrome-border-strong bg-chrome-popover/80 hover:bg-chrome-popover transition-colors duration-150 cursor-pointer"
+        style={{
+          backdropFilter: 'blur(40px) saturate(1.2)',
+          WebkitBackdropFilter: 'blur(40px) saturate(1.2)',
+        }}
+      >
+        <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
+      </motion.button>
+    </ChromeIconTooltip>
   );
 }
 
@@ -2095,41 +2105,46 @@ function MobileDetailReopenFab({ onReopen }: { onReopen: () => void }) {
     ? '0 0 10px rgba(212,175,55,0.18), 0 2px 12px rgba(0,0,0,0.25)'
     : undefined;
 
+  const tooltipLabel = t('detail.fab.tooltipLabel', locale);
+  const tooltipHint = t('detail.fab.tooltipHint', locale);
+
   return createPortal(
     <div className="fixed top-52 right-3 z-40 pointer-events-auto flex flex-col items-end gap-2">
-      <motion.button
-        type="button"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={
-          reducedMotion
-            ? { opacity: 1, scale: 1 }
-            : {
-                opacity: 1,
-                scale: 1,
-                boxShadow: [
-                  '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
-                  '0 0 16px rgba(212,175,55,0.28), 0 2px 12px rgba(0,0,0,0.25)',
-                  '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
-                ],
-              }
-        }
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={
-          reducedMotion
-            ? { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }
-            : {
-                opacity: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
-                scale: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
-                boxShadow: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-              }
-        }
-        onClick={handleClick}
-        aria-label={t('detail.fab.aria', locale)}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-chrome-popover/95 backdrop-blur-xl touch-target"
-        style={pulseBoxShadow ? { boxShadow: pulseBoxShadow } : undefined}
-      >
-        <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
-      </motion.button>
+      <ChromeIconTooltip label={tooltipLabel} hint={tooltipHint}>
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={
+            reducedMotion
+              ? { opacity: 1, scale: 1 }
+              : {
+                  opacity: 1,
+                  scale: 1,
+                  boxShadow: [
+                    '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
+                    '0 0 16px rgba(212,175,55,0.28), 0 2px 12px rgba(0,0,0,0.25)',
+                    '0 0 8px rgba(212,175,55,0.12), 0 2px 12px rgba(0,0,0,0.25)',
+                  ],
+                }
+          }
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={
+            reducedMotion
+              ? { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }
+              : {
+                  opacity: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+                  scale: { duration: 0.2, ease: [0.25, 0.1, 0.25, 1] },
+                  boxShadow: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+                }
+          }
+          onClick={handleClick}
+          aria-label={t('detail.fab.aria', locale)}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-chrome-popover/95 backdrop-blur-xl touch-target"
+          style={pulseBoxShadow ? { boxShadow: pulseBoxShadow } : undefined}
+        >
+          <BookOpen className="h-[18px] w-[18px] text-gold/90" strokeWidth={1.6} />
+        </motion.button>
+      </ChromeIconTooltip>
 
       <AnimatePresence>
         {showHint && (

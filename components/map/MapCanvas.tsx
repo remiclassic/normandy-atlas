@@ -1385,8 +1385,13 @@ export default function MapCanvas() {
             });
           }
           if (era?.summary && onboardingPhase === 'complete') {
-            const expandDetail = storyMode ? storyStepIndex === 0 : false;
-            selectFeature(eraId, 'era-info', { expandDetail });
+            if (storyMode) {
+              selectFeature(eraId, 'era-info', {
+                expandDetail: storyStepIndex === 0,
+              });
+            } else {
+              selectFeature(eraId, 'era-info');
+            }
           }
         }
 

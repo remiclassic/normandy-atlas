@@ -1565,6 +1565,18 @@ const STRINGS = {
     es: 'Abrir la historia y los detalles del lugar',
     it: 'Apri la storia e i dettagli del luogo',
   },
+  'detail.fab.tooltipLabel': {
+    en: 'Information panel',
+    fr: 'Panneau d’information',
+    es: 'Panel de información',
+    it: 'Pannello informativo',
+  },
+  'detail.fab.tooltipHint': {
+    en: 'Expand for context and details about your current map selection.',
+    fr: 'Agrandir pour le contexte et les détails de la sélection sur la carte.',
+    es: 'Amplía para ver contexto y detalles de tu selección en el mapa.',
+    it: 'Espandi per contesto e dettagli sulla selezione sulla mappa.',
+  },
   // --- Story Launcher ---
   'launcher.open': {
     en: 'Explore Stories',

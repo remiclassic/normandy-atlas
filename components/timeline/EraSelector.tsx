@@ -441,7 +441,7 @@ export default function EraSelector({
     (id: string) => {
       if (storyMode) return;
       setEra(id);
-      selectFeature(id, 'era-info', { expandDetail: false });
+      selectFeature(id, 'era-info');
     },
     [setEra, selectFeature, storyMode],
   );
@@ -450,28 +450,28 @@ export default function EraSelector({
     if (storyMode || isFirst) return;
     const id = flatIds[activeIndex - 1];
     setEra(id);
-    selectFeature(id, 'era-info', { expandDetail: false });
+    selectFeature(id, 'era-info');
   }, [storyMode, isFirst, setEra, selectFeature, flatIds, activeIndex]);
 
   const goNext = useCallback(() => {
     if (storyMode || isLast) return;
     const id = flatIds[activeIndex + 1];
     setEra(id);
-    selectFeature(id, 'era-info', { expandDetail: false });
+    selectFeature(id, 'era-info');
   }, [storyMode, isLast, setEra, selectFeature, flatIds, activeIndex]);
 
   const goFirst = useCallback(() => {
     if (storyMode || flatIds.length === 0) return;
     const id = flatIds[0];
     setEra(id);
-    selectFeature(id, 'era-info', { expandDetail: false });
+    selectFeature(id, 'era-info');
   }, [storyMode, setEra, selectFeature, flatIds]);
 
   const goLast = useCallback(() => {
     if (storyMode || flatIds.length === 0) return;
     const id = flatIds[flatIds.length - 1];
     setEra(id);
-    selectFeature(id, 'era-info', { expandDetail: false });
+    selectFeature(id, 'era-info');
   }, [storyMode, setEra, selectFeature, flatIds]);
 
   useEffect(() => {

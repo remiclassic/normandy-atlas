@@ -407,11 +407,28 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
     })),
 
   selectFeature: (id, kind, options) =>
-    set({
-      selectedFeatureId: id,
-      selectionKind: id ? (kind ?? 'region') : null,
-      detailPanelOpen: id !== null,
-      detailPanelExpanded: id !== null ? (options?.expandDetail ?? true) : true,
+    set((s) => {
+      if (id === null) {
+        return {
+          selectedFeatureId: null,
+          selectionKind: null,
+          detailPanelOpen: false,
+          detailPanelExpanded: true,
+        };
+      }
+      const hadPriorSelection = s.selectedFeatureId !== null;
+      const detailPanelExpanded =
+        options?.expandDetail !== undefined
+          ? options.expandDetail
+          : hadPriorSelection
+            ? s.detailPanelExpanded
+            : true;
+      return {
+        selectedFeatureId: id,
+        selectionKind: kind ?? 'region',
+        detailPanelOpen: true,
+        detailPanelExpanded,
+      };
     }),
 
   hoverFeature: (id, kind) =>

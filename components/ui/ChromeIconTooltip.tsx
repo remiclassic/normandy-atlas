@@ -18,12 +18,15 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
   hint,
   children,
   wrapperRole,
+  wrapperClassName,
 }: {
   label: string;
   hint?: string;
   children: ReactNode;
   /** e.g. "presentation" when wrapping tabs so role="tablist" lists the buttons correctly */
   wrapperRole?: 'presentation';
+  /** Override default `inline-flex items-center` on the hover/focus target wrapper */
+  wrapperClassName?: string;
 }) {
   const wrapRef = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
@@ -128,7 +131,7 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
       <span
         ref={wrapRef}
         role={wrapperRole}
-        className="inline-flex items-center"
+        className={wrapperClassName ?? 'inline-flex items-center'}
         onPointerEnter={show}
         onPointerLeave={scheduleHide}
         onFocusCapture={show}
