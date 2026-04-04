@@ -1979,7 +1979,7 @@ export default function MapCanvas() {
         <StoryIllustrationMapOverlay mapRef={mapRef} mapInstanceGeneration={mapInstanceGeneration} />
         <StoryImageGallery />
         {!storyEraIntroActive ? (
-          <div className="pointer-events-auto absolute top-3 right-3 z-20">
+          <div className="pointer-events-auto absolute top-3 left-3 z-20 md:left-auto md:right-3">
             <TerrainToggle />
           </div>
         ) : null}
