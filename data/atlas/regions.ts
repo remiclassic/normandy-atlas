@@ -169,6 +169,36 @@ export const atlasRegions: AtlasRegion[] = [
     },
   },
   {
+    id: 'baiocasses',
+    name: { en: 'Baiocasses', fr: 'Baïocasses', it: 'Baiocassi', de: 'Baïocassen', nb: 'Bajocassere', sv: 'Bajocassiska', da: 'Baiocassere' },
+    layer: 'europe',
+    geometryRef: 'region-baiocasses',
+    eraStates: {
+      'iron-age-gaul': { visibility: 'emphasized', borderStyle: 'soft', fillIntent: 'polity' },
+      'roman-gaul': { visibility: 'normal', borderStyle: 'soft', fillIntent: 'culture' },
+    },
+    narrativeByEra: {
+      'iron-age-gaul': {
+        en: 'The Bajocasses (Baïocasses) were a Celtic people of Armorica, centred on the Bessin and western Calvados — between the Unelli on the Cotentin and the Veliocasses inland. They are not named in Caesar’s Gallic War but appear from the 1st century AD onward and were counted among the Armorican peoples.',
+        fr: 'Les Baïocasses formaient un peuple armoricain, centré sur le Bessin et l’ouest du Calvados — entre les Unelles du Cotentin et les Véliocasses à l’intérieur. Ils n’apparaissent pas dans la guerre des Gaules de César mais sont attestés dès le Ier siècle apr. J.-C. parmi les peuples armoricains.',
+        it: 'I Baiocassi erano un popolo celtico dell’Armorica, incentrato sul Bessin e sull’ovest del Calvados — tra gli Unelli della penisola del Cotentin e i Veliocassi nell’entroterra. Non compaiono nel Commentarii di Cesare ma sono attestati dal I secolo d.C. tra i popoli armoricani.',
+        de: 'Die Baïocassen waren ein keltisches Volk der Armorika, im Kern Bessin und westliches Calvados — zwischen den Unellen auf Cotentin und den Veliocassen im Landesinnern. Sie fehlen bei Caesar, werden aber ab dem 1. Jahrhundert n. Chr. bezeugt und zu den armorikanischen Völkern gezählt.',
+        nb: 'Bajocassere var et keltisk folk fra Armorica, sentrert på Bessin og vestlige Calvados — mellom Unelli på Cotentin og Veliocasses innenlands. De nevnes ikke i Cæsars galliske krig, men er attestert fra 1. århundre e.Kr. blant de armoriske folkene.',
+        sv: 'Bajocasserna var ett keltiskt folk i Armorika, centrerat kring Bessin och västra Calvados — mellan Unelli på Cotentin och Veliocasses i inlandet. De nämns inte i Caesars galliska krig men är belagda från 100-talet e.Kr. bland de armorska folken.',
+        da: 'Baiocasserne var et keltisk folk i Armorica, centreret omkring Bessin og vestlige Calvados — mellem Unelli på Cotentin og Veliocasses i indlandet. De nævnes ikke i Cæsars galliske krig, men er attesteret fra 1. århundrede e.Kr. blandt de armorikanske folk.',
+      },
+      'roman-gaul': {
+        en: 'Their civitas had its chef-lieu at Augustodurum (Bayeux), within the imperial province of Lugdunensis Secunda (part of the wider Lugdunensis diocese). Roman urban planning and public monuments reshaped the oppidum zone while older tribal identities lingered under a thin imperial veneer well into Late Antiquity.',
+        fr: 'Leur civitas avait pour chef-lieu Augustodurum (Bayeux), dans la province impériale de la Lyonnaise seconde (Lugdunensis Secunda), au sein du vaste ressort de la Gaule Lyonnaise. L’urbanisme et les monuments publics romains remodelèrent l’oppidum tandis que l’identité tribale persistait sous un vernis impérial jusqu’à l’Antiquité tardive.',
+        it: 'La civitas aveva il capoluogo ad Augustodurum (Bayeux), nella provincia imperiale della Lugdunensis secunda. L’impianto urbano romano e i monumenti pubblici ridisegnarono l’area dell’oppidum mentre identità tribali più antiche sopravvivevano sotto una sottile patina imperiale fino alla tarda antichità.',
+        de: 'Ihre Civitas hatte in Augustodurum (Bayeux) ihren Hauptort, innerhalb der Provinz Lugdunensis Secunda. Römische Stadtplanung und öffentliche Bauten formten die Oppidum-Zone, während ältere Stammesidentitäten bis in die Spätantike unter einer dünnen römischen Oberfläche fortwirkten.',
+        nb: 'Civitasen hadde sete i Augustodurum (Bayeux), i provinsen Lugdunensis Secunda. Romersk byplan og monumenter formet området mens eldre stammeidentiteter bleknet sakte under et tynt romersk lag inn i senantikken.',
+        sv: 'Civitas hade Augustodurum (Bayeux) som huvudort, inom provinsen Lugdunensis Secunda. Romersk stadsplan och monument omformade området medan äldre stamidentiteter fortfarande märktes under ett tunt romerskt skikt in i senantiken.',
+        da: 'Civitas havde Augustodurum (Bayeux) som chef-lieu, i provinsen Lugdunensis Secunda. Romersk byplanlægning og monumenter omformede området, mens ældre stammeidentiteter hang ved under et tyndt romersk lag langt ind i senantikken.',
+      },
+    },
+  },
+  {
     id: 'lugdunensis-secunda',
     name: { en: 'Lugdunensis Secunda', fr: 'Lyonnaise seconde', it: 'Lugdunensis secunda', de: 'Zweite Lyonnaise', nb: 'Lugdunensis Secunda', sv: 'Lugdunensis Secunda', da: 'Lugdunensis Secunda' },
     layer: 'europe',

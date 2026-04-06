@@ -44,7 +44,9 @@ export const settlements: Settlement[] = [
     coordinates: [-0.7033, 49.2764],
     eraVisibility: [...MEDIEVAL_AND_LATER],
     regionId: 'normandy',
-    description: 'Home of the famous Tapestry depicting the Norman Conquest.',
+    description: 'Medieval cathedral city, famous for the Bayeux Tapestry; in antiquity the civitas capital Augustodurum of the Baiocasses.',
+    historicalNotes:
+      'The Bajocasses (Baïocasses), a Celtic people of Armorica, left a deep imprint on the Bessin and western Calvados. Their name may mean “those with blond hair,” alluding to Celtic hairstyle, though the etymology is uncertain. They are absent from Julius Caesar’s Gallic War but appear in sources from the 1st century AD, neighboured the Unelli and Viducasses, and belonged to the Armorican alliance.\n\nUnder Rome their territory fell within Lugdunensis Secunda (the wider “Lyonnaise” diocesan group), with its chef-lieu at Augustodurum — the city plan of the walled Gallo-Roman town illustrates how the settlement was laid out on the ground.',
     category: 'city',
   },
   {

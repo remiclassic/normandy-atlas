@@ -15,6 +15,15 @@ const CORE_READINGS: NormanReadingEntry[] = [
     tags: ['essay', 'identity'],
   },
   {
+    slug: 'y-haplogroup-g-norman-context',
+    title: 'Y-Haplogroup G and Norman Ancestry',
+    description:
+      'Why testers with Norman stories see haplogroup G — Normandy, Sicily, New France, Levant/Crusades, and how to interpret Y-DNA without overclaiming.',
+    defaultEraId: 'norman-expansion',
+    mapFocus: { center: [8, 44.5], zoom: 4.35 },
+    tags: ['essay', 'identity', 'genetics'],
+  },
+  {
     slug: 'normandy-from-grant-to-duchy',
     title: 'Normandy: From Grant to Duchy',
     description:

@@ -2983,6 +2983,33 @@ export const STORY_BEAT_ILLUSTRATIONS: Partial<
     },
   ],
 
+  'rg-arc-augustodurum-baiocasses': [
+    {
+      src: '/story/roman-gaul/augustodurum-city-plan.png',
+      alt: {
+        en: 'Schematic plan of Gallo-Roman Augustodurum (Bayeux) — walls, street grid, and major insulae as traditionally reconstructed for the civitas capital of the Baiocasses',
+        fr: 'Plan schématique d’Augustodurum gallo-romain (Bayeux) — enceinte, trame viaire et îlots majeurs, restitués pour le chef-lieu de civitas des Baïocasses',
+        es: 'Plano esquemático de la Augustodurum gala-romana (Bayeux) — muralla, trama viaria e insulae, según la reconstrucción habitual de la capital de la civitas de los Baiocases',
+        it: 'Pianta schematica della Augustodurum gallo-romana (Bayeux) — mura, reticolo stradale e isolati, come di consueto restituiti per il capoluogo di civitas dei Baiocassi',
+        de: 'Schematischer Plan des gallo-römischen Augustodurum (Bayeux) — Mauern, Straßenraster und Insulae, wie für die Civitas-Hauptstadt der Baïocassen üblich rekonstruiert',
+        nb: 'Skjematisk plan over gallo-romerske Augustodurum (Bayeux) — voller, gatenett og bykvartaler slik de ofte er rekonstruert for Bajocassenes civitas-hovedstad',
+        sv: 'Schematisk plan över gallo-romerska Augustodurum (Bayeux) — murar, gatunät och kvarter i den typiska rekonstruktionen av Baiocassernas civitas-huvudort',
+        da: 'Skematisk plan over gallo-romerske Augustodurum (Bayeux) — volde, gadeforløb og bykvarters som traditionelt rekonstrueret for Baiocassernes civitas-hovedstad',
+      },
+      credit: {
+        en: 'Historical reconstruction / cartographic source — verify provenance for your edition',
+        fr: 'Reconstitution / source cartographique — vérifier la provenance pour votre édition',
+        es: 'Reconstrucción / fuente cartográfica — verificar procedencia en su edición',
+        it: 'Ricostruzione / fonte cartografica — verificare la provenienza per la propria edizione',
+        de: 'Rekonstruktion / kartografische Vorlage — Herkunft für Ihre Ausgabe prüfen',
+        nb: 'Historisk rekonstruksjon / kartkilde — bekreft proveniens for din utgave',
+        sv: 'Historisk rekonstruktion / kartkälla — kontrollera proveniens för din utgåva',
+        da: 'Historisk rekonstruktion / kortkilde — bekræft proveniens for din udgave',
+      },
+      placeId: 'bayeux',
+    },
+  ],
+
   'rg-arc-saxon-shore': [
     {
       src: '/story/roman-gaul/saxon-shore-fort.jpg',

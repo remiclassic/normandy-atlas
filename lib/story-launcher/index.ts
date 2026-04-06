@@ -1,4 +1,8 @@
-export { buildStoryLauncherModel } from './build-story-launcher-model';
+export {
+  buildStoryLauncherModel,
+  getContextualStoryItems,
+  getEraFlagshipStoryItem,
+} from './build-story-launcher-model';
 export type {
   StoryLauncherContextInput,
   StoryLaunchAction,

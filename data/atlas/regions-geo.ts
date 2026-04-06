@@ -201,6 +201,34 @@ export const atlasRegionsGeoJson: RegionFeatureCollection = {
     {
       type: 'Feature',
       properties: {
+        id: 'baiocasses',
+        name: 'Baiocasses',
+        namesByEra: {
+          'iron-age-gaul': 'Bajocasses',
+          'roman-gaul': 'Civitas Baiocassium',
+        },
+        color: '#4a7d8c',
+      },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-1.02, 49.35],
+            [-0.55, 49.35],
+            [-0.26, 49.3],
+            [-0.2, 49.15],
+            [-0.2, 48.95],
+            [-0.55, 48.85],
+            [-0.85, 48.85],
+            [-1.02, 49.05],
+            [-1.02, 49.35],
+          ],
+        ],
+      },
+    },
+    {
+      type: 'Feature',
+      properties: {
         id: 'lugdunensis-secunda',
         name: 'Lugdunensis Secunda',
         namesByEra: {

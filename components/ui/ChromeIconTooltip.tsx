@@ -19,6 +19,7 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
   children,
   wrapperRole,
   wrapperClassName,
+  placement = 'bottom',
 }: {
   label: string;
   hint?: string;
@@ -27,6 +28,8 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
   wrapperRole?: 'presentation';
   /** Override default `inline-flex items-center` on the hover/focus target wrapper */
   wrapperClassName?: string;
+  /** `top`: tip sits above the target (avoids clipping near the bottom of the viewport). */
+  placement?: 'top' | 'bottom';
 }) {
   const wrapRef = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
@@ -87,6 +90,17 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
     setPortalReady(true);
   }, []);
 
+  const tipHorizontalLeft =
+    typeof window !== 'undefined'
+      ? Math.max(
+          8,
+          Math.min(
+            (rect?.left ?? 0) + (rect?.width ?? 0) / 2 - TOOLTIP_WIDTH / 2,
+            window.innerWidth - TOOLTIP_WIDTH - 8,
+          ),
+        )
+      : 8;
+
   const tip =
     portalReady && typeof document !== 'undefined'
       ? createPortal(
@@ -94,25 +108,35 @@ export const ChromeIconTooltip = memo(function ChromeIconTooltip({
             {visible && rect ? (
               <motion.div
                 key="chrome-tip"
-                initial={{ opacity: 0, y: -4, scale: 0.96 }}
+                initial={
+                  placement === 'top'
+                    ? { opacity: 0, scale: 0.96, y: 6 }
+                    : { opacity: 0, y: -4, scale: 0.96 }
+                }
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -4, scale: 0.96 }}
+                exit={
+                  placement === 'top'
+                    ? { opacity: 0, scale: 0.96, y: 6 }
+                    : { opacity: 0, y: -4, scale: 0.96 }
+                }
                 transition={{ duration: 0.12 }}
                 role="tooltip"
                 className="pointer-events-none fixed z-[9999] rounded-lg border border-chrome-border-strong bg-chrome-popover px-3.5 py-2.5"
                 style={{
-                  left: Math.max(
-                    8,
-                    Math.min(
-                      rect.left + rect.width / 2 - TOOLTIP_WIDTH / 2,
-                      window.innerWidth - TOOLTIP_WIDTH - 8,
-                    ),
-                  ),
-                  top: rect.bottom + 8,
+                  left: tipHorizontalLeft,
                   width: TOOLTIP_WIDTH,
+                  ...(placement === 'top'
+                    ? {
+                        bottom: window.innerHeight - rect.top + 8,
+                      }
+                    : {
+                        top: rect.bottom + 8,
+                      }),
                   backdropFilter: 'blur(24px) saturate(1.2)',
                   boxShadow:
-                    '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
+                    placement === 'top'
+                      ? '0 -8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)'
+                      : '0 8px 32px var(--color-chrome-tooltip-shadow), 0 0 0 1px var(--color-chrome-tooltip-ring)',
                 }}
               >
                 <p className="text-[12px] font-semibold leading-tight text-parchment">{label}</p>

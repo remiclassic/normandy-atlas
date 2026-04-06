@@ -58,6 +58,8 @@ import { CommandPaletteHeaderTrigger } from '@/components/command-palette/Comman
 import AncestryJourneyMapDock from '@/components/ancestry/AncestryJourneyMapDock';
 import NormanStoryMode from '@/components/norman-identity/NormanStoryMode';
 import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
+import { getEraFlagshipStoryItem } from '@/lib/story-launcher';
+import { readStoryProgressMap, arcIdToProgressKey } from '@/lib/story-progress';
 
 export default function AtlasHomeShell() {
   const router = useRouter();
@@ -80,8 +82,15 @@ export default function AtlasHomeShell() {
   const [storyLibraryBootstrap, setStoryLibraryBootstrap] = useState<{
     focusProgressKey?: string;
     openDetail?: boolean;
+    focusEraId?: string;
   } | null>(null);
   const openStoryLibrary = useCallback(() => setStoryLibraryOpen(true), []);
+  const openStoryLibraryFromLauncher = useCallback(() => {
+    setStoryLibraryOpen(true);
+    setStoryLibraryBootstrap({
+      focusEraId: useMapStore.getState().eraId,
+    });
+  }, []);
   const closeStoryLibrary = useCallback(() => {
     setStoryLibraryOpen(false);
     setStoryLibraryBootstrap(null);
@@ -96,6 +105,7 @@ export default function AtlasHomeShell() {
       setStoryLibraryBootstrap({
         focusProgressKey: req.focusProgressKey,
         openDetail: req.openDetail,
+        focusEraId: req.focusEraId,
       });
       useMapStore.getState().clearStoryLibraryRequest();
     });
@@ -107,6 +117,34 @@ export default function AtlasHomeShell() {
   const storyLauncherCtx = useMemo(
     () => ({ open: openStoryLauncher, close: closeStoryLauncher, isOpen: storyLauncherOpen }),
     [openStoryLauncher, closeStoryLauncher, storyLauncherOpen],
+  );
+
+  const handleStartFlagshipFromMap = useCallback(() => {
+    const eraId = useMapStore.getState().eraId;
+    const item = getEraFlagshipStoryItem({ eraId, locale });
+    if (!item || item.launch.type !== 'story') {
+      openStoryLauncher();
+      return;
+    }
+    const key = arcIdToProgressKey(item.launch.arcId);
+    const progress = readStoryProgressMap()[key];
+    const isResumable = Boolean(
+      progress && !progress.completed && progress.lastStep > 0,
+    );
+    const stepIndex = isResumable && progress ? progress.lastStep : 0;
+    useMapStore.getState().startStory(item.launch.arcId, { stepIndex });
+  }, [locale, openStoryLauncher]);
+
+  const openStoryInLibraryFromLauncher = useCallback(
+    (input: { progressKey: string }) => {
+      closeStoryLauncher();
+      setStoryLibraryOpen(true);
+      setStoryLibraryBootstrap({
+        focusEraId: useMapStore.getState().eraId,
+        focusProgressKey: input.progressKey,
+      });
+    },
+    [closeStoryLauncher],
   );
 
   const storyLibraryCloseRef = useRef<HTMLButtonElement>(null);
@@ -510,8 +548,14 @@ export default function AtlasHomeShell() {
             }`}
           >
             <CinematicFlythroughBar />
-            <StoryModeBar onOpenLauncher={openStoryLauncher} />
-            <MobilePlayDock onOpenLauncher={openStoryLauncher} />
+            <StoryModeBar
+              onOpenLauncher={openStoryLauncher}
+              onStartFlagship={handleStartFlagshipFromMap}
+            />
+            <MobilePlayDock
+              onOpenLauncher={openStoryLauncher}
+              onStartFlagship={handleStartFlagshipFromMap}
+            />
           </div>
           {!storyEraIntroActive && <AncestryJourneyMapDock />}
         </div>
@@ -520,7 +564,8 @@ export default function AtlasHomeShell() {
         <StoryLauncherSheet
           open={storyLauncherOpen}
           onClose={closeStoryLauncher}
-          onBrowseAll={openStoryLibrary}
+          onBrowseAll={openStoryLibraryFromLauncher}
+          onOpenStoryInLibrary={openStoryInLibraryFromLauncher}
         />
         <StoryLibraryPanel
           open={storyLibraryOpen}

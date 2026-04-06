@@ -19,5 +19,6 @@ Charter volumes (national and regional), **Regesta** series, and digital finding
 ### Browse the hubs
 
 - [Themes in Norman identity](/norman-readings/norman-identity-themes)
+- [Y-Haplogroup G and Norman Ancestry](/norman-readings/y-haplogroup-g-norman-context) (genetic genealogy framing)
 - [Normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy)
 - [Norman England](/norman-readings/norman-england-conquest-and-governance)

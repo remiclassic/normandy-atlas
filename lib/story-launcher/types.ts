@@ -34,11 +34,15 @@ export type StoryLauncherItemKind =
 export interface StoryLauncherItem {
   id: string;
   title: string;
+  /** Arc name without “Continue” prefix — for poster hero headline. */
+  heroHeadline?: string;
   subtitle?: string;
   kind: StoryLauncherItemKind;
   launch: StoryLaunchAction;
   badge?: string;
   thumb?: string | null;
+  /** Wide hero art (thumb or first illustrated beat), for launcher featured treatment. */
+  posterSrc?: string | null;
   tone?: StoryTone;
   estimatedMinutes?: number;
 }

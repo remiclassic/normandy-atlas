@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars -- section builders share a common signature */
 import type { AtlasLocale } from '@/core/types';
-import { getBeatCount } from '@/core/story/engine';
+import { getBeatCount, getStoryBeats } from '@/core/story/engine';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import {
@@ -19,7 +19,6 @@ import {
 import {
   readStoryProgressMap,
   arcIdToProgressKey,
-  FULL_TIMELINE_PROGRESS_KEY,
   type StoryProgressRecord,
 } from '@/lib/story-progress';
 
@@ -52,6 +51,19 @@ function arcEntryFor(arcId: string): EraArcEntry | undefined {
   return atlasEraArcs.find((a) => a.arcId === arcId);
 }
 
+function posterForMeta(
+  meta: StoryLibraryMeta | undefined,
+  arcId: string | null,
+): string | null {
+  if (!meta) return null;
+  if (meta.thumb) return meta.thumb;
+  const beats = getStoryBeats(arcId);
+  for (const b of beats) {
+    if (b.illustration?.src) return b.illustration.src;
+  }
+  return null;
+}
+
 function progressBadge(
   progress: StoryProgressRecord | undefined,
   locale: AtlasLocale,
@@ -60,6 +72,82 @@ function progressBadge(
   if (progress.completed) return t('launcher.badge.completed', locale);
   if (progress.lastStep > 0) return t('launcher.badge.continue', locale);
   return undefined;
+}
+
+/** Eras covered by the flagship `new-france` story arc (arcId ≠ atlas era id). */
+const NEW_FRANCE_ERA_IDS = new Set([
+  'new-france-foundations',
+  'royal-new-france',
+  'atlantic-imprint',
+]);
+
+const ATLAS_ARC_CATALOG_ORDER = new Map(
+  atlasEraArcs.map((a, i) => [a.arcId, i] as const),
+);
+
+/**
+ * Order arcs so the map era feels “primary”: flagship arc for the era first,
+ * strong deprioritization when story meta `recommendedEraId` points at another era
+ * (e.g. Viking-titled mega-arc on New France).
+ */
+function launcherArcPriority(
+  entry: EraArcEntry,
+  eraId: string,
+  meta: StoryLibraryMeta | undefined,
+  catalogIndex: number,
+): number {
+  let score = 0;
+
+  if (meta?.recommendedEraId && meta.recommendedEraId !== eraId) {
+    score -= 2500;
+  }
+
+  if (meta?.recommendedEraId === eraId) {
+    score += 4000 - Math.min(meta.sortOrder ?? 500, 350);
+  }
+
+  if (entry.arcId === eraId) {
+    score += 5000;
+  }
+
+  if (NEW_FRANCE_ERA_IDS.has(eraId) && entry.arcId === 'new-france') {
+    score += 5000;
+  }
+
+  if (entry.eraIds.length === 1 && entry.eraIds[0] === eraId) {
+    score += 800;
+  }
+
+  score += Math.max(0, 80 - entry.eraIds.length * 15);
+  score -= catalogIndex * 1e-6;
+
+  return score;
+}
+
+function sortArcEntriesForLauncher(entries: EraArcEntry[], eraId: string): EraArcEntry[] {
+  return [...entries]
+    .map((entry, idx) => ({
+      entry,
+      idx,
+      catalogIndex: ATLAS_ARC_CATALOG_ORDER.get(entry.arcId) ?? idx,
+    }))
+    .sort((a, b) => {
+      const pa = launcherArcPriority(
+        a.entry,
+        eraId,
+        metaForArc(a.entry.arcId),
+        a.catalogIndex,
+      );
+      const pb = launcherArcPriority(
+        b.entry,
+        eraId,
+        metaForArc(b.entry.arcId),
+        b.catalogIndex,
+      );
+      if (pb !== pa) return pb - pa;
+      return a.idx - b.idx;
+    })
+    .map((x) => x.entry);
 }
 
 // ---------------------------------------------------------------------------
@@ -72,16 +160,18 @@ type SectionBuilder = (
   heroArcIds: Set<string | null>,
 ) => StoryLauncherSection | null;
 
-/** 1. Contextual / hero cards based on the current era. */
-function buildContextualSection(
+/**
+ * Era-scoped contextual story rows (same ordering as the launcher hero list).
+ * Used by the launcher model and by map idle CTAs that need the flagship arc.
+ */
+export function getContextualStoryItems(
   ctx: StoryLauncherContextInput,
   progressMap: Record<string, StoryProgressRecord>,
-  heroArcIds: Set<string | null>,
-): StoryLauncherSection | null {
+): StoryLauncherItem[] {
   const { eraId, locale } = ctx;
   const items: StoryLauncherItem[] = [];
 
-  const eraArcs = getArcEntriesForEra(eraId);
+  const eraArcs = sortArcEntriesForLauncher(getArcEntriesForEra(eraId), eraId);
 
   for (const arc of eraArcs) {
     const key = arcIdToProgressKey(arc.arcId);
@@ -90,13 +180,15 @@ function buildContextualSection(
     if (meta && getBeatCount(meta.arcId) === 0) continue;
 
     const isResumable = progress && !progress.completed && progress.lastStep > 0;
+    const arcTitle = resolveArcTitle(meta, arc, locale);
     const title = isResumable
-      ? `${t('launcher.contextual.continue', locale)} ${resolveArcTitle(meta, arc, locale)}`
-      : resolveArcTitle(meta, arc, locale);
+      ? `${t('launcher.contextual.continue', locale)} ${arcTitle}`
+      : arcTitle;
 
     items.push({
       id: `ctx-${arc.arcId}`,
       title,
+      heroHeadline: arcTitle,
       subtitle: meta?.hook ? pickI18n(meta.hook, locale) : undefined,
       kind: 'contextual',
       launch: {
@@ -106,13 +198,12 @@ function buildContextualSection(
       },
       badge: progressBadge(progress, locale),
       thumb: meta?.thumb ?? null,
+      posterSrc: posterForMeta(meta, arc.arcId),
       tone: meta?.tone,
       estimatedMinutes: meta?.estimatedMinutes,
     });
-    heroArcIds.add(arc.arcId);
   }
 
-  // If no era-scoped arcs, try the featured / recommended meta rows
   if (items.length === 0) {
     const recommended = storyLibraryMetaList.find(
       (m) => m.recommendedEraId === eraId && m.arcId !== null,
@@ -122,11 +213,13 @@ function buildContextualSection(
       const key = arcIdToProgressKey(recommended.arcId);
       const progress = progressMap[key];
       const isResumable = progress && !progress.completed && progress.lastStep > 0;
+      const arcTitle = resolveArcTitle(recommended, arc, locale);
       items.push({
         id: `ctx-rec-${recommended.arcId}`,
         title: isResumable
-          ? `${t('launcher.contextual.continue', locale)} ${resolveArcTitle(recommended, arc, locale)}`
-          : resolveArcTitle(recommended, arc, locale),
+          ? `${t('launcher.contextual.continue', locale)} ${arcTitle}`
+          : arcTitle,
+        heroHeadline: arcTitle,
         subtitle: recommended.hook ? pickI18n(recommended.hook, locale) : undefined,
         kind: 'contextual',
         launch: {
@@ -136,11 +229,34 @@ function buildContextualSection(
         },
         badge: progressBadge(progress, locale),
         thumb: recommended.thumb ?? null,
+        posterSrc: posterForMeta(recommended, recommended.arcId),
         tone: recommended.tone,
         estimatedMinutes: recommended.estimatedMinutes,
       });
-      heroArcIds.add(recommended.arcId);
     }
+  }
+
+  return items;
+}
+
+/** First contextual story for the era (`null` if none — e.g. flythrough-only eras). */
+export function getEraFlagshipStoryItem(
+  ctx: StoryLauncherContextInput,
+): StoryLauncherItem | null {
+  const items = getContextualStoryItems(ctx, readStoryProgressMap());
+  return items[0] ?? null;
+}
+
+/** 1. Contextual / hero cards based on the current era. */
+function buildContextualSection(
+  ctx: StoryLauncherContextInput,
+  progressMap: Record<string, StoryProgressRecord>,
+  heroArcIds: Set<string | null>,
+): StoryLauncherSection | null {
+  const { locale } = ctx;
+  const items = getContextualStoryItems(ctx, progressMap);
+  for (const item of items) {
+    if (item.launch.type === 'story') heroArcIds.add(item.launch.arcId);
   }
 
   if (items.length === 0) return null;
@@ -154,105 +270,7 @@ function buildContextualSection(
   };
 }
 
-/** 2. Arcs not mapped to the current era in `atlasEraArcs` (vs “In this era”). */
-function buildArcsSection(
-  ctx: StoryLauncherContextInput,
-  progressMap: Record<string, StoryProgressRecord>,
-  heroArcIds: Set<string | null>,
-): StoryLauncherSection | null {
-  const { locale } = ctx;
-  const items: StoryLauncherItem[] = [];
-
-  const sorted = [...storyLibraryMetaList]
-    .filter((m) => m.arcId !== null)
-    .sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99));
-
-  for (const meta of sorted) {
-    if (heroArcIds.has(meta.arcId)) continue;
-    if (getBeatCount(meta.arcId) === 0) continue;
-
-    const arc = arcEntryFor(meta.arcId!);
-    const key = arcIdToProgressKey(meta.arcId);
-    const progress = progressMap[key];
-
-    items.push({
-      id: `arc-${meta.arcId}`,
-      title: resolveArcTitle(meta, arc, locale),
-      subtitle: pickI18n(meta.blurb, locale),
-      kind: 'story_arc',
-      launch: {
-        type: 'story',
-        arcId: meta.arcId,
-        resumeStep: progress && !progress.completed && progress.lastStep > 0
-          ? progress.lastStep
-          : undefined,
-      },
-      badge: progressBadge(progress, locale),
-      thumb: meta.thumb ?? null,
-      tone: meta.tone,
-      estimatedMinutes: meta.estimatedMinutes,
-    });
-  }
-
-  if (items.length === 0) return null;
-
-  return {
-    sectionId: 'arcs',
-    title: t('launcher.section.otherPeriodsArcs', locale),
-    variant: 'list',
-    items,
-    emphasis: 'atlas',
-  };
-}
-
-/** 3. Full Journeys — long-form atlas-wide experiences. */
-function buildJourneysSection(
-  ctx: StoryLauncherContextInput,
-  progressMap: Record<string, StoryProgressRecord>,
-  _heroArcIds: Set<string | null>,
-): StoryLauncherSection | null {
-  const { locale } = ctx;
-  const items: StoryLauncherItem[] = [];
-
-  const journeyMetas = storyLibraryMetaList.filter((m) => m.arcId === null);
-
-  for (const meta of journeyMetas) {
-    if (getBeatCount(meta.arcId) === 0) continue;
-
-    const key = FULL_TIMELINE_PROGRESS_KEY;
-    const progress = progressMap[key];
-
-    items.push({
-      id: 'journey-full',
-      title: meta.displayTitle ? pickI18n(meta.displayTitle, locale) : t('launcher.journey.full', locale),
-      subtitle: pickI18n(meta.blurb, locale),
-      kind: 'full_journey',
-      launch: {
-        type: 'story',
-        arcId: null,
-        resumeStep: progress && !progress.completed && progress.lastStep > 0
-          ? progress.lastStep
-          : undefined,
-      },
-      badge: progressBadge(progress, locale),
-      thumb: meta.thumb ?? null,
-      tone: meta.tone,
-      estimatedMinutes: meta.estimatedMinutes,
-    });
-  }
-
-  if (items.length === 0) return null;
-
-  return {
-    sectionId: 'journeys',
-    title: t('launcher.section.journeys', locale),
-    variant: 'list',
-    items,
-    emphasis: 'atlas',
-  };
-}
-
-/** 4. Cinematic flythroughs visible in the current era. */
+/** 2. Cinematic flythroughs visible in the current era. */
 function buildFlythroughsSection(
   ctx: StoryLauncherContextInput,
   _progressMap: Record<string, StoryProgressRecord>,
@@ -284,12 +302,10 @@ function buildFlythroughsSection(
 // Section registry — ordered; empty sections are omitted.
 // ---------------------------------------------------------------------------
 
-/** Era-scoped blocks first, then atlas-wide catalog (clearer hierarchy in the sheet). */
+/** Era-scoped picks and flythroughs; full arc catalog lives in Story Library. */
 const SECTION_BUILDERS: SectionBuilder[] = [
   buildContextualSection,
   buildFlythroughsSection,
-  buildArcsSection,
-  buildJourneysSection,
 ];
 
 // ---------------------------------------------------------------------------

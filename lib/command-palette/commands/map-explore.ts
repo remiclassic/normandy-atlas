@@ -178,7 +178,11 @@ export const mapExploreCommands: Command[] = [
     group: 'explore',
     isVisible: (ctx) => atlasSurface(ctx) && !!ctx.currentEra && !ctx.storyMode,
     action: () => {
-      useMapStore.getState().requestStoryLibraryOpen({ openDetail: false });
+      const eraId = useMapStore.getState().eraId;
+      useMapStore.getState().requestStoryLibraryOpen({
+        openDetail: false,
+        focusEraId: eraId,
+      });
     },
   },
 ];

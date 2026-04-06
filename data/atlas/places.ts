@@ -1500,6 +1500,18 @@ export const atlasPlaces: Place[] = [
     regionId: 'normandy',
     layer: 'europe',
     eraStates: {
+      'iron-age-gaul': {
+        visibility: 'normal',
+        label: 'Bajocasses (Bayeux)',
+        affiliationTags: ['Celtic', 'Armorica'],
+        pedagogyIndex: 4,
+      },
+      'roman-gaul': {
+        visibility: 'emphasized',
+        label: 'Augustodurum',
+        affiliationTags: ['Roman', 'civitas capital', 'Baiocasses'],
+        pedagogyIndex: 5,
+      },
       'norman-origins': { visibility: 'normal', label: 'Bayeux', affiliationTags: ['Norman', 'bishopric'], pedagogyIndex: 4 },
       'norman-expansion': { visibility: 'emphasized', label: 'Bayeux', affiliationTags: ['Norman', 'Tapestry'], pedagogyIndex: 5 },
     },

@@ -277,8 +277,17 @@ interface MapStore {
   setOnboardingPhase: (phase: OnboardingPhase) => void;
 
   /** One-shot: open story library from URL deep link (consumed by AtlasHomeShell / standalone page). */
-  libraryOpenRequest: { focusProgressKey?: string; openDetail?: boolean } | null;
-  requestStoryLibraryOpen: (req: { focusProgressKey?: string; openDetail?: boolean }) => void;
+  libraryOpenRequest: {
+    focusProgressKey?: string;
+    openDetail?: boolean;
+    /** Pre-select era in the library filter (atlas era id). */
+    focusEraId?: string;
+  } | null;
+  requestStoryLibraryOpen: (req: {
+    focusProgressKey?: string;
+    openDetail?: boolean;
+    focusEraId?: string;
+  }) => void;
   clearStoryLibraryRequest: () => void;
 
   /** One-shot: open expedition ledger on map after navigating from subpage settings menu. */
@@ -386,7 +395,11 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   ledgerCelebrationPhase: 'idle' as LedgerCelebrationPhase,
   ledgerAttentionActive: false,
 
-  libraryOpenRequest: null as { focusProgressKey?: string; openDetail?: boolean } | null,
+  libraryOpenRequest: null as {
+    focusProgressKey?: string;
+    openDetail?: boolean;
+    focusEraId?: string;
+  } | null,
   requestStoryLibraryOpen: (req) => set({ libraryOpenRequest: { ...req } }),
   clearStoryLibraryRequest: () => set({ libraryOpenRequest: null }),
 

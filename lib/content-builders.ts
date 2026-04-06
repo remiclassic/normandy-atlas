@@ -23,28 +23,33 @@ export function getSettlementsForEra(eraId: string): Settlement[] {
   return settlements.filter((s) => s.eraVisibility.includes(eraId));
 }
 
-export function buildSettlementsGeoJson(items: Settlement[]): GeoJSON.FeatureCollection {
+export function buildSettlementsGeoJson(items: Settlement[], eraId?: string): GeoJSON.FeatureCollection {
   return {
     type: 'FeatureCollection',
-    features: items.map((s) => ({
-      type: 'Feature' as const,
-      properties: {
-        id: s.id,
-        name: s.name,
-        regionId: s.regionId,
-        category: s.category ?? 'other',
-        atlasIcon: getFeatureIconType({ category: s.category, label: s.name }),
-      },
-      geometry: {
-        type: 'Point' as const,
-        coordinates: s.coordinates,
-      },
-    })),
+    features: items.map((s) => {
+      const eraLabel =
+        eraId != null ? s.historicalNames.find((n) => n.eraId === eraId)?.name : undefined;
+      const mapLabel = eraLabel ?? s.name;
+      return {
+        type: 'Feature' as const,
+        properties: {
+          id: s.id,
+          name: mapLabel,
+          regionId: s.regionId,
+          category: s.category ?? 'other',
+          atlasIcon: getFeatureIconType({ category: s.category, label: s.name }),
+        },
+        geometry: {
+          type: 'Point' as const,
+          coordinates: s.coordinates,
+        },
+      };
+    }),
   };
 }
 
 export function getSettlementsGeoJsonForEra(eraId: string): GeoJSON.FeatureCollection {
-  return buildSettlementsGeoJson(getSettlementsForEra(eraId));
+  return buildSettlementsGeoJson(getSettlementsForEra(eraId), eraId);
 }
 
 export function getRoutesForEra(

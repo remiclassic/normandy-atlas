@@ -15,6 +15,7 @@ export default function StoriesPageClient() {
   const [bootstrap, setBootstrap] = useState<{
     focusProgressKey?: string;
     openDetail?: boolean;
+    focusEraId?: string;
   } | null>(null);
 
   useEffect(() => {

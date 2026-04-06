@@ -22,12 +22,14 @@ interface Props {
   open: boolean;
   onClose: () => void;
   onBrowseAll?: () => void;
+  onOpenStoryInLibrary?: (input: { progressKey: string }) => void;
 }
 
 const StoryLauncherSheet = memo(function StoryLauncherSheet({
   open,
   onClose,
   onBrowseAll,
+  onOpenStoryInLibrary,
 }: Props) {
   const locale = useLocale();
   const eraId = useMapStore((s) => s.eraId);
@@ -92,6 +94,14 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
     onBrowseAll?.();
   }, [onClose, onBrowseAll]);
 
+  const handleBrowseStoryInLibrary = useCallback(
+    (progressKey: string) => {
+      onClose();
+      onOpenStoryInLibrary?.({ progressKey });
+    },
+    [onClose, onOpenStoryInLibrary],
+  );
+
   const libraryFooter = onBrowseAll ? (
     <div className="shrink-0 border-t border-border/50 bg-[var(--color-surface-elevated)] backdrop-blur-md px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
       <button
@@ -155,8 +165,12 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
                 <StoryLauncherContent
                   model={model}
                   locale={locale}
+                  eraId={eraId}
                   eraTitle={eraTitle}
                   onLaunch={handleLaunch}
+                  onBrowseStoryInLibrary={
+                    onOpenStoryInLibrary ? handleBrowseStoryInLibrary : undefined
+                  }
                   embedIntro
                 />
               </div>
@@ -227,7 +241,11 @@ const StoryLauncherSheet = memo(function StoryLauncherSheet({
                 <StoryLauncherContent
                   model={model}
                   locale={locale}
+                  eraId={eraId}
                   onLaunch={handleLaunch}
+                  onBrowseStoryInLibrary={
+                    onOpenStoryInLibrary ? handleBrowseStoryInLibrary : undefined
+                  }
                   embedIntro={false}
                 />
               </div>

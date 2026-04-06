@@ -38,7 +38,11 @@ export default function StoryLibraryPanel({
   open: boolean;
   onClose: () => void;
   useShellChrome?: boolean;
-  bootstrap?: { focusProgressKey?: string; openDetail?: boolean } | null;
+  bootstrap?: {
+    focusProgressKey?: string;
+    openDetail?: boolean;
+    focusEraId?: string;
+  } | null;
   onBootstrapConsumed?: () => void;
   /** Standalone page: catalog is fixed; skip rebuild when locale updates if not needed. */
   allRowsOverride?: StoryLibraryRowModel[];
@@ -143,6 +147,7 @@ export default function StoryLibraryPanel({
       return;
     }
 
+    const justOpened = !wasOpenRef.current;
     if (!wasOpenRef.current) {
       wasOpenRef.current = true;
       setProgressEpoch((e) => e + 1);
@@ -151,8 +156,16 @@ export default function StoryLibraryPanel({
       }
     }
     setFilterCategory('all');
-    setFilterEraId('all');
     setHoverPreviewRow(null);
+
+    if (
+      bootstrap?.focusEraId &&
+      erasWithStories.some((e) => e.id === bootstrap.focusEraId)
+    ) {
+      setFilterEraId(bootstrap.focusEraId);
+    } else if (justOpened && !bootstrap?.focusEraId) {
+      setFilterEraId('all');
+    }
 
     if (bootstrap) {
       const sig = JSON.stringify(bootstrap);
@@ -168,6 +181,18 @@ export default function StoryLibraryPanel({
             setActiveRow(pickFeaturedRow(rows) ?? rows[0] ?? null);
             setSelectedRow(null);
           }
+        } else if (bootstrap.focusEraId) {
+          const inEra = rows.filter((r) =>
+            r.relatedEraIds.includes(bootstrap.focusEraId!),
+          );
+          setActiveRow(
+            pickFeaturedRow(inEra) ??
+              inEra[0] ??
+              pickFeaturedRow(rows) ??
+              rows[0] ??
+              null,
+          );
+          setSelectedRow(null);
         } else {
           setActiveRow(pickFeaturedRow(rows) ?? rows[0] ?? null);
           setSelectedRow(null);
@@ -186,7 +211,7 @@ export default function StoryLibraryPanel({
     appliedBootstrapSigRef.current = null;
     const featured = pickFeaturedRow(rows);
     setActiveRow(featured ?? rows[0] ?? null);
-  }, [open, useShellChrome, rows, bootstrap, onBootstrapConsumed]);
+  }, [open, useShellChrome, rows, bootstrap, onBootstrapConsumed, erasWithStories]);
 
   useEffect(() => {
     if (!open) return;
