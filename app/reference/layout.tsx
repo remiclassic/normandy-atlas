@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-const title = 'Guides & reference — Norman Atlas';
+const title = 'Library — Norman Atlas';
 const description =
-  'Atlas journal, companion, and digital guides: one place to choose how you read and explore the atlas.';
+  'Hub for digital guides, atlas journal, Norman readings, genealogy tools, and the companion handbook—each section matches the library tabs.';
 
 export const metadata: Metadata = {
   title,

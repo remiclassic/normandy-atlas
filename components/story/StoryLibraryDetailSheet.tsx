@@ -11,6 +11,7 @@ import { arcChromeStyle } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import { buildMapHref } from '@/lib/map-deep-link';
+import { copyToClipboard } from '@/lib/progress/share';
 import { t, type UiStringKey } from '@/lib/ui-strings';
 import { getAtlasEra } from '@/core/era/engine';
 import { X, Play, RotateCcw, Link2, ChevronDown, MapPin, Globe, Route } from 'lucide-react';
@@ -114,7 +115,8 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
     const u = new URL(window.location.origin + window.location.pathname);
     u.searchParams.set('story', row.meta.arcId ?? '');
     u.searchParams.set('step', String(progress?.lastStep ?? 0));
-    void navigator.clipboard.writeText(u.toString()).then(() => {
+    void copyToClipboard(u.toString()).then((ok) => {
+      if (!ok) return;
       setCopied('playback');
       window.setTimeout(() => setCopied((c) => (c === 'playback' ? null : c)), 2000);
     });
@@ -131,7 +133,8 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
       window.location.pathname === '/stories' ? '/stories' : '/',
     );
     const u = new URL(href, window.location.origin);
-    void navigator.clipboard.writeText(u.toString()).then(() => {
+    void copyToClipboard(u.toString()).then((ok) => {
+      if (!ok) return;
       setCopied('library');
       window.setTimeout(() => setCopied((c) => (c === 'library' ? null : c)), 2000);
     });

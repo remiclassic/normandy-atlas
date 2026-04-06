@@ -28,7 +28,7 @@ import {
 
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import GenealogySubnav from '@/components/layout/GenealogySubnav';
+import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import BottomSheet from '@/components/ui/BottomSheet';
@@ -39,6 +39,7 @@ import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { useAncestryStore } from '@/lib/ancestry-store';
 import { buildDeepOriginsHref } from '@/lib/deep-origins-link';
+import { copyToClipboard } from '@/lib/progress/share';
 import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import type { DeepOriginComponentId } from '@/core/deep-origins/types';
@@ -242,11 +243,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       typeof window !== 'undefined'
         ? `${window.location.origin}${buildDeepOriginsHref({ cat: selectedCategoryId, site: selectedSiteId })}`
         : buildDeepOriginsHref({ cat: selectedCategoryId, site: selectedSiteId });
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      /* ignore */
-    }
+    await copyToClipboard(url);
   }, [selectedCategoryId, selectedSiteId]);
 
   const openEditBlend = useCallback(() => {
@@ -670,11 +667,12 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
-        <GenealogySubnav />
-        <div
-          id="deep-origins-main"
-          className="relative flex min-h-0 flex-1 flex-col md:flex-row"
-        >
+        <div className={genealogyHubSplitClassName}>
+          <GenealogySubnav />
+          <div
+            id="deep-origins-main"
+            className="relative flex min-h-0 min-w-0 flex-1 flex-col md:flex-row"
+          >
           {!isMobile ? (
             <aside className="flex w-full shrink-0 border-b border-chrome-border-strong/35 bg-chrome-fill/[0.04] md:w-[400px] md:flex-col md:border-b-0 md:border-r md:bg-chrome-fill/[0.06]">
               <div className="flex min-h-0 flex-1 flex-col">
@@ -743,6 +741,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
               </button>
             ) : null}
           </div>
+        </div>
         </div>
       </div>
 

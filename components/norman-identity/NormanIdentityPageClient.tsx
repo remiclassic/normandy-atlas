@@ -4,7 +4,7 @@ import { memo, useCallback, useMemo, useState } from 'react';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
-import GenealogySubnav from '@/components/layout/GenealogySubnav';
+import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
 import { useLocale } from '@/hooks/use-atlas';
@@ -45,11 +45,12 @@ const NormanIdentityPageClient = memo(function NormanIdentityPageClient() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
-        <GenealogySubnav />
-        <main
-          id="norman-identity-main"
-          className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-[max(4rem,env(safe-area-inset-bottom)+2rem)] pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-20 md:pt-12"
-        >
+        <div className={genealogyHubSplitClassName}>
+          <GenealogySubnav />
+          <main
+            id="norman-identity-main"
+            className="relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-[max(4rem,env(safe-area-inset-bottom)+2rem)] pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-20 md:pt-12"
+          >
           <div
             className="mx-auto max-w-3xl"
             style={{ '--norman-identity-accent': '#00D3F3' } as React.CSSProperties}
@@ -91,7 +92,8 @@ const NormanIdentityPageClient = memo(function NormanIdentityPageClient() {
               />
             )}
           </div>
-        </main>
+          </main>
+        </div>
       </div>
       <AtlasSubpageToolsMenu
         open={toolsOpen}

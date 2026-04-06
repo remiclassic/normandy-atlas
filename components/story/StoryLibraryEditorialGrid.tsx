@@ -7,7 +7,7 @@ import type { AtlasLocale } from '@/core/types';
 import type { UiTheme } from '@/lib/ui-theme';
 import type { StoryProgressRecord } from '@/lib/story-progress';
 import type { StoryCategory } from '@/data/atlas/story-library-meta';
-import { STORY_CATEGORY_ORDER } from '@/data/atlas/story-library-meta';
+import { STORY_CATEGORY_ORDER, libraryCategoryMembership } from '@/data/atlas/story-library-meta';
 import { t, type UiStringKey } from '@/lib/ui-strings';
 import { StoryLibraryGridCard } from '@/components/story/StoryLibraryGridCard';
 import type { FilterValue } from '@/components/story/StoryLibraryFilterBar';
@@ -74,7 +74,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
       return result;
     }
 
-    const filtered = rows.filter((r) => r.meta.category === filter);
+    const filtered = rows.filter((r) => libraryCategoryMembership(r.meta).includes(filter));
     if (filtered.length === 0) return [];
     return [{ label: t(CATEGORY_KEY[filter], locale), rows: filtered }];
   }, [rows, filter, locale, searchMode]);

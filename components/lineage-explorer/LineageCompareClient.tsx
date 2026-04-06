@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ArrowLeft, Dna, Search, X } from 'lucide-react';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import GenealogySubnav from '@/components/layout/GenealogySubnav';
+import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -397,8 +397,9 @@ const LineageCompareClient = memo(function LineageCompareClient() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
-        <GenealogySubnav />
-        <main className="relative z-10 min-h-0 flex-1 overflow-y-auto scrollbar-thin px-4 pb-20 pt-8 md:px-8 md:pt-10">
+        <div className={genealogyHubSplitClassName}>
+          <GenealogySubnav />
+          <main className="relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto scrollbar-thin px-4 pb-20 pt-8 md:px-8 md:pt-10">
           <div className="mx-auto max-w-5xl">
             <Link
               href="/lineage-explorer"
@@ -541,7 +542,8 @@ const LineageCompareClient = memo(function LineageCompareClient() {
               </section>
             ) : null}
           </div>
-        </main>
+          </main>
+        </div>
       </div>
       <AtlasSubpageToolsMenu open={toolsOpen} onClose={() => setToolsOpen(false)} />
     </div>

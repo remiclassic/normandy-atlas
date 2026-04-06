@@ -13,6 +13,10 @@ import {
   storyLibraryRowSearchHaystack,
   type StoryLibraryRowModel,
 } from '@/lib/story-library-build';
+import {
+  libraryCategoryMembership,
+  storyLibraryMetaSharesCategory,
+} from '@/data/atlas/story-library-meta';
 import { readStoryProgressMap } from '@/lib/story-progress';
 import { t } from '@/lib/ui-strings';
 import { StoryLibraryFeaturedPanel } from '@/components/story/StoryLibraryFeaturedPanel';
@@ -94,7 +98,7 @@ export default function StoryLibraryPanel({
 
   const afterCategory = useMemo(() => {
     if (filterCategory === 'all') return rows;
-    return rows.filter((r) => r.meta.category === filterCategory);
+    return rows.filter((r) => libraryCategoryMembership(r.meta).includes(filterCategory));
   }, [rows, filterCategory]);
 
   const filteredRows = useMemo(() => {
@@ -327,7 +331,7 @@ export default function StoryLibraryPanel({
       .filter(
         (r) =>
           r.progressKey !== selectedRow.progressKey &&
-          r.meta.category === selectedRow.meta.category,
+          storyLibraryMetaSharesCategory(r.meta, selectedRow.meta),
       )
       .slice(0, 4);
   }, [rows, selectedRow]);

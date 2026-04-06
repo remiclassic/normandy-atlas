@@ -1,4 +1,5 @@
 import type { StoryBeat } from '@/core/types';
+import { explorationArcStoryBeats } from './story-beats-exploration-arcs';
 
 export const atlasStoryBeats: StoryBeat[] = [
   // --- Deep-time continuity beats ---
@@ -9767,4 +9768,5 @@ export const atlasStoryBeats: StoryBeat[] = [
     },
     anchorYear: 1191,
   },
+  ...explorationArcStoryBeats,
 ];

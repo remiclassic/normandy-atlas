@@ -3,6 +3,7 @@ import { atlasEraArcs, type EraArcEntry } from '@/data/atlas/era-arcs';
 import {
   storyLibraryMetaList,
   STORY_CATEGORY_ORDER,
+  libraryCategoryMembership,
   type StoryCategory,
   type StoryLibraryMeta,
 } from '@/data/atlas/story-library-meta';
@@ -206,9 +207,10 @@ export function groupRowsByCategory(
 
   for (const row of rows) {
     if (excludeKeys.has(row.progressKey)) continue;
-    const list = map.get(row.meta.category);
-    if (!list) continue;
-    list.push(row);
+    for (const cat of libraryCategoryMembership(row.meta)) {
+      const list = map.get(cat);
+      if (list) list.push(row);
+    }
   }
 
   for (const list of map.values()) {

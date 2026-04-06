@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useMapStore } from '@/lib/store';
 import { getPlaceCoords } from '@/core/places/engine';
 import type { AncestryJourneyPlan, AncestryJourneyStep } from '@/core/ancestry/types';
@@ -36,6 +36,7 @@ function applyJourneyStep(step: AncestryJourneyStep, previousStep: AncestryJourn
           zoom: step.zoom,
           bearing: 0,
           pitch: 0,
+          ...(step.durationMs != null ? { duration: step.durationMs } : {}),
         });
       }
       break;
@@ -73,8 +74,11 @@ export function useAncestryJourneyPlayback(
   });
 
   const maxSteps = ANCESTRY_JOURNEY_MAX_STEPS;
-  const capped =
-    plan && plan.steps.length > maxSteps ? { ...plan, steps: plan.steps.slice(0, maxSteps) } : plan;
+  const capped = useMemo(
+    () =>
+      plan && plan.steps.length > maxSteps ? { ...plan, steps: plan.steps.slice(0, maxSteps) } : plan,
+    [plan, maxSteps],
+  );
 
   const apply = useCallback(() => {
     if (!enabled || !capped || capped.steps.length === 0) return;

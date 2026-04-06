@@ -24,6 +24,8 @@ export type StoryTone = 'epic' | 'dark' | 'exploratory' | 'foundational' | 'pers
 export interface StoryLibraryMeta {
   arcId: string | null;
   category: StoryCategory;
+  /** When set, the row also matches these category filters (primary `category` stays for badges and “All” sections). */
+  alsoInCategories?: StoryCategory[];
   displayTitle?: I18nString;
   blurb: I18nString;
   hook?: I18nString;
@@ -36,6 +38,24 @@ export interface StoryLibraryMeta {
   recommendedEraId?: string;
   synopsisExtended?: I18nString;
   posterCredit?: I18nString;
+}
+
+/** Categories used for library filter chips (primary + secondary), deduped. */
+export function libraryCategoryMembership(meta: StoryLibraryMeta): StoryCategory[] {
+  const out: StoryCategory[] = [meta.category];
+  const seen = new Set<StoryCategory>([meta.category]);
+  for (const c of meta.alsoInCategories ?? []) {
+    if (!seen.has(c)) {
+      seen.add(c);
+      out.push(c);
+    }
+  }
+  return out;
+}
+
+export function storyLibraryMetaSharesCategory(a: StoryLibraryMeta, b: StoryLibraryMeta): boolean {
+  const sa = new Set(libraryCategoryMembership(a));
+  return libraryCategoryMembership(b).some((c) => sa.has(c));
 }
 
 /**
@@ -343,21 +363,108 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     posterCredit: { en: 'Bayeux Tapestry, Public domain', de: 'Teppich von Bayeux, gemeinfrei', nb: 'Bayeux-teppet, offentlig eiendom', sv: 'Bayeux Tapestry, Public domain', da: 'Bayeux-tapet, offentlig ejendom' },
   },
   {
-    arcId: 'age-of-exploration',
+    arcId: 'roberval-expedition',
     category: 'Exploration',
-    sortOrder: 40,
-    thumb: '/story/thumbs/age-of-exploration.jpg',
-    blurb: {
-      en: 'Maritime discovery, Atlantic crossings, and the geographic imagination of early modern Europe.',
-      fr: 'Découvertes maritimes, traversées de l’Atlantique et imaginaire géographique de l’Europe moderne naissante.',
-      de: 'Maritime Entdeckungen, Atlantiküberquerungen und die geografische Vorstellungskraft des aufstrebenden modernen Europas.',
-      nb: 'Maritim oppdagelse, Atlanterhavskryssinger og den geografiske fantasien til det tidlige moderne Europa.',
-      sv: 'Maritim upptäckt, Atlanten korsningar och den geografiska fantasin i det tidiga moderna Europa.',
-      da: 'Maritim opdagelse, Atlanterhavskrydsninger og det tidlige moderne Europas geografiske fantasi.',
-    },
+    sortOrder: 41,
+    thumb: '/story/age-of-exploration/dieppe-port.jpg',
+    displayTitle: { en: 'Roberval’s expedition', fr: 'L’expédition de Roberval', de: 'Robervals Expedition', nb: 'Robervals ekspedisjon', sv: 'Robervals expedition', da: 'Robervals ekspedition' },
+    hook: { en: 'France’s first viceroy and the colony that starvation unraveled.', fr: 'Le premier vice-roi et la colonie défaite par la faim.', de: 'Der erste Vizekönig und die Kolonie, die der Hunger zerfiel.', nb: 'Den første visekongen og kolonien sulten oppløste.', sv: 'Den första vicekungen och kolonin som svälten upplöste.', da: 'Den første vicekonge og kolonien sult opløste.' },
+    blurb: { en: 'Royal patents, Charlesbourg-Royal, and why France stepped back for sixty years.', fr: 'Lettres patentes, Charlesbourg-Royal et pourquoi la France recula soixante ans.', de: 'Patente, Charlesbourg-Royal und warum Frankreich sechzig Jahre pausierte.', nb: 'Kongelige brev, Charlesbourg-Royal og hvorfor Frankrike trakk seg tilbake.', sv: 'Kungliga brev, Charlesbourg-Royal och varför Frankrike pausade.', da: 'Kongelige breve, Charlesbourg-Royal og hvorfor Frankrig trak sig tilbage.' },
+    estimatedMinutes: 7,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'atlantic-pilots-bridge',
+    category: 'Exploration',
+    sortOrder: 42,
+    thumb: '/story/new-france-foundations/la-rochelle-vieux-port-lisch.jpg',
+    displayTitle: { en: 'Atlantic pilots bridge', fr: 'Pont des pilotes atlantiques', de: 'Brücke der Atlantiklotsen', nb: 'Atlantiske loser', sv: 'Atlantiska lotsar', da: 'Atlantiske lodser' },
+    hook: { en: 'Jean Alfonse and the multinational skill behind French Gulf voyages.', fr: 'Jean Alfonse et le savoir multinational du golfe.', de: 'Jean Alfonse und die multinationale Expertise in der Bucht.', nb: 'Jean Alfonse og flernasjonal ekspertise.', sv: 'Jean Alfonse och mångnationell expertis.', da: 'Jean Alfonse og multinational ekspertise.' },
+    blurb: { en: 'How La Rochelle, Dieppe, and Breton experience closed the navigation gap.', fr: 'Comment La Rochelle, Dieppe et l’expérience bretonne comblèrent l’écart.', de: 'Wie La Rochelle und Dieppe die Navigationslücke schlossen.', nb: 'Hvordan havnebyer lukket navigasjons-gapet.', sv: 'Hur hamnar stängde navigerings-gapet.', da: 'Hvordan havnebyer lukkede navigationskløften.' },
+    estimatedMinutes: 5,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'giovanni-da-verrazzano',
+    category: 'Exploration',
+    sortOrder: 43,
+    thumb: '/story/age-of-exploration/dieppe-port.jpg',
+    displayTitle: { en: 'Giovanni da Verrazzano', fr: 'Giovanni da Verrazzano', de: 'Giovanni da Verrazzano', nb: 'Giovanni da Verrazzano', sv: 'Giovanni da Verrazzano', da: 'Giovanni da Verrazzano' },
+    hook: { en: '1524: Dieppe to Cape Fear and the Angoulême bay.', fr: '1524 : Dieppe au cap Fear et la baie Angoulême.', de: '1524: von Dieppe bis Cape Fear.', nb: '1524 fra Dieppe til Cape Fear.', sv: '1524 från Dieppe till Cape Fear.', da: '1524 fra Dieppe til Cape Fear.' },
+    blurb: { en: 'The first continuous French survey of the North American seaboard.', fr: 'Le premier levé français continu de la côte nord-américaine.', de: 'Die erste zusammenhängende französische Vermessung der Küste.', nb: 'Den første sammenhengende franske kartleggingen av kysten.', sv: 'Den första sammanhängande franska kustkartläggningen.', da: 'Den første sammenhængende franske kystkortlægning.' },
     estimatedMinutes: 6,
     tone: 'exploratory',
-    posterCredit: { en: 'Wikimedia Commons, Public domain', de: 'Wikimedia Commons, Public Domain', nb: 'Wikimedia Commons, Public domain', sv: 'Wikimedia Commons, Public domain', da: 'Wikimedia Commons, Public domain' },
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'pre-champlain-monopoly',
+    category: 'Exploration',
+    sortOrder: 44,
+    thumb: '/story/age-of-exploration/honfleur-port.jpg',
+    displayTitle: { en: 'Monopolies before Champlain', fr: 'Monopoles avant Champlain', de: 'Monopole vor Champlain', nb: 'Monopoler før Champlain', sv: 'Monopol före Champlain', da: 'Monopoler før Champlain' },
+    hook: { en: 'Chauvin, Gravé du Pont, and the Tadoussac trade experiments.', fr: 'Chauvin, Gravé du Pont et les essais de Tadoussac.', de: 'Chauvin, Gravé und Tadoussac.', nb: 'Chauvin, Gravé og Tadoussac.', sv: 'Chauvin, Gravé och Tadoussac.', da: 'Chauvin, Gravé og Tadoussac.' },
+    blurb: { en: 'Why royal fur patents stumbled—and trained the merchants who backed 1604.', fr: 'Pourquoi les brevets de traite royaux trébuchèrent.', de: 'Warum königliche Pelzpatente scheiterten.', nb: 'Hvorfor kongelige pelsmonopoler feilet.', sv: 'Varför kungliga pälsmonopol misslyckades.', da: 'Hvorfor kongelige pelsmonopoler fejlede.' },
+    estimatedMinutes: 6,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'grand-banks-cod-prelude',
+    category: 'Exploration',
+    sortOrder: 45,
+    thumb: '/story/new-france-foundations/saint-malo-historical-engraving.png',
+    displayTitle: { en: 'Grand Banks cod', fr: 'Morue des Grands Bancs', de: 'Kabeljau der Großen Banken', nb: 'Torsk på Grand Banks', sv: 'Torsk på Grand Banks', da: 'Torsk på Grand Banks' },
+    hook: { en: 'Seasonal fisheries that sketched the coast before colonies.', fr: 'Pêcheries saisonnières avant les colonies.', de: 'Saisonfischerei vor den Kolonien.', nb: 'Sesongfiske før kolonier.', sv: 'Säsongsfiske före kolonier.', da: 'Sæsonfiskeri før kolonier.' },
+    blurb: { en: 'Breton and Norman capital met cod long before royal forts.', fr: 'Capitaux bretons et normands et la morue avant les forts.', de: 'Bretonisches und normannisches Kapital und Kabeljau.', nb: 'Kapital og torsk før fort.', sv: 'Kapital och torsk före fort.', da: 'Kapital og torsk før fæstninger.' },
+    estimatedMinutes: 5,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'norman-atlantic-embarkation',
+    category: 'Exploration',
+    sortOrder: 46,
+    thumb: '/story/guillaume-couture/rouen-gomboust-1655.jpg',
+    displayTitle: { en: 'Norman embarkation ports', fr: 'Ports normands d’embarquement', de: 'Normannische Auslaufhäfen', nb: 'Normanniske avreisehavner', sv: 'Normandiska avgångshamnar', da: 'Normanniske afgangshavne' },
+    hook: { en: 'Rouen’s credit, Dieppe’s crossings, Honfleur fit-outs.', fr: 'Crédit rouennais, traversées dieppoises, équipements honfleurais.', de: 'Rouens Kredit, Dieppes Fahrten, Honfleurs Ausrüstung.', nb: 'Rouens kreditt, Dieppes kryssinger.', sv: 'Rouens kredit, Dieppes överfarter.', da: 'Rouens kredit, Dieppes overfarter.' },
+    blurb: { en: 'The mesh of Seine and Channel harbors that made France Atlantic.', fr: 'Le maillage seine et Manche qui fit de la France un pays atlantique.', de: 'Das Netz aus Seine- und Kanalhäfen.', nb: 'Nettverket som gjorde Frankrike atlantisk.', sv: 'Nätverket som gjorde Frankrike atlantiskt.', da: 'Netværket der gjorde Frankrig atlantisk.' },
+    estimatedMinutes: 6,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'ile-sainte-croix-winter',
+    category: 'Exploration',
+    sortOrder: 47,
+    thumb: '/story/new-france-foundations/port-royal-habitation.jpg',
+    displayTitle: { en: 'Île Sainte-Croix winter', fr: 'Hiver à l’île Sainte-Croix', de: 'Winter auf Sainte-Croix', nb: 'Vinteren på Sainte-Croix', sv: 'Vintern på Sainte-Croix', da: 'Vinteren på Sainte-Croix' },
+    hook: { en: 'Scurvy, ice, and the move to Port-Royal.', fr: 'Scorbut, glace et transfert à Port-Royal.', de: 'Skorbut, Eis, Umzug nach Port-Royal.', nb: 'Skjørbuk og flytting til Port-Royal.', sv: 'Skörbjugg och flytt till Port-Royal.', da: 'Skørbug og flytning til Port-Royal.' },
+    blurb: { en: 'Ecology—not cowardice—forced France to rethink Acadia’s geography.', fr: 'L’écologie — non la lâcheté — obligea à repenser l’Acadie.', de: 'Ökologie zwang Frankreich, Akadien neu zu denken.', nb: 'Økologi tvang omtanke om Akadia.', sv: 'Ekologi tvingade omplanering av Acadia.', da: 'Økologi tvang genovervejelse af Acadia.' },
+    estimatedMinutes: 5,
+    tone: 'dark',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
+  },
+  {
+    arcId: 'st-lawrence-contact-nations',
+    category: 'Exploration',
+    sortOrder: 48,
+    thumb: '/story/guillaume-couture/habitation-quebec.jpg',
+    displayTitle: { en: 'St. Lawrence nations', fr: 'Nations du Saint-Laurent', de: 'St.-Lorenz-Nationen', nb: 'St. Lawrence-nasjoner', sv: 'St. Lawrence-nationer', da: 'St. Lawrence-nationer' },
+    hook: { en: 'Diplomacy, reciprocity, and Wendat resilience on the river.', fr: 'Diplomatie, réciprocité et résilience wendat.', de: 'Diplomatie und Wendat-Widerstandskraft.', nb: 'Diplomati og Wendat.', sv: 'Diplomati och Wendat.', da: 'Diplomati og Wendat.' },
+    blurb: { en: 'Centering Indigenous polities beside Cartier’s voyages.', fr: 'Centrer les polities autochtones à côté de Cartier.', de: 'Indigene Politik neben Cartier.', nb: 'Urfolks politikk ved siden av Cartier.', sv: 'Urfolks politiska liv vid sidan av Cartier.', da: 'Oprindelige politikker ved siden af Cartier.' },
+    estimatedMinutes: 7,
+    tone: 'exploratory',
+    recommendedEraId: 'age-of-exploration',
+    posterCredit: { en: 'Wikimedia Commons (public domain)', de: 'Wikimedia Commons (public domain)', nb: 'Wikimedia Commons (public domain)', sv: 'Wikimedia Commons (public domain)', da: 'Wikimedia Commons (public domain)' },
   },
   {
     arcId: 'new-france',
@@ -727,6 +834,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   {
     arcId: 'samuel-de-champlain',
     category: 'People',
+    alsoInCategories: ['Exploration'],
     sortOrder: 66,
     isNew: true,
     thumb: '/story/guillaume-couture/champlain-map-1632.jpg',
@@ -741,9 +849,10 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   {
     arcId: 'jacques-cartier',
     category: 'People',
+    alsoInCategories: ['Exploration'],
     sortOrder: 67,
     isNew: true,
-    thumb: '/story/new-france-foundations/saint-malo-port.jpg',
+    thumb: '/story/new-france-foundations/saint-malo-historical-engraving.png',
     recommendedEraId: 'age-of-exploration',
     displayTitle: { en: 'Jacques Cartier', fr: 'Jacques Cartier', es: 'Jacques Cartier', it: 'Jacques Cartier', de: 'Jacques Cartier', nb: 'Jacques Cartier', sv: 'Jacques Cartier', da: 'Jacques Cartier' },
     hook: { en: 'The Breton mariner who charted the St. Lawrence and opened France\'s claim to a continent.', fr: 'Le marin breton qui cartographia le Saint-Laurent et ouvrit la revendication française sur un continent.', es: 'El marinero bretón que cartografió el San Lorenzo y abrió la reclamación francesa sobre un continente.', it: 'Il marinaio bretone che mappò il San Lorenzo e aprì la rivendicazione francese su un continente.', de: 'Der bretonische Seemann, der den Sankt-Lorenz-Strom kartografierte und den französischen Anspruch auf einen Kontinent eröffnete.', nb: 'Den bretonske sjømannen som kartla St. Lawrence og åpnet Frankrikes krav på et kontinent.', sv: 'Den bretonska sjömannen som kartlade St. Lawrence och öppnade Frankrikes anspråk på en kontinent.', da: 'Den bretonske søfart, der kortlagde St. Lawrence og åbnede Frankrigs krav på et kontinent.' },
@@ -755,6 +864,7 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
   {
     arcId: 'pierre-dugua-de-mons',
     category: 'People',
+    alsoInCategories: ['Exploration'],
     sortOrder: 68,
     isNew: true,
     thumb: '/story/new-france-foundations/port-royal-habitation.jpg',
@@ -1084,7 +1194,16 @@ export const storyLibraryMetaList: StoryLibraryMeta[] = [
     estimatedMinutes: 6,
     tone: 'foundational',
     isNew: true,
-    posterCredit: { en: 'AI-generated reconstruction', fr: 'Reconstitution générée par IA', de: 'KI-generierte Rekonstruktion', nb: 'AI-generert rekonstruksjon', sv: 'AI-genererad rekonstruktion', da: 'AI-genereret rekonstruktion' },
+    posterCredit: {
+      en: 'Émile Signol, Taking of Jerusalem by the Crusaders, 15 July 1099 (1847). Wikimedia Commons (public domain)',
+      fr: 'Émile Signol, Prise de Jérusalem par les croisés, 15 juillet 1099 (1847). Wikimedia Commons (domaine public)',
+      es: 'Émile Signol, Toma de Jerusalén por los cruzados, 15 de julio de 1099 (1847). Wikimedia Commons (dominio público)',
+      it: 'Émile Signol, Presa di Gerusalemme dai crociati, 15 luglio 1099 (1847). Wikimedia Commons (pubblico dominio)',
+      de: 'Émile Signol, Einnahme von Jerusalem durch die Kreuzfahrer, 15. Juli 1099 (1847). Wikimedia Commons (gemeinfrei)',
+      nb: 'Émile Signol, Taking of Jerusalem by the Crusaders, 15. juli 1099 (1847). Wikimedia Commons (offentlig domene)',
+      sv: 'Émile Signol, Taking of Jerusalem by the Crusaders, 15 juli 1099 (1847). Wikimedia Commons (allmän egendom)',
+      da: 'Émile Signol, Taking of Jerusalem by the Crusaders, 15. juli 1099 (1847). Wikimedia Commons (offentligt domæne)',
+    },
   },
   // ── Mediterranean: Norman Italy standalone ──
   {

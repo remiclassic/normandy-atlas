@@ -1690,6 +1690,7 @@ export default function MapCanvas() {
             zoom: pending.zoom,
             bearing: pending.bearing,
             pitch: pending.pitch,
+            duration: pending.duration,
           });
         }
 
@@ -2236,6 +2237,7 @@ export default function MapCanvas() {
           zoom: target.zoom,
           bearing: target.bearing,
           pitch: target.pitch,
+          duration: target.duration,
         });
       },
     );

@@ -1,4 +1,5 @@
 import type { AtlasLocale } from '@/core/types';
+import { ATLAS_REFERENCE_HUB_PATH } from '@/lib/atlas-reference-routes';
 import { pickI18n } from '@/lib/locale';
 import { digitalGuidesTooltipLabel } from '@/lib/digital-guides-ui';
 import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
@@ -11,13 +12,22 @@ export type ReferenceHubTabDef = {
   match: (pathname: string) => boolean;
 };
 
-/** Ordered hub tabs (Digital guides when public, then Journal, then Companion). */
+/** Ordered hub tabs (Library overview, then digital guides when public, journal, readings, genealogy, companion). */
 export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[] {
+  const libraryHome: ReferenceHubTabDef = {
+    href: ATLAS_REFERENCE_HUB_PATH,
+    label: t('referenceHub.homeTab', locale),
+    match: (p) => p === ATLAS_REFERENCE_HUB_PATH,
+  };
   const journal: ReferenceHubTabDef = {
     href: '/journal',
     label: t('atlasJournal.tooltip.label', locale),
-    match: (p) =>
-      p === '/journal' || p.startsWith('/journal/') || p.startsWith('/norman-readings'),
+    match: (p) => p === '/journal' || p.startsWith('/journal/'),
+  };
+  const readings: ReferenceHubTabDef = {
+    href: '/norman-readings',
+    label: t('toolsMenu.normanReadingsLabel', locale),
+    match: (p) => p === '/norman-readings' || p.startsWith('/norman-readings/'),
   };
   const companion: ReferenceHubTabDef = {
     href: '/companion',
@@ -35,7 +45,7 @@ export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[
     match: (p) => p === '/guides' || p.startsWith('/guides/'),
   };
   if (isDigitalGuidesPublic()) {
-    return [guides, journal, genealogy, companion];
+    return [libraryHome, guides, journal, readings, genealogy, companion];
   }
-  return [journal, genealogy, companion];
+  return [libraryHome, journal, readings, genealogy, companion];
 }

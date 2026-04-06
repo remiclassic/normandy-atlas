@@ -188,9 +188,26 @@ interface MapStore {
   lineageExplorerProfileId: string | null;
   lineageExplorerEraLens: LineageEraLens;
 
-  /** One-shot camera fly request from UI (consumed by MapCanvas). */
-  pendingFlyTarget: { center: [number, number]; zoom: number; bearing?: number; pitch?: number } | null;
-  setPendingFlyTarget: (target: { center: [number, number]; zoom: number; bearing?: number; pitch?: number } | null) => void;
+  /**
+   * One-shot camera fly request from UI (consumed by MapCanvas).
+   * `duration` is milliseconds, passed through to `flyToCamera` as `CameraPreset.duration`.
+   */
+  pendingFlyTarget: {
+    center: [number, number];
+    zoom: number;
+    bearing?: number;
+    pitch?: number;
+    duration?: number;
+  } | null;
+  setPendingFlyTarget: (
+    target: {
+      center: [number, number];
+      zoom: number;
+      bearing?: number;
+      pitch?: number;
+      duration?: number;
+    } | null,
+  ) => void;
 
   /** Active cinematic flythrough preset, or null when not flying. */
   cinematicFlythrough: { presetId: string; actIndex: number } | null;

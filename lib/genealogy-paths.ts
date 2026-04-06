@@ -1,4 +1,4 @@
-/** Canonical routes for the unified Genealogy hub (see ReferenceHubTabs + GenealogySubnav). */
+/** Canonical routes for the unified Genealogy hub (see ReferenceHubTabs + grouped GenealogySubnav). */
 
 export const GENEALOGY_HUB_PATH = '/genealogy';
 

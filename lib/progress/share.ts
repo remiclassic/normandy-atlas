@@ -19,24 +19,47 @@ export function buildPublicShareUrl(params: MapDeepLinkParams): string {
   return `${origin}${normalized}${relative}`;
 }
 
-/** Copy text to clipboard with fallback. */
+/** Copy text to clipboard with fallback (handles missing focus / async Clipboard API). */
 export async function copyToClipboard(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
+  if (typeof document === 'undefined') return false;
+
+  const fallbackExecCommand = (): boolean => {
     try {
       const ta = document.createElement('textarea');
       ta.value = text;
+      ta.setAttribute('readonly', '');
       ta.style.position = 'fixed';
       ta.style.left = '-9999px';
+      ta.style.top = '0';
       document.body.appendChild(ta);
+      ta.focus();
       ta.select();
-      document.execCommand('copy');
+      ta.setSelectionRange(0, text.length);
+      const ok = document.execCommand('copy');
       document.body.removeChild(ta);
-      return true;
+      return ok;
     } catch {
       return false;
+    }
+  };
+
+  const tryAsyncClipboard = async (): Promise<boolean> => {
+    if (!navigator.clipboard?.writeText) return false;
+    if (!document.hasFocus()) {
+      window.focus();
+    }
+    await navigator.clipboard.writeText(text);
+    return true;
+  };
+
+  try {
+    return await tryAsyncClipboard();
+  } catch {
+    window.focus();
+    try {
+      return await tryAsyncClipboard();
+    } catch {
+      return fallbackExecCommand();
     }
   }
 }

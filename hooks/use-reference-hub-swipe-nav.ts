@@ -12,7 +12,7 @@ const DOMINANCE_RATIO = 1.45;
 
 /**
  * On narrow viewports, swipe horizontally on the scroll container to move between
- * Digital guides / Atlas Journal / Companion (same order as hub tabs).
+ * Hub primary tabs (same order as `ReferenceHubTabs`).
  */
 export function useReferenceHubSwipeNav(
   containerRef: RefObject<HTMLElement | null>,

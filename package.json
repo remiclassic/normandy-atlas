@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "dev:clean": "node scripts/clean-next.mjs && next dev --webpack",
+    "dev:turbo": "next dev",
     "prebuild": "node scripts/build-gfna-datasets.mjs",
     "build": "next build",
     "start": "next start",

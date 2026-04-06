@@ -35,7 +35,7 @@ const ReferenceHubTabs = memo(function ReferenceHubTabs() {
       className="relative w-full shrink-0 border-b border-chrome-border/60"
       style={{ background: 'var(--color-chrome-fill)' }}
     >
-      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col items-stretch gap-2 py-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:gap-3 sm:py-2.5 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-2 md:px-8">
+      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col items-stretch gap-2 py-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:gap-3 sm:py-2.5 md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-2 md:overflow-x-auto md:overscroll-x-contain md:px-8 md:[scrollbar-width:thin]">
         <Link
           href="/"
           className={`${atlasSubpageBackChipClass} hidden max-w-[min(46vw,10.5rem)] shrink-0 touch-manipulation items-center justify-center max-sm:min-h-11 md:inline-flex md:max-w-none`}
@@ -46,7 +46,7 @@ const ReferenceHubTabs = memo(function ReferenceHubTabs() {
         </Link>
 
         <div
-          className="flex min-h-11 min-w-0 w-full justify-center gap-1.5 md:min-h-0 md:w-auto md:max-w-full md:flex-wrap md:justify-center"
+          className="flex min-h-11 min-w-0 w-full justify-center gap-1.5 md:min-h-0 md:w-auto md:flex-none md:flex-nowrap md:justify-center"
           role="presentation"
         >
           {tabs.map((tab) => {

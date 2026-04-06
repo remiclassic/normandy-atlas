@@ -6,7 +6,17 @@ import type {
   UserAncestryProfile,
 } from '@/core/ancestry/types';
 import type { NormanDetectionResult } from '@/core/ancestry/types';
-import { getPlaceCoords } from '@/core/places/engine';
+import { getPlace, getPlaceCoords } from '@/core/places/engine';
+
+function atlasPlaceLabel(placeId: string): string {
+  const p = getPlace(placeId);
+  if (p) {
+    for (const st of Object.values(p.eraStates)) {
+      if (st.label?.trim()) return st.label;
+    }
+  }
+  return placeId;
+}
 
 function narrative(id: string, title: string, body: string): AncestryJourneyStep {
   return { kind: 'narrativeCard', id, title, body };
@@ -112,7 +122,11 @@ export function buildAncestryJourneyPlan(args: {
     const cta = getPlaceCoords(anchor.birthPlaceId);
     if (cta) {
       steps.push(
-        narrative('anchor-person', `Focusing on ${anchor.name}`, `Flying toward their recorded atlas place (${anchor.birthPlaceId}).`),
+        narrative(
+          'anchor-person',
+          `Focusing on ${anchor.name}`,
+          `Flying toward their recorded atlas place (${atlasPlaceLabel(anchor.birthPlaceId)}).`,
+        ),
         {
           kind: 'mapFly',
           id: 'fly-anchor-birth',

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, Copy, Dna, ExternalLink, Heart, Map, GitBranch } from 'lucide-react';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import GenealogySubnav from '@/components/layout/GenealogySubnav';
+import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -294,8 +294,9 @@ const LineageProfileClient = memo(function LineageProfileClient({ profile }: { p
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
-        <GenealogySubnav />
-        <main className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-24 pt-8 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-10">
+        <div className={genealogyHubSplitClassName}>
+          <GenealogySubnav />
+          <main className="relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-24 pt-8 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-10">
           <div className="mx-auto max-w-3xl">
             <Link
               href="/lineage-explorer"
@@ -657,7 +658,8 @@ const LineageProfileClient = memo(function LineageProfileClient({ profile }: { p
               <LineageSourceList sources={profile.sources} locale={locale} />
             </section>
           </div>
-        </main>
+          </main>
+        </div>
       </div>
       <AtlasSubpageToolsMenu open={toolsOpen} onClose={() => setToolsOpen(false)} />
     </div>
