@@ -58,6 +58,15 @@ function useTocItems(locale: AtlasLocale, hasResumable: boolean): TocItem[] {
       { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
       { id: 'expeditions', label: locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions' },
       { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
+      { id: 'lineage-explorer', label: locale === 'fr' ? 'Lignées génétiques (explorateur)' : 'Genetic Lineage Explorer' },
+      {
+        id: 'lineage-citations-policy',
+        label: locale === 'fr' ? 'Politique des citations (lignées)' : 'Lineage citations policy',
+      },
+      {
+        id: 'histor-macro-methodology',
+        label: locale === 'fr' ? 'Peuples historiques (macro)' : 'Historical peoples (macro)',
+      },
       { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
     );
     return items;
@@ -81,9 +90,9 @@ const SectionDivider = memo(function SectionDivider() {
 
 const Prose = memo(function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[length:var(--atlas-text-md)] leading-relaxed mt-3" style={{ color: 'var(--color-text-muted)' }}>
+    <div className="text-[length:var(--atlas-text-md)] leading-relaxed mt-3" style={{ color: 'var(--color-text-muted)' }}>
       {children}
-    </p>
+    </div>
   );
 });
 
@@ -1010,6 +1019,103 @@ export default function JournalPage() {
                   </a>
                 </div>
               </div>
+            </section>
+
+            <SectionDivider />
+
+            <section>
+              <SectionHeading id="lineage-explorer">
+                {locale === 'fr' ? 'Explorateur de lignées génétiques' : 'Genetic Lineage Explorer'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr'
+                  ? 'Recherche séparée des haplogroupes ADN-Y et ADNmt : migration profonde, régions possibles, et liens doux vers peuples, routes et récits de l’atlas — sans confondre génétique et identité.'
+                  : 'A separate tool for Y-DNA and mtDNA haplogroups: deep-time movement, possible regions, and soft links to atlas peoples, routes, and stories — without equating genetics and identity.'}
+              </Prose>
+              <div className="mt-4">
+                <Link
+                  href="/lineage-explorer"
+                  className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[length:var(--atlas-text-sm)] font-medium transition-colors"
+                  style={{ background: 'var(--color-chrome-fill)', color: 'var(--color-gold-muted)' }}
+                >
+                  {locale === 'fr' ? 'Ouvrir l’explorateur' : 'Open Genetic Lineage Explorer'}
+                </Link>
+              </div>
+            </section>
+
+            <SectionDivider />
+
+            <section>
+              <SectionHeading id="lineage-citations-policy">
+                {locale === 'fr' ? 'Politique des citations — Explorateur de lignées' : 'Citations policy — Genetic Lineage Explorer'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr' ? (
+                  <>
+                    <p>
+                      Les fiches d’haplogroupe citent des ressources publiques (arbres ISOGG / YFull, PhyloTree pour
+                      l’ADNmt, articles et bases ouverts comme l’AADR) et des notes de synthèse éditoriale. Les noms de
+                      SNP et les arbres évoluent : vérifiez toujours la littérature actuelle et votre sous-clade
+                      terminal chez le projet que vous utilisez.
+                    </p>
+                    <p className="mt-3">
+                      L’atlas ne transforme pas une lignée en identité médiévale : les liens vers les couches « peuples »
+                      et macro-régions restent des lectures connexes, pas des correspondances génétiques.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      Haplogroup profiles cite public resources (ISOGG / YFull-style trees, PhyloTree.org for mtDNA,
+                      open references such as the Allen Ancient DNA Resource) plus short editorial synthesis notes. SNP
+                      names and trees move—verify against current literature and your testing company&apos;s phylogeny.
+                    </p>
+                    <p className="mt-3">
+                      The atlas does not turn one lineage into a medieval identity: links to Historical peoples (macro)
+                      and other atlas entries are for further reading, not genetic matching.
+                    </p>
+                  </>
+                )}
+              </Prose>
+            </section>
+
+            <SectionDivider />
+
+            <section>
+              <SectionHeading id="histor-macro-methodology">
+                {locale === 'fr' ? 'Méthodologie — Peuples historiques (macro)' : 'Methodology — Historical peoples (macro)'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr' ? (
+                  <>
+                    <p>
+                      La couche « Historical peoples (macro) » affiche des polygones interprétatifs sur l’Europe
+                      (500–1100) avec des pondérations de proéminence relatives : ce ne sont ni des pourcentages
+                      génétiques ni des frontières levées au cordeau. Chaque présence peut porter une étiquette de
+                      provenance (contrôle politique, textes, archéologie, sphère inférée) et des sources sommaires.
+                    </p>
+                    <p className="mt-3">
+                      Le mode comparatif peut montrer deux années sur la carte (superposition atténuée) et dans le
+                      panneau de détail. Les URL partagées peuvent inclure l’état de cette tranche (année, vue,
+                      comparaison) lorsque la couche est active.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      The Historical peoples (macro) layer draws interpretive polygons across Europe (500–1100 CE)
+                      with relative prominence weights—not genetic percentages or surveyed borders. Each regional
+                      presence can include a provenance tag (political control, chronicles, archaeology, inferred sphere)
+                      and short source rows.
+                    </p>
+                    <p className="mt-3">
+                      Compare mode can show two years on the map (a dim overlay) and in the region detail panel.
+                      Shared URLs can capture this slice (year, view, compare settings) when the layer is part of the
+                      shared view state.
+                    </p>
+                  </>
+                )}
+              </Prose>
             </section>
 
             <SectionDivider />

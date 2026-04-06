@@ -8,11 +8,20 @@
 import { layerConfigs, getDefaultLayerState, getAtlasLayerPreset } from '@/data/layers';
 import type { SelectionKind } from '@/types';
 import type { BasemapMode } from '@/lib/store';
+import type { HistoricalPresenceView } from '@/core/types';
 import { buildPublicShareUrl } from '@/lib/progress/share';
 import { readMapView } from '@/lib/map-view-reader';
 import { useMapStore } from '@/lib/store';
 
 // ── Payload shape (v1) ──────────────────────────────────────────────
+
+/** Historical peoples (macro) slice for share URLs — years clamped 500–1100 CE. */
+export interface ViewPayloadHistoricalPresence {
+  y: number;
+  v: HistoricalPresenceView;
+  ce?: boolean;
+  cy?: number;
+}
 
 export interface ViewPayloadV1 {
   v: 1;
@@ -23,6 +32,7 @@ export interface ViewPayloadV1 {
   /** Layer ids whose state differs from the era baseline. */
   ly?: Record<string, boolean>;
   sel?: { id: string; kind: SelectionKind };
+  hp?: ViewPayloadHistoricalPresence;
 }
 
 // ── Validation sets ─────────────────────────────────────────────────
@@ -33,10 +43,20 @@ const VALID_SELECTION_KINDS: ReadonlySet<string> = new Set<SelectionKind>([
   'region', 'settlement', 'evidence', 'norman-site', 'era-info',
   'prehistoric-site', 'atlas-person', 'atlas-route', 'atlas-journey',
   'nf-ydna-lineage', 'viking-adna-site', 'viking-archaeology-site',
-  'atlas-timeline-marker',
+  'atlas-timeline-marker', 'historical-macro-region', 'user-ancestry-pin',
 ]);
 
 const VALID_BASEMAPS: ReadonlySet<string> = new Set(['dark', 'parchment']);
+
+const VALID_HP_VIEWS: ReadonlySet<string> = new Set<HistoricalPresenceView>(['peoples', 'polities', 'legacy']);
+
+function clampHpYear(y: number): number {
+  return Math.max(500, Math.min(1100, Math.round(y)));
+}
+
+const HP_DEFAULT_YEAR = 800;
+const HP_DEFAULT_VIEW: HistoricalPresenceView = 'peoples';
+const HP_DEFAULT_COMPARE_YEAR = 1000;
 
 // ── Base64url helpers ───────────────────────────────────────────────
 
@@ -68,6 +88,10 @@ export interface CurrentMapState {
   layers: Record<string, boolean>;
   selectedFeatureId: string | null;
   selectionKind: SelectionKind | null;
+  historicalPresenceYear: number;
+  historicalPresenceView: HistoricalPresenceView;
+  historicalPresenceCompareEnabled: boolean;
+  historicalPresenceCompareYear: number;
 }
 
 export interface CameraSnapshot {
@@ -118,7 +142,29 @@ export function encodeMapView(
     payload.sel = { id: state.selectedFeatureId, kind: state.selectionKind };
   }
 
-  const hasContent = payload.cam || payload.ay || payload.ny || payload.base || payload.ly || payload.sel;
+  const macroOn = state.layers['historical-presence'] ?? false;
+  const hpDiffersFromDefaults =
+    state.historicalPresenceYear !== HP_DEFAULT_YEAR ||
+    state.historicalPresenceView !== HP_DEFAULT_VIEW ||
+    state.historicalPresenceCompareEnabled ||
+    state.historicalPresenceCompareYear !== HP_DEFAULT_COMPARE_YEAR;
+
+  if (macroOn || hpDiffersFromDefaults) {
+    const y = clampHpYear(state.historicalPresenceYear);
+    const v = VALID_HP_VIEWS.has(state.historicalPresenceView)
+      ? state.historicalPresenceView
+      : HP_DEFAULT_VIEW;
+    payload.hp = {
+      y,
+      v,
+      ...(state.historicalPresenceCompareEnabled
+        ? { ce: true, cy: clampHpYear(state.historicalPresenceCompareYear) }
+        : {}),
+    };
+  }
+
+  const hasContent =
+    payload.cam || payload.ay || payload.ny || payload.base || payload.ly || payload.sel || payload.hp;
   if (!hasContent) return null;
 
   return toBase64Url(JSON.stringify(payload));
@@ -171,6 +217,17 @@ export function decodeMapView(encoded: string): ViewPayloadV1 | null {
       }
     }
 
+    if (raw.hp && typeof raw.hp === 'object') {
+      const h = raw.hp as Record<string, unknown>;
+      const y = typeof h.y === 'number' ? clampHpYear(h.y) : HP_DEFAULT_YEAR;
+      const vRaw = typeof h.v === 'string' ? h.v : HP_DEFAULT_VIEW;
+      const v = VALID_HP_VIEWS.has(vRaw) ? (vRaw as HistoricalPresenceView) : HP_DEFAULT_VIEW;
+      const ce = h.ce === true;
+      let cy = typeof h.cy === 'number' ? clampHpYear(h.cy) : HP_DEFAULT_COMPARE_YEAR;
+      if (ce && cy === y) cy = Math.min(1100, y + 100);
+      result.hp = { y, v, ...(ce ? { ce: true, cy } : {}) };
+    }
+
     return result;
   } catch {
     return null;
@@ -191,8 +248,30 @@ export function buildCurrentViewShareUrl(): string {
       layers: s.layers,
       selectedFeatureId: s.selectedFeatureId,
       selectionKind: s.selectionKind,
+      historicalPresenceYear: s.historicalPresenceYear,
+      historicalPresenceView: s.historicalPresenceView,
+      historicalPresenceCompareEnabled: s.historicalPresenceCompareEnabled,
+      historicalPresenceCompareYear: s.historicalPresenceCompareYear,
     },
     camera,
   );
   return buildPublicShareUrl({ era: s.eraId, view: view ?? undefined });
+}
+
+/**
+ * Optional `macro=1`, `hpY`, `hpV`, `hpCompare`, `hpCY` query params (editorial / hub links).
+ */
+export function parseHistoricalPresenceSearchParams(
+  params: URLSearchParams,
+): ViewPayloadHistoricalPresence | null {
+  if (params.get('macro') !== '1' && !params.has('hpY') && !params.has('hpV')) return null;
+  const yRaw = Number(params.get('hpY'));
+  const y = Number.isFinite(yRaw) ? clampHpYear(yRaw) : HP_DEFAULT_YEAR;
+  const vRaw = params.get('hpV') ?? HP_DEFAULT_VIEW;
+  const v = VALID_HP_VIEWS.has(vRaw) ? (vRaw as HistoricalPresenceView) : HP_DEFAULT_VIEW;
+  const ce = params.get('hpCompare') === '1';
+  const cyRaw = Number(params.get('hpCY'));
+  let cy = Number.isFinite(cyRaw) ? clampHpYear(cyRaw) : HP_DEFAULT_COMPARE_YEAR;
+  if (ce && cy === y) cy = Math.min(1100, y + 100);
+  return { y, v, ...(ce ? { ce: true, cy } : {}) };
 }

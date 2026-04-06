@@ -5,7 +5,13 @@ import { useMapStore } from '@/lib/store';
 import { isValidAtlasEra } from '@/core/era/engine';
 import { getBeatCount } from '@/core/story/engine';
 import { arcIdToProgressKey, FULL_TIMELINE_PROGRESS_KEY } from '@/lib/story-progress';
-import { decodeMapView } from '@/lib/map-view-link';
+import { decodeMapView, parseHistoricalPresenceSearchParams, type ViewPayloadHistoricalPresence } from '@/lib/map-view-link';
+import {
+  resolveHaplogroupQuery,
+  buildLineageMapGeoJson,
+  bboxForLineageFeatures,
+  isValidLineageEraLens,
+} from '@/core';
 
 /**
  * Reads URL query parameters once on mount, applies them to the map store,
@@ -32,9 +38,42 @@ export default function MapDeepLinkSync() {
       setEra(era);
     }
 
+    const lineageQ = params.get('lineage');
+    if (lineageQ) {
+      const match = resolveHaplogroupQuery(lineageQ, { lineage: 'all', depth: 'all' });
+      if (match) {
+        const lensRaw = params.get('lineageLens');
+        const lens = isValidLineageEraLens(lensRaw) ? lensRaw : 'early_medieval';
+        const st = useMapStore.getState();
+        st.setLayerVisibility('lineage-explorer', true);
+        st.setLineageExplorerContext({ profileId: match.profile.id, eraLens: lens });
+        const fc = buildLineageMapGeoJson(match.profile, lens);
+        const bb = bboxForLineageFeatures(fc);
+        if (bb) {
+          const [sw, ne] = bb;
+          st.setPendingFlyTarget({
+            center: [(sw[0] + ne[0]) / 2, (sw[1] + ne[1]) / 2],
+            zoom: 4.2,
+          });
+        }
+      }
+    }
+
     // ── Shared-view payload ─────────────────────────────────────────
     const viewParam = params.get('view');
     const view = viewParam ? decodeMapView(viewParam) : null;
+
+    const applyHistoricalPresence = (hp: ViewPayloadHistoricalPresence) => {
+      const st = useMapStore.getState();
+      st.setLayerVisibility('historical-presence', true);
+      st.setHistoricalPresenceYear(hp.y);
+      st.setHistoricalPresenceView(hp.v);
+      if (hp.ce) {
+        st.setHistoricalPresenceCompare(true, hp.cy);
+      } else {
+        st.setHistoricalPresenceCompare(false);
+      }
+    };
 
     if (view) {
       const store = useMapStore.getState();
@@ -62,6 +101,10 @@ export default function MapDeepLinkSync() {
           bearing: view.cam.b,
           pitch: view.cam.p,
         });
+      }
+
+      if (view.hp) {
+        applyHistoricalPresence(view.hp);
       }
     } else {
       // Legacy per-param feature selection (only when no view payload).
@@ -115,6 +158,11 @@ export default function MapDeepLinkSync() {
           startStory(arcId ?? null, { stepIndex });
         }
       }
+    }
+
+    const hpQuery = parseHistoricalPresenceSearchParams(params);
+    if (!view?.hp && hpQuery) {
+      applyHistoricalPresence(hpQuery);
     }
 
     window.history.replaceState({}, '', window.location.pathname);

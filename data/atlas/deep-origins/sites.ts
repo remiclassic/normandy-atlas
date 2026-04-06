@@ -1,0 +1,108 @@
+import type { DeepOriginSiteDef } from '@/core/deep-origins/types';
+
+export const DEEP_ORIGIN_SITES: DeepOriginSiteDef[] = [
+  {
+    id: 'loschbour',
+    lng: 6.216,
+    lat: 49.912,
+    name: 'Loschbour',
+    country: { en: 'Luxembourg', fr: 'Luxembourg' },
+    approxYearBP: 8000,
+    categoryIds: ['hunter_gatherer', 'archaeology'],
+    blurb: {
+      en: 'Mesolithic hunter-gatherer genome landmark in western European ancient DNA narratives.',
+      fr: 'Génome mésolithique souvent cité dans les récits d’ADN ancien en Europe occidentale.',
+    },
+  },
+  {
+    id: 'stuttgart',
+    lng: 9.18,
+    lat: 48.78,
+    name: 'Stuttgart',
+    country: { en: 'Germany', fr: 'Allemagne' },
+    approxYearBP: 7000,
+    categoryIds: ['early_farmer', 'archaeology'],
+    blurb: {
+      en: 'Early Neolithic farmer context widely referenced in European admixture models.',
+      fr: 'Contexte agricole du Néolithique ancien souvent utilisé dans les modèles d’admixture.',
+    },
+  },
+  {
+    id: 'iberia-hg',
+    lng: -3.7,
+    lat: 43.3,
+    name: 'Iberian HG',
+    country: { en: 'Spain', fr: 'Espagne' },
+    approxYearBP: 9000,
+    categoryIds: ['hunter_gatherer', 'archaeology'],
+    blurb: {
+      en: 'Representative region for post-glacial hunter-gatherer diversity in southwest Europe (schematic pin).',
+      fr: 'Région représentative de diversité de chasseurs-cueilleurs post-glaciaires dans le sud-ouest (repère schématique).',
+    },
+  },
+  {
+    id: 'hun-lbk',
+    lng: 19.2,
+    lat: 47.5,
+    name: 'Great Hungarian Plain (Neolithic)',
+    country: { en: 'Hungary', fr: 'Hongrie' },
+    approxYearBP: 7200,
+    categoryIds: ['early_farmer', 'archaeology'],
+    blurb: {
+      en: 'Central European corridor where early farmer ancestries appear in many schematic maps.',
+      fr: 'Couloir centre-européen où les ancestres agricoles apparaissent souvent sur les cartes schématiques.',
+    },
+  },
+  {
+    id: 'switzerland-neo',
+    lng: 8.2,
+    lat: 47.4,
+    name: 'Swiss plateau Neolithic',
+    country: { en: 'Switzerland', fr: 'Suisse' },
+    approxYearBP: 6800,
+    categoryIds: ['early_farmer', 'archaeology'],
+    blurb: {
+      en: 'Alpine-adjacent early farming contexts in broad European summaries.',
+      fr: 'Premiers contextes agricoles près des Alpes dans les synthèses larges.',
+    },
+  },
+  {
+    id: 'samara-yamnaya',
+    lng: 50.1,
+    lat: 53.2,
+    name: 'Samara steppe (Yamnaya vicinity)',
+    country: { en: 'Russia', fr: 'Russie' },
+    approxYearBP: 5000,
+    categoryIds: ['metal_age', 'archaeology'],
+    blurb: {
+      en: 'Steppe pastoralist horizon often linked to expansions summarized on popular maps.',
+      fr: 'Horizon des pasteurs de steppe souvent associé aux expansions des cartes grand public.',
+    },
+  },
+  {
+    id: 'central-germany-bb',
+    lng: 11.58,
+    lat: 50.93,
+    name: 'Central Germany (Metal Age schematic)',
+    country: { en: 'Germany', fr: 'Allemagne' },
+    approxYearBP: 4300,
+    categoryIds: ['metal_age', 'archaeology'],
+    blurb: {
+      en: 'Illustrative pin for Corded Ware / Bronze Age discussion regions in teaching maps.',
+      fr: 'Repère illustratif pour les régions souvent discutées autour de la poterie cordée / Bronze.',
+    },
+  },
+  {
+    id: 'kazan-volga',
+    lng: 49.1,
+    lat: 55.8,
+    name: 'Middle Volga',
+    country: { en: 'Russia', fr: 'Russie' },
+    approxYearBP: 4800,
+    categoryIds: ['metal_age', 'archaeology'],
+    blurb: {
+      en: 'East–west connectivity on the Volga often appears in steppe ancestry tutorials.',
+      fr: 'Connectivité est-ouest sur la Volga fréquente dans les tutoriels sur l’ancestre steppique.',
+    },
+  },
+];

@@ -12,6 +12,7 @@ import { BackgroundMusic } from '@/components/audio/BackgroundMusic';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLockup';
+import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
 
 /** Shared with `ReferenceHubTabs` back-to-map control */
 export const atlasSubpageBackChipClass =
@@ -101,6 +102,7 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
 
           <div className="hidden shrink-0 items-center gap-2.5 md:flex">
             <div className="hidden shrink-0 xl:flex">{chromePill}</div>
+            <CommandPaletteHeaderTrigger />
             <ChromeIconTooltip label={t('header.settingsMenu', locale)} hint={t('header.settingsMenu.hint', locale)}>
               <button
                 type="button"
@@ -124,20 +126,19 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
             </button>
           )}
 
-          <ChromeIconTooltip
-            label={t('header.settingsMenu', locale)}
-            hint={t('header.settingsMenu.hint', locale)}
-            wrapperClassName="md:hidden"
-          >
-            <button
-              type="button"
-              onClick={onOpenToolsMenu}
-              className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment md:hidden"
-              aria-label={t('header.settingsMenu', locale)}
-            >
-              <Menu className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
-            </button>
-          </ChromeIconTooltip>
+          <div className="flex shrink-0 items-center gap-1 md:hidden">
+            <CommandPaletteHeaderTrigger size="mobileTouch" />
+            <ChromeIconTooltip label={t('header.settingsMenu', locale)} hint={t('header.settingsMenu.hint', locale)}>
+              <button
+                type="button"
+                onClick={onOpenToolsMenu}
+                className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+                aria-label={t('header.settingsMenu', locale)}
+              >
+                <Menu className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
+              </button>
+            </ChromeIconTooltip>
+          </div>
         </div>
       </div>
     </header>

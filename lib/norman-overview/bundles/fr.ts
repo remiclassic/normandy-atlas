@@ -103,6 +103,10 @@ export const bundle: NormanOverviewBundle = {
         'Les chevaliers normands comptent parmi les guerriers les plus redoutés de l\'Europe médiévale.',
         'Ils bâtissent de puissantes forteresses, perfectionnent la cavalerie lourde et organisent une société féodale très structurée.',
       ],
+      relatedLink: {
+        href: '/lineage-explorer/norman-y-dna',
+        label: 'ADN-Y en Normandie (Cotentin) — lecture approfondie',
+      },
     },
     {
       heading: 'La conquête normande',

@@ -81,6 +81,18 @@ import {
   VIKING_BATTLE_CIRCLES,
   VIKING_BATTLE_LABELS,
 } from '@/components/map/map-layers';
+import {
+  HISTORICAL_PRESENCE_FILL,
+  HISTORICAL_PRESENCE_UNCERTAINTY,
+} from '@/components/map/historical-presence-layers';
+import {
+  LINEAGE_EXPLORER_LINE,
+  LINEAGE_EXPLORER_CIRCLES,
+} from '@/components/map/lineage-explorer-layers';
+import {
+  USER_ANCESTRY_CIRCLES,
+  USER_ANCESTRY_LABELS,
+} from '@/components/map/user-ancestry-pins-layers';
 
 export const layerConfigs: LayerConfig[] = [
   {
@@ -138,6 +150,27 @@ export const layerConfigs: LayerConfig[] = [
     defaultOn: false,
     mapLayerIds: ['regions-cultural-origins-fill'],
     dependsOnEra: true,
+  },
+  {
+    id: 'historical-presence',
+    label: 'Historical peoples (macro)',
+    category: 'identity',
+    defaultOn: false,
+    mapLayerIds: [HISTORICAL_PRESENCE_FILL, HISTORICAL_PRESENCE_UNCERTAINTY],
+  },
+  {
+    id: 'lineage-explorer',
+    label: 'Genetic Lineage Explorer',
+    category: 'identity',
+    defaultOn: false,
+    mapLayerIds: [LINEAGE_EXPLORER_LINE, LINEAGE_EXPLORER_CIRCLES],
+  },
+  {
+    id: 'user-ancestry-pins',
+    label: 'My ancestry pins',
+    category: 'identity',
+    defaultOn: false,
+    mapLayerIds: [USER_ANCESTRY_CIRCLES, USER_ANCESTRY_LABELS],
   },
   // --- Normandy overlay layers ---
   {

@@ -4,6 +4,8 @@ export type NormanOverviewSection = {
   paragraphs: string[];
   bullets?: string[];
   paragraphsAfterBullets?: string[];
+  /** Optional in-atlas deep read */
+  relatedLink?: { href: string; label: string };
 };
 
 export type NormanOverviewBundle = {

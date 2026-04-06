@@ -46,6 +46,16 @@ import {
   SETTLEMENT_SOURCE,
   CULTURAL_ORIGINS_FILL,
 } from './map-layers';
+import {
+  addHistoricalPresenceLayers,
+  updateHistoricalPresenceSource,
+  updateHistoricalPresenceCompareSource,
+  setHistoricalPresenceCompareLayerVisibility,
+  EMPTY_HISTORICAL_PRESENCE_GEO,
+  HISTORICAL_PRESENCE_SOURCE,
+  HISTORICAL_PRESENCE_COMPARE_SOURCE,
+  HISTORICAL_PRESENCE_FILL,
+} from './historical-presence-layers';
 import { setCartoModernBasemapOverlaysVisible } from './basemap-modern-overlays';
 import {
   ensureTerrainInfrastructure,
@@ -102,14 +112,65 @@ import {
   getEffectiveStoryBeat,
   resolveSlideAnchor,
   enrichRegionsWithCulturalOrigins,
+  buildHistoricalPresenceGeoJson,
+  getHaplogroupProfile,
+  buildLineageMapGeoJson,
 } from '@/core';
+import {
+  addLineageExplorerLayers,
+  updateLineageExplorerSource,
+  LINEAGE_EXPLORER_SOURCE,
+} from './lineage-explorer-layers';
+import {
+  addUserAncestryPinLayers,
+  updateUserAncestryPinsSource,
+  USER_ANCESTRY_SOURCE,
+  USER_ANCESTRY_CIRCLES,
+} from './user-ancestry-pins-layers';
+import { useAncestryStore } from '@/lib/ancestry-store';
+import { buildUserAncestryPinsGeoJson } from '@/core/ancestry/geo';
+import { useAncestryJourneyPlayback } from '@/hooks/useAncestryJourneyPlayback';
 import { NORMAN_ROUTE_COLOR } from '@/core/presentation/styles';
-import { registerMapViewReader, unregisterMapViewReader } from '@/lib/map-view-reader';
+import {
+  registerMapViewReader,
+  unregisterMapViewReader,
+  registerMapBoundsReader,
+  unregisterMapBoundsReader,
+  type MapLngLatBounds,
+} from '@/lib/map-view-reader';
 import type { ResolvedSegment, MigrationOverlayContext, MigrationDataset } from '@/core/types';
 import type { ResolvedFlowArc } from '@/core/migration/engine';
 import type { RouteRecord } from '@/types';
 
 const ATLAS_ROUTE_LAYER_IDS = ['atlas-route-polylines', 'atlas-route-polylines-norman', 'atlas-route-arcs', 'atlas-route-paths'] as const;
+
+function syncLineageExplorerMap(map: maplibregl.Map) {
+  if (!map.getSource(LINEAGE_EXPLORER_SOURCE)) return;
+  const s = useMapStore.getState();
+  const layerOn = s.layers['lineage-explorer'] ?? false;
+  const show = layerOn && !!s.lineageExplorerProfileId && s.atlasMode;
+  if (show) {
+    const p = getHaplogroupProfile(s.lineageExplorerProfileId!);
+    if (p) {
+      updateLineageExplorerSource(map, buildLineageMapGeoJson(p, s.lineageExplorerEraLens));
+      return;
+    }
+  }
+  updateLineageExplorerSource(map, { type: 'FeatureCollection', features: [] });
+}
+
+function syncUserAncestryPins(map: maplibregl.Map) {
+  if (!map.getSource(USER_ANCESTRY_SOURCE)) return;
+  const s = useMapStore.getState();
+  const layerOn = s.layers['user-ancestry-pins'] ?? false;
+  const show = layerOn && s.atlasMode;
+  const people = useAncestryStore.getState().people;
+  if (show && Object.keys(people).length > 0) {
+    updateUserAncestryPinsSource(map, buildUserAncestryPinsGeoJson(people));
+  } else {
+    updateUserAncestryPinsSource(map, { type: 'FeatureCollection', features: [] });
+  }
+}
 
 function pickAtlasRouteSegment(
   overlay: MapboxOverlay,
@@ -506,6 +567,13 @@ function tryRunOnboardingFly(map: maplibregl.Map | null) {
 
 const CINEMATIC_OCEAN_ARC_IDS = new Set(['leif-erikson']);
 
+const AncestryJourneyPlaybackBridge = memo(function AncestryJourneyPlaybackBridge() {
+  const plan = useAncestryStore((s) => s.activeJourney);
+  const stepIndex = useAncestryStore((s) => s.journeyStepIndex);
+  useAncestryJourneyPlayback(plan, stepIndex, plan != null);
+  return null;
+});
+
 const CinematicOceanOverlay = memo(function CinematicOceanOverlay() {
   const storyArc = useMapStore((s) => s.storyArc);
   const storyMode = useMapStore((s) => s.storyMode);
@@ -544,6 +612,7 @@ const CinematicOceanOverlay = memo(function CinematicOceanOverlay() {
 export default function MapCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const viewportBoundsRef = useRef<MapLngLatBounds | null>(null);
   const overlayRef = useRef<MapboxOverlay | null>(null);
   const hoveredRegionRef = useRef<string | null>(null);
   const hoveredSettlementRef = useRef<string | null>(null);
@@ -557,6 +626,10 @@ export default function MapCanvas() {
   const hoveredVikingAdnaRef = useRef<string | null>(null);
   const selectedVikingArchRef = useRef<string | null>(null);
   const hoveredVikingArchRef = useRef<string | null>(null);
+  const hoveredHistoricalMacroRef = useRef<string | null>(null);
+  const selectedHistoricalMacroRef = useRef<string | null>(null);
+  const selectedUserAncestryPinRef = useRef<string | null>(null);
+  const hoveredUserAncestryPinRef = useRef<string | null>(null);
   const readyRef = useRef(false);
   const interactionsAttachedRef = useRef(false);
   const rebuildMapDataLayersRef = useRef<(map: maplibregl.Map) => void>(() => {});
@@ -697,6 +770,28 @@ export default function MapCanvas() {
         updateSettlementSource(map, getSettlementsGeoJsonForEra(state.eraId));
       }
 
+      if (state.atlasMode) {
+        const hpGeo = buildHistoricalPresenceGeoJson(
+          state.historicalPresenceYear,
+          state.historicalPresenceView,
+          state.locale,
+        );
+        const hpCompareGeo =
+          state.historicalPresenceCompareEnabled
+            ? buildHistoricalPresenceGeoJson(
+                state.historicalPresenceCompareYear,
+                state.historicalPresenceView,
+                state.locale,
+              )
+            : EMPTY_HISTORICAL_PRESENCE_GEO;
+        addHistoricalPresenceLayers(map, hpGeo, hpCompareGeo, theme);
+        const macroOn = state.layers['historical-presence'] ?? false;
+        setHistoricalPresenceCompareLayerVisibility(
+          map,
+          macroOn && state.historicalPresenceCompareEnabled,
+        );
+      }
+
       addAllNormandyLayers(map, theme);
       addAllNormanExpansionLayers(map, theme);
       addAllPrehistoryLayers(map, theme);
@@ -705,6 +800,10 @@ export default function MapCanvas() {
       applyNfYdnaOriginFilter(map, state.ydnaScandinavianFilter);
       addVikingAdnaLayers(map, theme);
       addVikingArchLayers(map, theme);
+      addLineageExplorerLayers(map, theme);
+      syncLineageExplorerMap(map);
+      addUserAncestryPinLayers(map, theme);
+      syncUserAncestryPins(map);
       addVikingExpansionZoneLayers(map, vikingExpansionZonesGeoJson);
       addVikingBattleLayers(map, buildVikingBattleGeoJson(
         VIKING_MOVEMENT_ERA_IDS.has(state.eraId) ? state.atlasSimYear : undefined,
@@ -764,6 +863,7 @@ export default function MapCanvas() {
       readyRef.current = false;
       interactionsAttachedRef.current = false;
       unregisterMapViewReader();
+      unregisterMapBoundsReader();
       const m = mapRef.current;
       if (m) {
         try {
@@ -883,6 +983,29 @@ export default function MapCanvas() {
         return { lng: c.lng, lat: c.lat, zoom: m.getZoom(), bearing: m.getBearing(), pitch: m.getPitch() };
       });
 
+      const flushViewportBounds = () => {
+        const m = mapRef.current;
+        if (!m) return;
+        const b = m.getBounds();
+        viewportBoundsRef.current = {
+          west: b.getWest(),
+          south: b.getSouth(),
+          east: b.getEast(),
+          north: b.getNorth(),
+        };
+      };
+      let boundsThrottleTimer: ReturnType<typeof setTimeout> | null = null;
+      const scheduleViewportBoundsUpdate = () => {
+        if (boundsThrottleTimer != null) return;
+        boundsThrottleTimer = setTimeout(() => {
+          boundsThrottleTimer = null;
+          flushViewportBounds();
+        }, 120);
+      };
+      registerMapBoundsReader(() => viewportBoundsRef.current);
+      map.on('moveend', scheduleViewportBoundsUpdate);
+      flushViewportBounds();
+
       map.on('load', async () => {
         if (!map) return;
         if (stale()) return;
@@ -890,6 +1013,7 @@ export default function MapCanvas() {
         await registerAtlasMapIcons(map, theme);
         if (stale() || !map) return;
         rebuildMapDataLayersRef.current(map);
+        flushViewportBounds();
 
         syncMapLabelTextSize(map, useMapStore.getState().textSize);
 
@@ -936,6 +1060,42 @@ export default function MapCanvas() {
           map!.getCanvas().style.cursor = '';
         }
         if (tooltipRef.current && useMapStore.getState().layers['cultural-origins']) {
+          showTooltip(null);
+        }
+      });
+
+      map.on('mousemove', HISTORICAL_PRESENCE_FILL, (e) => {
+        if (!e.features?.length) return;
+        if (!useMapStore.getState().layers['historical-presence']) return;
+        const id = e.features[0].properties?.id as string;
+        const props = e.features[0].properties;
+        if (hoveredHistoricalMacroRef.current && hoveredHistoricalMacroRef.current !== id) {
+          setFeatureState(map!, hoveredHistoricalMacroRef.current, { hover: false }, HISTORICAL_PRESENCE_SOURCE);
+        }
+        hoveredHistoricalMacroRef.current = id;
+        setFeatureState(map!, id, { hover: true }, HISTORICAL_PRESENCE_SOURCE);
+        hoverFeature(id, 'historical-macro-region');
+        map!.getCanvas().style.cursor = 'pointer';
+        const summary = props?.hoverSummary as string | undefined;
+        if (summary) {
+          showTooltip({
+            x: e.point.x,
+            y: e.point.y,
+            title: (props?.name as string) ?? id,
+            detail: summary,
+            hint: 'Click for sources & breakdown — weights are relative prominence, not DNA %',
+          });
+        }
+      });
+
+      map.on('mouseleave', HISTORICAL_PRESENCE_FILL, () => {
+        if (hoveredHistoricalMacroRef.current) {
+          setFeatureState(map!, hoveredHistoricalMacroRef.current, { hover: false }, HISTORICAL_PRESENCE_SOURCE);
+          hoveredHistoricalMacroRef.current = null;
+        }
+        hoverFeature(null);
+        map!.getCanvas().style.cursor = '';
+        if (tooltipRef.current && useMapStore.getState().layers['historical-presence']) {
           showTooltip(null);
         }
       });
@@ -1088,6 +1248,31 @@ export default function MapCanvas() {
           }
         }
 
+        if ((store.layers['user-ancestry-pins'] ?? false) && map!.getLayer(USER_ANCESTRY_CIRCLES)) {
+          const uFeats = map!.queryRenderedFeatures(e.point, { layers: [USER_ANCESTRY_CIRCLES] });
+          if (uFeats.length) {
+            const p = uFeats[0].properties!;
+            const fid = p.id as string;
+            if (hoveredUserAncestryPinRef.current && hoveredUserAncestryPinRef.current !== fid) {
+              setFeatureState(map!, hoveredUserAncestryPinRef.current, { hover: false }, USER_ANCESTRY_SOURCE);
+            }
+            hoveredUserAncestryPinRef.current = fid;
+            setFeatureState(map!, fid, { hover: true }, USER_ANCESTRY_SOURCE);
+            showTooltip({
+              x: e.point.x,
+              y: e.point.y,
+              title: p.name as string,
+              subtitle: p.pinKind === 'birth' ? 'Birth (your tree)' : 'Death (your tree)',
+              detail: p.label as string,
+            });
+            map!.getCanvas().style.cursor = 'pointer';
+            return;
+          } else if (hoveredUserAncestryPinRef.current) {
+            setFeatureState(map!, hoveredUserAncestryPinRef.current, { hover: false }, USER_ANCESTRY_SOURCE);
+            hoveredUserAncestryPinRef.current = null;
+          }
+        }
+
         if (map!.getLayer(VIKING_ADNA_CIRCLES)) {
           const vaFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ADNA_CIRCLES] });
           if (vaFeats.length) {
@@ -1161,6 +1346,13 @@ export default function MapCanvas() {
           hoveredYdnaRef.current = null;
         }
       });
+      map.on('mouseleave', USER_ANCESTRY_CIRCLES, () => {
+        if (tooltipRef.current) showTooltip(null);
+        if (hoveredUserAncestryPinRef.current && map!.getSource(USER_ANCESTRY_SOURCE)) {
+          setFeatureState(map!, hoveredUserAncestryPinRef.current, { hover: false }, USER_ANCESTRY_SOURCE);
+          hoveredUserAncestryPinRef.current = null;
+        }
+      });
       map.on('mouseleave', VIKING_ADNA_CIRCLES, () => {
         if (tooltipRef.current) showTooltip(null);
         if (hoveredVikingAdnaRef.current && map!.getSource(VIKING_ADNA_SOURCE)) {
@@ -1217,6 +1409,14 @@ export default function MapCanvas() {
           if (selectedVikingArchRef.current && map!.getSource(VIKING_ARCH_SOURCE)) {
             setFeatureState(map!, selectedVikingArchRef.current, { selected: false }, VIKING_ARCH_SOURCE);
             selectedVikingArchRef.current = null;
+          }
+          if (selectedHistoricalMacroRef.current && map!.getSource(HISTORICAL_PRESENCE_SOURCE)) {
+            setFeatureState(map!, selectedHistoricalMacroRef.current, { selected: false }, HISTORICAL_PRESENCE_SOURCE);
+            selectedHistoricalMacroRef.current = null;
+          }
+          if (selectedUserAncestryPinRef.current && map!.getSource(USER_ANCESTRY_SOURCE)) {
+            setFeatureState(map!, selectedUserAncestryPinRef.current, { selected: false }, USER_ANCESTRY_SOURCE);
+            selectedUserAncestryPinRef.current = null;
           }
         };
 
@@ -1287,6 +1487,20 @@ export default function MapCanvas() {
           }
         }
 
+        if ((clickStore.layers['user-ancestry-pins'] ?? false) && map!.getLayer(USER_ANCESTRY_CIRCLES)) {
+          const uFeats = map!.queryRenderedFeatures(e.point, { layers: [USER_ANCESTRY_CIRCLES] });
+          if (uFeats.length) {
+            const id = uFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedUserAncestryPinRef.current = id;
+              setFeatureState(map!, id, { selected: true }, USER_ANCESTRY_SOURCE);
+              selectFeature(id, 'user-ancestry-pin');
+              return;
+            }
+          }
+        }
+
         if (map!.getLayer(VIKING_ADNA_CIRCLES)) {
           const vaFeats = map!.queryRenderedFeatures(e.point, { layers: [VIKING_ADNA_CIRCLES] });
           if (vaFeats.length) {
@@ -1310,6 +1524,20 @@ export default function MapCanvas() {
               selectedVikingArchRef.current = id;
               setFeatureState(map!, id, { selected: true }, VIKING_ARCH_SOURCE);
               selectFeature(id, 'viking-archaeology-site');
+              return;
+            }
+          }
+        }
+
+        if (clickStore.layers['historical-presence'] && map!.getLayer(HISTORICAL_PRESENCE_FILL)) {
+          const hFeats = map!.queryRenderedFeatures(e.point, { layers: [HISTORICAL_PRESENCE_FILL] });
+          if (hFeats.length) {
+            const id = hFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedHistoricalMacroRef.current = id;
+              setFeatureState(map!, id, { selected: true }, HISTORICAL_PRESENCE_SOURCE);
+              selectFeature(id, 'historical-macro-region');
               return;
             }
           }
@@ -1494,14 +1722,128 @@ export default function MapCanvas() {
 
         const homelandChanged = (layers['viking-norse-homeland'] ?? true) !== (prevLayers['viking-norse-homeland'] ?? true);
         const culturalOriginsChanged = (layers['cultural-origins'] ?? false) !== (prevLayers['cultural-origins'] ?? false);
+        const hpChanged = (layers['historical-presence'] ?? false) !== (prevLayers['historical-presence'] ?? false);
         if (homelandChanged && VIKING_MOVEMENT_ERA_IDS.has(state.eraId)) {
           syncSources(state.eraId);
         } else if (culturalOriginsChanged && state.atlasMode) {
           syncSources(state.eraId);
         }
+        if (hpChanged && state.atlasMode && map.getSource(HISTORICAL_PRESENCE_SOURCE)) {
+          updateHistoricalPresenceSource(
+            map,
+            buildHistoricalPresenceGeoJson(
+              state.historicalPresenceYear,
+              state.historicalPresenceView,
+              state.locale,
+            ),
+          );
+          const macroOn = state.layers['historical-presence'] ?? false;
+          const compareGeo =
+            macroOn && state.historicalPresenceCompareEnabled
+              ? buildHistoricalPresenceGeoJson(
+                  state.historicalPresenceCompareYear,
+                  state.historicalPresenceView,
+                  state.locale,
+                )
+              : EMPTY_HISTORICAL_PRESENCE_GEO;
+          if (map.getSource(HISTORICAL_PRESENCE_COMPARE_SOURCE)) {
+            updateHistoricalPresenceCompareSource(map, compareGeo);
+          }
+          setHistoricalPresenceCompareLayerVisibility(
+            map,
+            macroOn && state.historicalPresenceCompareEnabled,
+          );
+        }
+
+        const lineageLayerChanged =
+          (layers['lineage-explorer'] ?? false) !== (prevLayers['lineage-explorer'] ?? false);
+        if (lineageLayerChanged && map.getSource(LINEAGE_EXPLORER_SOURCE)) {
+          syncLineageExplorerMap(map);
+        }
+
+        const userAncestryLayerChanged =
+          (layers['user-ancestry-pins'] ?? false) !== (prevLayers['user-ancestry-pins'] ?? false);
+        if (userAncestryLayerChanged && map.getSource(USER_ANCESTRY_SOURCE)) {
+          syncUserAncestryPins(map);
+        }
       },
     );
   }, [syncOverlay, syncSources]);
+
+  useEffect(() => {
+    return useAncestryStore.subscribe(
+      (s) => s.people,
+      () => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        if (map.getSource(USER_ANCESTRY_SOURCE)) syncUserAncestryPins(map);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => ({
+        layerOn: s.layers['lineage-explorer'] ?? false,
+        pid: s.lineageExplorerProfileId,
+        lens: s.lineageExplorerEraLens,
+        atlasMode: s.atlasMode,
+      }),
+      (cur, prev) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current) return;
+        if (
+          prev &&
+          cur.layerOn === prev.layerOn &&
+          cur.pid === prev.pid &&
+          cur.lens === prev.lens &&
+          cur.atlasMode === prev.atlasMode
+        ) {
+          return;
+        }
+        if (map.getSource(LINEAGE_EXPLORER_SOURCE)) syncLineageExplorerMap(map);
+      },
+    );
+  }, []);
+
+  useEffect(() => {
+    return useMapStore.subscribe(
+      (s) => ({
+        y: s.historicalPresenceYear,
+        v: s.historicalPresenceView,
+        loc: s.locale,
+        atlasMode: s.atlasMode,
+        ce: s.historicalPresenceCompareEnabled,
+        cy: s.historicalPresenceCompareYear,
+        macroOn: s.layers['historical-presence'] ?? false,
+      }),
+      (cur, prev) => {
+        const map = mapRef.current;
+        if (!map || !readyRef.current || !cur.atlasMode) return;
+        if (!map.getSource(HISTORICAL_PRESENCE_SOURCE)) return;
+        if (
+          prev &&
+          cur.y === prev.y &&
+          cur.v === prev.v &&
+          cur.loc === prev.loc &&
+          cur.ce === prev.ce &&
+          cur.cy === prev.cy &&
+          cur.macroOn === prev.macroOn
+        ) {
+          return;
+        }
+        updateHistoricalPresenceSource(map, buildHistoricalPresenceGeoJson(cur.y, cur.v, cur.loc));
+        const compareGeo =
+          cur.macroOn && cur.ce
+            ? buildHistoricalPresenceGeoJson(cur.cy, cur.v, cur.loc)
+            : EMPTY_HISTORICAL_PRESENCE_GEO;
+        if (map.getSource(HISTORICAL_PRESENCE_COMPARE_SOURCE)) {
+          updateHistoricalPresenceCompareSource(map, compareGeo);
+        }
+        setHistoricalPresenceCompareLayerVisibility(map, cur.macroOn && cur.ce);
+      },
+    );
+  }, []);
 
   useEffect(() => {
     return useMapStore.subscribe(
@@ -1514,7 +1856,9 @@ export default function MapCanvas() {
           if (k === 'settlement') return SETTLEMENT_SOURCE;
           if (k === 'norman-site') return NORMAN_NODES_SOURCE;
           if (k === 'nf-ydna-lineage') return NF_YDNA_SOURCE;
+          if (k === 'user-ancestry-pin') return USER_ANCESTRY_SOURCE;
           if (k === 'region') return REGION_SOURCE;
+          if (k === 'historical-macro-region') return HISTORICAL_PRESENCE_SOURCE;
           return null;
         };
 
@@ -1532,12 +1876,16 @@ export default function MapCanvas() {
           if (kind === 'region') selectedRegionRef.current = newId;
           else if (kind === 'norman-site') selectedNormanNodeRef.current = newId;
           else if (kind === 'nf-ydna-lineage') selectedYdnaRef.current = newId;
+          else if (kind === 'user-ancestry-pin') selectedUserAncestryPinRef.current = newId;
+          else if (kind === 'historical-macro-region') selectedHistoricalMacroRef.current = newId;
           else selectedSettlementRef.current = newId;
         } else {
           selectedRegionRef.current = null;
           selectedSettlementRef.current = null;
           selectedNormanNodeRef.current = null;
           selectedYdnaRef.current = null;
+          selectedHistoricalMacroRef.current = null;
+          selectedUserAncestryPinRef.current = null;
         }
       },
     );
@@ -2001,6 +2349,7 @@ export default function MapCanvas() {
 
   return (
     <>
+      <AncestryJourneyPlaybackBridge />
       <div
         className={`absolute inset-0 w-full h-full transition-[filter] duration-300 ease-out ${
           storyEraIntroActive ? 'blur-[10px] sm:blur-[12px]' : ''

@@ -54,6 +54,7 @@ import { GuidesReferenceHubTrigger } from '@/components/layout/GuidesReferenceHu
 import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLockup';
 import AtlasMenuDrawer from '@/components/layout/AtlasMenuDrawer';
 import AtlasToolsMenuBody from '@/components/layout/AtlasToolsMenuBody';
+import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
 
 export default function AtlasHomeShell() {
   const router = useRouter();
@@ -247,6 +248,8 @@ export default function AtlasHomeShell() {
           <LanguageSwitcher />
         </div>
 
+        <CommandPaletteHeaderTrigger />
+
         <ChromeIconTooltip
           label={t('header.settingsMenu', locale)}
           hint={t('header.settingsMenu.hint', locale)}
@@ -326,6 +329,8 @@ export default function AtlasHomeShell() {
                   <Award className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
                 </Link>
               )}
+
+              <CommandPaletteHeaderTrigger size="mobileTouch" />
 
               <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} compact />
 
@@ -511,7 +516,6 @@ export default function AtlasHomeShell() {
           beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
           onNormanOverview={openNormanOverview}
           onChangelog={openChangelog}
-          onStories={openStoryLibrary}
           onLedger={openLedgerAndEndCelebration}
           onProfile={() => router.push('/profile')}
           onShare={handleShareView}

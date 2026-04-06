@@ -483,3 +483,262 @@ export interface MigrationOverlayContext {
   mapMode: MigrationMapMode;
   dataset: MigrationDataset;
 }
+
+// --- Historical peoples / cultural presence (macro-regions, time-sliced) ---
+
+export type HistoricalGroupKind = 'people' | 'polity' | 'cultural-sphere' | 'legacy-population';
+
+/** Relative prominence in region (0–1), not genetic percentage. */
+export type PresenceConfidenceLevel = 'high' | 'medium' | 'low';
+
+export type PresenceProvenance =
+  | 'polity_control'
+  | 'chronicler'
+  | 'archaeology'
+  | 'inferred_sphere';
+
+export type HistoricalSourceKind = 'tree' | 'review' | 'database' | 'synthesis';
+
+export interface HistoricalSourceRef {
+  id: string;
+  title: string;
+  url?: string;
+  note?: string;
+  kind?: HistoricalSourceKind;
+}
+
+export interface RegionalPresence {
+  regionId: string;
+  startYear: number;
+  endYear: number;
+  /** Relative prominence in this region for the time slice (0–1). */
+  weight: number;
+  confidence: PresenceConfidenceLevel;
+  provenance?: PresenceProvenance;
+  notes?: string;
+  sources: HistoricalSourceRef[];
+}
+
+export interface HistoricalGroup {
+  id: string;
+  name: I18nString;
+  kind: HistoricalGroupKind;
+  color: string;
+  startYear: number;
+  endYear: number;
+  parentGroupId?: string;
+  aliases?: string[];
+  description: I18nString;
+  presences: RegionalPresence[];
+  /** Optional story arcs for “follow on map” from group detail. */
+  storyArcIds?: string[];
+}
+
+export type HistoricalPresenceView = 'peoples' | 'polities' | 'legacy';
+
+export interface RankedPresenceRow {
+  group: HistoricalGroup;
+  presence: RegionalPresence;
+}
+
+// --- Genetic Lineage Explorer (haplogroups — not ethnicity; soft-linked to atlas) ---
+
+export type LineageType = 'paternal' | 'maternal';
+
+export type LineageConfidenceLevel = 'high' | 'medium' | 'low';
+
+export type LineageRegionRelevance =
+  | 'origin'
+  | 'migration'
+  | 'presence'
+  | 'later-concentration'
+  | 'possible-link';
+
+export type HaplogroupSourceKind = HistoricalSourceKind;
+
+export interface HaplogroupSourceRef {
+  id: string;
+  title: string;
+  url?: string;
+  note?: string;
+  kind?: HaplogroupSourceKind;
+}
+
+export interface HaplogroupRegionLink {
+  regionId: string;
+  relevanceType: LineageRegionRelevance;
+  confidence: LineageConfidenceLevel;
+  notes?: I18nString;
+  startYear?: number;
+  endYear?: number;
+  sources: HaplogroupSourceRef[];
+}
+
+export interface HaplogroupTimelineEvent {
+  id: string;
+  title: I18nString;
+  startYear?: number;
+  endYear?: number;
+  description: I18nString;
+  confidence: LineageConfidenceLevel;
+  sources: HaplogroupSourceRef[];
+}
+
+export type NormanAtlasLineageFocus =
+  | 'viking_age_scandinavia'
+  | 'frankish_regions'
+  | 'normandy'
+  | 'anglo_norman'
+  | 'british_isles'
+  | 'new_france'
+  | 'baltic_slavic'
+  | 'eastern_steppe_corridors';
+
+export type LineageMapLayerKey =
+  | 'lineage-origin'
+  | 'lineage-corridor'
+  | 'lineage-node'
+  | 'lineage-uncertainty';
+
+export type LineageEraLens = 'deep' | 'antiquity' | 'early_medieval' | 'high_medieval' | 'colonial';
+
+export interface HaplogroupProfile {
+  id: string;
+  name: string;
+  lineageType: LineageType;
+  parentId?: string;
+  aliases?: string[];
+  shortSummary: I18nString;
+  longSummary: I18nString;
+  estimatedOriginTime?: I18nString;
+  estimatedOriginRegion?: I18nString;
+  migrationSummary?: I18nString;
+  confidenceNotes?: I18nString[];
+  cautionNotes?: I18nString[];
+  associatedHistoricalGroupIds?: string[];
+  associatedStoryArcIds?: string[];
+  associatedSegmentIds?: string[];
+  associatedJourneyIds?: string[];
+  associatedRegionLinks?: HaplogroupRegionLink[];
+  timelineEvents?: HaplogroupTimelineEvent[];
+  childCladeIds?: string[];
+  sources: HaplogroupSourceRef[];
+  /** Hints for map styling — not the same as UI layer toggles in data/layers.ts */
+  mapLayerHints?: LineageMapLayerKey[];
+  normanAtlasFocus?: NormanAtlasLineageFocus[];
+  tier?: 'major' | 'sub';
+  phylogenyVersionNote?: I18nString;
+  /** ISO date (YYYY-MM-DD) of last editorial review of this profile. */
+  lastReviewed?: string;
+  /** Public phylogeny menus we align naming against (not a genetic match claim). */
+  phylogenyAlignedTo?: I18nString;
+}
+
+/** How a regional haplogroup pie was produced (methodology badge). */
+export type RegionalHaplogroupEvidenceKind =
+  | 'ancient-dna-aggregated'
+  | 'modern-cohort-proxy'
+  | 'synthesis-estimate';
+
+export interface RegionalHaplogroupTimeWindow {
+  startYear: number;
+  endYear: number;
+  label: I18nString;
+}
+
+export interface RegionalHaplogroupSlice {
+  label: string;
+  /** Share of successfully typed lineages in the cohort (0–100). */
+  pct: number;
+  color?: string;
+  /** Optional link to a curated [`HaplogroupProfile.id`](/lineage-explorer). */
+  lineageProfileId?: string;
+}
+
+export interface RegionalHaplogroupSnapshot {
+  id: string;
+  regionId: string;
+  lineageType: LineageType;
+  window: RegionalHaplogroupTimeWindow;
+  evidenceKind: RegionalHaplogroupEvidenceKind;
+  confidence: LineageConfidenceLevel;
+  /** Individuals in the cohort (ancient samples, triangulated patrilines, etc.). */
+  sampleN?: number;
+  slices: RegionalHaplogroupSlice[];
+  methodologyNote: I18nString;
+  sources: HaplogroupSourceRef[];
+}
+
+export type LineageDepthFilter = 'major' | 'sub' | 'all';
+
+export type LineageLineageFilter = 'all' | 'paternal' | 'maternal';
+
+export interface ResolvedHaplogroupMatch {
+  profile: HaplogroupProfile;
+  /** When the query matched a missing subclade, the profile is the nearest parent with curated copy. */
+  fallbackFromQuery?: string;
+  matchRank: number;
+}
+
+/** Major haplogroup letter for A–Z picker (Y-DNA paternal naming convention). */
+export type HaplogroupMajorLetter =
+  | 'A'
+  | 'B'
+  | 'C'
+  | 'D'
+  | 'E'
+  | 'F'
+  | 'G'
+  | 'H'
+  | 'I'
+  | 'J'
+  | 'K'
+  | 'L'
+  | 'M'
+  | 'N'
+  | 'O'
+  | 'P'
+  | 'Q'
+  | 'R'
+  | 'S'
+  | 'T'
+  | 'U'
+  | 'V'
+  | 'W'
+  | 'X'
+  | 'Y'
+  | 'Z';
+
+/** Optional editorial “lens” on the migration map (e.g. Norman Y-DNA framing). */
+export type PhylogeographyMapFocusId = 'norman-normandy';
+
+/** Single illustrative node on the phylogeographic map (not a precise coordinate claim). */
+export interface PhylogeographyNode {
+  id: string;
+  label: string;
+  lat: number;
+  lng: number;
+  /** Optional link to [`HaplogroupProfile.id`](/lineage-explorer). */
+  profileId?: string;
+  /** If set, this node appears only when that map focus is selected (hidden in the default “all branches” view). */
+  onlyWhenFocus?: PhylogeographyMapFocusId;
+  /** If set, this node is hidden when that focus is active (still shown in the default view). */
+  omitWhenFocus?: PhylogeographyMapFocusId;
+}
+
+export interface PhylogeographyEdge {
+  fromId: string;
+  toId: string;
+  onlyWhenFocus?: PhylogeographyMapFocusId;
+  omitWhenFocus?: PhylogeographyMapFocusId;
+}
+
+/** Curated dataset for one letter tab; empty nodes/edges means “not yet mapped”. */
+export interface PhylogeographyLetterDataset {
+  letter: HaplogroupMajorLetter;
+  title: I18nString;
+  summary: I18nString;
+  nodes: PhylogeographyNode[];
+  edges: PhylogeographyEdge[];
+  sources: HaplogroupSourceRef[];
+}

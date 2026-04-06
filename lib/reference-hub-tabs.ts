@@ -22,13 +22,23 @@ export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[
     label: t('companion.title', locale),
     match: (p) => p === '/companion' || p.startsWith('/companion/'),
   };
+  const lineage: ReferenceHubTabDef = {
+    href: '/lineage-explorer',
+    label: t('lineageExplorer.navLabel', locale),
+    match: (p) => p === '/lineage-explorer' || p.startsWith('/lineage-explorer/'),
+  };
+  const ancestry: ReferenceHubTabDef = {
+    href: '/ancestry',
+    label: t('ancestry.navLabel', locale),
+    match: (p) => p === '/ancestry' || p.startsWith('/ancestry/'),
+  };
   const guides: ReferenceHubTabDef = {
     href: '/guides',
     label: pickI18n(digitalGuidesTooltipLabel, locale),
     match: (p) => p === '/guides' || p.startsWith('/guides/'),
   };
   if (isDigitalGuidesPublic()) {
-    return [guides, journal, companion];
+    return [guides, journal, ancestry, lineage, companion];
   }
-  return [journal, companion];
+  return [journal, ancestry, lineage, companion];
 }

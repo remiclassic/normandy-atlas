@@ -36,3 +36,12 @@ export function getEraLabel(eraId: string, lang: 'en' | 'fr' = 'en'): string {
 export function getEraRange(eraId: string): { start: number; end: number } | undefined {
   return eraMap.get(eraId)?.range;
 }
+
+/** Pick the first atlas era whose numeric range contains `year` (chronological file order). */
+export function resolveAtlasEraIdForYear(year: number): string {
+  for (const e of atlasEras) {
+    const { start, end } = e.range;
+    if (year >= start && year <= end) return e.id;
+  }
+  return DEFAULT_ATLAS_ERA_ID;
+}

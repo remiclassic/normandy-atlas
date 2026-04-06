@@ -46,6 +46,13 @@ export interface RegionProperties {
   namesByEra: Record<string, string>;
   color?: string;
   fillIntent?: string;
+  /** Historical presence overlay (macro regions) */
+  presenceColor?: string;
+  presenceOpacity?: number;
+  confidenceTier?: string;
+  hoverSummary?: string;
+  dominantGroupId?: string;
+  lowConfidenceHatch?: number;
 }
 
 export type RegionFeature = Feature<Polygon | MultiPolygon, RegionProperties>;
@@ -232,7 +239,7 @@ export interface PersonRecord {
 
 // --- Selection ---
 
-export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site' | 'atlas-timeline-marker';
+export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site' | 'atlas-timeline-marker' | 'historical-macro-region' | 'user-ancestry-pin';
 
 export type NormanSiteKind =
   | 'city'

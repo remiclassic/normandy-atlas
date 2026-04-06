@@ -7,6 +7,7 @@ import { useMapStore, NORMANDY_ERA_IDS, VIKING_MOVEMENT_ERA_IDS } from '@/lib/st
 import { getEraRange } from '@/core/era/engine';
 import { getMarkersForEra } from '@/data/atlas/timeline-markers';
 import { VIKING_MACRO_PHASES } from '@/data/atlas/viking-timeline-phases';
+import { HISTORICAL_PRESENCE_YEAR_PRESETS } from '@/core/peoples/engine';
 import { formatYear, yearToPercent } from '@/lib/timeline-utils';
 import { pickI18n } from '@/lib/locale';
 import { TimelineMarkerGlyph } from '@/lib/timeline-marker-icons';
@@ -356,6 +357,9 @@ export default function AtlasTimelineRail() {
   const setAtlasSimYear = useMapStore((s) => s.setAtlasSimYear);
   const setNormandySimYear = useMapStore((s) => s.setNormandySimYear);
   const expansionLayerOn = useMapStore((s) => s.layers['normandy-expansion'] ?? false);
+  const historicalPresenceOn = useMapStore((s) => s.layers['historical-presence'] ?? false);
+  const historicalPresenceYear = useMapStore((s) => s.historicalPresenceYear);
+  const setHistoricalPresenceYear = useMapStore((s) => s.setHistoricalPresenceYear);
   const selectFeature = useMapStore((s) => s.selectFeature);
 
   const isNormandyMode = NORMANDY_ERA_IDS.has(eraId) && expansionLayerOn;
@@ -697,6 +701,30 @@ export default function AtlasTimelineRail() {
             {formatYear(max)}
           </span>
         </div>
+
+        {historicalPresenceOn && (
+          <div className="mt-1.5 pt-1.5 border-t border-chrome-border/60">
+            <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-text-dim/80 mb-1">
+              Historical peoples · year slice (CE)
+            </p>
+            <div className="flex flex-wrap gap-1">
+              {HISTORICAL_PRESENCE_YEAR_PRESETS.map((y) => (
+                <button
+                  key={y}
+                  type="button"
+                  onClick={() => setHistoricalPresenceYear(y)}
+                  className={`min-h-[28px] min-w-[36px] rounded-md px-1.5 py-0.5 text-[10px] font-semibold tabular-nums transition-colors ${
+                    historicalPresenceYear === y
+                      ? 'bg-gold/25 text-gold border border-gold/35'
+                      : 'bg-chrome-fill-raised text-text-muted border border-chrome-border/50 hover:border-gold/20'
+                  }`}
+                >
+                  {y}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

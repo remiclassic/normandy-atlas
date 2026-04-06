@@ -10,6 +10,54 @@ export interface ChangelogEntry {
 /** Newest first. Append to the top when shipping a feature. */
 export const atlasChangelog: ChangelogEntry[] = [
   {
+    id: 'regional-haplogroup-pie-panel',
+    date: '2026-04-06',
+    title: {
+      en: 'Regional haplogroup pie charts (Lineage Explorer)',
+      fr: 'Diagrammes d’haplogroupes par région (Explorateur de lignées)',
+    },
+    summary: {
+      en: 'The Lineage Explorer hub includes time-sliced SVG pies for Norman-atlas regions: Francogene-derived major-Y shares for New France / Acadia (modern triangulation cohort), plus explicit low-confidence synthesis schematics for Viking-age Scandinavia, Danelaw-leaning stories, and a teaching mtDNA pool for northern Gaul. Evidence badges distinguish ancient aggregates, modern proxies, and best-guess blends — not autosomal ancestry.',
+      fr: 'La page Explorateur de lignées inclut des diagrammes circulaires SVG par tranches temporelles pour des régions de l’atlas normand : parts ADN-Y majeures dérivées du catalogue Francogene pour la Nouvelle-France / l’Acadie (cohorte moderne triangulée), plus des schémas de synthèse à faible confiance explicite pour la Scandinavie viking, des récits de type Danelaw, et un pool ADNmt pédagogique pour la Gaule septentrionale. Les badges distinguent agrégats anciens, proxies modernes et estimates — pas l’ascendance autosomiale.',
+    },
+  },
+  {
+    id: 'lineage-ydna-migration-map',
+    date: '2026-04-06',
+    title: {
+      en: 'Y-DNA phylogeographic migration map (Lineage Explorer)',
+      fr: 'Carte phylogéographique ADN-Y (Explorateur de lignées)',
+    },
+    summary: {
+      en: 'New /lineage-explorer/migration-map route with an A–Z letter picker, world MapLibre view, and illustrative branch paths. Letter R ships first; other letters show an honest empty state until editorial datasets are added. Not a vendor map reproduction—coordinates are teaching sketches with bibliography links.',
+      fr: 'Nouvelle route /lineage-explorer/migration-map avec sélecteur A–Z, carte MapLibre mondiale et branches illustratives. La lettre R est la première ; les autres affichent un état vide explicite tant que les jeux de données ne sont pas curés. Ce n’est pas une reproduction de carte commerciale — coordonnées pédagogiques et bibliographie.',
+    },
+  },
+  {
+    id: 'premium-lineage-macro-presence',
+    date: '2026-04-06',
+    title: {
+      en: 'Premium lineage citations, macro share state, and map compare overlay',
+      fr: 'Citations lignées, partage de l’état macro, et comparaison sur la carte',
+    },
+    summary: {
+      en: 'Genetic Lineage Explorer profiles now surface public references, per-claim sources, trust metadata, Markdown copy, and a map deep link that enables the Historical peoples (macro) layer. Shared map URLs preserve the macro slice (year, view, compare). The macro layer can show a dim second-year overlay when compare mode is on; the region panel lists source links, compare deltas, and optional CSV export. The Journal adds methodology sections for lineage citations and macro presence.',
+      fr: 'Les profils de l’Explorateur de lignées affichent désormais des références publiques, des sources par affirmation, des métadonnées de confiance, une copie Markdown et un lien carte qui active la couche « peuples historiques (macro) ». Les URL partagées conservent la tranche macro (année, vue, comparaison). La couche macro peut montrer une superposition atténuée pour la deuxième année ; le panneau régional liste les liens sources, les écarts entre années et un export CSV optionnel. Le Journal ajoute des sections méthodologiques.',
+    },
+  },
+  {
+    id: 'historical-peoples-macro-layer',
+    date: '2026-04-06',
+    title: {
+      en: 'Historical peoples macro-layer (500–1100 CE)',
+      fr: 'Couche macro « peuples historiques » (500–1100)',
+    },
+    summary: {
+      en: 'Optional map overlay for time-sliced cultural and political prominence on European macro-regions, with peoples / polities / deep ancestry views, confidence hints, sources in the detail panel, year presets on the timeline, and compare mode — weights are relative prominence, not genetic percentages.',
+      fr: 'Surcouche cartographique optionnelle pour la proéminence culturelle et politique par tranches temporelles sur des macro-régions européennes, avec vues peuples / politiques / héritage profond, indice de confiance, sources dans le panneau, préréglages d’année sur la frise, et mode comparatif — les pondérations sont une proéminence relative, pas des pourcentages génétiques.',
+    },
+  },
+  {
     id: 'roadmap-cleared-content-phases',
     date: '2026-04-04',
     title: {

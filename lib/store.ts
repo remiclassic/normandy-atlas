@@ -7,7 +7,14 @@ import { getBeatCount } from '@/core/story/engine';
 import { isMigrationEra } from '@/core/migration/engine';
 import { COLONIAL_ERA_IDS, COLONIAL_SIM_YEAR_RANGE } from '@/data/atlas/new-france-timeline';
 import type { SelectionKind } from '@/types';
-import type { MigrationMapMode, MigrationBranchId, MigrationCohortId, AtlasLocale } from '@/core/types';
+import type {
+  MigrationMapMode,
+  MigrationBranchId,
+  MigrationCohortId,
+  AtlasLocale,
+  HistoricalPresenceView,
+  LineageEraLens,
+} from '@/core/types';
 import { DEFAULT_LOCALE, persistLocale } from '@/lib/locale';
 import type { UiTheme, UiThemeMode } from '@/lib/ui-theme';
 import {
@@ -167,6 +174,17 @@ interface MapStore {
   terrain3dEnabled: boolean;
   vikingAdnaFilter: VikingAdnaFilter;
 
+  /** Time slice for Historical peoples macro overlay (500–1100 CE presets). */
+  historicalPresenceYear: number;
+  /** Peoples vs polities vs deep ancestry substrate view. */
+  historicalPresenceView: HistoricalPresenceView;
+  historicalPresenceCompareEnabled: boolean;
+  historicalPresenceCompareYear: number;
+
+  /** Genetic Lineage Explorer map overlay: haplogroup profile id or null. */
+  lineageExplorerProfileId: string | null;
+  lineageExplorerEraLens: LineageEraLens;
+
   /** One-shot camera fly request from UI (consumed by MapCanvas). */
   pendingFlyTarget: { center: [number, number]; zoom: number; bearing?: number; pitch?: number } | null;
   setPendingFlyTarget: (target: { center: [number, number]; zoom: number; bearing?: number; pitch?: number } | null) => void;
@@ -244,6 +262,10 @@ interface MapStore {
   setYdnaScandinavianFilter: (enabled: boolean) => void;
   setTerrain3dEnabled: (enabled: boolean) => void;
   setVikingAdnaFilter: (filter: Partial<VikingAdnaFilter>) => void;
+  setHistoricalPresenceYear: (year: number) => void;
+  setHistoricalPresenceView: (view: HistoricalPresenceView) => void;
+  setHistoricalPresenceCompare: (enabled: boolean, compareYear?: number) => void;
+  setLineageExplorerContext: (ctx: { profileId: string | null; eraLens?: LineageEraLens }) => void;
   startCinematicFlythrough: (presetId: string) => void;
   stopCinematicFlythrough: () => void;
   setCinematicFlythroughProgress: (progress: number) => void;
@@ -331,6 +353,12 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   ydnaScandinavianFilter: false,
   terrain3dEnabled: false,
   vikingAdnaFilter: DEFAULT_VIKING_ADNA_FILTER,
+  historicalPresenceYear: 800,
+  historicalPresenceView: 'peoples' as HistoricalPresenceView,
+  historicalPresenceCompareEnabled: false,
+  historicalPresenceCompareYear: 1000,
+  lineageExplorerProfileId: null,
+  lineageExplorerEraLens: 'early_medieval',
   pendingFlyTarget: null,
   setPendingFlyTarget: (target) => set({ pendingFlyTarget: target }),
   cinematicFlythrough: null,
@@ -591,6 +619,33 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
 
   setVikingAdnaFilter: (partial) =>
     set((s) => ({ vikingAdnaFilter: { ...s.vikingAdnaFilter, ...partial } })),
+
+  setHistoricalPresenceYear: (year) =>
+    set(() => ({
+      historicalPresenceYear: Math.max(500, Math.min(1100, Math.round(year))),
+    })),
+
+  setHistoricalPresenceView: (view) => set({ historicalPresenceView: view }),
+
+  setHistoricalPresenceCompare: (enabled, compareYear) =>
+    set((s) => {
+      let cy =
+        compareYear != null ? compareYear : s.historicalPresenceCompareYear;
+      cy = Math.max(500, Math.min(1100, Math.round(cy)));
+      if (enabled && cy === s.historicalPresenceYear) {
+        cy = Math.min(1100, s.historicalPresenceYear + 100);
+      }
+      return {
+        historicalPresenceCompareEnabled: enabled,
+        historicalPresenceCompareYear: cy,
+      };
+    }),
+
+  setLineageExplorerContext: (ctx) =>
+    set((s) => ({
+      lineageExplorerProfileId: ctx.profileId,
+      lineageExplorerEraLens: ctx.eraLens ?? s.lineageExplorerEraLens,
+    })),
 
   startCinematicFlythrough: (presetId) =>
     set({

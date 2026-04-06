@@ -61,12 +61,6 @@ export default function AtlasSubpageToolsMenu({
     await shareOrCopy({ title: 'Norman Atlas', text: '', url });
   }, []);
 
-  /** Match map drawer: open story library / ledger on the home shell, not a bare map view. */
-  const goHomeOpenStoryLibrary = useCallback(() => {
-    useMapStore.getState().requestStoryLibraryOpen({});
-    router.push('/');
-  }, [router]);
-
   const goHomeOpenLedger = useCallback(() => {
     useMapStore.getState().requestLedgerPanelOpen();
     router.push('/');
@@ -84,7 +78,6 @@ export default function AtlasSubpageToolsMenu({
           beforeReferenceNav={beforeReferenceNav ?? stopLedgerPulse}
           onNormanOverview={openNormanOverview}
           onChangelog={openChangelog}
-          onStories={goHomeOpenStoryLibrary}
           onLedger={goHomeOpenLedger}
           onProfile={() => router.push('/profile')}
           onShare={handleShare}

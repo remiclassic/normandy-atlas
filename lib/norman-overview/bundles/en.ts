@@ -99,6 +99,10 @@ export const bundle: NormanOverviewBundle = {
         'Norman knights became some of the most feared warriors of medieval Europe.',
         'They built powerful fortresses, developed advanced cavalry tactics, and created a highly organized feudal society.',
       ],
+      relatedLink: {
+        href: '/lineage-explorer/norman-y-dna',
+        label: 'Y-DNA in Normandy (Cotentin) — research deep read',
+      },
     },
     {
       heading: 'The Norman Conquest',

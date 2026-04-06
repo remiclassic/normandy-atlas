@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "profile": {
+    "selfPersonId": "demo-self",
+    "rootPersonId": "demo-p3",
+    "primarySurname": "Couture",
+    "yDnaRaw": "R1b-U106",
+    "mtDnaRaw": "H",
+    "updatedAt": "2026-04-06T00:00:00.000Z"
+  },
+  "people": {
+    "demo-self": {
+      "id": "demo-self",
+      "name": "You (demo)",
+      "birthYear": 1980,
+      "birthPlaceId": "quebec-city",
+      "fatherId": "demo-father",
+      "motherId": "demo-mother"
+    },
+    "demo-father": {
+      "id": "demo-father",
+      "name": "Jean Demo",
+      "birthYear": 1950,
+      "birthPlaceFreeform": "Québec (unspecified parish)",
+      "fatherId": "demo-p3"
+    },
+    "demo-mother": {
+      "id": "demo-mother",
+      "name": "Marie Demo",
+      "birthYear": 1955
+    },
+    "demo-p3": {
+      "id": "demo-p3",
+      "name": "Pierre Couture (demo ancestor)",
+      "birthYear": 1625,
+      "deathYear": 1690,
+      "birthPlaceId": "rouen",
+      "haplogroups": {
+        "paternal": "R1b-U106"
+      },
+      "notes": "Illustrative node for Channel → New France framing — verify against your own research."
+    }
+  }
+}

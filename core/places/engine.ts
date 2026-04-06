@@ -4,6 +4,32 @@ import { getFeatureIconType } from '@/lib/atlas/getFeatureIconType';
 
 const placeMap = new Map<string, Place>(atlasPlaces.map((p) => [p.id, p]));
 
+/** Search atlas settlements by id or any era label (case-insensitive substring). */
+export function searchAtlasPlaces(query: string, limit = 24): Place[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return atlasPlaces.slice(0, limit);
+  const out: Place[] = [];
+  for (const p of atlasPlaces) {
+    if (p.id.toLowerCase().includes(q)) {
+      out.push(p);
+      if (out.length >= limit) break;
+      continue;
+    }
+    let hit = false;
+    for (const st of Object.values(p.eraStates)) {
+      if (st.label.toLowerCase().includes(q)) {
+        hit = true;
+        break;
+      }
+    }
+    if (hit) {
+      out.push(p);
+      if (out.length >= limit) break;
+    }
+  }
+  return out;
+}
+
 export function getPlace(placeId: string): Place | undefined {
   return placeMap.get(placeId);
 }

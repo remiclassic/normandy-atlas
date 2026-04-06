@@ -45,6 +45,16 @@ function SectionBlock({
           {p}
         </p>
       ))}
+      {section.relatedLink ? (
+        <p className="mt-4 text-[13px] leading-relaxed text-text-muted">
+          <Link
+            href={section.relatedLink.href}
+            className="font-medium text-gold/90 underline decoration-gold/25 underline-offset-2 hover:text-gold"
+          >
+            {section.relatedLink.label}
+          </Link>
+        </p>
+      ) : null}
     </section>
   );
 }

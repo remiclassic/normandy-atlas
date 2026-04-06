@@ -7,6 +7,7 @@ import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
 import { REDUCE_MOTION_STORAGE_KEY } from '@/lib/reduced-motion';
 import { HIGH_CONTRAST_STORAGE_KEY } from '@/lib/high-contrast';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
+import CommandPaletteHost from '@/components/command-palette/CommandPaletteHost';
 import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
 import './globals.css';
 
@@ -103,6 +104,7 @@ export default function RootLayout({
       </head>
       <body>
         <ClientBootstrap />
+        <CommandPaletteHost />
         <AtlasMotionConfig>
           {children}
         </AtlasMotionConfig>

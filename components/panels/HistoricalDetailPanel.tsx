@@ -38,7 +38,9 @@ import { emitProgressEvent } from '@/lib/progress';
 import type { AtlasEventType } from '@/lib/progress';
 import type { SelectionKind } from '@/types';
 import YdnaLineageDetail from './YdnaLineageDetail';
+import UserAncestryPinDetail from '@/components/ancestry/UserAncestryPinDetail';
 import ReadingLinksSection from '@/components/atlas/ReadingLinksSection';
+import HistoricalMacroRegionDetail from '@/components/panels/HistoricalMacroRegionDetail';
 
 const CATEGORY_LABELS: Record<SettlementCategory, string> = {
   city: 'City',
@@ -2053,7 +2055,9 @@ function TimelineMarkerDetail({ id }: { id: string }) {
 function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: string; selectionKind: string; eraId: string }) {
   return (
     <>
-      {selectionKind === 'atlas-timeline-marker' ? (
+      {selectionKind === 'historical-macro-region' ? (
+        <HistoricalMacroRegionDetail regionId={selectedId} />
+      ) : selectionKind === 'atlas-timeline-marker' ? (
         <TimelineMarkerDetail id={selectedId} />
       ) : selectionKind === 'atlas-person' ? (
         <AtlasPersonDetail personId={selectedId} eraId={eraId} />
@@ -2065,6 +2069,8 @@ function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: strin
         <NormanSiteDetail id={selectedId} />
       ) : selectionKind === 'nf-ydna-lineage' ? (
         <YdnaLineageDetail id={selectedId} />
+      ) : selectionKind === 'user-ancestry-pin' ? (
+        <UserAncestryPinDetail selectedId={selectedId} />
       ) : selectionKind === 'viking-adna-site' ? (
         <VikingAdnaSiteDetail id={selectedId} />
       ) : selectionKind === 'viking-archaeology-site' ? (
@@ -2159,12 +2165,14 @@ function MobileDetailSheet({
 const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
   settlement: 'place_open',
   region: 'region_open',
+  'historical-macro-region': 'region_open',
   'atlas-route': 'segment_open',
   'atlas-journey': 'journey_open',
   'atlas-person': 'place_open',
   'prehistoric-site': 'place_open',
   'norman-site': 'place_open',
   'nf-ydna-lineage': 'place_open',
+  'user-ancestry-pin': 'place_open',
   'evidence': 'place_open',
   'viking-adna-site': 'place_open',
   'viking-archaeology-site': 'place_open',

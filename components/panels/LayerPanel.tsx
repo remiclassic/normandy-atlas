@@ -10,7 +10,11 @@ import { VIKING_ADNA_CONTEXT_COLORS, VIKING_ADNA_FALLBACK_COLOR } from '@/compon
 import { useLocale } from '@/hooks/use-atlas';
 import { useIsMobile } from '@/hooks/use-responsive';
 import BottomSheet from '@/components/ui/BottomSheet';
+import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
+import type { HistoricalPresenceView } from '@/core/types';
+import { explainProvenance, HISTORICAL_PRESENCE_YEAR_PRESETS } from '@/core';
+import { historicalMacroRegionsDatasetMeta } from '@/data/atlas/historical-macro-regions/dataset-meta';
 
 const LAYER_ICONS: Record<string, React.ReactNode> = {
   'regions-fill': (
@@ -38,6 +42,31 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
       <circle cx="7" cy="5.5" r="2.5" stroke="currentColor" strokeWidth="1.2" />
       <path d="M7 8v3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  ),
+  'historical-presence': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.1" opacity="0.45" />
+      <path d="M7 4v3l2 1.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M2 12c2-2 4-2.5 5-2.5s3 0.5 5 2.5" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" opacity="0.5" />
+    </svg>
+  ),
+  'lineage-explorer': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+      <path
+        d="M4 2c0 2.5 2 4 3 6s2 3 3 6"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+      <path
+        d="M10 2c0 2.5-2 4-3 6s-2 3-3 6"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        opacity="0.55"
+      />
     </svg>
   ),
   'normandy-micro-regions': (
@@ -509,6 +538,121 @@ const ParchmentWaterAtmosphereToggle = memo(function ParchmentWaterAtmosphereTog
   );
 });
 
+const HistoricalPresenceControls = memo(function HistoricalPresenceControls() {
+  const layers = useMapStore((s) => s.layers);
+  const locale = useMapStore((s) => s.locale);
+  const view = useMapStore((s) => s.historicalPresenceView);
+  const year = useMapStore((s) => s.historicalPresenceYear);
+  const compareOn = useMapStore((s) => s.historicalPresenceCompareEnabled);
+  const compareYear = useMapStore((s) => s.historicalPresenceCompareYear);
+  const setView = useMapStore((s) => s.setHistoricalPresenceView);
+  const setYear = useMapStore((s) => s.setHistoricalPresenceYear);
+  const setCompare = useMapStore((s) => s.setHistoricalPresenceCompare);
+
+  if (!(layers['historical-presence'] ?? false)) return null;
+
+  const provenanceKeys = ['polity_control', 'chronicler', 'archaeology', 'inferred_sphere'] as const;
+  const fakePresence = (
+    provenance: (typeof provenanceKeys)[number],
+  ): import('@/core/types').RegionalPresence => ({
+    regionId: 'legend',
+    startYear: 500,
+    endYear: 1100,
+    weight: 0.5,
+    confidence: 'medium',
+    provenance,
+    sources: [],
+  });
+
+  const viewOptions: { id: HistoricalPresenceView; label: string }[] = [
+    { id: 'peoples', label: 'Peoples' },
+    { id: 'polities', label: 'Polities' },
+    { id: 'legacy', label: 'Deep ancestry' },
+  ];
+
+  return (
+    <div className="px-3.5 pb-3 pt-1 ml-6 border-l border-gold/20 space-y-2.5">
+      <p className="text-[9px] text-text-dim/90 leading-snug normal-case tracking-normal font-normal">
+        Macro-zones (500–1100 CE): relative prominence, sources in detail panel. Toggle does not replace narrative era timeline.
+      </p>
+      <p className="text-[9px] text-text-dim/75 leading-snug">
+        {t('historicalPresence.datasetReview', locale)}: {historicalMacroRegionsDatasetMeta.lastReviewed}.{' '}
+        {pickI18n(historicalMacroRegionsDatasetMeta.methodologyBlurb, locale)}
+      </p>
+      <div className="rounded-md border border-chrome-border/40 bg-chrome-fill/10 p-2 text-[9px] text-text-dim leading-snug space-y-1">
+        <p className="font-semibold text-gold/45 uppercase tracking-[0.1em]">
+          {t('historicalPresence.legendTitle', locale)}
+        </p>
+        {provenanceKeys.map((k) => (
+          <p key={k}>
+            <span className="text-gold/35 font-mono text-[8px]">{k.replace(/_/g, ' ')}</span>
+            {' — '}
+            {explainProvenance(fakePresence(k))}
+          </p>
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-1">
+        {viewOptions.map((v) => (
+          <button
+            key={v.id}
+            type="button"
+            onClick={() => setView(v.id)}
+            className={`rounded-md px-2 py-1 text-[10px] font-medium transition-colors ${
+              view === v.id
+                ? 'bg-gold/20 text-gold border border-gold/35'
+                : 'bg-chrome-fill text-text-muted border border-chrome-border/60 hover:border-gold/15'
+            }`}
+          >
+            {v.label}
+          </button>
+        ))}
+      </div>
+      <div>
+        <p className="text-[9px] uppercase tracking-[0.12em] text-text-dim/70 mb-1">Year</p>
+        <div className="flex flex-wrap gap-1">
+          {HISTORICAL_PRESENCE_YEAR_PRESETS.map((y) => (
+            <button
+              key={y}
+              type="button"
+              onClick={() => setYear(y)}
+              className={`min-w-[40px] rounded px-1.5 py-0.5 text-[10px] font-semibold tabular-nums ${
+                year === y ? 'bg-gold/22 text-gold' : 'bg-chrome-fill-raised text-text-muted'
+              }`}
+            >
+              {y}
+            </button>
+          ))}
+        </div>
+      </div>
+      <label className="flex items-center gap-2 cursor-pointer text-[11px] text-text-muted">
+        <input
+          type="checkbox"
+          className="rounded border-chrome-border"
+          checked={compareOn}
+          onChange={(e) => setCompare(e.target.checked)}
+        />
+        Compare two years (map overlay + detail panel)
+      </label>
+      {compareOn && (
+        <div className="flex items-center gap-2 text-[11px] text-text-muted">
+          <span className="text-text-dim">B</span>
+          <select
+            value={compareYear}
+            onChange={(e) => setCompare(true, Number(e.target.value))}
+            className="flex-1 rounded-md border border-chrome-border bg-chrome-fill px-2 py-1 text-[11px] text-text"
+          >
+            {HISTORICAL_PRESENCE_YEAR_PRESETS.map((y) => (
+              <option key={y} value={y}>
+                {y} CE
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+    </div>
+  );
+});
+
 const ModernBasemapOverlaysToggle = memo(function ModernBasemapOverlaysToggle() {
   const on = useMapStore((s) => s.modernBasemapOverlays);
   const flip = useCallback(() => {
@@ -860,6 +1004,7 @@ function LayerPanelContent({
                           isOn={layers[cfg.id] ?? cfg.defaultOn}
                           onToggle={handleToggle}
                         />
+                        {cfg.id === 'historical-presence' && <HistoricalPresenceControls />}
                         {section.key === 'atlas' && cfg.id === 'route-flow-animation' && (
                           <ExplorationYearStrictRow />
                         )}
