@@ -67,6 +67,7 @@ function useTocItems(locale: AtlasLocale, hasResumable: boolean): TocItem[] {
         id: 'histor-macro-methodology',
         label: locale === 'fr' ? 'Peuples historiques (macro)' : 'Historical peoples (macro)',
       },
+      { id: 'norman-readings', label: locale === 'fr' ? 'Lectures normandes' : 'Norman readings' },
       { id: 'methodology', label: locale === 'fr' ? 'M\u00e9thodologie' : 'Methodology' },
     );
     return items;
@@ -1140,6 +1141,51 @@ export default function JournalPage() {
                       Compare mode can show two years on the map (a dim overlay) and in the region detail panel.
                       Shared URLs can capture this slice (year, view, compare settings) when the layer is part of the
                       shared view state.
+                    </p>
+                  </>
+                )}
+              </Prose>
+            </section>
+
+            <SectionDivider />
+
+            <section>
+              <SectionHeading id="norman-readings">
+                {locale === 'fr' ? 'Lectures normandes' : 'Norman readings'}
+              </SectionHeading>
+              <Prose>
+                {locale === 'fr' ? (
+                  <>
+                    <p>
+                      Les essais longs sur les Normands vivent dans un hub dédié : contexte historique, parfois relié à
+                      une épingle d’expansion normande sur la carte. Ouvrez un article puis utilisez « Ouvrir sur la
+                      carte » lorsqu’un site est lié.
+                    </p>
+                    <p className="mt-4">
+                      <Link
+                        href="/norman-readings"
+                        className="font-medium underline underline-offset-2 transition-colors hover:opacity-90"
+                        style={{ color: 'var(--color-gold)' }}
+                      >
+                        Parcourir les lectures normandes
+                      </Link>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      Long-form essays on the Normans live in a dedicated hub — historical context, sometimes linked to
+                      a Norman Expansion map pin. Open an essay and use &quot;Open on map&quot; when a site is tied to the
+                      piece.
+                    </p>
+                    <p className="mt-4">
+                      <Link
+                        href="/norman-readings"
+                        className="font-medium underline underline-offset-2 transition-colors hover:opacity-90"
+                        style={{ color: 'var(--color-gold)' }}
+                      >
+                        Browse Norman readings
+                      </Link>
                     </p>
                   </>
                 )}

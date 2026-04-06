@@ -1058,11 +1058,22 @@ const NORMAN_SITE_KIND_LABELS: Record<NormanSiteKind, string> = {
 };
 
 function NormanSiteDetail({ id }: { id: string }) {
+  const locale = useMapStore((s) => s.locale) as AtlasLocale;
   const node = useMemo(
     () => normanNodesGeoJson.features.find((f) => f.properties.id === id),
     [id],
   );
   const article = useMemo(() => getNormanSiteArticle(id), [id]);
+  const essayLinkLabel =
+    locale === 'fr'
+      ? 'Lire l’article complet'
+      : locale === 'es'
+        ? 'Leer el artículo completo'
+        : locale === 'it'
+          ? 'Leggi l’articolo completo'
+          : locale === 'de'
+            ? 'Vollständigen Artikel lesen'
+            : 'Read full article';
 
   if (!node) return null;
 
@@ -1185,6 +1196,23 @@ function NormanSiteDetail({ id }: { id: string }) {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </ContentFade>
+            </>
+          )}
+
+          {article.essaySlug && (
+            <>
+              <div className="divider-fade mx-7" />
+              <ContentFade delay={0.32}>
+                <div className="px-7 py-5 pb-8">
+                  <Link
+                    href={`/norman-readings/${article.essaySlug}`}
+                    className="inline-flex items-center gap-2 rounded-lg border border-[#e060a0]/20 bg-[#e060a0]/[0.06] px-3.5 py-2.5 text-[13px] font-medium text-[#f0c8dd]/90 transition-colors hover:border-[#e060a0]/35 hover:bg-[#e060a0]/10"
+                  >
+                    <BookOpen className="h-4 w-4 shrink-0 opacity-80" aria-hidden />
+                    {essayLinkLabel}
+                  </Link>
                 </div>
               </ContentFade>
             </>

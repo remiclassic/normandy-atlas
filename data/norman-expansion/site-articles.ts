@@ -8,6 +8,8 @@ export interface NormanSiteTimelineEntry {
 
 export interface NormanSiteArticle {
   id: string;
+  /** When set, links to `/norman-readings/{slug}` from the detail panel. */
+  essaySlug?: string;
   overview: string;
   significance?: string[];
   architecture?: string[];
@@ -19,6 +21,7 @@ const articles: NormanSiteArticle[] = [
   // ── Normandy (Core) ──
   {
     id: 'node-rouen',
+    essaySlug: 'rouen-ducal-capital',
     overview:
       'Rouen served as the capital of the Duchy of Normandy from its founding by Rollo in 911. As the political and ecclesiastical heart of the duchy, it housed the ducal palace and the metropolitan archbishopric that crowned Norman identity. The city remained the administrative center throughout the dynasty\'s continental rule.',
     significance: ['Ducal capital since 911', 'Seat of the Archbishop of Normandy', 'Commercial hub on the Seine'],
@@ -33,6 +36,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-caen',
+    essaySlug: 'node-caen',
     overview:
       'William the Conqueror transformed Caen into his preferred residence and administrative center, founding twin abbeys — the Abbaye-aux-Hommes and Abbaye-aux-Dames — as penance for his marriage to Matilda of Flanders. The massive castle he built dominates the city to this day and is one of the largest medieval enclosures in Europe.',
     significance: ['William\'s favored seat of power', 'Twin abbeys as dynastic monuments', 'Key garrison controlling lower Normandy'],
@@ -46,6 +50,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-falaise',
+    essaySlug: 'node-falaise',
     overview:
       'Falaise Castle is the legendary birthplace of William the Conqueror, where his father Duke Robert I is said to have seen Herleva. The massive stone keep, expanded by Henry I and later Henry II Plantagenet, remains one of the best-preserved Norman castles in France.',
     significance: ['Birthplace of William the Conqueror', 'Ducal dynastic seat', 'Symbol of Norman ducal authority'],
@@ -58,6 +63,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-bayeux',
+    essaySlug: 'node-bayeux',
     overview:
       'Bayeux was one of the earliest Norse-settled towns in Normandy and became an important episcopal center. It is world-famous for the Bayeux Tapestry, an embroidered narrative of the Norman Conquest of England, likely commissioned by Bishop Odo, half-brother of William.',
     significance: ['Home of the Bayeux Tapestry', 'Important Norman bishopric', 'Seat of Bishop Odo'],
@@ -69,6 +75,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-mont-saint-michel',
+    essaySlug: 'node-mont-saint-michel',
     overview:
       'Mont-Saint-Michel is a tidal island abbey that served as a spiritual and military stronghold on the frontier between Normandy and Brittany. The Benedictine abbey, continuously expanded through the Romanesque and Gothic periods, became a major pilgrimage destination and a symbol of Norman religious patronage.',
     significance: ['Major pilgrimage site', 'Strategic frontier fortress', 'Architectural masterpiece spanning centuries'],
@@ -82,6 +89,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-avranches',
+    essaySlug: 'node-avranches',
     overview:
       'Avranches was a key border stronghold controlling the frontier between Normandy and Brittany. Its episcopal see and castle made it important for both spiritual and military authority along the duchy\'s southwestern margin.',
     significance: ['Border fortress with Brittany', 'Episcopal see'],
@@ -94,6 +102,7 @@ const articles: NormanSiteArticle[] = [
   // ── England ──
   {
     id: 'node-london',
+    essaySlug: 'node-london',
     overview:
       'The Tower of London was begun by William the Conqueror in 1066 to dominate London after the Conquest. The White Tower, completed around 1078, is the finest surviving example of a Norman keep in England. It served as a royal residence, treasury, and symbol of the new Norman ruling class.',
     significance: ['Supreme symbol of Norman control over England', 'Royal fortress and treasury', 'Prison and execution site in later centuries'],
@@ -107,6 +116,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-hastings',
+    essaySlug: 'node-hastings',
     overview:
       'The Battle of Hastings on 14 October 1066 was the decisive engagement that placed William, Duke of Normandy, on the English throne. Harold Godwinson was killed and the Anglo-Saxon ruling class shattered. A prefabricated motte-and-bailey castle was raised on the site within days.',
     significance: ['Decisive battle of the Norman Conquest', 'End of Anglo-Saxon kingship', 'Beginning of Norman England'],
@@ -117,6 +127,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-windsor',
+    essaySlug: 'node-windsor',
     overview:
       'Windsor Castle was founded by William the Conqueror shortly after 1066 as one of a ring of fortifications around London. It has been continuously occupied as a royal residence ever since, making it the longest-occupied palace in Europe.',
     significance: ['Royal residence for nearly a millennium', 'Strategic Thames-valley fortress'],
@@ -129,6 +140,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-dover',
+    essaySlug: 'node-dover',
     overview:
       'Dover Castle guarded the shortest Channel crossing and was vital to the defense of England. William strengthened existing Anglo-Saxon fortifications after 1066, and Henry II later rebuilt it as one of the most powerful concentric castles in England.',
     significance: ['Key to England — controlled the Channel crossing', 'Strategic defense against continental invasion'],
@@ -141,6 +153,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-york',
+    essaySlug: 'node-york',
     overview:
       'York was the largest city in northern England and resisted Norman rule fiercely. William built two motte-and-bailey castles here and brutally suppressed the northern rebellion of 1069–70 in the Harrying of the North, devastating the region for a generation.',
     significance: ['Key to controlling northern England', 'Scene of major Anglo-Norse resistance'],
@@ -152,6 +165,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-durham',
+    essaySlug: 'node-durham',
     overview:
       'Durham Castle was built in 1072 to control the route between England and Scotland. The Norman Prince-Bishops of Durham wielded near-royal powers, ruling the palatinate as a buffer zone. The castle and cathedral form one of the finest Norman architectural ensembles in England.',
     significance: ['Seat of the Prince-Bishops', 'Northern frontier fortress', 'UNESCO World Heritage Site (with cathedral)'],
@@ -164,6 +178,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-norwich',
+    essaySlug: 'node-norwich',
     overview:
       'Norwich Castle was raised in 1067 to dominate East Anglia. The massive stone keep built under Henry I is one of the most decorated Norman secular buildings in England, with elaborate blind arcading on all facades.',
     significance: ['Administrative center of East Anglia', 'Decorated Norman keep'],
@@ -175,6 +190,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-warwick',
+    essaySlug: 'node-warwick',
     overview:
       'Warwick Castle was established in 1068 by William the Conqueror on a bend of the River Avon. It controlled the Midlands and became the seat of the powerful Earls of Warwick.',
     significance: ['Midlands control point', 'Seat of the Earls of Warwick'],
@@ -184,6 +200,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-lincoln',
+    essaySlug: 'node-lincoln',
     overview:
       'Lincoln Castle was built on a Roman hilltop site in 1068. Unusually, it has two mottes. It housed one of only four surviving copies of Magna Carta and served as a prison into the modern era.',
     significance: ['Unusual two-motte plan', 'Housed a copy of Magna Carta'],
@@ -196,6 +213,7 @@ const articles: NormanSiteArticle[] = [
   // ── Wales & Scotland ──
   {
     id: 'node-chepstow',
+    essaySlug: 'node-chepstow',
     overview:
       'Chepstow Castle, begun by William FitzOsbern in 1067, was the first Norman stone castle in Wales. Perched above the River Wye, it anchored the southern end of the Welsh Marches and controlled the crossing into Wales.',
     significance: ['First stone castle in Wales', 'Anchor of the Welsh Marches', 'Built by William FitzOsbern'],
@@ -208,6 +226,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-cardiff',
+    essaySlug: 'node-cardiff',
     overview:
       'Cardiff Castle was established by the Normans in 1081 within the walls of a Roman fort. It served as the principal seat of Norman lordship in Glamorgan and later became the core of the Welsh Marcher lordships.',
     significance: ['Chief Norman stronghold in south Wales', 'Built over a Roman fort'],
@@ -218,6 +237,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-pembroke',
+    essaySlug: 'node-pembroke',
     overview:
       'Pembroke Castle was founded in 1093 by Arnulf de Montgomery. Its massive round keep, added later, became a launch point for the Anglo-Norman invasion of Ireland. It remained a powerful Marcher fortress throughout the medieval period.',
     significance: ['Staging point for Irish invasion', 'Seat of the earldom of Pembroke'],
@@ -229,6 +249,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-edinburgh',
+    essaySlug: 'node-edinburgh',
     overview:
       'Norman influence in Scotland came through marriage and feudal invitation rather than conquest. Queen Margaret (d. 1093) and especially her sons David I and his successors introduced Norman families and institutions, transforming Scottish governance along continental lines.',
     significance: ['Norman feudal influence via the Scottish crown', 'David I introduced Norman barons'],
@@ -241,6 +262,7 @@ const articles: NormanSiteArticle[] = [
   // ── Ireland ──
   {
     id: 'node-dublin',
+    essaySlug: 'node-dublin',
     overview:
       'Anglo-Norman adventurers under Strongbow (Richard de Clare) captured Dublin in 1170, transforming the old Hiberno-Norse city into the center of English lordship in Ireland. Dublin Castle, built from 1204, became the administrative headquarters of the English colony for centuries.',
     significance: ['Center of Anglo-Norman lordship in Ireland', 'Former Viking trading town'],
@@ -253,6 +275,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-trim',
+    essaySlug: 'node-trim',
     overview:
       'Trim Castle is the largest Anglo-Norman fortification in Ireland. Built by Hugh de Lacy from 1172, its twenty-sided keep is unique in the British Isles. The castle was a key administrative center for the Anglo-Norman Lordship of Meath.',
     significance: ['Largest Anglo-Norman castle in Ireland', 'Unique twenty-sided keep', 'Center of the Lordship of Meath'],
@@ -265,6 +288,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-wexford',
+    essaySlug: 'node-wexford',
     overview:
       'Wexford was where the first Anglo-Norman expedition landed in Ireland in May 1169, led by Robert FitzStephen. The town was quickly taken and became a bridgehead for the wider invasion that followed.',
     significance: ['Landing site of the first Anglo-Norman expedition', 'Former Viking longphort'],
@@ -274,6 +298,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-waterford',
+    essaySlug: 'node-waterford',
     overview:
       'Waterford was captured by Strongbow in 1170 as a strategic prize. The Hiberno-Norse port city controlled the southeastern coast and its capture cemented Anglo-Norman dominance over southern Ireland.',
     significance: ['Major Hiberno-Norse port', 'Captured by Strongbow'],
@@ -285,6 +310,7 @@ const articles: NormanSiteArticle[] = [
   // ── Italy & Sicily ──
   {
     id: 'node-palermo',
+    essaySlug: 'node-palermo',
     overview:
       'Palermo became the capital of the Norman Kingdom of Sicily after its capture in 1072 by Robert Guiscard and Roger I. Under Roger II and his successors, the city became one of the most cosmopolitan in the medieval Mediterranean, blending Norman, Arab, Byzantine, and Latin cultures in art, architecture, and governance.',
     significance: ['Capital of Norman Sicily', 'Multicultural court and administration', 'Center of Mediterranean trade and diplomacy'],
@@ -299,6 +325,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-melfi',
+    essaySlug: 'node-melfi',
     overview:
       'Melfi served as the first Norman capital in southern Italy. Here, in a series of councils (1042–1059), the Norman adventurers formalized their conquests. Pope Nicholas II invested Robert Guiscard as Duke of Apulia and Calabria at Melfi in 1059, legitimizing Norman rule.',
     significance: ['First Norman capital in Italy', 'Site of papal investiture of Robert Guiscard', 'Councils that formalized Norman conquests'],
@@ -311,6 +338,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-bari',
+    essaySlug: 'node-bari',
     overview:
       'Bari was the last major Byzantine stronghold in southern Italy. Robert Guiscard besieged and captured it in 1071, ending five centuries of East Roman rule in the peninsula. The port became a major embarkation point for crusaders.',
     significance: ['Last Byzantine stronghold in Italy', 'Crusader embarkation port', 'Relics of St Nicholas'],
@@ -322,6 +350,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-salerno',
+    essaySlug: 'node-salerno',
     overview:
       'Salerno was the seat of the Lombard Principality of Salerno before Norman absorption. It housed the famous Schola Medica Salernitana, Europe\'s first medical school. Robert Guiscard took the city in 1077 and made it a key Norman administrative center.',
     significance: ['Europe\'s first medical school', 'Former Lombard principality', 'Key Norman administrative center'],
@@ -332,6 +361,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-messina',
+    essaySlug: 'node-messina',
     overview:
       'Messina was the Norman point of entry for the conquest of Sicily. Roger I crossed the Strait of Messina in 1061 and used the city as a staging ground for the thirty-year campaign that brought all of Sicily under Norman rule.',
     significance: ['Entry point for Norman Sicily conquest', 'Strategic strait crossing'],
@@ -342,6 +372,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-naples',
+    essaySlug: 'node-naples',
     overview:
       'Naples remained largely independent until incorporated into the Norman Kingdom of Sicily by Roger II in 1140. It was a prosperous port city with strong Byzantine cultural ties that enriched Norman governance in the south.',
     significance: ['Major southern Italian port', 'Late addition to Norman kingdom'],
@@ -351,6 +382,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-catania',
+    essaySlug: 'node-catania',
     overview:
       'Catania, at the foot of Mount Etna, was an important episcopal see under Norman rule. Roger I established a Benedictine monastery here and the city became a center of Norman administration in eastern Sicily.',
     significance: ['Episcopal see in eastern Sicily', 'Benedictine monastery under Roger I'],
@@ -361,6 +393,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-reggio-calabria',
+    essaySlug: 'node-reggio-calabria',
     overview:
       'Reggio Calabria, at the toe of Italy directly across the Strait of Messina, was the staging ground for the Norman invasion of Sicily. Robert Guiscard captured it in 1060, establishing a forward base for his brother Roger\'s campaigns.',
     significance: ['Staging ground for Sicilian invasion', 'First major mainland conquest near Sicily'],
@@ -370,6 +403,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-aversa',
+    essaySlug: 'node-aversa',
     overview:
       'Aversa was the first Norman territory in Italy, granted to Rainulf Drengot in 1030 by Duke Sergius IV of Naples. This small county north of Naples became the seed from which Norman power in southern Italy grew.',
     significance: ['First Norman territory in southern Italy', 'Seed of Norman expansion'],
@@ -380,6 +414,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-cefalu',
+    essaySlug: 'node-cefalu',
     overview:
       'Cefalù\'s famous Norman cathedral was built by Roger II beginning in 1131, intended as a royal mausoleum. The apse mosaic of Christ Pantocrator is one of the finest surviving examples of Norman-Byzantine art.',
     significance: ['Royal cathedral of Roger II', 'Christ Pantocrator mosaic'],
@@ -390,6 +425,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-monreale',
+    essaySlug: 'node-monreale',
     overview:
       'The Cathedral and Benedictine cloister at Monreale, near Palermo, was built by William II of Sicily from 1174. Its interior is covered with over 6,000 square meters of gold-ground mosaics, making it one of the supreme achievements of Norman art and architecture.',
     significance: ['Greatest Norman mosaic ensemble', 'Royal Benedictine foundation'],
@@ -404,6 +440,7 @@ const articles: NormanSiteArticle[] = [
   // ── Crusader States ──
   {
     id: 'node-antioch',
+    essaySlug: 'node-antioch',
     overview:
       'The Principality of Antioch was established by Bohemond of Taranto, a Norman lord, after the siege of Antioch during the First Crusade in 1098. It was the most "Norman" of the Crusader states, with a feudal structure transplanted directly from southern Italy. The principality survived until 1268.',
     significance: ['Norman-founded Crusader principality', 'Longest-lasting Norman polity in the Levant', 'Strategic control of northern Syria'],
@@ -416,6 +453,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-tripoli',
+    essaySlug: 'node-tripoli',
     overview:
       'The County of Tripoli was established in 1109 by Raymond of Saint-Gilles\' heirs, with significant Norman-Provençal ties. Bohemond of Antioch exercised influence here, and Norman lords held fiefs within the county.',
     significance: ['Crusader county with Norman feudal ties', 'Strategic Levantine port'],
@@ -426,6 +464,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-edessa',
+    essaySlug: 'node-edessa',
     overview:
       'The County of Edessa, established in 1098, was the first Crusader state and the most exposed. While primarily associated with Baldwin of Boulogne, it had links to Norman networks through intermarriage and military alliance. Its fall in 1144 triggered the Second Crusade.',
     significance: ['First Crusader state', 'Its fall triggered the Second Crusade'],
@@ -439,6 +478,7 @@ const articles: NormanSiteArticle[] = [
   // ── Other expansion ──
   {
     id: 'node-tunis',
+    essaySlug: 'node-tunis',
     overview:
       'Roger II of Sicily conquered parts of the Ifriqiyan coast including Tunis in 1148, briefly creating a Norman "Kingdom of Africa." The venture was short-lived: Muslim resistance and the Almohad advance forced Norman withdrawal by 1160.',
     significance: ['Norman foothold in North Africa', 'Part of Roger II\'s Mediterranean ambitions'],
@@ -450,6 +490,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-dyrrachium',
+    essaySlug: 'node-dyrrachium',
     overview:
       'The Battle of Dyrrachium (modern Durrës, Albania) in 1081 saw Robert Guiscard defeat the Byzantine Emperor Alexios I Komnenos. This audacious campaign on the Via Egnatia demonstrated Norman willingness to challenge the Eastern Roman Empire directly.',
     significance: ['Major Norman victory over Byzantium', 'Demonstrated Norman Mediterranean ambitions'],
@@ -460,6 +501,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-lisbon',
+    essaySlug: 'node-lisbon',
     overview:
       'During the Second Crusade in 1147, a fleet of northern European crusaders — including Normans and Anglo-Normans — assisted Afonso Henriques in the siege and capture of Lisbon from the Moors. Norman participants played a notable military role.',
     significance: ['Norman participation in the Reconquista', 'Combined crusade–Reconquista operation'],
@@ -470,6 +512,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-tarragona',
+    essaySlug: 'node-tarragona',
     overview:
       'Robert Bordet, a Norman knight, helped restore Tarragona as a Christian city in the Reconquista. He was appointed Prince of Tarragona around 1129, illustrating how individual Norman warriors shaped the Iberian frontier.',
     significance: ['Norman knight as Prince of Tarragona', 'Individual Norman participation in the Reconquista'],
@@ -479,6 +522,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-limassol',
+    essaySlug: 'node-limassol',
     overview:
       'Richard I of England (of Norman descent) conquered Cyprus from the Byzantine rebel Isaac Komnenos in 1191 during the Third Crusade. The island became a Crusader stronghold under the Lusignan dynasty and served as a supply base for the Holy Land.',
     significance: ['Crusader conquest of Cyprus', 'Strategic eastern Mediterranean base'],
@@ -488,6 +532,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-mahdia',
+    essaySlug: 'node-mahdia',
     overview:
       'Mahdia, the Fatimid-era capital of Ifriqiya, was captured by Roger II\'s forces in 1148 as part of the Norman African venture. Like Tunis, the Norman hold was brief, ending by 1160 with the Almohad reconquest.',
     significance: ['Part of Norman "Kingdom of Africa"', 'Former Fatimid capital'],
@@ -500,6 +545,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman Castles — England ──
   {
     id: 'node-colchester-castle',
+    essaySlug: 'node-colchester-castle',
     overview:
       'Colchester Castle was built by William the Conqueror around 1069 on the foundations of the Roman Temple of Claudius. It contains the largest surviving Norman keep in England, even larger in footprint than the Tower of London\'s White Tower. The reuse of Roman brick and tile gives the keep its distinctive reddish appearance.',
     significance: ['Largest Norman keep in England by floor area', 'Built over the Roman Temple of Claudius', 'Key fortress securing East Anglia after the Conquest'],
@@ -513,6 +559,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-rochester-castle',
+    essaySlug: 'node-rochester-castle',
     overview:
       'Rochester Castle boasts the tallest Norman keep in England, rising to 113 feet. Built from the 1080s onward and given its great tower by Archbishop William de Corbeil in 1127, it guards the crossing of the River Medway on the road from London to Dover. The castle endured two famous sieges, the most dramatic in 1215 when King John undermined its south tower with a mine fuelled by pig fat.',
     significance: ['Tallest Norman keep in England', 'Controlled the strategic Medway crossing', 'Scene of a legendary siege in 1215'],
@@ -526,6 +573,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-arundel-castle',
+    essaySlug: 'node-arundel-castle',
     overview:
       'Arundel Castle was established in 1068 by Roger de Montgomery, one of William the Conqueror\'s closest companions, as a motte-and-bailey fortification guarding the Arun valley. The castle\'s massive artificial mound still dominates the West Sussex skyline. It has been the seat of the Dukes of Norfolk since the 15th century and was extensively restored in the Victorian period.',
     significance: ['One of the earliest Norman motte-and-bailey castles in England', 'Guards the Arun river gap through the South Downs', 'Continuous aristocratic residence for nearly a millennium'],
@@ -540,6 +588,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman Castles — France ──
   {
     id: 'node-chateau-gaillard',
+    essaySlug: 'node-chateau-gaillard',
     overview:
       'Château Gaillard was built in just two years (1196–1198) by Richard the Lionheart to defend the Seine valley and the eastern frontier of Normandy against the French king Philip II. Its concentric design and use of machicolations were revolutionary in Western Europe, reflecting lessons from Crusader castle-building. Philip II captured it in 1204 after a prolonged siege, sealing the French conquest of Normandy.',
     significance: ['Revolutionary concentric design in Western Europe', 'Richard I\'s personal military masterpiece', 'Its fall in 1204 marked the end of the Duchy of Normandy as an English possession'],
@@ -553,6 +602,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-gisors',
+    essaySlug: 'node-gisors',
     overview:
       'Gisors Castle was a major frontier fortress in the Norman Vexin, the contested border zone between the Duchy of Normandy and the Kingdom of France. Begun in 1097 by William Rufus, its motte-and-bailey core was later enclosed in powerful stone defenses and a great octagonal keep. The castle frequently changed hands during the Plantagenet–Capetian wars.',
     significance: ['Key fortress on the Norman–French frontier', 'Symbol of the long struggle for control of the Vexin', 'Site of multiple diplomatic meetings between kings'],
@@ -566,6 +616,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-pirou',
+    essaySlug: 'node-pirou',
     overview:
       'Château de Pirou is a well-preserved 12th-century Norman castle in the Cotentin Peninsula, surrounded by three concentric moats fed by marshland. According to legend, its defenders turned into wild geese to escape a Viking siege—a story illustrated in a modern tapestry displayed inside the castle. The site preserves an unusually complete picture of a smaller Norman fortified manor.',
     significance: ['One of the best-preserved small Norman castles in Normandy', 'Triple-moat defensive system unique in the region', 'Living example of a fortified seigneurial residence'],
@@ -580,6 +631,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman Castles — Italy & Sicily ──
   {
     id: 'node-palazzo-normanni',
+    essaySlug: 'node-palazzo-normanni',
     overview:
       'The Palazzo dei Normanni (Norman Palace) in Palermo was originally a 9th-century Arab fortress that the Norman conquerors transformed into the seat of the Kingdom of Sicily. Roger II commissioned the Cappella Palatina within its walls, a chapel whose golden Byzantine mosaics and Arab muqarnas ceiling form one of the supreme artistic achievements of the Middle Ages. The blending of Arab, Byzantine, and Norman traditions here epitomizes the multicultural brilliance of Norman Sicily.',
     significance: ['Seat of the Norman Kingdom of Sicily', 'Houses the Cappella Palatina, a masterpiece of Arab-Norman art', 'Symbol of the multicultural fusion under Norman rule'],
@@ -593,6 +645,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-caccamo-castle',
+    essaySlug: 'node-caccamo-castle',
     overview:
       'Caccamo Castle is one of the largest and best-preserved Norman castles in Italy, dramatically positioned on a limestone cliff overlooking the San Leonardo river valley. It was built by the Norman knight Matthew Bonellus in the late 11th century and later became a center of baronial conspiracy against the Sicilian crown. The castle\'s sheer size and its cliff-edge setting make it one of the most visually striking medieval fortresses in Sicily.',
     significance: ['One of the largest Norman castles in Italy', 'Dramatic cliff-top setting', 'Center of the 1160 baronial conspiracy against William I'],
@@ -605,6 +658,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-aci-castello',
+    essaySlug: 'node-aci-castello',
     overview:
       'Aci Castello is a Norman-era castle built from local black lava stone on a rocky basalt outcrop jutting into the Ionian Sea north of Catania. The fortress was constructed over earlier fortifications and served as a strategic coastal defense point. Its dramatic volcanic-rock setting and commanding sea views make it one of the most distinctive castles in Sicily.',
     significance: ['Built from volcanic lava stone on a basalt promontory', 'Key coastal defense north of Catania', 'Dramatically sited above the sea'],
@@ -616,6 +670,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-erice-castle-of-venus',
+    essaySlug: 'node-erice-castle-of-venus',
     overview:
       'The Castle of Venus (Castello di Venere) at Erice crowns the summit of Monte Erice in western Sicily, built by the Normans on the site of the ancient Temple of Venus Erycina, sacred since Phoenician times. The castle reused ancient masonry and commands sweeping views over the Tyrrhenian Sea. It served both as a fortress and as a symbol of Norman dominion over the former Muslim strongholds of western Sicily.',
     significance: ['Built on the site of the ancient Temple of Venus Erycina', 'Commands strategic views over western Sicily', 'Symbol of Norman control after the Muslim period'],
@@ -629,6 +684,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman Castles — Ireland ──
   {
     id: 'node-carrickfergus-castle',
+    essaySlug: 'node-carrickfergus-castle',
     overview:
       'Carrickfergus Castle is one of the best-preserved Norman castles in Ireland, built from 1177 by John de Courcy after his conquest of eastern Ulster. Its great rectangular keep, constructed of local basalt, overlooks Belfast Lough and controlled the sea approach to the region. The castle remained in continuous military use for over 750 years, only being decommissioned in 1928.',
     significance: ['Best-preserved Norman castle in Ireland', 'Controlled the sea approach to Belfast Lough', 'In continuous military use from 1177 to 1928'],
@@ -644,6 +700,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman-linked Crusader Castles — Levant ──
   {
     id: 'node-krak-des-chevaliers',
+    essaySlug: 'node-krak-des-chevaliers',
     overview:
       'Krak des Chevaliers is widely regarded as the finest surviving example of Crusader military architecture. Originally a small Kurdish fortress captured during the First Crusade in 1099, it was massively expanded by the Knights Hospitaller into a concentric castle capable of housing a garrison of 2,000. Its double ring of walls, massive talus, and sophisticated water-supply systems made it virtually impregnable until Baybars captured it through a ruse in 1271.',
     significance: ['Often called the finest Crusader castle ever built', 'Garrisoned by the Knights Hospitaller', 'UNESCO World Heritage Site'],
@@ -657,6 +714,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-sahyun-saladin-castle',
+    essaySlug: 'node-sahyun-saladin-castle',
     overview:
       'Saône (Qal\'at Salah ad-Din) is a vast Crusader-Byzantine fortress perched on a narrow ridge between two deep ravines in the coastal mountains of Syria. A Byzantine fortification was expanded under Crusader rule with a great square keep showing strong Norman-style influence. The castle is famous for its enormous rock-cut ditch, spanned by a needle of living rock that once supported a drawbridge. Saladin captured it in 1188.',
     significance: ['Great square keep with Norman architectural influence', 'Enormous rock-cut ditch is an engineering marvel', 'UNESCO World Heritage Site'],
@@ -669,6 +727,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-margat-marqab',
+    essaySlug: 'node-margat-marqab',
     overview:
       'Marqab (Margat) Castle is a massive black-basalt fortress on a volcanic hilltop overlooking the Syrian coast, within the orbit of the Principality of Antioch. Held by the Knights Hospitaller from 1186, it was one of the most powerful Crusader strongholds in the Levant, dominating the coastal road between Tortosa and Latakia. Its dark volcanic stone gives it a brooding, imposing presence unique among Crusader castles.',
     significance: ['Major Hospitaller fortress built of black basalt', 'Dominated the coastal road of the County of Tripoli', 'One of the last Crusader castles to fall'],
@@ -682,6 +741,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-safita-chastel-blanc',
+    essaySlug: 'node-safita-chastel-blanc',
     overview:
       'Chastel Blanc (the White Castle), known today as Safita, features a striking rectangular tower-keep that closely resembles a classic Norman donjon transplanted to the Levant. Held by the Knights Templar, the keep served both as a fortress and as a chapel — its ground floor is the Chapel of St. Michael, still used as a church. The tower\'s simple, powerful design makes it one of the clearest examples of Norman architectural influence in the Crusader states.',
     significance: ['Rectangular keep in classic Norman tower style', 'Templar fortress-chapel still in use', 'Clearest Norman architectural echo in the Levant'],
@@ -695,6 +755,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-bagras-gaston',
+    essaySlug: 'node-bagras-gaston',
     overview:
       'Bagras (also called Gaston by the Crusaders) is a strategic mountain fortress controlling the Belen Pass, the main route between Cilician Armenia and the Principality of Antioch. The Templars held the castle for much of the Crusader period, and its position made it a constant flashpoint between Crusaders, Armenians, and Muslim forces. The ruins, perched on a forested ridge, remain impressively intact.',
     significance: ['Controlled the vital Belen Pass between Cilicia and Antioch', 'Templar stronghold for much of the Crusader era', 'Strategic flashpoint between multiple powers'],
@@ -709,6 +770,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-anavarza',
+    essaySlug: 'node-anavarza',
     overview:
       'Anavarza (Anazarbus) is a fortified hilltop site in Cilicia (modern Adana Province, Turkey) with ancient Roman origins. Crusaders strengthened it with heavy stone defensive works during the period of Armenian-Crusader cooperation, and it served as a capital of the Armenian Kingdom of Cilicia. The site features massive walls climbing a sheer rock escarpment, with Crusader and Armenian building phases layered over Roman and Byzantine foundations.',
     significance: ['Capital of Armenian Cilicia with Crusader-strengthened defenses', 'Massive walls on a sheer rock escarpment', 'Layers of Roman, Byzantine, Armenian, and Crusader construction'],
@@ -720,6 +782,7 @@ const articles: NormanSiteArticle[] = [
   },
   {
     id: 'node-kerak',
+    essaySlug: 'node-kerak',
     overview:
       'Kerak Castle (Crac des Moabites) is a large Crusader fortress in modern Jordan, built by Pagan the Butler, Lord of Oultrejordain, in 1142. Perched on a triangular plateau, it controlled the trade and pilgrimage routes between Damascus and Egypt. The castle became famous under Raynald de Châtillon, whose provocative raids on Muslim caravans from Kerak helped trigger Saladin\'s decisive campaign against the Crusader states.',
     significance: ['Controlled trade routes between Damascus and Egypt', 'Raynald de Châtillon\'s infamous stronghold', 'Key target in Saladin\'s campaign against the Crusader kingdom'],
@@ -735,6 +798,7 @@ const articles: NormanSiteArticle[] = [
   // ── Norman Malta ──
   {
     id: 'node-mdina-norman',
+    essaySlug: 'node-mdina-norman',
     overview:
       'Mdina, the ancient fortified hilltop city of Malta, was the island\'s capital when the Normans conquered it in 1091 under Count Roger I. The Norman period left lasting traces in the city\'s architecture, including the Palazz ta\' Santa Sofia — one of the oldest surviving buildings in Mdina, with parts dating to the Norman era — and Palazzo Falson, a fortified townhouse preserving strong medieval and Norman-influenced features. The Normans also reduced the city\'s footprint by cutting it off from the suburb of Rabat with a new ditch.',
     significance: ['Capital of Malta under Norman rule', 'Palazz ta\' Santa Sofia preserves Norman-era fabric', 'Palazzo Falson retains medieval Norman-influenced features'],

@@ -361,3 +361,10 @@ export const normanNodesGeoJson: NormanNodeCollection = {
     },
   ],
 };
+
+/** Center [lng, lat] for a Norman Expansion node id, if it exists. */
+export function getNormanNodeCenter(nodeId: string): [number, number] | undefined {
+  const f = normanNodesGeoJson.features.find((x) => x.properties.id === nodeId);
+  if (!f?.geometry || f.geometry.type !== 'Point') return undefined;
+  return f.geometry.coordinates as [number, number];
+}

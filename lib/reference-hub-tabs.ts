@@ -16,7 +16,8 @@ export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[
   const journal: ReferenceHubTabDef = {
     href: '/journal',
     label: t('atlasJournal.tooltip.label', locale),
-    match: (p) => p === '/journal' || p.startsWith('/journal/'),
+    match: (p) =>
+      p === '/journal' || p.startsWith('/journal/') || p.startsWith('/norman-readings'),
   };
   const companion: ReferenceHubTabDef = {
     href: '/companion',

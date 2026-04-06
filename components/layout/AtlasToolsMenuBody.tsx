@@ -132,6 +132,20 @@ export default function AtlasToolsMenuBody({
             </span>
           </Link>
           <Link
+            href="/norman-readings"
+            onClick={() => {
+              beforeReferenceNav?.();
+              onClose();
+            }}
+            className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"
+          >
+            <BookOpen className="mt-0.5 h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block text-[13px] font-medium text-text-muted">{t('toolsMenu.normanReadingsLabel', locale)}</span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('toolsMenu.normanReadingsHint', locale)}</span>
+            </span>
+          </Link>
+          <Link
             href="/companion"
             onClick={() => onClose()}
             className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"

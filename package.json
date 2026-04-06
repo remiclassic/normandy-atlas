@@ -13,6 +13,7 @@
     "export:normandy-geo": "npx tsx scripts/export-normandy-geo.ts",
     "story:i18n-report": "npx tsx scripts/story-beat-i18n-coverage.ts",
     "build:gfna": "node scripts/build-gfna-datasets.mjs",
+    "gen:norman-readings": "node scripts/generate-place-readings.mjs",
     "refresh:gfna-mtdna": "node scripts/fetch-francogene-mtdna.mjs",
     "refresh:gfna-mtdna:enrich": "node scripts/fetch-francogene-mtdna.mjs --enrich"
   },

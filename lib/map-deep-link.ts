@@ -38,6 +38,8 @@ export interface MapDeepLinkParams {
   hpCompare?: boolean;
   /** Compare year when `hpCompare` is true. */
   hpCY?: number;
+  /** Norman Expansion map node id (e.g. node-rouen); opens pin + layers on the atlas map. */
+  normanSite?: string;
 }
 
 export function buildMapHref(params: MapDeepLinkParams, pathname = '/'): string {
@@ -63,6 +65,7 @@ export function buildMapHref(params: MapDeepLinkParams, pathname = '/'): string 
   if (params.hpV) qs.set('hpV', params.hpV);
   if (params.hpCompare) qs.set('hpCompare', '1');
   if (params.hpCY != null) qs.set('hpCY', String(params.hpCY));
+  if (params.normanSite) qs.set('normanSite', params.normanSite);
   const str = qs.toString();
   return str ? `${pathname}?${str}` : pathname;
 }

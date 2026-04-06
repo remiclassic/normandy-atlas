@@ -15,6 +15,7 @@ import {
 import { getNfYdnaFeature } from '@/data/atlas/new-france-ydna';
 import { getNfYdnaPresumedFeature } from '@/data/atlas/gfna-ydna-presumed';
 import { getNfMtdnaFeature } from '@/data/atlas/gfna-mtdna-lineages';
+import { getNormanNodeCenter } from '@/data/norman-expansion/nodes';
 
 /**
  * Reads URL query parameters once on mount, applies them to the map store,
@@ -153,6 +154,19 @@ export default function MapDeepLinkSync() {
           st.setPendingFlyTarget({ center: [lng, lat], zoom: 6.25 });
         }
         selectFeature(ydna, 'nf-ydna-lineage');
+      } else if (params.get('normanSite')) {
+        const normanSite = params.get('normanSite')!;
+        const coords = getNormanNodeCenter(normanSite);
+        if (coords) {
+          const st = useMapStore.getState();
+          if (!hadEraParam) setEra('norman-expansion');
+          st.setLayerVisibility('norman-expansion-nodes', true);
+          st.setLayerVisibility('norman-expansion-territories', true);
+          st.setLayerVisibility('norman-expansion-routes', true);
+          const [lng, lat] = coords;
+          st.setPendingFlyTarget({ center: [lng, lat], zoom: 6.75 });
+          selectFeature(normanSite, 'norman-site');
+        }
       } else if (place) selectFeature(place, 'settlement');
       else if (region) selectFeature(region, 'region');
       else if (segment) selectFeature(segment, 'atlas-route');

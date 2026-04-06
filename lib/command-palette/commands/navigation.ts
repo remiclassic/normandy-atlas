@@ -23,6 +23,15 @@ export const navigationCommands: Command[] = [
     action: (_, runtime) => runtime.navigate('/journal'),
   },
   {
+    id: 'nav-norman-readings',
+    label: 'Norman readings',
+    description: 'Long-form essays on Norman history',
+    keywords: ['norman', 'readings', 'articles', 'essays', 'history'],
+    group: 'navigation',
+    isVisible: (ctx) => !ctx.pathname.startsWith('/norman-readings'),
+    action: (_, runtime) => runtime.navigate('/norman-readings'),
+  },
+  {
     id: 'nav-norman-identity',
     label: 'Open Norman identity',
     description: 'Historical identity sketch without DNA',
