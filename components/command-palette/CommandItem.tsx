@@ -47,13 +47,13 @@ const CommandItem = memo(function CommandItem({
       className={[
         'flex w-full flex-col gap-0.5 rounded-md px-3 py-2 text-left text-[13px] transition-colors',
         active
-          ? 'bg-cyan-500/15 text-parchment ring-1 ring-cyan-400/35'
-          : 'text-parchment/90 hover:bg-white/5',
+          ? 'bg-cyan-500/15 text-stone-100 ring-1 ring-cyan-400/35'
+          : 'text-stone-200/95 hover:bg-white/5',
       ].join(' ')}
     >
       <span className="font-medium leading-tight">{primary}</span>
       {secondary ? (
-        <span className="text-[11px] uppercase tracking-wide text-text-muted">{secondary}</span>
+        <span className="text-[11px] uppercase tracking-wide text-stone-500">{secondary}</span>
       ) : null}
     </button>
   );

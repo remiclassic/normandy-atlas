@@ -47,7 +47,7 @@ export const LedgerStatRow = memo(function LedgerStatRow({
           {current}/{total}
         </span>
       </div>
-      <div className="mt-1 h-[2px] overflow-hidden rounded-full bg-white/[0.04]">
+      <div className="mt-1 h-[2px] overflow-hidden rounded-full bg-chrome-fill-active">
         <div
           className="h-full rounded-full bg-gradient-to-r from-gold/40 to-gold/20 transition-[width] duration-500"
           style={{ width: `${pct}%` }}

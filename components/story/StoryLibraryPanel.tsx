@@ -329,6 +329,10 @@ export default function StoryLibraryPanel({
 
   const motionDuration = reducedMotion ? 0 : 0.25;
   const searchMode = searchNorm.length > 0;
+  const isLight = uiTheme === 'light';
+  const shellBackground = isLight
+    ? 'linear-gradient(145deg, var(--color-background-warm) 0%, var(--color-background) 42%, var(--color-background-warm) 100%)'
+    : 'linear-gradient(145deg, #060812 0%, #0c1022 50%, #060812 100%)';
 
   return (
     <AnimatePresence>
@@ -348,34 +352,47 @@ export default function StoryLibraryPanel({
               : 'fixed inset-0 z-[62] flex flex-col overflow-hidden'
           }
           style={{
-            background: 'linear-gradient(145deg, #060812 0%, #0c1022 50%, #060812 100%)',
+            background: shellBackground,
             paddingTop: useShellChrome ? undefined : 'env(safe-area-inset-top)',
             paddingBottom: 'env(safe-area-inset-bottom)',
           }}
         >
           {!useShellChrome && (
             <header
-              className="sticky top-0 z-[63] flex items-center justify-between gap-3 px-4 py-3 backdrop-blur-md border-b sm:px-10"
-              style={{
-                background: 'rgba(6,8,18,0.85)',
-                borderColor: 'rgba(255,255,255,0.08)',
-              }}
+              className={`sticky top-0 z-[63] flex items-center justify-between gap-3 border-b px-4 py-3 backdrop-blur-md sm:px-10 ${
+                isLight
+                  ? 'border-border bg-surface-elevated/95'
+                  : 'border-white/[0.08] bg-[rgba(6,8,18,0.85)]'
+              }`}
             >
               <button
                 ref={closeRef}
                 type="button"
                 onClick={onClose}
-                className="flex min-h-11 shrink-0 touch-target items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50"
+                className={`flex min-h-11 shrink-0 touch-target items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50 ${
+                  isLight
+                    ? 'border-chrome-border bg-chrome-fill text-foreground hover:bg-chrome-fill-hover'
+                    : 'border-white/15 bg-white/10 text-white hover:bg-white/15'
+                }`}
                     aria-label={t('storyLibrary.backToMap', locale)}
               >
-                <ArrowLeft className="h-5 w-5 text-amber-200/90" strokeWidth={2.25} aria-hidden />
+                <ArrowLeft
+                  className={`h-5 w-5 stroke-[2.25] ${isLight ? 'text-gold' : 'text-amber-200/90'}`}
+                  aria-hidden
+                />
                 {t('storyLibrary.backToMap', locale)}
               </button>
               <div className="min-w-0 flex-1 text-right">
-                <h1 className="font-display text-base sm:text-lg font-bold tracking-tight text-white">
+                <h1
+                  className={`font-display text-base sm:text-lg font-bold tracking-tight ${
+                    isLight ? 'text-foreground' : 'text-white'
+                  }`}
+                >
                   {t('storyLibrary.chronicle.title', locale)}
                 </h1>
-                <p className="text-[11px] truncate text-white/40">
+                <p
+                  className={`truncate text-[11px] ${isLight ? 'text-text-muted' : 'text-white/40'}`}
+                >
                   {t('storyLibrary.subtitle', locale)}
                 </p>
               </div>
@@ -406,36 +423,53 @@ export default function StoryLibraryPanel({
             </div>
 
             <div
-              className="flex flex-col border-t lg:border-t-0 lg:min-h-0 lg:flex-1 lg:overflow-hidden lg:border-l"
-              style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+              className={`flex flex-col border-t lg:border-t-0 lg:min-h-0 lg:flex-1 lg:overflow-hidden lg:border-l ${
+                isLight ? 'border-border' : 'border-white/[0.06]'
+              }`}
             >
               <div
-                className="shrink-0 border-b px-4 py-3 lg:px-5"
-                style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+                className={`shrink-0 border-b px-4 py-3 lg:px-5 ${isLight ? 'border-border' : 'border-white/[0.06]'}`}
               >
                 <Link
                   href={GENEALOGY_NORMAN_IDENTITY_PATH}
-                  className="block rounded-none border border-cyan-400/25 bg-cyan-400/8 px-3 py-2.5 text-[12px] font-semibold leading-snug text-cyan-100/95 transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/12"
+                  className={
+                    isLight
+                      ? 'block rounded-lg border border-cyan-800/20 bg-cyan-950/[0.06] px-3 py-2.5 text-[12px] font-semibold leading-snug text-cyan-950 transition-colors hover:border-cyan-800/35 hover:bg-cyan-950/[0.09]'
+                      : 'block rounded-none border border-cyan-400/25 bg-cyan-400/8 px-3 py-2.5 text-[12px] font-semibold leading-snug text-cyan-100/95 transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/12'
+                  }
                 >
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-200/80">
+                  <span
+                    className={`block text-[10px] font-bold uppercase tracking-[0.18em] ${
+                      isLight ? 'text-cyan-900/90' : 'text-cyan-200/80'
+                    }`}
+                  >
                     {t('normanIdentity.cta.discover', locale)}
                   </span>
-                  <span className="mt-1 block text-[11px] font-normal text-white/70">
+                  <span
+                    className={`mt-1 block text-[11px] font-normal ${
+                      isLight ? 'text-text-muted' : 'text-white/70'
+                    }`}
+                  >
                     {t('normanIdentity.banner.storyLibrary', locale)}
                   </span>
                 </Link>
               </div>
-              <div className="shrink-0 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+              <div
+                className={`shrink-0 border-b ${isLight ? 'border-border' : 'border-white/[0.06]'}`}
+              >
                 <div className="flex flex-col gap-2 px-4 pt-4 pb-1 lg:px-5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                   <h2
-                    className="font-display text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em]"
-                    style={{ color: 'rgba(255,255,255,0.35)' }}
+                    className={`font-display text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] ${
+                      isLight ? 'text-text-dim' : 'text-white/35'
+                    }`}
                   >
                     {t('storyLibrary.chronicle.title', locale)}
                   </h2>
                   <div className="relative flex min-h-10 w-full sm:max-w-xs">
                     <Search
-                      className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/35"
+                      className={`pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 ${
+                        isLight ? 'text-text-dim' : 'text-white/35'
+                      }`}
                       aria-hidden
                     />
                     <input
@@ -445,12 +479,20 @@ export default function StoryLibraryPanel({
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder={t('storyLibrary.searchPlaceholder', locale)}
                       aria-label={t('storyLibrary.searchAria', locale)}
-                      className="w-full rounded-lg border border-white/12 bg-white/[0.06] py-2 pl-8 pr-9 text-[13px] text-white placeholder:text-white/35 outline-none focus-visible:ring-2 focus-visible:ring-amber-400/40"
+                      className={`w-full rounded-lg border py-2 pl-8 pr-9 text-[13px] outline-none focus-visible:ring-2 focus-visible:ring-amber-400/40 ${
+                        isLight
+                          ? 'border-chrome-border bg-chrome-fill text-foreground placeholder:text-text-dim'
+                          : 'border-white/12 bg-white/[0.06] text-white placeholder:text-white/35'
+                      }`}
                     />
                     {searchQuery.trim() !== '' && (
                       <button
                         type="button"
-                        className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded p-1 text-white/45 hover:text-white/80"
+                        className={`absolute right-1.5 top-1/2 -translate-y-1/2 rounded p-1 ${
+                          isLight
+                            ? 'text-text-muted hover:text-foreground'
+                            : 'text-white/45 hover:text-white/80'
+                        }`}
                         aria-label={t('storyLibrary.clearSearch', locale)}
                         onClick={() => {
                           setSearchQuery('');
@@ -466,12 +508,14 @@ export default function StoryLibraryPanel({
                   value={filterCategory}
                   onChange={setFilterCategory}
                   locale={locale}
+                  uiTheme={uiTheme}
                 />
                 <StoryLibraryEraFilterBar
                   eras={erasWithStories}
                   value={filterEraId}
                   onChange={setFilterEraId}
                   locale={locale}
+                  uiTheme={uiTheme}
                 />
               </div>
 

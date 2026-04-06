@@ -151,7 +151,7 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
           }}
         />
         <div className="relative z-[1] flex flex-col gap-3 p-6 pb-8 sm:p-8 sm:pb-10 lg:p-10 lg:pb-12 max-w-xl">
-          <p className="font-display text-xl sm:text-2xl font-semibold leading-snug text-parchment pr-4">
+          <p className="font-display text-xl sm:text-2xl font-semibold leading-snug text-white pr-4">
             {t('storyLibrary.heroEmpty.title', locale)}
           </p>
           <p className="text-[13px] sm:text-[14px] leading-relaxed text-white/55">

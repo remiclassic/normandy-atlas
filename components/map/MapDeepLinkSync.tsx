@@ -12,6 +12,9 @@ import {
   bboxForLineageFeatures,
   isValidLineageEraLens,
 } from '@/core';
+import { getNfYdnaFeature } from '@/data/atlas/new-france-ydna';
+import { getNfYdnaPresumedFeature } from '@/data/atlas/gfna-ydna-presumed';
+import { getNfMtdnaFeature } from '@/data/atlas/gfna-mtdna-lineages';
 
 /**
  * Reads URL query parameters once on mount, applies them to the map store,
@@ -37,9 +40,10 @@ export default function MapDeepLinkSync() {
       startStory,
     } = useMapStore.getState();
 
-    const era = params.get('era');
-    if (era && isValidAtlasEra(era)) {
-      setEra(era);
+    const eraParam = params.get('era');
+    const hadEraParam = !!(eraParam && isValidAtlasEra(eraParam));
+    if (hadEraParam && eraParam) {
+      setEra(eraParam);
     }
 
     const lineageQ = params.get('lineage');
@@ -122,18 +126,32 @@ export default function MapDeepLinkSync() {
       const vikingArch = params.get('vikingArch');
 
       if (vikingAdna) {
-        if (!era) setEra('viking-age');
+        if (!hadEraParam) setEra('viking-age');
         useMapStore.getState().setLayerVisibility('viking-adna-burials', true);
         selectFeature(vikingAdna, 'viking-adna-site');
       } else if (vikingArch) {
-        if (!era) setEra('viking-age');
+        if (!hadEraParam) setEra('viking-age');
         useMapStore.getState().setLayerVisibility('viking-archaeology-sites', true);
         selectFeature(vikingArch, 'viking-archaeology-site');
       } else if (mtdna) {
-        useMapStore.getState().setLayerVisibility('new-france-mtdna-lineages', true);
+        const st = useMapStore.getState();
+        if (!hadEraParam) st.setEra('new-france-foundations');
+        st.setLayerVisibility('new-france-mtdna-lineages', true);
+        const feat = getNfMtdnaFeature(mtdna);
+        if (feat?.geometry?.type === 'Point') {
+          const [lng, lat] = feat.geometry.coordinates;
+          st.setPendingFlyTarget({ center: [lng, lat], zoom: 6.25 });
+        }
         selectFeature(mtdna, 'nf-mtdna-lineage');
       } else if (ydna) {
-        useMapStore.getState().setLayerVisibility('new-france-ydna-lineages', true);
+        const st = useMapStore.getState();
+        if (!hadEraParam) st.setEra('new-france-foundations');
+        st.setLayerVisibility('new-france-ydna-lineages', true);
+        const feat = getNfYdnaFeature(ydna) ?? getNfYdnaPresumedFeature(ydna);
+        if (feat?.geometry?.type === 'Point') {
+          const [lng, lat] = feat.geometry.coordinates;
+          st.setPendingFlyTarget({ center: [lng, lat], zoom: 6.25 });
+        }
         selectFeature(ydna, 'nf-ydna-lineage');
       } else if (place) selectFeature(place, 'settlement');
       else if (region) selectFeature(region, 'region');

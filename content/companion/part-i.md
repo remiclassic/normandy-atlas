@@ -9,7 +9,7 @@ Spatial history is old; digital spatial history is young; **good** spatial histo
 **Narrative track:** You should *feel* the Seine as a **hydraulic sorting hat** before you memorize enums.
 :::
 
-Norman Atlas enters that tradition knowingly. It is built for exploration: you can drift eras, dim layers, chase a journey, or follow a story beat that moves the camera for you. None of that mobility removes responsibility. The companion you are reading exists to make responsibility **pleasurable**—because once you see the map as an argument, you begin to collaborate with it rather than be fooled by it.
+Norman Atlas enters that tradition knowingly. It is built for exploration: you can drift eras, dim layers, chase a journey, follow scripted **story playback**, or browse the **Story Library** without handing control of time to the map. The **Atlas Journal** indexes glossary entries, places, and beats; this **Companion** keeps the prose argument explicit; **Genealogy** ties personal surnames and haplogroups to the atlas only through the same evidence rules—you still owe the past careful language. None of that mobility removes responsibility. The companion you are reading exists to make responsibility **pleasurable**—because once you see the map as an argument, you begin to collaborate with it rather than be fooled by it.
 
 :::atlas-ui
 **Era ids (examples):** `neolithic-normandy`, `viking-age`, `norman-origins`, `atlantic-imprint` — each reloads **region era-states** and default **camera**.  

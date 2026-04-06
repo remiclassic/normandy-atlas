@@ -89,7 +89,7 @@ const AncestryJourneyMapDock = memo(function AncestryJourneyMapDock() {
           <button
             type="button"
             onClick={onStop}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-chrome-border/50 bg-chrome-fill-raised/50 text-text-dim hover:text-amber-200"
+            className="atlas-hover-amber-icon flex h-9 w-9 items-center justify-center rounded-lg border border-chrome-border/50 bg-chrome-fill-raised/50 text-text-dim"
             aria-label={t('ancestry.stopJourney', locale)}
           >
             <X className="h-4 w-4" aria-hidden />

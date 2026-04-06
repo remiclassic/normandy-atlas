@@ -635,7 +635,7 @@ const LineageProfileClient = memo(function LineageProfileClient({ profile }: { p
             </section>
 
             <section className="mb-8 rounded-lg border border-amber-400/20 bg-amber-400/[0.06] p-4">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-200/90">
+              <h2 className="atlas-text-amber-section-heading text-[11px] font-semibold uppercase tracking-[0.18em]">
                 {locale === 'fr' ? 'Interprétation & confiance' : 'Interpretation & confidence'}
               </h2>
               <ul className="mt-2 space-y-1 text-[12px] text-text-muted">

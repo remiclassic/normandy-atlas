@@ -12,8 +12,9 @@ This volume is the companion to **Norman Atlas**, an interactive historical atla
 History on a screen is never a neutral photograph of the past. It is a stack of decisions—which century sits in the foreground, which river corridor acts as a spine, whether a border is drawn hard or softly, whether a line across water stands for one voyage or for a pattern repeated across generations. Norman Atlas tries to keep those decisions legible. This book teaches you to read them the way a historian reads any model: with curiosity, geographic imagination, and a steady sense of what proof can and cannot do.
 
 :::atlas-ui
-**Modes:** Manual era vs **Story** beats (camera, `focus`, `routeHighlightMode` may be scripted).  
-**Start here:** Open **Layer panel** — borders, routes, rivers, expansion families toggle independently of the era strip.  
+**Modes:** Manual era vs **Story playback** (beats move camera and time; `focus`, `routeHighlightMode` may be scripted) vs the **Story Library** (browse arcs, filters, and detail first—URL flags such as `library` and `libraryArc` open the library without starting playback).  
+**Reading rooms:** The **Reference hub** groups the **Atlas Journal** (index + glossary + how-to), this **Companion** (long-form essay), and **Genealogy** (catalogue search, Norman Identity).  
+**Start here:** Open **Layer panel** — borders, routes, rivers, expansion families toggle independently of the era strip. Under New France, toggle **Paternal lineages (Y-DNA)** and **Maternal lineages (mtDNA)** as separate evidence overlays.  
 **Tip:** If routes vanish, check **era** first (`viking-age` vs `new-france-foundations` use different route **pipelines**).
 :::
 

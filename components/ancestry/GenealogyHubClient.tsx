@@ -111,15 +111,15 @@ const GenealogyHubClient = memo(function GenealogyHubClient() {
 
             <Link
               href={GENEALOGY_NORMAN_IDENTITY_PATH}
-              className="mb-10 flex flex-col gap-2 rounded-none border border-cyan-400/28 bg-cyan-400/6 p-5 shadow-[inset_0_0_0_1px_rgba(0,211,243,0.12)] transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/10"
+              className="atlas-cyan-callout-card mb-10 flex flex-col gap-2 rounded-none p-5"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-200/90">
+              <span className="atlas-text-cyan-callout-kicker text-[11px] font-semibold uppercase tracking-[0.22em]">
                 {t('normanIdentity.hubCard.title', locale)}
               </span>
               <span className="text-[length:var(--atlas-text-sm)] leading-relaxed text-[var(--color-text-muted)]">
                 {t('normanIdentity.hubCard.body', locale)}
               </span>
-              <span className="text-[12px] font-bold uppercase tracking-wide text-cyan-100/95">
+              <span className="atlas-text-cyan-callout-cta text-[12px] font-bold uppercase tracking-wide">
                 {t('normanIdentity.cta.discover', locale)} →
               </span>
             </Link>
@@ -185,7 +185,7 @@ const GenealogyHubClient = memo(function GenealogyHubClient() {
                   <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-gold/75">{t('genealogy.hintsTitle', locale)}</p>
                   <ul className="list-inside list-disc space-y-2">
                     {detection.disclaimers.map((d) => (
-                      <li key={d} className="text-[11px] text-amber-200/85">
+                      <li key={d} className="atlas-text-amber-disclaimer text-[11px]">
                         {d}
                       </li>
                     ))}

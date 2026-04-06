@@ -185,7 +185,7 @@ const NormanIdentityWizard = memo(function NormanIdentityWizard({
             }`}
           >
             <span>{normanIntent ? t('normanIdentity.toggle.yes', locale) : t('normanIdentity.toggle.no', locale)}</span>
-            <span className="text-[11px] uppercase tracking-wider text-cyan-300/90">{normanIntent ? 'ON' : 'OFF'}</span>
+            <span className="atlas-text-cyan-aux-label text-[11px] uppercase tracking-wider">{normanIntent ? 'ON' : 'OFF'}</span>
           </button>
         </div>
       )}
@@ -203,7 +203,7 @@ const NormanIdentityWizard = memo(function NormanIdentityWizard({
         <button
           type="button"
           onClick={next}
-          className="rounded-none border border-cyan-400/35 bg-cyan-400/10 px-4 py-2 text-[length:var(--atlas-text-sm)] font-semibold text-cyan-200/95 transition-colors hover:bg-cyan-400/15"
+          className="atlas-btn-cyan-secondary rounded-none px-4 py-2 text-[length:var(--atlas-text-sm)] font-semibold"
         >
           {step < 3 ? t('normanIdentity.nav.next', locale) : t('normanIdentity.nav.results', locale)}
         </button>

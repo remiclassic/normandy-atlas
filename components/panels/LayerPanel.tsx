@@ -1078,8 +1078,10 @@ function LayerPanelContent({
                         {cfg.id === 'new-france-mtdna-lineages' && (layers[cfg.id] ?? cfg.defaultOn) && (
                           <div className="px-3.5 pb-2 pt-1">
                             <p className="text-[9px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
-                              Maternal (mtDNA) pioneer lines from ingested GFNA data. Pink dots; enable after running{' '}
-                              <code className="text-[9px] text-text-muted">npm run build:gfna</code> with mtDNA rows.
+                              Maternal (mtDNA) pioneer lines from ingested GFNA data. Pink dots; refresh data with{' '}
+                              <code className="text-[9px] text-text-muted">npm run refresh:gfna-mtdna</code> then{' '}
+                              <code className="text-[9px] text-text-muted">npm run build:gfna</code> (or rely on{' '}
+                              <code className="text-[9px] text-text-muted">npm run build</code> prebuild).
                             </p>
                           </div>
                         )}

@@ -8,6 +8,8 @@ import { HAPLO_COLORS } from '@/components/map/new-france-ydna-layers';
 import { GENETIC_ORIGIN_LABELS, GENETIC_ORIGIN_COLORS } from '@/data/atlas/new-france-ydna-types';
 import type { GeneticConfidence } from '@/data/atlas/new-france-ydna-types';
 import { gfnaFamilySheetUrl } from '@/data/atlas/gfna-dna-types';
+import { getGfnaNormanAtlasMatch } from '@/lib/gfna-norman-atlas-match';
+import { GfnaNormanAtlasBadge } from '@/components/ancestry/GfnaNormanAtlasBadge';
 
 function ContentFade({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -71,6 +73,10 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
     () => getNfYdnaFeature(id) ?? getNfYdnaPresumedFeature(id),
     [id],
   );
+  const normanAtlas = useMemo(
+    () => (feature ? getGfnaNormanAtlasMatch(feature.properties.surname) : { matched: false, channels: [] }),
+    [feature],
+  );
   const [showEducation, setShowEducation] = useState(false);
   const toggleEd = useCallback(() => setShowEducation((v) => !v), []);
 
@@ -127,6 +133,7 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
               </svg>
               {originLabel}
             </span>
+            <GfnaNormanAtlasBadge normanAtlas={normanAtlas} />
           </div>
         </ContentFade>
 

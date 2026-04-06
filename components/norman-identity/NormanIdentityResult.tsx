@@ -55,7 +55,7 @@ const NormanIdentityResult = memo(function NormanIdentityResult({
       </div>
 
       <div className="rounded-none border border-chrome-border-strong/45 bg-chrome-fill/20 px-5 py-4 text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-300/85">{t('normanIdentity.result.layersTitle', locale)}</p>
+        <p className="atlas-text-cyan-section-label text-[11px] font-semibold uppercase tracking-[0.24em]">{t('normanIdentity.result.layersTitle', locale)}</p>
         <p className="mt-2 font-display text-sm font-semibold text-[var(--color-gold)]">{t(archetypeKey, locale)}</p>
       </div>
 
@@ -69,7 +69,7 @@ const NormanIdentityResult = memo(function NormanIdentityResult({
               <span className="text-[length:var(--atlas-text-sm)] font-semibold text-parchment">
                 {t(normanLayerTitleKey(layer.name), locale)}
               </span>
-              <span className="text-[10px] uppercase tracking-wider text-cyan-300/70">{layer.strength}</span>
+              <span className="atlas-text-cyan-meta text-[10px] uppercase tracking-wider">{layer.strength}</span>
             </div>
             <div className="mb-2 h-1.5 w-full bg-chrome-border-strong/35">
               <div
@@ -87,7 +87,7 @@ const NormanIdentityResult = memo(function NormanIdentityResult({
         <button
           type="button"
           onClick={playStory}
-          className="rounded-none border border-cyan-400/40 bg-cyan-400/12 px-5 py-3 text-[length:var(--atlas-text-sm)] font-semibold text-cyan-100 transition-colors hover:bg-cyan-400/18"
+          className="atlas-btn-cyan-secondary rounded-none px-5 py-3 text-[length:var(--atlas-text-sm)] font-semibold"
         >
           {t('normanIdentity.cta.playStory', locale)}
         </button>

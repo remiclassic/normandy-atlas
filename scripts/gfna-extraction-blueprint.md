@@ -25,7 +25,7 @@ Produce **one JSON object per line** (JSONL), each satisfying the canonical sche
 
 - `signature_type`: `SNP`, `STR`, `rCRS`, `RSRS`, or `unknown`
 - `spouse`, `arrival_year`, `region_in_new_france`, `descendant_context`, `notes`
-- `tri_id`: e.g. `TRI0550` when present (Y catalogue)
+- `tri_id`: e.g. `TRI0550` when present (Y catalogue or mtDNA when matched to triangulation index)
 - `family_sheet_no`: numeric id for `gfangfna.php?no=`
 - `collection`: `gfna-y-confirmed` | `gfna-y-presumed` | `gfna-mt-confirmed` | `gfna-mt-presumed` | `family-sheet` | `royal-descents` | `other`
 - `source_organization`: e.g. `FrancoGene`
@@ -34,8 +34,8 @@ Produce **one JSON object per line** (JSONL), each satisfying the canonical sche
 
 1. **Confirmed Y** — triangulated paternal lines (`adny.html` / triangulation list). *In this repo, primary ingest is `scripts/parse-francogene-ydna.mjs` → `new-france-ydna.ts`; do not duplicate confirmed Y in JSONL unless you deliberately migrate pipelines.*
 2. **Presumed Y** — `adny2.html` (or equivalent); always `status: presumed`.
-3. **Confirmed mtDNA** — `adnmt.html` (confirmed list).
-4. **Presumed mtDNA** — separate GFNA mtDNA presumed section when present.
+3. **Confirmed mtDNA** — `adnmt.html` (confirmed table) and the triangulation index `https://www.francogene.com/triangulation/mt.php` (often newer; extra lines not yet in the static table).
+4. **Presumed mtDNA** — `adnmt2.html` when present.
 5. **Index** — `listes.html`: use only to verify you hit all four catalogue types.
 6. **Family sheets** — `ymtx/gfangfna.php?no=…`: capture inline haplogroups; set `family_sheet_no` and `collection: family-sheet`.
 7. **Royal / notable** — `qrd.html`: set `collection: royal-descents`; put narrative cues in `descendant_context` / `notes`.
@@ -56,6 +56,16 @@ Produce **one JSON object per line** (JSONL), each satisfying the canonical sche
 - **Y + `status: confirmed`** in JSONL is **skipped** by the build script (primary catalogue = paste parser) — remove confirmed Y rows from JSONL or expect a skip count in `gfna-dna-records.validation.json`.
 - **`tri_id`** on presumed Y is optional; synthesised ids are used when absent.
 - **`family_sheet_no`** should open `https://www.francogene.com/ymtx/gfangfna.php?no=<id>`.
+
+## Automated mtDNA refresh (this repo)
+
+```bash
+npm run refresh:gfna-mtdna              # HTML tables + mt.php → jsonl
+npm run refresh:gfna-mtdna:enrich     # same + fetch GFNA person pages for family_sheet_no / signature hints
+npm run build:gfna                    # emit TypeScript GeoJSON bundles
+```
+
+`npm run build` runs `prebuild`, which executes `build:gfna` so clones with a committed `gfna-dna-records.jsonl` stay in sync. Optional fetch cache: `data/atlas/gfna-mtdna-enrich-cache.json` (gitignored); family sheet numbers are still stored in the JSONL after enrich.
 
 ## Build
 

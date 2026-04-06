@@ -20,7 +20,7 @@ export const CommandPaletteHeaderTrigger = memo(function CommandPaletteHeaderTri
 
   const touch = size === 'mobileTouch';
   const btnClass = touch
-    ? 'flex h-9 w-9 shrink-0 touch-manipulation items-center justify-center rounded-lg text-text-dim transition-colors hover:bg-chrome-fill hover:text-cyan-300/80 touch-target'
+    ? 'atlas-icon-hover-cyan flex h-9 w-9 shrink-0 touch-manipulation items-center justify-center rounded-lg text-text-dim transition-colors hover:bg-chrome-fill touch-target'
     : 'flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment';
 
   const label = t('header.commandPalette.tooltip.label', locale);

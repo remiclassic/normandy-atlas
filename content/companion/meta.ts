@@ -44,6 +44,7 @@ export const companionCampaignNav: readonly CompanionCampaignNav[] = [
     sectionIds: [
       'scenario-the-carolingian-strain',
       'scenario-mapping-uncertainty',
+      'scenario-genealogy-hub-and-genetic-overlays',
       'scenario-conclusion-research-teaching-genealogy',
     ],
   },

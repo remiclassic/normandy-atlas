@@ -54,5 +54,12 @@ export function gfnaFamilySheetUrl(familySheetNo: string | number): string {
   return `https://www.francogene.com/ymtx/gfangfna.php?no=${encodeURIComponent(n)}`;
 }
 
+/** Francogene maternal triangulation detail page (TRIxxxx.php). */
+export function gfnaMtTriangulationUrl(triId: string): string {
+  const t = String(triId).trim().toUpperCase();
+  if (!/^TRI\d+$/i.test(t)) return '';
+  return `https://www.francogene.com/triangulation/${t}.php`;
+}
+
 /** Map UI filter for Francogene Y-DNA dots (confirmed vs presumed vs all). */
 export type GfnaYdnaMapConfidenceFilter = 'all' | 'confirmed' | 'presumed';

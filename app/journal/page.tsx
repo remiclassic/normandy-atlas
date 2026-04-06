@@ -57,7 +57,7 @@ function useTocItems(locale: AtlasLocale, hasResumable: boolean): TocItem[] {
       { id: 'index-story', label: locale === 'fr' ? 'Récit' : 'Story' },
       { id: 'index-viking-sites', label: locale === 'fr' ? 'Sites vikings' : 'Viking Sites' },
       { id: 'expeditions', label: locale === 'fr' ? 'Expéditions guidées' : 'Guided Expeditions' },
-      { id: 'ydna-lineages', label: locale === 'fr' ? 'Lignées ADN-Y' : 'Y-DNA Lineages' },
+      { id: 'ydna-lineages', label: locale === 'fr' ? 'GFNA / Francogene (carte)' : 'GFNA / Francogene (map)' },
       { id: 'lineage-explorer', label: locale === 'fr' ? 'Lignées génétiques (explorateur)' : 'Genetic Lineage Explorer' },
       {
         id: 'lineage-citations-policy',
@@ -781,8 +781,8 @@ export default function JournalPage() {
               </SectionHeading>
               <Prose>
                 {locale === 'fr'
-                  ? 'Les arcs narratifs regroupent plusieurs \u00e9poques en histoires coh\u00e9rentes que vous pouvez suivre sur la carte.'
-                  : 'Story arcs group multiple eras into coherent narratives you can follow on the map.'}
+                  ? 'Les arcs narratifs regroupent plusieurs \u00e9poques en histoires coh\u00e9rentes. Chaque carte ci-dessous ouvre la biblioth\u00e8que d\u2019histoires sur cet arc : parcourez, filtrez et lisez le d\u00e9tail sans lancer la lecture automatique, ou passez au mode histoire quand vous voulez.'
+                  : 'Story arcs group multiple eras into coherent narratives. Each link below opens the Story Library focused on that arc\u2014browse, filter, and read detail without starting scripted playback, or switch to story playback when you want the map to drive time and camera.'}
               </Prose>
               <ArcsSection locale={locale} />
             </section>
@@ -971,41 +971,59 @@ export default function JournalPage() {
 
             <SectionDivider />
 
-            {/* Y-DNA Settler Lineages */}
+            {/* GFNA / Francogene settler lineages — counts: ~674 Y in data/atlas/new-france-ydna.ts; ~811 mtDNA from data/atlas/gfna-dna-records.jsonl via npm run build:gfna */}
             <section>
               <SectionHeading id="ydna-lineages">
-                {locale === 'fr' ? 'Lignées paternelles (ADN-Y)' : 'Paternal Lineages (Y-DNA)'}
+                {locale === 'fr'
+                  ? 'Francogene / GFNA — lign\u00e9es de colons sur la carte'
+                  : 'Francogene / GFNA \u2014 settler lineages on the map'}
               </SectionHeading>
               <Prose>
                 {locale === 'fr'
-                  ? 'L\u2019Atlas normand int\u00e8gre les r\u00e9sultats du projet de triangulation ADN-Y de Francog\u00e8ne, qui relie les tests d\u2019ADN-Y de descendants modernes \u00e0 des colons sp\u00e9cifiques de la Nouvelle-France. Plus de 670 lign\u00e9es sont repr\u00e9sent\u00e9es sur la carte, chacune color\u00e9e par haplogroupe majeur.'
-                  : 'The Norman Atlas integrates results from the Francogene Y-DNA triangulation project, which links modern descendant Y-DNA tests to specific New France settlers. Over 670 lineages are represented on the map, each colour-coded by major haplogroup.'}
+                  ? 'Sous les \u00e9poques de la Nouvelle-France, le panneau Couches propose \u00ab Lign\u00e9es paternelles (ADN-Y) \u00bb et \u00ab Lign\u00e9es maternelles (ADNmt) \u00bb : triangulation et fiches GFNA compil\u00e9es par Francogene, pas de l\u2019ADN ancien des colons eux-m\u00eames. Environ 674 points ADN-Y et 811 points ADNmt (jeu embarqu\u00e9 actuel) peuvent s\u2019afficher ; les totaux suivent les jeux de donn\u00e9es \u2014 reconstruisez avec npm run build:gfna apr\u00e8s mise \u00e0 jour du JSONL. Pour chercher dans les catalogues et l\u2019identit\u00e9 normande, utilisez aussi l\u2019espace G\u00e9n\u00e9alogie.'
+                  : 'Under New France eras, the Layers panel offers Paternal lineages (Y-DNA) and Maternal lineages (mtDNA): Francogene triangulation and GFNA family sheets compiled from modern tests, not ancient DNA from the pioneers themselves. About 674 Y-DNA points and 811 mtDNA points can appear with the current bundled dataset; counts track the underlying files\u2014rebuild with npm run build:gfna after updating the JSONL. For catalogue search and Norman Identity, use the Genealogy hub as well.'}
               </Prose>
               <div className="mt-4 space-y-3">
                 <div>
-                  <SectionLabel>{locale === 'fr' ? 'Qu\u2019est-ce que l\u2019ADN-Y\u00a0?' : 'What is Y-DNA?'}</SectionLabel>
+                  <SectionLabel>{locale === 'fr' ? 'Lign\u00e9es paternelles (ADN-Y)' : 'Paternal lineages (Y-DNA)'}</SectionLabel>
                   <p className="text-[length:var(--atlas-text-base)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
                     {locale === 'fr'
-                      ? 'L\u2019ADN du chromosome Y est transmis de p\u00e8re en fils pratiquement sans changement \u00e0 chaque g\u00e9n\u00e9ration. En testant les descendants modernes, les g\u00e9n\u00e9ticiens peuvent d\u00e9duire l\u2019haplogroupe probable d\u2019un anc\u00eatre historique. Un haplogroupe (par ex. R1b, I1, G2) repr\u00e9sente une branche profonde de l\u2019arbre g\u00e9n\u00e9alogique paternel humain.'
-                      : 'Y-chromosome DNA is passed from father to son virtually unchanged each generation. By testing modern descendants, geneticists can infer the probable haplogroup of a historical ancestor. A haplogroup (e.g. R1b, I1, G2) represents a deep branch on the human paternal family tree.'}
+                      ? 'Le projet de triangulation ADN-Y relie les tests de descendants modernes \u00e0 des pionniers nomm\u00e9s de la Nouvelle-France. L\u2019ADN du chromosome Y passe de p\u00e8re en fils avec peu de changement ; un haplogroupe (p. ex. R1b, I1, G2) est une branche profonde de l\u2019arbre paternel.'
+                      : 'The Y-DNA triangulation project links modern descendant tests to named New France founders. Y-chromosome DNA passes father-to-son with little change; a haplogroup (e.g. R1b, I1, G2) is a deep branch on the paternal tree.'}
+                  </p>
+                </div>
+                <div>
+                  <SectionLabel>{locale === 'fr' ? 'Lign\u00e9es maternelles (ADNmt)' : 'Maternal lineages (mtDNA)'}</SectionLabel>
+                  <p className="text-[length:var(--atlas-text-base)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                    {locale === 'fr'
+                      ? 'Les pointeurs ADNmt proviennent des donn\u00e9es GFNA ing\u00e9r\u00e9es (fiches et pages de triangulation maternelle sur Francogene). Comme pour l\u2019ADN-Y, l\u2019inf\u00e9rence part de descendants modernes : erreurs de filiation, adoptions non document\u00e9es ou ruptures de cha\u00eene peuvent d\u00e9caler l\u2019anc\u00eatre attribu\u00e9.'
+                      : 'mtDNA dots come from ingested GFNA data (family sheets and maternal triangulation pages on Francogene). Like Y-DNA, inference starts from modern testers\u2014non-paternity events, adoptions, or broken chains can mis-attribute a pioneer.'}
                   </p>
                 </div>
                 <div>
                   <SectionLabel>{locale === 'fr' ? 'Avertissement' : 'Disclaimer'}</SectionLabel>
                   <p className="text-[length:var(--atlas-text-base)] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
                     {locale === 'fr'
-                      ? 'Les haplogroupes sont bas\u00e9s sur des tests d\u2019ADN-Y de descendants modernes, et non sur l\u2019ADN ancien des colons eux-m\u00eames. Les \u00e9v\u00e9nements de non-paternit\u00e9 ou les adoptions non document\u00e9es \u00e0 tout point de la lign\u00e9e peuvent rompre la cha\u00eene entre la personne historique et le descendant test\u00e9.'
-                      : 'Haplogroups are based on modern descendant Y-DNA testing, not on ancient DNA from the settlers themselves. Non-paternity events or undocumented adoptions at any point in the lineage can break the chain between the historical person and the tested descendant.'}
+                      ? 'Les haplogroupes ne remplacent pas les preuves documentaires ; ne confondez pas une lign\u00e9e g\u00e9n\u00e9tique avec une identit\u00e9 m\u00e9di\u00e9vale. Voir aussi la politique de citations de l\u2019explorateur de lign\u00e9es plus bas.'
+                      : 'Haplogroups do not replace documentary proof; do not equate a genetic lineage with a medieval identity. See the Genetic Lineage Explorer citations policy below.'}
                   </p>
                 </div>
-                <div className="flex items-center gap-3 mt-4">
+                <div className="flex flex-wrap items-center gap-3 mt-4">
+                  <Link
+                    href="/genealogy"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[length:var(--atlas-text-sm)] font-medium transition-colors"
+                    style={{ background: 'var(--color-chrome-fill)', color: 'var(--color-gold-muted)' }}
+                  >
+                    <Map size={12} />
+                    {locale === 'fr' ? 'Espace G\u00e9n\u00e9alogie' : 'Genealogy hub'}
+                  </Link>
                   <Link
                     href="/?era=new-france-foundations"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[length:var(--atlas-text-sm)] font-medium transition-colors"
                     style={{ background: 'var(--color-chrome-fill)', color: 'var(--color-gold-muted)' }}
                   >
                     <Map size={12} />
-                    {locale === 'fr' ? 'Voir sur la carte' : 'View on map'}
+                    {locale === 'fr' ? 'Carte (Nouvelle-France)' : 'Map (New France)'}
                   </Link>
                   <a
                     href="https://www.francogene.com/triangulation/y.php"
@@ -1015,7 +1033,17 @@ export default function JournalPage() {
                     style={{ color: 'var(--color-text-dim)' }}
                   >
                     <ExternalLink size={10} />
-                    Francogene
+                    Francogene (Y-DNA)
+                  </a>
+                  <a
+                    href="https://www.francogene.com/gfna/gfna/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[length:var(--atlas-text-sm)] transition-colors"
+                    style={{ color: 'var(--color-text-dim)' }}
+                  >
+                    <ExternalLink size={10} />
+                    GFNA
                   </a>
                 </div>
               </div>

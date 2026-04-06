@@ -3,7 +3,9 @@
 import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { getNfMtdnaFeature } from '@/data/atlas/gfna-mtdna-lineages';
-import { gfnaFamilySheetUrl } from '@/data/atlas/gfna-dna-types';
+import { gfnaFamilySheetUrl, gfnaMtTriangulationUrl } from '@/data/atlas/gfna-dna-types';
+import { getGfnaNormanAtlasMatch } from '@/lib/gfna-norman-atlas-match';
+import { GfnaNormanAtlasBadge } from '@/components/ancestry/GfnaNormanAtlasBadge';
 
 function ContentFade({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -39,6 +41,10 @@ const MTDNA_ACCENT = '#e879a8';
 
 export default function MtDnaLineageDetail({ id }: { id: string }) {
   const feature = useMemo(() => getNfMtdnaFeature(id), [id]);
+  const normanAtlas = useMemo(
+    () => (feature ? getGfnaNormanAtlasMatch(feature.properties.surname) : { matched: false, channels: [] }),
+    [feature],
+  );
 
   if (!feature) return null;
 
@@ -51,6 +57,7 @@ export default function MtDnaLineageDetail({ id }: { id: string }) {
     gfnaStatus,
     sourcePage,
     familySheetNo,
+    triId,
   } = feature.properties;
 
   const statusLabel = gfnaStatus === 'presumed' ? 'Presumed (not triangulated)' : 'Triangulated / confirmed';
@@ -79,6 +86,7 @@ export default function MtDnaLineageDetail({ id }: { id: string }) {
             >
               {statusLabel}
             </span>
+            <GfnaNormanAtlasBadge normanAtlas={normanAtlas} />
           </div>
         </ContentFade>
 
@@ -144,6 +152,16 @@ export default function MtDnaLineageDetail({ id }: { id: string }) {
               className="block text-[12px] text-rose-300/80 hover:text-rose-200 transition-colors"
             >
               Family sheet #{familySheetNo} (Francogene)
+            </a>
+          ) : null}
+          {triId && gfnaMtTriangulationUrl(triId) ? (
+            <a
+              href={gfnaMtTriangulationUrl(triId)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-[12px] text-emerald-300/75 hover:text-emerald-200 transition-colors"
+            >
+              Triangulation sheet {triId}
             </a>
           ) : null}
         </div>

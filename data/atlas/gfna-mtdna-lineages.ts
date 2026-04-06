@@ -6,7 +6,19744 @@ import type { NfMtDnaFeature, NfMtDnaCollection } from './gfna-mtdna-types';
 
 export const nfMtdnaGeoJson: NfMtDnaCollection = {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fcb0c9d57d",
+        "displayLabel": "Renée ROGER",
+        "surname": "ROGER",
+        "givenName": "Renée",
+        "marriageYear": 1597,
+        "spouse": "Pierre GAGNON (1597)",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000050.php",
+        "familySheetNo": "110450",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.74436,
+          46.35977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d4c2df34c4",
+        "displayLabel": "Marie ROLET ou ROLLET",
+        "surname": "ROLET ou ROLLET",
+        "givenName": "Marie",
+        "marriageYear": 1602,
+        "spouse": "Louis HÉBERT (1602); Guillaume HUBOULT (1629)",
+        "mtHaplogroup": "H3c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002128.php",
+        "familySheetNo": "66",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.61812,
+          46.34375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-19d6f986d7",
+        "displayLabel": "Marie ROLET",
+        "surname": "ROLET",
+        "givenName": "Marie",
+        "marriageYear": 1602,
+        "spouse": "Louis HEBERT",
+        "mtHaplogroup": "H3c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0261.php",
+        "signatureType": "unknown",
+        "triId": "TRI0261"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.68389,
+          46.23044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c9a1f3477f",
+        "displayLabel": "Louise LOUCHE",
+        "surname": "LOUCHE",
+        "givenName": "Louise",
+        "marriageYear": 1612,
+        "spouse": "Henri PINGUET (1612)",
+        "mtHaplogroup": "X2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016415.php",
+        "familySheetNo": "41271",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97757,
+          46.97924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ae42b97281",
+        "displayLabel": "Mathurine ROBIN",
+        "surname": "ROBIN",
+        "givenName": "Mathurine",
+        "marriageYear": 1615,
+        "spouse": "Jean GUYON (1615)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000065.php",
+        "familySheetNo": "40114",
+        "signatureType": "unknown",
+        "triId": "TRI0045"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70133,
+          45.60842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8e4b86685b",
+        "displayLabel": "Sainte DUPONT",
+        "surname": "DUPONT",
+        "givenName": "Sainte",
+        "marriageYear": 1616,
+        "spouse": "Zacharie CLOUTIER (1616)",
+        "mtHaplogroup": "K1a4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000032.php",
+        "familySheetNo": "39122",
+        "signatureType": "unknown",
+        "triId": "TRI0272"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.51911,
+          45.56921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a1c88e6c3b",
+        "displayLabel": "Marie PICHON",
+        "surname": "PICHON",
+        "givenName": "Marie",
+        "marriageYear": 1618,
+        "spouse": "Philippe GAUTHIER (1618); Charles SEVESTRE (1627)",
+        "mtHaplogroup": "K1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/201/201825.php",
+        "familySheetNo": "52",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.68587,
+          46.28466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0be0b6801c",
+        "displayLabel": "Simone ORGEVILLE (d')",
+        "surname": "ORGEVILLE (d')",
+        "givenName": "Simone",
+        "marriageYear": 1618,
+        "spouse": "Adrien d'ABANCOUR dit LACAILLE (1618)",
+        "mtHaplogroup": "J2a1a1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000238.php",
+        "familySheetNo": "184",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14416,
+          46.85147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-58afc9f313",
+        "displayLabel": "Nicole LEMAIRE",
+        "surname": "LEMAIRE",
+        "givenName": "Nicole",
+        "marriageYear": 1619,
+        "spouse": "Gaspard BOUCHER (1619)",
+        "mtHaplogroup": "H7b6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000021.php",
+        "familySheetNo": "38754",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.61385,
+          45.49855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fd26d590ca",
+        "displayLabel": "Françoise LANGLOIS",
+        "surname": "LANGLOIS",
+        "givenName": "Françoise",
+        "marriageYear": 1620,
+        "spouse": "Pierre DESPORTES (1620)",
+        "mtHaplogroup": "H44a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000039.php",
+        "familySheetNo": "3966",
+        "signatureType": "unknown",
+        "triId": "TRI0034"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91334,
+          47.06948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-465309fbab",
+        "displayLabel": "Marguerite LANGLOIS",
+        "surname": "LANGLOIS",
+        "givenName": "Marguerite",
+        "marriageYear": 1620,
+        "spouse": "Abraham MARTIN dit L'ÉCOSSAIS (1620); René BRANCHE (1665)",
+        "mtHaplogroup": "H44a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003966.php",
+        "familySheetNo": "89",
+        "signatureType": "unknown",
+        "triId": "TRI0034"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.63396,
+          45.4322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0545ddb34a",
+        "displayLabel": "Madeleine CHARLOT ou LOT",
+        "surname": "CHARLOT ou LOT",
+        "givenName": "Madeleine",
+        "marriageYear": 1621,
+        "spouse": "Pierre GARMAN (1621)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000051.php",
+        "familySheetNo": "139",
+        "signatureType": "unknown",
+        "triId": "TRI0173"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.53074,
+          45.6155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6b6703c76a",
+        "displayLabel": "Francoise TOURAULT",
+        "surname": "TOURAULT",
+        "givenName": "Francoise",
+        "marriageYear": 1621,
+        "spouse": "Jacques ARCHAMBAULT",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0092.php",
+        "signatureType": "unknown",
+        "triId": "TRI0092"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7012,
+          46.22553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-52b3800a7e",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1623,
+        "spouse": "Jean GAUDET (1623)",
+        "mtHaplogroup": "J1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085509.php",
+        "familySheetNo": "85668",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.66484,
+          45.55522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a6aeacf380",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1623,
+        "spouse": "Jean GAUDET",
+        "mtHaplogroup": "J1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0017.php",
+        "signatureType": "unknown",
+        "triId": "TRI0017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.27251,
+          46.77955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-406ff75d3f",
+        "displayLabel": "Marguerite GAGNON",
+        "surname": "GAGNON",
+        "givenName": "Marguerite",
+        "marriageYear": 1624,
+        "spouse": "Éloi TAVERNIER (1624)",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000122.php",
+        "familySheetNo": "41791",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.81932,
+          46.33437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cbf6852a29",
+        "displayLabel": "Marie Madeleine COUSTEAU",
+        "surname": "COUSTEAU",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1626,
+        "spouse": "Étienne SAINT-PÈRE (1626); André MUSSET (1639); Émery CAILLETEAU (1647); Claude HOUSSARD (1653)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000035.php",
+        "familySheetNo": "16192",
+        "signatureType": "unknown",
+        "triId": "TRI0176"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71262,
+          45.49502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-474ac98b2a",
+        "displayLabel": "Françoise CORBINEAU",
+        "surname": "CORBINEAU",
+        "givenName": "Françoise",
+        "marriageYear": 1627,
+        "spouse": "Guillaume TRAHAN (1627)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/115/115976.php",
+        "familySheetNo": "115980",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.58115,
+          46.30656
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-84527e7dfb",
+        "displayLabel": "Jeanne VOUSY (de)",
+        "surname": "VOUSY (de)",
+        "givenName": "Jeanne",
+        "marriageYear": 1628,
+        "spouse": "Nicolas PELLETIER (1628)",
+        "mtHaplogroup": "H74",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002552.php",
+        "familySheetNo": "127710",
+        "signatureType": "unknown",
+        "triId": "TRI0345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.43019,
+          45.58042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-46501365d0",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1628,
+        "spouse": "Jean NICOLET (1628)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004261.php",
+        "familySheetNo": "100",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.19495,
+          46.82857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e9d7d99aef",
+        "displayLabel": "Jeanne BOUCHER",
+        "surname": "BOUCHER",
+        "givenName": "Jeanne",
+        "marriageYear": 1629,
+        "spouse": "Thomas AYOT (1629)",
+        "mtHaplogroup": "J1c5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002697.php",
+        "familySheetNo": "42022",
+        "signatureType": "unknown",
+        "triId": "TRI0865"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.29283,
+          46.86516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8e5536d627",
+        "displayLabel": "Françoise TOURAULT",
+        "surname": "TOURAULT",
+        "givenName": "Françoise",
+        "marriageYear": 1629,
+        "spouse": "Jacques ARCHAMBAULT (1629)",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000002.php",
+        "familySheetNo": "2692",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52824,
+          46.35245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-56860ea56f",
+        "displayLabel": "Thomine CHATEL",
+        "surname": "CHATEL",
+        "givenName": "Thomine",
+        "marriageYear": 1630,
+        "spouse": "Jean BIGOT (1630); Mathurin FOURREAU (1632)",
+        "mtHaplogroup": "K1b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/120/120156.php",
+        "familySheetNo": "15",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66401,
+          46.28857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-67f066a1f1",
+        "displayLabel": "Jeanne JAHAM ou PARET ou FAUVERT",
+        "surname": "JAHAM ou PARET ou FAUVERT",
+        "givenName": "Jeanne",
+        "marriageYear": 1630,
+        "spouse": "François GOUDEAU (1630); Jacques LEHOUX (1643)",
+        "mtHaplogroup": "J1b1a1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/110/110455.php",
+        "familySheetNo": "55",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46538,
+          46.36802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9023970d6d",
+        "displayLabel": "Perrine MALLET",
+        "surname": "MALLET",
+        "givenName": "Perrine",
+        "marriageYear": 1630,
+        "spouse": "Marin BOUCHER (1630)",
+        "mtHaplogroup": "J1b1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000023.php",
+        "familySheetNo": "87102",
+        "signatureType": "unknown",
+        "triId": "TRI0072"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.83218,
+          46.22185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9b6db6c3d5",
+        "displayLabel": "Catherine VIGNEAU",
+        "surname": "VIGNEAU",
+        "givenName": "Catherine",
+        "marriageYear": 1630,
+        "spouse": "Pierre MARTIN (1630)",
+        "mtHaplogroup": "T2f4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/087/087029.php",
+        "familySheetNo": "127723",
+        "signatureType": "unknown",
+        "triId": "TRI0532"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.83242,
+          46.23526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dd62c55672",
+        "displayLabel": "Marie Barbe BAJOLET",
+        "surname": "BAJOLET",
+        "givenName": "Marie Barbe",
+        "marriageYear": 1630,
+        "spouse": "Isaac PESSELET",
+        "mtHaplogroup": "X2b7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0140.php",
+        "signatureType": "unknown",
+        "triId": "TRI0140"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.58135,
+          46.28549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3b912cf3e0",
+        "displayLabel": "Sarah COUSSEAU",
+        "surname": "COUSSEAU",
+        "givenName": "Sarah",
+        "marriageYear": 1630,
+        "spouse": "Andre VALADE",
+        "mtHaplogroup": "U5a1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0398.php",
+        "signatureType": "unknown",
+        "triId": "TRI0398"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43627,
+          46.252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7857f450de",
+        "displayLabel": "Marie GRIMOUT",
+        "surname": "GRIMOUT",
+        "givenName": "Marie",
+        "marriageYear": 1631,
+        "spouse": "Bonaventure PAGNON (1631); Louis SÉDILOT (1633)",
+        "mtHaplogroup": "H1ae2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/116/116739.php",
+        "familySheetNo": "16087",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2839,
+          46.7482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-40a05f989d",
+        "displayLabel": "Marie MARTIN",
+        "surname": "MARTIN",
+        "givenName": "Marie",
+        "marriageYear": 1631,
+        "spouse": "Vincent RENAUD (1631)",
+        "mtHaplogroup": "H1q",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000116.php",
+        "familySheetNo": "41448",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7434,
+          46.15515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-df82f62689",
+        "displayLabel": "Charlotte MAUGIS",
+        "surname": "MAUGIS",
+        "givenName": "Charlotte",
+        "marriageYear": 1631,
+        "spouse": "Pierre MIVILLE dit LE SUISSE (1631)",
+        "mtHaplogroup": "H1ar1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000096.php",
+        "familySheetNo": "126",
+        "signatureType": "unknown",
+        "triId": "TRI0036"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22337,
+          46.77953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-75759073ff",
+        "displayLabel": "Anne HARDOUIN ou ARDOUIN",
+        "surname": "HARDOUIN ou ARDOUIN",
+        "givenName": "Anne",
+        "marriageYear": 1631,
+        "spouse": "Jacques BADEAU (1631)",
+        "mtHaplogroup": "H3g",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002161.php",
+        "familySheetNo": "118849",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.38815,
+          46.26735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eaf8a60113",
+        "displayLabel": "Louise BRODEU",
+        "surname": "BRODEU",
+        "givenName": "Louise",
+        "marriageYear": 1632,
+        "spouse": "Marc ARNU (1632); Jean SAUVIOT dit LAVERGNE (1640)",
+        "mtHaplogroup": "K2b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/202/202858.php",
+        "familySheetNo": "4296",
+        "signatureType": "unknown",
+        "triId": "TRI0141"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77952,
+          47.08473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-107e2af75c",
+        "displayLabel": "Barbe GUYON",
+        "surname": "GUYON",
+        "givenName": "Barbe",
+        "marriageYear": 1632,
+        "spouse": "Pierre PARADIS (1632)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002544.php",
+        "familySheetNo": "41149",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90654,
+          47.13987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5f57e20f96",
+        "displayLabel": "Outchibahabanoukoueou ..",
+        "surname": "..",
+        "givenName": "Outchibahabanoukoueou",
+        "marriageYear": 1632,
+        "spouse": "Roch MANITOUABEOUICH (1632)",
+        "mtHaplogroup": "C1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/045/045575.php",
+        "familySheetNo": "219",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.10363,
+          46.82204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-70a0013062",
+        "displayLabel": "Jeanne ÉVARD",
+        "surname": "ÉVARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1633,
+        "spouse": "Christophe CREVIER de la MÊLÉE (1633)",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002272.php",
+        "familySheetNo": "39239",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51719,
+          46.30815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-65f2b910c6",
+        "displayLabel": "Marie GRIMOUT",
+        "surname": "GRIMOUT",
+        "givenName": "Marie",
+        "marriageYear": 1633,
+        "spouse": "Louis SEDILOT",
+        "mtHaplogroup": "H1ae2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0498.php",
+        "signatureType": "unknown",
+        "triId": "TRI0498"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65502,
+          46.24933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fda8711fbf",
+        "displayLabel": "Marie BELHOMME",
+        "surname": "BELHOMME",
+        "givenName": "Marie",
+        "marriageYear": 1634,
+        "spouse": "Sébastien DODIER (1634)",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004877.php",
+        "familySheetNo": "39524",
+        "signatureType": "unknown",
+        "triId": "TRI0629"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.87931,
+          46.24985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a36956346b",
+        "displayLabel": "Françoise GRENIER ou GARNIER",
+        "surname": "GRENIER ou GARNIER",
+        "givenName": "Françoise",
+        "marriageYear": 1634,
+        "spouse": "Noël LANGLOIS (1634)",
+        "mtHaplogroup": "J2b1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000189.php",
+        "familySheetNo": "239",
+        "signatureType": "unknown",
+        "triId": "TRI0009"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26407,
+          46.80415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-21aab1630c",
+        "displayLabel": "Marie ..",
+        "surname": "..",
+        "givenName": "Marie",
+        "marriageYear": 1636,
+        "spouse": "François GAUTREAU (1636)",
+        "mtHaplogroup": "H2a2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002998.php",
+        "familySheetNo": "85667",
+        "signatureType": "unknown",
+        "triId": "TRI0537"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.56019,
+          45.38772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d166277336",
+        "displayLabel": "Marie HERIPEL",
+        "surname": "HERIPEL",
+        "givenName": "Marie",
+        "marriageYear": 1636,
+        "spouse": "Jacques BOISSEL (1636)",
+        "mtHaplogroup": "H13a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003597.php",
+        "familySheetNo": "766",
+        "signatureType": "unknown",
+        "triId": "TRI0391"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7278,
+          45.62641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3f7b837c34",
+        "displayLabel": "Marie BARBIER",
+        "surname": "BARBIER",
+        "givenName": "Marie",
+        "marriageYear": 1637,
+        "spouse": "Nicolas MARSOLET (1637); Denis LEMAÎTRE (1681)",
+        "mtHaplogroup": "H1ag",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/007/007613.php",
+        "familySheetNo": "129535",
+        "signatureType": "unknown",
+        "triId": "TRI0095"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.36229,
+          46.89101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-65ce30aa95",
+        "displayLabel": "Marie CREVET",
+        "surname": "CREVET",
+        "givenName": "Marie",
+        "marriageYear": 1637,
+        "spouse": "Robert CARON (1637); Noël LANGLOIS (1666)",
+        "mtHaplogroup": "K1a-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000230.php",
+        "familySheetNo": "207374",
+        "signatureType": "unknown",
+        "triId": "TRI0208"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.65396,
+          45.43484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d9240e458b",
+        "displayLabel": "Marie DENOT",
+        "surname": "DENOT",
+        "givenName": "Marie",
+        "marriageYear": 1637,
+        "spouse": "Étienne VIEN (1637); Mathieu LABAT-DUBOURG (1653); Louis OZANNE (1655); Jacques ARCHAMBAULT (1666)",
+        "mtHaplogroup": "H2c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004210.php",
+        "familySheetNo": "4271",
+        "signatureType": "unknown",
+        "triId": "TRI0962"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84583,
+          46.31628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2d5f1e7529",
+        "displayLabel": "Marie GUYON",
+        "surname": "GUYON",
+        "givenName": "Marie",
+        "marriageYear": 1637,
+        "spouse": "François BÉLANGER (1637)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000134.php",
+        "familySheetNo": "65",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52701,
+          46.35593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0dd3bad145",
+        "displayLabel": "Françoise MERY",
+        "surname": "MERY",
+        "givenName": "Françoise",
+        "marriageYear": 1637,
+        "spouse": "Antoine BRASSARD (1637)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000143.php",
+        "familySheetNo": "376",
+        "signatureType": "unknown",
+        "triId": "TRI0228"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.29385,
+          46.88091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e30a8d2bf8",
+        "displayLabel": "Perrine RAU",
+        "surname": "RAU",
+        "givenName": "Perrine",
+        "marriageYear": 1637,
+        "spouse": "Jean THÉRIAULT (1637)",
+        "mtHaplogroup": "H4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/084/084038.php",
+        "familySheetNo": "115941",
+        "signatureType": "unknown",
+        "triId": "TRI0025"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70608,
+          45.44429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-23dda30b82",
+        "displayLabel": "Marie MICHEL",
+        "surname": "MICHEL",
+        "givenName": "Marie",
+        "marriageYear": 1638,
+        "spouse": "Louis GAGNÉ (1638); Paul de RAINVILLE (1666)",
+        "mtHaplogroup": "I2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004831.php",
+        "familySheetNo": "196036",
+        "signatureType": "unknown",
+        "triId": "TRI0414"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95654,
+          47.19894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d729029459",
+        "displayLabel": "Rauline POËTE ou POITE",
+        "surname": "POËTE ou POITE",
+        "givenName": "Rauline",
+        "marriageYear": 1638,
+        "spouse": "Paul de RAINVILLE (1638)",
+        "mtHaplogroup": "X2b4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003257.php",
+        "familySheetNo": "3258",
+        "signatureType": "unknown",
+        "triId": "TRI0195"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.62872,
+          45.44538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bb0556be59",
+        "displayLabel": "Jeanne PERRIN",
+        "surname": "PERRIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1638,
+        "spouse": "Pierre DUTEAU (1638)",
+        "mtHaplogroup": "J1c1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002312.php",
+        "familySheetNo": "195901",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.62123,
+          45.53234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1d532b4a69",
+        "displayLabel": "Andrée GUYON",
+        "surname": "GUYON",
+        "givenName": "Andrée",
+        "marriageYear": 1639,
+        "spouse": "Charles BERNARD (1639); Antoine BÉLIVEAU (1651)",
+        "mtHaplogroup": "T2c1d-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085966.php",
+        "familySheetNo": "84214",
+        "signatureType": "unknown",
+        "triId": "TRI0018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67461,
+          46.3837
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6f8760e811",
+        "displayLabel": "Mathurine VALET",
+        "surname": "VALET",
+        "givenName": "Mathurine",
+        "marriageYear": 1639,
+        "spouse": "Jean Baptiste HALLÉ (1639)",
+        "mtHaplogroup": "H1ao",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004545.php",
+        "familySheetNo": "581",
+        "signatureType": "unknown",
+        "triId": "TRI0509"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23729,
+          46.71444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6952415c0f",
+        "displayLabel": "Marie ABANCOUR dit LACAILLE (d')",
+        "surname": "ABANCOUR dit LACAILLE (d')",
+        "givenName": "Marie",
+        "marriageYear": 1639,
+        "spouse": "Jean JOLIET (1639); Geoffroy GUILLOT dit LAVALLÉE (1651); Martin PRÉVOST (1665)",
+        "mtHaplogroup": "J2a1a1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000238.php",
+        "familySheetNo": "184",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.9035,
+          47.08526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ee6e91254f",
+        "displayLabel": "Perrine BOURG",
+        "surname": "BOURG",
+        "givenName": "Perrine",
+        "marriageYear": 1640,
+        "spouse": "Simon PELLETRET (1640); René l'Aîné LANDRY (1646)",
+        "mtHaplogroup": "H14b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/119/119880.php",
+        "familySheetNo": "86604",
+        "signatureType": "unknown",
+        "triId": "TRI0011"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.33561,
+          46.84827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a2c3a0339f",
+        "displayLabel": "Marguerite CAUCHON",
+        "surname": "CAUCHON",
+        "givenName": "Marguerite",
+        "marriageYear": 1640,
+        "spouse": "Jean GAGNON (1640)",
+        "mtHaplogroup": "K2a6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000165.php",
+        "familySheetNo": "50",
+        "signatureType": "unknown",
+        "triId": "TRI0037"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.68687,
+          46.3289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3ca1b91569",
+        "displayLabel": "Esther COINDRIAU",
+        "surname": "COINDRIAU",
+        "givenName": "Esther",
+        "marriageYear": 1640,
+        "spouse": "Jacques de LAPORTE (1640); Barthélemy TESSON (1665); Jean BAILLARGEON (1666)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004816.php",
+        "familySheetNo": "4392",
+        "signatureType": "unknown",
+        "triId": "TRI0517"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.56959,
+          46.39783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3e969a4f32",
+        "displayLabel": "Guillemette JOURDAN",
+        "surname": "JOURDAN",
+        "givenName": "Guillemette",
+        "marriageYear": 1640,
+        "spouse": "Olivier LE PELLEY (1640)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/216/216414.php",
+        "familySheetNo": "216415",
+        "signatureType": "unknown",
+        "triId": "TRI0127"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67394,
+          45.49666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-31ed9e15ce",
+        "displayLabel": "Jeffine RIVIÈRE",
+        "surname": "RIVIÈRE",
+        "givenName": "Jeffine",
+        "marriageYear": 1640,
+        "spouse": "Philippe FOUBERT (1640)",
+        "mtHaplogroup": "H7b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004724.php",
+        "familySheetNo": "3581",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.73311,
+          47.07271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-66477aaa22",
+        "displayLabel": "Marie SÉDILOT",
+        "surname": "SÉDILOT",
+        "givenName": "Marie",
+        "marriageYear": 1640,
+        "spouse": "Bertrand FAFARD dit LAFRAMBOISE (1640); René BÉNARD de BOURJOLY (1661)",
+        "mtHaplogroup": "H33a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003935.php",
+        "familySheetNo": "116731",
+        "signatureType": "unknown",
+        "triId": "TRI0156"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.90835,
+          46.35229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7e4dd8c76e",
+        "displayLabel": "Catherine SOULAGE",
+        "surname": "SOULAGE",
+        "givenName": "Catherine",
+        "marriageYear": 1640,
+        "spouse": "Martin BOUTET de SAINT-MARTIN (1640)",
+        "mtHaplogroup": "H17a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003697.php",
+        "familySheetNo": "42743",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25702,
+          46.82385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-42befa0e2e",
+        "displayLabel": "Jacquette TOUREAU",
+        "surname": "TOUREAU",
+        "givenName": "Jacquette",
+        "marriageYear": 1640,
+        "spouse": "Pierre JAROUSSEL",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0092.php",
+        "signatureType": "unknown",
+        "triId": "TRI0092"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70472,
+          45.56004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-57a8f1e58e",
+        "displayLabel": "Michelle AUCOIN",
+        "surname": "AUCOIN",
+        "givenName": "Michelle",
+        "marriageYear": 1641,
+        "spouse": "Michel BOUDREAU (1641)",
+        "mtHaplogroup": "H,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/084/084284.php",
+        "familySheetNo": "120063",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70663,
+          46.29318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-132d5c89ea",
+        "displayLabel": "Marie BOISDON",
+        "surname": "BOISDON",
+        "givenName": "Marie",
+        "marriageYear": 1641,
+        "spouse": "Jacques VÉZINA (1641)",
+        "mtHaplogroup": "J2a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003348.php",
+        "familySheetNo": "44159",
+        "signatureType": "unknown",
+        "triId": "TRI0251"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.86547,
+          47.12782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4c612ba931",
+        "displayLabel": "Barbe ÉMARD",
+        "surname": "ÉMARD",
+        "givenName": "Barbe",
+        "marriageYear": 1641,
+        "spouse": "Gilles MICHEL (1641); Olivier TARDIF ou LETARDIF (1648)",
+        "mtHaplogroup": "K1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000045.php",
+        "familySheetNo": "2136",
+        "signatureType": "unknown",
+        "triId": "TRI0216"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.89416,
+          47.18046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-21092e6797",
+        "displayLabel": "Florence GARMAN",
+        "surname": "GARMAN",
+        "givenName": "Florence",
+        "marriageYear": 1641,
+        "spouse": "François BOUCHER (1641)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000139.php",
+        "familySheetNo": "22",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.1534,
+          46.74853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-be3061fe88",
+        "displayLabel": "Marie MARGUERIE",
+        "surname": "MARGUERIE",
+        "givenName": "Marie",
+        "marriageYear": 1641,
+        "spouse": "Jacques HERTEL (1641); Quentin MORAL de SAINT-QUENTIN (1652)",
+        "mtHaplogroup": "W3a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000088.php",
+        "familySheetNo": "207474",
+        "signatureType": "unknown",
+        "triId": "TRI0051"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.37388,
+          46.73306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-91808d1e01",
+        "displayLabel": "Michelle AUCOIN",
+        "surname": "AUCOIN",
+        "givenName": "Michelle",
+        "marriageYear": 1641,
+        "spouse": "Michel BOUDREAU",
+        "mtHaplogroup": "H, H-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0010.php",
+        "signatureType": "unknown",
+        "triId": "TRI0010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.77777,
+          46.17833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-172831e4e3",
+        "displayLabel": "Jeanne SAINT-PÈRE",
+        "surname": "SAINT-PÈRE",
+        "givenName": "Jeanne",
+        "marriageYear": 1642,
+        "spouse": "Simon GUIET (1642); Pierre GUILLET dit LAJEUNESSE (1647)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016192.php",
+        "familySheetNo": "35",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5899,
+          46.32543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c331adbad8",
+        "displayLabel": "Françoise LASCHAULT",
+        "surname": "LASCHAULT",
+        "givenName": "Françoise",
+        "marriageYear": 1642,
+        "spouse": "Louis CHAPELAIN (1642)",
+        "mtHaplogroup": "U5b1-T16189C!-T16192C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002242.php",
+        "familySheetNo": "38999",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.40276,
+          46.23371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-50e2fffb39",
+        "displayLabel": "Marguerite DRAPEAU",
+        "surname": "DRAPEAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1643,
+        "spouse": "François BIGOT dit LAMOTHE (1643)",
+        "mtHaplogroup": "U5a2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002183.php",
+        "familySheetNo": "754",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.86556,
+          46.34359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ea7625d30c",
+        "displayLabel": "Radegonde LAMBERT",
+        "surname": "LAMBERT",
+        "givenName": "Radegonde",
+        "marriageYear": 1643,
+        "spouse": "Jean BLANCHARD (1643)",
+        "mtHaplogroup": "X2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/084/084239.php",
+        "familySheetNo": "44814",
+        "signatureType": "unknown",
+        "triId": "TRI0019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58474,
+          45.3823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5b341f8d51",
+        "displayLabel": "Antoinette LANDRY",
+        "surname": "LANDRY",
+        "givenName": "Antoinette",
+        "marriageYear": 1643,
+        "spouse": "Antoine BOURG (1643)",
+        "mtHaplogroup": "H3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/046/046444.php",
+        "familySheetNo": "228581",
+        "signatureType": "unknown",
+        "triId": "TRI0116"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20076,
+          46.8417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-60724d8103",
+        "displayLabel": "Marguerite PATAOUABANOUKOUE",
+        "surname": "PATAOUABANOUKOUE",
+        "givenName": "Marguerite",
+        "marriageYear": 1643,
+        "spouse": "Étienne PIGAROUICHE (1643)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/233/233478.php",
+        "familySheetNo": "16328",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84162,
+          46.34211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4017d327e2",
+        "displayLabel": "Jeanne TRAHAN",
+        "surname": "TRAHAN",
+        "givenName": "Jeanne",
+        "marriageYear": 1643,
+        "spouse": "Jacques ou Jacob BOURGEOIS (1643)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/084/084316.php",
+        "familySheetNo": "115976",
+        "signatureType": "unknown",
+        "triId": "TRI0154"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.79118,
+          46.37313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2c97b1ffaf",
+        "displayLabel": "Catherine JANNODE",
+        "surname": "JANNODE",
+        "givenName": "Catherine",
+        "marriageYear": 1643,
+        "spouse": "François CHARIER (1643)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004733.php",
+        "familySheetNo": "496",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52034,
+          46.29804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2fa5e80624",
+        "displayLabel": "Anne CARON",
+        "surname": "CARON",
+        "givenName": "Anne",
+        "marriageYear": 1643,
+        "spouse": "Jean RIGAUD m2 1652 Denis GUILLAUME",
+        "mtHaplogroup": "H7b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0207.php",
+        "signatureType": "unknown",
+        "triId": "TRI0207"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.3861,
+          46.34859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b90623e6d6",
+        "displayLabel": "Catherine AURARD",
+        "surname": "AURARD",
+        "givenName": "Catherine",
+        "marriageYear": 1644,
+        "spouse": "Mathurin THIBODEAU (1644)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004870.php",
+        "familySheetNo": "41829",
+        "signatureType": "unknown",
+        "triId": "TRI0222"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.60662,
+          46.31737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eb81d3bda6",
+        "displayLabel": "Vivienne BUNEL",
+        "surname": "BUNEL",
+        "givenName": "Vivienne",
+        "marriageYear": 1644,
+        "spouse": "Pierre de SAINT-DENIS (1644)",
+        "mtHaplogroup": "J1c7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002623.php",
+        "familySheetNo": "1725",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01557,
+          46.98337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-07ff23f603",
+        "displayLabel": "Françoise GAUDET",
+        "surname": "GAUDET",
+        "givenName": "Françoise",
+        "marriageYear": 1644,
+        "spouse": ".. MERCIER (1644); Daniel LEBLANC (1651)",
+        "mtHaplogroup": "J1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085509.php",
+        "familySheetNo": "85668",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.54664,
+          46.39811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4b42b67763",
+        "displayLabel": "Martine GAUTHIER",
+        "surname": "GAUTHIER",
+        "givenName": "Martine",
+        "marriageYear": 1644,
+        "spouse": "Denis GAUDET (1644)",
+        "mtHaplogroup": "J1b1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/044/044416.php",
+        "familySheetNo": "85509",
+        "signatureType": "unknown",
+        "triId": "TRI0419"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20319,
+          46.73044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b570441bfa",
+        "displayLabel": "Marie GENDRE ou LEGENDRE",
+        "surname": "GENDRE ou LEGENDRE",
+        "givenName": "Marie",
+        "marriageYear": 1644,
+        "spouse": "Jean Baptiste BOURGERY (1644); Florent LECLERC (1658); Nicolas MASSON (1665); François MICHELOT (1667); Jean LAMARCHE (1669)",
+        "mtHaplogroup": "H1cf",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004209.php",
+        "familySheetNo": "2771",
+        "signatureType": "unknown",
+        "triId": "TRI0336"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53501,
+          46.44067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-61df701df5",
+        "displayLabel": "Marie HORDOUILLE",
+        "surname": "HORDOUILLE",
+        "givenName": "Marie",
+        "marriageYear": 1644,
+        "spouse": "Simon SAVARD (1644); Jean RÉAUME de PARIS (1665)",
+        "mtHaplogroup": "H1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003612.php",
+        "familySheetNo": "40186",
+        "signatureType": "unknown",
+        "triId": "TRI0581"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0589,
+          46.79651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-852d15f3d1",
+        "displayLabel": "Marie PINET de LACHESNAYE",
+        "surname": "PINET de LACHESNAYE",
+        "givenName": "Marie",
+        "marriageYear": 1644,
+        "spouse": "Pierre MASSE (1644)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000203.php",
+        "familySheetNo": "16046",
+        "signatureType": "unknown",
+        "triId": "TRI0307"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47762,
+          46.26024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4086e4b80c",
+        "displayLabel": "Marie OLIVIER",
+        "surname": "OLIVIER",
+        "givenName": "Marie",
+        "marriageYear": 1644,
+        "spouse": "Martin PRÉVOST (1644)",
+        "mtHaplogroup": "C1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000219.php",
+        "familySheetNo": "113",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.94528,
+          46.1841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5c8e23d50e",
+        "displayLabel": "Vivienne BUNEL",
+        "surname": "BUNEL",
+        "givenName": "Vivienne",
+        "marriageYear": 1644,
+        "spouse": "Pierre de SAINT-DENIS",
+        "mtHaplogroup": "J1c7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0825.php",
+        "signatureType": "unknown",
+        "triId": "TRI0825"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89925,
+          46.21323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c0d2437e91",
+        "displayLabel": "Marguerite TAVERNIER",
+        "surname": "TAVERNIER",
+        "givenName": "Marguerite",
+        "marriageYear": 1644,
+        "spouse": "Massé GRAVEL dit BRINDELIERE",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0301.php",
+        "signatureType": "unknown",
+        "triId": "TRI0301"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.84929,
+          47.04131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f5c463893f",
+        "displayLabel": "Marie BOUCHER",
+        "surname": "BOUCHER",
+        "givenName": "Marie",
+        "marriageYear": 1645,
+        "spouse": "Étienne LAFOND (1645)",
+        "mtHaplogroup": "H7b6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000188.php",
+        "familySheetNo": "74",
+        "signatureType": "unknown",
+        "triId": "TRI0112"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83099,
+          47.17474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a9a0b1529b",
+        "displayLabel": "Renée BRAULT et BRODE",
+        "surname": "BRAULT et BRODE",
+        "givenName": "Renée",
+        "marriageYear": 1645,
+        "spouse": "Vincent BRUN (1645)",
+        "mtHaplogroup": "H13a1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086134.php",
+        "familySheetNo": "115974",
+        "signatureType": "unknown",
+        "triId": "TRI0012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.90513,
+          46.19325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-32b951cb12",
+        "displayLabel": "Louise DUBOIS",
+        "surname": "DUBOIS",
+        "givenName": "Louise",
+        "marriageYear": 1645,
+        "spouse": "Pierre MONGEAU (1645); Adrien THIBOULT (1664)",
+        "mtHaplogroup": "U5b1d1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043131.php",
+        "familySheetNo": "3607",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44732,
+          46.26395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b361e2a8e0",
+        "displayLabel": "Françoise PINGUET",
+        "surname": "PINGUET",
+        "givenName": "Françoise",
+        "marriageYear": 1645,
+        "spouse": "Pierre DELAUNAY (1645); Vincent POIRIER de BELLEPOIRE (1655)",
+        "mtHaplogroup": "X2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016415.php",
+        "familySheetNo": "41271",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70803,
+          46.25457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ce63433a20",
+        "displayLabel": "Marguerite RICHARD",
+        "surname": "RICHARD",
+        "givenName": "Marguerite",
+        "marriageYear": 1645,
+        "spouse": "Jean LEVASSEUR dit LAVIGNE (1645)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002132.php",
+        "familySheetNo": "3119",
+        "signatureType": "unknown",
+        "triId": "TRI0418"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.02453,
+          47.12684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2cd57aafae",
+        "displayLabel": "Catherine VANIER dit LOQUET",
+        "surname": "VANIER dit LOQUET",
+        "givenName": "Catherine",
+        "marriageYear": 1645,
+        "spouse": "Georges PELLETIER (1645)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004872.php",
+        "familySheetNo": "1839",
+        "signatureType": "unknown",
+        "triId": "TRI0189"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.73441,
+          47.20216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ef0cbf8996",
+        "displayLabel": "Suzanne BEDFORD ou BETFER",
+        "surname": "BEDFORD ou BETFER",
+        "givenName": "Suzanne",
+        "marriageYear": 1645,
+        "spouse": "Jean ou John SERNE (1645); Mathieu HUBOULT dit LONGCHAMP (1649)",
+        "mtHaplogroup": "H5a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000014.php",
+        "familySheetNo": "16135",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82763,
+          46.34853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-121c4a3e1e",
+        "displayLabel": "Jeanne AUNEAU ou NOUNAU",
+        "surname": "AUNEAU ou NOUNAU",
+        "givenName": "Jeanne",
+        "marriageYear": 1646,
+        "spouse": "Pierre LEFEBVRE (1646)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004208.php",
+        "familySheetNo": "43314",
+        "signatureType": "unknown",
+        "triId": "TRI0306"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80941,
+          47.21474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d7da454e26",
+        "displayLabel": "Catherine Françoise DESNAGUETS",
+        "surname": "DESNAGUETS",
+        "givenName": "Catherine Françoise",
+        "marriageYear": 1646,
+        "spouse": "Pierre PETIT (1646)",
+        "mtHaplogroup": "H40",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004836.php",
+        "familySheetNo": "1057",
+        "signatureType": "unknown",
+        "triId": "TRI0242"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65799,
+          46.41988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-917ef3b058",
+        "displayLabel": "Jeanne MÉCHIN",
+        "surname": "MÉCHIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1646,
+        "spouse": "Guillaume PEPIN (1646)",
+        "mtHaplogroup": "K1a4d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002129.php",
+        "familySheetNo": "1662",
+        "signatureType": "unknown",
+        "triId": "TRI0427"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.37145,
+          46.74649
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8e79e566ca",
+        "displayLabel": "Denise SEVESTRE",
+        "surname": "SEVESTRE",
+        "givenName": "Denise",
+        "marriageYear": 1646,
+        "spouse": "Antoine MARTIN dit MONTPELLIER (1646); Philippe NEVEU (1659)",
+        "mtHaplogroup": "K1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000118.php",
+        "familySheetNo": "16092",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.86352,
+          47.09851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f6f06d8d1b",
+        "displayLabel": "Adrienne DUVIVIER",
+        "surname": "DUVIVIER",
+        "givenName": "Adrienne",
+        "marriageYear": 1646,
+        "spouse": "Augustin HÉBERT dit JOLICOEUR (1646); Robert CAVELIER dit DESLAURIERS (1654)",
+        "mtHaplogroup": "T2e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004810.php",
+        "familySheetNo": "2396",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.01789,
+          46.33971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-09ea20adfc",
+        "displayLabel": "Françoise BIGOT",
+        "surname": "BIGOT",
+        "givenName": "Françoise",
+        "marriageYear": 1647,
+        "spouse": "Charles GUILLEBOURG (1647); Denis BRIÈRE (1658)",
+        "mtHaplogroup": "K1b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000015.php",
+        "familySheetNo": "127693",
+        "signatureType": "unknown",
+        "triId": "TRI0039"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5017,
+          45.51231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e7f4a4805b",
+        "displayLabel": "Jeanne CHEBRAT",
+        "surname": "CHEBRAT",
+        "givenName": "Jeanne",
+        "marriageYear": 1647,
+        "spouse": "Jean POIRIER (1647); Antoine GOUGEON (1657)",
+        "mtHaplogroup": "HV4a1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086222.php",
+        "familySheetNo": "84039",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97743,
+          46.31446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5ff0ca9046",
+        "displayLabel": "Marthe COGNAC",
+        "surname": "COGNAC",
+        "givenName": "Marthe",
+        "marriageYear": 1647,
+        "spouse": "Barthélemy GANDIN (1647)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004787.php",
+        "familySheetNo": "39873",
+        "signatureType": "unknown",
+        "triId": "TRI0235"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.32621,
+          46.8921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-03b0b51154",
+        "displayLabel": "Françoise FAFARD",
+        "surname": "FAFARD",
+        "givenName": "Françoise",
+        "marriageYear": 1647,
+        "spouse": "Mathurin MONIER ou MEUNIER (1647)",
+        "mtHaplogroup": "H10e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000209.php",
+        "familySheetNo": "97",
+        "signatureType": "unknown",
+        "triId": "TRI0175"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42858,
+          46.25797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1370897ad8",
+        "displayLabel": "Edmée LEJEUNE",
+        "surname": "LEJEUNE",
+        "givenName": "Edmée",
+        "marriageYear": 1647,
+        "spouse": "François GAUTREAU (1647)",
+        "mtHaplogroup": "U6a7a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085523.php",
+        "familySheetNo": "85667",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.8575,
+          47.14899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f62f8cdb95",
+        "displayLabel": "Anne LENEUF du HERISSON",
+        "surname": "LENEUF du HERISSON",
+        "givenName": "Anne",
+        "marriageYear": 1647,
+        "spouse": "Antoine DESROSIERS (1647)",
+        "mtHaplogroup": "H5s",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000156.php",
+        "familySheetNo": "39474",
+        "signatureType": "unknown",
+        "triId": "TRI0279"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.41111,
+          45.41662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bc0d555117",
+        "displayLabel": "Mathurine POISSON",
+        "surname": "POISSON",
+        "givenName": "Mathurine",
+        "marriageYear": 1647,
+        "spouse": "Jacques AUBUCHON (1647)",
+        "mtHaplogroup": "H2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000127.php",
+        "familySheetNo": "3",
+        "signatureType": "unknown",
+        "triId": "TRI0480"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.01221,
+          46.3187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ba6d3b052c",
+        "displayLabel": "Sébastienne VEILLON",
+        "surname": "VEILLON",
+        "givenName": "Sébastienne",
+        "marriageYear": 1647,
+        "spouse": "Mathieu CHORET (1647); Pierre AUFRAY ou AUFROY dit GARGOT (1664)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003996.php",
+        "familySheetNo": "2133",
+        "signatureType": "unknown",
+        "triId": "TRI0873"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52277,
+          46.38959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bd15907a0e",
+        "displayLabel": "Mathurine DESBORDES",
+        "surname": "DESBORDES",
+        "givenName": "Mathurine",
+        "marriageYear": 1647,
+        "spouse": "Pierre GUIBERGE (1647); Pierre BISSONNETTE (1660); Michel BOUVIER (1663)",
+        "mtHaplogroup": "H6a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003611.php",
+        "familySheetNo": "4544",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.92357,
+          47.09912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-53efe1bcd9",
+        "displayLabel": "Françoise GODEAU",
+        "surname": "GODEAU",
+        "givenName": "Françoise",
+        "marriageYear": 1647,
+        "spouse": "Mathurin GAGNON (1647)",
+        "mtHaplogroup": "J1b1a1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000166.php",
+        "familySheetNo": "50",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.16947,
+          46.8134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6f334a2784",
+        "displayLabel": "Jeanne JALLOT dit PLOUMELLE",
+        "surname": "JALLOT dit PLOUMELLE",
+        "givenName": "Jeanne",
+        "marriageYear": 1647,
+        "spouse": "Marin TERRIER (dgfq) de REPENTIGNY et FRANCHEVILLE (1647); Maurice POULIN de LAFONTAINE (1654)",
+        "mtHaplogroup": "H-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000070.php",
+        "familySheetNo": "154",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51227,
+          46.30331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-159dec9807",
+        "displayLabel": "Marie Barbe BAJOLET",
+        "surname": "BAJOLET",
+        "givenName": "Marie Barbe",
+        "marriageYear": 1647,
+        "spouse": "Martin LEFEBVRE",
+        "mtHaplogroup": "X2b7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0140.php",
+        "signatureType": "unknown",
+        "triId": "TRI0140"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.60403,
+          46.25812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-198fe64cbe",
+        "displayLabel": "Edmée LEJEUNE",
+        "surname": "LEJEUNE",
+        "givenName": "Edmée",
+        "marriageYear": 1647,
+        "spouse": "François GAUTREAU",
+        "mtHaplogroup": "U6a7a, U6a7a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0021.php",
+        "signatureType": "unknown",
+        "triId": "TRI0021"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.15774,
+          46.88602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-897f2682a7",
+        "displayLabel": "Jacquette ARCHAMBAULT",
+        "surname": "ARCHAMBAULT",
+        "givenName": "Jacquette",
+        "marriageYear": 1648,
+        "spouse": "Paul CHALIFOUR (1648)",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000147.php",
+        "familySheetNo": "28",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.74596,
+          46.26802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9dee8b825d",
+        "displayLabel": "Marie1 ARCHAMBAULT",
+        "surname": "ARCHAMBAULT",
+        "givenName": "Marie1",
+        "marriageYear": 1648,
+        "spouse": "Urbain TESSIER dit LAVIGNE (1648)",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000227.php",
+        "familySheetNo": "123",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.73383,
+          47.1631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-638f532385",
+        "displayLabel": "Jeanne AUCOIN",
+        "surname": "AUCOIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1648,
+        "spouse": "François GIROUARD (1648)",
+        "mtHaplogroup": "H,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085527.php",
+        "familySheetNo": "120063",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.35678,
+          46.76768
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30ede089d0",
+        "displayLabel": "Marguerite CHARLOT",
+        "surname": "CHARLOT",
+        "givenName": "Marguerite",
+        "marriageYear": 1648,
+        "spouse": "Louis LOISELLE (1648)",
+        "mtHaplogroup": "X2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000197.php",
+        "familySheetNo": "85",
+        "signatureType": "unknown",
+        "triId": "TRI0146"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53439,
+          46.4383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b281946df9",
+        "displayLabel": "Marguerite DOUCET",
+        "surname": "DOUCET",
+        "givenName": "Marguerite",
+        "marriageYear": 1648,
+        "spouse": "Abraham DUGAS (1648)",
+        "mtHaplogroup": "T2b7a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042835.php",
+        "familySheetNo": "228580",
+        "signatureType": "unknown",
+        "triId": "TRI0016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04522,
+          47.03503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-969faa2769",
+        "displayLabel": "Madeleine ÉMARD",
+        "surname": "ÉMARD",
+        "givenName": "Madeleine",
+        "marriageYear": 1648,
+        "spouse": "Pierre Zacharie CLOUTIER de LACLOUSTERIE (1648)",
+        "mtHaplogroup": "K1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002134.php",
+        "familySheetNo": "32",
+        "signatureType": "unknown",
+        "triId": "TRI0216"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.84539,
+          47.07664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b9f64917c6",
+        "displayLabel": "Perrine MEUNIER ou MOUSNIER",
+        "surname": "MEUNIER ou MOUSNIER",
+        "givenName": "Perrine",
+        "marriageYear": 1648,
+        "spouse": "Julien DOBIGEON ou DAUBIGEON (1648); François ROANES (1658)",
+        "mtHaplogroup": "I1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004233.php",
+        "familySheetNo": "4232",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84224,
+          46.22132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5fc266701e",
+        "displayLabel": "Barbe POISSON",
+        "surname": "POISSON",
+        "givenName": "Barbe",
+        "marriageYear": 1648,
+        "spouse": "Léonard LUCAS ou LUCOS dit BARBOT (1648); Gabriel SELLE ou CELLE dit DUCLOS (1651)",
+        "mtHaplogroup": "H2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000112.php",
+        "familySheetNo": "4570",
+        "signatureType": "unknown",
+        "triId": "TRI0480"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.81744,
+          46.20046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f2d76d394c",
+        "displayLabel": "Jeanne AUCOIN",
+        "surname": "AUCOIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1648,
+        "spouse": "Francois GIROUARD",
+        "mtHaplogroup": "H, H-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0010.php",
+        "signatureType": "unknown",
+        "triId": "TRI0010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51151,
+          46.23177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-532f550694",
+        "displayLabel": "Barbe EMARD",
+        "surname": "EMARD",
+        "givenName": "Barbe",
+        "marriageYear": 1648,
+        "spouse": "Olivier TARDIF ou LETARDIF",
+        "mtHaplogroup": "K1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0216.php",
+        "signatureType": "unknown",
+        "triId": "TRI0216"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.71991,
+          47.15415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-86090f66b8",
+        "displayLabel": "Marie CHAPELIER",
+        "surname": "CHAPELIER",
+        "givenName": "Marie",
+        "marriageYear": 1649,
+        "spouse": "Pierre PETIT (1649); Robert DROUIN (1649)",
+        "mtHaplogroup": "K1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000029.php",
+        "familySheetNo": "109",
+        "signatureType": "unknown",
+        "triId": "TRI0435"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52177,
+          46.44846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f529be23e5",
+        "displayLabel": "Madeleine ÉLIE",
+        "surname": "ÉLIE",
+        "givenName": "Madeleine",
+        "marriageYear": 1649,
+        "spouse": "Philippe MIUS (1649)",
+        "mtHaplogroup": "J1c5b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086987.php",
+        "familySheetNo": "43334",
+        "signatureType": "unknown",
+        "triId": "TRI0729"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.06554,
+          46.73638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-986b474230",
+        "displayLabel": "Anne ÉMARD",
+        "surname": "ÉMARD",
+        "givenName": "Anne",
+        "marriageYear": 1649,
+        "spouse": "Guillaume COUTURE (1649)",
+        "mtHaplogroup": "K1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000151.php",
+        "familySheetNo": "36",
+        "signatureType": "unknown",
+        "triId": "TRI0216"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04905,
+          46.99804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cc0beaab72",
+        "displayLabel": "Geneviève LEFRANC",
+        "surname": "LEFRANC",
+        "givenName": "Geneviève",
+        "marriageYear": 1649,
+        "spouse": "Antoine HÉBERT (1649)",
+        "mtHaplogroup": "W1-T119C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/084/084044.php",
+        "familySheetNo": "84045",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.1971,
+          46.71741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fc2f998acb",
+        "displayLabel": "Geneviève LEFRANC",
+        "surname": "LEFRANC",
+        "givenName": "Geneviève",
+        "marriageYear": 1649,
+        "spouse": "Antoine HÉBERT",
+        "mtHaplogroup": "W1, W1-T119C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0020.php",
+        "signatureType": "unknown",
+        "triId": "TRI0020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89244,
+          46.17407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8b537f6d8b",
+        "displayLabel": "Gillette BANNE",
+        "surname": "BANNE",
+        "givenName": "Gillette",
+        "marriageYear": 1650,
+        "spouse": "Marin CHAUVIN dit LAFORTUNE (1650); Jacques BERTAULT (1653)",
+        "mtHaplogroup": "H1-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004281.php",
+        "familySheetNo": "4868",
+        "signatureType": "unknown",
+        "triId": "TRI0463"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98386,
+          46.19746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0bdac1b623",
+        "displayLabel": "Rose BAYON",
+        "surname": "BAYON",
+        "givenName": "Rose",
+        "marriageYear": 1650,
+        "spouse": "Pierre COMEAU (1650)",
+        "mtHaplogroup": "J1c3e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/037/037793.php",
+        "familySheetNo": "86151",
+        "signatureType": "unknown",
+        "triId": "TRI0417"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.07443,
+          46.90802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c55f3ef782",
+        "displayLabel": "Catherine DELAVAU",
+        "surname": "DELAVAU",
+        "givenName": "Catherine",
+        "marriageYear": 1650,
+        "spouse": "Gilbert BARBIER dit MINIME (1650)",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000132.php",
+        "familySheetNo": "9",
+        "signatureType": "unknown",
+        "triId": "TRI0541"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52099,
+          46.37069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8b48a16ace",
+        "displayLabel": "Marthe GAGNON",
+        "surname": "GAGNON",
+        "givenName": "Marthe",
+        "marriageYear": 1650,
+        "spouse": "Jean DOYON (1650); Jacques LESOT (1665)",
+        "mtHaplogroup": "I4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000049.php",
+        "familySheetNo": "50",
+        "signatureType": "unknown",
+        "triId": "TRI0853"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.74921,
+          46.3161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eb21afba34",
+        "displayLabel": "Louise GOULET",
+        "surname": "GOULET",
+        "givenName": "Louise",
+        "marriageYear": 1650,
+        "spouse": "René LETARTE ou DUTARTRE (1650)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003116.php",
+        "familySheetNo": "44956",
+        "signatureType": "unknown",
+        "triId": "TRI0281"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.56586,
+          45.60487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1e30cdb934",
+        "displayLabel": "Marie MIVILLE",
+        "surname": "MIVILLE",
+        "givenName": "Marie",
+        "marriageYear": 1650,
+        "spouse": "Mathieu AMIOT de et dit VILLENEUVE (1650)",
+        "mtHaplogroup": "H1ar1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000126.php",
+        "familySheetNo": "1",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9843,
+          46.37106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3e4a957a1e",
+        "displayLabel": "Marie RITON",
+        "surname": "RITON",
+        "givenName": "Marie",
+        "marriageYear": 1650,
+        "spouse": "Léonard LEBLANC (1650)",
+        "mtHaplogroup": "H5a1,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000192.php",
+        "familySheetNo": "79",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.62373,
+          45.38661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9800d32781",
+        "displayLabel": "Renée RIVIÈRE",
+        "surname": "RIVIÈRE",
+        "givenName": "Renée",
+        "marriageYear": 1650,
+        "spouse": "Jacques REMONDIÈRE (1650); Mathurin CROISET (1656)",
+        "mtHaplogroup": "H3c2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/204/204222.php",
+        "familySheetNo": "3920",
+        "signatureType": "unknown",
+        "triId": "TRI0300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90493,
+          46.97413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f1d2eadb3f",
+        "displayLabel": "Mariana m bef1712 Jacob SCHAF FOLTZLOUER",
+        "surname": "FOLTZLOUER",
+        "givenName": "Mariana m bef1712 Jacob SCHAF",
+        "marriageYear": 1650,
+        "spouse": "",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1106.php",
+        "signatureType": "unknown",
+        "triId": "TRI1106"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48638,
+          46.45617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-032b74cf3b",
+        "displayLabel": "#243351) GIRAUD dit SAINT-JEAN GIRAUD .. (Amérindienne/Native) 1730 LEVICAIRE Pierre (GFAN",
+        "surname": "GIRAUD dit SAINT-JEAN GIRAUD .. (Amérindienne/Native) 1730 LEVICAIRE Pierre (GFAN",
+        "givenName": "#243351)",
+        "marriageYear": 1650,
+        "spouse": "",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1101.php",
+        "signatureType": "unknown",
+        "triId": "TRI1101"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97183,
+          47.11633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4017371e87",
+        "displayLabel": "Marie RITON",
+        "surname": "RITON",
+        "givenName": "Marie",
+        "marriageYear": 1650,
+        "spouse": "Léonard LEBLANC",
+        "mtHaplogroup": "H5a1, H5a1-T16093C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0121.php",
+        "signatureType": "unknown",
+        "triId": "TRI0121"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.86495,
+          46.9931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9199c9e353",
+        "displayLabel": "Francoise m v1747 Pierre LEVICAIRE m2 av1773 Francois BOULET ROUSSEAU",
+        "surname": "ROUSSEAU",
+        "givenName": "Francoise m v1747 Pierre LEVICAIRE m2 av1773 Francois BOULET",
+        "marriageYear": 1650,
+        "spouse": "",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0316.php",
+        "signatureType": "unknown",
+        "triId": "TRI0316"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.55109,
+          45.40917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-91edf392af",
+        "displayLabel": "Jeanne COUSIN",
+        "surname": "COUSIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1651,
+        "spouse": "Jean MARANDEAU ou MARANDA (1651)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004158.php",
+        "familySheetNo": "7601",
+        "signatureType": "unknown",
+        "triId": "TRI0220"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98119,
+          46.37013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-05c42a8a88",
+        "displayLabel": "Marie GAUDET",
+        "surname": "GAUDET",
+        "givenName": "Marie",
+        "marriageYear": 1651,
+        "spouse": "Étienne HÉBERT (1651); Dominique GAREAU (1676)",
+        "mtHaplogroup": "J1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085509.php",
+        "familySheetNo": "85668",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71651,
+          45.41567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-62b96c99d0",
+        "displayLabel": "Catherine LEJEUNE",
+        "surname": "LEJEUNE",
+        "givenName": "Catherine",
+        "marriageYear": 1651,
+        "spouse": "François SAVOIE (1651)",
+        "mtHaplogroup": "U6a7a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085608.php",
+        "familySheetNo": "119264",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87196,
+          47.02692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e6fd740316",
+        "displayLabel": "Jeanne LEROY",
+        "surname": "LEROY",
+        "givenName": "Jeanne",
+        "marriageYear": 1651,
+        "spouse": "Jean MILLOIR dit DUMAINE (1651)",
+        "mtHaplogroup": "U2e1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000309.php",
+        "familySheetNo": "95",
+        "signatureType": "unknown",
+        "triId": "TRI0339"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.62024,
+          45.59189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b71e35b20c",
+        "displayLabel": "Anne Antoinette LIERCOURT (de)",
+        "surname": "LIERCOURT (de)",
+        "givenName": "Anne Antoinette",
+        "marriageYear": 1651,
+        "spouse": "Blaise JUILLET dit DAVIGNON (1651); Hugues PICARD (1660)",
+        "mtHaplogroup": "H1ay",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003856.php",
+        "familySheetNo": "289",
+        "signatureType": "unknown",
+        "triId": "TRI0063"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.71977,
+          46.31675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cdf4076a32",
+        "displayLabel": "Madeleine ROUSSIN",
+        "surname": "ROUSSIN",
+        "givenName": "Madeleine",
+        "marriageYear": 1651,
+        "spouse": "Michel HUPPÉ dit LAGROIS (1651)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000286.php",
+        "familySheetNo": "2404",
+        "signatureType": "unknown",
+        "triId": "TRI0078"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.80855,
+          46.17821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6146f15a64",
+        "displayLabel": "Catherine LEJEUNE",
+        "surname": "LEJEUNE",
+        "givenName": "Catherine",
+        "marriageYear": 1651,
+        "spouse": "François SAVOIE",
+        "mtHaplogroup": "U6a7a, U6a7a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0021.php",
+        "signatureType": "unknown",
+        "triId": "TRI0021"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43963,
+          46.40522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-74dec55495",
+        "displayLabel": "Barbe POISSON",
+        "surname": "POISSON",
+        "givenName": "Barbe",
+        "marriageYear": 1651,
+        "spouse": "Gabriel SELLE dit DUCLOS",
+        "mtHaplogroup": "H2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0480.php",
+        "signatureType": "unknown",
+        "triId": "TRI0480"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45744,
+          46.23736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-20b317441c",
+        "displayLabel": "Anne Marie ..",
+        "surname": "..",
+        "givenName": "Anne Marie",
+        "marriageYear": 1652,
+        "spouse": ".. PINET (1652); René RIMBAULT (1655)",
+        "mtHaplogroup": "A2f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/119/119886.php",
+        "familySheetNo": "134609",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.55694,
+          45.38218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-db1781838f",
+        "displayLabel": "Marie BOURDON",
+        "surname": "BOURDON",
+        "givenName": "Marie",
+        "marriageYear": 1652,
+        "spouse": "Jean GLORIA (1652); Toussaint TOUPIN dit DUCLOS (1669); Jean CHAREST (1680)",
+        "mtHaplogroup": "H3b5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004776.php",
+        "familySheetNo": "42154",
+        "signatureType": "unknown",
+        "triId": "TRI0630"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05298,
+          46.74757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fb97aafc06",
+        "displayLabel": "Jeanne CREVIER",
+        "surname": "CREVIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1652,
+        "spouse": "Pierre BOUCHER de BOUCHERVILLE et de GROSBOIS (1652)",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000250.php",
+        "familySheetNo": "21",
+        "signatureType": "unknown",
+        "triId": "TRI0426"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.61063,
+          45.44626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dd90d24b81",
+        "displayLabel": "Geneviève GAMACHE",
+        "surname": "GAMACHE",
+        "givenName": "Geneviève",
+        "marriageYear": 1652,
+        "spouse": "Julien FORTIN dit BELLEFONTAINE (1652)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000269.php",
+        "familySheetNo": "2958",
+        "signatureType": "unknown",
+        "triId": "TRI0522"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.68351,
+          46.26641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ef8a20ed62",
+        "displayLabel": "Anne Michelle GARNIER",
+        "surname": "GARNIER",
+        "givenName": "Anne Michelle",
+        "marriageYear": 1652,
+        "spouse": "Simon CARDINAL (1652); Jean CHEVALIER (1680)",
+        "mtHaplogroup": "U4b1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004213.php",
+        "familySheetNo": "4361",
+        "signatureType": "unknown",
+        "triId": "TRI0223"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.60307,
+          45.45495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9e929bdd0b",
+        "displayLabel": "Madeleine MACART",
+        "surname": "MACART",
+        "givenName": "Madeleine",
+        "marriageYear": 1652,
+        "spouse": "Charles CADIEUX de COURVILLE (1652)",
+        "mtHaplogroup": "T2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004867.php",
+        "familySheetNo": "110425",
+        "signatureType": "unknown",
+        "triId": "TRI0433"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.4555,
+          45.41599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1271077cdd",
+        "displayLabel": "Aimée MIVILLE",
+        "surname": "MIVILLE",
+        "givenName": "Aimée",
+        "marriageYear": 1652,
+        "spouse": "Robert GIGUÈRE (1652)",
+        "mtHaplogroup": "H1ar1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000273.php",
+        "familySheetNo": "2991",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57099,
+          46.3618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2c68521cfc",
+        "displayLabel": "Marie ou Marie Vincente PAJAUD",
+        "surname": "PAJAUD",
+        "givenName": "Marie ou Marie Vincente",
+        "marriageYear": 1652,
+        "spouse": "Simon CHAPACOU (1652)",
+        "mtHaplogroup": "N1a1a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002811.php",
+        "familySheetNo": "1357",
+        "signatureType": "unknown",
+        "triId": "TRI0265"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51466,
+          46.46126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a1faa1d451",
+        "displayLabel": "Françoise ROUSSIN",
+        "surname": "ROUSSIN",
+        "givenName": "Françoise",
+        "marriageYear": 1652,
+        "spouse": "Pierre LOIGNON (1652)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000303.php",
+        "familySheetNo": "43320",
+        "signatureType": "unknown",
+        "triId": "TRI0078"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70465,
+          45.47315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2981d6a308",
+        "displayLabel": "Marguerite SEVESTRE",
+        "surname": "SEVESTRE",
+        "givenName": "Marguerite",
+        "marriageYear": 1652,
+        "spouse": "Étienne LESSARD (1652)",
+        "mtHaplogroup": "K1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000301.php",
+        "familySheetNo": "3114",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.10935,
+          46.93174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3540856af1",
+        "displayLabel": "Jeanne BITOUSET",
+        "surname": "BITOUSET",
+        "givenName": "Jeanne",
+        "marriageYear": 1653,
+        "spouse": "Louis GUIMOND (1653); Jean BARETTE (1661)",
+        "mtHaplogroup": "H1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003685.php",
+        "familySheetNo": "281",
+        "signatureType": "unknown",
+        "triId": "TRI0510"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.9985,
+          46.98602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-81c4125765",
+        "displayLabel": "Françoise JOBIN dit LAJEUNESSE",
+        "surname": "JOBIN dit LAJEUNESSE",
+        "givenName": "Françoise",
+        "marriageYear": 1653,
+        "spouse": "Pierre DANDONNEAU dit LAJEUNESSE (1653)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000263.php",
+        "familySheetNo": "3480",
+        "signatureType": "unknown",
+        "triId": "TRI0332"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04043,
+          46.86057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0e93b37c1f",
+        "displayLabel": "Anne LEDET",
+        "surname": "LEDET",
+        "givenName": "Anne",
+        "marriageYear": 1653,
+        "spouse": "Jean NEVEU (1653); Gilles PINEL (1657)",
+        "mtHaplogroup": "H3h3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003835.php",
+        "familySheetNo": "310",
+        "signatureType": "unknown",
+        "triId": "TRI0400"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53087,
+          46.42911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a83ae30e09",
+        "displayLabel": "Françoise LEHOUX",
+        "surname": "LEHOUX",
+        "givenName": "Françoise",
+        "marriageYear": 1653,
+        "spouse": "Robert PARÉ (1653)",
+        "mtHaplogroup": "H3c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000312.php",
+        "familySheetNo": "2545",
+        "signatureType": "unknown",
+        "triId": "TRI0137"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.54839,
+          45.39369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-748dd4c015",
+        "displayLabel": "Élisabeth SORIN",
+        "surname": "SORIN",
+        "givenName": "Élisabeth",
+        "marriageYear": 1653,
+        "spouse": "Laurent GIGNARD ou GUIGNARD (1653)",
+        "mtHaplogroup": "X2m1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003555.php",
+        "familySheetNo": "3584",
+        "signatureType": "unknown",
+        "triId": "TRI0518"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.94228,
+          47.0845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b3552b5239",
+        "displayLabel": "Marguerite LANDREAU",
+        "surname": "LANDREAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1653,
+        "spouse": "Nicolas HUBERT (1653)",
+        "mtHaplogroup": "HV-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004792.php",
+        "familySheetNo": "198769",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.55847,
+          46.45909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1d77fcbf2a",
+        "displayLabel": "Catherine BOUTET",
+        "surname": "BOUTET",
+        "givenName": "Catherine",
+        "marriageYear": 1654,
+        "spouse": "Charles PHILIPPEAU (1654); Jean SOULARD (1666)",
+        "mtHaplogroup": "H17a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003697.php",
+        "familySheetNo": "42743",
+        "signatureType": "unknown",
+        "triId": "TRI0738"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.57055,
+          45.40773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3bde2b48c0",
+        "displayLabel": "Françoise BRUNET",
+        "surname": "BRUNET",
+        "givenName": "Françoise",
+        "marriageYear": 1654,
+        "spouse": "Martin DURAND (1654); Théodore SUREAU (1663)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003970.php",
+        "familySheetNo": "3759",
+        "signatureType": "unknown",
+        "triId": "TRI0385"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.19676,
+          46.92213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7f77c69f41",
+        "displayLabel": "Marie CHEFDEVILLE",
+        "surname": "CHEFDEVILLE",
+        "givenName": "Marie",
+        "marriageYear": 1654,
+        "spouse": "André DUMAIS ou DEMERS (1654)",
+        "mtHaplogroup": "U4a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000266.php",
+        "familySheetNo": "2921",
+        "signatureType": "unknown",
+        "triId": "TRI0514"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87856,
+          46.9741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dde99bc2c9",
+        "displayLabel": "Marguerite GAULIN",
+        "surname": "GAULIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1654,
+        "spouse": "Jean CRÊTE (1654)",
+        "mtHaplogroup": "H1bu",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000260.php",
+        "familySheetNo": "2862",
+        "signatureType": "unknown",
+        "triId": "TRI0152"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44729,
+          46.23494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-58c16fd920",
+        "displayLabel": "Marie GODARD",
+        "surname": "GODARD",
+        "givenName": "Marie",
+        "marriageYear": 1654,
+        "spouse": "Toussaint GIROUX (1654)",
+        "mtHaplogroup": "K1a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000274.php",
+        "familySheetNo": "7607",
+        "signatureType": "unknown",
+        "triId": "TRI0633"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.94542,
+          46.24776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3a6e2d6eb2",
+        "displayLabel": "Jeanne GUIET",
+        "surname": "GUIET",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Jean GOBEIL (1654)",
+        "mtHaplogroup": "N1b1a5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003783.php",
+        "familySheetNo": "42732",
+        "signatureType": "unknown",
+        "triId": "TRI0123"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.99504,
+          46.31557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-733a451f8d",
+        "displayLabel": "Jeanne LEROUGE",
+        "surname": "LEROUGE",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Louis CARREAU dit LAFRAÎCHEUR (1654)",
+        "mtHaplogroup": "H27-T16093C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000251.php",
+        "familySheetNo": "2802",
+        "signatureType": "unknown",
+        "triId": "TRI0884"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24413,
+          46.84719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7f00f8619b",
+        "displayLabel": "Marie LORGUEIL",
+        "surname": "LORGUEIL",
+        "givenName": "Marie",
+        "marriageYear": 1654,
+        "spouse": "Toussaint HUNEAULT dit DESCHAMPS (1654)",
+        "mtHaplogroup": "T1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000285.php",
+        "familySheetNo": "3026",
+        "signatureType": "unknown",
+        "triId": "TRI0260"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.06998,
+          46.92357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-53bf306d9d",
+        "displayLabel": "Jeanne MERÉ ou MÉRIN",
+        "surname": "MERÉ ou MÉRIN",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Éloi JARRY dit LAHAIE (1654); Henri PERRIN (1661); René MOREAU du PORTAIL dit DUBREUIL (1672)",
+        "mtHaplogroup": "H3ac",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004180.php",
+        "familySheetNo": "287",
+        "signatureType": "unknown",
+        "triId": "TRI0259"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.69866,
+          45.57624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f2f34a3885",
+        "displayLabel": "Jeanne ROUSSELIÈRE",
+        "surname": "ROUSSELIÈRE",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Pierre GODIN dit CHÂTILLON (1654); Pierre MARTIN (1686)",
+        "mtHaplogroup": "H100",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004446.php",
+        "familySheetNo": "276",
+        "signatureType": "unknown",
+        "triId": "TRI0546"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.49547,
+          46.33493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-472062d236",
+        "displayLabel": "Jeanne SOLDÉ",
+        "surname": "SOLDÉ",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Jacques BEAUVAIS dit SAINT-GEMME (1654)",
+        "mtHaplogroup": "H86",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000244.php",
+        "familySheetNo": "2724",
+        "signatureType": "unknown",
+        "triId": "TRI0190"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64675,
+          45.5084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ca17dd9bcf",
+        "displayLabel": "Jeanne VEDIE",
+        "surname": "VEDIE",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Jean DEMERS dit DUMAIS (1654)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000267.php",
+        "familySheetNo": "2921",
+        "signatureType": "unknown",
+        "triId": "TRI0157"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.27983,
+          46.78401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-70013e201c",
+        "displayLabel": "Jeanne BADEAU",
+        "surname": "BADEAU",
+        "givenName": "Jeanne",
+        "marriageYear": 1654,
+        "spouse": "Pierre PARENT (1654)",
+        "mtHaplogroup": "H3g",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000313.php",
+        "familySheetNo": "3209",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8264,
+          46.28687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2f25abb211",
+        "displayLabel": "Catherine DODIER",
+        "surname": "DODIER",
+        "givenName": "Catherine",
+        "marriageYear": 1654,
+        "spouse": "Pierre LEPELLÉ de LAHAIE",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0629.php",
+        "signatureType": "unknown",
+        "triId": "TRI0629"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.93082,
+          47.01422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-191d664023",
+        "displayLabel": "Catherine COLIN",
+        "surname": "COLIN",
+        "givenName": "Catherine",
+        "marriageYear": 1655,
+        "spouse": "Claude GUYON (1655)",
+        "mtHaplogroup": "H27c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000391.php",
+        "familySheetNo": "65",
+        "signatureType": "unknown",
+        "triId": "TRI0347"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.49654,
+          45.54973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-44809494d1",
+        "displayLabel": "Marie DELIGNY",
+        "surname": "DELIGNY",
+        "givenName": "Marie",
+        "marriageYear": 1655,
+        "spouse": "Louis JOBIDON (1655); Julien ALLARD (1677)",
+        "mtHaplogroup": "T2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003741.php",
+        "familySheetNo": "403",
+        "signatureType": "unknown",
+        "triId": "TRI0348"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.71341,
+          47.15665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e8218ccc25",
+        "displayLabel": "Marie Madeleine FRANÇOIS",
+        "surname": "FRANÇOIS",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1655,
+        "spouse": "Guillaume THIBAULT (1655); François FAFARD (1696)",
+        "mtHaplogroup": "U5a1b1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004487.php",
+        "familySheetNo": "478",
+        "signatureType": "unknown",
+        "triId": "TRI0335"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.79641,
+          46.33611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dc381cf0de",
+        "displayLabel": "Suzanne JAROUSSEL",
+        "surname": "JAROUSSEL",
+        "givenName": "Suzanne",
+        "marriageYear": 1655,
+        "spouse": "Simon LEUREAU ou LEREAU ou LHÉROS (1655); Robert COUTARD (1671)",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003989.php",
+        "familySheetNo": "3979",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6279,
+          45.61591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-41103b6e74",
+        "displayLabel": "Anne PATIN",
+        "surname": "PATIN",
+        "givenName": "Anne",
+        "marriageYear": 1655,
+        "spouse": "Pierre DUFRESNE (1655)",
+        "mtHaplogroup": "H5a1f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004463.php",
+        "familySheetNo": "10285",
+        "signatureType": "unknown",
+        "triId": "TRI0940"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73095,
+          45.61376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e67c8ad335",
+        "displayLabel": "Marguerite THOMAS",
+        "surname": "THOMAS",
+        "givenName": "Marguerite",
+        "marriageYear": 1655,
+        "spouse": "Jean TRUDEL (1655)",
+        "mtHaplogroup": "U5b1f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000482.php",
+        "familySheetNo": "2657",
+        "signatureType": "unknown",
+        "triId": "TRI0407"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64756,
+          46.37707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c7c352682a",
+        "displayLabel": "Jeanne CAILLÉ",
+        "surname": "CAILLÉ",
+        "givenName": "Jeanne",
+        "marriageYear": 1655,
+        "spouse": "Jean MINEAU (1655); Guillaume DUPAS (1675); Jacques de LAREAU (1682)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016063.php",
+        "familySheetNo": "3883",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98331,
+          46.29662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ecc103a4c2",
+        "displayLabel": "Nicole dite Gabrielle d'ASSONVILLE ROLLAND des PELLETEAUX",
+        "surname": "ROLLAND des PELLETEAUX",
+        "givenName": "Nicole dite Gabrielle d'ASSONVILLE",
+        "marriageYear": 1655,
+        "spouse": "François BLONDEAU (1655)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000340.php",
+        "familySheetNo": "2194",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44435,
+          45.42607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-08d74cca26",
+        "displayLabel": "Anne Marie (Amérindienne/Native) ..",
+        "surname": "..",
+        "givenName": "Anne Marie (Amérindienne/Native)",
+        "marriageYear": 1655,
+        "spouse": "René RIMBAULT",
+        "mtHaplogroup": "A2f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0024.php",
+        "signatureType": "unknown",
+        "triId": "TRI0024"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.68447,
+          45.52277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cac4d605cb",
+        "displayLabel": "Marie2 ARCHAMBAULT",
+        "surname": "ARCHAMBAULT",
+        "givenName": "Marie2",
+        "marriageYear": 1656,
+        "spouse": "Gilles LAUZON (1656)",
+        "mtHaplogroup": "H1c15",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000410.php",
+        "familySheetNo": "2442",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84029,
+          46.23886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-597fcf46e9",
+        "displayLabel": "Catherine CAMUS",
+        "surname": "CAMUS",
+        "givenName": "Catherine",
+        "marriageYear": 1656,
+        "spouse": "Charles GAUTHIER dit BOISVERDUN (1656)",
+        "mtHaplogroup": "H6a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000384.php",
+        "familySheetNo": "52",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89518,
+          46.17531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1f00d2f8c6",
+        "displayLabel": "Marie DARDENNE",
+        "surname": "DARDENNE",
+        "givenName": "Marie",
+        "marriageYear": 1656,
+        "spouse": "Jacques BEAUCHAMP dit LE GRAND BEAUCHAMP (1656)",
+        "mtHaplogroup": "N1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004864.php",
+        "familySheetNo": "2168",
+        "signatureType": "unknown",
+        "triId": "TRI0529"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23934,
+          46.6881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d30d5174a3",
+        "displayLabel": "Marie FOUBERT",
+        "surname": "FOUBERT",
+        "givenName": "Marie",
+        "marriageYear": 1656,
+        "spouse": "Jean CUSSON (1656)",
+        "mtHaplogroup": "H7b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000358.php",
+        "familySheetNo": "2275",
+        "signatureType": "unknown",
+        "triId": "TRI0114"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.66727,
+          45.45201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6f82e0f3f6",
+        "displayLabel": "Louise GARNIER",
+        "surname": "GARNIER",
+        "givenName": "Louise",
+        "marriageYear": 1656,
+        "spouse": "Pierre GOGUET ou GOYETTE (1656)",
+        "mtHaplogroup": "U4b1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004190.php",
+        "familySheetNo": "39997",
+        "signatureType": "unknown",
+        "triId": "TRI0223"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67,
+          45.57097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-87b3fe066f",
+        "displayLabel": "Marie GARNIER",
+        "surname": "GARNIER",
+        "givenName": "Marie",
+        "marriageYear": 1656,
+        "spouse": "Olivier CHARBONNEAU (1656); Nicolas BOURGEOIS dit LE GRAND PICARD (1688)",
+        "mtHaplogroup": "U4b1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004213.php",
+        "familySheetNo": "4361",
+        "signatureType": "unknown",
+        "triId": "TRI0223"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.78308,
+          47.09579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ad1130bef4",
+        "displayLabel": "Antoinette GRENIER ou GARNIER",
+        "surname": "GRENIER ou GARNIER",
+        "givenName": "Antoinette",
+        "marriageYear": 1656,
+        "spouse": "Jacques BERNIER dit JEAN de PARIS (1656)",
+        "mtHaplogroup": "V1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000338.php",
+        "familySheetNo": "2177",
+        "signatureType": "unknown",
+        "triId": "TRI0276"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6832,
+          46.31518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-808973e6e6",
+        "displayLabel": "Marie POUPONNELLE",
+        "surname": "POUPONNELLE",
+        "givenName": "Marie",
+        "marriageYear": 1656,
+        "spouse": "Nicolas PETIT dit LAPRÉ et POUPONNELLE (1656)",
+        "mtHaplogroup": "H3ao1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000453.php",
+        "familySheetNo": "3223",
+        "signatureType": "unknown",
+        "triId": "TRI0464"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72917,
+          45.46345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-645ffcc3e1",
+        "displayLabel": "Marie RICHARD",
+        "surname": "RICHARD",
+        "givenName": "Marie",
+        "marriageYear": 1656,
+        "spouse": "François FAFARD (1656)",
+        "mtHaplogroup": "K1a4a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000373.php",
+        "familySheetNo": "231",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84891,
+          46.3035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f74e2da46f",
+        "displayLabel": "Ozanne ACHON",
+        "surname": "ACHON",
+        "givenName": "Ozanne",
+        "marriageYear": 1657,
+        "spouse": "Pierre TREMBLAY (1657)",
+        "mtHaplogroup": "HV1a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000480.php",
+        "familySheetNo": "3327",
+        "signatureType": "unknown",
+        "triId": "TRI0293"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.40755,
+          45.43253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-83db1c1d26",
+        "displayLabel": "Marguerite CREVIER",
+        "surname": "CREVIER",
+        "givenName": "Marguerite",
+        "marriageYear": 1657,
+        "spouse": "Jacques FOURNIER de LAVILLE (1657); Michel GAMELIN dit FONTAINE (1661); François RENAUD ou RENOUX dit LACHAPELLE (1683)",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002272.php",
+        "familySheetNo": "39239",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.95202,
+          46.25375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b37c958344",
+        "displayLabel": "Nicole DUCHESNE",
+        "surname": "DUCHESNE",
+        "givenName": "Nicole",
+        "marriageYear": 1657,
+        "spouse": "Jacques de LAPORTE dit SAINT-GEORGES (1657)",
+        "mtHaplogroup": "H4a1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000409.php",
+        "familySheetNo": "3067",
+        "signatureType": "unknown",
+        "triId": "TRI0632"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64414,
+          46.25034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-24c50d40f4",
+        "displayLabel": "Catherine FORESTIER ou FORTIER",
+        "surname": "FORESTIER ou FORTIER",
+        "givenName": "Catherine",
+        "marriageYear": 1657,
+        "spouse": "Jacques MÉNARD dit LAFONTAINE (1657)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000436.php",
+        "familySheetNo": "3156",
+        "signatureType": "unknown",
+        "triId": "TRI0221"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.88667,
+          47.05514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1ba707f479",
+        "displayLabel": "Françoise GRENIER ou GARNIER",
+        "surname": "GRENIER ou GARNIER",
+        "givenName": "Françoise",
+        "marriageYear": 1657,
+        "spouse": "Robert BOULAY (1657)",
+        "mtHaplogroup": "V2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004308.php",
+        "familySheetNo": "201828",
+        "signatureType": "unknown",
+        "triId": "TRI0319"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.1037,
+          46.72827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d5614d8456",
+        "displayLabel": "Marie LANGLOIS",
+        "surname": "LANGLOIS",
+        "givenName": "Marie",
+        "marriageYear": 1657,
+        "spouse": "Julien COUTANCINEAU (1657); Denis GENTY (1678)",
+        "mtHaplogroup": "U8b1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004245.php",
+        "familySheetNo": "4530",
+        "signatureType": "unknown",
+        "triId": "TRI0186"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.16294,
+          46.6969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-20e068eccf",
+        "displayLabel": "Marie MITEOUAMEGOUKOUE",
+        "surname": "MITEOUAMEGOUKOUE",
+        "givenName": "Marie",
+        "marriageYear": 1657,
+        "spouse": "Pierre COUC dit LAFLEUR et COGNAC (1657)",
+        "mtHaplogroup": "B2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000356.php",
+        "familySheetNo": "3392",
+        "signatureType": "unknown",
+        "triId": "TRI0790"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.06218,
+          46.80034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-79dfe7bf38",
+        "displayLabel": "Marie OUDIN ou HOUDIN",
+        "surname": "OUDIN ou HOUDIN",
+        "givenName": "Marie",
+        "marriageYear": 1657,
+        "spouse": "François GARIÉPY (1657)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000382.php",
+        "familySheetNo": "2976",
+        "signatureType": "unknown",
+        "triId": "TRI0636"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.28486,
+          46.76
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-74565da218",
+        "displayLabel": "Marie PONTONNIER",
+        "surname": "PONTONNIER",
+        "givenName": "Marie",
+        "marriageYear": 1657,
+        "spouse": "Pierre GADOUA (1657); Pierre MARTIN dit LARIVIÈRE (1660); Honoré LANGLOIS dit LACHAPELLE et CROUSTILLANT (1669) (1661)",
+        "mtHaplogroup": "T2b27",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004326.php",
+        "familySheetNo": "379",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84798,
+          46.17213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7a32d325fb",
+        "displayLabel": "Élisabeth RADISSON",
+        "surname": "RADISSON",
+        "givenName": "Élisabeth",
+        "marriageYear": 1657,
+        "spouse": "Claude JUTRAS dit LAVALLÉE (1657)",
+        "mtHaplogroup": "H1b1-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000404.php",
+        "familySheetNo": "2419",
+        "signatureType": "unknown",
+        "triId": "TRI0701"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0379,
+          47.01629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-085747604e",
+        "displayLabel": "Jeanne VIGNEAULT",
+        "surname": "VIGNEAULT",
+        "givenName": "Jeanne",
+        "marriageYear": 1657,
+        "spouse": "Jacques GRESLON dit LAVIOLETTE (1657); Philippe POTHIER dit FONTAINE (1679)",
+        "mtHaplogroup": "H5a1f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004182.php",
+        "familySheetNo": "389",
+        "signatureType": "unknown",
+        "triId": "TRI0215"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6163,
+          46.41016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-33797b99cd",
+        "displayLabel": "Marie1 PARENTEAU",
+        "surname": "PARENTEAU",
+        "givenName": "Marie1",
+        "marriageYear": 1657,
+        "spouse": "Robert GAGNON (1657)",
+        "mtHaplogroup": "H5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000380.php",
+        "familySheetNo": "2338",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.53816,
+          45.41201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-293f24d0eb",
+        "displayLabel": "Marie PAVIE",
+        "surname": "PAVIE",
+        "givenName": "Marie",
+        "marriageYear": 1657,
+        "spouse": "Jean MIGNERON (1657)",
+        "mtHaplogroup": "U5b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000438.php",
+        "familySheetNo": "2508",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97592,
+          46.17475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b229a340f0",
+        "displayLabel": "Jacqueline ROULOIS",
+        "surname": "ROULOIS",
+        "givenName": "Jacqueline",
+        "marriageYear": 1657,
+        "spouse": "Denis DEROME dit DESCARREAUX (1657)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000363.php",
+        "familySheetNo": "2289",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.13373,
+          46.76232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bf6f1afe40",
+        "displayLabel": "Jeanne CHEBRAT",
+        "surname": "CHEBRAT",
+        "givenName": "Jeanne",
+        "marriageYear": 1657,
+        "spouse": "Antoine GOUGEON",
+        "mtHaplogroup": "HV4a1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0015.php",
+        "signatureType": "unknown",
+        "triId": "TRI0015"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58064,
+          45.50866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-431c8512cf",
+        "displayLabel": "Marthe ARNU",
+        "surname": "ARNU",
+        "givenName": "Marthe",
+        "marriageYear": 1658,
+        "spouse": "Pierre RICHAUME dit PÉTRUS (1658)",
+        "mtHaplogroup": "K2b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000468.php",
+        "familySheetNo": "2598",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82394,
+          46.24909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-daee6ec7a4",
+        "displayLabel": "Marie BLANQUET",
+        "surname": "BLANQUET",
+        "givenName": "Marie",
+        "marriageYear": 1658,
+        "spouse": "Jean LECLERC (1658)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004790.php",
+        "familySheetNo": "127713",
+        "signatureType": "unknown",
+        "triId": "TRI0197"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.76662,
+          46.29952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8a22eb3363",
+        "displayLabel": "Catherine BUGARET",
+        "surname": "BUGARET",
+        "givenName": "Catherine",
+        "marriageYear": 1658,
+        "spouse": "Claude PETITPAS (1658); Charles CHEVALIER dit LATOURASSE (1692)",
+        "mtHaplogroup": "H1c3b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086137.php",
+        "familySheetNo": "44751",
+        "signatureType": "unknown",
+        "triId": "TRI0013"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67896,
+          46.26589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-caf3c66488",
+        "displayLabel": "Marie FERRA",
+        "surname": "FERRA",
+        "givenName": "Marie",
+        "marriageYear": 1658,
+        "spouse": "Jacques JAHAN dit LAVIOLETTE (1658)",
+        "mtHaplogroup": "T2b13",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000400.php",
+        "familySheetNo": "3499",
+        "signatureType": "unknown",
+        "triId": "TRI0520"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24765,
+          46.93531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1b23b035be",
+        "displayLabel": "Louise GARNIER",
+        "surname": "GARNIER",
+        "givenName": "Louise",
+        "marriageYear": 1658,
+        "spouse": "Jean PICHARD (1658); Jacques MORIN (1661)",
+        "mtHaplogroup": "I5a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004473.php",
+        "familySheetNo": "456",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57198,
+          46.406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f179e94751",
+        "displayLabel": "Madeleine GIRARD",
+        "surname": "GIRARD",
+        "givenName": "Madeleine",
+        "marriageYear": 1658,
+        "spouse": "Charles JOBIN (1658)",
+        "mtHaplogroup": "J1c1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003559.php",
+        "familySheetNo": "3587",
+        "signatureType": "unknown",
+        "triId": "TRI0403"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.59431,
+          46.33982
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b6629c9ff0",
+        "displayLabel": "Élisabeth GOBINET",
+        "surname": "GOBINET",
+        "givenName": "Élisabeth",
+        "marriageYear": 1658,
+        "spouse": "Paul BENOÎT dit LIVERNOIS (1658)",
+        "mtHaplogroup": "T1a-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000337.php",
+        "familySheetNo": "2733",
+        "signatureType": "unknown",
+        "triId": "TRI0822"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.08859,
+          46.93088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fb32a3c4a8",
+        "displayLabel": "Marie Marthe HAUTEUX",
+        "surname": "HAUTEUX",
+        "givenName": "Marie Marthe",
+        "marriageYear": 1658,
+        "spouse": "Pierre CHAUVIN (1658)",
+        "mtHaplogroup": "K1a4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000348.php",
+        "familySheetNo": "2826",
+        "signatureType": "unknown",
+        "triId": "TRI0415"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6685,
+          45.41479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4d16464b7f",
+        "displayLabel": "Jacqueline LAGRANGE",
+        "surname": "LAGRANGE",
+        "givenName": "Jacqueline",
+        "marriageYear": 1658,
+        "spouse": "Michel THÉODORE (1658); Laurent GLORY (1664); Nicolas RAGUENEAU (1681)",
+        "mtHaplogroup": "K1a13",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004486.php",
+        "familySheetNo": "477",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05558,
+          46.8735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6aad990808",
+        "displayLabel": "Jeanne LELIÈVRE",
+        "surname": "LELIÈVRE",
+        "givenName": "Jeanne",
+        "marriageYear": 1658,
+        "spouse": "Nicolas LEROY ou ROY (1658); François MOLINET (1695)",
+        "mtHaplogroup": "H-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042998.php",
+        "familySheetNo": "2460",
+        "signatureType": "unknown",
+        "triId": "TRI0412"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.38521,
+          46.44082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1bbc5a3c7d",
+        "displayLabel": "Anne LEMOINE",
+        "surname": "LEMOINE",
+        "givenName": "Anne",
+        "marriageYear": 1658,
+        "spouse": "Michel MESSIER de et dit SAINT-MICHEL (1658)",
+        "mtHaplogroup": "H7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000437.php",
+        "familySheetNo": "3162",
+        "signatureType": "unknown",
+        "triId": "TRI0192"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.62133,
+          46.27435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cfa5e7068d",
+        "displayLabel": "Jeanne LEMOINE",
+        "surname": "LEMOINE",
+        "givenName": "Jeanne",
+        "marriageYear": 1658,
+        "spouse": "Jacques LEBER dit LAROSE (1658)",
+        "mtHaplogroup": "H7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000413.php",
+        "familySheetNo": "2444",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26906,
+          46.87297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-11c60f3737",
+        "displayLabel": "Renée LOPPÉ",
+        "surname": "LOPPÉ",
+        "givenName": "Renée",
+        "marriageYear": 1658,
+        "spouse": "Jean VALIQUETTE dit LAVERDURE (1658)",
+        "mtHaplogroup": "T2a1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000483.php",
+        "familySheetNo": "3336",
+        "signatureType": "unknown",
+        "triId": "TRI0409"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66798,
+          46.44004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6f7461130c",
+        "displayLabel": "Françoise Jacqueline NADEREAU",
+        "surname": "NADEREAU",
+        "givenName": "Françoise Jacqueline",
+        "marriageYear": 1658,
+        "spouse": "Michel LOUVARD dit DESJARDINS (1658); Michel ANDRÉ de SAINT-MICHEL (1663)",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004464.php",
+        "familySheetNo": "431",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.6855,
+          46.2691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e79cab3d70",
+        "displayLabel": "Marguerite SAUVIOT",
+        "surname": "SAUVIOT",
+        "givenName": "Marguerite",
+        "marriageYear": 1658,
+        "spouse": "Jacques MOUSSEAU dit LAVIOLETTE (m+rép.) (1658)",
+        "mtHaplogroup": "K2b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000440.php",
+        "familySheetNo": "3189",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.81758,
+          47.11736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a3f7576b64",
+        "displayLabel": "Jeanne SINNALON ou CINALLON",
+        "surname": "SINNALON ou CINALLON",
+        "givenName": "Jeanne",
+        "marriageYear": 1658,
+        "spouse": "Symphorien ROUSSEAU (1658)",
+        "mtHaplogroup": "T2e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000471.php",
+        "familySheetNo": "2612",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78735,
+          46.2659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1bad4ee868",
+        "displayLabel": "Marie Madeleine TRIO",
+        "surname": "TRIO",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1658,
+        "spouse": "Charles LEFRANÇOIS (1658)",
+        "mtHaplogroup": "T2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000417.php",
+        "familySheetNo": "2457",
+        "signatureType": "unknown",
+        "triId": "TRI0243"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.49852,
+          45.53849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dd2ac09913",
+        "displayLabel": "Marie1 VALADE",
+        "surname": "VALADE",
+        "givenName": "Marie1",
+        "marriageYear": 1658,
+        "spouse": "Michel L'HOMME (1658); Jacques MEILLEUR (1677)",
+        "mtHaplogroup": "U5a1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002662.php",
+        "familySheetNo": "128501",
+        "signatureType": "unknown",
+        "triId": "TRI0398"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.70109,
+          46.32547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-03d7486c7f",
+        "displayLabel": "Gabrielle BARRÉ",
+        "surname": "BARRÉ",
+        "givenName": "Gabrielle",
+        "marriageYear": 1658,
+        "spouse": "Pierre LABRECQUE (1658); Guillaume LANDRY (1659)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004322.php",
+        "familySheetNo": "405",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71761,
+          45.5149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e2a83cdd53",
+        "displayLabel": "Anne BOYER",
+        "surname": "BOYER",
+        "givenName": "Anne",
+        "marriageYear": 1658,
+        "spouse": "Pierre PINEAULT ou PINOT dit LAPERLE (1658)",
+        "mtHaplogroup": "H1n5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000458.php",
+        "familySheetNo": "3235",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.68888,
+          45.49593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dfd07f7e0a",
+        "displayLabel": "Jeanne GODARD",
+        "surname": "GODARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1658,
+        "spouse": "Simon LEROY ou ROY dit PIGEON (1658); Pierre PIGEON (1662)",
+        "mtHaplogroup": "K2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003786.php",
+        "familySheetNo": "473",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87295,
+          47.22471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b516bcdf6d",
+        "displayLabel": "Marguerite LEBOEUF",
+        "surname": "LEBOEUF",
+        "givenName": "Marguerite",
+        "marriageYear": 1658,
+        "spouse": "Gabriel LEMIEUX (1658)",
+        "mtHaplogroup": "U3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000424.php",
+        "familySheetNo": "83",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4412,
+          46.46
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eba0361a25",
+        "displayLabel": "Perrine MEUNIER ou MOUSNIER",
+        "surname": "MEUNIER ou MOUSNIER",
+        "givenName": "Perrine",
+        "marriageYear": 1658,
+        "spouse": "François ROANES",
+        "mtHaplogroup": "I1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0351.php",
+        "signatureType": "unknown",
+        "triId": "TRI0351"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70772,
+          46.43674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2155754df6",
+        "displayLabel": "Marie BERNARD",
+        "surname": "BERNARD",
+        "givenName": "Marie",
+        "marriageYear": 1659,
+        "spouse": "René le jeune LANDRY (1659)",
+        "mtHaplogroup": "T2c1d-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010514.php",
+        "familySheetNo": "84214",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88957,
+          46.33331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c2a3b0f919",
+        "displayLabel": "Élisabeth CAMUS",
+        "surname": "CAMUS",
+        "givenName": "Élisabeth",
+        "marriageYear": 1659,
+        "spouse": "Louis GUERTIN (1659)",
+        "mtHaplogroup": "H86",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000390.php",
+        "familySheetNo": "3006",
+        "signatureType": "unknown",
+        "triId": "TRI0128"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.87599,
+          46.27197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-48756d1462",
+        "displayLabel": "Catherine CHARLES",
+        "surname": "CHARLES",
+        "givenName": "Catherine",
+        "marriageYear": 1659,
+        "spouse": "Urbain JETTÉ (1659)",
+        "mtHaplogroup": "T2b-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000402.php",
+        "familySheetNo": "2411",
+        "signatureType": "unknown",
+        "triId": "TRI0608"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90521,
+          47.11547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-90f55f2391",
+        "displayLabel": "Anne CHEVALIER",
+        "surname": "CHEVALIER",
+        "givenName": "Anne",
+        "marriageYear": 1659,
+        "spouse": "Pierre PINGUET dit LAGLARDIÈRE (1659)",
+        "mtHaplogroup": "W3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000460.php",
+        "familySheetNo": "16415",
+        "signatureType": "unknown",
+        "triId": "TRI0810"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04279,
+          47.13372
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-91a452b0dc",
+        "displayLabel": "Élisabeth DRUGEON",
+        "surname": "DRUGEON",
+        "givenName": "Élisabeth",
+        "marriageYear": 1659,
+        "spouse": "Jean LEHOUX (1659)",
+        "mtHaplogroup": "X2b4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000420.php",
+        "familySheetNo": "43316",
+        "signatureType": "unknown",
+        "triId": "TRI0195"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.71651,
+          46.23282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e85523904e",
+        "displayLabel": "Antoinette DURAND",
+        "surname": "DURAND",
+        "givenName": "Antoinette",
+        "marriageYear": 1659,
+        "spouse": "Marin DUVAL (1659); Nicolas DELAUNAY dit PINGUET (1661)",
+        "mtHaplogroup": "H10",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004346.php",
+        "familySheetNo": "369",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.69147,
+          46.33567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f97f33c3d6",
+        "displayLabel": "Françoise FORGET",
+        "surname": "FORGET",
+        "givenName": "Françoise",
+        "marriageYear": 1659,
+        "spouse": "Maurice PAQUET (1659)",
+        "mtHaplogroup": "H4a1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004387.php",
+        "familySheetNo": "3207",
+        "signatureType": "unknown",
+        "triId": "TRI0234"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.11708,
+          46.69367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e9859d1570",
+        "displayLabel": "Noëlle LANDEAU",
+        "surname": "LANDEAU",
+        "givenName": "Noëlle",
+        "marriageYear": 1659,
+        "spouse": "Jean BAUDOUIN (1659); Louis TÉTREAULT (1663)",
+        "mtHaplogroup": "T2f1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004833.php",
+        "familySheetNo": "336",
+        "signatureType": "unknown",
+        "triId": "TRI0445"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.99307,
+          47.04496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d0370d3491",
+        "displayLabel": "Madeleine SURGET",
+        "surname": "SURGET",
+        "givenName": "Madeleine",
+        "marriageYear": 1659,
+        "spouse": "Jean CLÉMENT dit LAPOINTE (1659); Jacques MARETTE dit LÉPINE (1693)",
+        "mtHaplogroup": "H,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004338.php",
+        "familySheetNo": "351",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.77685,
+          46.34319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-00bd5867d2",
+        "displayLabel": "Isabelle TARGER",
+        "surname": "TARGER",
+        "givenName": "Isabelle",
+        "marriageYear": 1659,
+        "spouse": "Simon PIAT (1659); Mathurin GERBERT dit LAFONTAINE (1659)",
+        "mtHaplogroup": "U5b1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003941.php",
+        "familySheetNo": "16370",
+        "signatureType": "unknown",
+        "triId": "TRI0483"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01451,
+          47.06716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5be12fe70b",
+        "displayLabel": "Marie VIEZ de LAMOTHE",
+        "surname": "VIEZ de LAMOTHE",
+        "givenName": "Marie",
+        "marriageYear": 1659,
+        "spouse": "Hubert SIMON dit LAPOINTE (1659)",
+        "mtHaplogroup": "H27",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000474.php",
+        "familySheetNo": "3306",
+        "signatureType": "unknown",
+        "triId": "TRI0344"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.70752,
+          46.24126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9dd79a289f",
+        "displayLabel": "Françoise DUVERDIER puis SAULNIER",
+        "surname": "DUVERDIER puis SAULNIER",
+        "givenName": "Françoise",
+        "marriageYear": 1659,
+        "spouse": "Pierre LORRAIN dit LACHAPELLE (1659); Jean ROY (1687); Thomas MORTESEIGNE (1690); Bernard DUMOUCHEL dit LAROCHE (1697)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004770.php",
+        "familySheetNo": "430",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.963,
+          46.30673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7defb5cceb",
+        "displayLabel": "Catherine LATOUR dit SIMONNET",
+        "surname": "LATOUR dit SIMONNET",
+        "givenName": "Catherine",
+        "marriageYear": 1659,
+        "spouse": "Jean CORDEAU dit DESLAURIERS (1659)",
+        "mtHaplogroup": "H1a3",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000355.php",
+        "familySheetNo": "2849",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64363,
+          45.57586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5cb1fc752e",
+        "displayLabel": "Denise LEMAÎTRE",
+        "surname": "LEMAÎTRE",
+        "givenName": "Denise",
+        "marriageYear": 1659,
+        "spouse": "André HURTUBISE (1659); Pierre PERRAS dit LAFONTAINE (1660); François CAËL ou CAELLE (1684)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003846.php",
+        "familySheetNo": "397",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.98677,
+          47.16605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fc1360354b",
+        "displayLabel": "Perrine MOREAU",
+        "surname": "MOREAU",
+        "givenName": "Perrine",
+        "marriageYear": 1659,
+        "spouse": "François BARIBEAU (1659)",
+        "mtHaplogroup": "H1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/008/008476.php",
+        "familySheetNo": "4940",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87911,
+          47.08385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1662495b4d",
+        "displayLabel": "Jeanne POTAIGUE",
+        "surname": "POTAIGUE",
+        "givenName": "Jeanne",
+        "marriageYear": 1659,
+        "spouse": "Jean LEROUGE (1659)",
+        "mtHaplogroup": "T2b13b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004871.php",
+        "familySheetNo": "228582",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.03657,
+          46.83822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f100ea933",
+        "displayLabel": "Catherine LOTIER",
+        "surname": "LOTIER",
+        "givenName": "Catherine",
+        "marriageYear": 1659,
+        "spouse": "Adrien LEGER",
+        "mtHaplogroup": "H10e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1107.php",
+        "signatureType": "unknown",
+        "triId": "TRI1107"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.56018,
+          46.23832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-53a530b402",
+        "displayLabel": "Jeanne MERCIER",
+        "surname": "MERCIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1659,
+        "spouse": "Michel MAILLOUX",
+        "mtHaplogroup": "J2a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1066.php",
+        "signatureType": "unknown",
+        "triId": "TRI1066"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77706,
+          47.0344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a276474073",
+        "displayLabel": "Madeleine SURGET",
+        "surname": "SURGET",
+        "givenName": "Madeleine",
+        "marriageYear": 1659,
+        "spouse": "Jean CLEMENT dit LAPOINTE",
+        "mtHaplogroup": "H, H-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0429.php",
+        "signatureType": "unknown",
+        "triId": "TRI0429"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.99662,
+          47.01172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b1ddcf6d2e",
+        "displayLabel": "Antoinette ou Étiennette ALTON",
+        "surname": "ALTON",
+        "givenName": "Antoinette ou Étiennette",
+        "marriageYear": 1660,
+        "spouse": "Marin HURTUBISE (1660); Barthélemy VINET dit LARENTE (1672); Claude GUARIGUE (1689)",
+        "mtHaplogroup": "J1c3f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004162.php",
+        "familySheetNo": "599",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.58768,
+          46.38057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1dcc3b013a",
+        "displayLabel": "Jeanne ÉNARD",
+        "surname": "ÉNARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1660,
+        "spouse": "Claude PHILIPPEAU (1660)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004873.php",
+        "familySheetNo": "7602",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14221,
+          46.84676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7b6a62c462",
+        "displayLabel": "Marie RAINVILLE (de)",
+        "surname": "RAINVILLE (de)",
+        "givenName": "Marie",
+        "marriageYear": 1660,
+        "spouse": "Nicolas BÉLANGER dit CATHERINE (1660)",
+        "mtHaplogroup": "X2b4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000504.php",
+        "familySheetNo": "3257",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.84344,
+          47.17502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ba20c1933e",
+        "displayLabel": "Jeanne SOYER",
+        "surname": "SOYER",
+        "givenName": "Jeanne",
+        "marriageYear": 1660,
+        "spouse": "Michel THIBAULT (1660)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004531.php",
+        "familySheetNo": "10425",
+        "signatureType": "unknown",
+        "triId": "TRI0569"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80349,
+          46.99388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-885959ab52",
+        "displayLabel": "Jeanne THÉRIAULT",
+        "surname": "THÉRIAULT",
+        "givenName": "Jeanne",
+        "marriageYear": 1660,
+        "spouse": "Pierre THIBODEAU (1660)",
+        "mtHaplogroup": "H4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085617.php",
+        "familySheetNo": "84038",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23534,
+          46.80684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a945dffb49",
+        "displayLabel": "Madeleine MICHELANDE",
+        "surname": "MICHELANDE",
+        "givenName": "Madeleine",
+        "marriageYear": 1660,
+        "spouse": "Jacques GRACIOT (1660)",
+        "mtHaplogroup": "H4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004804.php",
+        "familySheetNo": "2100",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.50837,
+          46.25026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1457cc7990",
+        "displayLabel": "Madeleine ROULOIS",
+        "surname": "ROULOIS",
+        "givenName": "Madeleine",
+        "marriageYear": 1660,
+        "spouse": "Nicolas QUENTIN dit LAFONTAINE (1660); Louis BOUCHER (1684)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002610.php",
+        "familySheetNo": "41575",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44989,
+          45.55933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7042dc6723",
+        "displayLabel": "Marie FAYET",
+        "surname": "FAYET",
+        "givenName": "Marie",
+        "marriageYear": 1661,
+        "spouse": "Jean DURAND dit LAFORTUNE (1661); Charles POULIOT (1662); Nicolas HUOT dit SAINT-LAURENT (1662)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004438.php",
+        "familySheetNo": "557",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.77897,
+          46.28042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7a37b62308",
+        "displayLabel": "Catherine IVORY",
+        "surname": "IVORY",
+        "givenName": "Catherine",
+        "marriageYear": 1661,
+        "spouse": "Antoine DIONNE dit SANSOUCY (1661)",
+        "mtHaplogroup": "V2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016314.php",
+        "familySheetNo": "16279",
+        "signatureType": "unknown",
+        "triId": "TRI0673"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44356,
+          45.38538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-92343e3284",
+        "displayLabel": "Marie LECLERC",
+        "surname": "LECLERC",
+        "givenName": "Marie",
+        "marriageYear": 1661,
+        "spouse": "Jean Galeran BOUCHER (1661)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000521.php",
+        "familySheetNo": "23",
+        "signatureType": "unknown",
+        "triId": "TRI0244"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.94638,
+          46.33686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0f3ca7616c",
+        "displayLabel": "Marie MÉSANGÉ",
+        "surname": "MÉSANGÉ",
+        "givenName": "Marie",
+        "marriageYear": 1661,
+        "spouse": "Mathurin CHABOT (1661)",
+        "mtHaplogroup": "H3c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000535.php",
+        "familySheetNo": "2808",
+        "signatureType": "unknown",
+        "triId": "TRI0137"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95209,
+          46.98458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-de66a4b69e",
+        "displayLabel": "Marguerite Madeleine MORISSEAU",
+        "surname": "MORISSEAU",
+        "givenName": "Marguerite Madeleine",
+        "marriageYear": 1661,
+        "spouse": "François PELLETIER dit ANTAYA (1661)",
+        "mtHaplogroup": "J1c5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000656.php",
+        "familySheetNo": "2552",
+        "signatureType": "unknown",
+        "triId": "TRI0340"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8605,
+          46.22931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-377dfc9642",
+        "displayLabel": "Barbe RENAUD",
+        "surname": "RENAUD",
+        "givenName": "Barbe",
+        "marriageYear": 1661,
+        "spouse": "Jean CHARPENTIER dit LAPAILLE (1661); Nicolas COCHARD (1678); Pierre CHAUSSÉ dit LEMAINE (1678); Mathurin ARNAUD ou RENAUD dit CHIET (1679)",
+        "mtHaplogroup": "H1q",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000116.php",
+        "familySheetNo": "41448",
+        "signatureType": "unknown",
+        "triId": "TRI0199"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70327,
+          46.24757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4db14e0edd",
+        "displayLabel": "Jeanne VALLÉE",
+        "surname": "VALLÉE",
+        "givenName": "Jeanne",
+        "marriageYear": 1661,
+        "spouse": "Nicolas MOISON (1661)",
+        "mtHaplogroup": "T2b4b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004155.php",
+        "familySheetNo": "2068",
+        "signatureType": "unknown",
+        "triId": "TRI0750"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73153,
+          46.26855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f693d613f",
+        "displayLabel": "Catherine DELOR",
+        "surname": "DELOR",
+        "givenName": "Catherine",
+        "marriageYear": 1661,
+        "spouse": "Alexandre TURPIN (1661)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016465.php",
+        "familySheetNo": "16042",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.61045,
+          46.36606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-35a600163d",
+        "displayLabel": "Madeleine DUBOIS",
+        "surname": "DUBOIS",
+        "givenName": "Madeleine",
+        "marriageYear": 1661,
+        "spouse": "Jacques ROYER (1661); Michel BAUGIS (1661)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003752.php",
+        "familySheetNo": "196217",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25723,
+          46.79099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-48acb77ff6",
+        "displayLabel": "Christine RÉGNIER",
+        "surname": "RÉGNIER",
+        "givenName": "Christine",
+        "marriageYear": 1661,
+        "spouse": "Jean GRIMARD (1661)",
+        "mtHaplogroup": "I",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000590.php",
+        "familySheetNo": "2383",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80968,
+          47.1658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6a68823f89",
+        "displayLabel": "Marguerite CREVIER",
+        "surname": "CREVIER",
+        "givenName": "Marguerite",
+        "marriageYear": 1661,
+        "spouse": "Michel GAMELIN dit FONTAINE",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0426.php",
+        "signatureType": "unknown",
+        "triId": "TRI0426"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78198,
+          46.36335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2ec0a87e0f",
+        "displayLabel": "Antoinette DURAND",
+        "surname": "DURAND",
+        "givenName": "Antoinette",
+        "marriageYear": 1661,
+        "spouse": "Nicolas DELAUNAY dit PINGUET",
+        "mtHaplogroup": "H10",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0910.php",
+        "signatureType": "unknown",
+        "triId": "TRI0910"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22108,
+          46.76297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eeab13c165",
+        "displayLabel": "Louise GARNIER",
+        "surname": "GARNIER",
+        "givenName": "Louise",
+        "marriageYear": 1661,
+        "spouse": "Jacques MORIN",
+        "mtHaplogroup": "I5a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0854.php",
+        "signatureType": "unknown",
+        "triId": "TRI0854"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.81057,
+          47.02939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0f60fcc14c",
+        "displayLabel": "Marie PONTONNIER",
+        "surname": "PONTONNIER",
+        "givenName": "Marie",
+        "marriageYear": 1661,
+        "spouse": "Honoré LANGLOIS dit LACHAPELLE et CROUSTILLANT (1669)",
+        "mtHaplogroup": "T2b27",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0352.php",
+        "signatureType": "unknown",
+        "triId": "TRI0352"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.57411,
+          45.4325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ee525033d9",
+        "displayLabel": "Jeanne RENAUD",
+        "surname": "RENAUD",
+        "givenName": "Jeanne",
+        "marriageYear": 1661,
+        "spouse": "Jacques VAUDRY",
+        "mtHaplogroup": "H1q",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0199.php",
+        "signatureType": "unknown",
+        "triId": "TRI0199"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65026,
+          46.29872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5c1fffa8be",
+        "displayLabel": "Élisabeth AQUIN ou HAQUIN",
+        "surname": "AQUIN ou HAQUIN",
+        "givenName": "Élisabeth",
+        "marriageYear": 1662,
+        "spouse": "François ROY (1662); Antoine COURTEMANCHE dit JOLICOEUR (1663); Paul DAVELUY dit LAROSE de PICARDIE (1672)",
+        "mtHaplogroup": "H49a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003616.php",
+        "familySheetNo": "685",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.70462,
+          46.17682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0b37250ee0",
+        "displayLabel": "Françoise CHAPELAIN",
+        "surname": "CHAPELAIN",
+        "givenName": "Françoise",
+        "marriageYear": 1662,
+        "spouse": "Charles ALLAIRE ou DALLAIRE (1662); David LÉTOURNEAU (1664)",
+        "mtHaplogroup": "U5b1-T16189C!-T16192C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002242.php",
+        "familySheetNo": "38999",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.54158,
+          45.59164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-69df4ee84a",
+        "displayLabel": "Marguerite DOUCINET",
+        "surname": "DOUCINET",
+        "givenName": "Marguerite",
+        "marriageYear": 1662,
+        "spouse": "Philippe MATOU dit LABRIE (1662)",
+        "mtHaplogroup": "H-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000644.php",
+        "familySheetNo": "2496",
+        "signatureType": "unknown",
+        "triId": "TRI0334"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73129,
+          46.16644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-81e47f038c",
+        "displayLabel": "Marie GIRAUD",
+        "surname": "GIRAUD",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Abel TURCOT (1662)",
+        "mtHaplogroup": "H1c9",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000701.php",
+        "familySheetNo": "10292",
+        "signatureType": "unknown",
+        "triId": "TRI0610"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.28014,
+          46.86732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7a36b8c2c8",
+        "displayLabel": "Marie GRANDERY ou GRANDIN",
+        "surname": "GRANDERY ou GRANDIN",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Jacques DAVID dit PONTIFE (1662)",
+        "mtHaplogroup": "H1bm",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000547.php",
+        "familySheetNo": "2876",
+        "signatureType": "unknown",
+        "triId": "TRI0305"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7078,
+          46.25892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-21b37bd6fb",
+        "displayLabel": "Marie GRIGNAULT",
+        "surname": "GRIGNAULT",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Pierre PLUCHON (1662)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000669.php",
+        "familySheetNo": "3240",
+        "signatureType": "unknown",
+        "triId": "TRI0849"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.32874,
+          46.7412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c9b23d7d61",
+        "displayLabel": "Marie MERCIER",
+        "surname": "MERCIER",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Antoine BABIN (1662); Guillaume LEJUGE (1688)",
+        "mtHaplogroup": "J1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/119/119844.php",
+        "familySheetNo": "85509",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.79016,
+          47.21726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6f5b721c22",
+        "displayLabel": "Marthe RAINVILLE (de)",
+        "surname": "RAINVILLE (de)",
+        "givenName": "Marthe",
+        "marriageYear": 1662,
+        "spouse": "Pierre MARCOUX (1662)",
+        "mtHaplogroup": "X2b4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000636.php",
+        "familySheetNo": "2481",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.81474,
+          46.3094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cd77024d63",
+        "displayLabel": "Louise ROUSSIN",
+        "surname": "ROUSSIN",
+        "givenName": "Louise",
+        "marriageYear": 1662,
+        "spouse": "Jacques ASSELIN (1662)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000492.php",
+        "familySheetNo": "2154",
+        "signatureType": "unknown",
+        "triId": "TRI0078"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23469,
+          46.71864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3cdb5f5f64",
+        "displayLabel": "Marie TROTTAIN",
+        "surname": "TROTTAIN",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Michel BOUCHARD (1662)",
+        "mtHaplogroup": "H77",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000519.php",
+        "familySheetNo": "3424",
+        "signatureType": "unknown",
+        "triId": "TRI0142"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.79549,
+          47.18921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-01a5e11a91",
+        "displayLabel": "Marie BIRARD",
+        "surname": "BIRARD",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Pierre PIVIN dit LARÉCOMPENSE (1662)",
+        "mtHaplogroup": "U5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016339.php",
+        "familySheetNo": "196326",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67024,
+          46.24414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1262536d50",
+        "displayLabel": "Françoise VIGER",
+        "surname": "VIGER",
+        "givenName": "Françoise",
+        "marriageYear": 1662,
+        "spouse": "Grégoire DEBLOIS (1662)",
+        "mtHaplogroup": "H1-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000548.php",
+        "familySheetNo": "3661",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82674,
+          46.19892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7d5052a955",
+        "displayLabel": "Marie FAYET",
+        "surname": "FAYET",
+        "givenName": "Marie",
+        "marriageYear": 1662,
+        "spouse": "Nicolas HUOT dit SAINT-LAURENT",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0495.php",
+        "signatureType": "unknown",
+        "triId": "TRI0495"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.21588,
+          46.73943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0be7c64319",
+        "displayLabel": "Marguerite BOILEAU",
+        "surname": "BOILEAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1663,
+        "spouse": "Jean SERREAU dit SAINT-AUBIN (1663)",
+        "mtHaplogroup": "H3c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042086.php",
+        "familySheetNo": "4255",
+        "signatureType": "unknown",
+        "triId": "TRI0568"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.49414,
+          46.2682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-42ee218dbf",
+        "displayLabel": "Louise CHARIER",
+        "surname": "CHARIER",
+        "givenName": "Louise",
+        "marriageYear": 1663,
+        "spouse": "Guillaume BARETTE (1663)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000496.php",
+        "familySheetNo": "2706",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.0145,
+          46.25088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a73c55051a",
+        "displayLabel": "Marie Madeleine puis Marie CHEVRAINVILLE dit LAFONTAINE (de)",
+        "surname": "CHEVRAINVILLE dit LAFONTAINE (de)",
+        "givenName": "Marie Madeleine puis Marie",
+        "marriageYear": 1663,
+        "spouse": "Isaac puis Joseph LAMY dit DEFOND (1663)",
+        "mtHaplogroup": "H1j2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000608.php",
+        "familySheetNo": "2433",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87856,
+          47.00626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c15aace17b",
+        "displayLabel": "Jeanne CHOTARD",
+        "surname": "CHOTARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1663,
+        "spouse": "Pierre LABRECQUE (1663)",
+        "mtHaplogroup": "U5a1b1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000607.php",
+        "familySheetNo": "2422",
+        "signatureType": "unknown",
+        "triId": "TRI0270"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82609,
+          46.23118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-80cdc43610",
+        "displayLabel": "Marie CREVIER",
+        "surname": "CREVIER",
+        "givenName": "Marie",
+        "marriageYear": 1663,
+        "spouse": "Nicolas GATINEAU dit DUPLESSIS (1663)",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000573.php",
+        "familySheetNo": "10293",
+        "signatureType": "unknown",
+        "triId": "TRI0426"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.60132,
+          46.35968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-315b29114d",
+        "displayLabel": "Catherine FIÈVRE",
+        "surname": "FIÈVRE",
+        "givenName": "Catherine",
+        "marriageYear": 1663,
+        "spouse": "Charles ALLAIRE ou DALLAIRE (1663)",
+        "mtHaplogroup": "U4b1a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000485.php",
+        "familySheetNo": "2687",
+        "signatureType": "unknown",
+        "triId": "TRI0609"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.31287,
+          46.92475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a6f24a19e6",
+        "displayLabel": "Suzanne JAREL ou JAROUX",
+        "surname": "JAREL ou JAROUX",
+        "givenName": "Suzanne",
+        "marriageYear": 1663,
+        "spouse": "François DUPONT (1663)",
+        "mtHaplogroup": "U5a2a1d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000556.php",
+        "familySheetNo": "2309",
+        "signatureType": "unknown",
+        "triId": "TRI0530"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.50443,
+          46.32138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c0a2b5eb8b",
+        "displayLabel": "Marguerite LEPEUVRIER",
+        "surname": "LEPEUVRIER",
+        "givenName": "Marguerite",
+        "marriageYear": 1663,
+        "spouse": "Jacques MENEU dit CHÂTEAUNEUF (1663); Guillaume LISOT (1696)",
+        "mtHaplogroup": "H1-T16189C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004557.php",
+        "familySheetNo": "645",
+        "signatureType": "unknown",
+        "triId": "TRI0233"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42092,
+          46.43054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f8d460f055",
+        "displayLabel": "Louise MENACIER",
+        "surname": "MENACIER",
+        "givenName": "Louise",
+        "marriageYear": 1663,
+        "spouse": "Toussaint LEDRAN (1663)",
+        "mtHaplogroup": "H56a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000618.php",
+        "familySheetNo": "2450",
+        "signatureType": "unknown",
+        "triId": "TRI0071"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58142,
+          45.61651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-62fe939eba",
+        "displayLabel": "Suzanne MIGAU",
+        "surname": "MIGAU",
+        "givenName": "Suzanne",
+        "marriageYear": 1663,
+        "spouse": "Pierre TROTTIER (1663)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000700.php",
+        "familySheetNo": "2656",
+        "signatureType": "unknown",
+        "triId": "TRI0493"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22039,
+          46.75695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-09004ed7c2",
+        "displayLabel": "Françoise MOISAN",
+        "surname": "MOISAN",
+        "givenName": "Françoise",
+        "marriageYear": 1663,
+        "spouse": "Antoine BRUNET dit BELHUMEUR (1663); Pierre PERTHUIS dit LALIME (1707)",
+        "mtHaplogroup": "U2e1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004582.php",
+        "familySheetNo": "40950",
+        "signatureType": "unknown",
+        "triId": "TRI0338"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.68925,
+          46.31258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8404d2ca38",
+        "displayLabel": "Marguerite MOITIÉ",
+        "surname": "MOITIÉ",
+        "givenName": "Marguerite",
+        "marriageYear": 1663,
+        "spouse": "Joseph Élie GAUTHIER (1663)",
+        "mtHaplogroup": "H16-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000576.php",
+        "familySheetNo": "2355",
+        "signatureType": "unknown",
+        "triId": "TRI0669"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71966,
+          45.62211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-14b4616d63",
+        "displayLabel": "Catherine PAULO dit CORDETELLE",
+        "surname": "PAULO dit CORDETELLE",
+        "givenName": "Catherine",
+        "marriageYear": 1663,
+        "spouse": "Étienne CAMPEAU (1663)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000532.php",
+        "familySheetNo": "2801",
+        "signatureType": "unknown",
+        "triId": "TRI0395"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7473,
+          46.22634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a244ef5239",
+        "displayLabel": "Marie SAINT-DENIS",
+        "surname": "SAINT-DENIS",
+        "givenName": "Marie",
+        "marriageYear": 1663,
+        "spouse": "Pierre BOUCHER (1663)",
+        "mtHaplogroup": "J1c7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000522.php",
+        "familySheetNo": "23",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.90445,
+          46.18675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30fbcc4f3c",
+        "displayLabel": "Marie2 VALADE",
+        "surname": "VALADE",
+        "givenName": "Marie2",
+        "marriageYear": 1663,
+        "spouse": "Jean CADIEUX (1663); Philippe BOUDIER (1682)",
+        "mtHaplogroup": "U5a1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002662.php",
+        "familySheetNo": "128501",
+        "signatureType": "unknown",
+        "triId": "TRI0398"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91981,
+          47.03743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9c9884a162",
+        "displayLabel": "Jacqueline FRELON",
+        "surname": "FRELON",
+        "givenName": "Jacqueline",
+        "marriageYear": 1663,
+        "spouse": "François GARNIER (1663)",
+        "mtHaplogroup": "H7",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000572.php",
+        "familySheetNo": "2978",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90688,
+          47.05885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-861078c0dc",
+        "displayLabel": "Elisabeth AQUIN ou HAQUIN",
+        "surname": "AQUIN ou HAQUIN",
+        "givenName": "Elisabeth",
+        "marriageYear": 1663,
+        "spouse": "Antoine COURTEMANCHE dit JOLICOEUR",
+        "mtHaplogroup": "H49a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0748.php",
+        "signatureType": "unknown",
+        "triId": "TRI0748"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46483,
+          46.39647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0c7cfe6f90",
+        "displayLabel": "Madeleine/Marie CHEVRAINVILLE (de) Marie",
+        "surname": "CHEVRAINVILLE (de) Marie",
+        "givenName": "Madeleine/Marie",
+        "marriageYear": 1663,
+        "spouse": "Isaac/Joseph LAMY dit DEFOND",
+        "mtHaplogroup": "H1j2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0907.php",
+        "signatureType": "unknown",
+        "triId": "TRI0907"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.99043,
+          46.99282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0202832be9",
+        "displayLabel": "Françoise Jacqueline NADEREAU",
+        "surname": "NADEREAU",
+        "givenName": "Françoise Jacqueline",
+        "marriageYear": 1663,
+        "spouse": "Michel ANDRE de SAINT-MICHEL",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0341.php",
+        "signatureType": "unknown",
+        "triId": "TRI0341"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.7043,
+          46.34443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eade92d93d",
+        "displayLabel": "Marie TARGER",
+        "surname": "TARGER",
+        "givenName": "Marie",
+        "marriageYear": 1663,
+        "spouse": "Jean ROYER",
+        "mtHaplogroup": "U5b1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0483.php",
+        "signatureType": "unknown",
+        "triId": "TRI0483"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.41566,
+          45.5803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7e894dc581",
+        "displayLabel": "Jeanne BERNARD",
+        "surname": "BERNARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1664,
+        "spouse": "Denis ou Dion ou Guyon CHIASSON dit LAVALLÉE (1664)",
+        "mtHaplogroup": "T2c1d-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016496.php",
+        "familySheetNo": "3963",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78772,
+          46.26499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2adf2e46b5",
+        "displayLabel": "Marie ou Marie Madeleine BOUTET",
+        "surname": "BOUTET",
+        "givenName": "Marie ou Marie Madeleine",
+        "marriageYear": 1664,
+        "spouse": "Gervais BISSON ou BUISSON (1664)",
+        "mtHaplogroup": "H5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000512.php",
+        "familySheetNo": "2189",
+        "signatureType": "unknown",
+        "triId": "TRI0702"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.17309,
+          46.84069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6fad3b7291",
+        "displayLabel": "Marie CHARRIER",
+        "surname": "CHARRIER",
+        "givenName": "Marie",
+        "marriageYear": 1664,
+        "spouse": "André DEPOT (1664); Jacques RENAUD (1665)",
+        "mtHaplogroup": "U4b1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003713.php",
+        "familySheetNo": "16444",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.93003,
+          46.18113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1ed463b15c",
+        "displayLabel": "Hélène DODIN",
+        "surname": "DODIN",
+        "givenName": "Hélène",
+        "marriageYear": 1664,
+        "spouse": "Jean DENIAU dit DELONG (1664)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000552.php",
+        "familySheetNo": "2287",
+        "signatureType": "unknown",
+        "triId": "TRI0869"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.13216,
+          46.8076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0bb1218981",
+        "displayLabel": "Marguerite GAILLARD dit DUPLESSIS",
+        "surname": "GAILLARD dit DUPLESSIS",
+        "givenName": "Marguerite",
+        "marriageYear": 1664,
+        "spouse": "Hercule DUPERRON (1664); François PROVOST (1664); Louis SAUCIER (1671); Michel LEGARDEUR dit SANSOUCY (1678)",
+        "mtHaplogroup": "T2b-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004156.php",
+        "familySheetNo": "16225",
+        "signatureType": "unknown",
+        "triId": "TRI1053"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.82631,
+          47.12555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0d91b68e65",
+        "displayLabel": "Louise GARGOTIN",
+        "surname": "GARGOTIN",
+        "givenName": "Louise",
+        "marriageYear": 1664,
+        "spouse": "Daniel PERRON dit SUIRE (1664); Charles Louis ALAIN (1679)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004161.php",
+        "familySheetNo": "661",
+        "signatureType": "unknown",
+        "triId": "TRI0672"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72011,
+          45.54676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-116d2fe039",
+        "displayLabel": "Marie GITON",
+        "surname": "GITON",
+        "givenName": "Marie",
+        "marriageYear": 1664,
+        "spouse": "Pierre CONILLE (1664); Jean MOUFLET dit CHAMPAGNE (1669); André BERNARD (1676)",
+        "mtHaplogroup": "H2a2b3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003781.php",
+        "familySheetNo": "4229",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.101,
+          46.91709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e7d4b02c2b",
+        "displayLabel": "Joachine LAFLEUR",
+        "surname": "LAFLEUR",
+        "givenName": "Joachine",
+        "marriageYear": 1664,
+        "spouse": "Pierre MARTIN (1664)",
+        "mtHaplogroup": "H3-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000640.php",
+        "familySheetNo": "2486",
+        "signatureType": "unknown",
+        "triId": "TRI0322"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66647,
+          46.36691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d504df499c",
+        "displayLabel": "Anne LOISEAU",
+        "surname": "LOISEAU",
+        "givenName": "Anne",
+        "marriageYear": 1664,
+        "spouse": "Guillaume GENDRON de la ROLANDIÈRE (1664); Charles LEMOINE dit LABRANCHE (1688)",
+        "mtHaplogroup": "K1a4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003857.php",
+        "familySheetNo": "577",
+        "signatureType": "unknown",
+        "triId": "TRI0611"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.96933,
+          47.08188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-14454a70a7",
+        "displayLabel": "Élisabeth MARTIN",
+        "surname": "MARTIN",
+        "givenName": "Élisabeth",
+        "marriageYear": 1664,
+        "spouse": "Jean OZOU ou AUZON (1664)",
+        "mtHaplogroup": "H1b1-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016098.php",
+        "familySheetNo": "5525",
+        "signatureType": "unknown",
+        "triId": "TRI0851"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.28643,
+          46.7734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d44e36aa18",
+        "displayLabel": "Antoinette MEUNIER",
+        "surname": "MEUNIER",
+        "givenName": "Antoinette",
+        "marriageYear": 1664,
+        "spouse": "Jacques BARO (1664); Jacques AUBERT des GRONDINES dit LAGRAVE (1665)",
+        "mtHaplogroup": "V6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003877.php",
+        "familySheetNo": "16430",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34502,
+          46.83877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-514c767c9d",
+        "displayLabel": "Marie PESSELEY",
+        "surname": "PESSELEY",
+        "givenName": "Marie",
+        "marriageYear": 1664,
+        "spouse": "Jean PIETER puis PITRE (1664); François ROBIN (1692)",
+        "mtHaplogroup": "X2b7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086295.php",
+        "familySheetNo": "86296",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43922,
+          46.44944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-33d6d08610",
+        "displayLabel": "Anne VÉZINA",
+        "surname": "VÉZINA",
+        "givenName": "Anne",
+        "marriageYear": 1664,
+        "spouse": "René BRISSON (1664)",
+        "mtHaplogroup": "J2a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000525.php",
+        "familySheetNo": "10283",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30815,
+          46.76292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1a1bc47dc1",
+        "displayLabel": "Louise VÉZINA",
+        "surname": "VÉZINA",
+        "givenName": "Louise",
+        "marriageYear": 1664,
+        "spouse": "Charles GARNIER (1664)",
+        "mtHaplogroup": "J2a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000571.php",
+        "familySheetNo": "2977",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.4949,
+          45.46897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-696468477a",
+        "displayLabel": "Marie Sainte VIEZ",
+        "surname": "VIEZ",
+        "givenName": "Marie Sainte",
+        "marriageYear": 1664,
+        "spouse": "Jean POITRAS (1664)",
+        "mtHaplogroup": "H27",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000671.php",
+        "familySheetNo": "2566",
+        "signatureType": "unknown",
+        "triId": "TRI0344"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.63747,
+          46.29272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30899da8af",
+        "displayLabel": "Anne LÉPINE",
+        "surname": "LÉPINE",
+        "givenName": "Anne",
+        "marriageYear": 1664,
+        "spouse": "François BOUCHER dit VIN D'ESPAGNE (1664)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000520.php",
+        "familySheetNo": "2762",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22351,
+          46.90543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fe7edd1bb7",
+        "displayLabel": "Francoise CHAPELAIN",
+        "surname": "CHAPELAIN",
+        "givenName": "Francoise",
+        "marriageYear": 1664,
+        "spouse": "David LETOURNEAU",
+        "mtHaplogroup": "U5b1-T16189C!-T16192C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0635.php",
+        "signatureType": "unknown",
+        "triId": "TRI0635"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83092,
+          46.9995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4643b471ba",
+        "displayLabel": "Jacqueline LAGRANGE",
+        "surname": "LAGRANGE",
+        "givenName": "Jacqueline",
+        "marriageYear": 1664,
+        "spouse": "Laurent GLORY",
+        "mtHaplogroup": "K1a13",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0170.php",
+        "signatureType": "unknown",
+        "triId": "TRI0170"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.89925,
+          47.11109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9bd26f53b3",
+        "displayLabel": "Marguerite ABRAHAM",
+        "surname": "ABRAHAM",
+        "givenName": "Marguerite",
+        "marriageYear": 1665,
+        "spouse": "Ozanie Joseph NADEAU dit LAVIGNE (1665); Guillaume CHARTIER (1678)",
+        "mtHaplogroup": "K1a1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003673.php",
+        "familySheetNo": "1094",
+        "signatureType": "unknown",
+        "triId": "TRI0266"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.68829,
+          46.39778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-db2f377df9",
+        "displayLabel": "Marie BIGOT",
+        "surname": "BIGOT",
+        "givenName": "Marie",
+        "marriageYear": 1665,
+        "spouse": "Michel ROCHEREAU ou ROCHELEAU (1665)",
+        "mtHaplogroup": "U5a2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010516.php",
+        "familySheetNo": "2183",
+        "signatureType": "unknown",
+        "triId": "TRI0937"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83311,
+          47.13914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-669e43fe39",
+        "displayLabel": "Jeanne CERISIER ou SERISIER",
+        "surname": "CERISIER ou SERISIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1665,
+        "spouse": "François DUCLOS (1665)",
+        "mtHaplogroup": "H3t",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000883.php",
+        "familySheetNo": "2303",
+        "signatureType": "unknown",
+        "triId": "TRI0966"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9053,
+          46.16936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0b4ca7d36f",
+        "displayLabel": "Marie CHEVREAU",
+        "surname": "CHEVREAU",
+        "givenName": "Marie",
+        "marriageYear": 1665,
+        "spouse": "René RÉAUME (1665)",
+        "mtHaplogroup": "W-C194T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001149.php",
+        "familySheetNo": "2592",
+        "signatureType": "unknown",
+        "triId": "TRI0961"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.07607,
+          46.75828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-351f64c3f3",
+        "displayLabel": "Perrine COIRIER",
+        "surname": "COIRIER",
+        "givenName": "Perrine",
+        "marriageYear": 1665,
+        "spouse": "Clément GUÉRIN (1665)",
+        "mtHaplogroup": "J1b1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004789.php",
+        "familySheetNo": "209418",
+        "signatureType": "unknown",
+        "triId": "TRI0936"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98649,
+          46.15447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0236dc75d9",
+        "displayLabel": "Anne Julienne DUMONT",
+        "surname": "DUMONT",
+        "givenName": "Anne Julienne",
+        "marriageYear": 1665,
+        "spouse": "René DUBOIS dit BRISEBOIS (1665)",
+        "mtHaplogroup": "H1ak",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000880.php",
+        "familySheetNo": "2910",
+        "signatureType": "unknown",
+        "triId": "TRI0449"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67811,
+          45.41101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0ef186a1f1",
+        "displayLabel": "Catherine Antoinette ÉLOY",
+        "surname": "ÉLOY",
+        "givenName": "Catherine Antoinette",
+        "marriageYear": 1665,
+        "spouse": "Mathurin MASTA (1665)",
+        "mtHaplogroup": "K1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001064.php",
+        "familySheetNo": "2494",
+        "signatureType": "unknown",
+        "triId": "TRI0690"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30524,
+          46.79641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fb4aa259a4",
+        "displayLabel": "Catherine GUYARD",
+        "surname": "GUYARD",
+        "givenName": "Catherine",
+        "marriageYear": 1665,
+        "spouse": "Antoine BEAUDRY dit L'ÉPINETTE (1665)",
+        "mtHaplogroup": "C4a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000733.php",
+        "familySheetNo": "2721",
+        "signatureType": "unknown",
+        "triId": "TRI0469"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.42164,
+          45.51498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5489244db0",
+        "displayLabel": "Marguerite HYARDIN",
+        "surname": "HYARDIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1665,
+        "spouse": "Nicolas VÉRIEUL ou VEILLEUX (1665)",
+        "mtHaplogroup": "H1g1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001230.php",
+        "familySheetNo": "3344",
+        "signatureType": "unknown",
+        "triId": "TRI0120"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04696,
+          46.97781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f42329135c",
+        "displayLabel": "Marie JUIN",
+        "surname": "JUIN",
+        "givenName": "Marie",
+        "marriageYear": 1665,
+        "spouse": "René ANCELIN (1665)",
+        "mtHaplogroup": "H1e2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/015/015967.php",
+        "familySheetNo": "195994",
+        "signatureType": "unknown",
+        "triId": "TRI0323"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.08934,
+          46.71638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0da53f4cb2",
+        "displayLabel": "Claude LAFONTAINE de CHEVRAINVILLE",
+        "surname": "LAFONTAINE de CHEVRAINVILLE",
+        "givenName": "Claude",
+        "marriageYear": 1665,
+        "spouse": "Henri BRAULT ou BEREAU de POMINVILLE (1665)",
+        "mtHaplogroup": "H1j2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000745.php",
+        "familySheetNo": "3385",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43686,
+          46.38188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f11c29460",
+        "displayLabel": "Marie LANGLOIS",
+        "surname": "LANGLOIS",
+        "givenName": "Marie",
+        "marriageYear": 1665,
+        "spouse": "Jean GLADU de COGNAC (1665); Michel GARNIER ou GRENIER (1680)",
+        "mtHaplogroup": "H5e1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003819.php",
+        "familySheetNo": "952",
+        "signatureType": "unknown",
+        "triId": "TRI0695"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.87938,
+          46.35839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-afb7abab40",
+        "displayLabel": "Marguerite LAVERDURE",
+        "surname": "LAVERDURE",
+        "givenName": "Marguerite",
+        "marriageYear": 1665,
+        "spouse": "Maurice CRÉPEAU (1665)",
+        "mtHaplogroup": "T2b4b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000842.php",
+        "familySheetNo": "2270",
+        "signatureType": "unknown",
+        "triId": "TRI0227"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83978,
+          47.07561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eb95e3ad10",
+        "displayLabel": "Marie Louise LECOUTRE",
+        "surname": "LECOUTRE",
+        "givenName": "Marie Louise",
+        "marriageYear": 1665,
+        "spouse": "Nicolas CREVIER de BELLERIVE (1665)",
+        "mtHaplogroup": "H3s",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010507.php",
+        "familySheetNo": "2272",
+        "signatureType": "unknown",
+        "triId": "TRI0171"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7263,
+          45.39069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ae7ce46869",
+        "displayLabel": "Marguerite MIUS d'ENTREMONT",
+        "surname": "MIUS d'ENTREMONT",
+        "givenName": "Marguerite",
+        "marriageYear": 1665,
+        "spouse": "Pierre MELANÇON dit LAVERDURE (1665)",
+        "mtHaplogroup": "J1c5b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043334.php",
+        "familySheetNo": "85578",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25367,
+          46.80488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-29da27a440",
+        "displayLabel": "Catherine PILLAT dit CHARON",
+        "surname": "PILLAT dit CHARON",
+        "givenName": "Catherine",
+        "marriageYear": 1665,
+        "spouse": "Pierre CHARON (1665); Sébastien BRISSON dit LAROCHE (1709)",
+        "mtHaplogroup": "A10",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003911.php",
+        "familySheetNo": "812",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20931,
+          46.73397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-768909f02b",
+        "displayLabel": "Françoise PILOIS ou PITIE",
+        "surname": "PILOIS ou PITIE",
+        "givenName": "Françoise",
+        "marriageYear": 1665,
+        "spouse": "Marin GERVAIS (1665); Antoine CASSÉ ou LACASSE (1665)",
+        "mtHaplogroup": "H1n3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004262.php",
+        "familySheetNo": "3624",
+        "signatureType": "unknown",
+        "triId": "TRI0972"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.35093,
+          46.70574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8c949b147e",
+        "displayLabel": "Marie Anne POUSSIN",
+        "surname": "POUSSIN",
+        "givenName": "Marie Anne",
+        "marriageYear": 1665,
+        "spouse": "Jean L'ARCHEVÊQUE (1665)",
+        "mtHaplogroup": "H76",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001005.php",
+        "familySheetNo": "190",
+        "signatureType": "unknown",
+        "triId": "TRI1061"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04611,
+          46.89509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f423f97cef",
+        "displayLabel": "Claude PRATTE",
+        "surname": "PRATTE",
+        "givenName": "Claude",
+        "marriageYear": 1665,
+        "spouse": "Nicolas GIARD (1665)",
+        "mtHaplogroup": "T2e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000947.php",
+        "familySheetNo": "2367",
+        "signatureType": "unknown",
+        "triId": "TRI0205"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.49985,
+          46.32337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-79ff79bf7b",
+        "displayLabel": "Catherine RIVET",
+        "surname": "RIVET",
+        "givenName": "Catherine",
+        "marriageYear": 1665,
+        "spouse": "Jean HARDY (1665); Pierre DUCHESNE de LAPIERRE (1666)",
+        "mtHaplogroup": "T1a5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004358.php",
+        "familySheetNo": "3626",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.73089,
+          47.1946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e7a2bf63bf",
+        "displayLabel": "Jeanne BILODEAU",
+        "surname": "BILODEAU",
+        "givenName": "Jeanne",
+        "marriageYear": 1665,
+        "spouse": "Jacques BAUBICHE (dgfq) ou BAUBIGNE (cm-par-1666) (1665); Pierre COUILLARD (1666)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004339.php",
+        "familySheetNo": "16432",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05275,
+          46.78185
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d09ff6a7c8",
+        "displayLabel": "Anne BRANDON",
+        "surname": "BRANDON",
+        "givenName": "Anne",
+        "marriageYear": 1665,
+        "spouse": "Pierre DAGENAIS dit LEPRINCE (1665)",
+        "mtHaplogroup": "H7c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000845.php",
+        "familySheetNo": "2864",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6885,
+          46.28237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1941295b8b",
+        "displayLabel": "Jeanne SERVINIEN ou SOVIGNIAN",
+        "surname": "SERVINIEN ou SOVIGNIAN",
+        "givenName": "Jeanne",
+        "marriageYear": 1665,
+        "spouse": "Jean RONCERAY dit LEBRETON (1665)",
+        "mtHaplogroup": "H5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001169.php",
+        "familySheetNo": "3282",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.9982,
+          47.21902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-299f4a1e85",
+        "displayLabel": "Nicole SOUILLARD",
+        "surname": "SOUILLARD",
+        "givenName": "Nicole",
+        "marriageYear": 1665,
+        "spouse": "Louis GABOURY dit LEMAJOR (1665)",
+        "mtHaplogroup": "J",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000917.php",
+        "familySheetNo": "2965",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70389,
+          46.26901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-828fd97078",
+        "displayLabel": "Marie CHARRIER",
+        "surname": "CHARRIER",
+        "givenName": "Marie",
+        "marriageYear": 1665,
+        "spouse": "Jacques RENAUD",
+        "mtHaplogroup": "U4b1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0952.php",
+        "signatureType": "unknown",
+        "triId": "TRI0952"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64924,
+          45.46332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c81d1aeb03",
+        "displayLabel": "Claude CHEVRAINVILLE (de)",
+        "surname": "CHEVRAINVILLE (de)",
+        "givenName": "Claude",
+        "marriageYear": 1665,
+        "spouse": "Henri BRAULT de POMINVILLE",
+        "mtHaplogroup": "H1j2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0907.php",
+        "signatureType": "unknown",
+        "triId": "TRI0907"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4071,
+          46.42429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-82a6f7b4a8",
+        "displayLabel": "Antoinette MEUNIER",
+        "surname": "MEUNIER",
+        "givenName": "Antoinette",
+        "marriageYear": 1665,
+        "spouse": "Jacques AUBERT des GRONDINES dit LAGRAVE",
+        "mtHaplogroup": "V6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0298.php",
+        "signatureType": "unknown",
+        "triId": "TRI0298"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64968,
+          46.23985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-921156b3d0",
+        "displayLabel": "Catherine PILLAT",
+        "surname": "PILLAT",
+        "givenName": "Catherine",
+        "marriageYear": 1665,
+        "spouse": "Pierre CHARON",
+        "mtHaplogroup": "A10",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0006.php",
+        "signatureType": "unknown",
+        "triId": "TRI0006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64292,
+          45.42764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e5b3fb3604",
+        "displayLabel": "Jeanne BOUDREAU",
+        "surname": "BOUDREAU",
+        "givenName": "Jeanne",
+        "marriageYear": 1666,
+        "spouse": "Bonaventure THÉRIAULT (1666)",
+        "mtHaplogroup": "H,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/115/115939.php",
+        "familySheetNo": "84038",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4743,
+          46.25233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-451f5b78f6",
+        "displayLabel": "Marguerite CARDILLON",
+        "surname": "CARDILLON",
+        "givenName": "Marguerite",
+        "marriageYear": 1666,
+        "spouse": "Claude DESJARDINS ou JOURDAIN dit CHARBONNIER (1666)",
+        "mtHaplogroup": "H6a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000868.php",
+        "familySheetNo": "2897",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.41035,
+          46.23237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-74660b71c2",
+        "displayLabel": "Isabelle DOUCINET",
+        "surname": "DOUCINET",
+        "givenName": "Isabelle",
+        "marriageYear": 1666,
+        "spouse": "Jacques BÉDARD (1666)",
+        "mtHaplogroup": "H-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000738.php",
+        "familySheetNo": "2726",
+        "signatureType": "unknown",
+        "triId": "TRI0334"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26215,
+          46.72134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30c56d7600",
+        "displayLabel": "Élisabeth LANGEVIN",
+        "surname": "LANGEVIN",
+        "givenName": "Élisabeth",
+        "marriageYear": 1666,
+        "spouse": "René LANCELEUR (1666)",
+        "mtHaplogroup": "HV6",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016103.php",
+        "familySheetNo": "204396",
+        "signatureType": "unknown",
+        "triId": "TRI0694"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34512,
+          46.73817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-67ee4252fc",
+        "displayLabel": "Françoise LEMOINE",
+        "surname": "LEMOINE",
+        "givenName": "Françoise",
+        "marriageYear": 1666,
+        "spouse": "Pierre NIQUET (1666)",
+        "mtHaplogroup": "H1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001098.php",
+        "familySheetNo": "2530",
+        "signatureType": "unknown",
+        "triId": "TRI0430"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66179,
+          46.39511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-df417d3cb7",
+        "displayLabel": "Marie LOUBIER",
+        "surname": "LOUBIER",
+        "givenName": "Marie",
+        "marriageYear": 1666,
+        "spouse": "Simon ÉNARD (1666); Pierre GIRARDEAU dit LAPIERRE (1679); François HUQUERRE ou CUQUAIRE (1684); André BONIN dit DELISLE (1688)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016361.php",
+        "familySheetNo": "202743",
+        "signatureType": "unknown",
+        "triId": "TRI0567"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48778,
+          46.27476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c80af83fdb",
+        "displayLabel": "Marie MANIE ou MAGNIER",
+        "surname": "MANIE ou MAGNIER",
+        "givenName": "Marie",
+        "marriageYear": 1666,
+        "spouse": "Michel CHARTIER (1666); Louis JINCHEREAU (1673)",
+        "mtHaplogroup": "K2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004260.php",
+        "familySheetNo": "4247",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.08274,
+          46.87123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-da6115e1ec",
+        "displayLabel": "Andrée REMONDIÈRE",
+        "surname": "REMONDIÈRE",
+        "givenName": "Andrée",
+        "marriageYear": 1666,
+        "spouse": "Thomas RONDEAU (1666)",
+        "mtHaplogroup": "H3c2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001171.php",
+        "familySheetNo": "2607",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95811,
+          47.0051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6080f6d27e",
+        "displayLabel": "Anne SAINT-DENIS",
+        "surname": "SAINT-DENIS",
+        "givenName": "Anne",
+        "marriageYear": 1666,
+        "spouse": "Laurent MIGNERON (1666)",
+        "mtHaplogroup": "J1c7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001077.php",
+        "familySheetNo": "2507",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04997,
+          47.09992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4d22529e90",
+        "displayLabel": "Anne THOMAS",
+        "surname": "THOMAS",
+        "givenName": "Anne",
+        "marriageYear": 1666,
+        "spouse": "Claude JODOIN (1666); Pierre GODAMBERT dit DESJARDINS (1691)",
+        "mtHaplogroup": "H3k",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003948.php",
+        "familySheetNo": "984",
+        "signatureType": "unknown",
+        "triId": "TRI0731"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.89744,
+          46.97642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-481f5156fa",
+        "displayLabel": "Suzanne LAVOIE (de)",
+        "surname": "LAVOIE (de)",
+        "givenName": "Suzanne",
+        "marriageYear": 1666,
+        "spouse": "Jean TESSON (1666); Pierre GUIBERT (1669); Pierre GIRARD (1669)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003561.php",
+        "familySheetNo": "3078",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7081,
+          46.1868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fb0624951f",
+        "displayLabel": "Gillette SAVARD",
+        "surname": "SAVARD",
+        "givenName": "Gillette",
+        "marriageYear": 1666,
+        "spouse": "Pierre FILTEAU (1666)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000912.php",
+        "familySheetNo": "2326",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88102,
+          46.15265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e62abc3be6",
+        "displayLabel": "Catherine RIVET",
+        "surname": "RIVET",
+        "givenName": "Catherine",
+        "marriageYear": 1666,
+        "spouse": "Pierre DUCHESNE de LAPIERRE",
+        "mtHaplogroup": "T1a5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0390.php",
+        "signatureType": "unknown",
+        "triId": "TRI0390"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44031,
+          46.34262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2b20ea73c9",
+        "displayLabel": "Marie ASSELIN ou ANCELIN",
+        "surname": "ASSELIN ou ANCELIN",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Pierre MICHAUD (1667)",
+        "mtHaplogroup": "H1j9",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001072.php",
+        "familySheetNo": "10297",
+        "signatureType": "unknown",
+        "triId": "TRI0031"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43542,
+          46.42182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b23b004055",
+        "displayLabel": "Catherine BAILLY ou BALIER",
+        "surname": "BAILLY ou BALIER",
+        "givenName": "Catherine",
+        "marriageYear": 1667,
+        "spouse": "Pierre BOUVIER (1667)",
+        "mtHaplogroup": "U4b1a3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000779.php",
+        "familySheetNo": "2775",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.78325,
+          47.2068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3cdb6581ea",
+        "displayLabel": "Marie BLANCHARD",
+        "surname": "BLANCHARD",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Mathieu BRUNET dit LETANG (1667)",
+        "mtHaplogroup": "H7b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000796.php",
+        "familySheetNo": "3372",
+        "signatureType": "unknown",
+        "triId": "TRI0038"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43043,
+          46.27786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b640e0c807",
+        "displayLabel": "Marie BOILEAU",
+        "surname": "BOILEAU",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Isaac DELAVANT (1667); Pierre CHAUVIN (1668); Simon CHAMBERLAN (1669); Jean JOLIN (1690)",
+        "mtHaplogroup": "H3c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004255.php",
+        "familySheetNo": "86605",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.57513,
+          45.51438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cf405def34",
+        "displayLabel": "Louise BOUCHARD",
+        "surname": "BOUCHARD",
+        "givenName": "Louise",
+        "marriageYear": 1667,
+        "spouse": "Simon GUILLORY (1667)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000967.php",
+        "familySheetNo": "110300",
+        "signatureType": "unknown",
+        "triId": "TRI0153"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.653,
+          46.46408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-aa03441863",
+        "displayLabel": "Jeanne BURELLE",
+        "surname": "BURELLE",
+        "givenName": "Jeanne",
+        "marriageYear": 1667,
+        "spouse": "Pierre de LAVOIE (1667); André POUDRET ou POUTRET dit LAVIGNE (1667)",
+        "mtHaplogroup": "U5a1h",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004273.php",
+        "familySheetNo": "195860",
+        "signatureType": "unknown",
+        "triId": "TRI0428"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.68317,
+          46.17843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-97a3f172f5",
+        "displayLabel": "Jeanne DENOT ou DENOTTE",
+        "surname": "DENOT ou DENOTTE",
+        "givenName": "Jeanne",
+        "marriageYear": 1667,
+        "spouse": "André ROBIDOU dit L'ESPAGNOL (1667); Jacques SUPERNANT ou SURPRENANT dit SANSOUCY (1678)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004485.php",
+        "familySheetNo": "1162",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26393,
+          46.69047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-49603765a9",
+        "displayLabel": "Marguerite FOY",
+        "surname": "FOY",
+        "givenName": "Marguerite",
+        "marriageYear": 1667,
+        "spouse": "François DUMAS (1667)",
+        "mtHaplogroup": "H77",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000888.php",
+        "familySheetNo": "2306",
+        "signatureType": "unknown",
+        "triId": "TRI0482"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.77507,
+          46.16878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-24327aa948",
+        "displayLabel": "Mathurine GOARD",
+        "surname": "GOARD",
+        "givenName": "Mathurine",
+        "marriageYear": 1667,
+        "spouse": "Louis MARIE (1667)",
+        "mtHaplogroup": "K1a1b1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001054.php",
+        "familySheetNo": "3147",
+        "signatureType": "unknown",
+        "triId": "TRI0219"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98444,
+          46.21558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-28a72a8848",
+        "displayLabel": "Marguerite ITASSE",
+        "surname": "ITASSE",
+        "givenName": "Marguerite",
+        "marriageYear": 1667,
+        "spouse": "Jacques AUBUCHON (1667)",
+        "mtHaplogroup": "T2b5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000719.php",
+        "familySheetNo": "3",
+        "signatureType": "unknown",
+        "triId": "TRI0098"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64623,
+          45.55361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e9057b1e55",
+        "displayLabel": "Catherine MOITIÉ",
+        "surname": "MOITIÉ",
+        "givenName": "Catherine",
+        "marriageYear": 1667,
+        "spouse": "Désiré VIGER (1667); Jean POIRIER dit LAJEUNESSE (1688)",
+        "mtHaplogroup": "H16-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003884.php",
+        "familySheetNo": "576",
+        "signatureType": "unknown",
+        "triId": "TRI0669"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.29673,
+          46.88174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a7d87e97e7",
+        "displayLabel": "Madeleine NIEL",
+        "surname": "NIEL",
+        "givenName": "Madeleine",
+        "marriageYear": 1667,
+        "spouse": "Étienne CHARLES dit LAJEUNESSE (1667)",
+        "mtHaplogroup": "V1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000810.php",
+        "familySheetNo": "2817",
+        "signatureType": "unknown",
+        "triId": "TRI0914"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.02038,
+          46.29216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c1d4282723",
+        "displayLabel": "Madeleine OLIVIER",
+        "surname": "OLIVIER",
+        "givenName": "Madeleine",
+        "marriageYear": 1667,
+        "spouse": "Thomas ROUSSEAU (1667)",
+        "mtHaplogroup": "J2a1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001174.php",
+        "familySheetNo": "2611",
+        "signatureType": "unknown",
+        "triId": "TRI0713"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4611,
+          46.4316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d6668b0154",
+        "displayLabel": "Françoise PIÉTON",
+        "surname": "PIÉTON",
+        "givenName": "Françoise",
+        "marriageYear": 1667,
+        "spouse": "André ACHIM ou HACHIN DESMASURES dit SAINT-ANDRÉ et CATIN (1667)",
+        "mtHaplogroup": "L1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000706.php",
+        "familySheetNo": "2682",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.38857,
+          46.46114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-45f4bf8541",
+        "displayLabel": "Madeleine PLOUART et TIREMONT",
+        "surname": "PLOUART et TIREMONT",
+        "givenName": "Madeleine",
+        "marriageYear": 1667,
+        "spouse": "Jean COSSETTE (1667); Jacques VIAU dit L'ESPÉRANCE (1670)",
+        "mtHaplogroup": "H3t",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004798.php",
+        "familySheetNo": "833",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.43696,
+          45.60245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e8412a94b7",
+        "displayLabel": "Marie ROY",
+        "surname": "ROY",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Mathurin THIBODEAU dit LALIME (1667)",
+        "mtHaplogroup": "J1c2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001211.php",
+        "familySheetNo": "3320",
+        "signatureType": "unknown",
+        "triId": "TRI0097"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70946,
+          46.37828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ed54422e07",
+        "displayLabel": "Marie SELLE",
+        "surname": "SELLE",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Nicolas GUILLEMET (1667); Jean PHILIBOT (1701); Vincent BÉRIAULT dit POITEVIN (1711)",
+        "mtHaplogroup": "U2d2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004773.php",
+        "familySheetNo": "966",
+        "signatureType": "unknown",
+        "triId": "TRI0326"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.17053,
+          46.90291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3977589a3d",
+        "displayLabel": "Catherine TOPSAN",
+        "surname": "TOPSAN",
+        "givenName": "Catherine",
+        "marriageYear": 1667,
+        "spouse": "Julien DUMONT (1667)",
+        "mtHaplogroup": "U3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000890.php",
+        "familySheetNo": "2924",
+        "signatureType": "unknown",
+        "triId": "TRI0973"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77015,
+          46.97723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2771b9af46",
+        "displayLabel": "Jeanne CHARTON",
+        "surname": "CHARTON",
+        "givenName": "Jeanne",
+        "marriageYear": 1667,
+        "spouse": "Jean ROBIN dit LAPOINTE (1667)",
+        "mtHaplogroup": "K1a1b2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001163.php",
+        "familySheetNo": "3277",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72927,
+          45.46526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b4f7d51a2f",
+        "displayLabel": "Marie GRAVOIS",
+        "surname": "GRAVOIS",
+        "givenName": "Marie",
+        "marriageYear": 1667,
+        "spouse": "Philippe ÉTIENNE dit LAPENSÉE (1667)",
+        "mtHaplogroup": "U5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000902.php",
+        "familySheetNo": "2318",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30743,
+          46.9273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3fda682573",
+        "displayLabel": "Marguerite LEVIGNEUX ou LEVAIGNEUR",
+        "surname": "LEVIGNEUX ou LEVAIGNEUR",
+        "givenName": "Marguerite",
+        "marriageYear": 1667,
+        "spouse": "Bernard DALPEC ou DELPÊCHE dit BÉLAIR (1667); Léonard de MONTREUIL dit FRANCOEUR (1668)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004727.php",
+        "familySheetNo": "3657",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.74484,
+          47.11585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1f83bcded1",
+        "displayLabel": "Françoise ROSIER dit CONFLAND",
+        "surname": "ROSIER dit CONFLAND",
+        "givenName": "Françoise",
+        "marriageYear": 1667,
+        "spouse": "Charles RANCIN (1667)",
+        "mtHaplogroup": "T2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001145.php",
+        "familySheetNo": "2586",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.29286,
+          46.85578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5a0886ea66",
+        "displayLabel": "Catherine VIEILLOT",
+        "surname": "VIEILLOT",
+        "givenName": "Catherine",
+        "marriageYear": 1667,
+        "spouse": "Jacques DUBOIS (1667); Pierre GUÉNET (1675)",
+        "mtHaplogroup": "K1a4d",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004181.php",
+        "familySheetNo": "879",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.12303,
+          46.82766
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0863e89870",
+        "displayLabel": "PIETON Françoise",
+        "surname": "PIETON Françoise",
+        "givenName": "",
+        "marriageYear": 1667,
+        "spouse": "André ACHIM dit SAINT-ANDRÉ et CATIN",
+        "mtHaplogroup": "L1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0144.php",
+        "signatureType": "unknown",
+        "triId": "TRI0144"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.52602,
+          45.46445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-77dce2a01f",
+        "displayLabel": "Françoise BARBERY",
+        "surname": "BARBERY",
+        "givenName": "Françoise",
+        "marriageYear": 1668,
+        "spouse": "Étienne PAQUET (1668); René DARDENNE (1668)",
+        "mtHaplogroup": "K1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004843.php",
+        "familySheetNo": "1106",
+        "signatureType": "unknown",
+        "triId": "TRI0685"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.70585,
+          46.27772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a2ba2c6499",
+        "displayLabel": "Marie BENOÎT",
+        "surname": "BENOÎT",
+        "givenName": "Marie",
+        "marriageYear": 1668,
+        "spouse": "Pierre FAVREAU (1668)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010465.php",
+        "familySheetNo": "6611",
+        "signatureType": "unknown",
+        "triId": "TRI0526"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64465,
+          46.40829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-07f3000a64",
+        "displayLabel": "Françoise BIZELAN ou BAISLA ou BAISELOT (nof)",
+        "surname": "BIZELAN ou BAISLA ou BAISELOT (nof)",
+        "givenName": "Françoise",
+        "marriageYear": 1668,
+        "spouse": "Laurent CAMBIN dit LARIVIÈRE (1668); Pierre MARSAN dit LAPIERRE (1670); André CORBEIL dit TRANCHEMONTAGNE (1693)",
+        "mtHaplogroup": "U5a1g1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004705.php",
+        "familySheetNo": "801",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.92778,
+          47.03451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2a898e4350",
+        "displayLabel": "Marie BOUART",
+        "surname": "BOUART",
+        "givenName": "Marie",
+        "marriageYear": 1668,
+        "spouse": "Jacques ANTRADE (1668); François DESSUREAU dit BOURGUIGNON (1672); Jean BOISMENÉ (1689)",
+        "mtHaplogroup": "J1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004782.php",
+        "familySheetNo": "712",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5321,
+          46.22655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1ab92ad20e",
+        "displayLabel": "Marie DALONE",
+        "surname": "DALONE",
+        "givenName": "Marie",
+        "marriageYear": 1668,
+        "spouse": "Pierre BISSONNETTE (1668); Jacques ANET (1687); Pierre Guillaume HUBLÉ (1694)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004522.php",
+        "familySheetNo": "757",
+        "signatureType": "unknown",
+        "triId": "TRI0158"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70663,
+          45.49341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bb500e9bae",
+        "displayLabel": "Claude DAMISÉ",
+        "surname": "DAMISÉ",
+        "givenName": "Claude",
+        "marriageYear": 1668,
+        "spouse": "Pierre PERTHUIS dit LALIME (1668); Jean1 PARADIS (1676)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003736.php",
+        "familySheetNo": "1117",
+        "signatureType": "unknown",
+        "triId": "TRI0212"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77733,
+          47.12875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-86ee5f62f2",
+        "displayLabel": "Marie DE LA MARE",
+        "surname": "DE LA MARE",
+        "givenName": "Marie",
+        "marriageYear": 1668,
+        "spouse": "Guillaume RENAUD (1668)",
+        "mtHaplogroup": "J2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001153.php",
+        "familySheetNo": "3265",
+        "signatureType": "unknown",
+        "triId": "TRI0587"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8449,
+          46.28321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9505a22b78",
+        "displayLabel": "Claude DESCHALETS",
+        "surname": "DESCHALETS",
+        "givenName": "Claude",
+        "marriageYear": 1668,
+        "spouse": "Siméon ROY dit AUDY (1668)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001182.php",
+        "familySheetNo": "3291",
+        "signatureType": "unknown",
+        "triId": "TRI0935"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26393,
+          46.85165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-80cd5c2909",
+        "displayLabel": "Élisabeth DESCHALETS",
+        "surname": "DESCHALETS",
+        "givenName": "Élisabeth",
+        "marriageYear": 1668,
+        "spouse": "François PARIS (1668)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001112.php",
+        "familySheetNo": "2547",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.3978,
+          45.48308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-369453193c",
+        "displayLabel": "Madeleine DESCHALETS",
+        "surname": "DESCHALETS",
+        "givenName": "Madeleine",
+        "marriageYear": 1668,
+        "spouse": "Jean GIRON (1668)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000951.php",
+        "familySheetNo": "2371",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.09939,
+          46.84764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e02da55634",
+        "displayLabel": "Louise FAURE dit PLANCHER",
+        "surname": "FAURE dit PLANCHER",
+        "givenName": "Louise",
+        "marriageYear": 1668,
+        "spouse": "Pierre GAGNÉ (1668)",
+        "mtHaplogroup": "K1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000920.php",
+        "familySheetNo": "2966",
+        "signatureType": "unknown",
+        "triId": "TRI0548"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47817,
+          46.37029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1cb30c9683",
+        "displayLabel": "Françoise FAVREAU",
+        "surname": "FAVREAU",
+        "givenName": "Françoise",
+        "marriageYear": 1668,
+        "spouse": "Pierre JEAN (1668)",
+        "mtHaplogroup": "HV9",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016082.php",
+        "familySheetNo": "3042",
+        "signatureType": "unknown",
+        "triId": "TRI0295"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83181,
+          47.21526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8cc71ef65e",
+        "displayLabel": "Marie Madeleine GIROUARD",
+        "surname": "GIROUARD",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1668,
+        "spouse": "Thomas CORMIER (1668)",
+        "mtHaplogroup": "H,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085482.php",
+        "familySheetNo": "85486",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64924,
+          45.42741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-10dfd80a6f",
+        "displayLabel": "Isabelle HUBERT",
+        "surname": "HUBERT",
+        "givenName": "Isabelle",
+        "marriageYear": 1668,
+        "spouse": "Louis BOLDUC (1668)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000769.php",
+        "familySheetNo": "2197",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.71806,
+          46.20227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d1fbc187c0",
+        "displayLabel": "Anne JULIEN",
+        "surname": "JULIEN",
+        "givenName": "Anne",
+        "marriageYear": 1668,
+        "spouse": "Nicolas CHOQUET dit CHAMPAGNE (1668)",
+        "mtHaplogroup": "U4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000822.php",
+        "familySheetNo": "2833",
+        "signatureType": "unknown",
+        "triId": "TRI0667"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46097,
+          45.42388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f3c34aebd7",
+        "displayLabel": "Louise LEBERCIER",
+        "surname": "LEBERCIER",
+        "givenName": "Louise",
+        "marriageYear": 1668,
+        "spouse": "Michel FILION (1668)",
+        "mtHaplogroup": "H1n-T146C!,",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000911.php",
+        "familySheetNo": "2951",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2353,
+          46.86984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e29b5a9ab0",
+        "displayLabel": "Anne MICHEL",
+        "surname": "MICHEL",
+        "givenName": "Anne",
+        "marriageYear": 1668,
+        "spouse": "Jacques PAVIOT dit LA PENSÉE (1668); Jean MASSAULT dit SAINT-MARTIN (1674)",
+        "mtHaplogroup": "HV-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/045/045065.php",
+        "familySheetNo": "42489",
+        "signatureType": "unknown",
+        "triId": "TRI0296"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.27347,
+          46.79016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2a10e166e3",
+        "displayLabel": "Jacquette MICHEL",
+        "surname": "MICHEL",
+        "givenName": "Jacquette",
+        "marriageYear": 1668,
+        "spouse": "Jean GARDIN (1668); André MIGNER dit LAGACHETTE (1668)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004520.php",
+        "familySheetNo": "16223",
+        "signatureType": "unknown",
+        "triId": "TRI0069"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.86648,
+          46.35105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cb5385f851",
+        "displayLabel": "Anne POITRAUDE",
+        "surname": "POITRAUDE",
+        "givenName": "Anne",
+        "marriageYear": 1668,
+        "spouse": "René BRUNEAU dit JOLICOEUR (1668)",
+        "mtHaplogroup": "H1ay",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000793.php",
+        "familySheetNo": "2789",
+        "signatureType": "unknown",
+        "triId": "TRI0452"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.92545,
+          46.34238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1e1a823691",
+        "displayLabel": "Marie RENAUD",
+        "surname": "RENAUD",
+        "givenName": "Marie",
+        "marriageYear": 1668,
+        "spouse": "François LEROUX dit CARDINAL (1668)",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001036.php",
+        "familySheetNo": "3110",
+        "signatureType": "unknown",
+        "triId": "TRI0714"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8789,
+          46.14645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7d01ffb35a",
+        "displayLabel": "Marguerite ROBINEAU",
+        "surname": "ROBINEAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1668,
+        "spouse": "Michel GORON dit PETITBOIS (1668)",
+        "mtHaplogroup": "H1e2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000953.php",
+        "familySheetNo": "3361",
+        "signatureType": "unknown",
+        "triId": "TRI0331"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57663,
+          46.24545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e5a3dcc694",
+        "displayLabel": "Charlotte ROUSSEL",
+        "surname": "ROUSSEL",
+        "givenName": "Charlotte",
+        "marriageYear": 1668,
+        "spouse": "Pierre GAUTHIER dit SAGUINGOIRA (1668)",
+        "mtHaplogroup": "HV9",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000933.php",
+        "familySheetNo": "3381",
+        "signatureType": "unknown",
+        "triId": "TRI0963"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64585,
+          46.3309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9d30c3c2f9",
+        "displayLabel": "Catherine THÉRIAULT",
+        "surname": "THÉRIAULT",
+        "givenName": "Catherine",
+        "marriageYear": 1668,
+        "spouse": "Pierre GUILBAULT (1668)",
+        "mtHaplogroup": "H4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/044/044458.php",
+        "familySheetNo": "84038",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.43433,
+          45.41153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5561bb6034",
+        "displayLabel": "Marguerite VAILLANT",
+        "surname": "VAILLANT",
+        "givenName": "Marguerite",
+        "marriageYear": 1668,
+        "spouse": "Jean DAIGNA ou DANIA (1668)",
+        "mtHaplogroup": "X2b-T226C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016057.php",
+        "familySheetNo": "37874",
+        "signatureType": "unknown",
+        "triId": "TRI0638"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48993,
+          46.27655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0306cd72c6",
+        "displayLabel": "Madeleine GAUMOND",
+        "surname": "GAUMOND",
+        "givenName": "Madeleine",
+        "marriageYear": 1668,
+        "spouse": "Jean LANGLOIS (1668); Pierre FRANÇOIS ou LEFRANÇOIS (1670)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003774.php",
+        "familySheetNo": "1002",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80131,
+          47.22194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d03b1d81f7",
+        "displayLabel": "Madeleine GUAY",
+        "surname": "GUAY",
+        "givenName": "Madeleine",
+        "marriageYear": 1668,
+        "spouse": "Jean GARNIER (1668)",
+        "mtHaplogroup": "I3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000929.php",
+        "familySheetNo": "2346",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.36055,
+          46.92962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-27e253bfa8",
+        "displayLabel": "Anne LESEIGNEUR",
+        "surname": "LESEIGNEUR",
+        "givenName": "Anne",
+        "marriageYear": 1668,
+        "spouse": "Jean BESSETTE dit BRISETOUT (1668)",
+        "mtHaplogroup": "H1-T16189C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000751.php",
+        "familySheetNo": "10295",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.15056,
+          46.83804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eb2359a4d1",
+        "displayLabel": "Michelle OUINVILLE",
+        "surname": "OUINVILLE",
+        "givenName": "Michelle",
+        "marriageYear": 1668,
+        "spouse": "Nicolas BARRABÉ (1668); Michel LEMAY (1677); Louis MONTENU (1685)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004166.php",
+        "familySheetNo": "727",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53142,
+          46.31586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-259728d53e",
+        "displayLabel": "Henriette ROUSSEAU",
+        "surname": "ROUSSEAU",
+        "givenName": "Henriette",
+        "marriageYear": 1668,
+        "spouse": "Étienne PAQUET (1668)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001107.php",
+        "familySheetNo": "3358",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97292,
+          47.02939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4443055459",
+        "displayLabel": "Louise LEBERCIER",
+        "surname": "LEBERCIER",
+        "givenName": "Louise",
+        "marriageYear": 1668,
+        "spouse": "Michel FILION",
+        "mtHaplogroup": "H1n-T146C!, H1n-T146C!-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0481.php",
+        "signatureType": "unknown",
+        "triId": "TRI0481"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.62667,
+          46.31523
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1be6ad301c",
+        "displayLabel": "Marie ARCULAR",
+        "surname": "ARCULAR",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Claude LEFEBVRE (1669); Pierre LEJAMBLE (1692)",
+        "mtHaplogroup": "J2a1a1a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004310.php",
+        "familySheetNo": "1021",
+        "signatureType": "unknown",
+        "triId": "TRI0438"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42369,
+          46.25704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-38a0fd3b40",
+        "displayLabel": "Marie BARBANT",
+        "surname": "BARBANT",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Jean de LALONDE dit L'ESPÉRANCE (1669); Pierre TABEAU dit LE PETIT LÉVEILLÉ (1688)",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004666.php",
+        "familySheetNo": "992",
+        "signatureType": "unknown",
+        "triId": "TRI0886"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77258,
+          47.10411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8b3190bf02",
+        "displayLabel": "Marie BARDOU ou BARDEAU",
+        "surname": "BARDOU ou BARDEAU",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Nicolas PRUNIER dit PICART et LE GRAND PICARD (1669); Mathurin DROUET dit GRANDMAISON (1669)",
+        "mtHaplogroup": "H3k",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004433.php",
+        "familySheetNo": "42829",
+        "signatureType": "unknown",
+        "triId": "TRI0709"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.28736,
+          46.85092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dfae512ad4",
+        "displayLabel": "Jeanne BERNARD",
+        "surname": "BERNARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1669,
+        "spouse": "Jacques TUILLIER dit DESVIGNETS (1669)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001222.php",
+        "familySheetNo": "3603",
+        "signatureType": "unknown",
+        "triId": "TRI0960"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.95581,
+          46.3511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7bfb9f7a3d",
+        "displayLabel": "Françoise BOIVIN",
+        "surname": "BOIVIN",
+        "givenName": "Françoise",
+        "marriageYear": 1669,
+        "spouse": "Louis LAMOUREUX (1669)",
+        "mtHaplogroup": "H1a3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010510.php",
+        "familySheetNo": "5544",
+        "signatureType": "unknown",
+        "triId": "TRI0302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84679,
+          46.3222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-382e7c6594",
+        "displayLabel": "Marguerite CHEMEREAU",
+        "surname": "CHEMEREAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1669,
+        "spouse": "Jean PIETTE (1669)",
+        "mtHaplogroup": "U4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010506.php",
+        "familySheetNo": "7325",
+        "signatureType": "unknown",
+        "triId": "TRI0687"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.71967,
+          47.06996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-07cc93400a",
+        "displayLabel": "Martine CRONIER",
+        "surname": "CRONIER",
+        "givenName": "Martine",
+        "marriageYear": 1669,
+        "spouse": "Philippe DESTROISMAISONS (1669)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000871.php",
+        "familySheetNo": "2900",
+        "signatureType": "unknown",
+        "triId": "TRI0027"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.56186,
+          46.42747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-358b71f90f",
+        "displayLabel": "Françoise CURÉ",
+        "surname": "CURÉ",
+        "givenName": "Françoise",
+        "marriageYear": 1669,
+        "spouse": "Lucas LOISEAU (1669)",
+        "mtHaplogroup": "H11a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001043.php",
+        "familySheetNo": "2472",
+        "signatureType": "unknown",
+        "triId": "TRI0174"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.96662,
+          46.28838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6491655744",
+        "displayLabel": "Marie DAMOIS",
+        "surname": "DAMOIS",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Léonard FAUCHER dit SAINT-MAURICE (1669)",
+        "mtHaplogroup": "H6a1a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000906.php",
+        "familySheetNo": "2944",
+        "signatureType": "unknown",
+        "triId": "TRI0846"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.77104,
+          47.15196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-389ea0dee7",
+        "displayLabel": "Françoise DÉFOSSÉ",
+        "surname": "DÉFOSSÉ",
+        "givenName": "Françoise",
+        "marriageYear": 1669,
+        "spouse": "Jacques BIDET dit ROUSSEL (1669)",
+        "mtHaplogroup": "T2b5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000753.php",
+        "familySheetNo": "2182",
+        "signatureType": "unknown",
+        "triId": "TRI0416"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.96653,
+          47.14385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0e1a5228a0",
+        "displayLabel": "Anne DEGUAIN",
+        "surname": "DEGUAIN",
+        "givenName": "Anne",
+        "marriageYear": 1669,
+        "spouse": "François LAREAU (1669)",
+        "mtHaplogroup": "H1c4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001006.php",
+        "familySheetNo": "3068",
+        "signatureType": "unknown",
+        "triId": "TRI0847"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.12255,
+          46.70221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fc797ca0fe",
+        "displayLabel": "Marie DESHAIES",
+        "surname": "DESHAIES",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Adrien BÉTOURNAY de et dit LAVIOLETTE (1669)",
+        "mtHaplogroup": "I1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016258.php",
+        "familySheetNo": "87033",
+        "signatureType": "unknown",
+        "triId": "TRI0455"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.02429,
+          47.00661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7a81065fa6",
+        "displayLabel": "Françoise DESPORTES",
+        "surname": "DESPORTES",
+        "givenName": "Françoise",
+        "marriageYear": 1669,
+        "spouse": "François DANIAU (1669); Pierre RENAUD ou ARNAUD dit LOCAS (1669)",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004477.php",
+        "familySheetNo": "848",
+        "signatureType": "unknown",
+        "triId": "TRI0767"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.15808,
+          46.71285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-83db888438",
+        "displayLabel": "Anne DODIN",
+        "surname": "DODIN",
+        "givenName": "Anne",
+        "marriageYear": 1669,
+        "spouse": "Jean MOUFLET dit CHAMPAGNE (1669)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001093.php",
+        "familySheetNo": "3188",
+        "signatureType": "unknown",
+        "triId": "TRI0496"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88666,
+          46.3445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-76a96a4c02",
+        "displayLabel": "Ambroise DOIGT",
+        "surname": "DOIGT",
+        "givenName": "Ambroise",
+        "marriageYear": 1669,
+        "spouse": "Jacques MIGNIER puis MAIGNEN et MAGNAN (1669)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001076.php",
+        "familySheetNo": "3459",
+        "signatureType": "unknown",
+        "triId": "TRI0396"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90521,
+          46.99275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f1c6b6227",
+        "displayLabel": "Barbe DORANGE",
+        "surname": "DORANGE",
+        "givenName": "Barbe",
+        "marriageYear": 1669,
+        "spouse": "Jacques TARDIF (1669)",
+        "mtHaplogroup": "H13a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001200.php",
+        "familySheetNo": "2647",
+        "signatureType": "unknown",
+        "triId": "TRI0543"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.56771,
+          45.43699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-23dde96bae",
+        "displayLabel": "Élisabeth DROUET",
+        "surname": "DROUET",
+        "givenName": "Élisabeth",
+        "marriageYear": 1669,
+        "spouse": "Vivien JEAN (1669)",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042063.php",
+        "familySheetNo": "6244",
+        "signatureType": "unknown",
+        "triId": "TRI0294"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34789,
+          46.75755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b7de865088",
+        "displayLabel": "Marie GAILLARD",
+        "surname": "GAILLARD",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Jean PERRIER ou POIRIER dit LAFLEUR (1669); Jean SABOURIN (1682)",
+        "mtHaplogroup": "L1b1a-A189G",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004636.php",
+        "familySheetNo": "1125",
+        "signatureType": "unknown",
+        "triId": "TRI0848"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84655,
+          46.26968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-259615b092",
+        "displayLabel": "Léonarde GENEST",
+        "surname": "GENEST",
+        "givenName": "Léonarde",
+        "marriageYear": 1669,
+        "spouse": "Guillaume FAGOT (1669); Noël CARDIN (1669); Pierre LOISEAU dit FRANCOEUR (1671)",
+        "mtHaplogroup": "H3g1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004184.php",
+        "familySheetNo": "905",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.81792,
+          46.21868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3336339ba8",
+        "displayLabel": "Pierrette HALLIER ou ALLIER",
+        "surname": "HALLIER ou ALLIER",
+        "givenName": "Pierrette",
+        "marriageYear": 1669,
+        "spouse": "Antoine BORDELEAU dit LAFOREST (1669) (1669)",
+        "mtHaplogroup": "U4b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000771.php",
+        "familySheetNo": "2759",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22905,
+          46.91294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c5c7e28a0f",
+        "displayLabel": "Jeanne LABBÉ",
+        "surname": "LABBÉ",
+        "givenName": "Jeanne",
+        "marriageYear": 1669,
+        "spouse": "Pierre MERCIER (1669); Jean ÉLIE dit BRETON (1669)",
+        "mtHaplogroup": "H1bm",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003811.php",
+        "familySheetNo": "1068",
+        "signatureType": "unknown",
+        "triId": "TRI0527"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.31609,
+          46.75617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d793e2277a",
+        "displayLabel": "Denise LECLERC",
+        "surname": "LECLERC",
+        "givenName": "Denise",
+        "marriageYear": 1669,
+        "spouse": "Claude DELOMÉ ou DELAUNAY (1669); Marin DALERET ou DALLERAY (1703)",
+        "mtHaplogroup": "U5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004547.php",
+        "familySheetNo": "860",
+        "signatureType": "unknown",
+        "triId": "TRI0591"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.47944,
+          45.49646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b208937845",
+        "displayLabel": "Barbe LEFEBVRE dit LACROIX",
+        "surname": "LEFEBVRE dit LACROIX",
+        "givenName": "Barbe",
+        "marriageYear": 1669,
+        "spouse": "Mathurin GOYER dit LAVIOLETTE (1669)",
+        "mtHaplogroup": "H4a1a3a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000956.php",
+        "familySheetNo": "3583",
+        "signatureType": "unknown",
+        "triId": "TRI0696"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.94642,
+          47.19858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4d8feaccd5",
+        "displayLabel": "Marie LEMAIRE",
+        "surname": "LEMAIRE",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Pierre RATELLE (1669)",
+        "mtHaplogroup": "U2e1h",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001147.php",
+        "familySheetNo": "2589",
+        "signatureType": "unknown",
+        "triId": "TRI0124"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04543,
+          47.07495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b8f1b038f1",
+        "displayLabel": "Marie MARCHESSEAU",
+        "surname": "MARCHESSEAU",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Pierre BOUTIN (1669); Jean MICHEL ou MICHAUD (1670)",
+        "mtHaplogroup": "U5a1b1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004558.php",
+        "familySheetNo": "16438",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.69236,
+          46.25193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-513b035f2c",
+        "displayLabel": "Marguerite NAVARRE",
+        "surname": "NAVARRE",
+        "givenName": "Marguerite",
+        "marriageYear": 1669,
+        "spouse": "Étienne ROY (1669)",
+        "mtHaplogroup": "U5a2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001179.php",
+        "familySheetNo": "2620",
+        "signatureType": "unknown",
+        "triId": "TRI0282"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2508,
+          46.69808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b85855926a",
+        "displayLabel": "Agnès OLIVIER",
+        "surname": "OLIVIER",
+        "givenName": "Agnès",
+        "marriageYear": 1669,
+        "spouse": "Louis CIVADIER (1669)",
+        "mtHaplogroup": "T2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000825.php",
+        "familySheetNo": "2836",
+        "signatureType": "unknown",
+        "triId": "TRI0349"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.50406,
+          45.38714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-86444cf719",
+        "displayLabel": "Catherine POITEVIN",
+        "surname": "POITEVIN",
+        "givenName": "Catherine",
+        "marriageYear": 1669,
+        "spouse": "Adrien ISABELLE (1669); Jean BOURASSA (1676)",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004165.php",
+        "familySheetNo": "980",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.49903,
+          46.31838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2253d39a30",
+        "displayLabel": "Marie ROGUE ou VOYER",
+        "surname": "ROGUE ou VOYER",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Louis CHIRON (1669)",
+        "mtHaplogroup": "U4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000821.php",
+        "familySheetNo": "2256",
+        "signatureType": "unknown",
+        "triId": "TRI0354"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.53495,
+          45.5641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e14359c822",
+        "displayLabel": "Aimée ROUX",
+        "surname": "ROUX",
+        "givenName": "Aimée",
+        "marriageYear": 1669,
+        "spouse": "Vincent VERDON (1669); François FLEURY (1669); Aimard TINON dit DESLAURIERS (1670)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004403.php",
+        "familySheetNo": "1229",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.90882,
+          46.36322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f1298ee549",
+        "displayLabel": "Nicole SAULNIER",
+        "surname": "SAULNIER",
+        "givenName": "Nicole",
+        "marriageYear": 1669,
+        "spouse": "Jean BROCHU (1669)",
+        "mtHaplogroup": "X2c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000788.php",
+        "familySheetNo": "2784",
+        "signatureType": "unknown",
+        "triId": "TRI0303"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89713,
+          46.1274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a95d62f45e",
+        "displayLabel": "Jeanne SEDERAY",
+        "surname": "SEDERAY",
+        "givenName": "Jeanne",
+        "marriageYear": 1669,
+        "spouse": "Pierre PICARD (1669)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001122.php",
+        "familySheetNo": "2561",
+        "signatureType": "unknown",
+        "triId": "TRI0612"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.8473,
+          47.12777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cbddc72ae8",
+        "displayLabel": "Marie BONHEUR",
+        "surname": "BONHEUR",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Pierre NEVEU (1669); Paul INARD dit PROVENÇAL (1669)",
+        "mtHaplogroup": "I5a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004852.php",
+        "familySheetNo": "3638",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.01696,
+          46.1933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dbb4a87e2f",
+        "displayLabel": "Renée CHANFRAIN",
+        "surname": "CHANFRAIN",
+        "givenName": "Renée",
+        "marriageYear": 1669,
+        "spouse": "Pierre GARAND (1669)",
+        "mtHaplogroup": "J1c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000925.php",
+        "familySheetNo": "2341",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44928,
+          45.55399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eb80338423",
+        "displayLabel": "Marie COIGNARD",
+        "surname": "COIGNARD",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Robert GERMAIN (1669)",
+        "mtHaplogroup": "T1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000943.php",
+        "familySheetNo": "2363",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.51279,
+          45.3849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9dd5a10b7f",
+        "displayLabel": "Madeleine GROLEAU",
+        "surname": "GROLEAU",
+        "givenName": "Madeleine",
+        "marriageYear": 1669,
+        "spouse": "François MARCHAND (1669); Michel MAILLOUX (1702)",
+        "mtHaplogroup": "U5a2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003792.php",
+        "familySheetNo": "1052",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73676,
+          46.28238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a06786a84f",
+        "displayLabel": "Jeanne GUIBERGE",
+        "surname": "GUIBERGE",
+        "givenName": "Jeanne",
+        "marriageYear": 1669,
+        "spouse": "Pierre CABASSIER (1669)",
+        "mtHaplogroup": "H6a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000799.php",
+        "familySheetNo": "2224",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24792,
+          46.69234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b5f2f67c09",
+        "displayLabel": "Charlotte JOLY",
+        "surname": "JOLY",
+        "givenName": "Charlotte",
+        "marriageYear": 1669,
+        "spouse": "Antoine DRAPEAU (1669)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000876.php",
+        "familySheetNo": "3461",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44671,
+          45.41564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c0b92f5b8f",
+        "displayLabel": "Marie JOUSSELOT",
+        "surname": "JOUSSELOT",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "René GERVAIS (1669)",
+        "mtHaplogroup": "H1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000946.php",
+        "familySheetNo": "2988",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.85014,
+          46.99988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9c0e1c7cef",
+        "displayLabel": "Suzanne LACROIX (de)",
+        "surname": "LACROIX (de)",
+        "givenName": "Suzanne",
+        "marriageYear": 1669,
+        "spouse": "Guillaume BERTRAND (1669); Jacques SAVARIA (1672)",
+        "mtHaplogroup": "K1b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004397.php",
+        "familySheetNo": "750",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14608,
+          46.77655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-31c641bad5",
+        "displayLabel": "Antoinette LEGRAND",
+        "surname": "LEGRAND",
+        "givenName": "Antoinette",
+        "marriageYear": 1669,
+        "spouse": "Nicolas PRUNIER dit PICART et LE GRAND PICARD (1669); Thomas NEVEU dit LACROIX (1693)",
+        "mtHaplogroup": "U2e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003839.php",
+        "familySheetNo": "1140",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.58491,
+          46.43962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6db230de0c",
+        "displayLabel": "Marie PELLETIER",
+        "surname": "PELLETIER",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Mathurin RENAUD (1669); Pierre CANARD (1677); Jean JOUBERT (1703)",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003903.php",
+        "familySheetNo": "1155",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.48337,
+          45.467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b4afdc80cd",
+        "displayLabel": "Anne PERRAULT",
+        "surname": "PERRAULT",
+        "givenName": "Anne",
+        "marriageYear": 1669,
+        "spouse": "Pierre BLAIS (1669)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000758.php",
+        "familySheetNo": "2748",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47058,
+          46.23555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-96fc67e47b",
+        "displayLabel": "Marie PETIT",
+        "surname": "PETIT",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Louis DELISLE (1669); Christophe LAURENT dit CHAMPAGNE (1669); Jean COITOU dit SAINT-JEAN (1677)",
+        "mtHaplogroup": "K1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004157.php",
+        "familySheetNo": "3637",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30795,
+          46.81962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c9827c1e81",
+        "displayLabel": "Françoise PILOY",
+        "surname": "PILOY",
+        "givenName": "Françoise",
+        "marriageYear": 1669,
+        "spouse": "André BRESA ou BARSA dit LAFLEUR (1669)",
+        "mtHaplogroup": "X2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000785.php",
+        "familySheetNo": "3436",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.76778,
+          46.30695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-742c4d4767",
+        "displayLabel": "Catherine SURET",
+        "surname": "SURET",
+        "givenName": "Catherine",
+        "marriageYear": 1669,
+        "spouse": "Nicolas FACHE (1669)",
+        "mtHaplogroup": "J1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/000/000903.php",
+        "familySheetNo": "2319",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.51296,
+          45.53355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7c21120b9a",
+        "displayLabel": "Anne TROLLEAU dit GIRAUD",
+        "surname": "TROLLEAU dit GIRAUD",
+        "givenName": "Anne",
+        "marriageYear": 1669,
+        "spouse": "Vivien JEAN (1669); Mathurin GAUTHIER (1669)",
+        "mtHaplogroup": "I",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004823.php",
+        "familySheetNo": "116386",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.69575,
+          46.2361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5be6a3efda",
+        "displayLabel": "Marie BOILEAU",
+        "surname": "BOILEAU",
+        "givenName": "Marie",
+        "marriageYear": 1669,
+        "spouse": "Simon CHAMBERLAN",
+        "mtHaplogroup": "H3c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0568.php",
+        "signatureType": "unknown",
+        "triId": "TRI0568"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97973,
+          47.19316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f0d42a4ad6",
+        "displayLabel": "Mathilde ..",
+        "surname": "..",
+        "givenName": "Mathilde",
+        "marriageYear": 1670,
+        "spouse": "Jean Vincent d'ABBADIE de SAINT-CASTIN (1670)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085710.php",
+        "familySheetNo": "85711",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.83936,
+          46.29302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-27c2d5a09c",
+        "displayLabel": "Élisabeth AUBERT",
+        "surname": "AUBERT",
+        "givenName": "Élisabeth",
+        "marriageYear": 1670,
+        "spouse": "Aubin LAMBERT dit CHAMPAGNE (1670)",
+        "mtHaplogroup": "J1c1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001536.php",
+        "familySheetNo": "3061",
+        "signatureType": "unknown",
+        "triId": "TRI0074"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.88684,
+          47.00106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8de4eddc34",
+        "displayLabel": "Jeanne BARBIER",
+        "surname": "BARBIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Bernard CHAPELAIN (1670); Julien PLUMEREAU dit LATREILLE (1670); François HABELIN ou BLAIN (1681)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003678.php",
+        "familySheetNo": "1358",
+        "signatureType": "unknown",
+        "triId": "TRI0320"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.72401,
+          46.15815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-725d2dcea0",
+        "displayLabel": "Françoise BRUN",
+        "surname": "BRUN",
+        "givenName": "Françoise",
+        "marriageYear": 1670,
+        "spouse": "Bernard BOURG (1670)",
+        "mtHaplogroup": "H13a1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/044/044189.php",
+        "familySheetNo": "46444",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.19909,
+          46.81592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0d40763160",
+        "displayLabel": "Marie BUOT",
+        "surname": "BUOT",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Pierre MARTIN (1670)",
+        "mtHaplogroup": "H1q",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001597.php",
+        "familySheetNo": "3149",
+        "signatureType": "unknown",
+        "triId": "TRI0545"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.03263,
+          47.01939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-492a0fcd05",
+        "displayLabel": "Madeleine CHRÉTIEN",
+        "surname": "CHRÉTIEN",
+        "givenName": "Madeleine",
+        "marriageYear": 1670,
+        "spouse": "Pierre CHICOINE de BELLEVUE (1670); Louis Odet de PIERRECOT de FRANQUE de BAILLEUL (1702)",
+        "mtHaplogroup": "T2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003722.php",
+        "familySheetNo": "1369",
+        "signatureType": "unknown",
+        "triId": "TRI0710"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.37272,
+          46.89711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e90f61959a",
+        "displayLabel": "Marie CHRÉTIEN",
+        "surname": "CHRÉTIEN",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Paul PERRAULT dit LAGORCE (1670)",
+        "mtHaplogroup": "J1c3f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001665.php",
+        "familySheetNo": "3217",
+        "signatureType": "unknown",
+        "triId": "TRI0882"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47215,
+          46.30036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-64fffe825c",
+        "displayLabel": "Marguerite COLLET",
+        "surname": "COLLET",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "Jacques BISSONNETTE (1670)",
+        "mtHaplogroup": "H1bd",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001295.php",
+        "familySheetNo": "2746",
+        "signatureType": "unknown",
+        "triId": "TRI0468"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.92217,
+          47.20103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-90cc92727e",
+        "displayLabel": "Madeleine DESPRÉS",
+        "surname": "DESPRÉS",
+        "givenName": "Madeleine",
+        "marriageYear": 1670,
+        "spouse": "Nicolas AUDET dit LAPOINTE (1670)",
+        "mtHaplogroup": "H5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001253.php",
+        "familySheetNo": "2696",
+        "signatureType": "unknown",
+        "triId": "TRI0631"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53877,
+          46.362
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3ff83f267b",
+        "displayLabel": "Marie DUBOIS",
+        "surname": "DUBOIS",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Pierre ROULEAU (1670); Michel BROUILLET dit LAVIOLETTE (1670)",
+        "mtHaplogroup": "H3-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004419.php",
+        "familySheetNo": "1718",
+        "signatureType": "unknown",
+        "triId": "TRI0883"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01875,
+          47.14554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-56bd7fbe10",
+        "displayLabel": "Marie DUCOUDRAY",
+        "surname": "DUCOUDRAY",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Jean JOUANNE ou JOANNE (1670); Robert GALLIEN (1670); François GRENET (1670)",
+        "mtHaplogroup": "K2a7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003754.php",
+        "familySheetNo": "3647",
+        "signatureType": "unknown",
+        "triId": "TRI0252"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20258,
+          46.69428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-55aa09d910",
+        "displayLabel": "Jeanne FRESEL",
+        "surname": "FRESEL",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Étienne JACOB (1670)",
+        "mtHaplogroup": "K1a-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001517.php",
+        "familySheetNo": "3032",
+        "signatureType": "unknown",
+        "triId": "TRI0350"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.41702,
+          46.35487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f329a7144b",
+        "displayLabel": "Anne GALAIS",
+        "surname": "GALAIS",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Michel HÉBERT ou HUBERT dit LAVERDURE (1670)",
+        "mtHaplogroup": "U5a1i1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001507.php",
+        "familySheetNo": "3016",
+        "signatureType": "unknown",
+        "triId": "TRI0969"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70327,
+          46.25629
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0136208c36",
+        "displayLabel": "Marie GRANDIN",
+        "surname": "GRANDIN",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Jean BAUDET (1670)",
+        "mtHaplogroup": "H3ac",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001269.php",
+        "familySheetNo": "2712",
+        "signatureType": "unknown",
+        "triId": "TRI0135"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23038,
+          46.77292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-564953db29",
+        "displayLabel": "Marie HALLÉ",
+        "surname": "HALLÉ",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Auffray COULON dit MABRIAND (1670); Bertrand COURTOIS dit LE BRETON (1671)",
+        "mtHaplogroup": "J1c5b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004826.php",
+        "familySheetNo": "4023",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.68539,
+          45.6019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-74fc846d26",
+        "displayLabel": "Marie Madeleine ou Marie Louise HÉBERT",
+        "surname": "HÉBERT",
+        "givenName": "Marie Madeleine ou Marie Louise",
+        "marriageYear": 1670,
+        "spouse": "Denis BROSSEAU (1670)",
+        "mtHaplogroup": "H6a1b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001332.php",
+        "familySheetNo": "2218",
+        "signatureType": "unknown",
+        "triId": "TRI0337"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.00032,
+          47.13873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-efe800c45d",
+        "displayLabel": "Marie HUBERT",
+        "surname": "HUBERT",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Nicolas FOURNIER (1670); Jean GACHEL (1691)",
+        "mtHaplogroup": "U5a1f1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004349.php",
+        "familySheetNo": "1461",
+        "signatureType": "unknown",
+        "triId": "TRI0590"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97572,
+          46.19882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2e0d227181",
+        "displayLabel": "Anne LAGOUE",
+        "surname": "LAGOUE",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Pierre VALLIÈRE (1670); Rémi DUPIL (1682)",
+        "mtHaplogroup": "H3s",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004492.php",
+        "familySheetNo": "1759",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46757,
+          45.56568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-085458b65d",
+        "displayLabel": "Jeanne LECOQ",
+        "surname": "LECOQ",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Guillaume DUBEAU (1670); Martin MOREAU (1672); Jean FORTUNAT dit LAVERDURE (1689)",
+        "mtHaplogroup": "T2a1a8",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004163.php",
+        "familySheetNo": "1428",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91057,
+          47.14468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2b34e3dfee",
+        "displayLabel": "Élisabeth Agnès LEFEBVRE",
+        "surname": "LEFEBVRE",
+        "givenName": "Élisabeth Agnès",
+        "marriageYear": 1670,
+        "spouse": "Nicolas NAUTEAU (1670); François THIBAULT (1670)",
+        "mtHaplogroup": "U4c2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004662.php",
+        "familySheetNo": "1642",
+        "signatureType": "unknown",
+        "triId": "TRI0321"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.88304,
+          47.14808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6d1be59c63",
+        "displayLabel": "Marie Anne LEFEBVRE",
+        "surname": "LEFEBVRE",
+        "givenName": "Marie Anne",
+        "marriageYear": 1670,
+        "spouse": "Étienne COMEAU (1670)",
+        "mtHaplogroup": "X2b7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086151.php",
+        "familySheetNo": "37793",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.45769,
+          45.49273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a9a4fb7695",
+        "displayLabel": "Catherine LEROUX",
+        "surname": "LEROUX",
+        "givenName": "Catherine",
+        "marriageYear": 1670,
+        "spouse": "Nicolas GOULET (1670); René GOULET (1670)",
+        "mtHaplogroup": "HV-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004331.php",
+        "familySheetNo": "4039",
+        "signatureType": "unknown",
+        "triId": "TRI0892"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.79498,
+          47.20614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e1a4e275e4",
+        "displayLabel": "Anne LEROY",
+        "surname": "LEROY",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Nicolas BOUCHARD (1670); Claude GUIMOND (1685)",
+        "mtHaplogroup": "H3-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004621.php",
+        "familySheetNo": "1313",
+        "signatureType": "unknown",
+        "triId": "TRI0697"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46774,
+          46.318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4945ede381",
+        "displayLabel": "Jeanne LEROY",
+        "surname": "LEROY",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Étienne BONNET dit LAFORTUNE (1670); Jean PELADEAU dit SAINT-JEAN (1670)",
+        "mtHaplogroup": "J1c3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004577.php",
+        "familySheetNo": "1308",
+        "signatureType": "unknown",
+        "triId": "TRI0703"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20285,
+          46.81057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-da79437e55",
+        "displayLabel": "Marie ou Louise MICHAUD",
+        "surname": "MICHAUD",
+        "givenName": "Marie ou Louise",
+        "marriageYear": 1670,
+        "spouse": "Jean DANIAU ou DAGNEAU dit LAPRISE (1670)",
+        "mtHaplogroup": "H1n5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001395.php",
+        "familySheetNo": "2867",
+        "signatureType": "unknown",
+        "triId": "TRI0073"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.62954,
+          45.47277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30c537cc95",
+        "displayLabel": "Françoise MICHEL",
+        "surname": "MICHEL",
+        "givenName": "Françoise",
+        "marriageYear": 1670,
+        "spouse": "Gilles DUPONT (1670); Jean LECART dit LARIVIÈRE (1684); Paul HUBERT (1685)",
+        "mtHaplogroup": "H1n5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004270.php",
+        "familySheetNo": "1395",
+        "signatureType": "unknown",
+        "triId": "TRI0073"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.00732,
+          46.16775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-864951eeea",
+        "displayLabel": "Marguerite Françoise MOREAU",
+        "surname": "MOREAU",
+        "givenName": "Marguerite Françoise",
+        "marriageYear": 1670,
+        "spouse": "Mathieu FAILLE ou FAYE dit LAFAYETTE (1670); Jean LEFORT dit LAPRAIRIE (1696)",
+        "mtHaplogroup": "K2a7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004598.php",
+        "familySheetNo": "223410",
+        "signatureType": "unknown",
+        "triId": "TRI0388"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.75161,
+          47.08135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ed2f410667",
+        "displayLabel": "Marguerite PAQUET",
+        "surname": "PAQUET",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "François BIVILLE dit PICARD (1670); Bernard GONTHIER (1676)",
+        "mtHaplogroup": "I2d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003207.php",
+        "familySheetNo": "118774",
+        "signatureType": "unknown",
+        "triId": "TRI0143"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.60167,
+          46.22821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9a5ff7f21f",
+        "displayLabel": "Marie Marthe PAYEN",
+        "surname": "PAYEN",
+        "givenName": "Marie Marthe",
+        "marriageYear": 1670,
+        "spouse": "Paul TACONNET dit LAFOREST (1670); Mathurin CORNEAU (1670)",
+        "mtHaplogroup": "K1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004587.php",
+        "familySheetNo": "1739",
+        "signatureType": "unknown",
+        "triId": "TRI0389"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.12905,
+          46.86884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-38453edc89",
+        "displayLabel": "Anne POITRON",
+        "surname": "POITRON",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Pierre MARTIN (1670); Jean Baptiste VERGER dit DESJARDINS (1674); Charles DESMARAIS (1703)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004169.php",
+        "familySheetNo": "1598",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04696,
+          47.01996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5fb6c770fd",
+        "displayLabel": "Marguerite RAISIN",
+        "surname": "RAISIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "Bernard DENIGER dit SANSOUCY (1670)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010499.php",
+        "familySheetNo": "8076",
+        "signatureType": "unknown",
+        "triId": "TRI0437"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.53183,
+          46.24694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-acbadfda91",
+        "displayLabel": "Jeanne ROSSIGNOL",
+        "surname": "ROSSIGNOL",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Charles PETIT (1670); Jean FORGET (1674); Urbain FOUCRO ou FOUQUEREAU dit URBAIN (1676); François HUARD (1704)",
+        "mtHaplogroup": "HV1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003928.php",
+        "familySheetNo": "1667",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.92688,
+          46.24597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1ccb17a1db",
+        "displayLabel": "Élisabeth SALÉ",
+        "surname": "SALÉ",
+        "givenName": "Élisabeth",
+        "marriageYear": 1670,
+        "spouse": "Jacques MARCOT (1670)",
+        "mtHaplogroup": "H1aa",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001592.php",
+        "familySheetNo": "3143",
+        "signatureType": "unknown",
+        "triId": "TRI0964"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34526,
+          46.92309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2f40dcdb40",
+        "displayLabel": "Jeanne SAVONET",
+        "surname": "SAVONET",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Jean SOUCY dit LA VIGNE (1670); Damien BÉRUBÉ (1679); François MIVILLE (1692)",
+        "mtHaplogroup": "U2e1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004151.php",
+        "familySheetNo": "4145",
+        "signatureType": "unknown",
+        "triId": "TRI0664"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.41292,
+          46.28892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0805690cfe",
+        "displayLabel": "Catherine SENÉCAL",
+        "surname": "SENÉCAL",
+        "givenName": "Catherine",
+        "marriageYear": 1670,
+        "spouse": "Jean de LAFOND (1670)",
+        "mtHaplogroup": "H24a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001532.php",
+        "familySheetNo": "188",
+        "signatureType": "unknown",
+        "triId": "TRI0916"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82497,
+          46.15787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-56f4a4944d",
+        "displayLabel": "Anne TALBOT",
+        "surname": "TALBOT",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Jean BAROLLEAU (1670); Jean GAREAU (1670)",
+        "mtHaplogroup": "H27f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003940.php",
+        "familySheetNo": "1267",
+        "signatureType": "unknown",
+        "triId": "TRI0343"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67291,
+          45.51863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-667669465d",
+        "displayLabel": "Madeleine THIBIERGE",
+        "surname": "THIBIERGE",
+        "givenName": "Madeleine",
+        "marriageYear": 1670,
+        "spouse": "Pierre de SAINT-DENIS (1670)",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001725.php",
+        "familySheetNo": "2623",
+        "signatureType": "unknown",
+        "triId": "TRI0436"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26,
+          46.71401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-75808e40fd",
+        "displayLabel": "Martine TORD ou TAVREY",
+        "surname": "TORD ou TAVREY",
+        "givenName": "Martine",
+        "marriageYear": 1670,
+        "spouse": "Pierre SASSEVILLE (1670); Nicolas MARCOT (1670)",
+        "mtHaplogroup": "H2a1-T146C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003944.php",
+        "familySheetNo": "3639",
+        "signatureType": "unknown",
+        "triId": "TRI0699"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.18951,
+          46.89388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4d779f4c68",
+        "displayLabel": "Marie BARIL",
+        "surname": "BARIL",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "François SAUVIN dit LAROSE (1670)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001730.php",
+        "familySheetNo": "2629",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.93065,
+          47.04065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bf659caa83",
+        "displayLabel": "Louise BOISDON",
+        "surname": "BOISDON",
+        "givenName": "Louise",
+        "marriageYear": 1670,
+        "spouse": "Claude POTHIER (1670)",
+        "mtHaplogroup": "H1ak1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003633.php",
+        "familySheetNo": "3663",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.02959,
+          46.99791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-221e96397a",
+        "displayLabel": "Marie Claude CHAMOIS",
+        "surname": "CHAMOIS",
+        "givenName": "Marie Claude",
+        "marriageYear": 1670,
+        "spouse": "Pierre FORCIER (1670); François FRIGON (1674)",
+        "mtHaplogroup": "T2e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004442.php",
+        "familySheetNo": "1453",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.63307,
+          45.59623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3a332802df",
+        "displayLabel": "Marie DEVEAU",
+        "surname": "DEVEAU",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Antoine ÉMERY dit CODERRE (1670)",
+        "mtHaplogroup": "U5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001440.php",
+        "familySheetNo": "2939",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25682,
+          46.6978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b261faf86d",
+        "displayLabel": "Anne FOUBERT",
+        "surname": "FOUBERT",
+        "givenName": "Anne",
+        "marriageYear": 1670,
+        "spouse": "Pierre BOISSEAU de BELLEVUE (1670)",
+        "mtHaplogroup": "U4b1a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001302.php",
+        "familySheetNo": "2752",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45358,
+          46.23633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a046bf29a0",
+        "displayLabel": "Marguerite JASSELIN ou JOSSELIN",
+        "surname": "JASSELIN ou JOSSELIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "Robert GAUMOND (1670); François de CHAVIGNY de LACHEVROTIÈRE (1674); Mathurin LELIÈVRE (1676); Nicolas LEMOINE (1684); Pierre SOUDAIN dit LATULIPPE (1718)",
+        "mtHaplogroup": "T2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004368.php",
+        "familySheetNo": "4035",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.41049,
+          45.47375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1bb9011e3a",
+        "displayLabel": "Élisabeth JOSSARD",
+        "surname": "JOSSARD",
+        "givenName": "Élisabeth",
+        "marriageYear": 1670,
+        "spouse": "Jean Baptiste de POTIER du BUISSON (1670)",
+        "mtHaplogroup": "T2f1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001678.php",
+        "familySheetNo": "3363",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.50861,
+          46.36354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b6673af606",
+        "displayLabel": "Jeanne JOUSSELOT",
+        "surname": "JOUSSELOT",
+        "givenName": "Jeanne",
+        "marriageYear": 1670,
+        "spouse": "Jacques MASSON (1670); Nicolas MENANTEAU (1677)",
+        "mtHaplogroup": "H1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003809.php",
+        "familySheetNo": "1602",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.449,
+          45.58947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-058fe2af29",
+        "displayLabel": "Jacqueline LABBÉ",
+        "surname": "LABBÉ",
+        "givenName": "Jacqueline",
+        "marriageYear": 1670,
+        "spouse": "Mathurin COLIN dit LALIBERTÉ (1670)",
+        "mtHaplogroup": "J1c2t",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010521.php",
+        "familySheetNo": "5941",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34156,
+          46.91926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-54ce2e692a",
+        "displayLabel": "Marguerite LAMAIN",
+        "surname": "LAMAIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "Michel ROGNON dit LAROCHE (1670); Pierre MERCIER (1685)",
+        "mtHaplogroup": "U2e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003814.php",
+        "familySheetNo": "1717",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7975,
+          46.19156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ced2d667f0",
+        "displayLabel": "Élisabeth ou Marie LEMARCHAND",
+        "surname": "LEMARCHAND",
+        "givenName": "Élisabeth ou Marie",
+        "marriageYear": 1670,
+        "spouse": "Sylvain VEAU (1670); Pierre COEUR dit JOLICOEUR (1670)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003848.php",
+        "familySheetNo": "3646",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67126,
+          46.30389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bd07006ed3",
+        "displayLabel": "Marguerite OZOU ou HOUSSEAU",
+        "surname": "OZOU ou HOUSSEAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1670,
+        "spouse": "Jean MEUNIER (1670)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001615.php",
+        "familySheetNo": "209",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6148,
+          45.38364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-998c79b88f",
+        "displayLabel": "Mathilde (Amérindienne/Native) ..",
+        "surname": "..",
+        "givenName": "Mathilde (Amérindienne/Native)",
+        "marriageYear": 1670,
+        "spouse": "Jean Vincent ABBADIE de SAINT-CASTIN (d')",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0494.php",
+        "signatureType": "unknown",
+        "triId": "TRI0494"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.27607,
+          46.73039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5795ea5c29",
+        "displayLabel": "Francoise BIZELAN ou BAISLA",
+        "surname": "BIZELAN ou BAISLA",
+        "givenName": "Francoise",
+        "marriageYear": 1670,
+        "spouse": "Pierre MARSAN dit LAPIERRE",
+        "mtHaplogroup": "U5a1g1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0425.php",
+        "signatureType": "unknown",
+        "triId": "TRI0425"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04703,
+          46.69783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-610931041c",
+        "displayLabel": "Catherine GUERARD",
+        "surname": "GUERARD",
+        "givenName": "Catherine",
+        "marriageYear": 1670,
+        "spouse": "Julien DUBORD de LAFONTAINE",
+        "mtHaplogroup": "K2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1095.php",
+        "signatureType": "unknown",
+        "triId": "TRI1095"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.93663,
+          46.27334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fa8beecd5d",
+        "displayLabel": "Marie MARCHESSEAU",
+        "surname": "MARCHESSEAU",
+        "givenName": "Marie",
+        "marriageYear": 1670,
+        "spouse": "Jean MICHEL ou MICHAUD",
+        "mtHaplogroup": "U5a1b1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0269.php",
+        "signatureType": "unknown",
+        "triId": "TRI0269"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.55635,
+          46.21836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cf863fd82b",
+        "displayLabel": "Madeleine PLOUART et TIREMONT",
+        "surname": "PLOUART et TIREMONT",
+        "givenName": "Madeleine",
+        "marriageYear": 1670,
+        "spouse": "Jacques VIAU dit L'ESPERANCE",
+        "mtHaplogroup": "H3t",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0809.php",
+        "signatureType": "unknown",
+        "triId": "TRI0809"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58758,
+          45.46551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c068eedab8",
+        "displayLabel": "Aimée ROUX",
+        "surname": "ROUX",
+        "givenName": "Aimée",
+        "marriageYear": 1670,
+        "spouse": "Aimard TINON dit DESLAURIERS",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0342.php",
+        "signatureType": "unknown",
+        "triId": "TRI0342"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7289,
+          46.36217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ac1506974d",
+        "displayLabel": "Catherine BEAUDIN",
+        "surname": "BEAUDIN",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "Pierre COQUIN dit LATOURNELLE (1671)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001376.php",
+        "familySheetNo": "2848",
+        "signatureType": "unknown",
+        "triId": "TRI0346"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.33226,
+          46.8898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7c3d9b0e79",
+        "displayLabel": "Marguerite BOURBIER puis VIARD",
+        "surname": "BOURBIER puis VIARD",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Simon DAVAUX dit BOUTENTRAIN (1671); Jean FLEURICOUR (1671); Mathurin BÉNARD dit LAJEUNESSE (1672); Jean INARD dit PROVENÇAL (1682); Joseph SERRAN dit L'ESPAGNOL (1684)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004412.php",
+        "familySheetNo": "1399",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.72055,
+          46.31257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c47008de3b",
+        "displayLabel": "Jeanne CAILLÉ",
+        "surname": "CAILLÉ",
+        "givenName": "Jeanne",
+        "marriageYear": 1671,
+        "spouse": "Jacques RENOUARD dit SAINT-ÉTIENNE (1671)",
+        "mtHaplogroup": "W1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042083.php",
+        "familySheetNo": "7144",
+        "signatureType": "unknown",
+        "triId": "TRI0965"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26598,
+          46.70927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ffc4f8934e",
+        "displayLabel": "Marie Anne CANOL",
+        "surname": "CANOL",
+        "givenName": "Marie Anne",
+        "marriageYear": 1671,
+        "spouse": "Jean DOIRON (1671)",
+        "mtHaplogroup": "W3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085500.php",
+        "familySheetNo": "86366",
+        "signatureType": "unknown",
+        "triId": "TRI0014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.93054,
+          46.1875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2744395c4e",
+        "displayLabel": "Catherine CLÉRICE",
+        "surname": "CLÉRICE",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "Jacques LUSSIER (1671)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001579.php",
+        "familySheetNo": "2474",
+        "signatureType": "unknown",
+        "triId": "TRI0131"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24255,
+          46.78361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-936a174ba5",
+        "displayLabel": "Marie CONSTANTINEAU",
+        "surname": "CONSTANTINEAU",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Michel ARBOUR (1671); Laurent ARMAND ou HERMAN (1701)",
+        "mtHaplogroup": "U8b1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004530.php",
+        "familySheetNo": "4245",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.36246,
+          46.80962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a83d2e18b8",
+        "displayLabel": "Marie DESCHAMPS",
+        "surname": "DESCHAMPS",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Marin MARETTE dit LABARRE (1671)",
+        "mtHaplogroup": "T2f1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016512.php",
+        "familySheetNo": "9123",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05145,
+          46.74556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d156cc345b",
+        "displayLabel": "Marguerite DESHAIES",
+        "surname": "DESHAIES",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Pierre MÉNARD (1671)",
+        "mtHaplogroup": "I1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016286.php",
+        "familySheetNo": "204018",
+        "signatureType": "unknown",
+        "triId": "TRI0455"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01861,
+          47.22474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bcaf2a4639",
+        "displayLabel": "Jeanne DUCORPS",
+        "surname": "DUCORPS",
+        "givenName": "Jeanne",
+        "marriageYear": 1671,
+        "spouse": "Martin MASSÉ (1671)",
+        "mtHaplogroup": "X2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016425.php",
+        "familySheetNo": "129686",
+        "signatureType": "unknown",
+        "triId": "TRI0023"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14991,
+          46.87551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c928c8f9bd",
+        "displayLabel": "Marguerite DUSSON",
+        "surname": "DUSSON",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Jean LAVALLÉE dit PETITJEAN (1671); Charles VANET dit LEPARISIEN (1694)",
+        "mtHaplogroup": "H11a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043010.php",
+        "familySheetNo": "42713",
+        "signatureType": "unknown",
+        "triId": "TRI0432"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7435,
+          46.22374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7436da7af5",
+        "displayLabel": "Michelle DUVAL",
+        "surname": "DUVAL",
+        "givenName": "Michelle",
+        "marriageYear": 1671,
+        "spouse": "Pierre BON dit LACOMBE (1671)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016044.php",
+        "familySheetNo": "7354",
+        "signatureType": "unknown",
+        "triId": "TRI0310"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.22734,
+          46.71192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-49353f9100",
+        "displayLabel": "Marguerite FÉRON ou FRION",
+        "surname": "FÉRON ou FRION",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Guillaume BERTRAND (1671)",
+        "mtHaplogroup": "U5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001288.php",
+        "familySheetNo": "2181",
+        "signatureType": "unknown",
+        "triId": "TRI0968"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.85229,
+          46.20719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-93670f21ca",
+        "displayLabel": "Jeanne FOURIER",
+        "surname": "FOURIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1671,
+        "spouse": "Jean BAILLAUX (1671); François VANASSE (1671)",
+        "mtHaplogroup": "H7",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004193.php",
+        "familySheetNo": "4194",
+        "signatureType": "unknown",
+        "triId": "TRI0408"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.55789,
+          46.2582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8eaf3c8b59",
+        "displayLabel": "Marie GUILLAUME",
+        "surname": "GUILLAUME",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Nicolas MAHEU (1671); Laurent MIGNERON (1675)",
+        "mtHaplogroup": "H7b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004168.php",
+        "familySheetNo": "224174",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.39089,
+          46.22312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-276a20ddb1",
+        "displayLabel": "Charlotte JOLIVET",
+        "surname": "JOLIVET",
+        "givenName": "Charlotte",
+        "marriageYear": 1671,
+        "spouse": "Léonard GIRARDIN (1671); Simon TRILLAUD (1688)",
+        "mtHaplogroup": "U5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004355.php",
+        "familySheetNo": "1483",
+        "signatureType": "unknown",
+        "triId": "TRI0180"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.15319,
+          46.73991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f5be80f7dd",
+        "displayLabel": "Catherine LAINÉ",
+        "surname": "LAINÉ",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "Jacques BLUTEAU (1671); Étienne MESNY (1671); Jean PARÉ (1709)",
+        "mtHaplogroup": "U4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004650.php",
+        "familySheetNo": "1301",
+        "signatureType": "unknown",
+        "triId": "TRI0749"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.71364,
+          46.28116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1d777698f9",
+        "displayLabel": "Catherine LALORE",
+        "surname": "LALORE",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "Louis LAVALLÉE (1671); Louis BADAYAC dit LAPLANTE (1673)",
+        "mtHaplogroup": "U5b1d1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004802.php",
+        "familySheetNo": "1757",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.50362,
+          45.46957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-91c31357a8",
+        "displayLabel": "Catherine LAMARCHE (de)",
+        "surname": "LAMARCHE (de)",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "Jean François de BILLY (1671)",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/015/015975.php",
+        "familySheetNo": "7970",
+        "signatureType": "unknown",
+        "triId": "TRI0634"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.41846,
+          46.38604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1429455840",
+        "displayLabel": "Marguerite LAPLACE (de)",
+        "surname": "LAPLACE (de)",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Marin GERVAIS (1671); Pierre LESIÈGE (1672); Pierre BREBAU ou BARBAU dit BOISD'AMOUR ou BRIND'AMOUR (1696)",
+        "mtHaplogroup": "H1h1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004353.php",
+        "familySheetNo": "1479",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.79412,
+          47.1498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-796aa9e05a",
+        "displayLabel": "Pierrette LAURIAULT ou LORIOT",
+        "surname": "LAURIAULT ou LORIOT",
+        "givenName": "Pierrette",
+        "marriageYear": 1671,
+        "spouse": "Pierre BUTEAU ou BUTOR (1671)",
+        "mtHaplogroup": "I2a3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001339.php",
+        "familySheetNo": "2222",
+        "signatureType": "unknown",
+        "triId": "TRI0093"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47502,
+          46.24666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8230258f1c",
+        "displayLabel": "Anne Claude ou Claudine LAVAL",
+        "surname": "LAVAL",
+        "givenName": "Anne Claude ou Claudine",
+        "marriageYear": 1671,
+        "spouse": "Louis BONODEAU dit CHÂTELLERAULT (1671)",
+        "mtHaplogroup": "K1a-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001309.php",
+        "familySheetNo": "2758",
+        "signatureType": "unknown",
+        "triId": "TRI0411"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84497,
+          46.21374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8eec3edcfb",
+        "displayLabel": "Antoinette LEFEBVRE",
+        "surname": "LEFEBVRE",
+        "givenName": "Antoinette",
+        "marriageYear": 1671,
+        "spouse": "Hilaire LIMOUSIN dit BEAUFORT (1671)",
+        "mtHaplogroup": "K1a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001572.php",
+        "familySheetNo": "2470",
+        "signatureType": "unknown",
+        "triId": "TRI0056"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89802,
+          46.13116
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2ac98181d3",
+        "displayLabel": "Marie LELONG",
+        "surname": "LELONG",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "René DUMAS dit RENCONTRE (1671)",
+        "mtHaplogroup": "U4a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001433.php",
+        "familySheetNo": "2922",
+        "signatureType": "unknown",
+        "triId": "TRI0184"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78047,
+          46.17226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f75a66cc7e",
+        "displayLabel": "Anne LEROY",
+        "surname": "LEROY",
+        "givenName": "Anne",
+        "marriageYear": 1671,
+        "spouse": "Jean RODRIGUE (1671)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001715.php",
+        "familySheetNo": "3520",
+        "signatureType": "unknown",
+        "triId": "TRI0712"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.4936,
+          45.43946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a928b53449",
+        "displayLabel": "Marie MARTIN",
+        "surname": "MARTIN",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Christophe FÉVRIER de LACROIX (1671)",
+        "mtHaplogroup": "K1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001446.php",
+        "familySheetNo": "2949",
+        "signatureType": "unknown",
+        "triId": "TRI0889"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52184,
+          46.34292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3b2b2bec41",
+        "displayLabel": "Marie Anne METRU",
+        "surname": "METRU",
+        "givenName": "Marie Anne",
+        "marriageYear": 1671,
+        "spouse": "Jacques SAMSON (1671); Claude PHILIPPEAU (1710)",
+        "mtHaplogroup": "H6a1a3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004482.php",
+        "familySheetNo": "1727",
+        "signatureType": "unknown",
+        "triId": "TRI0245"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.81009,
+          46.33565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-60b2ecd24d",
+        "displayLabel": "Nicole PHILIPPEAU",
+        "surname": "PHILIPPEAU",
+        "givenName": "Nicole",
+        "marriageYear": 1671,
+        "spouse": "Mathurin GAUTHIER dit LANDREVILLE (1671)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010513.php",
+        "familySheetNo": "116245",
+        "signatureType": "unknown",
+        "triId": "TRI0547"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.4765,
+          45.61896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1984ed9fe5",
+        "displayLabel": "Marie VÉZINA",
+        "surname": "VÉZINA",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Antoine OSSAN (1671)",
+        "mtHaplogroup": "J2a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001652.php",
+        "familySheetNo": "3200",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65078,
+          46.44964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b40a2ed98a",
+        "displayLabel": "Louise VITAR",
+        "surname": "VITAR",
+        "givenName": "Louise",
+        "marriageYear": 1671,
+        "spouse": "Guillaume DENEVERS (1671)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001409.php",
+        "familySheetNo": "265",
+        "signatureType": "unknown",
+        "triId": "TRI0875"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.93577,
+          46.31726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f7cc1fdf92",
+        "displayLabel": "Henriette CARTOIS",
+        "surname": "CARTOIS",
+        "givenName": "Henriette",
+        "marriageYear": 1671,
+        "spouse": "Michel AUTEBOUT dit BELLEHUMEUR (1671); André PATRY (1675); Jean Pierre FORGUES dit MONROUGEAU (1701); François (m) ou Jean (cm) COUTELET dit LAROCHELLE (1702)",
+        "mtHaplogroup": "H7c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004447.php",
+        "familySheetNo": "1505",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43357,
+          46.40426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c65a6ae7f0",
+        "displayLabel": "Catherine DROUET ou DEROY",
+        "surname": "DROUET ou DEROY",
+        "givenName": "Catherine",
+        "marriageYear": 1671,
+        "spouse": "René MILLET (1671); Pierre CHAMARD (1671)",
+        "mtHaplogroup": "H3b3",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004237.php",
+        "familySheetNo": "4219",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.71299,
+          46.18279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8fa108c891",
+        "displayLabel": "Françoise DURAND",
+        "surname": "DURAND",
+        "givenName": "Françoise",
+        "marriageYear": 1671,
+        "spouse": "Jacques1 BAUDOUIN ou BEAUDOUIN (1671)",
+        "mtHaplogroup": "H1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001270.php",
+        "familySheetNo": "2714",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04183,
+          47.0336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e96d77cc24",
+        "displayLabel": "Isabelle FRESEL",
+        "surname": "FRESEL",
+        "givenName": "Isabelle",
+        "marriageYear": 1671,
+        "spouse": "François HÉMÉRIAU ou ÉMÉRIAU ou MOREAU dit BÉLAIR (1671)",
+        "mtHaplogroup": "H1j6",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001439.php",
+        "familySheetNo": "2938",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.02217,
+          47.14221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-87ca9cc515",
+        "displayLabel": "Marie GRANDIN",
+        "surname": "GRANDIN",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Michel MOREL ou MORILLE (1671); Claude ROBILLARD (1672)",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/110/110458.php",
+        "familySheetNo": "10485",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5031,
+          46.45123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8e895eb617",
+        "displayLabel": "Marguerite HÉDOUIN",
+        "surname": "HÉDOUIN",
+        "givenName": "Marguerite",
+        "marriageYear": 1671,
+        "spouse": "François BARBEAU (1671)",
+        "mtHaplogroup": "H10e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001263.php",
+        "familySheetNo": "2163",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01174,
+          47.09725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c6b777963b",
+        "displayLabel": "Françoise LEFRANÇOIS",
+        "surname": "LEFRANÇOIS",
+        "givenName": "Françoise",
+        "marriageYear": 1671,
+        "spouse": "François LAVERGNE (1671)",
+        "mtHaplogroup": "U5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001546.php",
+        "familySheetNo": "3076",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.54052,
+          46.30583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2c9e55abc5",
+        "displayLabel": "Marie Marguerite PIGAROUICHE",
+        "surname": "PIGAROUICHE",
+        "givenName": "Marie Marguerite",
+        "marriageYear": 1671,
+        "spouse": "Pierre LAMOUREUX dit SAINT-GERMAIN (1671)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016328.php",
+        "familySheetNo": "10270",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67718,
+          46.43563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8922f3d599",
+        "displayLabel": "Anne PINEAU ou de LAVIEVILLE",
+        "surname": "PINEAU ou de LAVIEVILLE",
+        "givenName": "Anne",
+        "marriageYear": 1671,
+        "spouse": "Gilles GOTREAU (1671)",
+        "mtHaplogroup": "H24a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001484.php",
+        "familySheetNo": "10416",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73998,
+          46.31229
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7d7c76abe6",
+        "displayLabel": "Léonarde GENEST",
+        "surname": "GENEST",
+        "givenName": "Léonarde",
+        "marriageYear": 1671,
+        "spouse": "Pierre LOISEAU dit FRANCOEUR",
+        "mtHaplogroup": "H3g1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0692.php",
+        "signatureType": "unknown",
+        "triId": "TRI0692"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.94891,
+          47.03461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-82d9402f40",
+        "displayLabel": "Marie HALLE",
+        "surname": "HALLE",
+        "givenName": "Marie",
+        "marriageYear": 1671,
+        "spouse": "Bertrand COURTOIS dit LE BRETON",
+        "mtHaplogroup": "J1c5b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0588.php",
+        "signatureType": "unknown",
+        "triId": "TRI0588"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14009,
+          46.80077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-85e9f80b2c",
+        "displayLabel": "Étiennette BAUDON",
+        "surname": "BAUDON",
+        "givenName": "Étiennette",
+        "marriageYear": 1672,
+        "spouse": "Tugal COTTIN (1672)",
+        "mtHaplogroup": "H1b1-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001382.php",
+        "familySheetNo": "2853",
+        "signatureType": "unknown",
+        "triId": "TRI0236"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73618,
+          46.30935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b6d7a6932c",
+        "displayLabel": "Marie Reine CHARPENTIER",
+        "surname": "CHARPENTIER",
+        "givenName": "Marie Reine",
+        "marriageYear": 1672,
+        "spouse": "Louis PRINCEAU (1672); Étienne DOMINGO ou TOMINGO dit CARABY (1681)",
+        "mtHaplogroup": "H7a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004716.php",
+        "familySheetNo": "1689",
+        "signatureType": "unknown",
+        "triId": "TRI0570"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.72866,
+          46.27215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4650238503",
+        "displayLabel": "Marie CHAUSSEGROS",
+        "surname": "CHAUSSEGROS",
+        "givenName": "Marie",
+        "marriageYear": 1672,
+        "spouse": "Martin BENOÎT (1672)",
+        "mtHaplogroup": "K1c1d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085936.php",
+        "familySheetNo": "115540",
+        "signatureType": "unknown",
+        "triId": "TRI0353"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24844,
+          46.72547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fb1a77cbae",
+        "displayLabel": "Catherine DUCHARME",
+        "surname": "DUCHARME",
+        "givenName": "Catherine",
+        "marriageYear": 1672,
+        "spouse": "Pierre ROY (1672)",
+        "mtHaplogroup": "U2e1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001724.php",
+        "familySheetNo": "3522",
+        "signatureType": "unknown",
+        "triId": "TRI0515"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.16557,
+          46.91016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f37f446737",
+        "displayLabel": "Étiennette LORAY",
+        "surname": "LORAY",
+        "givenName": "Étiennette",
+        "marriageYear": 1672,
+        "spouse": "Jean BAU dit LALOUETTE (1672)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001970.php",
+        "familySheetNo": "3360",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90661,
+          47.20506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f264f53bd",
+        "displayLabel": "Marie PESCHER",
+        "surname": "PESCHER",
+        "givenName": "Marie",
+        "marriageYear": 1672,
+        "spouse": "Jean HAREL ou JANREL (1672)",
+        "mtHaplogroup": "H6a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016276.php",
+        "familySheetNo": "8176",
+        "signatureType": "unknown",
+        "triId": "TRI0637"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.69367,
+          45.38424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7c91b14bf5",
+        "displayLabel": "Jeanne PETIT",
+        "surname": "PETIT",
+        "givenName": "Jeanne",
+        "marriageYear": 1672,
+        "spouse": "François SÉGUIN dit LADÉROUTE (1672)",
+        "mtHaplogroup": "T2b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001732.php",
+        "familySheetNo": "3298",
+        "signatureType": "unknown",
+        "triId": "TRI0299"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45474,
+          46.36384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9ba3c0197f",
+        "displayLabel": "Marie LAMY",
+        "surname": "LAMY",
+        "givenName": "Marie",
+        "marriageYear": 1672,
+        "spouse": "François CHÈVREFILS (1672); Jean DUVAL (1678)",
+        "mtHaplogroup": "H1u1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/129/129687.php",
+        "familySheetNo": "16265",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6645,
+          45.44704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6d616a145e",
+        "displayLabel": "Jeanne QUELVÉ",
+        "surname": "QUELVÉ",
+        "givenName": "Jeanne",
+        "marriageYear": 1672,
+        "spouse": "Jean Baptiste BRASSARD (1672)",
+        "mtHaplogroup": "H5c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001327.php",
+        "familySheetNo": "143",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2641,
+          46.79361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-631135953c",
+        "displayLabel": "Geneviève TESSIER ou TÉRILLON",
+        "surname": "TESSIER ou TÉRILLON",
+        "givenName": "Geneviève",
+        "marriageYear": 1672,
+        "spouse": "François LEFAY (1672); Pierre DELBEC dit JOLY (1673)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004686.php",
+        "familySheetNo": "1552",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.86813,
+          46.31796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ec41fa3ca7",
+        "displayLabel": "Marie Jeanne TOUSSAINT",
+        "surname": "TOUSSAINT",
+        "givenName": "Marie Jeanne",
+        "marriageYear": 1672,
+        "spouse": "Noël CARPENTIER (1672)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016263.php",
+        "familySheetNo": "6769",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98995,
+          46.12977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4553a68f39",
+        "displayLabel": "Antoinette ou Etiennette ALTON",
+        "surname": "ALTON",
+        "givenName": "Antoinette ou Etiennette",
+        "marriageYear": 1672,
+        "spouse": "Barthélemy VINET dit LARENTE",
+        "mtHaplogroup": "J1c3f",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0670.php",
+        "signatureType": "unknown",
+        "triId": "TRI0670"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73557,
+          46.33954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fdb02941af",
+        "displayLabel": "Marie BOUART",
+        "surname": "BOUART",
+        "givenName": "Marie",
+        "marriageYear": 1672,
+        "spouse": "François DESSUREAU dit BOURGUIGNON",
+        "mtHaplogroup": "J1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0187.php",
+        "signatureType": "unknown",
+        "triId": "TRI0187"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46302,
+          46.30701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-31e5b6acc7",
+        "displayLabel": "Marguerite BOURBIER puis VIARD",
+        "surname": "BOURBIER puis VIARD",
+        "givenName": "Marguerite",
+        "marriageYear": 1672,
+        "spouse": "Mathurin BENARD dit LAJEUNESSE",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0413.php",
+        "signatureType": "unknown",
+        "triId": "TRI0413"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.52205,
+          45.5862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-999cb1d5e1",
+        "displayLabel": "Marguerite LAPLACE (de)",
+        "surname": "LAPLACE (de)",
+        "givenName": "Marguerite",
+        "marriageYear": 1672,
+        "spouse": "Pierre LESIEGE",
+        "mtHaplogroup": "H1h1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0912.php",
+        "signatureType": "unknown",
+        "triId": "TRI0912"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.29519,
+          46.81473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-99ccdcafdd",
+        "displayLabel": "Jeanne LECOQ",
+        "surname": "LECOQ",
+        "givenName": "Jeanne",
+        "marriageYear": 1672,
+        "spouse": "Martin MOREAU",
+        "mtHaplogroup": "T2a1a8",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0224.php",
+        "signatureType": "unknown",
+        "triId": "TRI0224"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.01549,
+          46.33646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f5fc4c15cd",
+        "displayLabel": "Jeanne BRANCONNIER",
+        "surname": "BRANCONNIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1673,
+        "spouse": "Louis PACAUD ou CHAPACOU (1673); Crespin TUILLIER dit LATOUR (1673); Charles ÉDELINE (1675)",
+        "mtHaplogroup": "H1u1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004188.php",
+        "familySheetNo": "1357",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.64281,
+          45.4578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1b329f57b2",
+        "displayLabel": "Marie CHANCY",
+        "surname": "CHANCY",
+        "givenName": "Marie",
+        "marriageYear": 1673,
+        "spouse": "Michel PRESSEAU dit CHAMBLY (1673)",
+        "mtHaplogroup": "H56a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001686.php",
+        "familySheetNo": "3515",
+        "signatureType": "unknown",
+        "triId": "TRI0366"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44281,
+          45.61298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2a8ac0cef2",
+        "displayLabel": "Anne LEBLANC",
+        "surname": "LEBLANC",
+        "givenName": "Anne",
+        "marriageYear": 1673,
+        "spouse": "Pierre MÉNAGE (1673)",
+        "mtHaplogroup": "U5b1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001606.php",
+        "familySheetNo": "2498",
+        "signatureType": "unknown",
+        "triId": "TRI0516"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48234,
+          46.46013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-47ec040d52",
+        "displayLabel": "Jeanne LEJEUNE dit BRIARD",
+        "surname": "LEJEUNE dit BRIARD",
+        "givenName": "Jeanne",
+        "marriageYear": 1673,
+        "spouse": "François JOSEPH (1673); Jean GAUDET (1694)",
+        "mtHaplogroup": "A2f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/196/196068.php",
+        "familySheetNo": "118528",
+        "signatureType": "unknown",
+        "triId": "TRI0333"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.24662,
+          46.77865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f6318a8ec8",
+        "displayLabel": "Françoise PARIS",
+        "surname": "PARIS",
+        "givenName": "Françoise",
+        "marriageYear": 1673,
+        "spouse": "Pierre PETITCLERC (1673); Pierre ÉLIE (1714)",
+        "mtHaplogroup": "T2f1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004471.php",
+        "familySheetNo": "1668",
+        "signatureType": "unknown",
+        "triId": "TRI0768"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5227,
+          46.22206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-51fa8c29eb",
+        "displayLabel": "Marie Madeleine ou Marie SELLE",
+        "surname": "SELLE",
+        "givenName": "Marie Madeleine ou Marie",
+        "marriageYear": 1673,
+        "spouse": "Louis ORIO (1673); Pierre CHAUSSÉ dit LEMAINE (1681)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004615.php",
+        "familySheetNo": "1651",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4386,
+          46.44178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a3f3ccd921",
+        "displayLabel": "Hélène CALAIS",
+        "surname": "CALAIS",
+        "givenName": "Hélène",
+        "marriageYear": 1673,
+        "spouse": "Blaise BELLEAU dit LAROSE (1673)",
+        "mtHaplogroup": "T1a1b1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001289.php",
+        "familySheetNo": "3378",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.99601,
+          47.14055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-318a528819",
+        "displayLabel": "Catherine GRANGER",
+        "surname": "GRANGER",
+        "givenName": "Catherine",
+        "marriageYear": 1673,
+        "spouse": "Jean de LÉPINAY (1673)",
+        "mtHaplogroup": "H1ak",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001561.php",
+        "familySheetNo": "3443",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.63898,
+          46.37077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b6b75b38ec",
+        "displayLabel": "Anne LEMAIRE",
+        "surname": "LEMAIRE",
+        "givenName": "Anne",
+        "marriageYear": 1673,
+        "spouse": "Philippe HULIN (1673)",
+        "mtHaplogroup": "T2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001513.php",
+        "familySheetNo": "3586",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43251,
+          46.23565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eddc68b8d4",
+        "displayLabel": "Marie MORIN",
+        "surname": "MORIN",
+        "givenName": "Marie",
+        "marriageYear": 1673,
+        "spouse": "Laurent GIGNARD ou GUIGNARD (1673)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001497.php",
+        "familySheetNo": "3584",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44644,
+          45.57538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ec3e894efd",
+        "displayLabel": "Marguerite ROUSSELOT",
+        "surname": "ROUSSELOT",
+        "givenName": "Marguerite",
+        "marriageYear": 1673,
+        "spouse": "Charles PHILIBOT (m) ou FRIBAULT (cm) (1673)",
+        "mtHaplogroup": "U5a2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001670.php",
+        "familySheetNo": "3225",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95907,
+          47.12167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f329af4e84",
+        "displayLabel": "Catherine LALORE",
+        "surname": "LALORE",
+        "givenName": "Catherine",
+        "marriageYear": 1673,
+        "spouse": "Louis BADAYAC dit LAPLANTE",
+        "mtHaplogroup": "U5b1d1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0250.php",
+        "signatureType": "unknown",
+        "triId": "TRI0250"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66887,
+          46.45411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-72ea463ce6",
+        "displayLabel": "Marie MANIE ou MAGNIER",
+        "surname": "MANIE ou MAGNIER",
+        "givenName": "Marie",
+        "marriageYear": 1673,
+        "spouse": "Louis JINCHEREAU",
+        "mtHaplogroup": "K2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0297.php",
+        "signatureType": "unknown",
+        "triId": "TRI0297"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.73735,
+          46.99613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0eb97ee95a",
+        "displayLabel": "Constance LEPAGE",
+        "surname": "LEPAGE",
+        "givenName": "Constance",
+        "marriageYear": 1674,
+        "spouse": "François GARINET (1674)",
+        "mtHaplogroup": "U2e2a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001495.php",
+        "familySheetNo": "2131",
+        "signatureType": "unknown",
+        "triId": "TRI0119"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46094,
+          45.40516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8aa9b86901",
+        "displayLabel": "Denise MARIER",
+        "surname": "MARIER",
+        "givenName": "Denise",
+        "marriageYear": 1674,
+        "spouse": "Jean QUENNEVILLE (1674); Jean GUILBERT dit LAFRAMBOISE (1704)",
+        "mtHaplogroup": "K1a4a1i",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004677.php",
+        "familySheetNo": "1693",
+        "signatureType": "unknown",
+        "triId": "TRI0850"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.9471,
+          47.13342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b9592adc4a",
+        "displayLabel": "Renée JOUSSELOT",
+        "surname": "JOUSSELOT",
+        "givenName": "Renée",
+        "marriageYear": 1674,
+        "spouse": "Jean SENELLÉ (1674)",
+        "mtHaplogroup": "H1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001734.php",
+        "familySheetNo": "3303",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.81659,
+          47.07077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ad36456e2f",
+        "displayLabel": "Catherine MAGNAN",
+        "surname": "MAGNAN",
+        "givenName": "Catherine",
+        "marriageYear": 1674,
+        "spouse": "Charles VANET dit LEPARISIEN (1674)",
+        "mtHaplogroup": "T2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042033.php",
+        "familySheetNo": "42035",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46795,
+          45.51803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bc2cd59d3b",
+        "displayLabel": "Catherine MONGEAU",
+        "surname": "MONGEAU",
+        "givenName": "Catherine",
+        "marriageYear": 1674,
+        "spouse": "Jean LARIOU",
+        "mtHaplogroup": "U5b1d1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0666.php",
+        "signatureType": "unknown",
+        "triId": "TRI0666"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.88547,
+          47.0558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-83fcf1d9d4",
+        "displayLabel": "Anne POITRON",
+        "surname": "POITRON",
+        "givenName": "Anne",
+        "marriageYear": 1674,
+        "spouse": "Jean Baptiste VERGER dit DESJARDINS",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0872.php",
+        "signatureType": "unknown",
+        "triId": "TRI0872"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.42393,
+          45.41688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9c02f50985",
+        "displayLabel": "Marie Anne DESPERNAY",
+        "surname": "DESPERNAY",
+        "givenName": "Marie Anne",
+        "marriageYear": 1675,
+        "spouse": "Pierre ABÉROUX dit LAROSE (1675); Denis CHARPENTIER dit SANSFAÇON (1688)",
+        "mtHaplogroup": "U5b2a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004405.php",
+        "familySheetNo": "1774",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.1074,
+          46.76022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-808acdf319",
+        "displayLabel": "Marie Anne ou Jeanne JOUSSELOT",
+        "surname": "JOUSSELOT",
+        "givenName": "Marie Anne ou Jeanne",
+        "marriageYear": 1675,
+        "spouse": "Simon TRILLAUD (1675); Joseph GALOIS (1677); Toussaint DUBEAU (1678); André DUVAL (1698); Jean MARANDEAU ou MARANDA (1712); Claude DUBREUIL (1725)",
+        "mtHaplogroup": "H1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/003/003809.php",
+        "familySheetNo": "1602",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.63162,
+          46.43757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-511191235f",
+        "displayLabel": "Jeanne LEROUGE",
+        "surname": "LEROUGE",
+        "givenName": "Jeanne",
+        "marriageYear": 1675,
+        "spouse": "Emmanuel LOPEZ dit MADÈRE (1675); Barthélemy COTTON dit LAROCHE (1691)",
+        "mtHaplogroup": "T2b13b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004871.php",
+        "familySheetNo": "228582",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.59229,
+          46.43137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b5fac0e08b",
+        "displayLabel": "Sara Janse VAN BREMEN",
+        "surname": "VAN BREMEN",
+        "givenName": "Sara Janse",
+        "marriageYear": 1675,
+        "spouse": "Jan Jacobse GARDENIER dit FLODDER (1675)",
+        "mtHaplogroup": "J2a1a1e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224129.php",
+        "familySheetNo": "224130",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64479,
+          46.34171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5bc581e5cc",
+        "displayLabel": "Jeanne BRANCONNIER",
+        "surname": "BRANCONNIER",
+        "givenName": "Jeanne",
+        "marriageYear": 1675,
+        "spouse": "Charles EDELINE",
+        "mtHaplogroup": "H1u1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0845.php",
+        "signatureType": "unknown",
+        "triId": "TRI0845"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.61497,
+          45.55354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6633b3995e",
+        "displayLabel": "Marguerite ANTHIAUME",
+        "surname": "ANTHIAUME",
+        "givenName": "Marguerite",
+        "marriageYear": 1676,
+        "spouse": "André JARRET de BEAUREGARD (1676); Pierre FONTAINE dit BIENVENU (1692)",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004307.php",
+        "familySheetNo": "223265",
+        "signatureType": "unknown",
+        "triId": "TRI0589"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.03852,
+          46.79545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-00a636531f",
+        "displayLabel": "Marie2 GOBEIL",
+        "surname": "GOBEIL",
+        "givenName": "Marie2",
+        "marriageYear": 1676,
+        "spouse": "Pierre HUDON dit BEAULIEU (1676)",
+        "mtHaplogroup": "N1b1a5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001928.php",
+        "familySheetNo": "3025",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0734,
+          46.77383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8958f3fa32",
+        "displayLabel": "Françoise PHILIPPEAU",
+        "surname": "PHILIPPEAU",
+        "givenName": "Françoise",
+        "marriageYear": 1676,
+        "spouse": "Louis MARIEN (1676); Sébastien HERVÉ (1689)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004873.php",
+        "familySheetNo": "7602",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95209,
+          47.13226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-549f5acf5f",
+        "displayLabel": "Marie LAVOIE",
+        "surname": "LAVOIE",
+        "givenName": "Marie",
+        "marriageYear": 1676,
+        "spouse": "Pierre GRENON (1676)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001910.php",
+        "familySheetNo": "2381",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.14081,
+          46.877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c5289ae4e1",
+        "displayLabel": "Abigail puis Marie Louise ou Gabrielle (1692) PITMAN",
+        "surname": "PITMAN",
+        "givenName": "Abigail puis Marie Louise ou Gabrielle (1692)",
+        "marriageYear": 1676,
+        "spouse": "Stephen puis Étienne WILLEY (1676); Édouard de FLECHEUR (1710)",
+        "mtHaplogroup": "H1ak1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016572.php",
+        "familySheetNo": "116715",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71217,
+          45.45163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-46e7e0adca",
+        "displayLabel": "Catherine POITEVIN",
+        "surname": "POITEVIN",
+        "givenName": "Catherine",
+        "marriageYear": 1676,
+        "spouse": "Jean BOURASSA",
+        "mtHaplogroup": "H5a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0528.php",
+        "signatureType": "unknown",
+        "triId": "TRI0528"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.55646,
+          45.51727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-09e9c3015c",
+        "displayLabel": "Jeanne ROSSIGNOL",
+        "surname": "ROSSIGNOL",
+        "givenName": "Jeanne",
+        "marriageYear": 1676,
+        "spouse": "Urbain FOUCRO ou FOUQUEREAU dit URBAIN",
+        "mtHaplogroup": "HV1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0155.php",
+        "signatureType": "unknown",
+        "triId": "TRI0155"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44808,
+          45.52509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6a439ccbca",
+        "displayLabel": "Marie TARGER",
+        "surname": "TARGER",
+        "givenName": "Marie",
+        "marriageYear": 1676,
+        "spouse": "Robert TOURNEROCHE",
+        "mtHaplogroup": "U5b1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0483.php",
+        "signatureType": "unknown",
+        "triId": "TRI0483"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.65793,
+          45.51531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-26546a48af",
+        "displayLabel": "Marie ou Sébastienne BRUN",
+        "surname": "BRUN",
+        "givenName": "Marie ou Sébastienne",
+        "marriageYear": 1677,
+        "spouse": "François GAUTREAU (1677); Abraham BOURG (1683)",
+        "mtHaplogroup": "H13a1a4",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086134.php",
+        "familySheetNo": "115974",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23551,
+          46.92937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b3de21ba45",
+        "displayLabel": "Françoise OUECHIPICHINOKOUE dit LAMY",
+        "surname": "OUECHIPICHINOKOUE dit LAMY",
+        "givenName": "Françoise",
+        "marriageYear": 1677,
+        "spouse": "Nicolas PELLETIER dit MAROLLES (1677)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002053.php",
+        "familySheetNo": "2552",
+        "signatureType": "unknown",
+        "triId": "TRI0954"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.98581,
+          47.06117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-43dc5499b3",
+        "displayLabel": "Madeleine MOISON",
+        "surname": "MOISON",
+        "givenName": "Madeleine",
+        "marriageYear": 1677,
+        "spouse": "Charles PTOLOMÉE",
+        "mtHaplogroup": "T2b4b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0750.php",
+        "signatureType": "unknown",
+        "triId": "TRI0750"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.48819,
+          46.24474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7fdc8af5ce",
+        "displayLabel": "Marie1 VALADE",
+        "surname": "VALADE",
+        "givenName": "Marie1",
+        "marriageYear": 1677,
+        "spouse": "Jacques MEILLEUR",
+        "mtHaplogroup": "U5a1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0398.php",
+        "signatureType": "unknown",
+        "triId": "TRI0398"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30073,
+          46.83202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b614066a8c",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1678,
+        "spouse": "Philippe MIUS D'AZY (1678)",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/115/115864.php",
+        "familySheetNo": "86987",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.734,
+          47.17348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b14d128778",
+        "displayLabel": "Jeanne LABARRE",
+        "surname": "LABARRE",
+        "givenName": "Jeanne",
+        "marriageYear": 1678,
+        "spouse": "Simon QUISOUGUENET (1678)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/238/238188.php",
+        "familySheetNo": "8030",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.72791,
+          47.08722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-87215674ec",
+        "displayLabel": ".. (Amérindienne/Native) ..",
+        "surname": "..",
+        "givenName": ".. (Amérindienne/Native)",
+        "marriageYear": 1678,
+        "spouse": "Philippe MIUS D'AZY",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0492.php",
+        "signatureType": "unknown",
+        "triId": "TRI0492"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.72773,
+          46.24546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-260ab6c18e",
+        "displayLabel": "Jeanne DENOT ou DENOTTE",
+        "surname": "DENOT ou DENOTTE",
+        "givenName": "Jeanne",
+        "marriageYear": 1678,
+        "spouse": "Jacques SUPERNANT ou SURPRENANT dit SANSOUCY",
+        "mtHaplogroup": "H2a2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0868.php",
+        "signatureType": "unknown",
+        "triId": "TRI0868"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71207,
+          45.57894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4b4fbd1b15",
+        "displayLabel": "Jeanne LABARRE",
+        "surname": "LABARRE",
+        "givenName": "Jeanne",
+        "marriageYear": 1678,
+        "spouse": "Simon QUISOUGUENET (adoptée par/adopted by Louis DANDONNEAU)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0953.php",
+        "signatureType": "unknown",
+        "triId": "TRI0953"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5659,
+          45.39246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3d1d9c3541",
+        "displayLabel": "Jeanne PAQUET",
+        "surname": "PAQUET",
+        "givenName": "Jeanne",
+        "marriageYear": 1679,
+        "spouse": "Jean1 PARADIS (1679)",
+        "mtHaplogroup": "H4a1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/002/002048.php",
+        "familySheetNo": "2544",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.75691,
+          47.11711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1457ab5309",
+        "displayLabel": "Madeleine PHILIPPEAU",
+        "surname": "PHILIPPEAU",
+        "givenName": "Madeleine",
+        "marriageYear": 1679,
+        "spouse": "Maurice DÉRY (1679)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/001/001858.php",
+        "familySheetNo": "2894",
+        "signatureType": "unknown",
+        "triId": "TRI0387"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88557,
+          46.2282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f8eb2d6092",
+        "displayLabel": "Françoise VERNIN",
+        "surname": "VERNIN",
+        "givenName": "Françoise",
+        "marriageYear": 1679,
+        "spouse": "Mathurin BANLIER dit LAPERLE (1679)",
+        "mtHaplogroup": "H1ae",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016257.php",
+        "familySheetNo": "37873",
+        "signatureType": "unknown",
+        "triId": "TRI0068"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9222,
+          46.18088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-76a2c0aab7",
+        "displayLabel": "Madeleine MOISON",
+        "surname": "MOISON",
+        "givenName": "Madeleine",
+        "marriageYear": 1679,
+        "spouse": "Louis FORTIER",
+        "mtHaplogroup": "T2b4b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0750.php",
+        "signatureType": "unknown",
+        "triId": "TRI0750"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.55995,
+          45.44641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5e6b4bd45c",
+        "displayLabel": "Barbe RENAUD",
+        "surname": "RENAUD",
+        "givenName": "Barbe",
+        "marriageYear": 1679,
+        "spouse": "Mathurin ARNAUD ou RENAUD",
+        "mtHaplogroup": "H1q",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0199.php",
+        "signatureType": "unknown",
+        "triId": "TRI0199"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8184,
+          46.2348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f0a692b26",
+        "displayLabel": "Catherine ..",
+        "surname": "..",
+        "givenName": "Catherine",
+        "marriageYear": 1680,
+        "spouse": "Jean LABARRE (1680); Étienne RIVET (1688)",
+        "mtHaplogroup": "H1u1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118532.php",
+        "familySheetNo": "115760",
+        "signatureType": "unknown",
+        "triId": "TRI0688"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88923,
+          46.15129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9094964af0",
+        "displayLabel": "Dorothy ALEXANDER",
+        "surname": "ALEXANDER",
+        "givenName": "Dorothy",
+        "marriageYear": 1680,
+        "spouse": "John STEBBINS (1680)",
+        "mtHaplogroup": "J1c3b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016582.php",
+        "familySheetNo": "125720",
+        "signatureType": "unknown",
+        "triId": "TRI0457"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.86352,
+          47.16718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-92a70b2e3f",
+        "displayLabel": "Anne CARMEL",
+        "surname": "CARMEL",
+        "givenName": "Anne",
+        "marriageYear": 1680,
+        "spouse": "François DUFAULT (1680)",
+        "mtHaplogroup": "H16",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085878.php",
+        "familySheetNo": "86205",
+        "signatureType": "unknown",
+        "triId": "TRI0671"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84726,
+          46.2064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-beae3abfed",
+        "displayLabel": "Marie GAREAU",
+        "surname": "GAREAU",
+        "givenName": "Marie",
+        "marriageYear": 1680,
+        "spouse": "Roger LATOUCHE (1680)",
+        "mtHaplogroup": "H3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004056.php",
+        "familySheetNo": "4122",
+        "signatureType": "unknown",
+        "triId": "TRI0911"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91413,
+          47.02155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e024bb038a",
+        "displayLabel": "Paule OURIPEHENEMICH",
+        "surname": "OURIPEHENEMICH",
+        "givenName": "Paule",
+        "marriageYear": 1680,
+        "spouse": "Jean François LIÉNARD dit DURBOIS (1680)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043077.php",
+        "familySheetNo": "429",
+        "signatureType": "unknown",
+        "triId": "TRI0789"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.31475,
+          46.83948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2edb95f044",
+        "displayLabel": "Marie THIBAULT",
+        "surname": "THIBAULT",
+        "givenName": "Marie",
+        "marriageYear": 1680,
+        "spouse": "Jean LAURENDEAU ou ROLANDEAU (1680)",
+        "mtHaplogroup": "H1e1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/010/010425.php",
+        "familySheetNo": "10424",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67647,
+          45.60741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9dd27003e8",
+        "displayLabel": "Marie Madeleine ou Marie SELLE",
+        "surname": "SELLE",
+        "givenName": "Marie Madeleine ou Marie",
+        "marriageYear": 1681,
+        "spouse": "Pierre CHAUSSE dit LEMAINE",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0675.php",
+        "signatureType": "unknown",
+        "triId": "TRI0675"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64312,
+          46.27728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-14d860f336",
+        "displayLabel": "Louise ÉNARD ou ESNARD",
+        "surname": "ÉNARD ou ESNARD",
+        "givenName": "Louise",
+        "marriageYear": 1682,
+        "spouse": "François BIBEAU (1682)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/004/004970.php",
+        "familySheetNo": "3476",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.49168,
+          45.60179
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7c9dbb3dee",
+        "displayLabel": "Anne LAGOUE",
+        "surname": "LAGOUE",
+        "givenName": "Anne",
+        "marriageYear": 1682,
+        "spouse": "Rémi DUPIL",
+        "mtHaplogroup": "H3s",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0544.php",
+        "signatureType": "unknown",
+        "triId": "TRI0544"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42605,
+          46.30386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4e63489e09",
+        "displayLabel": "Marie2 VALADE",
+        "surname": "VALADE",
+        "givenName": "Marie2",
+        "marriageYear": 1682,
+        "spouse": "Philippe BOUDIER",
+        "mtHaplogroup": "U5a1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0398.php",
+        "signatureType": "unknown",
+        "triId": "TRI0398"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.75859,
+          47.03037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fd9d32af96",
+        "displayLabel": "Élisabeth ABOIRE ou TRINQUE",
+        "surname": "ABOIRE ou TRINQUE",
+        "givenName": "Élisabeth",
+        "marriageYear": 1683,
+        "spouse": "Jean CHARBONNEAU (1683)",
+        "mtHaplogroup": "I4a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016053.php",
+        "familySheetNo": "8000",
+        "signatureType": "unknown",
+        "triId": "TRI0852"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.31229,
+          46.754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e2db27fd83",
+        "displayLabel": "Marguerite DURAND",
+        "surname": "DURAND",
+        "givenName": "Marguerite",
+        "marriageYear": 1683,
+        "spouse": "Gilles VINCENT dit DESMARAIS (1683)",
+        "mtHaplogroup": "T1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/087/087505.php",
+        "familySheetNo": "87519",
+        "signatureType": "unknown",
+        "triId": "TRI0938"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8906,
+          46.15311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4b65fe4e10",
+        "displayLabel": "Marie ou Marie Marguerite Louise PANCATLIN",
+        "surname": "PANCATLIN",
+        "givenName": "Marie ou Marie Marguerite Louise",
+        "marriageYear": 1683,
+        "spouse": "Thomas GOULET (1683)",
+        "mtHaplogroup": "H1e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005402.php",
+        "familySheetNo": "2138",
+        "signatureType": "unknown",
+        "triId": "TRI0698"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42044,
+          46.23464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1d1df8b707",
+        "displayLabel": "Marie CONILLE",
+        "surname": "CONILLE",
+        "givenName": "Marie",
+        "marriageYear": 1683,
+        "spouse": "Etienne FONTAINE",
+        "mtHaplogroup": "H2a2b3",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0693.php",
+        "signatureType": "unknown",
+        "triId": "TRI0693"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.54401,
+          45.40831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ea2416bd88",
+        "displayLabel": "Marguerite CREVIER",
+        "surname": "CREVIER",
+        "givenName": "Marguerite",
+        "marriageYear": 1683,
+        "spouse": "Francois RENAUD dit LACHAPELLE",
+        "mtHaplogroup": "K1a30",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0426.php",
+        "signatureType": "unknown",
+        "triId": "TRI0426"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7146,
+          45.49437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4dfa938f4f",
+        "displayLabel": "Jacquette AUDET ou ODET",
+        "surname": "AUDET ou ODET",
+        "givenName": "Jacquette",
+        "marriageYear": 1684,
+        "spouse": "François NICOLAS (1684); Jacques MORAND (1684)",
+        "mtHaplogroup": "H3s",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042994.php",
+        "familySheetNo": "16237",
+        "signatureType": "unknown",
+        "triId": "TRI0580"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.52246,
+          45.44611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c5b95d57dd",
+        "displayLabel": "Louise BASTINAUD dit PELLETIER",
+        "surname": "BASTINAUD dit PELLETIER",
+        "givenName": "Louise",
+        "marriageYear": 1684,
+        "spouse": "Louis SAULNIER (1684)",
+        "mtHaplogroup": "H1aa",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086995.php",
+        "familySheetNo": "120008",
+        "signatureType": "unknown",
+        "triId": "TRI0497"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43552,
+          46.37662
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3e6be23c44",
+        "displayLabel": "Françoise HURTO",
+        "surname": "HURTO",
+        "givenName": "Françoise",
+        "marriageYear": 1684,
+        "spouse": "Antoine MONET (1684)",
+        "mtHaplogroup": "H7",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005736.php",
+        "familySheetNo": "9167",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.69319,
+          45.38838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-be5a08fe9f",
+        "displayLabel": "Olive LAVOIE",
+        "surname": "LAVOIE",
+        "givenName": "Olive",
+        "marriageYear": 1684,
+        "spouse": "Michel FRENETTE (1684)",
+        "mtHaplogroup": "HV0-T195C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005332.php",
+        "familySheetNo": "8865",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.28455,
+          46.84283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-71bfb40b4f",
+        "displayLabel": "Suzanne MÉTAYER",
+        "surname": "MÉTAYER",
+        "givenName": "Suzanne",
+        "marriageYear": 1684,
+        "spouse": "Philippe DION ou GUYON dit DESLAURIERS (1684); Guillaume DUPONT (1693); François FRICHET (1717)",
+        "mtHaplogroup": "T2b23a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042967.php",
+        "familySheetNo": "5229",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.36475,
+          46.78106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-44b7fc7d18",
+        "displayLabel": "Anne PERROT",
+        "surname": "PERROT",
+        "givenName": "Anne",
+        "marriageYear": 1685,
+        "spouse": "Jean PREAU (1685); Jean BON (1709)",
+        "mtHaplogroup": "K2a5a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/116/116300.php",
+        "familySheetNo": "204658",
+        "signatureType": "unknown",
+        "triId": "TRI0915"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.67972,
+          45.51584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-314b237373",
+        "displayLabel": "Perrine BASILE",
+        "surname": "BASILE",
+        "givenName": "Perrine",
+        "marriageYear": 1685,
+        "spouse": "André CÉLESTIN (1685)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086143.php",
+        "familySheetNo": "84412",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45638,
+          46.21967
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1d19e49364",
+        "displayLabel": "Anne LEROY",
+        "surname": "LEROY",
+        "givenName": "Anne",
+        "marriageYear": 1685,
+        "spouse": "Claude GUIMOND",
+        "mtHaplogroup": "H3-T16311C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0697.php",
+        "signatureType": "unknown",
+        "triId": "TRI0697"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.92884,
+          47.13029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3b05340da1",
+        "displayLabel": "Marie Thérèse ..",
+        "surname": "..",
+        "givenName": "Marie Thérèse",
+        "marriageYear": 1686,
+        "spouse": "Claude PETITPAS (1686)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/085/085585.php",
+        "familySheetNo": "44751",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66271,
+          46.36437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2297a9490f",
+        "displayLabel": "Marie ou Christine AUBOIS ou DUBOIS",
+        "surname": "AUBOIS ou DUBOIS",
+        "givenName": "Marie ou Christine",
+        "marriageYear": 1686,
+        "spouse": "Jean ROY dit LALIBERTÉ (1686)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086994.php",
+        "familySheetNo": "44015",
+        "signatureType": "unknown",
+        "triId": "TRI0026"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8541,
+          46.28699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-96075cb7bb",
+        "displayLabel": "Marie Renée BEZEAU",
+        "surname": "BEZEAU",
+        "givenName": "Marie Renée",
+        "marriageYear": 1686,
+        "spouse": "Jean SAVARD (1686); Jean Baptiste FISET (1687); Laurent ou Durand DELAGE dit LARIVIÈRE (1693); Jean BERGEVIN dit LANGEVIN (1703)",
+        "mtHaplogroup": "H3b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/008/008518.php",
+        "familySheetNo": "38633",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26629,
+          46.89822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3876ca485d",
+        "displayLabel": "Jeanne PÉTRO",
+        "surname": "PÉTRO",
+        "givenName": "Jeanne",
+        "marriageYear": 1686,
+        "spouse": "Bernardin ARQUIN (1686)",
+        "mtHaplogroup": "T2g",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016255.php",
+        "familySheetNo": "16344",
+        "signatureType": "unknown",
+        "triId": "TRI0317"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73936,
+          46.14436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-dbd046048b",
+        "displayLabel": "Jeanne PHILIPPEAU",
+        "surname": "PHILIPPEAU",
+        "givenName": "Jeanne",
+        "marriageYear": 1686,
+        "spouse": "Paul François CHALIFOUR (1686)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005086.php",
+        "familySheetNo": "147",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52745,
+          46.36276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1efccb0618",
+        "displayLabel": "Marguerite LEROUGE",
+        "surname": "LEROUGE",
+        "givenName": "Marguerite",
+        "marriageYear": 1686,
+        "spouse": "Robert CHORET (1686)",
+        "mtHaplogroup": "T2b13b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005130.php",
+        "familySheetNo": "2133",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.75561,
+          46.29128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0970849bc7",
+        "displayLabel": "Marie Thérèse (Amérindienne/Native) ..",
+        "surname": "..",
+        "givenName": "Marie Thérèse (Amérindienne/Native)",
+        "marriageYear": 1686,
+        "spouse": "Claude PETITPAS",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0404.php",
+        "signatureType": "unknown",
+        "triId": "TRI0404"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.33914,
+          46.91183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5754074c87",
+        "displayLabel": "Jeanne AUBERT",
+        "surname": "AUBERT",
+        "givenName": "Jeanne",
+        "marriageYear": 1687,
+        "spouse": "François VRIGNAUD",
+        "mtHaplogroup": "J1c2m",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1105.php",
+        "signatureType": "unknown",
+        "triId": "TRI1105"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.90469,
+          47.0436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4c90d384b8",
+        "displayLabel": "Marie Renée BEZEAU",
+        "surname": "BEZEAU",
+        "givenName": "Marie Renée",
+        "marriageYear": 1687,
+        "spouse": "Jean Baptiste FISET",
+        "mtHaplogroup": "H3b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0686.php",
+        "signatureType": "unknown",
+        "triId": "TRI0686"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8474,
+          46.28392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0ad75ad6c0",
+        "displayLabel": "Marie Anne DESPERNAY",
+        "surname": "DESPERNAY",
+        "givenName": "Marie Anne",
+        "marriageYear": 1688,
+        "spouse": "Denis CHARPENTIER dit SANSFACON",
+        "mtHaplogroup": "U5b2a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0689.php",
+        "signatureType": "unknown",
+        "triId": "TRI0689"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.48946,
+          45.46042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e17cdf7e86",
+        "displayLabel": "Marie POTHIER",
+        "surname": "POTHIER",
+        "givenName": "Marie",
+        "marriageYear": 1689,
+        "spouse": "Charles MILOT (1689)",
+        "mtHaplogroup": "H1ak1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/005/005728.php",
+        "familySheetNo": "647",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05729,
+          46.70032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c67cb5ae32",
+        "displayLabel": "Marie1 ÉNARD ou ESNARD",
+        "surname": "ÉNARD ou ESNARD",
+        "givenName": "Marie1",
+        "marriageYear": 1690,
+        "spouse": "Pierre ANGO dit LARAMÉE (1690); Pierre PINEAULT dit LARIGUEUR (1692); René DURAND dit DESMARCHAIS (1693); André ROBERT dit BRETON (1695)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016195.php",
+        "familySheetNo": "42735",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.16112,
+          46.77121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-222476cfba",
+        "displayLabel": "Jeanne DOIRON",
+        "surname": "DOIRON",
+        "givenName": "Jeanne",
+        "marriageYear": 1692,
+        "spouse": "Jean HÉBERT (1692)",
+        "mtHaplogroup": "W3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/115/115742.php",
+        "familySheetNo": "44468",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.46613,
+          46.28998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f2aededce5",
+        "displayLabel": "Marie ROUENSA ou OUACANTEOUA ou 8CATE8A",
+        "surname": "ROUENSA ou OUACANTEOUA ou 8CATE8A",
+        "givenName": "Marie",
+        "marriageYear": 1694,
+        "spouse": "Michel ACAU ou ACOUP ou AKO (1694); Michel ÉTIENNE dit PHILIPPE (1701)",
+        "mtHaplogroup": "C4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/225/225718.php",
+        "familySheetNo": "110289",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4189,
+          46.24678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f9999e3d1a",
+        "displayLabel": "Therese BILLY",
+        "surname": "BILLY",
+        "givenName": "Therese",
+        "marriageYear": 1696,
+        "spouse": "Jean CARON",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0634.php",
+        "signatureType": "unknown",
+        "triId": "TRI0634"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51117,
+          46.44889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f9fcf952b6",
+        "displayLabel": "Marie Madeleine ou Marie SWARDEN ou SWARTON",
+        "surname": "SWARDEN ou SWARTON",
+        "givenName": "Marie Madeleine ou Marie",
+        "marriageYear": 1697,
+        "spouse": "Jean LAHAYE dit HIBERNOIS (1697)",
+        "mtHaplogroup": "U5b2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/006/006893.php",
+        "familySheetNo": "9063",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65149,
+          46.2207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b5bf52bbdc",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1700,
+        "spouse": "Gabriel GIRAUD dit SAINT-JEAN (1700)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/215/215944.php",
+        "familySheetNo": "215943",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0681,
+          46.93118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9624085916",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1700,
+        "spouse": ".. LEBERTON ou LEBRETON (1700)",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/221/221466.php",
+        "familySheetNo": "42212",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.88229,
+          47.21504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2609d07d0e",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1700,
+        "spouse": "Guillaume CAPELAN ou CAPLAN (1700)",
+        "mtHaplogroup": "C1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086141.php",
+        "familySheetNo": "212804",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.49869,
+          45.57939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-807c07ae9b",
+        "displayLabel": "Olive Pélagie ARGUIN",
+        "surname": "ARGUIN",
+        "givenName": "Olive Pélagie",
+        "marriageYear": 1700,
+        "spouse": "Ambroise RENOYER (1700); Paul François LEMAÎTRE dit LAMORILLE (1722)",
+        "mtHaplogroup": "T2g",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016255.php",
+        "familySheetNo": "16344",
+        "signatureType": "unknown",
+        "triId": "TRI0317"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.39958,
+          45.61001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2e18aa4ea8",
+        "displayLabel": ".. (Amérindienne/Native) ..",
+        "surname": "..",
+        "givenName": ".. (Amérindienne/Native)",
+        "marriageYear": 1700,
+        "spouse": "Guillaume CAPELAN ou CAPLAN",
+        "mtHaplogroup": "C1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0062.php",
+        "signatureType": "unknown",
+        "triId": "TRI0062"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.71738,
+          47.01263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-928130ad1c",
+        "displayLabel": "Marie ROUENSA ou OUACANTEOUA ou 8CATE8A",
+        "surname": "ROUENSA ou OUACANTEOUA ou 8CATE8A",
+        "givenName": "Marie",
+        "marriageYear": 1701,
+        "spouse": "Michel ETIENNE dit PHILIPPE",
+        "mtHaplogroup": "C4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0531.php",
+        "signatureType": "unknown",
+        "triId": "TRI0531"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45529,
+          46.24918
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5521b50ace",
+        "displayLabel": "Anne BERNON",
+        "surname": "BERNON",
+        "givenName": "Anne",
+        "marriageYear": 1702,
+        "spouse": "Pierre LAVERGNE (1702)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/115/115803.php",
+        "familySheetNo": "84969",
+        "signatureType": "unknown",
+        "triId": "TRI0538"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88557,
+          46.23077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f88cfcd324",
+        "displayLabel": "Marie Suzanne CAPCIOUEKOUE",
+        "surname": "CAPCIOUEKOUE",
+        "givenName": "Marie Suzanne",
+        "marriageYear": 1702,
+        "spouse": "Jean GAUTHIER dit SAGUINGOIRA (1702)",
+        "mtHaplogroup": "B2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/111/111429.php",
+        "familySheetNo": "933",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.80749,
+          46.36332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e6f7ae8da9",
+        "displayLabel": "Marie Madeleine COURTOIS",
+        "surname": "COURTOIS",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1702,
+        "spouse": "Jean CHAUVIN (1702)",
+        "mtHaplogroup": "T2a1b1a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/007/007689.php",
+        "familySheetNo": "8666",
+        "signatureType": "unknown",
+        "triId": "TRI0206"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72421,
+          45.5616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-48261a5440",
+        "displayLabel": "Marie Jeanne VERBERRY ou VERBRI",
+        "surname": "VERBERRY ou VERBRI",
+        "givenName": "Marie Jeanne",
+        "marriageYear": 1702,
+        "spouse": "Marc Antoine HÉRON dit PARISIEN (1702)",
+        "mtHaplogroup": "H18",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118520.php",
+        "familySheetNo": "118521",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.15145,
+          46.69077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-30ace181ca",
+        "displayLabel": "Marie Élisabeth PRICE",
+        "surname": "PRICE",
+        "givenName": "Marie Élisabeth",
+        "marriageYear": 1703,
+        "spouse": "André ou Andrew STEVENS (1703); Jean FOURNEAU dit BRIND'AMOUR (1706)",
+        "mtHaplogroup": "T2b5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/213/213660.php",
+        "familySheetNo": "213662",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.37033,
+          46.86027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e5889b7ebe",
+        "displayLabel": "Angélique DANDONNEAU dit DUSABLÉ",
+        "surname": "DANDONNEAU dit DUSABLÉ",
+        "givenName": "Angélique",
+        "marriageYear": 1704,
+        "spouse": "Charles CHABOYER (1704); Ignace VIEN dit JEAN (1710)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/238/238188.php",
+        "familySheetNo": "8030",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88902,
+          46.18579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-31180a01d1",
+        "displayLabel": "Abigail puis Marguerite Gabrielle STIBBINS ou STÉBENNE",
+        "surname": "STIBBINS ou STÉBENNE",
+        "givenName": "Abigail puis Marguerite Gabrielle",
+        "marriageYear": 1704,
+        "spouse": "Jacques DENOYON (1704)",
+        "mtHaplogroup": "J1c3b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016120.php",
+        "familySheetNo": "863",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72123,
+          45.60338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e97dc3d0c2",
+        "displayLabel": "Marie Ursule ELIE ou MESTRE ou MISTROT",
+        "surname": "ELIE ou MESTRE ou MISTROT",
+        "givenName": "Marie Ursule",
+        "marriageYear": 1704,
+        "spouse": "Charles DUBOIS dit BRISEBOIS",
+        "mtHaplogroup": "H4a1a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0246.php",
+        "signatureType": "unknown",
+        "triId": "TRI0246"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.08985,
+          46.86586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b71050fe97",
+        "displayLabel": "Marie FOUCAUD",
+        "surname": "FOUCAUD",
+        "givenName": "Marie",
+        "marriageYear": 1705,
+        "spouse": "Joseph SIMON dit LAPOINTE (1705)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/086/086489.php",
+        "familySheetNo": "474",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.3654,
+          46.73495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7e5e67cb5d",
+        "displayLabel": "Catherine DÈGRE ou DESGRÉS",
+        "surname": "DÈGRE ou DESGRÉS",
+        "givenName": "Catherine",
+        "marriageYear": 1705,
+        "spouse": "Étienne GIRARD dit LEBRETON (1705)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042054.php",
+        "familySheetNo": "14877",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.35223,
+          46.87846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9f9c82fe0f",
+        "displayLabel": "Jacqueline BILLY",
+        "surname": "BILLY",
+        "givenName": "Jacqueline",
+        "marriageYear": 1705,
+        "spouse": "Jean PEPIN",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0634.php",
+        "signatureType": "unknown",
+        "triId": "TRI0634"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.03698,
+          47.14148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-29dbcfc749",
+        "displayLabel": "Marie Elisabeth PRICE",
+        "surname": "PRICE",
+        "givenName": "Marie Elisabeth",
+        "marriageYear": 1706,
+        "spouse": "Jean FOURNEAU dit BRIND'AMOUR",
+        "mtHaplogroup": "T2b5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0365.php",
+        "signatureType": "unknown",
+        "triId": "TRI0365"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.18729,
+          46.82297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ca85d38a53",
+        "displayLabel": "Anne LAVACHE",
+        "surname": "LAVACHE",
+        "givenName": "Anne",
+        "marriageYear": 1708,
+        "spouse": "Louis LABAUVE (1708)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043299.php",
+        "familySheetNo": "115764",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.66022,
+          46.29449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-644f3b3a07",
+        "displayLabel": "Anne Marie DOIRON",
+        "surname": "DOIRON",
+        "givenName": "Anne Marie",
+        "marriageYear": 1709,
+        "spouse": "Michel VINCENT (1709)",
+        "mtHaplogroup": "W3a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/087/087504.php",
+        "familySheetNo": "87503",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70851,
+          45.47579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b8fb71bf61",
+        "displayLabel": "Catherine WOLFFINE",
+        "surname": "WOLFFINE",
+        "givenName": "Catherine",
+        "marriageYear": 1709,
+        "spouse": "Léonard GASTEL ou CABLE (1709); Andreas SCHANTZ (1724)",
+        "mtHaplogroup": "X2d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118396.php",
+        "familySheetNo": "117936",
+        "signatureType": "unknown",
+        "triId": "TRI0700"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87234,
+          47.09166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-000ee32dd6",
+        "displayLabel": "Suzanne ..",
+        "surname": "..",
+        "givenName": "Suzanne",
+        "marriageYear": 1710,
+        "spouse": "Jean Baptiste1 BAUDREAU dit GRAVELINE (1710)",
+        "mtHaplogroup": "C1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/110/110096.php",
+        "familySheetNo": "500",
+        "signatureType": "unknown",
+        "triId": "TRI0906"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.01642,
+          47.08533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e0188bad2f",
+        "displayLabel": "Dorothée MICHI8E8A",
+        "surname": "MICHI8E8A",
+        "givenName": "Dorothée",
+        "marriageYear": 1710,
+        "spouse": "Charles DANIS (1710); Louis TURPIN (1724)",
+        "mtHaplogroup": "B2o",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117738.php",
+        "familySheetNo": "111360",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73235,
+          45.53958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cd98e9037f",
+        "displayLabel": "Sarah puis Marie Madeleine HELENE ou ALLYN",
+        "surname": "HELENE ou ALLYN",
+        "givenName": "Sarah puis Marie Madeleine",
+        "marriageYear": 1710,
+        "spouse": "Guillaume LALONDE",
+        "mtHaplogroup": "J1c2r",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1104.php",
+        "signatureType": "unknown",
+        "triId": "TRI1104"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.20514,
+          46.78525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bd4d10dd88",
+        "displayLabel": "Thankful puis Thérèse Louise STEBENNE",
+        "surname": "STEBENNE",
+        "givenName": "Thankful puis Thérèse Louise",
+        "marriageYear": 1711,
+        "spouse": "Adrien Charles LEGRAIN dit LAVALLÉE (1711)",
+        "mtHaplogroup": "J1c3b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/013/013872.php",
+        "familySheetNo": "5598",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98482,
+          46.18481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ff43f4241c",
+        "displayLabel": "Marie Renee BILLY",
+        "surname": "BILLY",
+        "givenName": "Marie Renee",
+        "marriageYear": 1712,
+        "spouse": "Michel RAUX dit ALEXANDRE",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0634.php",
+        "signatureType": "unknown",
+        "triId": "TRI0634"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.30818,
+          46.87645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bff257c2b0",
+        "displayLabel": "Marie Jeanne HENRY",
+        "surname": "HENRY",
+        "givenName": "Marie Jeanne",
+        "marriageYear": 1714,
+        "spouse": "Joseph GIRARDY (1714)",
+        "mtHaplogroup": "T2b-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/111/111445.php",
+        "familySheetNo": "1483",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.96481,
+          46.34939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b69ba9afa3",
+        "displayLabel": "Ursule KREUTER ou FREYER",
+        "surname": "KREUTER ou FREYER",
+        "givenName": "Ursule",
+        "marriageYear": 1714,
+        "spouse": "Jean Conrad FRIDERICK (1714)",
+        "mtHaplogroup": "H7e",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117639.php",
+        "familySheetNo": "117467",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8485,
+          46.12942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8fac769e2f",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1715,
+        "spouse": "Denis ROUSSEAU (1715)",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/225/225739.php",
+        "familySheetNo": "42814",
+        "signatureType": "unknown",
+        "triId": "TRI0665"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.84577,
+          47.12109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6cb2b6a1c7",
+        "displayLabel": "Abigail puis Marie Élisabeth NIMBS dit T8ATOG8ACH ou TOUATOGOUACH",
+        "surname": "NIMBS dit T8ATOG8ACH ou TOUATOGOUACH",
+        "givenName": "Abigail puis Marie Élisabeth",
+        "marriageYear": 1715,
+        "spouse": "Josiah puis Ignace RISING puis RAIZENNE dit SHOENTAK8ANI ou SHOENTAKOUANI (1715)",
+        "mtHaplogroup": "U5a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016418.php",
+        "familySheetNo": "16421",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.80034,
+          46.13395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fe5944fd29",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1720,
+        "spouse": ".. BOUDEAU (1720)",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/210/210983.php",
+        "familySheetNo": "134844",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34868,
+          46.81891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e3ae72b6c6",
+        "displayLabel": "Françoise Rose ARGUIN",
+        "surname": "ARGUIN",
+        "givenName": "Françoise Rose",
+        "marriageYear": 1720,
+        "spouse": "François CHAUMEREAU (1720)",
+        "mtHaplogroup": "T2g",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/011/011646.php",
+        "familySheetNo": "39039",
+        "signatureType": "unknown",
+        "triId": "TRI0317"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.3129,
+          46.89114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1bf18eb88c",
+        "displayLabel": "Marie Anne FOURCHÉ",
+        "surname": "FOURCHÉ",
+        "givenName": "Marie Anne",
+        "marriageYear": 1720,
+        "spouse": "Jean LACASE (1720); Pierre LORANDINI (1726)",
+        "mtHaplogroup": "J1c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117743.php",
+        "familySheetNo": "117664",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.23794,
+          46.8078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bcf0de3da5",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1720,
+        "spouse": "Nicolas MILLET (1720)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223825.php",
+        "familySheetNo": "5725",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.50194,
+          45.51881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9b543d06b6",
+        "displayLabel": "Madeleine BOUCHET",
+        "surname": "BOUCHET",
+        "givenName": "Madeleine",
+        "marriageYear": 1720,
+        "spouse": "Jacques Philippe DONTAIL (1720); Claude MORILLONNET dit BERRY (1725)",
+        "mtHaplogroup": "H5c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042959.php",
+        "familySheetNo": "16450",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.10363,
+          46.75014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c376e3e5e7",
+        "displayLabel": ".. (Amérindienne/Native), .. ..",
+        "surname": "..",
+        "givenName": ".. (Amérindienne/Native), ..",
+        "marriageYear": 1720,
+        "spouse": ".. BOUDEAU",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0397.php",
+        "signatureType": "unknown",
+        "triId": "TRI0397"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.04245,
+          46.81977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-675173bd15",
+        "displayLabel": "Marie Anne CHARPIN",
+        "surname": "CHARPIN",
+        "givenName": "Marie Anne",
+        "marriageYear": 1721,
+        "spouse": "François HENNET dit SANSCHAGRIN (1721)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/111/111473.php",
+        "familySheetNo": "118380",
+        "signatureType": "unknown",
+        "triId": "TRI0866"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34009,
+          46.89129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9d613c318c",
+        "displayLabel": "Étiennette GENE",
+        "surname": "GENE",
+        "givenName": "Étiennette",
+        "marriageYear": 1721,
+        "spouse": "Pierre FUGÈRE (1721)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117191.php",
+        "familySheetNo": "134300",
+        "signatureType": "unknown",
+        "triId": "TRI0870"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.98287,
+          46.35992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-38f0c02f26",
+        "displayLabel": "Olive Pelagie ARGUIN",
+        "surname": "ARGUIN",
+        "givenName": "Olive Pelagie",
+        "marriageYear": 1722,
+        "spouse": "Paul Francois LEMAITRE dit LAMORILLE",
+        "mtHaplogroup": "T2g",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0317.php",
+        "signatureType": "unknown",
+        "triId": "TRI0317"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88393,
+          46.13237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ebbe326ca6",
+        "displayLabel": "Jacqueline BILLY",
+        "surname": "BILLY",
+        "givenName": "Jacqueline",
+        "marriageYear": 1722,
+        "spouse": "Joseph JEAN dit VIEN",
+        "mtHaplogroup": "H3-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0634.php",
+        "signatureType": "unknown",
+        "triId": "TRI0634"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97107,
+          46.23428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e11a627ef2",
+        "displayLabel": "Marie Simone MARTIN",
+        "surname": "MARTIN",
+        "givenName": "Marie Simone",
+        "marriageYear": 1723,
+        "spouse": "Claude ILLERAY ou ILLERET (1723); Pierre DANY (1724)",
+        "mtHaplogroup": "U5b2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/116/116311.php",
+        "familySheetNo": "111476",
+        "signatureType": "unknown",
+        "triId": "TRI0542"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2902,
+          46.73099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bfb977a839",
+        "displayLabel": "Geneviève CHAVANNE",
+        "surname": "CHAVANNE",
+        "givenName": "Geneviève",
+        "marriageYear": 1723,
+        "spouse": "Thomas HUGUET",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0711.php",
+        "signatureType": "unknown",
+        "triId": "TRI0711"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9501,
+          46.31897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-69e90f3f62",
+        "displayLabel": "Marie SANMERINE dit L'ESTE",
+        "surname": "SANMERINE dit L'ESTE",
+        "givenName": "Marie",
+        "marriageYear": 1725,
+        "spouse": "Guillaume LEMOINE dit LENORMAND (1725)",
+        "mtHaplogroup": "H63a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117337.php",
+        "signatureType": "unknown",
+        "triId": "TRI0278"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.99432,
+          46.18526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b8e91973e2",
+        "displayLabel": "Élisabeth TONMELIN ou TOMELIN",
+        "surname": "TONMELIN ou TOMELIN",
+        "givenName": "Élisabeth",
+        "marriageYear": 1725,
+        "spouse": "Louis LAVERGNE (1725); Jean BARRÉ dit LYONNAIS (1752)",
+        "mtHaplogroup": "K",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117733.php",
+        "familySheetNo": "117307",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7975,
+          46.14139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-794f03c3c5",
+        "displayLabel": "Marie COLON",
+        "surname": "COLON",
+        "givenName": "Marie",
+        "marriageYear": 1726,
+        "spouse": "Jean RONDOT (1726); Antoine SARRAZIN (1747); Jean TOUSSAINT (1772)",
+        "mtHaplogroup": "H5c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117707.php",
+        "familySheetNo": "117644",
+        "signatureType": "unknown",
+        "triId": "TRI0434"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87179,
+          47.05169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a5b0b81d89",
+        "displayLabel": "Marie Anne FOURCHE",
+        "surname": "FOURCHE",
+        "givenName": "Marie Anne",
+        "marriageYear": 1726,
+        "spouse": "Pierre LORANDINI",
+        "mtHaplogroup": "J1c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0691.php",
+        "signatureType": "unknown",
+        "triId": "TRI0691"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.69643,
+          46.25898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-85c4e3c31a",
+        "displayLabel": "Marie Anne BRAGELONNE",
+        "surname": "BRAGELONNE",
+        "givenName": "Marie Anne",
+        "marriageYear": 1727,
+        "spouse": "Claude DELAGE dit LAVIGUEUR",
+        "mtHaplogroup": "H17",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI1086.php",
+        "signatureType": "unknown",
+        "triId": "TRI1086"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.43429,
+          46.44909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3879f2366c",
+        "displayLabel": "Claudine VOLMAR ou VOLMAL",
+        "surname": "VOLMAR ou VOLMAL",
+        "givenName": "Claudine",
+        "marriageYear": 1728,
+        "spouse": "Joseph CASTAN ou CASTON dit TOULOUSE (1728)",
+        "mtHaplogroup": "H6a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118468.php",
+        "familySheetNo": "117164",
+        "signatureType": "unknown",
+        "triId": "TRI0450"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46884,
+          45.60479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d2fa4bf0f4",
+        "displayLabel": "Marie Anne Thérèse DE LA GRANDE TERRE",
+        "surname": "DE LA GRANDE TERRE",
+        "givenName": "Marie Anne Thérèse",
+        "marriageYear": 1729,
+        "spouse": "Jacques GUÉDON dit NANTOIS (1729)",
+        "mtHaplogroup": "A2-T16189C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117668.php",
+        "signatureType": "unknown",
+        "triId": "TRI0908"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87979,
+          47.19853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b94399d67a",
+        "displayLabel": "Françoise BUART",
+        "surname": "BUART",
+        "givenName": "Françoise",
+        "marriageYear": 1729,
+        "spouse": "Jean L'AGÉ dit LAROSE (1729)",
+        "mtHaplogroup": "H1b1-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118374.php",
+        "familySheetNo": "118373",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.51784,
+          46.46602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-73433596ca",
+        "displayLabel": "Marguerite LEBERTON",
+        "surname": "LEBERTON",
+        "givenName": "Marguerite",
+        "marriageYear": 1729,
+        "spouse": "René DUGUAY",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0476.php",
+        "signatureType": "unknown",
+        "triId": "TRI0476"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52017,
+          46.2489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-201ea00dc7",
+        "displayLabel": "Anne Marie DREYER ou TRAEGER",
+        "surname": "DREYER ou TRAEGER",
+        "givenName": "Anne Marie",
+        "marriageYear": 1730,
+        "spouse": "Antoine LEROUX dit LAFLEUR (1730)",
+        "mtHaplogroup": "U5a1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118472.php",
+        "signatureType": "unknown",
+        "triId": "TRI0909"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2548,
+          46.87385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0e88bac430",
+        "displayLabel": "Catherine BETHELERE",
+        "surname": "BETHELERE",
+        "givenName": "Catherine",
+        "marriageYear": 1730,
+        "spouse": "Bernhard ANDONI ou ANTONI (1730)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/116/116897.php",
+        "familySheetNo": "116898",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.82859,
+          46.2088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-178f009202",
+        "displayLabel": "Marguerite PACHOTTE",
+        "surname": "PACHOTTE",
+        "givenName": "Marguerite",
+        "marriageYear": 1731,
+        "spouse": "Charles JOLIVET (1731)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/021/021162.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44835,
+          46.2926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2ad6ff969f",
+        "displayLabel": "Anne Madeleine BOUCHET dit DONTAIL",
+        "surname": "BOUCHET dit DONTAIL",
+        "givenName": "Anne Madeleine",
+        "marriageYear": 1732,
+        "spouse": "Hubert Joseph de LACROIX (1732)",
+        "mtHaplogroup": "H5c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/021/021336.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44482,
+          46.26964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-eacec127e5",
+        "displayLabel": "Marie Catherine VINCONNEAU",
+        "surname": "VINCONNEAU",
+        "givenName": "Marie Catherine",
+        "marriageYear": 1734,
+        "spouse": "Jean Baptiste BAUDRAU (1734)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/110/110095.php",
+        "signatureType": "unknown",
+        "triId": "TRI0967"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71002,
+          45.56644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-59788ff6dd",
+        "displayLabel": "Marie Madeleine LEMARINIER",
+        "surname": "LEMARINIER",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1735,
+        "spouse": "Jean Baptiste BOUDET (1735); Augustin DIONNE (1771)",
+        "mtHaplogroup": "H1n1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/111/111057.php",
+        "familySheetNo": "226803",
+        "signatureType": "unknown",
+        "triId": "TRI0888"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.71296,
+          46.22457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c9ebcb2846",
+        "displayLabel": "Marie Barbe MATZ",
+        "surname": "MATZ",
+        "givenName": "Marie Barbe",
+        "marriageYear": 1738,
+        "spouse": "Pierre PAUMIER (1738)",
+        "mtHaplogroup": "H16a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/118/118495.php",
+        "familySheetNo": "117539",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.71221,
+          45.58824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cc7374a0f8",
+        "displayLabel": "Geneviève HUGUET",
+        "surname": "HUGUET",
+        "givenName": "Geneviève",
+        "marriageYear": 1741,
+        "spouse": "Jean Baptiste LARUE (1741); Louis Benjamin DEGUISE dit FLAMAND (1763)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016292.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.6055,
+          46.45222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-103e7a401d",
+        "displayLabel": "Catherine MENTI",
+        "surname": "MENTI",
+        "givenName": "Catherine",
+        "marriageYear": 1741,
+        "spouse": "Alexandre PORTIER (1741)",
+        "mtHaplogroup": "H27",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117464.php",
+        "signatureType": "unknown",
+        "triId": "TRI0913"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.18654,
+          46.89847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3529cc404a",
+        "displayLabel": "Marie MONJOUETE ou MOUCHET",
+        "surname": "MONJOUETE ou MOUCHET",
+        "givenName": "Marie",
+        "marriageYear": 1744,
+        "spouse": "Julien LEPEAU ou DELEPEAU dit LAVIELLE (1744)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/043/043459.php",
+        "signatureType": "unknown",
+        "triId": "TRI0668"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.70171,
+          45.60618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2120ef3273",
+        "displayLabel": "Marie1 HUGUET",
+        "surname": "HUGUET",
+        "givenName": "Marie1",
+        "marriageYear": 1745,
+        "spouse": "Jean Baptiste GIRARD (1745); Pierre André SPÉNARD (1749)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/016/016292.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89798,
+          46.18748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1368b0efb6",
+        "displayLabel": "Marie ALLARD ou LORAIN",
+        "surname": "ALLARD ou LORAIN",
+        "givenName": "Marie",
+        "marriageYear": 1747,
+        "spouse": "Antoine DOZA (1747)",
+        "mtHaplogroup": "B2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/116/116892.php",
+        "signatureType": "unknown",
+        "triId": "TRI0933"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.82572,
+          47.10507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-18699f307a",
+        "displayLabel": "Marie Geneviève DONTAIL",
+        "surname": "DONTAIL",
+        "givenName": "Marie Geneviève",
+        "marriageYear": 1747,
+        "spouse": "Pierre MALLET (1747)",
+        "mtHaplogroup": "H5c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/022/022344.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.21253,
+          46.78684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7771eb8506",
+        "displayLabel": "Marie Madeleine HUISINE",
+        "surname": "HUISINE",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1748,
+        "spouse": "Henri Albert SCHEXNAYDER (1748)",
+        "mtHaplogroup": "H1c2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/195/195233.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.61524,
+          46.22277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6275bb5df9",
+        "displayLabel": "Louise BOUDEAU",
+        "surname": "BOUDEAU",
+        "givenName": "Louise",
+        "marriageYear": 1749,
+        "spouse": "Aubin LECOUFE (1749)",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/134/134844.php",
+        "signatureType": "unknown",
+        "triId": "TRI0397"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.66976,
+          45.49588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bf728b26d1",
+        "displayLabel": "Marie Catherine BERDA",
+        "surname": "BERDA",
+        "givenName": "Marie Catherine",
+        "marriageYear": 1750,
+        "spouse": "Mathurin LADNER dit CHRISTIAN (1750)",
+        "mtHaplogroup": "H1bg",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/214/214962.php",
+        "signatureType": "unknown",
+        "triId": "TRI0513"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78635,
+          46.3477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f902ccd9b2",
+        "displayLabel": "Marie BOUDEAU",
+        "surname": "BOUDEAU",
+        "givenName": "Marie",
+        "marriageYear": 1750,
+        "spouse": "Jean CHICOINE (1750)",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/044/044263.php",
+        "signatureType": "unknown",
+        "triId": "TRI0397"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.63484,
+          45.46146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e94bbf9909",
+        "displayLabel": "Anne Barbe PAUMIER",
+        "surname": "PAUMIER",
+        "givenName": "Anne Barbe",
+        "marriageYear": 1750,
+        "spouse": "Michel SCHLETTER (1750)",
+        "mtHaplogroup": "H16a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/117/117539.php",
+        "signatureType": "unknown",
+        "triId": "TRI0451"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2379,
+          46.89401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-39c32f7f7a",
+        "displayLabel": ".. DEMYNAMY",
+        "surname": "DEMYNAMY",
+        "givenName": "..",
+        "marriageYear": 1750,
+        "spouse": ".. MENTOSAKY (1750)",
+        "mtHaplogroup": "X2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/210/210974.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.74341,
+          47.21761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d2540d9f15",
+        "displayLabel": "Josefa HIDALGO",
+        "surname": "HIDALGO",
+        "givenName": "Josefa",
+        "marriageYear": 1750,
+        "spouse": "Bartolome DIAZ (1750)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223717.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.89077,
+          47.04204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a31d96a05d",
+        "displayLabel": "Marie Joseph LAPOINTE",
+        "surname": "LAPOINTE",
+        "givenName": "Marie Joseph",
+        "marriageYear": 1751,
+        "spouse": "Hugues René KREPS ou KREBS",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0674.php",
+        "signatureType": "unknown",
+        "triId": "TRI0674"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.45116,
+          45.57818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-52c322fd35",
+        "displayLabel": "Françoise ITAGISSE",
+        "surname": "ITAGISSE",
+        "givenName": "Françoise",
+        "marriageYear": 1752,
+        "spouse": "Jean BRILLANT dit BEAULIEU (1752)",
+        "mtHaplogroup": "C4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/087/087211.php",
+        "signatureType": "unknown",
+        "triId": "TRI0033"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.8259,
+          46.9955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4923274cb2",
+        "displayLabel": "Jeanne VIA",
+        "surname": "VIA",
+        "givenName": "Jeanne",
+        "marriageYear": 1752,
+        "spouse": "Jean François FRÉMOND (1752); Esprit Joseph PARNET ou PERNET (1752)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/132/132189.php",
+        "familySheetNo": "132191",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.67694,
+          46.43344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a1cf2c10c3",
+        "displayLabel": "Dorothée ROY",
+        "surname": "ROY",
+        "givenName": "Dorothée",
+        "marriageYear": 1753,
+        "spouse": "Morant WILLIG (1753)",
+        "mtHaplogroup": "K1a4d",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/132/132865.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.8864,
+          47.00391
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e38efc337e",
+        "displayLabel": "Susanne VERLEY",
+        "surname": "VERLEY",
+        "givenName": "Susanne",
+        "marriageYear": 1756,
+        "spouse": "Jacob SCHMIDT (1756)",
+        "mtHaplogroup": "J1c5a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/042/042268.php",
+        "familySheetNo": "203629",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.46371,
+          45.50621
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7fe488325e",
+        "displayLabel": "Marguerite BRAU",
+        "surname": "BRAU",
+        "givenName": "Marguerite",
+        "marriageYear": 1758,
+        "spouse": "Nicolas BAUDOUIN (1758)",
+        "mtHaplogroup": "H69",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/198/198924.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.83992,
+          47.05996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-481dac9326",
+        "displayLabel": "Sarah SWEENEY",
+        "surname": "SWEENEY",
+        "givenName": "Sarah",
+        "marriageYear": 1758,
+        "spouse": "Jean CONDON (1758)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/038/038015.php",
+        "familySheetNo": "46057",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.59644,
+          45.42713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0d36348f35",
+        "displayLabel": "Marie Julie HAUSER puis MÉNAGE",
+        "surname": "HAUSER puis MÉNAGE",
+        "givenName": "Marie Julie",
+        "marriageYear": 1759,
+        "spouse": "Charles FISBACH dit DODIENNE (1759)",
+        "mtHaplogroup": "H5a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/029/029761.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2363,
+          46.79331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c70bc10efa",
+        "displayLabel": "Marie Anne FOURGERAT",
+        "surname": "FOURGERAT",
+        "givenName": "Marie Anne",
+        "marriageYear": 1760,
+        "spouse": "Thomas DEPOT (1760)",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/219/219925.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97456,
+          46.27137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d264318224",
+        "displayLabel": "Élisabeth SHÉGONÉ",
+        "surname": "SHÉGONÉ",
+        "givenName": "Élisabeth",
+        "marriageYear": 1760,
+        "spouse": "Henri LOFFICIAL (1760)",
+        "mtHaplogroup": "B4'5",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/204/204435.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25223,
+          46.886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3fa300c36e",
+        "displayLabel": "Marie2 HUGUET",
+        "surname": "HUGUET",
+        "givenName": "Marie2",
+        "marriageYear": 1761,
+        "spouse": "Pierre CHEVAUDIER dit LÉPINE (1761)",
+        "mtHaplogroup": "T2b3-C151T",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/027/027812.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89196,
+          46.24433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-556ed99e67",
+        "displayLabel": "Jeanne HOLLEY",
+        "surname": "HOLLEY",
+        "givenName": "Jeanne",
+        "marriageYear": 1761,
+        "spouse": "François DAIGLE (1761)",
+        "mtHaplogroup": "H3h7",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/194/194890.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.5279,
+          46.25172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d2d66e5676",
+        "displayLabel": "Catherine McNICOLL",
+        "surname": "McNICOLL",
+        "givenName": "Catherine",
+        "marriageYear": 1763,
+        "spouse": "Duncan ou Dominique McNICOLL (1763)",
+        "mtHaplogroup": "U5a1d",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/199/199595.php",
+        "familySheetNo": "72264",
+        "signatureType": "unknown",
+        "triId": "TRI0325"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.21557,
+          46.69491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3650450d31",
+        "displayLabel": "Isabelle Marguerite BAUDRY",
+        "surname": "BAUDRY",
+        "givenName": "Isabelle Marguerite",
+        "marriageYear": 1764,
+        "spouse": "Célestin BRIAND (1764)",
+        "mtHaplogroup": "H1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/199/199233.php",
+        "familySheetNo": "110815",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.8669,
+          47.06538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-374c06886d",
+        "displayLabel": "Françoise ou Marguerite MINOUINOU",
+        "surname": "MINOUINOU",
+        "givenName": "Françoise ou Marguerite",
+        "marriageYear": 1764,
+        "spouse": "Charles LAROCQUE (1764)",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/225/225728.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.13824,
+          46.91221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-89d5231d4d",
+        "displayLabel": "Marguerite McKENSIE",
+        "surname": "McKENSIE",
+        "givenName": "Marguerite",
+        "marriageYear": 1766,
+        "spouse": "Neil MacINTYRE (1766)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/203/203486.php",
+        "familySheetNo": "74996",
+        "signatureType": "unknown",
+        "triId": "TRI0200"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80103,
+          46.98574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-35a26f7a2a",
+        "displayLabel": "Catherine RITTER",
+        "surname": "RITTER",
+        "givenName": "Catherine",
+        "marriageYear": 1768,
+        "spouse": "Michel PRUD'HOMME (1768)",
+        "mtHaplogroup": "H2a2a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/203/203305.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.52872,
+          46.44042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-3eda7c90e8",
+        "displayLabel": "Catherine DUVAL",
+        "surname": "DUVAL",
+        "givenName": "Catherine",
+        "marriageYear": 1770,
+        "spouse": "Mathurin THEBAULT (1770)",
+        "mtHaplogroup": "C1c",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/219/219628.php",
+        "signatureType": "unknown",
+        "triId": "TRI0422"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.7525,
+          47.20392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-13f0ccee66",
+        "displayLabel": "Marie Josèphe CARPENTIER",
+        "surname": "CARPENTIER",
+        "givenName": "Marie Josèphe",
+        "marriageYear": 1771,
+        "spouse": "Joseph VINER ou WILNER dit L'ALLEMAND (1771)",
+        "mtHaplogroup": "H1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/204/204445.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.95517,
+          47.22456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-45f5fdfc71",
+        "displayLabel": "Marie Madeleine CONDON",
+        "surname": "CONDON",
+        "givenName": "Marie Madeleine",
+        "marriageYear": 1775,
+        "spouse": "Louis MALLET (1775)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/046/046057.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87354,
+          47.18195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cec4f70921",
+        "displayLabel": "Marie Anne CONDON",
+        "surname": "CONDON",
+        "givenName": "Marie Anne",
+        "marriageYear": 1778,
+        "spouse": "Augustin MALLET (1778)",
+        "mtHaplogroup": "H1ag1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/046/046055.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.80986,
+          47.16784
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8f2a7cf6f6",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1780,
+        "spouse": "Pewatenot .. (1780)",
+        "mtHaplogroup": "X2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224337.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.58197,
+          45.48456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f7f4dc954e",
+        "displayLabel": "Hélène MORISSON",
+        "surname": "MORISSON",
+        "givenName": "Hélène",
+        "marriageYear": 1782,
+        "spouse": "James ROBERTSON (1782)",
+        "mtHaplogroup": "J1c1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/078/078734.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57667,
+          46.36263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-33ce671909",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1783,
+        "spouse": "Alexandre MACDOUGALL (1783)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/238/238212.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.44808,
+          45.39379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5c93dbe2cf",
+        "displayLabel": "Françoise ..",
+        "surname": "..",
+        "givenName": "Françoise",
+        "marriageYear": 1785,
+        "spouse": ".. .. (1785)",
+        "mtHaplogroup": "L0a1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/235/235745.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72965,
+          45.62581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7f4a460665",
+        "displayLabel": "Marie DEPOT",
+        "surname": "DEPOT",
+        "givenName": "Marie",
+        "marriageYear": 1786,
+        "spouse": "Francois FROBER puis FREVE",
+        "mtHaplogroup": "D1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/triangulation/TRI0386.php",
+        "signatureType": "unknown",
+        "triId": "TRI0386"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45932,
+          46.25901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-174a29b48a",
+        "displayLabel": "Josèphe CARBOTTE",
+        "surname": "CARBOTTE",
+        "givenName": "Josèphe",
+        "marriageYear": 1790,
+        "spouse": "Jean Baptiste DESMARAIS (1790)",
+        "mtHaplogroup": "B2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/198/198767.php",
+        "signatureType": "unknown",
+        "triId": "TRI0934"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.78919,
+          46.25396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-25618e64b4",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1790,
+        "spouse": "George JOHNSTON (1790)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223533.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.57554,
+          46.34476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8440174ce3",
+        "displayLabel": "Marie Geneviève MacINTYRE",
+        "surname": "MacINTYRE",
+        "givenName": "Marie Geneviève",
+        "marriageYear": 1791,
+        "spouse": "Michel QUEMENEUR (1791)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/077/077428.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.56162,
+          46.34756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-68b438774c",
+        "displayLabel": "Elizabeth ETZIN ou ETCHEASON",
+        "surname": "ETZIN ou ETCHEASON",
+        "givenName": "Elizabeth",
+        "marriageYear": 1794,
+        "spouse": "Roger VERE (1794)",
+        "mtHaplogroup": "J1c5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/239/239518.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91577,
+          47.00434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-78fc9ebaf5",
+        "displayLabel": "Christine MacINTYRE",
+        "surname": "MacINTYRE",
+        "givenName": "Christine",
+        "marriageYear": 1795,
+        "spouse": "Joseph PARENT (1795)",
+        "mtHaplogroup": "H2a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/074/074996.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.65057,
+          46.26694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-6937bc604a",
+        "displayLabel": "Sara KISSOKOUUA",
+        "surname": "KISSOKOUUA",
+        "givenName": "Sara",
+        "marriageYear": 1795,
+        "spouse": "Pierre2 AUGER (1795)",
+        "mtHaplogroup": "A2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/235/235341.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89593,
+          46.26343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0a68ce01c5",
+        "displayLabel": "Ouichigikoua ..",
+        "surname": "..",
+        "givenName": "Ouichigikoua",
+        "marriageYear": 1796,
+        "spouse": ".. KIMINITCHAWGAN (1796)",
+        "mtHaplogroup": "B2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/237/237915.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.03646,
+          47.14743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-59de732730",
+        "displayLabel": "Pert WON",
+        "surname": "WON",
+        "givenName": "Pert",
+        "marriageYear": 1796,
+        "spouse": "Antoine DESJARLAIS (1796)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223549.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.71111,
+          46.43316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bd2e03f18c",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1799,
+        "spouse": "Jean Baptiste PARENTEAU (1799)",
+        "mtHaplogroup": "C1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/231/231639.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.63197,
+          46.25545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-60acb39d48",
+        "displayLabel": "Marguerite BLANCHARD dit ROY",
+        "surname": "BLANCHARD dit ROY",
+        "givenName": "Marguerite",
+        "marriageYear": 1803,
+        "spouse": "Louis ROBERT dit LAFONTAINE (1803)",
+        "mtHaplogroup": "H-T152C!",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/110/110168.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.70684,
+          46.17329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c8a3133411",
+        "displayLabel": "Thérèse RACLOS",
+        "surname": "RACLOS",
+        "givenName": "Thérèse",
+        "marriageYear": 1804,
+        "spouse": "Jacques MAYOTTE (1804)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/231/231593.php",
+        "signatureType": "unknown",
+        "triId": "TRI0740"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.58309,
+          46.27564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-bbf4b9486f",
+        "displayLabel": "Marguerite DULIGNON dit LAMIRANDE",
+        "surname": "DULIGNON dit LAMIRANDE",
+        "givenName": "Marguerite",
+        "marriageYear": 1808,
+        "spouse": "Joseph BOUCHER (1808)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/143/143475.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.68683,
+          45.37998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4171b9a24b",
+        "displayLabel": "Koueminekoue MACKATEPENESSY",
+        "surname": "MACKATEPENESSY",
+        "givenName": "Koueminekoue",
+        "marriageYear": 1808,
+        "spouse": "Gabriel MACK-AW-DE-BE-NESSY BLACK HAWK (1808)",
+        "mtHaplogroup": "B2c",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/241/241202.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.16461,
+          46.86858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b9885f2731",
+        "displayLabel": "Marie Sara CORREY",
+        "surname": "CORREY",
+        "givenName": "Marie Sara",
+        "marriageYear": 1809,
+        "spouse": "Louis-Benjamin FOISY (1809)",
+        "mtHaplogroup": "H3g1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/158/158094.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97473,
+          46.99595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-79f11e94e4",
+        "displayLabel": "Elizabeth FORRESTER",
+        "surname": "FORRESTER",
+        "givenName": "Elizabeth",
+        "marriageYear": 1809,
+        "spouse": "David GARDINER (1809)",
+        "mtHaplogroup": "K1a4a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/221/221353.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.97158,
+          46.21989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-136df53ba9",
+        "displayLabel": "Mary HORAN",
+        "surname": "HORAN",
+        "givenName": "Mary",
+        "marriageYear": 1809,
+        "spouse": "Peter ou Percy CODY (1809)",
+        "mtHaplogroup": "U5a2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/203/203968.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.59223,
+          45.41095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a268b31fbc",
+        "displayLabel": "Marie NIPISSING",
+        "surname": "NIPISSING",
+        "givenName": "Marie",
+        "marriageYear": 1809,
+        "spouse": "Thomas GRAY (1809)",
+        "mtHaplogroup": "C4c1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/218/218767.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.73553,
+          46.23359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c54deca978",
+        "displayLabel": "Louise LENEAU",
+        "surname": "LENEAU",
+        "givenName": "Louise",
+        "marriageYear": 1814,
+        "spouse": "Antoine LEGROS dit LECOMPTE (1814)",
+        "mtHaplogroup": "A2f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223630.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.36896,
+          46.90477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f6c5a26cf3",
+        "displayLabel": "Ann WARREN puis BARSTON",
+        "surname": "WARREN puis BARSTON",
+        "givenName": "Ann",
+        "marriageYear": 1815,
+        "spouse": "John RAFTER (1815)",
+        "mtHaplogroup": "H1bb",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224160.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.00233,
+          47.16315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e733afe8b1",
+        "displayLabel": "Margaret CROSBY",
+        "surname": "CROSBY",
+        "givenName": "Margaret",
+        "marriageYear": 1818,
+        "spouse": "James KELLY (1818)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/237/237065.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5816,
+          45.51241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-9135e5af00",
+        "displayLabel": "Marie-Anne WANDADIKINAM",
+        "surname": "WANDADIKINAM",
+        "givenName": "Marie-Anne",
+        "marriageYear": 1819,
+        "spouse": "Pierre SAINT-GERMAIN (1819)",
+        "mtHaplogroup": "C1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/189/189345.php",
+        "signatureType": "unknown",
+        "triId": "TRI0917"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44674,
+          46.27642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-cc41e62aaa",
+        "displayLabel": "Mary McKERCHAR",
+        "surname": "McKERCHAR",
+        "givenName": "Mary",
+        "marriageYear": 1819,
+        "spouse": "Thomas FRANCHÈRE (1819)",
+        "mtHaplogroup": "W5a1a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/237/237668.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.64052,
+          46.30081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fcaab5f49f",
+        "displayLabel": "Lisette MILABIKI",
+        "surname": "MILABIKI",
+        "givenName": "Lisette",
+        "marriageYear": 1825,
+        "spouse": "Louis LÉPINE (1825)",
+        "mtHaplogroup": "C1b",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/230/230107.php",
+        "signatureType": "unknown",
+        "triId": "TRI0739"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.8317,
+          46.31391
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d3464b728a",
+        "displayLabel": "Martha H. SCOVILLE",
+        "surname": "SCOVILLE",
+        "givenName": "Martha H.",
+        "marriageYear": 1825,
+        "spouse": "John BONNER (1825)",
+        "mtHaplogroup": "T2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/222/222337.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.74713,
+          47.07288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-ed59f6d198",
+        "displayLabel": "Charlotte MISTIKUS",
+        "surname": "MISTIKUS",
+        "givenName": "Charlotte",
+        "marriageYear": 1826,
+        "spouse": "Pierre LEMAY dit DELORME (1826)",
+        "mtHaplogroup": "A2f1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223622.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.84337,
+          46.36305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8129c05dfd",
+        "displayLabel": "Marguerite RENARD",
+        "surname": "RENARD",
+        "givenName": "Marguerite",
+        "marriageYear": 1827,
+        "spouse": "Étienne Prudent LABILLE (1827)",
+        "mtHaplogroup": "H1c2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/225/225769.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.45071,
+          46.23114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-8c80951fae",
+        "displayLabel": "Mary STONE",
+        "surname": "STONE",
+        "givenName": "Mary",
+        "marriageYear": 1827,
+        "spouse": "Robert ASHTON (1827)",
+        "mtHaplogroup": "I2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/219/219837.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.84717,
+          47.00457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a60ec16dd8",
+        "displayLabel": "Elizabeth SAVAGE",
+        "surname": "SAVAGE",
+        "givenName": "Elizabeth",
+        "marriageYear": 1828,
+        "spouse": "Matthew HALL (1828)",
+        "mtHaplogroup": "H1ak1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224123.php",
+        "familySheetNo": "223974",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.91594,
+          47.18969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0747da8706",
+        "displayLabel": "Ursule MARCHE",
+        "surname": "MARCHE",
+        "givenName": "Ursule",
+        "marriageYear": 1830,
+        "spouse": "Louis BENOIT (1830)",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/228/228533.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.97521,
+          47.00109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-879e2b0a9a",
+        "displayLabel": "Geneviève McGILLIVRAY",
+        "surname": "McGILLIVRAY",
+        "givenName": "Geneviève",
+        "marriageYear": 1832,
+        "spouse": "Olivier DESAUTELS dit LAPOINTE (1832)",
+        "mtHaplogroup": "B2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "confirmed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/237/237984.php",
+        "signatureType": "unknown",
+        "triId": "TRI0939"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.83259,
+          46.31111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-b454e610b8",
+        "displayLabel": "Sophie PAYNE",
+        "surname": "PAYNE",
+        "givenName": "Sophie",
+        "marriageYear": 1833,
+        "spouse": "Bénoni ARSENAULT (1833)",
+        "mtHaplogroup": "U5a1a2a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224219.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9159,
+          46.25809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-45d7e4d6b5",
+        "displayLabel": "Ellen DIVARS",
+        "surname": "DIVARS",
+        "givenName": "Ellen",
+        "marriageYear": 1837,
+        "spouse": "Andrew DEVINE (1837)",
+        "mtHaplogroup": "U5a1a1-T16362C",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/222/222457.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.49011,
+          45.47098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-0e8b76b702",
+        "displayLabel": "Harriet Haloomin RICKARDS",
+        "surname": "RICKARDS",
+        "givenName": "Harriet Haloomin",
+        "marriageYear": 1843,
+        "spouse": "James ALISAPPI (1843)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223542.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6948,
+          45.59025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-d20813d38c",
+        "displayLabel": "Gabrielle PITRAT",
+        "surname": "PITRAT",
+        "givenName": "Gabrielle",
+        "marriageYear": 1846,
+        "spouse": "Édouard NARET (1846)",
+        "mtHaplogroup": "H1e5a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/220/220985.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.90739,
+          46.29075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-5e1097fecc",
+        "displayLabel": "Elisabeth CONNOLLY",
+        "surname": "CONNOLLY",
+        "givenName": "Elisabeth",
+        "marriageYear": 1847,
+        "spouse": "Antoine SAINT-PIERRE (1847)",
+        "mtHaplogroup": "H3k1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/218/218291.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.57971,
+          45.46375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a413e15049",
+        "displayLabel": "Mary ..",
+        "surname": "..",
+        "givenName": "Mary",
+        "marriageYear": 1849,
+        "spouse": "Nicholas Sebastian ABSALON (1849)",
+        "mtHaplogroup": "H15a1",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/217/217743.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.11844,
+          46.76504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-fc4ffa2c28",
+        "displayLabel": "Mary GUBRON",
+        "surname": "GUBRON",
+        "givenName": "Mary",
+        "marriageYear": 1849,
+        "spouse": "Michel CAYOU (1849)",
+        "mtHaplogroup": "U5a2b4",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224211.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.88868,
+          46.2466
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-4d03e1b434",
+        "displayLabel": "Jeanne AWDE",
+        "surname": "AWDE",
+        "givenName": "Jeanne",
+        "marriageYear": 1850,
+        "spouse": "André LATOUR (1850)",
+        "mtHaplogroup": "K",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223456.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.47677,
+          46.37198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2613787132",
+        "displayLabel": "Marguerite KELLY",
+        "surname": "KELLY",
+        "givenName": "Marguerite",
+        "marriageYear": 1852,
+        "spouse": "Urgel MIRON (1852)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/237/237064.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.75828,
+          46.9932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-163a67fd8b",
+        "displayLabel": "Ellen WALSH",
+        "surname": "WALSH",
+        "givenName": "Ellen",
+        "marriageYear": 1857,
+        "spouse": "Michael REDDY (1857)",
+        "mtHaplogroup": "J1c3e2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/221/221152.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.50489,
+          45.49555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a608c9c3d4",
+        "displayLabel": "Sarah LAWLOR",
+        "surname": "LAWLOR",
+        "givenName": "Sarah",
+        "marriageYear": 1864,
+        "spouse": "John Henry Joseph WALKER (1864)",
+        "mtHaplogroup": "U5",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223143.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.2968,
+          46.78096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-e3c7e9074e",
+        "displayLabel": "Margaret PELTIER",
+        "surname": "PELTIER",
+        "givenName": "Margaret",
+        "marriageYear": 1867,
+        "spouse": ".. McGREGOR (1867)",
+        "mtHaplogroup": "A2-C64T",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223563.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.89894,
+          46.24894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-791fece2f8",
+        "displayLabel": "Françoise SAUTEUSE",
+        "surname": "SAUTEUSE",
+        "givenName": "Françoise",
+        "marriageYear": 1868,
+        "spouse": "Antoine CHARTRAND (1868)",
+        "mtHaplogroup": "A2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/223/223553.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.41463,
+          45.44374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-db69fe7aa2",
+        "displayLabel": "Émilie BERNARD",
+        "surname": "BERNARD",
+        "givenName": "Émilie",
+        "marriageYear": 1878,
+        "spouse": "Joseph Vincent COUSIN (1878)",
+        "mtHaplogroup": "H6a1b2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224524.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.42331,
+          46.41424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-f8c4458fb3",
+        "displayLabel": ".. ..",
+        "surname": "..",
+        "givenName": "..",
+        "marriageYear": 1881,
+        "spouse": "John SAUNDERS (1881)",
+        "mtHaplogroup": "A2-C64T",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/222/222353.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.94584,
+          47.19843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-c8b4fb4559",
+        "displayLabel": "Marie CARON",
+        "surname": "CARON",
+        "givenName": "Marie",
+        "marriageYear": 1882,
+        "spouse": "Onésime MORNEAU (1882)",
+        "mtHaplogroup": "V",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/215/215784.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.71683,
+          46.12473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-7c21ee3b42",
+        "displayLabel": "Marie RÉGIDIDY",
+        "surname": "RÉGIDIDY",
+        "givenName": "Marie",
+        "marriageYear": 1882,
+        "spouse": "Louis BOIVIN (1882)",
+        "mtHaplogroup": "X2a2",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/224/224342.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.25832,
+          46.74563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-1cc5291bac",
+        "displayLabel": "Margaret MASON",
+        "surname": "MASON",
+        "givenName": "Margaret",
+        "marriageYear": 1894,
+        "spouse": "Félix KEENAN (1894)",
+        "mtHaplogroup": "U5a1a2b",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/225/225623.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.57441,
+          45.5902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-2275dd887c",
+        "displayLabel": "Mary SOLBERG",
+        "surname": "SOLBERG",
+        "givenName": "Mary",
+        "marriageYear": 1895,
+        "spouse": "Adolph VARNEY (1895)",
+        "mtHaplogroup": "H",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/221/221067.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.44246,
+          46.44564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nf-mtdna-a6d0365c26",
+        "displayLabel": "Margaret GREEN",
+        "surname": "GREEN",
+        "givenName": "Margaret",
+        "marriageYear": 1926,
+        "spouse": "Fernand LAURIN (1926); Clifford Cecil STACEY (1970)",
+        "mtHaplogroup": "J1c1b1a",
+        "excludeFromMap": false,
+        "gfnaStatus": "presumed",
+        "sourcePage": "https://www.francogene.com/gfna/gfna/218/218717.php",
+        "signatureType": "unknown"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.87268,
+          47.175
+        ]
+      }
+    }
+  ]
 } as NfMtDnaCollection;
 
 export function getNfMtdnaFeature(id: string): NfMtDnaFeature | undefined {

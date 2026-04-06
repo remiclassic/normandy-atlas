@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "prebuild": "node scripts/build-gfna-datasets.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -11,7 +12,9 @@
     "favicon": "node scripts/make-favicon.mjs",
     "export:normandy-geo": "npx tsx scripts/export-normandy-geo.ts",
     "story:i18n-report": "npx tsx scripts/story-beat-i18n-coverage.ts",
-    "build:gfna": "node scripts/build-gfna-datasets.mjs"
+    "build:gfna": "node scripts/build-gfna-datasets.mjs",
+    "refresh:gfna-mtdna": "node scripts/fetch-francogene-mtdna.mjs",
+    "refresh:gfna-mtdna:enrich": "node scripts/fetch-francogene-mtdna.mjs --enrich"
   },
   "dependencies": {
     "@deck.gl/core": "^9.2.11",

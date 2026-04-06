@@ -145,7 +145,7 @@ export function buildPhylogeographyGeoJson(
     });
   }
 
-  for (const n of ds.nodes) {
+  for (const n of nodes) {
     const np: PhyloNodeProps = {
       id: n.id,
       kind: 'phylo-node',

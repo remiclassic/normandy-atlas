@@ -67,6 +67,26 @@ The atlas charter warns explicitly: **influence zones**—Danelaw echoes, Norse�
 
 If you catch yourself narrating as if a cultural shading were **tax jurisdiction**, pause and downgrade the claim one notch. Your prose will improve immediately.
 
+---
+
+## Scenario: Genealogy hub and genetic overlays
+
+The atlas now carries **parallel** genetic surfaces—each answers a different question.
+
+### Settler triangulation on the map (Francogene / GFNA)
+
+Under **New France** frames, the layer panel exposes **Paternal lineages (Y-DNA)** and **Maternal lineages (mtDNA)**. The former reflects the long-running Francogene **Y triangulation** catalogue that ties modern tester lines to named pioneers; the latter draws on ingested **GFNA** maternal and family-sheet rows (including maternal triangulation pages where cited). Counts move whenever the bundled JSONL is rebuilt—treat the tooltip and catalogue as the source of truth, not a census.
+
+Read these dots with the same discipline as routes: **triangulation is inference from living testers**, not ancient DNA from the settler’s tooth. Misattributed parentage, adoptions, or broken chains anywhere in the descendant path can unlink the named pioneer from the haplogroup you see.
+
+### Genealogy workspace and Norman Identity
+
+The **Genealogy** hub (`/genealogy`) lets you search bundled Francogene/GFNA-style rows and run a guided **Norman Identity** story. When the app flags a surname as matching atlas **migration channels** (for example Normandy ports or Perche recruitment), that match is a **heuristic crosswalk** between catalogue strings and how the atlas typed founders—it is **not** a certificate of medieval origin and not a substitute for parish proof.
+
+### Genetic Lineage Explorer (haplogroup reading)
+
+**`/lineage-explorer`** is deliberately separate from settler triangulation. It is for **haplogroup literacy**: deep-time phylogeography, possible homelands, and **soft** links into peoples, routes, and story library entries for curiosity—not for claiming that a terminal SNP *equals* a Norman charter. When in doubt, reread the atlas contract: genetics and political history stay in parallel lanes.
+
 ### Colonial layers and seigneurial geography
 
 For New France material, the methodology insists: **colonial settlement followed seigneurial geography, not ethnic clustering**. Do not paint **parish origin maps** onto **fur-trade hinterlands** without sources that justify the leap. **Port of embarkation** is not **birth region**; La Rochelle as a hub does not make every passenger Norman by genetics or culture. These cautions exist because popular storytelling *wants* ethnicity to equal tidy patches on the ground. Historians—and this atlas—refuse that shortcut.
@@ -84,7 +104,7 @@ For New France material, the methodology insists: **colonial settlement followed
 
 ### DNA overlays and political history
 
-Where **Y-chromosome** or **ancient DNA** visualizations exist, treat them as **parallel evidentiary streams**. They can clarify long-term population structure and contact; they **cannot** substitute for charter dates, siege years, or fiscal geography. Keep tooltip claims in their lane; write sentences that respect the lane.
+Where **Y-chromosome**, **maternal (mtDNA)**, or **ancient DNA** visualizations exist, treat them as **parallel evidentiary streams**. They can clarify long-term population structure and contact; they **cannot** substitute for charter dates, siege years, or fiscal geography. New France triangulation layers and the Genealogy explorer are unpacked in **Scenario: Genealogy hub and genetic overlays** above—keep tooltip claims in their lane; write sentences that respect the lane.
 
 ### Migration percentages and founder effects
 

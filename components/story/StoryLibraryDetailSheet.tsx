@@ -312,17 +312,38 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                       </span>
                     )}
                     {row.meta.isNew && (
-                      <span className="rounded-md bg-cyan-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-cyan-300">
+                      <span
+                        className="rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
+                        style={{
+                          background: 'color-mix(in srgb, var(--color-blue) 18%, transparent)',
+                          color: 'var(--color-blue-bright)',
+                        }}
+                      >
                         {t('storyLibrary.badge.new', locale)}
                       </span>
                     )}
                     {canResume && (
-                      <span className="rounded-md bg-amber-500/12 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-200/90">
+                      <span
+                        className="rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
+                        style={{
+                          background: 'color-mix(in srgb, var(--color-gold) 20%, transparent)',
+                          color: 'var(--color-gold-bright)',
+                        }}
+                      >
                         {t('storyLibrary.badge.inProgress', locale)}
                       </span>
                     )}
                     {completed && (
-                      <span className="rounded-md bg-emerald-500/12 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-200/90">
+                      <span
+                        className="rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
+                        style={{
+                          background:
+                            uiTheme === 'light'
+                              ? 'color-mix(in srgb, #047857 14%, transparent)'
+                              : 'color-mix(in srgb, #34d399 14%, transparent)',
+                          color: uiTheme === 'light' ? '#065f46' : '#a7f3d0',
+                        }}
+                      >
                         {t('storyLibrary.badge.completed', locale)}
                       </span>
                     )}
@@ -398,10 +419,10 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                             <button
                               type="button"
                               onClick={() => onSelectRelated(r)}
-                              className="w-full rounded-md border px-3 py-2 text-left text-[12px] font-medium transition-colors hover:bg-white/[0.04]"
+                              className="w-full rounded-md border px-3 py-2 text-left text-[12px] font-medium transition-colors hover:bg-chrome-fill"
                               style={{
                                 borderColor: 'var(--color-chrome-border)',
-                                color: 'var(--color-parchment)',
+                                color: 'var(--color-text)',
                               }}
                             >
                               {resolveRowTitle

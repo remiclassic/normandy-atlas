@@ -242,6 +242,8 @@ for (const { lineNum, data: row } of lines) {
     const marriageYear = typeof row.arrival_year === 'number' ? row.arrival_year : 1650;
     const lng = +(anchor.lng + dx * 0.9).toFixed(5);
     const lat = +(anchor.lat + dy * 0.9).toFixed(5);
+    const triMatch = typeof row.tri_id === 'string' ? row.tri_id.match(/TRI\s*0*(\d+)/i) : null;
+    const triId = triMatch ? `TRI${triMatch[1].padStart(4, '0')}` : undefined;
 
     mtFeatures.push({
       type: 'Feature',
@@ -258,6 +260,7 @@ for (const { lineNum, data: row } of lines) {
         sourcePage: row.source_page,
         familySheetNo: row.family_sheet_no != null ? String(row.family_sheet_no) : undefined,
         signatureType: row.signature_type,
+        ...(triId ? { triId } : {}),
       },
       geometry: { type: 'Point', coordinates: [lng, lat] },
     });

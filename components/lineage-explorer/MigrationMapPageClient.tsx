@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ArrowLeft, Map } from 'lucide-react';
 
@@ -23,7 +23,9 @@ import {
 } from '@/core';
 import type { HaplogroupMajorLetter, PhylogeographyMapFocusId } from '@/core/types';
 import {
+  FIRST_NORMAN_NORMANDY_PHYLO_LETTER,
   HAPLOGROUP_MAJOR_LETTERS,
+  NORMAN_NORMANDY_PHYLO_LETTERS,
   getPhylogeographyLetterDataset,
 } from '@/data/atlas/lineage/phylogeography';
 
@@ -42,42 +44,78 @@ const MigrationMapPageClient = memo(function MigrationMapPageClient() {
   const sp = useSearchParams();
   const [toolsOpen, setToolsOpen] = useState(false);
 
-  const raw = sp.get('letter')?.trim().toUpperCase() ?? '';
-  const letter: HaplogroupMajorLetter = isHaplogroupMajorLetter(raw) ? raw : 'R';
-
-  const dataset = getPhylogeographyLetterDataset(letter);
-  const availableFocuses = useMemo(() => listPhylogeographyMapFocusIds(dataset), [dataset]);
+  const rawLetter = sp.get('letter')?.trim().toUpperCase() ?? '';
+  const letterFromUrl: HaplogroupMajorLetter = isHaplogroupMajorLetter(rawLetter) ? rawLetter : 'R';
 
   const rawFocus = sp.get('focus')?.trim() ?? '';
+  /** Empty/missing `focus` defaults to Norman for Normandy; `focus=all` selects All branches. */
   const focus: PhylogeographyMapFocusId | null =
-    isPhylogeographyMapFocusId(rawFocus) && availableFocuses.includes(rawFocus) ? rawFocus : null;
+    rawFocus === 'all'
+      ? null
+      : rawFocus === '' || (isPhylogeographyMapFocusId(rawFocus) && rawFocus === 'norman-normandy')
+        ? 'norman-normandy'
+        : null;
+
+  const letter = useMemo(() => {
+    if (focus === 'norman-normandy' && !NORMAN_NORMANDY_PHYLO_LETTERS.has(letterFromUrl)) {
+      return FIRST_NORMAN_NORMANDY_PHYLO_LETTER;
+    }
+    return letterFromUrl;
+  }, [focus, letterFromUrl]);
+
+  useEffect(() => {
+    if (letterFromUrl === letter) return;
+    const params = new URLSearchParams();
+    params.set('letter', letter);
+    if (focus === 'norman-normandy') {
+      params.set('focus', 'norman-normandy');
+    } else {
+      params.set('focus', 'all');
+    }
+    router.replace(`/lineage-explorer/migration-map?${params}`, { scroll: false });
+  }, [letter, letterFromUrl, focus, router]);
+
+  const dataset = getPhylogeographyLetterDataset(letter);
 
   const hasMap = phylogeographyDatasetHasGeometry(dataset, focus);
 
+  const normanMode = focus === 'norman-normandy';
+
   const selectLetter = useCallback(
     (L: HaplogroupMajorLetter) => {
+      if (normanMode && !NORMAN_NORMANDY_PHYLO_LETTERS.has(L)) return;
+
       const params = new URLSearchParams();
       params.set('letter', L);
-      const nextDs = getPhylogeographyLetterDataset(L);
-      if (
-        isPhylogeographyMapFocusId(rawFocus) &&
-        listPhylogeographyMapFocusIds(nextDs).includes(rawFocus)
-      ) {
-        params.set('focus', rawFocus);
+      if (normanMode) {
+        params.set('focus', 'norman-normandy');
+      } else if (isPhylogeographyMapFocusId(rawFocus) && rawFocus !== 'norman-normandy') {
+        const nextDs = getPhylogeographyLetterDataset(L);
+        if (listPhylogeographyMapFocusIds(nextDs).includes(rawFocus)) params.set('focus', rawFocus);
+      } else {
+        params.set('focus', 'all');
       }
       router.replace(`/lineage-explorer/migration-map?${params}`, { scroll: false });
     },
-    [router, rawFocus],
+    [router, rawFocus, normanMode],
   );
 
   const setFocus = useCallback(
     (next: PhylogeographyMapFocusId | null) => {
       const params = new URLSearchParams();
-      params.set('letter', letter);
-      if (next) params.set('focus', next);
+      let L = letterFromUrl;
+      if (next === 'norman-normandy' && !NORMAN_NORMANDY_PHYLO_LETTERS.has(L)) {
+        L = FIRST_NORMAN_NORMANDY_PHYLO_LETTER;
+      }
+      params.set('letter', L);
+      if (next === 'norman-normandy') {
+        params.set('focus', 'norman-normandy');
+      } else {
+        params.set('focus', 'all');
+      }
       router.replace(`/lineage-explorer/migration-map?${params}`, { scroll: false });
     },
-    [router, letter],
+    [router, letterFromUrl],
   );
 
   return (
@@ -137,28 +175,38 @@ const MigrationMapPageClient = memo(function MigrationMapPageClient() {
               >
                 {HAPLOGROUP_MAJOR_LETTERS.map((L) => {
                   const d = getPhylogeographyLetterDataset(L);
-                  const curated = phylogeographyDatasetHasGeometry(d);
+                  const curated = phylogeographyDatasetHasGeometry(d, focus);
                   const active = L === letter;
+                  const disabled = normanMode && !NORMAN_NORMANDY_PHYLO_LETTERS.has(L);
+                  const tabClasses = disabled
+                    ? 'cursor-not-allowed border-chrome-border/20 bg-chrome-fill/10 text-text-dim/40 opacity-55'
+                    : active
+                      ? 'border-gold/60 bg-gold/15 text-gold'
+                      : curated
+                        ? 'border-chrome-border-strong/40 bg-chrome-fill-raised/50 text-parchment hover:border-gold/35'
+                        : 'border-chrome-border/30 bg-chrome-fill/20 text-text-dim/70 hover:border-chrome-border-strong/50';
                   return (
                     <button
                       key={L}
                       type="button"
                       role="tab"
                       aria-selected={active}
+                      aria-disabled={disabled}
+                      disabled={disabled}
                       tabIndex={active ? 0 : -1}
                       className={[
                         'min-h-[40px] min-w-[2.25rem] rounded-md border px-2 py-1.5 font-mono text-[13px] font-semibold transition-colors',
-                        active
-                          ? 'border-gold/60 bg-gold/15 text-gold'
-                          : curated
-                            ? 'border-chrome-border-strong/40 bg-chrome-fill-raised/50 text-parchment hover:border-gold/35'
-                            : 'border-chrome-border/30 bg-chrome-fill/20 text-text-dim/70 hover:border-chrome-border-strong/50',
+                        tabClasses,
                       ].join(' ')}
                       onClick={() => selectLetter(L)}
                       title={
-                        curated
-                          ? t('lineageExplorer.migrationMapLetterCurated', locale)
-                          : t('lineageExplorer.migrationMapLetterEmpty', locale)
+                        disabled
+                          ? t('lineageExplorer.migrationMapLetterEmptyNormanFocus', locale)
+                          : curated
+                            ? t('lineageExplorer.migrationMapLetterCurated', locale)
+                            : normanMode
+                              ? t('lineageExplorer.migrationMapLetterEmptyNormanFocus', locale)
+                              : t('lineageExplorer.migrationMapLetterEmpty', locale)
                       }
                     >
                       {L}
@@ -168,46 +216,42 @@ const MigrationMapPageClient = memo(function MigrationMapPageClient() {
               </div>
             </div>
 
-            {availableFocuses.length > 0 ? (
-              <div className="mb-4 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-3">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-text-dim">
-                  {t('lineageExplorer.migrationMapFocusLabel', locale)}
-                </span>
-                <div
-                  className="inline-flex flex-wrap justify-center gap-1 rounded-lg border border-chrome-border-strong/40 bg-chrome-fill/20 p-1"
-                  role="group"
-                  aria-label={t('lineageExplorer.migrationMapFocusGroupAria', locale)}
+            <div className="mb-4 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-3">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-text-dim">
+                {t('lineageExplorer.migrationMapFocusLabel', locale)}
+              </span>
+              <div
+                className="inline-flex flex-wrap justify-center gap-1 rounded-lg border border-chrome-border-strong/40 bg-chrome-fill/20 p-1"
+                role="group"
+                aria-label={t('lineageExplorer.migrationMapFocusGroupAria', locale)}
+              >
+                <button
+                  type="button"
+                  className={[
+                    'rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors',
+                    focus == null
+                      ? 'bg-gold/15 text-gold shadow-[inset_0_0_0_1px_rgba(196,169,98,0.35)]'
+                      : 'text-text-dim hover:bg-chrome-fill-raised/60 hover:text-parchment',
+                  ].join(' ')}
+                  onClick={() => setFocus(null)}
                 >
-                  <button
-                    type="button"
-                    className={[
-                      'rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors',
-                      focus == null
-                        ? 'bg-gold/15 text-gold shadow-[inset_0_0_0_1px_rgba(196,169,98,0.35)]'
-                        : 'text-text-dim hover:bg-chrome-fill-raised/60 hover:text-parchment',
-                    ].join(' ')}
-                    onClick={() => setFocus(null)}
-                  >
-                    {t('lineageExplorer.migrationMapFocusAll', locale)}
-                  </button>
-                  {availableFocuses.includes('norman-normandy') ? (
-                    <button
-                      type="button"
-                      className={[
-                        'rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors',
-                        focus === 'norman-normandy'
-                          ? 'bg-gold/15 text-gold shadow-[inset_0_0_0_1px_rgba(196,169,98,0.35)]'
-                          : 'text-text-dim hover:bg-chrome-fill-raised/60 hover:text-parchment',
-                      ].join(' ')}
-                      onClick={() => setFocus('norman-normandy')}
-                      title={t('lineageExplorer.migrationMapFocusNormanNormandyHint', locale)}
-                    >
-                      {t('lineageExplorer.migrationMapFocusNormanNormandy', locale)}
-                    </button>
-                  ) : null}
-                </div>
+                  {t('lineageExplorer.migrationMapFocusAll', locale)}
+                </button>
+                <button
+                  type="button"
+                  className={[
+                    'rounded-md px-3 py-1.5 text-[12px] font-medium transition-colors',
+                    focus === 'norman-normandy'
+                      ? 'bg-gold/15 text-gold shadow-[inset_0_0_0_1px_rgba(196,169,98,0.35)]'
+                      : 'text-text-dim hover:bg-chrome-fill-raised/60 hover:text-parchment',
+                  ].join(' ')}
+                  onClick={() => setFocus('norman-normandy')}
+                  title={t('lineageExplorer.migrationMapFocusNormanNormandyHint', locale)}
+                >
+                  {t('lineageExplorer.migrationMapFocusNormanNormandy', locale)}
+                </button>
               </div>
-            ) : null}
+            </div>
 
             {hasMap ? (
               <PhylogeographyMap dataset={dataset} focus={focus} />
@@ -215,7 +259,9 @@ const MigrationMapPageClient = memo(function MigrationMapPageClient() {
               <div className="flex h-[min(40vh,360px)] min-h-[200px] flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-chrome-border-strong/45 bg-chrome-fill/15 px-4 text-center">
                 <Map className="h-8 w-8 text-text-dim/50" aria-hidden />
                 <p className="max-w-md text-[14px] leading-relaxed text-text-dim">
-                  {t('lineageExplorer.migrationMapEmptyState', locale)}
+                  {focus === 'norman-normandy'
+                    ? t('lineageExplorer.migrationMapEmptyStateNormanFocus', locale)
+                    : t('lineageExplorer.migrationMapEmptyState', locale)}
                 </p>
               </div>
             )}

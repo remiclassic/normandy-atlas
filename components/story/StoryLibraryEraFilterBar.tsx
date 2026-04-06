@@ -8,6 +8,7 @@ import { formatYear } from '@/lib/era-selector-model';
 import { EraGlyph } from '@/lib/era-selector-icons';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import { t } from '@/lib/ui-strings';
+import type { UiTheme } from '@/lib/ui-theme';
 
 export type EraFilterValue = 'all' | string;
 
@@ -16,6 +17,7 @@ interface Props {
   value: EraFilterValue;
   onChange: (value: EraFilterValue) => void;
   locale: AtlasLocale;
+  uiTheme: UiTheme;
 }
 
 function eraRangeHint(era: AtlasEra): string {
@@ -27,7 +29,9 @@ export const StoryLibraryEraFilterBar = memo(function StoryLibraryEraFilterBar({
   value,
   onChange,
   locale,
+  uiTheme,
 }: Props) {
+  const isLight = uiTheme === 'light';
   const barRef = useRef<HTMLDivElement>(null);
 
   const allValues = useMemo(() => ['all' as const, ...eras.map((e) => e.id)], [eras]);
@@ -60,8 +64,9 @@ export const StoryLibraryEraFilterBar = memo(function StoryLibraryEraFilterBar({
       ref={barRef}
       role="tablist"
       aria-label={t('storyLibrary.aria.eraFilterBar', locale)}
-      className="flex flex-wrap items-center gap-2 border-t px-4 py-3 lg:px-5"
-      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+      className={`flex flex-wrap items-center gap-2 border-t px-4 py-3 lg:px-5 ${
+        isLight ? 'border-border' : 'border-white/[0.06]'
+      }`}
       onKeyDown={handleKeyDown}
     >
       <ChromeIconTooltip label={allErasLabel} wrapperRole="presentation">
@@ -74,7 +79,7 @@ export const StoryLibraryEraFilterBar = memo(function StoryLibraryEraFilterBar({
           tabIndex={value === 'all' ? 0 : -1}
           data-era-filter="all"
           onClick={() => onChange('all')}
-          className={iconTabClass(value === 'all')}
+          className={iconTabClass(value === 'all', isLight)}
         >
           <Layers className="h-4 w-4" strokeWidth={1.6} aria-hidden />
         </button>
@@ -98,7 +103,7 @@ export const StoryLibraryEraFilterBar = memo(function StoryLibraryEraFilterBar({
               tabIndex={active ? 0 : -1}
               data-era-filter={era.id}
               onClick={() => onChange(era.id)}
-              className={iconTabClass(active)}
+              className={iconTabClass(active, isLight)}
             >
               <EraGlyph id={era.id} className="relative z-10 h-4 w-4" />
             </button>
@@ -109,13 +114,17 @@ export const StoryLibraryEraFilterBar = memo(function StoryLibraryEraFilterBar({
   );
 });
 
-function iconTabClass(active: boolean): string {
+function iconTabClass(active: boolean, isLight: boolean): string {
   return [
     'relative flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors duration-200 outline-none',
     'focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent',
-    active
-      ? 'border-amber-400/40 bg-amber-500/20 text-amber-100 shadow-[0_0_12px_rgba(251,191,36,0.12)]'
-      : 'border-white/10 bg-white/[0.06] text-white/55 hover:bg-white/[0.1] hover:text-white/85',
+    isLight
+      ? active
+        ? 'border-gold/45 bg-gold/15 text-gold shadow-sm'
+        : 'border-chrome-border bg-chrome-fill text-text-muted hover:bg-chrome-fill-hover hover:text-text'
+      : active
+        ? 'border-amber-400/40 bg-amber-500/20 text-amber-100 shadow-[0_0_12px_rgba(251,191,36,0.12)]'
+        : 'border-white/10 bg-white/[0.06] text-white/55 hover:bg-white/[0.1] hover:text-white/85',
   ].join(' ');
 }
 

@@ -150,9 +150,29 @@ import {
 } from '@/lib/map-view-reader';
 import type { ResolvedSegment, MigrationOverlayContext, MigrationDataset } from '@/core/types';
 import type { ResolvedFlowArc } from '@/core/migration/engine';
-import type { RouteRecord } from '@/types';
+import type { RouteRecord, SelectionKind } from '@/types';
 
 const ATLAS_ROUTE_LAYER_IDS = ['atlas-route-polylines', 'atlas-route-polylines-norman', 'atlas-route-arcs', 'atlas-route-paths'] as const;
+
+function mapSourceIdForSelectionKind(kind: SelectionKind | null): string | null {
+  if (!kind) return null;
+  if (kind === 'settlement') return SETTLEMENT_SOURCE;
+  if (kind === 'norman-site') return NORMAN_NODES_SOURCE;
+  if (kind === 'nf-ydna-lineage') return NF_YDNA_SOURCE;
+  if (kind === 'nf-mtdna-lineage') return NF_MTDNA_SOURCE;
+  if (kind === 'user-ancestry-pin') return USER_ANCESTRY_SOURCE;
+  if (kind === 'region') return REGION_SOURCE;
+  if (kind === 'historical-macro-region') return HISTORICAL_PRESENCE_SOURCE;
+  return null;
+}
+
+/** Applies MapLibre `selected` feature-state when selection was set before the map became ready. */
+function applySelectedFeatureStateToMap(map: maplibregl.Map, id: string, kind: SelectionKind) {
+  const source = mapSourceIdForSelectionKind(kind);
+  if (source && map.getSource(source)) {
+    setFeatureState(map, id, { selected: true }, source);
+  }
+}
 
 function syncLineageExplorerMap(map: maplibregl.Map) {
   if (!map.getSource(LINEAGE_EXPLORER_SOURCE)) return;
@@ -1639,7 +1659,11 @@ export default function MapCanvas() {
         }
 
         const loadState = useMapStore.getState();
-        if (loadState.atlasMode && (loadState.onboardingPhase === 'complete' || isOnboardingDone())) {
+        if (
+          loadState.atlasMode &&
+          (loadState.onboardingPhase === 'complete' || isOnboardingDone()) &&
+          loadState.selectedFeatureId == null
+        ) {
           const initialAtlasEra = getAtlasEra(loadState.eraId);
           if (initialAtlasEra?.summary) {
             loadState.selectFeature(loadState.eraId, 'era-info', { expandDetail: false });
@@ -1667,6 +1691,18 @@ export default function MapCanvas() {
             bearing: pending.bearing,
             pitch: pending.pitch,
           });
+        }
+
+        const { selectedFeatureId: selId, selectionKind: selKind } = useMapStore.getState();
+        if (selId && selKind) {
+          applySelectedFeatureStateToMap(map, selId, selKind);
+          if (selKind === 'region') selectedRegionRef.current = selId;
+          else if (selKind === 'norman-site') selectedNormanNodeRef.current = selId;
+          else if (selKind === 'nf-ydna-lineage') selectedYdnaRef.current = selId;
+          else if (selKind === 'nf-mtdna-lineage') selectedMtdnaRef.current = selId;
+          else if (selKind === 'user-ancestry-pin') selectedUserAncestryPinRef.current = selId;
+          else if (selKind === 'historical-macro-region') selectedHistoricalMacroRef.current = selId;
+          else selectedSettlementRef.current = selId;
         }
       });
 
@@ -1927,25 +1963,14 @@ export default function MapCanvas() {
         const map = mapRef.current;
         if (!map || !readyRef.current) return;
 
-        const sourceForKind = (k: typeof kind) => {
-          if (k === 'settlement') return SETTLEMENT_SOURCE;
-          if (k === 'norman-site') return NORMAN_NODES_SOURCE;
-          if (k === 'nf-ydna-lineage') return NF_YDNA_SOURCE;
-          if (k === 'nf-mtdna-lineage') return NF_MTDNA_SOURCE;
-          if (k === 'user-ancestry-pin') return USER_ANCESTRY_SOURCE;
-          if (k === 'region') return REGION_SOURCE;
-          if (k === 'historical-macro-region') return HISTORICAL_PRESENCE_SOURCE;
-          return null;
-        };
-
         if (prevId && prevId !== newId) {
-          const prevSource = sourceForKind(prevKind);
+          const prevSource = mapSourceIdForSelectionKind(prevKind);
           if (prevSource && map!.getSource(prevSource)) {
             setFeatureState(map!, prevId, { selected: false }, prevSource);
           }
         }
         if (newId) {
-          const source = sourceForKind(kind);
+          const source = mapSourceIdForSelectionKind(kind);
           if (source && map!.getSource(source)) {
             setFeatureState(map!, newId, { selected: true }, source);
           }

@@ -88,10 +88,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
     <div className="space-y-6 px-4 pb-8 lg:px-5">
       {showContinue && (
         <section aria-label={t('storyLibrary.continueWatching', locale)}>
-          <h3
-            className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em]"
-            style={{ color: 'rgba(255,255,255,0.4)' }}
-          >
+          <h3 className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-text-dim">
             {t('storyLibrary.continueWatching', locale)}
           </h3>
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-thin -mx-1 px-1">
@@ -117,10 +114,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
 
       <AnimatePresence mode="popLayout" initial={false}>
         {sections.length === 0 ? (
-          <p
-            className="py-8 text-center text-[13px]"
-            style={{ color: 'rgba(255,255,255,0.35)' }}
-          >
+          <p className="py-8 text-center text-[13px] text-text-muted">
             {searchMode
               ? t('storyLibrary.searchEmpty', locale)
               : t('storyLibrary.filterEmpty', locale)}
@@ -135,10 +129,7 @@ export const StoryLibraryEditorialGrid = memo(function StoryLibraryEditorialGrid
               exit={reducedMotion ? undefined : { opacity: 0, y: -6 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
-              <h3
-                className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em]"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
-              >
+              <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-text-dim">
                 {section.label}
               </h3>
 

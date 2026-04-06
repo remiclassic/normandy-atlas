@@ -12,6 +12,8 @@ export interface NfMtDnaProperties {
   gfnaStatus: GfnaConfidenceStatus;
   sourcePage?: string;
   familySheetNo?: string;
+  /** Francogene triangulation id when matched from mt.php (e.g. TRI0293). */
+  triId?: string;
   signatureType?: GfnaSignatureType;
 }
 

@@ -2527,16 +2527,24 @@ const STRINGS = {
     fr: 'Recherche de lignées Francogene / GFNA',
   },
   'genealogy.gfnaFinderHint': {
-    en: 'Search ingested New France pioneer Y-DNA and mtDNA rows by surname, label, or haplogroup. Links open the map or Francogene family sheets when a sheet id is known.',
-    fr: 'Recherchez des lignées ADN-Y et ADNmt de pionniers de la Nouvelle-France parmi les données importées, par nom, libellé ou haplogroupe. Les liens ouvrent la carte ou les fiches Francogene quand un numéro de fiche est connu.',
+    en: 'Browse the full list below without knowing names upfront, or search when you already have a surname or haplogroup. Links open the map or Francogene family sheets when a sheet id is known.',
+    fr: 'Parcourez la liste complète ci-dessous sans connaître les noms à l’avance, ou recherchez si vous avez déjà un nom ou un haplogroupe. Les liens ouvrent la carte ou les fiches Francogene quand un numéro de fiche est connu.',
+  },
+  'genealogy.gfnaFinderCatalogContext': {
+    en: 'Each name is a documented New France settler (paternal or maternal line). Haplogroups are inferred from DNA tests taken by living descendants and compiled by Francogene / GFNA — not from the pioneers themselves. The Atlas Norman filter keeps surnames that match atlas founders tagged as leaving from Normandy’s ports or the Perche recruitment pool.',
+    fr: 'Chaque nom désigne un colon documenté de la Nouvelle-France (lignée paternelle ou maternelle). Les haplogroupes sont déduits de tests ADN chez des descendants vivants, compilés par Francogene / GFNA — pas chez les pionniers eux-mêmes. Le filtre Atlas normand ne garde que les patronymes qui correspondent, dans l’atlas, à des fondateurs marqués comme partis des ports normands ou du bassin de recrutement du Perche.',
   },
   'genealogy.gfnaFinderPlaceholder': {
     en: 'e.g. Couture, R1b, H1…',
     fr: 'ex. Couture, R1b, H1…',
   },
   'genealogy.gfnaFinderEmpty': {
-    en: 'No matches in bundled catalogue data. Add rows via data/atlas/gfna-dna-records.jsonl and run npm run build:gfna.',
-    fr: 'Aucune correspondance dans les données embarquées. Ajoutez des entrées via data/atlas/gfna-dna-records.jsonl puis npm run build:gfna.',
+    en: 'No matches in bundled catalogue data. Run npm run refresh:gfna-mtdna (add --enrich for family-sheet ids), or edit data/atlas/gfna-dna-records.jsonl, then npm run build:gfna.',
+    fr: 'Aucune correspondance dans les données embarquées. Lancez npm run refresh:gfna-mtdna (ajoutez --enrich pour les fiches familiales), ou modifiez data/atlas/gfna-dna-records.jsonl, puis npm run build:gfna.',
+  },
+  'genealogy.gfnaFinderTriSheet': {
+    en: 'Triangulation (external)',
+    fr: 'Triangulation (externe)',
   },
   'genealogy.gfnaFinderOpenMap': {
     en: 'Open on map',
@@ -2545,6 +2553,86 @@ const STRINGS = {
   'genealogy.gfnaFinderFamilySheet': {
     en: 'Family sheet (external)',
     fr: 'Fiche familiale (externe)',
+  },
+  'genealogy.gfnaFinderBrowseTitle': {
+    en: 'Browse the catalogue',
+    fr: 'Parcourir le catalogue',
+  },
+  'genealogy.gfnaFinderBrowseSubtitle': {
+    en: 'Explore pioneer lineages without typing — filter by type, narrow Y-DNA groups, then open the map.',
+    fr: 'Explorez des lignées de pionniers sans saisie — filtrez par type, affinez les groupes ADN-Y, puis ouvrez la carte.',
+  },
+  'genealogy.gfnaFinderFilterAll': {
+    en: 'All',
+    fr: 'Tout',
+  },
+  'genealogy.gfnaFinderFilterY': {
+    en: 'Y-DNA',
+    fr: 'ADN-Y',
+  },
+  'genealogy.gfnaFinderFilterMt': {
+    en: 'mtDNA',
+    fr: 'ADNmt',
+  },
+  'genealogy.gfnaFinderYGroupLabel': {
+    en: 'Y haplogroup group',
+    fr: 'Groupe ADN-Y',
+  },
+  'genealogy.gfnaFinderYGroupAll': {
+    en: 'All groups',
+    fr: 'Tous les groupes',
+  },
+  'genealogy.gfnaFinderSortLabel': {
+    en: 'Sort',
+    fr: 'Tri',
+  },
+  'genealogy.gfnaFinderSortName': {
+    en: 'Name A–Z',
+    fr: 'Nom A–Z',
+  },
+  'genealogy.gfnaFinderSortYear': {
+    en: 'Marriage year',
+    fr: 'Année de mariage',
+  },
+  'genealogy.gfnaFinderSortHaplo': {
+    en: 'Haplogroup code',
+    fr: 'Code haplogroupe',
+  },
+  'genealogy.gfnaFinderSearchTitle': {
+    en: 'Search',
+    fr: 'Recherche',
+  },
+  'genealogy.gfnaFinderPrev': {
+    en: 'Previous',
+    fr: 'Précédent',
+  },
+  'genealogy.gfnaFinderNext': {
+    en: 'Next',
+    fr: 'Suivant',
+  },
+  'genealogy.gfnaFinderLineages': {
+    en: 'lineages',
+    fr: 'lignées',
+  },
+  'genealogy.gfnaNormanBadge': {
+    en: 'Norman atlas',
+    fr: 'Atlas normand',
+  },
+  'genealogy.gfnaNormanAtlasTooltip': {
+    en: 'This surname matches a Norman Atlas New France founder tagged as migrating from Normandy ports or the Perche recruitment pool — not proof of your own descent.',
+    fr: 'Ce patronyme correspond à un fondateur de la Nouvelle-France dans l’Atlas normand, marqué comme migrant des ports normands ou du bassin de recrutement du Perche — pas une preuve de votre propre descendance.',
+  },
+  'genealogy.gfnaNormanChannelNormandy': {
+    en: 'Normandy ports',
+    fr: 'Ports normands',
+  },
+  'genealogy.gfnaNormanChannelPerche': {
+    en: 'Perche',
+    fr: 'Perche',
+  },
+  'genealogy.gfnaFinderNormanOnly': {
+    en: 'Atlas Norman surnames only',
+    fr: 'Patronymes normands (atlas) seulement',
   },
 
   // --- Norman Identity Engine (no DNA) ---
@@ -3438,6 +3526,16 @@ const STRINGS = {
     da: 'Bogstav endnu ikke kortlagt',
     sv: 'Bokstav ännu inte kartlagd',
   },
+  'lineageExplorer.migrationMapLetterEmptyNormanFocus': {
+    en: 'No Norman-for-Normandy overlay for this letter — open R (full Cotentin composite), or I, E, G, J, N, or Q for the pools discussed in Cotentin-style outreach summaries.',
+    fr: 'Pas de surcouche « Normand pour la Normandie » pour cette lettre — ouvrez R (composite Cotentin complet), ou I, E, G, J, N ou Q pour les pools évoqués dans les synthèses type Cotentin.',
+    es: 'Sin capa «normando para Normandía» en esta letra — abra R (composite Cotentin completo) o I, E, G, J, N o Q para los grupos citados en resúmenes tipo Cotentin.',
+    it: 'Nessuna sovrapposizione «normanno per la Normandia» per questa lettera — aprite R (composite Cotentin completo) oppure I, E, G, J, N o Q per i pool citati nelle sintesi tipo Cotentin.',
+    de: 'Kein Normanne-für-Normandie-Overlay für diesen Buchstaben — R (vollständiges Cotentin-Composite) oder I, E, G, J, N oder Q für die in Cotentin-ähnlichen Übersichten genannten Pools.',
+    nb: 'Ingen «normanner for Normandie»-overlegg for denne bokstaven — velg R (hele Cotentin-kompositten) eller I, E, G, J, N eller Q for grupper nevnt i Cotentin-lignende oversikter.',
+    sv: 'Inget «normand för Normandie»-lager för denna bokstav — välj R (hela Cotentin-kompositen) eller I, E, G, J, N eller Q för grupper som nämns i Cotentin-liknande sammanfattningar.',
+    da: 'Intet «normanner for Normandiet»-overlay for dette bogstav — vælg R (hele Cotentin-kompositet) eller I, E, G, J, N eller Q for grupper nævnt i Cotentin-lignende oversigter.',
+  },
   'lineageExplorer.migrationMapEmptyState': {
     en: 'No illustrated routes for this letter yet. Try another tab or check ISOGG / YFull for branch structure.',
     fr: 'Pas encore d’itinéraires illustrés pour cette lettre. Essayez un autre onglet ou consultez ISOGG / YFull pour la structure des branches.',
@@ -3447,6 +3545,16 @@ const STRINGS = {
     nb: 'Ingen illustrerte ruter for denne bokstaven ennå. Prøv en annen fane eller ISOGG / YFull.',
     sv: 'Inga illustrerade rutter för denna bokstav ännu. Prova en annan flik eller ISOGG / YFull.',
     da: 'Endnu ingen illustrerede ruter for dette bogstav. Prøv en anden fane eller ISOGG / YFull.',
+  },
+  'lineageExplorer.migrationMapEmptyStateNormanFocus': {
+    en: 'With “Norman for Normandy” on, R shows the full Cotentin-style composite; I, E, G, J, N, and Q each show a letter-specific sketch for pools named in those summaries. Switch to “All branches” to browse every letter.',
+    fr: 'Avec « Normand pour la Normandie », R affiche le composite Cotentin complet ; I, E, G, J, N et Q montrent chacune une esquisse propre aux pools cités dans ces synthèses. Passez à « Toutes les branches » pour parcourir toutes les lettres.',
+    es: 'Con «Normando para Normandía», R muestra el composite Cotentin; I, E, G, J, N y Q muestran cada uno un esquema propio para grupos citados en esas síntesis. Cambie a «Todas las ramas» para todas las letras.',
+    it: 'Con «Normanno per la Normandia», R mostra il composite Cotentin; I, E, G, J, N e Q mostrano ciascuna uno schizzo per i pool citati in quelle sintesi. Passa a «Tutti i rami» per tutte le lettere.',
+    de: 'Mit „Normanne für die Normandie“ zeigt R das volle Cotentin-Composite; I, E, G, J, N und Q je eine Buchstaben-spezifische Skizze für in diesen Übersichten genannte Pools. Wechseln Sie zu „Alle Zweige“ für alle Buchstaben.',
+    nb: 'Med «normanner for Normandie» viser R hele Cotentin-kompositten; I, E, G, J, N og Q viser hver sin skisse for grupper nevnt i slike oversikter. Bytt til «Alle grener» for alle bokstaver.',
+    sv: 'Med «normand för Normandie» visar R hela Cotentin-kompositen; I, E, G, J, N och Q visar var sin skiss för grupper som nämns i sådana sammanfattningar. Byt till «Alla grenar» för alla bokstäver.',
+    da: 'Med «normanner for Normandiet» viser R hele Cotentin-kompositet; I, E, G, J, N og Q viser hver sin skitse for grupper nævnt i sådanne oversigter. Skift til «Alle grene» for alle bogstaver.',
   },
   'lineageExplorer.migrationMapSources': {
     en: 'References',

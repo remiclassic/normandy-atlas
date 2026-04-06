@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useRef } from 'react';
 import type { AtlasLocale } from '@/core/types';
+import type { UiTheme } from '@/lib/ui-theme';
 import type { StoryCategory } from '@/data/atlas/story-library-meta';
 import { STORY_CATEGORY_ORDER } from '@/data/atlas/story-library-meta';
 import { t, type UiStringKey } from '@/lib/ui-strings';
@@ -22,6 +23,7 @@ interface Props {
   value: FilterValue;
   onChange: (value: FilterValue) => void;
   locale: AtlasLocale;
+  uiTheme: UiTheme;
 }
 
 const ALL_FILTERS: FilterValue[] = ['all', ...STORY_CATEGORY_ORDER];
@@ -30,7 +32,9 @@ export const StoryLibraryFilterBar = memo(function StoryLibraryFilterBar({
   value,
   onChange,
   locale,
+  uiTheme,
 }: Props) {
+  const isLight = uiTheme === 'light';
   const barRef = useRef<HTMLDivElement>(null);
 
   const handleKeyDown = useCallback(
@@ -80,9 +84,13 @@ export const StoryLibraryFilterBar = memo(function StoryLibraryFilterBar({
               transition-all duration-200 outline-none
               focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-1 focus-visible:ring-offset-transparent
               ${
-                active
-                  ? 'bg-white/15 text-white shadow-[0_0_12px_rgba(255,255,255,0.08)] border border-white/25'
-                  : 'bg-white/[0.04] text-white/50 border border-transparent hover:bg-white/[0.08] hover:text-white/70'
+                isLight
+                  ? active
+                    ? 'border border-chrome-border-strong bg-chrome-fill-pressed text-foreground shadow-sm'
+                    : 'border border-transparent bg-chrome-fill text-text-muted hover:bg-chrome-fill-hover hover:text-text'
+                  : active
+                    ? 'bg-white/15 text-white shadow-[0_0_12px_rgba(255,255,255,0.08)] border border-white/25'
+                    : 'bg-white/[0.04] text-white/50 border border-transparent hover:bg-white/[0.08] hover:text-white/70'
               }
             `}
           >

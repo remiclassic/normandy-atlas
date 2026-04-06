@@ -230,7 +230,7 @@ export default function AtlasHomeShell() {
           <Link
             href={GENEALOGY_NORMAN_IDENTITY_PATH}
             onClick={stopLedgerPulseOnJournalNavigate}
-            className="hidden max-w-[9.5rem] truncate rounded-none border border-cyan-400/25 bg-cyan-400/5 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-cyan-200/90 transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/10 lg:inline-block"
+            className="atlas-cyan-nav-chip hidden max-w-[9.5rem] truncate rounded-none px-2 py-1 text-[10px] font-bold uppercase tracking-wide lg:inline-block"
           >
             {t('normanIdentity.cta.traceRoots', locale)}
           </Link>
@@ -328,7 +328,7 @@ export default function AtlasHomeShell() {
                 <button
                   type="button"
                   onClick={openStoryLibrary}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-cyan-300/80 transition-colors touch-target"
+                  className="atlas-icon-hover-cyan flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim transition-colors hover:bg-chrome-fill touch-target"
                   aria-label={t('storyLibrary.aria.open', locale)}
                 >
                   <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
@@ -339,7 +339,7 @@ export default function AtlasHomeShell() {
                 <Link
                   href={GENEALOGY_NORMAN_IDENTITY_PATH}
                   onClick={stopLedgerPulseOnJournalNavigate}
-                  className="flex max-w-[min(100%,7rem)] shrink-0 touch-target items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-400/5 px-2 py-2 text-[10px] font-bold uppercase leading-tight tracking-wide text-cyan-200/95 transition-colors hover:border-cyan-400/40"
+                  className="atlas-cyan-nav-chip flex max-w-[min(100%,7rem)] shrink-0 touch-target items-center justify-center rounded-lg px-2 py-2 text-[10px] font-bold uppercase leading-tight tracking-wide"
                 >
                   {t('normanIdentity.cta.startStory', locale)}
                 </Link>

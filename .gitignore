@@ -39,6 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# local GFNA fetch cache (optional; jsonl carry-forward keeps family_sheet_no without it)
+data/atlas/gfna-mtdna-enrich-cache.json
+
 # local translation cache (fill-de-locales.mjs, fill-i18n-locale.mjs)
 scripts/.cache-de-translations.json
 scripts/.cache-beat-titles-de.json

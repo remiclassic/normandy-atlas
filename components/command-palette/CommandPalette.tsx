@@ -161,11 +161,11 @@ const CommandPaletteSurface = memo(function CommandPaletteSurface({
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('commandPalette.placeholder', ctx.locale)}
-                className="w-full border-0 bg-transparent text-[15px] text-parchment outline-none placeholder:text-text-muted"
+                className="w-full border-0 bg-transparent text-[15px] text-stone-100 outline-none placeholder:text-stone-400"
                 aria-autocomplete="list"
                 aria-controls={`${dialogId}-results`}
               />
-              <p className="mt-1.5 text-[11px] leading-snug text-text-muted">
+              <p className="mt-1.5 text-[11px] leading-snug text-stone-400">
                 {t(hintOpenKey, ctx.locale)} {t('commandPalette.hint.context', ctx.locale)}
               </p>
             </div>
@@ -180,7 +180,7 @@ const CommandPaletteSurface = memo(function CommandPaletteSurface({
             className="min-h-0 overflow-y-auto overscroll-contain py-2 pr-1"
           >
             {flatResults.length === 0 ? (
-              <p className="px-4 py-8 text-center text-[13px] text-text-muted">
+              <p className="px-4 py-8 text-center text-[13px] text-stone-400">
                 {t('commandPalette.empty', ctx.locale)}
               </p>
             ) : (
@@ -203,21 +203,21 @@ const CommandPaletteSurface = memo(function CommandPaletteSurface({
             )}
           </div>
 
-          <aside className="hidden min-h-0 flex-col gap-3 overflow-y-auto p-4 text-[12px] text-parchment/85 md:flex">
+          <aside className="hidden min-h-0 flex-col gap-3 overflow-y-auto p-4 text-[12px] text-stone-200/90 md:flex">
             <div>
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300/75">
                 {t('commandPalette.preview.context', ctx.locale)}
               </p>
-              <p className="text-text-muted">
-                <span className="text-parchment/90">{t('commandPalette.preview.era', ctx.locale)}: </span>
+              <p className="text-stone-400">
+                <span className="text-stone-200">{t('commandPalette.preview.era', ctx.locale)}: </span>
                 {ctx.currentEra ? pickI18n(ctx.currentEra.label, ctx.locale) : '—'}
               </p>
-              <p className="mt-1 text-text-muted">
-                <span className="text-parchment/90">{t('commandPalette.preview.region', ctx.locale)}: </span>
+              <p className="mt-1 text-stone-400">
+                <span className="text-stone-200">{t('commandPalette.preview.region', ctx.locale)}: </span>
                 {ctx.currentRegion?.label ?? '—'}
               </p>
               {ctx.regionsInViewport.length > 1 ? (
-                <p className="mt-1 text-[11px] leading-snug text-text-muted">
+                <p className="mt-1 text-[11px] leading-snug text-stone-400">
                   {ctx.regionsInViewport
                     .slice(1, 4)
                     .map((r) => r.label)
@@ -230,13 +230,13 @@ const CommandPaletteSurface = memo(function CommandPaletteSurface({
               <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-300/75">
                 {t('commandPalette.preview.selection', ctx.locale)}
               </p>
-              <p className="leading-snug text-text-muted">
+              <p className="leading-snug text-stone-400">
                 {ctx.selectedEntity
                   ? `${ctx.selectedEntity.label} (${ctx.selectedEntity.kind})`
                   : '—'}
               </p>
               {ctx.userHaplogroup ? (
-                <p className="mt-2 text-[11px] text-text-muted">DNA: {ctx.userHaplogroup}</p>
+                <p className="mt-2 text-[11px] text-stone-400">DNA: {ctx.userHaplogroup}</p>
               ) : null}
             </div>
 
@@ -246,9 +246,9 @@ const CommandPaletteSurface = memo(function CommandPaletteSurface({
                   Active
                 </p>
                 {activeResult.kind === 'command' && activeResult.command.description ? (
-                  <p className="leading-relaxed text-text-muted">{activeResult.command.description}</p>
+                  <p className="leading-relaxed text-stone-400">{activeResult.command.description}</p>
                 ) : (
-                  <p className="leading-relaxed text-text-muted">
+                  <p className="leading-relaxed text-stone-400">
                     {activeResult.kind === 'command'
                       ? activeResult.command.label
                       : activeResult.kind === 'story'

@@ -80,7 +80,7 @@ const NormanStoryMode = memo(function NormanStory({
     >
       <div className="pointer-events-auto mx-auto w-full max-w-lg rounded-none border border-chrome-border-strong/55 bg-[var(--color-chrome-popover)] shadow-[0_12px_48px_rgba(0,0,0,0.45)]">
         <div className="flex items-start justify-between gap-3 border-b border-chrome-border/50 px-4 py-3">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-300/85">
+          <p className="atlas-text-cyan-section-label text-[11px] font-semibold uppercase tracking-[0.2em]">
             {t('normanIdentity.story.progress', locale)
               .replace('{current}', String(step + 1))
               .replace('{total}', String(NORMAN_IDENTITY_MAP_BEATS.length))}
@@ -109,7 +109,7 @@ const NormanStoryMode = memo(function NormanStory({
           <button
             type="button"
             onClick={step >= NORMAN_IDENTITY_MAP_BEATS.length - 1 ? close : next}
-            className="rounded-none border border-cyan-400/35 bg-cyan-400/12 px-3 py-2 text-[length:var(--atlas-text-sm)] font-semibold text-cyan-100 hover:bg-cyan-400/16"
+            className="atlas-btn-cyan-secondary rounded-none px-3 py-2 text-[length:var(--atlas-text-sm)] font-semibold"
           >
             {step >= NORMAN_IDENTITY_MAP_BEATS.length - 1
               ? t('normanIdentity.story.exit', locale)
