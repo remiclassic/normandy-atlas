@@ -1,14 +1,33 @@
 ## Arundel Castle
 
-The atlas summarizes this site as: **Major motte-and-bailey on a towering mound**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Arundel Castle was established in 1068 by Roger de Montgomery, one of William the Conqueror's closest companions, as a motte-and-bailey fortification guarding the Arun valley. The castle's massive artificial mound still dominates the West Sussex skyline. It has been the seat of the Dukes of Norfolk since the 15th century and was extensively restored in the Victorian period.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- One of the earliest Norman motte-and-bailey castles in England
+- Guards the Arun river gap through the South Downs
+- Continuous aristocratic residence for nearly a millennium
+
+### Architecture and the site
+
+- Large motte with shell keep
+- Twin-bailey plan
+- Victorian Gothic restoration overlaying the Norman core
+
+### Chronology (selected)
+
+- **1068:** Roger de Montgomery builds the motte-and-bailey
+- **1138:** Besieged during the Anarchy
+
+### Further reading
+
+- John Goodall, "The English Castle" (2011)
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

@@ -1,17 +1,38 @@
 ## Krak des Chevaliers
 
-The atlas summarizes this site as: **One of the most famous Crusader castles in the world**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Krak des Chevaliers is widely regarded as the finest surviving example of Crusader military architecture. Originally a small Kurdish fortress captured during the First Crusade in 1099, it was massively expanded by the Knights Hospitaller into a concentric castle capable of housing a garrison of 2,000. Its double ring of walls, massive talus, and sophisticated water-supply systems made it virtually impregnable until Baybars captured it through a ruse in 1271.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Often called the finest Crusader castle ever built
+- Garrisoned by the Knights Hospitaller
+- UNESCO World Heritage Site
+
+### Architecture and the site
+
+- Concentric double curtain walls
+- Massive glacis (talus) on the inner wall
+- Great hall, chapel, and extensive vaulted storage
+
+### Chronology (selected)
+
+- **1099:** Captured during the First Crusade
+- **1142:** Granted to the Knights Hospitaller
+- **1271:** Baybars captures the castle
+
+### Further reading
+
+- Hugh Kennedy, "Crusader Castles" (1994)
 
 ### Hub essays
 
-- Region cluster: see [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
+### Caution
 
-**Build phases:** Many Levantine castles were enlarged under Hospitaller or other orders after the first generation of Crusader lords. Attribute fabric to patrons and phases, not a single “Norman” label.
+**Build phases:** Many Levantine castles were enlarged under the Hospitallers, Templars, or later patrons. Attribute masonry and plan to specific phases and orders, not a single “Norman” label.
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

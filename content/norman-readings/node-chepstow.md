@@ -1,14 +1,32 @@
 ## Chepstow Castle
 
-The atlas summarizes this site as: **First Norman stone castle in Wales**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Chepstow Castle, begun by William FitzOsbern in 1067, was the first Norman stone castle in Wales. Perched above the River Wye, it anchored the southern end of the Welsh Marches and controlled the crossing into Wales.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- First stone castle in Wales
+- Anchor of the Welsh Marches
+- Built by William FitzOsbern
+
+### Architecture and the site
+
+- Great Tower (among the oldest surviving in Britain)
+- Curtain walls along the cliff
+
+### Chronology (selected)
+
+- **1067:** FitzOsbern begins building in stone
+- **1189:** William Marshal expands the castle
+
+### Further reading
+
+- Rick Turner, "Chepstow Castle" (2006)
 
 ### Hub essays
 
-- Region cluster: see [normans in wales and the march](/norman-readings/normans-in-wales-and-the-march) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans in wales and the march](/norman-readings/normans-in-wales-and-the-march) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

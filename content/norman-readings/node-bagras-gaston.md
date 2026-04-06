@@ -1,17 +1,39 @@
 ## Bagras / Gaston
 
-The atlas summarizes this site as: **Strategic mountain fortress controlling the Belen Pass**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Bagras (also called Gaston by the Crusaders) is a strategic mountain fortress controlling the Belen Pass, the main route between Cilician Armenia and the Principality of Antioch. The Templars held the castle for much of the Crusader period, and its position made it a constant flashpoint between Crusaders, Armenians, and Muslim forces. The ruins, perched on a forested ridge, remain impressively intact.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Controlled the vital Belen Pass between Cilicia and Antioch
+- Templar stronghold for much of the Crusader era
+- Strategic flashpoint between multiple powers
+
+### Architecture and the site
+
+- Mountain-top fortress with multiple defensive circuits
+- Keep and curtain wall following the ridge line
+- Cisterns cut into rock
+
+### Chronology (selected)
+
+- **1153:** Templars garrison the fortress
+- **1188:** Saladin captures Bagras
+- **1191:** Armenian forces recapture it
+- **1268:** Baybars destroys the castle
+
+### Further reading
+
+- Thomas S. Asbridge, "The Principality of Antioch" (2000)
 
 ### Hub essays
 
-- Region cluster: see [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
+### Caution
 
-**Build phases:** Many Levantine castles were enlarged under Hospitaller or other orders after the first generation of Crusader lords. Attribute fabric to patrons and phases, not a single “Norman” label.
+**Build phases:** Many Levantine castles were enlarged under the Hospitallers, Templars, or later patrons. Attribute masonry and plan to specific phases and orders, not a single “Norman” label.
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

@@ -1,14 +1,29 @@
 ## Aci Castello
 
-The atlas summarizes this site as: **Lava-stone fortress on a rocky outcrop above the sea**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Aci Castello is a Norman-era castle built from local black lava stone on a rocky basalt outcrop jutting into the Ionian Sea north of Catania. The fortress was constructed over earlier fortifications and served as a strategic coastal defense point. Its dramatic volcanic-rock setting and commanding sea views make it one of the most distinctive castles in Sicily.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Built from volcanic lava stone on a basalt promontory
+- Key coastal defense north of Catania
+- Dramatically sited above the sea
+
+### Architecture and the site
+
+- Lava-stone walls on a volcanic rock platform
+- Norman-era keep and enceinte
+- Natural cliff defenses on three sides
+
+### Chronology (selected)
+
+- **1076:** Norman fortification of the site
+- **1169:** Damaged by earthquake; rebuilt
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

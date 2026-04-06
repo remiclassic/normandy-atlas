@@ -1,14 +1,22 @@
 ## Avranches
 
-The atlas summarizes this site as: **Border stronghold, episcopal see**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Avranches was a key border stronghold controlling the frontier between Normandy and Brittany. Its episcopal see and castle made it important for both spiritual and military authority along the duchy's southwestern margin.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Border fortress with Brittany
+- Episcopal see
+
+### Chronology (selected)
+
+- **933:** Cotentin and Avranchin annexed to Normandy
+- **1172:** Henry II performs penance here for Becket's murder
 
 ### Hub essays
 
-- Region cluster: see [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

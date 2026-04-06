@@ -1,14 +1,33 @@
 ## Caccamo Castle
 
-The atlas summarizes this site as: **One of the largest Norman castles in Italy, perched on a cliff**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Caccamo Castle is one of the largest and best-preserved Norman castles in Italy, dramatically positioned on a limestone cliff overlooking the San Leonardo river valley. It was built by the Norman knight Matthew Bonellus in the late 11th century and later became a center of baronial conspiracy against the Sicilian crown. The castle's sheer size and its cliff-edge setting make it one of the most visually striking medieval fortresses in Sicily.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- One of the largest Norman castles in Italy
+- Dramatic cliff-top setting
+- Center of the 1160 baronial conspiracy against William I
+
+### Architecture and the site
+
+- Massive rectangular keep
+- Multiple concentric curtain walls
+- Great hall and chapel complex
+
+### Chronology (selected)
+
+- **1094:** Castle established by Norman lords
+- **1160:** Matthew Bonellus conspires against King William I here
+
+### Further reading
+
+- G.L. Ferrario, "I castelli di Sicilia" (2002)
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

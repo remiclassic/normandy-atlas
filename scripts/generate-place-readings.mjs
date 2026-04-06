@@ -1,6 +1,9 @@
 /**
  * Generates place-based Norman reading markdown files and catalog.generated.ts
  * from data/norman-expansion/nodes.ts (run from repo root after edits to nodes).
+ *
+ * Markdown starts as short stubs. To fill articles from data/norman-expansion/site-articles.ts:
+ *   npm run sync:norman-reading-md
  */
 import fs from 'fs';
 import path from 'path';

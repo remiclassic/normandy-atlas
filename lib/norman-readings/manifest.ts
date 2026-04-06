@@ -11,6 +11,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Law, lordship, and mobility across the Norman world — a thematic lens not tied to a single map pin.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [12, 42.5], zoom: 4.4 },
     tags: ['essay', 'identity'],
   },
   {
@@ -19,6 +20,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Treaty traditions, Scandinavian settlement, and the making of ducal authority on the lower Seine and beyond.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-0.35, 49.05], zoom: 6.6 },
     tags: ['Normandy', 'thematic'],
   },
   {
@@ -27,6 +29,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       '1066, castles, sheriffs, Domesday, and the limits of what “conquest” meant on the ground.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-1.2, 52.2], zoom: 5.9 },
     tags: ['England', 'thematic'],
   },
   {
@@ -35,6 +38,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Marcher lordship, castle chains, and Welsh response — without treating the frontier as a single battle.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-3.4, 52.1], zoom: 6.4 },
     tags: ['Wales', 'thematic'],
   },
   {
@@ -43,6 +47,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Leinster exiles, Strongbow, royal intervention, and the shaping of the English lordship of Ireland.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-7.2, 53.25], zoom: 6.1 },
     tags: ['Ireland', 'thematic'],
   },
   {
@@ -51,6 +56,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'From mercenary bands to county and principality: Apulia, Calabria, and the road to Sicily.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [15.5, 40.2], zoom: 6.2 },
     tags: ['Italy', 'thematic'],
   },
   {
@@ -59,6 +65,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Palermo, Roger II, and a plural monarchy — Latin, Greek, and Arabic registers under one crown.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [14.1, 37.6], zoom: 6.5 },
     tags: ['Sicily', 'thematic'],
   },
   {
@@ -67,6 +74,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Bohemond, Tancred, and the Crusader principalities — politics of kinship, war, and survival.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [36.2, 35.8], zoom: 5.6 },
     tags: ['Crusades', 'thematic'],
   },
   {
@@ -75,6 +83,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Fortification as administration and spectacle — compare regions without insisting on one “Norman style.”',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-0.5, 50.5], zoom: 5.5 },
     tags: ['military', 'thematic'],
   },
   {
@@ -83,6 +92,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'The Custom of Normandy, English law after 1066, and church jurisdiction — institutions the map only hints at.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [-0.15, 49.85], zoom: 5.8 },
     tags: ['law', 'thematic'],
   },
   {
@@ -91,6 +101,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Gisors, Château Gaillard, and the pressures that culminated in 1204 — Plantagenet rule and French kingship.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [0.45, 49.35], zoom: 6.8 },
     tags: ['Angevin', 'France', 'thematic'],
   },
   {
@@ -99,6 +110,7 @@ const CORE_READINGS: NormanReadingEntry[] = [
     description:
       'Survey works and starting points across regions — not exhaustive, but historically mainstream.',
     defaultEraId: 'norman-expansion',
+    mapFocus: { center: [10, 45], zoom: 4.5 },
     tags: ['bibliography'],
   },
   {

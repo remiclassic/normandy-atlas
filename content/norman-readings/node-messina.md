@@ -1,14 +1,22 @@
 ## Messina
 
-The atlas summarizes this site as: **Sicilian port, invasion staging**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Messina was the Norman point of entry for the conquest of Sicily. Roger I crossed the Strait of Messina in 1061 and used the city as a staging ground for the thirty-year campaign that brought all of Sicily under Norman rule.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Entry point for Norman Sicily conquest
+- Strategic strait crossing
+
+### Chronology (selected)
+
+- **1061:** Roger I crosses to Sicily
+- **1091:** Conquest of Sicily completed
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

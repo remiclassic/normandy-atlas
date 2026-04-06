@@ -1,14 +1,27 @@
 ## Pembroke Castle
 
-The atlas summarizes this site as: **Gateway to Ireland**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Pembroke Castle was founded in 1093 by Arnulf de Montgomery. Its massive round keep, added later, became a launch point for the Anglo-Norman invasion of Ireland. It remained a powerful Marcher fortress throughout the medieval period.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Staging point for Irish invasion
+- Seat of the earldom of Pembroke
+
+### Architecture and the site
+
+- Great round keep
+- Natural limestone cave beneath the hall
+
+### Chronology (selected)
+
+- **1093:** Arnulf de Montgomery founds the castle
+- **1138:** Gilbert de Clare begins stone keep
 
 ### Hub essays
 
-- Region cluster: see [normans in wales and the march](/norman-readings/normans-in-wales-and-the-march) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans in wales and the march](/norman-readings/normans-in-wales-and-the-march) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

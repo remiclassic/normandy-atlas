@@ -1,14 +1,22 @@
 ## Tripoli
 
-The atlas summarizes this site as: **Crusader county with Norman ties**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+The County of Tripoli was established in 1109 by Raymond of Saint-Gilles' heirs, with significant Norman-Provençal ties. Bohemond of Antioch exercised influence here, and Norman lords held fiefs within the county.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Crusader county with Norman feudal ties
+- Strategic Levantine port
+
+### Chronology (selected)
+
+- **1109:** County of Tripoli established
+- **1289:** Mamluk conquest ends the county
 
 ### Hub essays
 
-- Region cluster: see [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

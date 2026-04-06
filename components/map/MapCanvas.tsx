@@ -1760,26 +1760,39 @@ export default function MapCanvas() {
         syncSources(eraId);
         syncOverlay(eraId, useMapStore.getState().layers);
 
-        const { atlasMode, selectFeature, onboardingPhase, storyMode, storyStepIndex } = useMapStore.getState();
-        if (atlasMode) {
+        // Defer default era camera + era-info selection so MapDeepLinkSync can finish
+        // applying pendingFlyTarget / feature selection in the same commit without this
+        // overwriting deep links (normanSite, view=, y-DNA, etc.).
+        queueMicrotask(() => {
+          const m = mapRef.current;
+          if (!m || !readyRef.current) return;
+          const st = useMapStore.getState();
+          const suppressIntroFly = st.pendingFlyTarget != null;
+          const suppressEraInfoSelect =
+            st.pendingFlyTarget != null ||
+            (st.selectedFeatureId != null &&
+              st.selectionKind != null &&
+              st.selectionKind !== 'era-info');
+
+          if (!st.atlasMode) return;
           const era = getAtlasEra(eraId);
-          if (era?.defaultCamera) {
-            flyToCamera(map, {
+          if (era?.defaultCamera && !suppressIntroFly) {
+            flyToCamera(m, {
               center: era.defaultCamera.center,
               zoom: era.defaultCamera.zoom,
               duration: era.defaultCamera.durationMs,
             });
           }
-          if (era?.summary && onboardingPhase === 'complete') {
-            if (storyMode) {
-              selectFeature(eraId, 'era-info', {
-                expandDetail: storyStepIndex === 0,
+          if (era?.summary && st.onboardingPhase === 'complete' && !suppressEraInfoSelect) {
+            if (st.storyMode) {
+              st.selectFeature(eraId, 'era-info', {
+                expandDetail: st.storyStepIndex === 0,
               });
             } else {
-              selectFeature(eraId, 'era-info');
+              st.selectFeature(eraId, 'era-info');
             }
           }
-        }
+        });
 
         return () => clearTimeout(timer);
       },

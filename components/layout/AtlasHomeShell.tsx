@@ -481,8 +481,8 @@ export default function AtlasHomeShell() {
           className={`relative min-h-0 min-w-0 flex-1 ${storyEraIntroActive ? 'overflow-hidden' : ''}`}
           data-onboarding="map"
         >
-          <MapLoader />
           <MapDeepLinkSync />
+          <MapLoader />
           <div className="vignette-overlay absolute inset-0" aria-hidden />
 
           {/* Map overlay panels, repositioned for mobile to clear the play dock */}

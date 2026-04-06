@@ -1,11 +1,20 @@
 ## Antioch and Bohemond
 
-The Principality of Antioch is inseparable from Bohemond’s ambition and the First Crusade’s Byzantine context: sieges, oaths, and later clashes with Byzantium and Muslim powers. “Norman” here is a family network and military reputation as much as a territorial label.
+The **Principality of Antioch** is inseparable from **Bohemond of Taranto**, the **First Crusade**, and Byzantine claims: long sieges, oaths to Alexios, and later friction with Constantinople and neighbouring Muslim powers. “Norman” here is partly **southern Italian kin networks** and military reputation — not the same as ducal Normandy.
 
 ## Tripoli and Edessa
 
-Tripoli’s county involved mixed leadership and marriage politics; Edessa’s county was the first Crusader state to fall (1144). Pins on the map are starting points—always read succession, marriage, and battle narratives together.
+The **County of Tripoli** emerged from Provençal leadership but intertwined with Antioch and mixed lordships. **Edessa**, the **first** Crusader county, fell to **Zengi** in 1144 and helped trigger the **Second Crusade**; Norman connections run through alliance and marriage more than through settlement density.
 
 ## Levantine castles
 
-Many famous castles were enlarged under military orders or successive patrons. Use the place readings for Krak, Marqab, and Safita with the [castle essay](/norman-readings/norman-castle-motte-to-stone)—attribute fabric to phases, not to a single “Norman” moment unless sources support it.
+**Krak des Chevaliers**, **Marqab**, **Safita** (Chastel Blanc), **Saône**, **Bagras**, **Kerak**, **Anavarza** — many phases belong to **Hospitallers**, **Templars**, Armenian allies, or Ayyubid refortification. Use the dedicated **place readings** and the [castle essay](/norman-readings/norman-castle-motte-to-stone); attribute masonry to **patrons and dates**, not to a single “Norman moment” unless sources and typology support it.
+
+## Using the map
+
+The **Norman expansion** layer places **Antioch**, **Tripoli**, and **Edessa** as teaching anchors; crusader routes and maritime corridors elsewhere on the atlas add **arrival** and **supply** context.
+
+### Read next
+
+- [Norman themes](/norman-readings/norman-identity-themes)
+- [Shared bibliography](/norman-readings/shared-bibliography)

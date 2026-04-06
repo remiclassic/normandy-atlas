@@ -1,14 +1,34 @@
 ## Caen
 
-The atlas summarizes this site as: **Ducal seat, abbey center**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+William the Conqueror transformed Caen into his preferred residence and administrative center, founding twin abbeys — the Abbaye-aux-Hommes and Abbaye-aux-Dames — as penance for his marriage to Matilda of Flanders. The massive castle he built dominates the city to this day and is one of the largest medieval enclosures in Europe.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- William's favored seat of power
+- Twin abbeys as dynastic monuments
+- Key garrison controlling lower Normandy
+
+### Architecture and the site
+
+- Caen Castle (stone keep and curtain wall)
+- Abbaye-aux-Hommes (Saint-Étienne)
+- Abbaye-aux-Dames (La Trinité)
+
+### Chronology (selected)
+
+- **1060:** Castle construction begins under William
+- **1066:** Abbey of Saint-Étienne consecrated
+- **1087:** William buried at Saint-Étienne
+
+### Further reading
+
+- David C. Douglas, "William the Conqueror" (1964)
 
 ### Hub essays
 
-- Region cluster: see [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

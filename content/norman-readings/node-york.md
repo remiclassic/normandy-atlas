@@ -1,14 +1,26 @@
 ## York
 
-The atlas summarizes this site as: **Northern administrative center**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+York was the largest city in northern England and resisted Norman rule fiercely. William built two motte-and-bailey castles here and brutally suppressed the northern rebellion of 1069–70 in the Harrying of the North, devastating the region for a generation.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Key to controlling northern England
+- Scene of major Anglo-Norse resistance
+
+### Chronology (selected)
+
+- **1068:** William builds first castle
+- **1069:** Danish-backed revolt; William retaliates with the Harrying of the North
+
+### Further reading
+
+- William E. Kapelle, "The Norman Conquest of the North" (1979)
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

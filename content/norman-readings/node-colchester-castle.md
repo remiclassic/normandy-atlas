@@ -1,14 +1,34 @@
 ## Colchester Castle
 
-The atlas summarizes this site as: **Largest Norman keep in England, built over a Roman temple**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Colchester Castle was built by William the Conqueror around 1069 on the foundations of the Roman Temple of Claudius. It contains the largest surviving Norman keep in England, even larger in footprint than the Tower of London's White Tower. The reuse of Roman brick and tile gives the keep its distinctive reddish appearance.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Largest Norman keep in England by floor area
+- Built over the Roman Temple of Claudius
+- Key fortress securing East Anglia after the Conquest
+
+### Architecture and the site
+
+- Massive rectangular keep with Roman-material walls
+- Apsidal chapel projection
+- Surrounding bailey and later town defenses
+
+### Chronology (selected)
+
+- **1069:** Construction begins under William the Conqueror
+- **1076:** Keep largely complete; used to suppress East Anglian revolts
+- **1216:** Besieged during the First Barons' War
+
+### Further reading
+
+- Philip Crummy, "City of Victory: The Story of Colchester" (1997)
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

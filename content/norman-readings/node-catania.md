@@ -1,14 +1,22 @@
 ## Catania
 
-The atlas summarizes this site as: **Sicilian episcopal city**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Catania, at the foot of Mount Etna, was an important episcopal see under Norman rule. Roger I established a Benedictine monastery here and the city became a center of Norman administration in eastern Sicily.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Episcopal see in eastern Sicily
+- Benedictine monastery under Roger I
+
+### Chronology (selected)
+
+- **1071:** Normans capture Catania
+- **1091:** Benedictine abbey of Sant'Agata founded
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

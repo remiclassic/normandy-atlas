@@ -1,14 +1,33 @@
 ## Falaise Castle
 
-The atlas summarizes this site as: **Birthplace of William the Conqueror**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Falaise Castle is the legendary birthplace of William the Conqueror, where his father Duke Robert I is said to have seen Herleva. The massive stone keep, expanded by Henry I and later Henry II Plantagenet, remains one of the best-preserved Norman castles in France.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Birthplace of William the Conqueror
+- Ducal dynastic seat
+- Symbol of Norman ducal authority
+
+### Architecture and the site
+
+- Grand rectangular keep
+- Talbot tower (13th century)
+- Defensive enceinte
+
+### Chronology (selected)
+
+- **1028:** William born at Falaise
+- **1123:** Henry I rebuilds the keep in stone
+
+### Further reading
+
+- Joseph Decaëns, "Le château de Falaise" (2000)
 
 ### Hub essays
 
-- Region cluster: see [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

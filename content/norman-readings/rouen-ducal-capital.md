@@ -1,11 +1,36 @@
-## Seat of power on the lower Seine
+## Rouen as Ducal Capital
 
-From the first grants to Scandinavian leaders, Rouen sat at the hinge between river trade, ecclesiastical rank, and ducal administration. The archbishopric gave the city a voice in wider Frankish and papal politics; the ducal court anchored fiscal and military decisions that shaped how Normandy projected power across the Channel and the Mediterranean.
+Rouen served as the capital of the Duchy of Normandy from its founding by Rollo in 911. As the political and ecclesiastical heart of the duchy, it housed the ducal palace and the metropolitan archbishopric that crowned Norman identity. The city remained the administrative center throughout the dynasty's continental rule.
 
-## Reading the city on the map
+### Why it mattered
 
-On Norman Atlas, Rouen appears as a **Norman Expansion** site: that layer is a teaching overlay, not a complete survey of every settlement. Use it to orient yourself in time — the era strip still governs what else is visible — then open layers for routes and territories to see how Rouen connects to the duchy’s outward arcs.
+- Ducal capital since 911
+- Seat of the Archbishop of Normandy
+- Commercial hub on the Seine
 
-## Evidence and caution
+### Architecture and the site
 
-Chronicles and charters tell us a great deal about who claimed Rouen and when; archaeology and standing fabric complicate neat stories of continuous identity. Treat this article as a companion to the map’s evidence labels: same geography, different depth of proof.
+- Romanesque cathedral (rebuilt Gothic after 1200)
+- Ducal palace complex
+- City walls and river quays
+
+### Chronology (selected)
+
+- **911:** Treaty of Saint-Clair-sur-Epte grants Rollo the city
+- **1030:** Robert the Magnificent rebuilds cathedral
+- **1066:** William musters invasion fleet from Normandy
+- **1204:** Philip II of France captures the city
+
+### Further reading
+
+- David Bates, "Normandy Before 1066" (1982)
+- Lucien Musset, "Les peuples scandinaves" (1951)
+
+### Hub essays
+
+- Region context: [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+
+### On the map
+
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

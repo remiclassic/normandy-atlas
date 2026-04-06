@@ -1,14 +1,21 @@
 ## Reggio Calabria
 
-The atlas summarizes this site as: **Toe of Italy, staging for Sicily**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Reggio Calabria, at the toe of Italy directly across the Strait of Messina, was the staging ground for the Norman invasion of Sicily. Robert Guiscard captured it in 1060, establishing a forward base for his brother Roger's campaigns.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Staging ground for Sicilian invasion
+- First major mainland conquest near Sicily
+
+### Chronology (selected)
+
+- **1060:** Robert Guiscard captures Reggio
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

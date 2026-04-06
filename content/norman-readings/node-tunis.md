@@ -1,17 +1,30 @@
 ## Tunis
 
-The atlas summarizes this site as: **Norman Ifriqiya coastal holding**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Roger II of Sicily conquered parts of the Ifriqiyan coast including Tunis in 1148, briefly creating a Norman "Kingdom of Africa." The venture was short-lived: Muslim resistance and the Almohad advance forced Norman withdrawal by 1160.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Norman foothold in North Africa
+- Part of Roger II's Mediterranean ambitions
+
+### Chronology (selected)
+
+- **1148:** Norman fleet captures coastal Ifriqiya
+- **1160:** Almohad advance forces Norman withdrawal
+
+### Further reading
+
+- Alex Metcalfe, "The Muslims of Medieval Italy" (2009)
 
 ### Hub essays
 
-- Region cluster: see [norman sicily kingdom](/norman-readings/norman-sicily-kingdom) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman sicily kingdom](/norman-readings/norman-sicily-kingdom) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
+### Caution
 
-**Scope:** This pin compresses a short episode or mixed contingents. Open with chronicles and secondary surveys; avoid turning a raid or crusade segment into stable “Norman rule” unless the dates support it.
+**Scope:** This pin compresses a short episode or mixed contingents. Use chronicles and secondary surveys; avoid treating a raid or crusade episode as stable “Norman rule” unless the dates and administration support it.
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

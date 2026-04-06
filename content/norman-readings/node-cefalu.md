@@ -1,14 +1,27 @@
 ## Cefalù
 
-The atlas summarizes this site as: **Norman cathedral city**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Cefalù's famous Norman cathedral was built by Roger II beginning in 1131, intended as a royal mausoleum. The apse mosaic of Christ Pantocrator is one of the finest surviving examples of Norman-Byzantine art.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Royal cathedral of Roger II
+- Christ Pantocrator mosaic
+
+### Architecture and the site
+
+- Norman cathedral (1131+)
+- Byzantine-style apse mosaics
+- Twin-tower facade
+
+### Chronology (selected)
+
+- **1131:** Roger II begins cathedral construction
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

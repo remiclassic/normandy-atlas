@@ -1,14 +1,26 @@
 ## Edessa
 
-The atlas summarizes this site as: **First Crusader state**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+The County of Edessa, established in 1098, was the first Crusader state and the most exposed. While primarily associated with Baldwin of Boulogne, it had links to Norman networks through intermarriage and military alliance. Its fall in 1144 triggered the Second Crusade.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- First Crusader state
+- Its fall triggered the Second Crusade
+
+### Chronology (selected)
+
+- **1098:** Baldwin of Boulogne establishes the county
+- **1144:** Zengi captures Edessa
+
+### Further reading
+
+- Jonathan Riley-Smith, "The First Crusade and the Idea of Crusading" (1986)
 
 ### Hub essays
 
-- Region cluster: see [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans crusades antioch tripoli](/norman-readings/normans-crusades-antioch-tripoli) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

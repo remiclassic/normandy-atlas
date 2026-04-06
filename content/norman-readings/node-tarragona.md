@@ -1,17 +1,25 @@
 ## Tarragona
 
-The atlas summarizes this site as: **Norman Reconquista involvement**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Robert Bordet, a Norman knight, helped restore Tarragona as a Christian city in the Reconquista. He was appointed Prince of Tarragona around 1129, illustrating how individual Norman warriors shaped the Iberian frontier.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Norman knight as Prince of Tarragona
+- Individual Norman participation in the Reconquista
+
+### Chronology (selected)
+
+- **1129:** Robert Bordet appointed Prince of Tarragona
 
 ### Hub essays
 
-- Region cluster: see [norman identity themes](/norman-readings/norman-identity-themes) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman identity themes](/norman-readings/norman-identity-themes) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
+### Caution
 
-**Scope:** This pin compresses a short episode or mixed contingents. Open with chronicles and secondary surveys; avoid turning a raid or crusade segment into stable “Norman rule” unless the dates support it.
+**Scope:** This pin compresses a short episode or mixed contingents. Use chronicles and secondary surveys; avoid treating a raid or crusade episode as stable “Norman rule” unless the dates and administration support it.
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

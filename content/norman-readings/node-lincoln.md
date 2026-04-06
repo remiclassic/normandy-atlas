@@ -1,14 +1,22 @@
 ## Lincoln Castle
 
-The atlas summarizes this site as: **Strategic hilltop fortress**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Lincoln Castle was built on a Roman hilltop site in 1068. Unusually, it has two mottes. It housed one of only four surviving copies of Magna Carta and served as a prison into the modern era.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Unusual two-motte plan
+- Housed a copy of Magna Carta
+
+### Chronology (selected)
+
+- **1068:** Castle built by William
+- **1141:** Battle of Lincoln during the Anarchy
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

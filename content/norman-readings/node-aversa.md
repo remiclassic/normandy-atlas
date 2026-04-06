@@ -1,14 +1,25 @@
 ## Aversa
 
-The atlas summarizes this site as: **First Norman county in Italy**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Aversa was the first Norman territory in Italy, granted to Rainulf Drengot in 1030 by Duke Sergius IV of Naples. This small county north of Naples became the seed from which Norman power in southern Italy grew.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- First Norman territory in southern Italy
+- Seed of Norman expansion
+
+### Chronology (selected)
+
+- **1030:** Rainulf Drengot receives the County of Aversa
+
+### Further reading
+
+- G. A. Loud, "The Age of Robert Guiscard" (2000)
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

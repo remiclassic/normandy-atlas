@@ -1,14 +1,32 @@
 ## Trim Castle
 
-The atlas summarizes this site as: **Largest Anglo-Norman castle in Ireland**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Trim Castle is the largest Anglo-Norman fortification in Ireland. Built by Hugh de Lacy from 1172, its twenty-sided keep is unique in the British Isles. The castle was a key administrative center for the Anglo-Norman Lordship of Meath.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Largest Anglo-Norman castle in Ireland
+- Unique twenty-sided keep
+- Center of the Lordship of Meath
+
+### Architecture and the site
+
+- Cruciform keep with projecting towers
+- Extensive curtain walls and barbican
+
+### Chronology (selected)
+
+- **1172:** Hugh de Lacy begins construction
+- **1176:** Destroyed by Rory O'Connor; rebuilt
+
+### Further reading
+
+- Tadhg O'Keeffe, "Medieval Ireland: An Archaeology" (2001)
 
 ### Hub essays
 
-- Region cluster: see [normans in ireland invasion](/norman-readings/normans-in-ireland-invasion) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans in ireland invasion](/norman-readings/normans-in-ireland-invasion) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

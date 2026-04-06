@@ -1,14 +1,26 @@
 ## Hastings
 
-The atlas summarizes this site as: **Battle site, 1066**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+The Battle of Hastings on 14 October 1066 was the decisive engagement that placed William, Duke of Normandy, on the English throne. Harold Godwinson was killed and the Anglo-Saxon ruling class shattered. A prefabricated motte-and-bailey castle was raised on the site within days.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Decisive battle of the Norman Conquest
+- End of Anglo-Saxon kingship
+- Beginning of Norman England
+
+### Chronology (selected)
+
+- **1066:** Battle fought on Senlac Hill, 14 October
+
+### Further reading
+
+- M. K. Lawson, "The Battle of Hastings 1066" (2003)
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

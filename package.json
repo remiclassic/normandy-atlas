@@ -14,6 +14,7 @@
     "story:i18n-report": "npx tsx scripts/story-beat-i18n-coverage.ts",
     "build:gfna": "node scripts/build-gfna-datasets.mjs",
     "gen:norman-readings": "node scripts/generate-place-readings.mjs",
+    "sync:norman-reading-md": "npx tsx scripts/sync-norman-reading-md-from-site-articles.ts",
     "refresh:gfna-mtdna": "node scripts/fetch-francogene-mtdna.mjs",
     "refresh:gfna-mtdna:enrich": "node scripts/fetch-francogene-mtdna.mjs --enrich"
   },

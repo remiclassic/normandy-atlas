@@ -1,14 +1,27 @@
 ## Dublin
 
-The atlas summarizes this site as: **Anglo-Norman foothold in Ireland**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Anglo-Norman adventurers under Strongbow (Richard de Clare) captured Dublin in 1170, transforming the old Hiberno-Norse city into the center of English lordship in Ireland. Dublin Castle, built from 1204, became the administrative headquarters of the English colony for centuries.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Center of Anglo-Norman lordship in Ireland
+- Former Viking trading town
+
+### Chronology (selected)
+
+- **1170:** Strongbow captures the city
+- **1171:** Henry II arrives to assert royal authority
+- **1204:** Dublin Castle construction begins
+
+### Further reading
+
+- Seán Duffy, "Ireland in the Middle Ages" (1997)
 
 ### Hub essays
 
-- Region cluster: see [normans in ireland invasion](/norman-readings/normans-in-ireland-invasion) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normans in ireland invasion](/norman-readings/normans-in-ireland-invasion) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

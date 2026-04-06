@@ -80,6 +80,17 @@ function r(n: number, d = 4): number {
   return Math.round(n * f) / f;
 }
 
+/**
+ * Compact `view` query value with camera only (e.g. Norman readings without a map pin).
+ */
+export function encodeReadingMapViewCam(center: [number, number], zoom: number): string {
+  const payload: ViewPayloadV1 = {
+    v: 1,
+    cam: { lng: r(center[0], 5), lat: r(center[1], 5), z: r(zoom, 2) },
+  };
+  return toBase64Url(JSON.stringify(payload));
+}
+
 export interface CurrentMapState {
   eraId: string;
   atlasSimYear: number;

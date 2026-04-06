@@ -1,17 +1,26 @@
 ## Edinburgh
 
-The atlas summarizes this site as: **Norman feudal influence in Scotland**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Norman influence in Scotland came through marriage and feudal invitation rather than conquest. Queen Margaret (d. 1093) and especially her sons David I and his successors introduced Norman families and institutions, transforming Scottish governance along continental lines.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Norman feudal influence via the Scottish crown
+- David I introduced Norman barons
+
+### Chronology (selected)
+
+- **1093:** Margaret dies at Edinburgh; Norman influence deepens under her sons
+- **1124:** David I becomes king, accelerates feudal reform
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
+### Caution
 
 **Scope:** “Norman” influence in twelfth-century Scotland is contested and layered; read this as feudal and diplomatic contact, not ethnic replacement.
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

@@ -1,14 +1,32 @@
 ## Windsor Castle
 
-The atlas summarizes this site as: **Royal residence**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Windsor Castle was founded by William the Conqueror shortly after 1066 as one of a ring of fortifications around London. It has been continuously occupied as a royal residence ever since, making it the longest-occupied palace in Europe.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Royal residence for nearly a millennium
+- Strategic Thames-valley fortress
+
+### Architecture and the site
+
+- Motte and bailey (original)
+- Round Tower on the motte
+- St George's Chapel (later)
+
+### Chronology (selected)
+
+- **1070:** William founds the castle
+- **1110:** Henry I establishes residence
+
+### Further reading
+
+- Steven Brindle, "Windsor Castle" (2020)
 
 ### Hub essays
 
-- Region cluster: see [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [norman england conquest and governance](/norman-readings/norman-england-conquest-and-governance) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

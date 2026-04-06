@@ -1,14 +1,32 @@
 ## Monreale
 
-The atlas summarizes this site as: **Royal abbey and cathedral**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+The Cathedral and Benedictine cloister at Monreale, near Palermo, was built by William II of Sicily from 1174. Its interior is covered with over 6,000 square meters of gold-ground mosaics, making it one of the supreme achievements of Norman art and architecture.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Greatest Norman mosaic ensemble
+- Royal Benedictine foundation
+
+### Architecture and the site
+
+- Cathedral with 6,000 m² of mosaics
+- Cloistered Benedictine monastery
+- Pointed arches blending Norman and Islamic forms
+
+### Chronology (selected)
+
+- **1174:** William II begins construction
+- **1182:** Cathedral largely completed
+
+### Further reading
+
+- John Julius Norwich, "The Kingdom in the Sun" (1970)
 
 ### Hub essays
 
-- Region cluster: see [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [hautevilles southern italy](/norman-readings/hautevilles-southern-italy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.

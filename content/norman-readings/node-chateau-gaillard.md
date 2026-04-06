@@ -1,14 +1,34 @@
 ## Château Gaillard
 
-The atlas summarizes this site as: **Richard the Lionheart's fortress defending the Seine valley**. This essay is a **reading companion**: it frames what “Norman” can mean politically and architecturally here, without replacing specialist monographs or excavation reports.
+Château Gaillard was built in just two years (1196–1198) by Richard the Lionheart to defend the Seine valley and the eastern frontier of Normandy against the French king Philip II. Its concentric design and use of machicolations were revolutionary in Western Europe, reflecting lessons from Crusader castle-building. Philip II captured it in 1204 after a prolonged siege, sealing the French conquest of Normandy.
 
-**Identity:** Use lordship, charters, and phases of building—not modern categories of “blood.” The map shows geography and modeled movement; nuance lives in the sources.
+### Why it mattered
+
+- Revolutionary concentric design in Western Europe
+- Richard I's personal military masterpiece
+- Its fall in 1204 marked the end of the Duchy of Normandy as an English possession
+
+### Architecture and the site
+
+- Three concentric baileys on a limestone spur
+- Corrugated inner curtain wall to deflect missiles
+- Rock-cut ditch isolating the inner ward
+
+### Chronology (selected)
+
+- **1196:** Richard I begins rapid construction
+- **1198:** Castle completed
+- **1204:** Philip II captures the castle after siege
+
+### Further reading
+
+- Jean Mesqui, "Château Gaillard: étude de castellologie médiévale" (2002)
 
 ### Hub essays
 
-- Region cluster: see [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
-- Castles generally: [Norman castle — motte to stone](/norman-readings/norman-castle-motte-to-stone).
+- Region context: [normandy from grant to duchy](/norman-readings/normandy-from-grant-to-duchy) and the [shared bibliography](/norman-readings/shared-bibliography).
+- Castles and fortification: [Norman castles — motte to stone](/norman-readings/norman-castle-motte-to-stone).
 
 ### On the map
 
-Use **Open on map** when this reading is tied to a pin. Keep the era strip and Norman Expansion layers in view as teaching overlays, not exhaustive settlement lists.
+Use **Open on map** to fly to this pin in the **Norman expansion** era. Layers are teaching overlays — pair them with charters, excavation reports, and the works above.
