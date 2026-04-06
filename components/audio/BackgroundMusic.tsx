@@ -1,6 +1,16 @@
 'use client';
 
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  createContext,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
@@ -14,6 +24,14 @@ export type BackgroundMusicProps = {
 const STORAGE_KEY = 'norman-atlas-bg-music-muted';
 const AUDIO_SRC = '/audio/crown-of-salt-and-iron.mp3';
 const DEFAULT_VOLUME = 0.35;
+
+type BackgroundMusicContextValue = {
+  muted: boolean;
+  audioPaused: boolean;
+  handleControlClick: () => void;
+};
+
+const BackgroundMusicContext = createContext<BackgroundMusicContextValue | null>(null);
 
 function readStoredMuted(): boolean {
   try {
@@ -33,11 +51,10 @@ function writeStoredMuted(value: boolean) {
 }
 
 /**
- * Site-wide ambient loop: autoplay with browser-safe unlock on first gesture,
- * mute toggle persisted in localStorage.
+ * Mount once at the app root (e.g. `app/layout.tsx`). Owns the single `<audio>` element so
+ * navigation never remounts playback.
  */
-export const BackgroundMusic = memo(function BackgroundMusic({ floating = true }: BackgroundMusicProps) {
-  const locale = useLocale();
+export function BackgroundMusicProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const mutedRef = useRef(false);
   const [muted, setMuted] = useState(false);
@@ -126,6 +143,38 @@ export const BackgroundMusic = memo(function BackgroundMusic({ floating = true }
     requestPlayback();
   }, [muted, requestPlayback]);
 
+  const value = useMemo(
+    () => ({
+      muted,
+      audioPaused,
+      handleControlClick,
+    }),
+    [muted, audioPaused, handleControlClick],
+  );
+
+  return (
+    <BackgroundMusicContext.Provider value={value}>
+      <audio ref={audioRef} src={AUDIO_SRC} />
+      {children}
+    </BackgroundMusicContext.Provider>
+  );
+}
+
+function useBackgroundMusicChrome(): BackgroundMusicContextValue {
+  const ctx = useContext(BackgroundMusicContext);
+  if (!ctx) {
+    throw new Error('BackgroundMusic must be used within BackgroundMusicProvider');
+  }
+  return ctx;
+}
+
+/**
+ * UI control only; audio element lives in `BackgroundMusicProvider`.
+ */
+export const BackgroundMusic = memo(function BackgroundMusic({ floating = true }: BackgroundMusicProps) {
+  const locale = useLocale();
+  const { muted, audioPaused, handleControlClick } = useBackgroundMusicChrome();
+
   const musicTooltip = useMemo(() => {
     if (muted) return t('chrome.music.unmute', locale);
     if (audioPaused) return t('chrome.music.start', locale);
@@ -133,35 +182,32 @@ export const BackgroundMusic = memo(function BackgroundMusic({ floating = true }
   }, [muted, audioPaused, locale]);
 
   return (
-    <>
-      <audio ref={audioRef} src={AUDIO_SRC} />
-      <ChromeIconTooltip
-        label={musicTooltip}
-        hint={t('chrome.music.hint', locale)}
-        wrapperClassName={floating ? 'inline-flex items-center fixed bottom-5 right-5 z-[60]' : 'inline-flex items-center'}
+    <ChromeIconTooltip
+      label={musicTooltip}
+      hint={t('chrome.music.hint', locale)}
+      wrapperClassName={floating ? 'inline-flex items-center fixed bottom-5 right-5 z-[60]' : 'inline-flex items-center'}
+    >
+      <button
+        type="button"
+        onClick={handleControlClick}
+        className={
+          floating
+            ? 'flex h-9 w-9 items-center justify-center rounded-lg border border-chrome-border bg-background/70 text-text-dim shadow-atlas-elevated backdrop-blur-md transition-colors duration-200 hover:border-chrome-border-strong hover:bg-chrome-fill-hover hover:text-gold/80'
+            : `relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border backdrop-blur-sm transition-all duration-200 ${
+                !muted && !audioPaused
+                  ? 'border-gold/35 bg-chrome-fill-pressed text-gold/85 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft)] hover:border-gold/45 hover:text-gold'
+                  : 'border-chrome-border-strong bg-chrome-fill-badge text-text-muted hover:border-chrome-border hover:bg-chrome-fill-hover hover:text-text'
+              }`
+        }
+        aria-label={musicTooltip}
+        aria-pressed={muted}
       >
-        <button
-          type="button"
-          onClick={handleControlClick}
-          className={
-            floating
-              ? 'flex h-9 w-9 items-center justify-center rounded-lg border border-chrome-border bg-background/70 text-text-dim shadow-atlas-elevated backdrop-blur-md transition-colors duration-200 hover:border-chrome-border-strong hover:bg-chrome-fill-hover hover:text-gold/80'
-              : `relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border backdrop-blur-sm transition-all duration-200 ${
-                  !muted && !audioPaused
-                    ? 'border-gold/35 bg-chrome-fill-pressed text-gold/85 shadow-[inset_0_1px_0_var(--color-chrome-inset-soft)] hover:border-gold/45 hover:text-gold'
-                    : 'border-chrome-border-strong bg-chrome-fill-badge text-text-muted hover:border-chrome-border hover:bg-chrome-fill-hover hover:text-text'
-                }`
-          }
-          aria-label={musicTooltip}
-          aria-pressed={muted}
-        >
-          {muted ? (
-            <VolumeX className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
-          ) : (
-            <Volume2 className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
-          )}
-        </button>
-      </ChromeIconTooltip>
-    </>
+        {muted ? (
+          <VolumeX className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
+        ) : (
+          <Volume2 className={floating ? 'h-[18px] w-[18px]' : 'h-[15px] w-[15px]'} strokeWidth={1.75} aria-hidden />
+        )}
+      </button>
+    </ChromeIconTooltip>
   );
 });

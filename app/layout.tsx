@@ -9,6 +9,7 @@ import { HIGH_CONTRAST_STORAGE_KEY } from '@/lib/high-contrast';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
 import CommandPaletteHost from '@/components/command-palette/CommandPaletteHost';
 import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
+import { BackgroundMusicProvider } from '@/components/audio/BackgroundMusic';
 import './globals.css';
 
 /** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
@@ -104,11 +105,13 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: blockingPreferenceRestoreScript }}
         />
-        <ClientBootstrap />
-        <CommandPaletteHost />
-        <AtlasMotionConfig>
-          {children}
-        </AtlasMotionConfig>
+        <BackgroundMusicProvider>
+          <ClientBootstrap />
+          <CommandPaletteHost />
+          <AtlasMotionConfig>
+            {children}
+          </AtlasMotionConfig>
+        </BackgroundMusicProvider>
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
