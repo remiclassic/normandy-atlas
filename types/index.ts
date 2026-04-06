@@ -239,7 +239,7 @@ export interface PersonRecord {
 
 // --- Selection ---
 
-export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'viking-adna-site' | 'viking-archaeology-site' | 'atlas-timeline-marker' | 'historical-macro-region' | 'user-ancestry-pin';
+export type SelectionKind = 'region' | 'settlement' | 'evidence' | 'norman-site' | 'era-info' | 'prehistoric-site' | 'atlas-person' | 'atlas-route' | 'atlas-journey' | 'nf-ydna-lineage' | 'nf-mtdna-lineage' | 'viking-adna-site' | 'viking-archaeology-site' | 'atlas-timeline-marker' | 'historical-macro-region' | 'user-ancestry-pin';
 
 export type NormanSiteKind =
   | 'city'

@@ -6,6 +6,7 @@ import { useMapStore } from '@/lib/store';
 import { useAncestryStore } from '@/lib/ancestry-store';
 import { getPlace } from '@/core';
 import { t } from '@/lib/ui-strings';
+import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
 
 /** `selectedId` is feature id `${personId}:birth` or `:death` from map pins. */
 const UserAncestryPinDetail = memo(function UserAncestryPinDetail({ selectedId }: { selectedId: string }) {
@@ -30,7 +31,7 @@ const UserAncestryPinDetail = memo(function UserAncestryPinDetail({ selectedId }
     <>
       <div className="px-7 pt-7 pb-5">
         <span className="inline-flex text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/60 bg-gold/[0.06] px-2.5 py-1 rounded-md border border-gold/10 mb-2">
-          {t('ancestry.navLabel', locale)}
+          {t('genealogy.navLabel', locale)}
         </span>
         <h2 className="text-[22px] font-display font-bold text-parchment leading-tight tracking-[-0.01em]">
           {person.name}
@@ -60,10 +61,10 @@ const UserAncestryPinDetail = memo(function UserAncestryPinDetail({ selectedId }
             </p>
           )}
         <Link
-          href="/ancestry"
+          href={GENEALOGY_HUB_PATH}
           className="inline-block mt-3 text-gold/80 text-[12px] underline decoration-gold/30 underline-offset-2 hover:text-gold"
         >
-          Edit in My ancestry hub
+          {t('ancestry.editInGenealogyHub', locale)}
         </Link>
       </div>
     </>

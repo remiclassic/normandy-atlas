@@ -15,6 +15,7 @@ import type {
   HistoricalPresenceView,
   LineageEraLens,
 } from '@/core/types';
+import type { GfnaYdnaMapConfidenceFilter } from '@/data/atlas/gfna-dna-types';
 import { DEFAULT_LOCALE, persistLocale } from '@/lib/locale';
 import type { UiTheme, UiThemeMode } from '@/lib/ui-theme';
 import {
@@ -170,6 +171,8 @@ interface MapStore {
   explorationRoutesYearStrict: boolean;
   /** When true, only Scandinavian-linked Y-DNA lineages (I1, Norse R1a) are shown on the map. */
   ydnaScandinavianFilter: boolean;
+  /** Sub-filter on Francogene Y-DNA dots: all, triangulated (confirmed), or presumed only. */
+  ydnaGfnaConfidenceFilter: GfnaYdnaMapConfidenceFilter;
   /** When true, 3D terrain (elevation + hillshade + fog) is active on the map. */
   terrain3dEnabled: boolean;
   vikingAdnaFilter: VikingAdnaFilter;
@@ -260,6 +263,7 @@ interface MapStore {
   setParchmentWaterAtmosphere: (enabled: boolean) => void;
   setExplorationRoutesYearStrict: (strict: boolean) => void;
   setYdnaScandinavianFilter: (enabled: boolean) => void;
+  setYdnaGfnaConfidenceFilter: (mode: GfnaYdnaMapConfidenceFilter) => void;
   setTerrain3dEnabled: (enabled: boolean) => void;
   setVikingAdnaFilter: (filter: Partial<VikingAdnaFilter>) => void;
   setHistoricalPresenceYear: (year: number) => void;
@@ -281,6 +285,11 @@ interface MapStore {
   ledgerPanelOpenRequest: boolean;
   requestLedgerPanelOpen: () => void;
   clearLedgerPanelOpenRequest: () => void;
+
+  /** Norman Identity Engine: map story overlay opened via `?identityStory=1` + session payload. */
+  normanIdentityStoryOpen: boolean;
+  openNormanIdentityStoryFromDeepLink: () => void;
+  closeNormanIdentityStory: () => void;
 }
 
 function initialAtlasLayers(): Record<string, boolean> {
@@ -351,6 +360,7 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   parchmentWaterAtmosphere: false,
   explorationRoutesYearStrict: false,
   ydnaScandinavianFilter: false,
+  ydnaGfnaConfidenceFilter: 'all' as GfnaYdnaMapConfidenceFilter,
   terrain3dEnabled: false,
   vikingAdnaFilter: DEFAULT_VIKING_ADNA_FILTER,
   historicalPresenceYear: 800,
@@ -383,6 +393,10 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   ledgerPanelOpenRequest: false,
   requestLedgerPanelOpen: () => set({ ledgerPanelOpenRequest: true }),
   clearLedgerPanelOpenRequest: () => set({ ledgerPanelOpenRequest: false }),
+
+  normanIdentityStoryOpen: false,
+  openNormanIdentityStoryFromDeepLink: () => set({ normanIdentityStoryOpen: true }),
+  closeNormanIdentityStory: () => set({ normanIdentityStoryOpen: false }),
 
   startLedgerCelebration: () => set({ ledgerCelebrationPhase: 'overlay' }),
 
@@ -614,6 +628,8 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
   setExplorationRoutesYearStrict: (strict) => set({ explorationRoutesYearStrict: strict }),
 
   setYdnaScandinavianFilter: (enabled) => set({ ydnaScandinavianFilter: enabled }),
+
+  setYdnaGfnaConfidenceFilter: (mode) => set({ ydnaGfnaConfidenceFilter: mode }),
 
   setTerrain3dEnabled: (enabled) => set({ terrain3dEnabled: enabled }),
 

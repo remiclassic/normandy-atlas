@@ -3,6 +3,7 @@ import { pickI18n } from '@/lib/locale';
 import { digitalGuidesTooltipLabel } from '@/lib/digital-guides-ui';
 import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
 import { t } from '@/lib/ui-strings';
+import { GENEALOGY_HUB_PATH, isGenealogyHubTabMatch } from '@/lib/genealogy-paths';
 
 export type ReferenceHubTabDef = {
   href: string;
@@ -22,15 +23,10 @@ export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[
     label: t('companion.title', locale),
     match: (p) => p === '/companion' || p.startsWith('/companion/'),
   };
-  const lineage: ReferenceHubTabDef = {
-    href: '/lineage-explorer',
-    label: t('lineageExplorer.navLabel', locale),
-    match: (p) => p === '/lineage-explorer' || p.startsWith('/lineage-explorer/'),
-  };
-  const ancestry: ReferenceHubTabDef = {
-    href: '/ancestry',
-    label: t('ancestry.navLabel', locale),
-    match: (p) => p === '/ancestry' || p.startsWith('/ancestry/'),
+  const genealogy: ReferenceHubTabDef = {
+    href: GENEALOGY_HUB_PATH,
+    label: t('genealogy.navLabel', locale),
+    match: (p) => isGenealogyHubTabMatch(p),
   };
   const guides: ReferenceHubTabDef = {
     href: '/guides',
@@ -38,7 +34,7 @@ export function getReferenceHubTabDefs(locale: AtlasLocale): ReferenceHubTabDef[
     match: (p) => p === '/guides' || p.startsWith('/guides/'),
   };
   if (isDigitalGuidesPublic()) {
-    return [guides, journal, ancestry, lineage, companion];
+    return [guides, journal, genealogy, companion];
   }
-  return [journal, ancestry, lineage, companion];
+  return [journal, genealogy, companion];
 }

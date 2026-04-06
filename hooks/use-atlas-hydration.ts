@@ -23,13 +23,18 @@ import {
 
 const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
+/** Defer Zustand writes so they run after the full commit (ClientBootstrap is first under `<body>`; sync store updates would notify subscribers still mounting). */
+function deferStoreWrite(fn: () => void): void {
+  queueMicrotask(fn);
+}
+
 /** Hydrate locale from localStorage once on the client — call in a top-level shell. */
 export function useHydrateLocale(): void {
   const setLocale = useMapStore((s) => s.setLocale);
   useIsoLayoutEffect(() => {
     const stored = readStoredLocale();
     if (stored !== useMapStore.getState().locale) {
-      setLocale(stored);
+      deferStoreWrite(() => setLocale(stored));
     }
   }, [setLocale]);
 }
@@ -40,7 +45,7 @@ export function useHydrateUiTheme(): void {
     const mode = readStoredUiThemeMode();
     const resolved = resolveAppliedUiTheme(mode, getSystemPrefersLight());
     applyUiThemeToDocument(resolved);
-    useMapStore.setState({ uiThemeMode: mode, uiTheme: resolved });
+    deferStoreWrite(() => useMapStore.setState({ uiThemeMode: mode, uiTheme: resolved }));
   }, []);
 }
 
@@ -49,7 +54,9 @@ export function useHydrateBasemapMode(): void {
   useIsoLayoutEffect(() => {
     const pref = readStoredBasemapModePreference();
     const resolved = resolveAppliedBasemap(pref, getSystemPrefersLight());
-    useMapStore.setState({ basemapModePreference: pref, basemapMode: resolved });
+    deferStoreWrite(() =>
+      useMapStore.setState({ basemapModePreference: pref, basemapMode: resolved }),
+    );
   }, []);
 }
 
@@ -58,7 +65,7 @@ export function useHydrateTextSize(): void {
   useIsoLayoutEffect(() => {
     const stored = readStoredTextSize();
     applyTextSizeToDocument(stored);
-    useMapStore.setState({ textSize: stored });
+    deferStoreWrite(() => useMapStore.setState({ textSize: stored }));
   }, []);
 }
 
@@ -67,7 +74,7 @@ export function useHydrateReduceMotion(): void {
   useIsoLayoutEffect(() => {
     const forced = readStoredReduceMotionForced();
     applyReducedMotionToDocument(computeEffectiveReducedMotion(forced));
-    useMapStore.setState({ reduceMotionForced: forced });
+    deferStoreWrite(() => useMapStore.setState({ reduceMotionForced: forced }));
 
     const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
     const onchange = () => {
@@ -84,6 +91,6 @@ export function useHydrateHighContrast(): void {
   useIsoLayoutEffect(() => {
     const stored = readStoredHighContrast();
     applyHighContrastToDocument(stored);
-    useMapStore.setState({ highContrast: stored });
+    deferStoreWrite(() => useMapStore.setState({ highContrast: stored }));
   }, []);
 }

@@ -10,6 +10,8 @@ export type GeneticOrigin =
   | 'eastern'
   | 'other';
 
+import type { GfnaConfidenceStatus, GfnaSignatureType } from '@/data/atlas/gfna-dna-types';
+
 export type GeneticConfidence = 'high' | 'medium' | 'low';
 
 export function classifyGeneticOrigin(
@@ -65,6 +67,11 @@ export interface NfYdnaProperties {
   excludeFromMap: boolean;
   geneticOrigin: GeneticOrigin;
   geneticConfidence: GeneticConfidence;
+  /** FrancoGene triangulated vs presumed; omit treated as confirmed for backwards compatibility. */
+  gfnaStatus?: GfnaConfidenceStatus;
+  sourcePage?: string;
+  familySheetNo?: string;
+  signatureType?: GfnaSignatureType;
 }
 
 export interface NfYdnaFeature {

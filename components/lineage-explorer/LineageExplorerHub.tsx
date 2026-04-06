@@ -5,6 +5,7 @@ import { memo, useCallback, useDeferredValue, useMemo, useState } from 'react';
 import { Dna, Heart, Map as MapIcon, MapPin, Search } from 'lucide-react';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
+import GenealogySubnav from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -17,6 +18,7 @@ import type { LineageDepthFilter, LineageLineageFilter } from '@/core/types';
 import { readLineageFavorites, toggleLineageFavorite, writeLineageFavorites } from '@/lib/lineage-favorites';
 import { getHaplogroupProfile } from '@/core';
 import RegionalHaplogroupPiePanel from '@/components/lineage-explorer/RegionalHaplogroupPiePanel';
+import AtlasSelect from '@/components/ui/AtlasSelect';
 
 const EXAMPLE_QUERIES = ['R1b', 'R1b-U106', 'I1', 'H1', 'U5', 'mtDNA H', 'Y-DNA R1a'];
 
@@ -45,6 +47,24 @@ const LineageExplorerHub = memo(function LineageExplorerHub() {
     [favorites],
   );
 
+  const lineageSelectOptions = useMemo(
+    () => [
+      { value: 'all', label: locale === 'fr' ? 'Toutes' : 'All' },
+      { value: 'paternal', label: 'Y-DNA' },
+      { value: 'maternal', label: 'mtDNA' },
+    ],
+    [locale],
+  );
+
+  const depthSelectOptions = useMemo(
+    () => [
+      { value: 'all', label: locale === 'fr' ? 'Tout' : 'All branches' },
+      { value: 'major', label: locale === 'fr' ? 'Clades majeurs' : 'Major clades' },
+      { value: 'sub', label: locale === 'fr' ? 'Sous-clades' : 'Subclades' },
+    ],
+    [locale],
+  );
+
   return (
     <div className="fixed inset-0 z-0 flex flex-col bg-[var(--color-background)]">
       <AtlasReadingNoiseBackdrop />
@@ -58,6 +78,7 @@ const LineageExplorerHub = memo(function LineageExplorerHub() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
+        <GenealogySubnav />
         <main
           id="lineage-explorer-main"
           className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-[max(4rem,env(safe-area-inset-bottom)+2rem)] pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-20 md:pt-12"
@@ -145,27 +166,19 @@ const LineageExplorerHub = memo(function LineageExplorerHub() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <label className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-text-dim">
                   {locale === 'fr' ? 'Lignée' : 'Lineage'}
-                  <select
+                  <AtlasSelect
                     value={lineageFilter}
-                    onChange={(e) => setLineageFilter(e.target.value as LineageLineageFilter)}
-                    className="mt-1 w-full rounded-md border border-chrome-border bg-chrome-fill-raised px-2 py-1.5 text-[12px] text-parchment"
-                  >
-                    <option value="all">{locale === 'fr' ? 'Toutes' : 'All'}</option>
-                    <option value="paternal">Y-DNA</option>
-                    <option value="maternal">mtDNA</option>
-                  </select>
+                    onValueChange={(v) => setLineageFilter(v as LineageLineageFilter)}
+                    options={lineageSelectOptions}
+                  />
                 </label>
                 <label className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-text-dim">
                   {locale === 'fr' ? 'Profondeur' : 'Branch depth'}
-                  <select
+                  <AtlasSelect
                     value={depthFilter}
-                    onChange={(e) => setDepthFilter(e.target.value as LineageDepthFilter)}
-                    className="mt-1 w-full rounded-md border border-chrome-border bg-chrome-fill-raised px-2 py-1.5 text-[12px] text-parchment"
-                  >
-                    <option value="all">{locale === 'fr' ? 'Tout' : 'All branches'}</option>
-                    <option value="major">{locale === 'fr' ? 'Clades majeurs' : 'Major clades'}</option>
-                    <option value="sub">{locale === 'fr' ? 'Sous-clades' : 'Subclades'}</option>
-                  </select>
+                    onValueChange={(v) => setDepthFilter(v as LineageDepthFilter)}
+                    options={depthSelectOptions}
+                  />
                 </label>
               </div>
             </div>

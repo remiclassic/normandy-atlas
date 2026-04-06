@@ -28,6 +28,7 @@ import {
 
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
+import GenealogySubnav from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import BottomSheet from '@/components/ui/BottomSheet';
@@ -38,6 +39,7 @@ import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { useAncestryStore } from '@/lib/ancestry-store';
 import { buildDeepOriginsHref } from '@/lib/deep-origins-link';
+import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import type { DeepOriginComponentId } from '@/core/deep-origins/types';
 import {
@@ -668,6 +670,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
+        <GenealogySubnav />
         <div
           id="deep-origins-main"
           className="relative flex min-h-0 flex-1 flex-col md:flex-row"
@@ -677,7 +680,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
               <div className="flex min-h-0 flex-1 flex-col">
                 <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin p-4">
                   <Link
-                    href="/ancestry"
+                    href={GENEALOGY_HUB_PATH}
                     className="mb-4 inline-flex items-center gap-1.5 text-[12px] text-text-dim hover:text-gold"
                   >
                     <ArrowLeft className="h-3.5 w-3.5 shrink-0" aria-hidden />
@@ -746,7 +749,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       <BottomSheet open={isMobile && sheetOpen} onClose={() => setSheetOpen(false)} maxHeight="88dvh">
         <div className="max-h-[80dvh] overflow-y-auto overscroll-y-contain px-4 pb-6 pt-2 scrollbar-thin">
           <Link
-            href="/ancestry"
+            href={GENEALOGY_HUB_PATH}
             className="mb-3 inline-flex items-center gap-1.5 text-[12px] text-text-dim hover:text-gold"
             onClick={() => setSheetOpen(false)}
           >

@@ -27,6 +27,10 @@ export default function MapDeepLinkSync() {
     const params = new URLSearchParams(window.location.search);
     if (params.size === 0) return;
 
+    if (params.get('identityStory') === '1') {
+      useMapStore.getState().openNormanIdentityStoryFromDeepLink();
+    }
+
     const {
       setEra,
       selectFeature,
@@ -112,6 +116,7 @@ export default function MapDeepLinkSync() {
       const region = params.get('region');
       const segment = params.get('segment');
       const journey = params.get('journey');
+      const mtdna = params.get('mtdna');
       const ydna = params.get('ydna');
       const vikingAdna = params.get('vikingAdna');
       const vikingArch = params.get('vikingArch');
@@ -124,6 +129,9 @@ export default function MapDeepLinkSync() {
         if (!era) setEra('viking-age');
         useMapStore.getState().setLayerVisibility('viking-archaeology-sites', true);
         selectFeature(vikingArch, 'viking-archaeology-site');
+      } else if (mtdna) {
+        useMapStore.getState().setLayerVisibility('new-france-mtdna-lineages', true);
+        selectFeature(mtdna, 'nf-mtdna-lineage');
       } else if (ydna) {
         useMapStore.getState().setLayerVisibility('new-france-ydna-lineages', true);
         selectFeature(ydna, 'nf-ydna-lineage');

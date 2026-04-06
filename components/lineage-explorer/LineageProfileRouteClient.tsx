@@ -6,6 +6,7 @@ import { getHaplogroupProfile } from '@/core';
 import LineageProfileClient from '@/components/lineage-explorer/LineageProfileClient';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
+import GenealogySubnav from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -27,6 +28,7 @@ export default function LineageProfileRouteClient({
         <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
           <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
           <ReferenceHubTabs />
+          <GenealogySubnav />
           <main className="p-8 text-center">
             <p className="text-text-muted">Unknown haplogroup profile.</p>
             <Link href="/lineage-explorer" className="mt-4 inline-block text-gold hover:underline">

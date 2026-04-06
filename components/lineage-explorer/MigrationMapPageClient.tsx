@@ -8,6 +8,7 @@ import { ArrowLeft, Map } from 'lucide-react';
 
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
+import GenealogySubnav from '@/components/layout/GenealogySubnav';
 import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -85,6 +86,7 @@ const MigrationMapPageClient = memo(function MigrationMapPageClient() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
         <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
         <ReferenceHubTabs />
+        <GenealogySubnav />
         <main
           id="migration-map-main"
           className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-[max(4rem,env(safe-area-inset-bottom)+2rem)] pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-20 md:pt-10"

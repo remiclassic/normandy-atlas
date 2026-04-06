@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Fragment, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useMapStore, NORMAN_NODE_PERIOD_DEFAULT } from '@/lib/store';
@@ -12,9 +13,10 @@ import { useIsMobile } from '@/hooks/use-responsive';
 import BottomSheet from '@/components/ui/BottomSheet';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
-import type { HistoricalPresenceView } from '@/core/types';
+import type { AtlasLocale, HistoricalPresenceView } from '@/core/types';
 import { explainProvenance, HISTORICAL_PRESENCE_YEAR_PRESETS } from '@/core';
 import { historicalMacroRegionsDatasetMeta } from '@/data/atlas/historical-macro-regions/dataset-meta';
+import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
 
 const LAYER_ICONS: Record<string, React.ReactNode> = {
   'regions-fill': (
@@ -165,6 +167,13 @@ const LAYER_ICONS: Record<string, React.ReactNode> = {
       <circle cx="7" cy="1" r="1" fill="currentColor" opacity="0.6" />
       <circle cx="3" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
       <circle cx="11" cy="11" r="1.2" fill="currentColor" opacity="0.5" />
+    </svg>
+  ),
+  'new-france-mtdna-lineages': (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 2v3M7 5c-2.5 0-4 2.5-4 5M7 5c2.5 0 4 2.5 4 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.75" />
+      <circle cx="7" cy="12" r="1.35" fill="currentColor" opacity="0.55" />
+      <circle cx="7" cy="1.3" r="1" fill="currentColor" opacity="0.45" />
     </svg>
   ),
   'viking-raid-routes': (
@@ -710,8 +719,8 @@ const YdnaLegend = memo(function YdnaLegend() {
   return (
     <div className="px-3.5 pb-2 pt-1">
       <p className="text-[9px] text-text-dim/80 leading-snug mb-2 normal-case tracking-normal font-normal">
-        Settler dots are colour-coded by Y-DNA haplogroup.
-        Based on modern descendant testing via Francogene.
+        Settler dots are colour-coded by Y-DNA haplogroup. Use the filter below to show triangulated (confirmed)
+        lines, presumed lines only, or both — matching FrancoGene’s own confidence tiers.
       </p>
       <div className="grid grid-cols-4 gap-x-3 gap-y-1">
         {HAPLO_LEGEND.map((h) => (
@@ -719,6 +728,42 @@ const YdnaLegend = memo(function YdnaLegend() {
             <span className="inline-block w-2 h-2 rounded-full flex-shrink-0" style={{ background: h.color }} />
             {h.key}
           </span>
+        ))}
+      </div>
+    </div>
+  );
+});
+
+const GfnaYdnaConfidenceSegment = memo(function GfnaYdnaConfidenceSegment() {
+  const mode = useMapStore((s) => s.ydnaGfnaConfidenceFilter);
+  const setMode = useMapStore((s) => s.setYdnaGfnaConfidenceFilter);
+  const opts = useMemo(
+    () =>
+      [
+        { id: 'all' as const, label: 'All' },
+        { id: 'confirmed' as const, label: 'Triangulated' },
+        { id: 'presumed' as const, label: 'Presumed' },
+      ] as const,
+    [],
+  );
+
+  return (
+    <div className="px-3.5 pb-2 pt-0">
+      <p className="text-[9px] uppercase tracking-[0.12em] text-text-dim/70 mb-1.5">Francogene confidence</p>
+      <div className="flex flex-wrap gap-1">
+        {opts.map((o) => (
+          <button
+            key={o.id}
+            type="button"
+            onClick={() => setMode(o.id)}
+            className={`flex-1 min-w-[4.75rem] py-1 px-1 rounded-md text-[10px] font-medium border transition-colors duration-150 ${
+              mode === o.id
+                ? 'border-gold/45 bg-gold/15 text-gold/95'
+                : 'border-chrome-border-strong/50 bg-chrome-fill-badge text-text-dim hover:text-text-muted hover:bg-chrome-fill-hover'
+            }`}
+          >
+            {o.label}
+          </button>
         ))}
       </div>
     </div>
@@ -890,12 +935,15 @@ function LayerPanelContent({
   toggleSection,
   layers,
   handleToggle,
+  locale,
 }: {
   sectionOpen: Record<LayerPanelSectionKey, boolean>;
   toggleSection: (key: LayerPanelSectionKey) => void;
   layers: Record<string, boolean>;
   handleToggle: (id: string) => void;
+  locale: AtlasLocale;
 }) {
+  const showGenealogyCta = (layers['user-ancestry-pins'] ?? false) || (layers['lineage-explorer'] ?? false);
   return (
     <>
       <div className="px-3.5 pt-3 pb-1.5 flex items-center gap-2">
@@ -914,6 +962,18 @@ function LayerPanelContent({
       </div>
 
       <div className="accent-line-gold mx-3 my-1" />
+
+      {showGenealogyCta ? (
+        <div className="mx-3.5 mb-2 rounded-lg border border-gold/20 bg-gold/5 px-2.5 py-2">
+          <Link
+            href={GENEALOGY_HUB_PATH}
+            className="text-[11px] font-semibold text-gold/90 hover:text-gold"
+          >
+            {t('layerPanel.genealogyWorkspaceLink', locale)}
+          </Link>
+          <p className="mt-0.5 text-[10px] leading-snug text-text-dim">{t('layerPanel.genealogyWorkspaceHint', locale)}</p>
+        </div>
+      ) : null}
 
       <div className="px-1 pt-0.5">
         <CollapsibleSectionHeader
@@ -1011,8 +1071,17 @@ function LayerPanelContent({
                         {cfg.id === 'new-france-ydna-lineages' && (layers[cfg.id] ?? cfg.defaultOn) && (
                           <>
                             <YdnaLegend />
+                            <GfnaYdnaConfidenceSegment />
                             <ScandinavianFilterToggle />
                           </>
+                        )}
+                        {cfg.id === 'new-france-mtdna-lineages' && (layers[cfg.id] ?? cfg.defaultOn) && (
+                          <div className="px-3.5 pb-2 pt-1">
+                            <p className="text-[9px] text-text-dim/80 leading-snug normal-case tracking-normal font-normal">
+                              Maternal (mtDNA) pioneer lines from ingested GFNA data. Pink dots; enable after running{' '}
+                              <code className="text-[9px] text-text-muted">npm run build:gfna</code> with mtDNA rows.
+                            </p>
+                          </div>
                         )}
                       </Fragment>
                     ))}
@@ -1035,6 +1104,7 @@ export default function LayerPanel() {
   const guidedTourShellResetNonce = useMapStore((s) => s.guidedTourShellResetNonce);
   const prevGuidedTourNonceRef = useRef(guidedTourShellResetNonce);
   const isMobile = useIsMobile();
+  const locale = useLocale();
 
   // Guided tour startup closes the mobile layers sheet so anchors and spotlight match the collapsed chrome.
   useEffect(() => {
@@ -1090,6 +1160,7 @@ export default function LayerPanel() {
             toggleSection={toggleSection}
             layers={layers}
             handleToggle={handleToggle}
+            locale={locale}
           />
         </BottomSheet>
       ) : (
@@ -1108,6 +1179,7 @@ export default function LayerPanel() {
                   toggleSection={toggleSection}
                   layers={layers}
                   handleToggle={handleToggle}
+                  locale={locale}
                 />
               </div>
             </motion.div>

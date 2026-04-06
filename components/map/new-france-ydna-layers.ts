@@ -1,5 +1,6 @@
 import type { Map as MaplibreMap } from 'maplibre-gl';
-import { nfYdnaGeoJson } from '@/data/atlas/new-france-ydna';
+import { nfYdnaCombinedGeoJson } from '@/lib/nf-ydna-combined';
+import type { GfnaYdnaMapConfidenceFilter } from '@/data/atlas/gfna-dna-types';
 import type { MapDataTheme } from './map-layers';
 
 // ---------------------------------------------------------------------------
@@ -20,7 +21,7 @@ export const HAPLO_COLORS: Record<string, string> = {
   I1:    '#4898e0',
   I2:    '#3070b0',
   G2:    '#3cb870',
-  J1:    '#a855c8',
+  J1:    '#a855f8',
   J2:    '#8860d0',
   E1b:   '#d0a030',
   N:     '#50b8b8',
@@ -36,6 +37,8 @@ const PARCHMENT_INK = '#140e0c';
 const PARCHMENT_LABEL_HALO = 'rgba(255, 247, 235, 0.98)';
 const LABEL_FONT_DARK: string[] = ['Noto Sans Regular'];
 const LABEL_FONT_PARCHMENT: string[] = ['Open Sans Semibold', 'Noto Sans Regular'];
+
+const SCANDINAVIAN_ORIGINS = ['scandinavian', 'possible-scandinavian'];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -58,35 +61,51 @@ function buildColorExpression(): maplibregl.ExpressionSpecification {
   return stops as unknown as maplibregl.ExpressionSpecification;
 }
 
-// ---------------------------------------------------------------------------
-// Feature filter — show full Francogene catalogue on the map
-//
-// We intentionally do NOT gate dots by atlasSimYear / marriageYear: the
-// timeline defaults to each era's midpoint (e.g. ~1636 in Foundations), which
-// hid most lineages whose marriage falls later (the dataset runs into the 1800s).
-// Territory and regions still follow the timeline; Y-DNA points stay genealogical.
-// ---------------------------------------------------------------------------
+function buildNfYdnaFilterParts(options: {
+  scandinavianOnly: boolean;
+  gfnaConfidence: GfnaYdnaMapConfidenceFilter;
+}): maplibregl.FilterSpecification[] {
+  const parts: maplibregl.FilterSpecification[] = [['!=', ['get', 'excludeFromMap'], true]];
 
-const NF_YDNA_FEATURE_FILTER: maplibregl.FilterSpecification = ['!=', ['get', 'excludeFromMap'], true];
+  if (options.gfnaConfidence === 'confirmed') {
+    parts.push([
+      'any',
+      ['==', ['get', 'gfnaStatus'], 'confirmed'],
+      ['!', ['has', 'gfnaStatus']],
+    ] as unknown as maplibregl.FilterSpecification);
+  } else if (options.gfnaConfidence === 'presumed') {
+    parts.push(['==', ['get', 'gfnaStatus'], 'presumed'] as maplibregl.FilterSpecification);
+  }
 
-export function applyNfYdnaFeatureFilter(map: MaplibreMap) {
-  if (map.getLayer(NF_YDNA_CIRCLES)) map.setFilter(NF_YDNA_CIRCLES, NF_YDNA_FEATURE_FILTER);
-  if (map.getLayer(NF_YDNA_LABELS)) map.setFilter(NF_YDNA_LABELS, NF_YDNA_FEATURE_FILTER);
+  if (options.scandinavianOnly) {
+    parts.push(['in', ['get', 'geneticOrigin'], ['literal', SCANDINAVIAN_ORIGINS]] as unknown as maplibregl.FilterSpecification);
+  }
+
+  return parts;
 }
 
-const SCANDINAVIAN_ORIGINS = ['scandinavian', 'possible-scandinavian'];
+export function buildNfYdnaLayerFilter(options: {
+  scandinavianOnly: boolean;
+  gfnaConfidence: GfnaYdnaMapConfidenceFilter;
+}): maplibregl.FilterSpecification {
+  const parts = buildNfYdnaFilterParts(options);
+  if (parts.length === 1) return parts[0];
+  return ['all', ...parts] as maplibregl.FilterSpecification;
+}
 
-export function applyNfYdnaOriginFilter(map: MaplibreMap, scandinavianOnly: boolean) {
-  const filter = scandinavianOnly
-    ? ([
-        'all',
-        ['!=', ['get', 'excludeFromMap'], true],
-        ['in', ['get', 'geneticOrigin'], ['literal', SCANDINAVIAN_ORIGINS]],
-      ] as unknown as maplibregl.FilterSpecification)
-    : NF_YDNA_FEATURE_FILTER;
-
+/** Applies Scandinavian origin + Francogene confidence filters to Y-DNA dot layers. */
+export function applyNfYdnaMapFilters(
+  map: MaplibreMap,
+  options: { scandinavianOnly: boolean; gfnaConfidence: GfnaYdnaMapConfidenceFilter },
+) {
+  const filter = buildNfYdnaLayerFilter(options);
   if (map.getLayer(NF_YDNA_CIRCLES)) map.setFilter(NF_YDNA_CIRCLES, filter);
   if (map.getLayer(NF_YDNA_LABELS)) map.setFilter(NF_YDNA_LABELS, filter);
+}
+
+/** @deprecated Prefer {@link applyNfYdnaMapFilters} with full store options. */
+export function applyNfYdnaOriginFilter(map: MaplibreMap, scandinavianOnly: boolean) {
+  applyNfYdnaMapFilters(map, { scandinavianOnly, gfnaConfidence: 'all' });
 }
 
 // ---------------------------------------------------------------------------
@@ -96,17 +115,19 @@ export function applyNfYdnaOriginFilter(map: MaplibreMap, scandinavianOnly: bool
 export function addNfYdnaLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') {
   safeAddSource(map, NF_YDNA_SOURCE, {
     type: 'geojson',
-    data: nfYdnaGeoJson as unknown as GeoJSON.FeatureCollection,
+    data: nfYdnaCombinedGeoJson as unknown as GeoJSON.FeatureCollection,
     promoteId: 'id',
   });
 
   const isParchment = theme === 'parchment';
 
+  const defaultFilter = buildNfYdnaLayerFilter({ scandinavianOnly: false, gfnaConfidence: 'all' });
+
   safeAddLayer(map, {
     id: NF_YDNA_CIRCLES,
     type: 'circle',
     source: NF_YDNA_SOURCE,
-    filter: ['!=', ['get', 'excludeFromMap'], true],
+    filter: defaultFilter,
     layout: { visibility: 'none' },
     paint: {
       'circle-radius': [
@@ -149,7 +170,7 @@ export function addNfYdnaLayers(map: MaplibreMap, theme: MapDataTheme = 'dark') 
     id: NF_YDNA_LABELS,
     type: 'symbol',
     source: NF_YDNA_SOURCE,
-    filter: ['!=', ['get', 'excludeFromMap'], true],
+    filter: defaultFilter,
     minzoom: 7,
     layout: {
       'text-field': ['concat', ['get', 'displayLabel'], '\n', ['get', 'yMajor']],

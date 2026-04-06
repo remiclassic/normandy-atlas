@@ -191,6 +191,8 @@ for (const rec of byTri.values()) {
       excludeFromMap: rec.excludeFromMap,
       geneticOrigin,
       geneticConfidence,
+      gfnaStatus: 'confirmed',
+      sourcePage: 'https://www.francogene.com/triangulation/y.php',
     },
     geometry: {
       type: 'Point',

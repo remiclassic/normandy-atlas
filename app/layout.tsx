@@ -14,7 +14,7 @@ import './globals.css';
 /** Runs before React: first visit with no saved locale copies geo cookie (set in middleware) into localStorage. */
 const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE_STORAGE_KEY)};if(localStorage.getItem(sk))return;var m=document.cookie.match(/(?:^|;\\s*)${NORMAN_GEO_LOCALE_COOKIE}=([^;]*)/);var v=m?decodeURIComponent(m[1].trim()):'';if(v==='fr'||v==='es'||v==='it'||v==='nb'||v==='sv'||v==='da')localStorage.setItem(sk,v);}catch(e){}})();`;
 
-/** Inline in `<head>` so it runs before paint; avoids `next/script` in the body (React 19 client-tree script warning). */
+/** Inlined via `next/script` `beforeInteractive` (App Router `__next_s` queue) — raw `<script>` in layout triggers React 19 warnings. */
 const blockingPreferenceRestoreScript = [
   "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;else if(v==='auto'){var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');document.documentElement.dataset.uiTheme=m&&m.matches?'light':'dark';}}catch(e){}})();",
   "(function(){try{var k='norman-atlas-basemap-mode';var v=localStorage.getItem(k);if(v==='dark'||v==='parchment')document.documentElement.dataset.atlasBasemap=v;else if(v==='auto'){var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');document.documentElement.dataset.atlasBasemap=m&&m.matches?'parchment':'dark';}}catch(e){}})();",
@@ -88,10 +88,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${crimson.variable}`} suppressHydrationWarning>
       <head>
-        <script
-          id="atlas-blocking-preferences"
-          dangerouslySetInnerHTML={{ __html: blockingPreferenceRestoreScript }}
-        />
         <noscript>
           <img
             height={1}
@@ -103,6 +99,11 @@ export default function RootLayout({
         </noscript>
       </head>
       <body>
+        <Script
+          id="atlas-blocking-preferences"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: blockingPreferenceRestoreScript }}
+        />
         <ClientBootstrap />
         <CommandPaletteHost />
         <AtlasMotionConfig>

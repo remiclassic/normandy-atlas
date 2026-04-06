@@ -1,6 +1,7 @@
 import type { Command } from '@/lib/command-palette/types';
 import { useMapStore } from '@/lib/store';
 import { useAncestryStore } from '@/lib/ancestry-store';
+import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
 import { resolveHaplogroupQuery, buildLineageMapGeoJson, bboxForLineageFeatures } from '@/core';
 import { getHaplogroupProfile } from '@/core/lineage/engine';
 import { CAMERA_PRESETS } from '@/lib/geo';
@@ -11,8 +12,9 @@ export const genealogyCommands: Command[] = [
     label: 'Build my family tree',
     keywords: ['pedigree', 'ancestors'],
     group: 'genealogy',
-    isVisible: (ctx) => !ctx.pathname.startsWith('/ancestry'),
-    action: (_, runtime) => runtime.navigate('/ancestry'),
+    isVisible: (ctx) =>
+      !ctx.pathname.startsWith('/genealogy') && !ctx.pathname.startsWith('/ancestry'),
+    action: (_, runtime) => runtime.navigate(GENEALOGY_HUB_PATH),
   },
   {
     id: 'gen-migration-new-france',

@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-04-06T17:27:07.507Z",
+  "input": "data/atlas/gfna-dna-records.jsonl",
+  "counts": {
+    "totalLines": 0,
+    "yPresumed": 0,
+    "mtDna": 0,
+    "yConfirmedSkipped": 0,
+    "skippedInvalid": 0
+  },
+  "errors": []
+}

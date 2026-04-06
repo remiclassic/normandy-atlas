@@ -68,6 +68,10 @@ import {
   NF_YDNA_LABELS,
 } from '@/components/map/new-france-ydna-layers';
 import {
+  NF_MTDNA_CIRCLES,
+  NF_MTDNA_LABELS,
+} from '@/components/map/new-france-mtdna-layers';
+import {
   VIKING_ADNA_CIRCLES,
   VIKING_ADNA_LABELS,
 } from '@/components/map/viking-adna-layers';
@@ -268,6 +272,14 @@ export const layerConfigs: LayerConfig[] = [
     category: 'new-france',
     defaultOn: false,
     mapLayerIds: [NF_YDNA_CIRCLES, NF_YDNA_LABELS],
+    dependsOnEra: true,
+  },
+  {
+    id: 'new-france-mtdna-lineages',
+    label: 'Maternal Lineages (mtDNA)',
+    category: 'new-france',
+    defaultOn: false,
+    mapLayerIds: [NF_MTDNA_CIRCLES, NF_MTDNA_LABELS],
     dependsOnEra: true,
   },
   // --- Exploration & Colonial overlays ---

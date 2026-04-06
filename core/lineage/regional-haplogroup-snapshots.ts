@@ -87,8 +87,8 @@ function buildFrancogenePaternalSnapshots(): RegionalHaplogroupSnapshot[] {
   };
 
   const methodologyBase = {
-    en: `Percentages are shares among ${totalCounted.toLocaleString()} Francogene triangulation entries used on the Norman Atlas map (excluding rows marked hidden from the map layer). They reflect modern testers inferred to descend from specific colonial figures — not ancient DNA from medieval Normandy and not a random sample of today’s population.`,
-    fr: `Les pourcentages sont des parts parmi ${totalCounted.toLocaleString()} entrées de triangulation Francogene utilisées sur la carte de l’Atlas normand (hors lignées marquées masquées sur la couche). Ils reflètent des testeurs modernes inférés comme descendants de figures coloniales précises — pas de l’ADN ancien de la Normandie médiévale ni d’un échantillon aléatoire de la population actuelle.`,
+    en: `Percentages are shares among ${totalCounted.toLocaleString()} triangulated (confirmed) Y-DNA catalogue entries in the primary Norman Atlas patriline layer — presumed Y-DNA ingested separately is excluded from this pie. Counts omit rows hidden from the map layer. They reflect modern testers inferred to descend from specific colonial figures — not ancient DNA from medieval Normandy and not a random sample of today’s population.`,
+    fr: `Les pourcentages sont des parts parmi ${totalCounted.toLocaleString()} entrées ADN-Y triangulées (confirmées) du catalogue principal sur la couche des patrilignées — l’ADN-Y présumé ingéré à part est exclu de ce diagramme. Les lignées masquées sur la carte sont exclues. Ils reflètent des testeurs modernes inférés comme descendants de figures coloniales précises — pas de l’ADN ancien de la Normandie médiévale ni d’un échantillon aléatoire de la population actuelle.`,
   };
 
   return [

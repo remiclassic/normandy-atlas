@@ -6,6 +6,7 @@ const LABEL_LAYER_IDS: string[] = [
   'settlements-labels',
   'viking-battle-labels',
   'nf-ydna-labels',
+  'nf-mtdna-labels',
   'viking-arch-labels',
   'viking-adna-labels',
   'normandy-micro-regions-labels',

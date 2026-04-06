@@ -24,6 +24,8 @@ import {
 import { StoryLibraryEditorialGrid } from '@/components/story/StoryLibraryEditorialGrid';
 import { StoryLibraryDetailSheet } from '@/components/story/StoryLibraryDetailSheet';
 import { useIsMobile } from '@/hooks/use-responsive';
+import Link from 'next/link';
+import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
 
 export default function StoryLibraryPanel({
   open,
@@ -407,6 +409,22 @@ export default function StoryLibraryPanel({
               className="flex flex-col border-t lg:border-t-0 lg:min-h-0 lg:flex-1 lg:overflow-hidden lg:border-l"
               style={{ borderColor: 'rgba(255,255,255,0.06)' }}
             >
+              <div
+                className="shrink-0 border-b px-4 py-3 lg:px-5"
+                style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+              >
+                <Link
+                  href={GENEALOGY_NORMAN_IDENTITY_PATH}
+                  className="block rounded-none border border-cyan-400/25 bg-cyan-400/8 px-3 py-2.5 text-[12px] font-semibold leading-snug text-cyan-100/95 transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/12"
+                >
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-200/80">
+                    {t('normanIdentity.cta.discover', locale)}
+                  </span>
+                  <span className="mt-1 block text-[11px] font-normal text-white/70">
+                    {t('normanIdentity.banner.storyLibrary', locale)}
+                  </span>
+                </Link>
+              </div>
               <div className="shrink-0 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                 <div className="flex flex-col gap-2 px-4 pt-4 pb-1 lg:px-5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                   <h2

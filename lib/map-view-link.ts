@@ -42,7 +42,7 @@ const VALID_LAYER_IDS = new Set(layerConfigs.map((c) => c.id));
 const VALID_SELECTION_KINDS: ReadonlySet<string> = new Set<SelectionKind>([
   'region', 'settlement', 'evidence', 'norman-site', 'era-info',
   'prehistoric-site', 'atlas-person', 'atlas-route', 'atlas-journey',
-  'nf-ydna-lineage', 'viking-adna-site', 'viking-archaeology-site',
+  'nf-ydna-lineage', 'nf-mtdna-lineage', 'viking-adna-site', 'viking-archaeology-site',
   'atlas-timeline-marker', 'historical-macro-region', 'user-ancestry-pin',
 ]);
 

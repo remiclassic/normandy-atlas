@@ -2412,9 +2412,434 @@ const STRINGS = {
     da: 'Kort over dybe rødder',
   },
 
+  'genealogy.navLabel': {
+    en: 'Genealogy',
+    fr: 'Généalogie',
+    es: 'Genealogía',
+    it: 'Genealogia',
+    de: 'Genealogie',
+    nb: 'Slektsforskning',
+    sv: 'Genealogi',
+    da: 'Slægtsforskning',
+  },
+  'genealogy.subnav.aria': {
+    en: 'Genealogy sections',
+    fr: 'Sections généalogie',
+  },
+  'genealogy.subnav.workspace': {
+    en: 'Workspace',
+    fr: 'Espace',
+    es: 'Espacio',
+    it: 'Spazio',
+    de: 'Arbeitsbereich',
+    nb: 'Arbeidsflate',
+    sv: 'Yta',
+    da: 'Arbejdsrum',
+  },
+  'genealogy.subnav.deepOrigins': {
+    en: 'Deep origins',
+    fr: 'Origines profondes',
+    es: 'Orígenes profundos',
+    it: 'Origini profonde',
+    de: 'Tiefe Ursprünge',
+    nb: 'Dype røtter',
+    sv: 'Djupa ursprung',
+    da: 'Dybe rødder',
+  },
+  'genealogy.subnav.haplogroups': {
+    en: 'Haplogroups',
+    fr: 'Haplogroupes',
+    es: 'Haplogrupos',
+    it: 'Aplogruppi',
+    de: 'Haplogruppen',
+    nb: 'Haplogrupper',
+    sv: 'Haplogrupper',
+    da: 'Haplogrupper',
+  },
+  'genealogy.subnav.migrationMap': {
+    en: 'Migration map',
+    fr: 'Carte des migrations',
+    es: 'Mapa de migraciones',
+    it: 'Mappa migrazioni',
+    de: 'Migrationskarte',
+    nb: 'Migrasjonskart',
+    sv: 'Migrationskarta',
+    da: 'Migrationskort',
+  },
+  'genealogy.subnav.compare': {
+    en: 'Compare',
+    fr: 'Comparer',
+    es: 'Comparar',
+    it: 'Confronta',
+    de: 'Vergleichen',
+    nb: 'Sammenlign',
+    sv: 'Jämför',
+    da: 'Sammenlign',
+  },
+  'genealogy.subnav.normanYdna': {
+    en: 'Norman Y-DNA',
+    fr: 'Y-ADN normand',
+    es: 'Y-ADN normando',
+    it: 'Y-DNA normanno',
+    de: 'Normannisches Y-DNA',
+    nb: 'Normannisk Y-DNA',
+    sv: 'Normandisk Y-DNA',
+    da: 'Normannisk Y-DNA',
+  },
+  'genealogy.wayfinding': {
+    en: 'Use Workspace for saved hints and launching the map sampler. Deep origins is an ancient-DNA teaching blend (not a lab test). Haplogroups and maps are reference pages tied to the wider atlas.',
+    fr: 'L’espace réunit vos indices et le lancement du parcours sur la carte. Les origines profondes sont un mélange pédagogique (pas un test de laboratoire). Les haplogroupes renvoient aux pages de référence.',
+  },
+  'genealogy.primarySurname': {
+    en: 'Primary surname (optional)',
+    fr: 'Nom principal (optionnel)',
+  },
+  'genealogy.ydnaShort': {
+    en: 'Y-DNA haplogroup',
+    fr: 'Haplogroupe Y-ADN',
+  },
+  'genealogy.mtdnaShort': {
+    en: 'mtDNA haplogroup',
+    fr: 'Haplogroupe ADNmt',
+  },
+  'genealogy.runHints': {
+    en: 'Refresh hints',
+    fr: 'Actualiser les indices',
+  },
+  'genealogy.hintsTitle': {
+    en: 'Norman-context hints (exploratory)',
+    fr: 'Indices « contexte normand » (exploratoire)',
+  },
+  'genealogy.startJourney': {
+    en: 'Start sampler on map',
+    fr: 'Lancer l’aperçu sur la carte',
+  },
+  'genealogy.journeyHelp': {
+    en: 'Opens the atlas with a step-by-step sampler. Use the bar at the bottom of the map to move between steps.',
+    fr: 'Ouvre l’atlas avec un aperçu pas à pas. Utilisez la barre en bas de la carte pour avancer.',
+  },
+  'genealogy.normanYdnaCardHint': {
+    en: 'Y-chromosome context — not full ancestry.',
+    fr: 'Contexte du chromosome Y — pas l’ascendance entière.',
+  },
+  'genealogy.gfnaFinderTitle': {
+    en: 'Francogene / GFNA lineage lookup',
+    fr: 'Recherche de lignées Francogene / GFNA',
+  },
+  'genealogy.gfnaFinderHint': {
+    en: 'Search ingested New France pioneer Y-DNA and mtDNA rows by surname, label, or haplogroup. Links open the map or Francogene family sheets when a sheet id is known.',
+    fr: 'Recherchez des lignées ADN-Y et ADNmt de pionniers de la Nouvelle-France parmi les données importées, par nom, libellé ou haplogroupe. Les liens ouvrent la carte ou les fiches Francogene quand un numéro de fiche est connu.',
+  },
+  'genealogy.gfnaFinderPlaceholder': {
+    en: 'e.g. Couture, R1b, H1…',
+    fr: 'ex. Couture, R1b, H1…',
+  },
+  'genealogy.gfnaFinderEmpty': {
+    en: 'No matches in bundled catalogue data. Add rows via data/atlas/gfna-dna-records.jsonl and run npm run build:gfna.',
+    fr: 'Aucune correspondance dans les données embarquées. Ajoutez des entrées via data/atlas/gfna-dna-records.jsonl puis npm run build:gfna.',
+  },
+  'genealogy.gfnaFinderOpenMap': {
+    en: 'Open on map',
+    fr: 'Ouvrir sur la carte',
+  },
+  'genealogy.gfnaFinderFamilySheet': {
+    en: 'Family sheet (external)',
+    fr: 'Fiche familiale (externe)',
+  },
+
+  // --- Norman Identity Engine (no DNA) ---
+  'normanIdentity.pageTitle': {
+    en: 'Norman identity',
+    fr: 'Identité normande',
+  },
+  'normanIdentity.pageSubtitle': {
+    en: 'A few questions → a layered historical sketch and a short map journey. Not a DNA test.',
+    fr: 'Quelques questions → une lecture historique en couches et un court parcours cartographique. Pas un test ADN.',
+  },
+  'normanIdentity.meta.disclaimer': {
+    en: 'This experience is a historical reconstruction based on known migration patterns and cultural ancestry. It is not a DNA test.',
+    fr: 'Il s’agit d’une reconstruction historique fondée sur des courants migratoires et des repères culturels connus. Ce n’est pas un test ADN.',
+  },
+  'normanIdentity.cta.discover': {
+    en: 'Discover your Norman identity',
+    fr: 'Découvrir votre identité normande',
+  },
+  'normanIdentity.cta.traceRoots': {
+    en: 'Trace your Norman roots',
+    fr: 'Retracer vos racines normandes',
+  },
+  'normanIdentity.cta.startStory': {
+    en: 'Start your story',
+    fr: 'Commencer votre récit',
+  },
+  'normanIdentity.cta.playStory': {
+    en: 'Play your story',
+    fr: 'Jouer votre récit',
+  },
+  'normanIdentity.banner.storyLibrary': {
+    en: 'No DNA required — build a quick Norman identity sketch from region and family clues.',
+    fr: 'Sans ADN — esquissez une identité normande à partir de la région et d’indices familiaux.',
+  },
+  'normanIdentity.command.open': {
+    en: 'Open Norman identity',
+    fr: 'Ouvrir Identité normande',
+  },
+  'genealogy.subnav.normanIdentity': {
+    en: 'Norman identity',
+    fr: 'Identité normande',
+  },
+  'normanIdentity.wizard.step1.title': {
+    en: 'Where are you from?',
+    fr: 'D’où venez-vous ?',
+  },
+  'normanIdentity.wizard.step2.title': {
+    en: 'What do you know about your ancestry?',
+    fr: 'Que savez-vous de vos origines ?',
+  },
+  'normanIdentity.wizard.step3.title': {
+    en: 'What is your last name? (optional)',
+    fr: 'Quel est votre nom de famille ? (optionnel)',
+  },
+  'normanIdentity.wizard.step3.hint': {
+    en: 'Surnames can nudge the model toward maritime, Frankish, or Norse-leaning patterns.',
+    fr: 'Le nom peut orienter le modèle vers des schémas maritimes, francs ou scandinaves.',
+  },
+  'normanIdentity.wizard.step4.title': {
+    en: 'Do you believe you have Norman ancestry?',
+    fr: 'Pensez-vous avoir des ancêtres normands ?',
+  },
+  'normanIdentity.wizard.step4.hint': {
+    en: 'This nudges the “Norman layer” slightly — it does not override geography.',
+    fr: 'Cela accentue légèrement la couche « normande » — sans effacer la géographie.',
+  },
+  'normanIdentity.toggle.yes': {
+    en: 'Yes',
+    fr: 'Oui',
+  },
+  'normanIdentity.toggle.no': {
+    en: 'No',
+    fr: 'Non',
+  },
+  'normanIdentity.region.quebec': {
+    en: 'Québec / Canada',
+    fr: 'Québec / Canada',
+  },
+  'normanIdentity.region.france': {
+    en: 'France',
+    fr: 'France',
+  },
+  'normanIdentity.region.england': {
+    en: 'England',
+    fr: 'Angleterre',
+  },
+  'normanIdentity.region.ireland': {
+    en: 'Ireland',
+    fr: 'Irlande',
+  },
+  'normanIdentity.region.usa': {
+    en: 'USA',
+    fr: 'États-Unis',
+  },
+  'normanIdentity.region.other': {
+    en: 'Other',
+    fr: 'Autre',
+  },
+  'normanIdentity.region.otherPlaceholder': {
+    en: 'Describe briefly (optional)',
+    fr: 'Décrivez en quelques mots (optionnel)',
+  },
+  'normanIdentity.signal.french': {
+    en: 'French / French Canadian',
+    fr: 'Français / Canadien français',
+  },
+  'normanIdentity.signal.british': {
+    en: 'British / English',
+    fr: 'Britannique / anglais',
+  },
+  'normanIdentity.signal.irish': {
+    en: 'Irish / Celtic',
+    fr: 'Irlandais / celtique',
+  },
+  'normanIdentity.signal.germanic': {
+    en: 'Germanic',
+    fr: 'Germanique',
+  },
+  'normanIdentity.signal.scandinavian': {
+    en: 'Scandinavian / Viking',
+    fr: 'Scandinave / viking',
+  },
+  'normanIdentity.signal.not_sure': {
+    en: 'Not sure',
+    fr: 'Je ne sais pas',
+  },
+  'normanIdentity.nav.next': {
+    en: 'Continue',
+    fr: 'Continuer',
+  },
+  'normanIdentity.nav.back': {
+    en: 'Back',
+    fr: 'Retour',
+  },
+  'normanIdentity.nav.results': {
+    en: 'See results',
+    fr: 'Voir le résultat',
+  },
+  'normanIdentity.nav.restart': {
+    en: 'Start over',
+    fr: 'Recommencer',
+  },
+  'normanIdentity.result.headline': {
+    en: 'You are part of the historical mix that formed the Normans.',
+    fr: 'Vous participez au brassage historique qui forgea les Normands.',
+  },
+  'normanIdentity.result.layersTitle': {
+    en: 'Historical layers',
+    fr: 'Couches historiques',
+  },
+  'normanIdentity.archetype.frankish_core': {
+    en: 'The Frankish-Core Norman',
+    fr: 'Le Normand au cœur franc',
+  },
+  'normanIdentity.archetype.viking_influenced': {
+    en: 'The Viking-Influenced Norman',
+    fr: 'Le Normand aux empreintes vikings',
+  },
+  'normanIdentity.archetype.celtic_rooted': {
+    en: 'The Celtic-Rooted Norman',
+    fr: 'Le Normand aux racines celtiques',
+  },
+  'normanIdentity.archetype.blended': {
+    en: 'The Blended Norman Mosaic',
+    fr: 'La mosaïque normande',
+  },
+  'normanIdentity.layerTitle.celtic': {
+    en: 'Celtic foundations',
+    fr: 'Fondations celtiques',
+  },
+  'normanIdentity.layerTitle.galloRoman': {
+    en: 'Gallo-Roman world',
+    fr: 'Monde gallo-romain',
+  },
+  'normanIdentity.layerTitle.frankish': {
+    en: 'Frankish power',
+    fr: 'Pouvoir franc',
+  },
+  'normanIdentity.layerTitle.norse': {
+    en: 'Viking influence',
+    fr: 'Influence scandinave',
+  },
+  'normanIdentity.layerTitle.norman': {
+    en: 'Norman identity',
+    fr: 'Identité normande',
+  },
+  'normanIdentity.layerBlurb.celtic': {
+    en: 'Iron Age communities and trade corridors that prefigured later identities.',
+    fr: 'Communautés de l’âge du fer et axes d’échange qui annoncent les identités ultérieures.',
+  },
+  'normanIdentity.layerBlurb.galloRoman': {
+    en: 'Cities, roads, and Latin culture woven into provincial life.',
+    fr: 'Villes, routes et culture latine intégrées à la vie provinciale.',
+  },
+  'normanIdentity.layerBlurb.frankish': {
+    en: 'Kingdom-building and aristocratic networks reshaping the north.',
+    fr: 'Royaume et réseaux aristocratiques qui reconfigurent le Nord.',
+  },
+  'normanIdentity.layerBlurb.norse': {
+    en: 'Seafaring settlers and raiders along coasts and river mouths.',
+    fr: 'Navigateurs et implantations le long des côtes et des embouchures.',
+  },
+  'normanIdentity.layerBlurb.norman': {
+    en: 'The fusion on the Seine that names itself — politics, law, and myth together.',
+    fr: 'La fusion sur la Seine qui se nomme — politique, droit et mémoire réunis.',
+  },
+  'normanIdentity.storyBeat.celtic': {
+    en: 'Your story begins in northern Gaul, where Celtic peoples shaped the land before Rome’s long shadow.',
+    fr: 'Votre récit commence dans le nord de la Gaule, où des peuples celtes ont façonné le pays avant l’ombre longue de Rome.',
+  },
+  'normanIdentity.storyBeat.roman': {
+    en: 'As the empire expanded, towns and roads tied this country into a wider Mediterranean world.',
+    fr: 'Avec l’empire, villes et routes ont relié ce pays à un monde méditerranéen plus vaste.',
+  },
+  'normanIdentity.storyBeat.frankish': {
+    en: 'After Rome’s sway faded, Frankish rulers built new kingdoms — the scaffolding of medieval France.',
+    fr: 'Quand la tutelle romaine faiblit, les rois francs bâtirent de nouveaux royaumes — l’ossature de la France médiévale.',
+  },
+  'normanIdentity.storyBeat.viking': {
+    en: 'Then seafarers from the north sought land and tribute along rivers; their footprint became part of the coast.',
+    fr: 'Puis des marins du nord ont cherché terres et tributs le long des fleuves ; leur empreinte s’est fondue dans le littoral.',
+  },
+  'normanIdentity.storyBeat.norman': {
+    en: 'From that fusion the Normans took their name — and your reading sits within the same wide inheritance.',
+    fr: 'De ce brassage les Normands tirèrent leur nom — et votre lecture s’inscrit dans cet héritage vaste.',
+  },
+  'normanIdentity.story.exit': {
+    en: 'Exit',
+    fr: 'Fermer',
+  },
+  'normanIdentity.story.prev': {
+    en: 'Previous',
+    fr: 'Précédent',
+  },
+  'normanIdentity.story.next': {
+    en: 'Next',
+    fr: 'Suivant',
+  },
+  'normanIdentity.story.progress': {
+    en: 'Step {current} of {total}',
+    fr: 'Étape {current} sur {total}',
+  },
+  'normanIdentity.hubCard.title': {
+    en: 'Norman identity (no DNA)',
+    fr: 'Identité normande (sans ADN)',
+  },
+  'normanIdentity.hubCard.body': {
+    en: 'Answer a short questionnaire and get layered results plus a cinematic walk on the map.',
+    fr: 'Répondez à un court questionnaire pour obtenir des couches de lecture et un parcours cartographique.',
+  },
+  'ancestry.editInGenealogyHub': {
+    en: 'Edit in genealogy workspace',
+    fr: 'Modifier dans l’espace généalogie',
+  },
+  'toolsMenu.deepOriginsLabel': {
+    en: 'Deep origins map',
+    fr: 'Carte origines profondes',
+  },
+  'toolsMenu.deepOriginsHint': {
+    en: 'Schematic prehistory view — not a DNA test.',
+    fr: 'Préhistoire schématique — pas un test ADN.',
+  },
+  'layerPanel.genealogyWorkspaceLink': {
+    en: 'Genealogy workspace',
+    fr: 'Espace généalogie',
+  },
+  'layerPanel.genealogyWorkspaceHint': {
+    en: 'Edit hints, blends, and launch the map sampler.',
+    fr: 'Indices, mélanges et lancement du parcours.',
+  },
+  'ancestryJourney.dockTitle': {
+    en: 'Ancestry sampler',
+    fr: 'Aperçu ascendance',
+    es: 'Muestrario de ascendencia',
+    it: 'Percorso ascendenza',
+    de: 'Ahnen-Auszug',
+    nb: 'Aneturnering',
+    sv: 'Antavla – urval',
+    da: 'Slægts-sampler',
+  },
+  'ancestryJourney.dockProgress': {
+    en: 'Step {current} / {total}',
+    fr: 'Étape {current} / {total}',
+    es: 'Paso {current} / {total}',
+    it: 'Passo {current} / {total}',
+    de: 'Schritt {current} / {total}',
+    nb: 'Steg {current} / {total}',
+    sv: 'Steg {current} / {total}',
+    da: 'Trin {current} / {total}',
+  },
+
   'deepOrigins.backToHub': {
-    en: 'My ancestry hub',
-    fr: 'Hub Mon ascendance',
+    en: 'Genealogy workspace',
+    fr: 'Espace généalogie',
     es: 'Centro Mi ascendencia',
     it: 'Hub La mia ascendenza',
     de: 'Mein Ahnen-Hub',

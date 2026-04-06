@@ -25,7 +25,11 @@ import type { SelectionKind } from '@/types';
 
 function deriveMode(pathname: string, storyMode: boolean): CommandAtlasMode {
   if (storyMode) return 'story';
-  if (pathname.startsWith('/ancestry') || pathname.startsWith('/lineage-explorer')) {
+  if (
+    pathname.startsWith('/genealogy') ||
+    pathname.startsWith('/ancestry') ||
+    pathname.startsWith('/lineage-explorer')
+  ) {
     return 'genealogy';
   }
   return 'explore';

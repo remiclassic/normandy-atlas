@@ -55,6 +55,9 @@ import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLock
 import AtlasMenuDrawer from '@/components/layout/AtlasMenuDrawer';
 import AtlasToolsMenuBody from '@/components/layout/AtlasToolsMenuBody';
 import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
+import AncestryJourneyMapDock from '@/components/ancestry/AncestryJourneyMapDock';
+import NormanStoryMode from '@/components/norman-identity/NormanStoryMode';
+import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
 
 export default function AtlasHomeShell() {
   const router = useRouter();
@@ -149,6 +152,7 @@ export default function AtlasHomeShell() {
 
   const storyMode = useMapStore((s) => s.storyMode);
   const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
+  const normanIdentityStoryOpen = useMapStore((s) => s.normanIdentityStoryOpen);
   useEffect(() => {
     document.documentElement.classList.toggle('atlas-story-open', storyMode);
     return () => document.documentElement.classList.remove('atlas-story-open');
@@ -181,6 +185,7 @@ export default function AtlasHomeShell() {
     setChangelogOpen(false);
     setSupportOpen(false);
     setLedgerOpen(false);
+    useMapStore.getState().closeNormanIdentityStory();
   }, [closeStoryLauncher, guidedTourShellResetNonce]);
 
   const [shareToast, setShareToast] = useState<'copied' | 'shared' | 'failed' | null>(null);
@@ -220,6 +225,16 @@ export default function AtlasHomeShell() {
           guidesPublic={guidesPublic}
           onBeforeNavigate={stopLedgerPulseOnJournalNavigate}
         />
+
+        {!storyLibraryOpen && (
+          <Link
+            href={GENEALOGY_NORMAN_IDENTITY_PATH}
+            onClick={stopLedgerPulseOnJournalNavigate}
+            className="hidden max-w-[9.5rem] truncate rounded-none border border-cyan-400/25 bg-cyan-400/5 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-cyan-200/90 transition-colors hover:border-cyan-400/45 hover:bg-cyan-400/10 lg:inline-block"
+          >
+            {t('normanIdentity.cta.traceRoots', locale)}
+          </Link>
+        )}
 
         <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} />
         <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} />
@@ -318,6 +333,16 @@ export default function AtlasHomeShell() {
                 >
                   <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
                 </button>
+              )}
+
+              {!storyLibraryOpen && (
+                <Link
+                  href={GENEALOGY_NORMAN_IDENTITY_PATH}
+                  onClick={stopLedgerPulseOnJournalNavigate}
+                  className="flex max-w-[min(100%,7rem)] shrink-0 touch-target items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-400/5 px-2 py-2 text-[10px] font-bold uppercase leading-tight tracking-wide text-cyan-200/95 transition-colors hover:border-cyan-400/40"
+                >
+                  {t('normanIdentity.cta.startStory', locale)}
+                </Link>
               )}
 
               {!storyLibraryOpen && (
@@ -488,6 +513,7 @@ export default function AtlasHomeShell() {
             <StoryModeBar onOpenLauncher={openStoryLauncher} />
             <MobilePlayDock onOpenLauncher={openStoryLauncher} />
           </div>
+          {!storyEraIntroActive && <AncestryJourneyMapDock />}
         </div>
 
         <HistoricalDetailPanel />
@@ -542,6 +568,11 @@ export default function AtlasHomeShell() {
       <StoryEraIntroOverlay />
       <SessionGuard />
       <ProgressRemoteSync />
+
+      <NormanStoryMode
+        open={normanIdentityStoryOpen && !storyEraIntroActive}
+        onRequestClose={() => {}}
+      />
 
       {/* Share-view toast */}
       <AnimatePresence>

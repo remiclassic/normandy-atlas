@@ -68,7 +68,17 @@ import { addAllNormanExpansionLayers, NORMAN_NODES_CIRCLES, NORMAN_NODES_SOURCE,
 import { applyParchmentOverlayLabelStyles } from './apply-parchment-overlay-labels';
 import { addAllPrehistoryLayers, PREHISTORIC_SITES_CIRCLES, HILLFORTS_CIRCLES } from './prehistory-layers';
 import { addNewFranceTerritoryLayers, updateNewFranceTerritorySource } from './new-france-territory-layers';
-import { addNfYdnaLayers, applyNfYdnaOriginFilter, NF_YDNA_CIRCLES, NF_YDNA_SOURCE } from './new-france-ydna-layers';
+import {
+  addNfYdnaLayers,
+  applyNfYdnaMapFilters,
+  NF_YDNA_CIRCLES,
+  NF_YDNA_SOURCE,
+} from './new-france-ydna-layers';
+import {
+  addNfMtdnaLayers,
+  NF_MTDNA_CIRCLES,
+  NF_MTDNA_SOURCE,
+} from './new-france-mtdna-layers';
 import { addVikingAdnaLayers, VIKING_ADNA_CIRCLES, VIKING_ADNA_SOURCE, setVikingAdnaFilters } from './viking-adna-layers';
 import { addVikingArchLayers, VIKING_ARCH_CIRCLES, VIKING_ARCH_SOURCE, setVikingArchYearFilter } from './viking-archaeology-layers';
 import { isColonialEra, colonialYearFromEra } from '@/data/atlas/new-france-timeline';
@@ -622,6 +632,8 @@ export default function MapCanvas() {
   const hoveredNormanNodeRef = useRef<string | null>(null);
   const selectedYdnaRef = useRef<string | null>(null);
   const hoveredYdnaRef = useRef<string | null>(null);
+  const selectedMtdnaRef = useRef<string | null>(null);
+  const hoveredMtdnaRef = useRef<string | null>(null);
   const selectedVikingAdnaRef = useRef<string | null>(null);
   const hoveredVikingAdnaRef = useRef<string | null>(null);
   const selectedVikingArchRef = useRef<string | null>(null);
@@ -747,7 +759,13 @@ export default function MapCanvas() {
 
     updateEraLabels(map, eraId);
 
-    if (atlasMode) applyNfYdnaOriginFilter(map, useMapStore.getState().ydnaScandinavianFilter);
+    if (atlasMode) {
+      const st = useMapStore.getState();
+      applyNfYdnaMapFilters(map, {
+        scandinavianOnly: st.ydnaScandinavianFilter,
+        gfnaConfidence: st.ydnaGfnaConfidenceFilter,
+      });
+    }
   }, []);
 
   rebuildMapDataLayersRef.current = (map) => {
@@ -797,7 +815,11 @@ export default function MapCanvas() {
       addAllPrehistoryLayers(map, theme);
       addNewFranceTerritoryLayers(map);
       addNfYdnaLayers(map, theme);
-      applyNfYdnaOriginFilter(map, state.ydnaScandinavianFilter);
+      applyNfYdnaMapFilters(map, {
+        scandinavianOnly: state.ydnaScandinavianFilter,
+        gfnaConfidence: state.ydnaGfnaConfidenceFilter,
+      });
+      addNfMtdnaLayers(map, theme);
       addVikingAdnaLayers(map, theme);
       addVikingArchLayers(map, theme);
       addLineageExplorerLayers(map, theme);
@@ -1248,6 +1270,34 @@ export default function MapCanvas() {
           }
         }
 
+        if (map!.getLayer(NF_MTDNA_CIRCLES)) {
+          const mtdnaFeats = map!.queryRenderedFeatures(e.point, { layers: [NF_MTDNA_CIRCLES] });
+          if (mtdnaFeats.length) {
+            const p = mtdnaFeats[0].properties!;
+            const fid = p.id as string;
+            if (hoveredMtdnaRef.current && hoveredMtdnaRef.current !== fid) {
+              setFeatureState(map!, hoveredMtdnaRef.current, { hover: false }, NF_MTDNA_SOURCE);
+            }
+            hoveredMtdnaRef.current = fid;
+            setFeatureState(map!, fid, { hover: true }, NF_MTDNA_SOURCE);
+            showTooltip({
+              x: e.point.x,
+              y: e.point.y,
+              title: p.displayLabel as string,
+              subtitle: p.mtHaplogroup as string,
+              detail:
+                typeof p.marriageYear === 'number'
+                  ? `m. ${p.marriageYear}`
+                  : undefined,
+            });
+            map!.getCanvas().style.cursor = 'pointer';
+            return;
+          } else if (hoveredMtdnaRef.current) {
+            setFeatureState(map!, hoveredMtdnaRef.current, { hover: false }, NF_MTDNA_SOURCE);
+            hoveredMtdnaRef.current = null;
+          }
+        }
+
         if ((store.layers['user-ancestry-pins'] ?? false) && map!.getLayer(USER_ANCESTRY_CIRCLES)) {
           const uFeats = map!.queryRenderedFeatures(e.point, { layers: [USER_ANCESTRY_CIRCLES] });
           if (uFeats.length) {
@@ -1346,6 +1396,13 @@ export default function MapCanvas() {
           hoveredYdnaRef.current = null;
         }
       });
+      map.on('mouseleave', NF_MTDNA_CIRCLES, () => {
+        if (tooltipRef.current) showTooltip(null);
+        if (hoveredMtdnaRef.current && map!.getSource(NF_MTDNA_SOURCE)) {
+          setFeatureState(map!, hoveredMtdnaRef.current, { hover: false }, NF_MTDNA_SOURCE);
+          hoveredMtdnaRef.current = null;
+        }
+      });
       map.on('mouseleave', USER_ANCESTRY_CIRCLES, () => {
         if (tooltipRef.current) showTooltip(null);
         if (hoveredUserAncestryPinRef.current && map!.getSource(USER_ANCESTRY_SOURCE)) {
@@ -1401,6 +1458,10 @@ export default function MapCanvas() {
           if (selectedYdnaRef.current && map!.getSource(NF_YDNA_SOURCE)) {
             setFeatureState(map!, selectedYdnaRef.current, { selected: false }, NF_YDNA_SOURCE);
             selectedYdnaRef.current = null;
+          }
+          if (selectedMtdnaRef.current && map!.getSource(NF_MTDNA_SOURCE)) {
+            setFeatureState(map!, selectedMtdnaRef.current, { selected: false }, NF_MTDNA_SOURCE);
+            selectedMtdnaRef.current = null;
           }
           if (selectedVikingAdnaRef.current && map!.getSource(VIKING_ADNA_SOURCE)) {
             setFeatureState(map!, selectedVikingAdnaRef.current, { selected: false }, VIKING_ADNA_SOURCE);
@@ -1482,6 +1543,20 @@ export default function MapCanvas() {
               selectedYdnaRef.current = id;
               setFeatureState(map!, id, { selected: true }, NF_YDNA_SOURCE);
               selectFeature(id, 'nf-ydna-lineage');
+              return;
+            }
+          }
+        }
+
+        if (map!.getLayer(NF_MTDNA_CIRCLES)) {
+          const mtFeats = map!.queryRenderedFeatures(e.point, { layers: [NF_MTDNA_CIRCLES] });
+          if (mtFeats.length) {
+            const id = mtFeats[0].properties?.id as string;
+            if (id) {
+              clearPrev();
+              selectedMtdnaRef.current = id;
+              setFeatureState(map!, id, { selected: true }, NF_MTDNA_SOURCE);
+              selectFeature(id, 'nf-mtdna-lineage');
               return;
             }
           }
@@ -1856,6 +1931,7 @@ export default function MapCanvas() {
           if (k === 'settlement') return SETTLEMENT_SOURCE;
           if (k === 'norman-site') return NORMAN_NODES_SOURCE;
           if (k === 'nf-ydna-lineage') return NF_YDNA_SOURCE;
+          if (k === 'nf-mtdna-lineage') return NF_MTDNA_SOURCE;
           if (k === 'user-ancestry-pin') return USER_ANCESTRY_SOURCE;
           if (k === 'region') return REGION_SOURCE;
           if (k === 'historical-macro-region') return HISTORICAL_PRESENCE_SOURCE;
@@ -1876,6 +1952,7 @@ export default function MapCanvas() {
           if (kind === 'region') selectedRegionRef.current = newId;
           else if (kind === 'norman-site') selectedNormanNodeRef.current = newId;
           else if (kind === 'nf-ydna-lineage') selectedYdnaRef.current = newId;
+          else if (kind === 'nf-mtdna-lineage') selectedMtdnaRef.current = newId;
           else if (kind === 'user-ancestry-pin') selectedUserAncestryPinRef.current = newId;
           else if (kind === 'historical-macro-region') selectedHistoricalMacroRef.current = newId;
           else selectedSettlementRef.current = newId;
@@ -1884,6 +1961,7 @@ export default function MapCanvas() {
           selectedSettlementRef.current = null;
           selectedNormanNodeRef.current = null;
           selectedYdnaRef.current = null;
+          selectedMtdnaRef.current = null;
           selectedHistoricalMacroRef.current = null;
           selectedUserAncestryPinRef.current = null;
         }
@@ -1981,11 +2059,11 @@ export default function MapCanvas() {
 
   useEffect(() => {
     return useMapStore.subscribe(
-      (s) => s.ydnaScandinavianFilter,
-      (scandinavianOnly) => {
+      (s) => ({ scand: s.ydnaScandinavianFilter, conf: s.ydnaGfnaConfidenceFilter }),
+      ({ scand, conf }) => {
         const map = mapRef.current;
         if (!map || !readyRef.current) return;
-        applyNfYdnaOriginFilter(map, scandinavianOnly);
+        applyNfYdnaMapFilters(map, { scandinavianOnly: scand, gfnaConfidence: conf });
       },
     );
   }, []);

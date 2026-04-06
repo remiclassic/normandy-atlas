@@ -15,6 +15,7 @@ import {
   Map,
   NotebookText,
   Route,
+  MapPin,
   Share2,
   Signpost,
   Type,
@@ -31,6 +32,7 @@ import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { ATLAS_REFERENCE_HUB_PATH } from '@/lib/atlas-reference-routes';
+import { GENEALOGY_HUB_PATH, GENEALOGY_DEEP_ORIGINS_PATH } from '@/lib/genealogy-paths';
 import type { AtlasLocale } from '@/core/types';
 
 export type AtlasToolsMenuBodyProps = {
@@ -199,13 +201,24 @@ export default function AtlasToolsMenuBody({
             {t('lineageExplorer.compareLink', locale)}
           </Link>
           <Link
-            href="/ancestry"
+            href={GENEALOGY_DEEP_ORIGINS_PATH}
+            onClick={() => onClose()}
+            className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"
+          >
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block text-[13px] font-medium text-text-muted">{t('toolsMenu.deepOriginsLabel', locale)}</span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('toolsMenu.deepOriginsHint', locale)}</span>
+            </span>
+          </Link>
+          <Link
+            href={GENEALOGY_HUB_PATH}
             onClick={() => onClose()}
             className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"
           >
             <Users className="mt-0.5 h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
             <span className="min-w-0 flex-1">
-              <span className="block text-[13px] font-medium text-text-muted">{t('ancestry.navLabel', locale)}</span>
+              <span className="block text-[13px] font-medium text-text-muted">{t('genealogy.navLabel', locale)}</span>
               <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('ancestry.hubHint', locale)}</span>
             </span>
           </Link>

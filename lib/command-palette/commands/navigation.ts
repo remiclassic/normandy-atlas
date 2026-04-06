@@ -2,6 +2,7 @@ import type { Command } from '@/lib/command-palette/types';
 import { useMapStore } from '@/lib/store';
 import { readMapView } from '@/lib/map-view-reader';
 import { isDigitalGuidesPublic } from '@/lib/digital-guides-public';
+import { GENEALOGY_HUB_PATH, GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
 
 export const navigationCommands: Command[] = [
   {
@@ -22,13 +23,23 @@ export const navigationCommands: Command[] = [
     action: (_, runtime) => runtime.navigate('/journal'),
   },
   {
+    id: 'nav-norman-identity',
+    label: 'Open Norman identity',
+    description: 'Historical identity sketch without DNA',
+    keywords: ['norman', 'identity', 'roots', 'ancestry', 'quiz'],
+    group: 'navigation',
+    isVisible: (ctx) => ctx.pathname !== GENEALOGY_NORMAN_IDENTITY_PATH,
+    action: (_, runtime) => runtime.navigate(GENEALOGY_NORMAN_IDENTITY_PATH),
+  },
+  {
     id: 'nav-ancestry',
     label: 'Genealogy workspace',
     description: 'Family tree and journeys',
     keywords: ['genealogy', 'family', 'tree', 'ancestry'],
     group: 'navigation',
-    isVisible: (ctx) => !ctx.pathname.startsWith('/ancestry'),
-    action: (_, runtime) => runtime.navigate('/ancestry'),
+    isVisible: (ctx) =>
+      !ctx.pathname.startsWith('/genealogy') && !ctx.pathname.startsWith('/ancestry'),
+    action: (_, runtime) => runtime.navigate(GENEALOGY_HUB_PATH),
   },
   {
     id: 'nav-lineage-explorer',

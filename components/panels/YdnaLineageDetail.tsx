@@ -3,9 +3,11 @@
 import { useMemo, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { getNfYdnaFeature } from '@/data/atlas/new-france-ydna';
+import { getNfYdnaPresumedFeature } from '@/data/atlas/gfna-ydna-presumed';
 import { HAPLO_COLORS } from '@/components/map/new-france-ydna-layers';
 import { GENETIC_ORIGIN_LABELS, GENETIC_ORIGIN_COLORS } from '@/data/atlas/new-france-ydna-types';
 import type { GeneticConfidence } from '@/data/atlas/new-france-ydna-types';
+import { gfnaFamilySheetUrl } from '@/data/atlas/gfna-dna-types';
 
 function ContentFade({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   return (
@@ -65,13 +67,29 @@ const CONFIDENCE_LABELS: Record<GeneticConfidence, string> = {
 const FRANCOGENE_BASE = 'https://www.francogene.com/triangulation/y.php';
 
 export default function YdnaLineageDetail({ id }: { id: string }) {
-  const feature = useMemo(() => getNfYdnaFeature(id), [id]);
+  const feature = useMemo(
+    () => getNfYdnaFeature(id) ?? getNfYdnaPresumedFeature(id),
+    [id],
+  );
   const [showEducation, setShowEducation] = useState(false);
   const toggleEd = useCallback(() => setShowEducation((v) => !v), []);
 
   if (!feature) return null;
 
-  const { displayLabel, surname, marriageYear, spouse, yHaplogroup, yMajor, triId, geneticOrigin, geneticConfidence } = feature.properties;
+  const {
+    displayLabel,
+    surname,
+    marriageYear,
+    spouse,
+    yHaplogroup,
+    yMajor,
+    triId,
+    geneticOrigin,
+    geneticConfidence,
+    gfnaStatus,
+    sourcePage,
+    familySheetNo,
+  } = feature.properties;
   const color = HAPLO_COLORS[yMajor] ?? HAPLO_COLORS.Other;
   const info = YDNA_INFO[yMajor] ?? YDNA_INFO.Other;
   const originColor = GENETIC_ORIGIN_COLORS[geneticOrigin] ?? GENETIC_ORIGIN_COLORS.other;
@@ -90,6 +108,9 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
                 <circle cx="4" cy="4" r="2.5" fill={color} opacity="0.7" />
               </svg>
               Y-DNA Lineage
+            </span>
+            <span className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-md border border-text-dim/30 text-text-dim">
+              {gfnaStatus === 'presumed' ? 'Presumed' : 'Triangulated'}
             </span>
             <span
               className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-md border"
@@ -203,7 +224,7 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
         <div className="px-7 py-5 pb-8">
           <SectionLabel>Source</SectionLabel>
           <a
-            href={FRANCOGENE_BASE}
+            href={sourcePage?.trim() || FRANCOGENE_BASE}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-[12px] text-gold/70 hover:text-gold transition-colors"
@@ -211,8 +232,18 @@ export default function YdnaLineageDetail({ id }: { id: string }) {
             <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
               <path d="M10.5 7.5V11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1h3.5M8 2h4v4M6 8l6-6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Francogene Y-DNA Triangulation Catalogue
+            {sourcePage?.trim() ? 'Page cited for this row' : 'Francogene Y-DNA Triangulation Catalogue'}
           </a>
+          {familySheetNo ? (
+            <a
+              href={gfnaFamilySheetUrl(familySheetNo)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex text-[12px] text-sky-300/85 hover:text-sky-200 transition-colors"
+            >
+              Family sheet #{familySheetNo}
+            </a>
+          ) : null}
           <p className="mt-1.5 text-[11px] text-text-dim">
             Record: {triId}
           </p>

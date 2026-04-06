@@ -155,7 +155,7 @@ export function buildAncestryJourneyPlan(args: {
     narrative(
       'close',
       'Keep exploring',
-      'Use the Lineage Explorer and Story Library for deeper dives. Export your tree or GEDCOM from the ancestry hub when you are ready.',
+      'Use the Lineage Explorer and Story Library for deeper dives. Export your tree or GEDCOM from the genealogy workspace when you are ready.',
     ),
   );
 

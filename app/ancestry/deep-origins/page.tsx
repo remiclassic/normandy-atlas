@@ -1,16 +1,21 @@
-import { Suspense } from 'react';
-import DeepOriginsClient from '@/components/ancestry/DeepOriginsClient';
+'use client';
 
-export default function DeepOriginsPage() {
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { buildDeepOriginsHref } from '@/lib/deep-origins-link';
+
+/** Legacy URL; preserves `cat` and `site` via canonical helper. */
+export default function LegacyDeepOriginsRedirectPage() {
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const sp = new URLSearchParams(window.location.search);
+    const href = buildDeepOriginsHref({ cat: sp.get('cat'), site: sp.get('site') });
+    router.replace(href);
+  }, [router]);
   return (
-    <Suspense
-      fallback={
-        <div className="flex min-h-[50vh] items-center justify-center bg-[var(--color-background)] text-[13px] text-text-dim">
-          Loading…
-        </div>
-      }
-    >
-      <DeepOriginsClient />
-    </Suspense>
+    <div className="flex min-h-[40vh] items-center justify-center bg-[var(--color-background)] text-[13px] text-text-dim">
+      Redirecting…
+    </div>
   );
 }

@@ -38,6 +38,7 @@ import { emitProgressEvent } from '@/lib/progress';
 import type { AtlasEventType } from '@/lib/progress';
 import type { SelectionKind } from '@/types';
 import YdnaLineageDetail from './YdnaLineageDetail';
+import MtDnaLineageDetail from './MtDnaLineageDetail';
 import UserAncestryPinDetail from '@/components/ancestry/UserAncestryPinDetail';
 import ReadingLinksSection from '@/components/atlas/ReadingLinksSection';
 import HistoricalMacroRegionDetail from '@/components/panels/HistoricalMacroRegionDetail';
@@ -2069,6 +2070,8 @@ function DetailContent({ selectedId, selectionKind, eraId }: { selectedId: strin
         <NormanSiteDetail id={selectedId} />
       ) : selectionKind === 'nf-ydna-lineage' ? (
         <YdnaLineageDetail id={selectedId} />
+      ) : selectionKind === 'nf-mtdna-lineage' ? (
+        <MtDnaLineageDetail id={selectedId} />
       ) : selectionKind === 'user-ancestry-pin' ? (
         <UserAncestryPinDetail selectedId={selectedId} />
       ) : selectionKind === 'viking-adna-site' ? (
@@ -2172,6 +2175,7 @@ const SELECTION_TO_EVENT: Partial<Record<SelectionKind, AtlasEventType>> = {
   'prehistoric-site': 'place_open',
   'norman-site': 'place_open',
   'nf-ydna-lineage': 'place_open',
+  'nf-mtdna-lineage': 'place_open',
   'user-ancestry-pin': 'place_open',
   'evidence': 'place_open',
   'viking-adna-site': 'place_open',
