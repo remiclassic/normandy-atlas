@@ -519,13 +519,11 @@ export const useMapStore = create<MapStore>()(subscribeWithSelector((set) => {
           detailPanelExpanded: true,
         };
       }
-      const hadPriorSelection = s.selectedFeatureId !== null;
+      // Always open expanded when picking a feature unless callers pass expandDetail: false
+      // (e.g. initial atlas era summary). Preserving a collapsed rail across selections hid details
+      // after the user minimized the panel once.
       const detailPanelExpanded =
-        options?.expandDetail !== undefined
-          ? options.expandDetail
-          : hadPriorSelection
-            ? s.detailPanelExpanded
-            : true;
+        options?.expandDetail !== undefined ? options.expandDetail : true;
       return {
         selectedFeatureId: id,
         selectionKind: kind ?? 'region',
