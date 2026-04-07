@@ -6,6 +6,7 @@ import { LOCALE_STORAGE_KEY } from '@/lib/locale';
 import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
 import { REDUCE_MOTION_STORAGE_KEY } from '@/lib/reduced-motion';
 import { HIGH_CONTRAST_STORAGE_KEY } from '@/lib/high-contrast';
+import { MOBILE_TEXT_SIZE_DEFAULT_MAX_WIDTH_PX, TEXT_SIZE_STORAGE_KEY } from '@/lib/text-size';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
 import CommandPaletteHost from '@/components/command-palette/CommandPaletteHost';
 import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
@@ -19,7 +20,7 @@ const localeGeoBootstrapScript = `(function(){try{var sk=${JSON.stringify(LOCALE
 const blockingPreferenceRestoreScript = [
   "(function(){try{var k='norman-atlas-ui-theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark')document.documentElement.dataset.uiTheme=v;else if(v==='auto'){var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');document.documentElement.dataset.uiTheme=m&&m.matches?'light':'dark';}}catch(e){}})();",
   "(function(){try{var k='norman-atlas-basemap-mode';var v=localStorage.getItem(k);if(v==='dark'||v==='parchment')document.documentElement.dataset.atlasBasemap=v;else if(v==='auto'){var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');document.documentElement.dataset.atlasBasemap=m&&m.matches?'parchment':'dark';}}catch(e){}})();",
-  "(function(){try{var v=localStorage.getItem('normanAtlas.textSize');var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');c.add(v==='large'?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();",
+  `(function(){try{var v=localStorage.getItem(${JSON.stringify(TEXT_SIZE_STORAGE_KEY)});var c=document.documentElement.classList;c.remove('text-size-standard','text-size-large');var L=false;if(v==='large')L=true;else if(v!=='standard')L=window.matchMedia&&window.matchMedia('(max-width: ${MOBILE_TEXT_SIZE_DEFAULT_MAX_WIDTH_PX}px)').matches;c.add(L?'text-size-large':'text-size-standard');}catch(e){document.documentElement.classList.add('text-size-standard');}})();`,
   `(function(){try{var f=localStorage.getItem(${JSON.stringify(REDUCE_MOTION_STORAGE_KEY)})==='true';var s=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(f||s)document.documentElement.classList.add('atlas-reduced-motion');}catch(e){}})();`,
   `(function(){try{if(localStorage.getItem(${JSON.stringify(HIGH_CONTRAST_STORAGE_KEY)})==='true')document.documentElement.dataset.highContrast='true';}catch(e){}})();`,
   localeGeoBootstrapScript,

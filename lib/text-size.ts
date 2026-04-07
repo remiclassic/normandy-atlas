@@ -1,6 +1,11 @@
 export type TextSizeMode = 'standard' | 'large';
 
+/** Baseline when no saved preference exists on desktop / SSR. */
 export const DEFAULT_TEXT_SIZE: TextSizeMode = 'standard';
+
+/** With no saved preference, viewports at or below this width default to large (matches `@media (max-width: 768px)` in globals). */
+export const MOBILE_TEXT_SIZE_DEFAULT_MAX_WIDTH_PX = 768;
+
 export const TEXT_SIZE_STORAGE_KEY = 'normanAtlas.textSize';
 
 const CLASSES: Record<TextSizeMode, string> = {
@@ -12,6 +17,18 @@ export function isTextSizeMode(v: unknown): v is TextSizeMode {
   return v === 'standard' || v === 'large';
 }
 
+/** True when the viewport should get the mobile-only default (large text if nothing is saved). */
+export function matchesMobileTextSizeDefaultViewport(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return (
+      window.matchMedia?.(`(max-width: ${MOBILE_TEXT_SIZE_DEFAULT_MAX_WIDTH_PX}px)`).matches ?? false
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function readStoredTextSize(): TextSizeMode {
   if (typeof window === 'undefined') return DEFAULT_TEXT_SIZE;
   try {
@@ -20,7 +37,7 @@ export function readStoredTextSize(): TextSizeMode {
   } catch {
     /* SSR / quota */
   }
-  return DEFAULT_TEXT_SIZE;
+  return matchesMobileTextSizeDefaultViewport() ? 'large' : DEFAULT_TEXT_SIZE;
 }
 
 export function persistTextSize(mode: TextSizeMode): void {
