@@ -5,7 +5,7 @@ import { defaultOpenGraphImages, defaultTwitterImages } from '@/lib/social-metad
 
 const title = 'Library — Norman Atlas';
 const description =
-  'Hub for digital guides, atlas journal, Norman readings, genealogy tools, and the companion handbook—each section matches the library tabs.';
+  'Reference hub for digital guides, atlas journal, Norman readings, genealogy tools, and the companion handbook. The Story Library (map tools menu) lists chronicles and arcs; hub tabs match the sections below.';
 
 export const metadata: Metadata = {
   title,

@@ -76,7 +76,7 @@ const StoryLauncherEraHero = memo(function StoryLauncherEraHero({
             </span>
           )}
           {item.estimatedMinutes != null && (
-            <span className="text-[10px] text-text-dim/55">
+            <span className="text-[10px] text-white/55">
               {t('launcher.duration', locale).replace(
                 '{min}',
                 String(item.estimatedMinutes),
@@ -85,12 +85,12 @@ const StoryLauncherEraHero = memo(function StoryLauncherEraHero({
           )}
         </div>
 
-        <h3 className="text-[17px] sm:text-[19px] font-semibold text-parchment leading-snug tracking-tight pr-1">
+        <h3 className="text-[17px] sm:text-[19px] font-semibold text-white/95 leading-snug tracking-tight pr-1">
           {headline}
         </h3>
 
         {item.subtitle && (
-          <p className="text-[12px] text-text-dim/75 leading-relaxed line-clamp-3">
+          <p className="text-[12px] text-white/75 leading-relaxed line-clamp-3">
             {item.subtitle}
           </p>
         )}
@@ -111,7 +111,7 @@ const StoryLauncherEraHero = memo(function StoryLauncherEraHero({
             <button
               type="button"
               onClick={onBegin}
-              className="inline-flex h-11 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-[12px] font-semibold text-parchment hover:bg-white/15 transition-colors touch-target"
+              className="inline-flex h-11 items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-[12px] font-semibold text-white hover:bg-white/15 transition-colors touch-target"
             >
               <RotateCcw className="h-3.5 w-3.5" aria-hidden />
               {t('storyLibrary.beginJourney', locale)}

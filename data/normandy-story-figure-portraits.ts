@@ -1,4 +1,5 @@
 import type { NormandyStoryFigure, NormandyStoryFigurePortrait } from '@/types';
+import figurePortraitCommonsUrls from '@/data/normandy-figure-portrait-commons-urls.json';
 
 /** Local story photography used as period-evocative stand-ins (no external hotlinking). */
 const A = {
@@ -33,6 +34,7 @@ const A = {
   veliocassesCoin: '/story/normandy-figures/veliocasses-coin.jpg',
   caletesCoin: '/story/normandy-figures/caletes-coin.jpg',
   jeanAngoBust: '/story/normandy-figures/jean-ango-bust.jpg',
+  philipIIAugustusWikimedia: '/story/normandy-figures/philip-ii-augustus-wikimedia.jpg',
   /** Built by `scripts/build-normandy-figure-portraits.mjs` (Wikimedia + illustrative composites). */
   figures: {
     champlain: '/story/normandy-figures/samuel-de-champlain.jpg',
@@ -47,9 +49,17 @@ const A = {
 const CREDIT =
   'Norman Atlas story library — period-evocative photograph (see /public/story)';
 
-/** Per-figure portrait under `/public/story/normandy-figures/people/` (filled by `npm run fetch:people-assets`). */
+const FIGURE_PORTRAIT_COMMONS = figurePortraitCommonsUrls as Record<string, string>;
+
+/**
+ * Local People-grid thumbnail under `/public/story/normandy-figures/people/`.
+ * Extension follows the mirrored Commons file (see `normandy-figure-portrait-commons-urls.json`); run `npm run fetch:people-assets` to populate.
+ */
 function peep(id: string): string {
-  return `/story/normandy-figures/people/${id}.jpg`;
+  const commonsUrl = FIGURE_PORTRAIT_COMMONS[id];
+  if (!commonsUrl) throw new Error(`Missing portrait Commons entry for figure id: ${id}`);
+  const ext = commonsUrl.toLowerCase().split('?')[0].endsWith('.png') ? 'png' : 'jpg';
+  return `/story/normandy-figures/people/${id}.${ext}`;
 }
 
 /** FNV-1a — stable, varied thumbnail per figure id (reduces duplicate tiles in the People grid). */
@@ -321,10 +331,10 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Robert Guiscard (by Merry-Joseph Blondel).jpg (public domain)',
   ),
   'bohemond-tancred-crusade': p(
-    peep('bohemond-tancred-crusade'),
+    A.crusade,
     'Bohemond & Tancred',
-    'Bohemond of Taranto — later tradition portrait (Tancred: separate Hauteville tile)',
-    'Wikimedia Commons — File:Bohemond I of Antioch.jpg (public domain)',
+    'First Crusade Jerusalem — evocative of the Italo-Norman crusade generation (local asset; Bohemond portrait pending fetch)',
+    'Wikimedia Commons — crusade-era reference image in /public/story (see norman-expansion library)',
   ),
   'jean-ango': p(
     A.jeanAngoBust,
@@ -351,7 +361,7 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Joan of Arc miniature graded.jpg (public domain)',
   ),
   'philip-augustus': p(
-    '/story/normandy-figures/philip-ii-augustus-wikimedia.jpg',
+    A.philipIIAugustusWikimedia,
     'Philip II Augustus',
     'Royal portrait tradition — Philip II “Augustus” of France',
     'Wikimedia Commons — File:Philip II of France.jpg (public domain)',
@@ -466,40 +476,40 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Musée GR de Saint-Romain-en-Gal 27 07 2011 32.jpg © P.poschadel, CC BY-SA 3.0',
   ),
   clovis: p(
-    peep('clovis'),
+    '/story/normandy-figures/people/frankish-clovis-map.jpg',
     'Clovis I',
-    'Later portrait tradition — Clovis Ier (stamp after painting)',
-    'Wikimedia Commons — File:Clovis Ier, PA04987.jpg (public domain)',
+    'Baptism of Clovis — later monumental painting tradition (local committed asset)',
+    'Wikimedia Commons — File:Baptism of Clovis.jpg (public domain)',
   ),
   'dagobert-i': p(
-    peep('dagobert-i'),
+    A.merovingianBnfBrunehaut,
     'Dagobert I',
-    'Engraved portrait — Dagobert I (19th-c. print after earlier tradition)',
-    'Wikimedia Commons — File:Dagobertus, R3A12087 010.jpg (public domain)',
+    'Merovingian manuscript court world — abbey patronage context (local BnF chronicle miniature)',
+    'Wikimedia Commons — BnF Gallica, Fr 2610 f.31r (15th c., public domain)',
   ),
-  'charles-martel': p(
-    peep('charles-martel'),
+  'charles-martel': pPool(
+    POOL_CAROLINGIAN,
+    'charles-martel',
     'Charles Martel',
-    'Later portrait tradition — Charles Martel',
-    'Wikimedia Commons — File:Charles Martel 01.jpg (public domain)',
+    'Carolingian-era northern Frankish world (evocative; portrait file pending offline fetch)',
   ),
-  'pepin-short': p(
-    peep('pepin-short'),
+  'pepin-short': pPool(
+    POOL_CAROLINGIAN,
+    'pepin-short',
     'Pepin the Short',
-    'Imaginary portrait — Delpech series (19th c.)',
-    'Wikimedia Commons — File:Delpech - Pepin the Short.jpg (public domain)',
+    'Carolingian-era northern Frankish world (evocative; portrait file pending offline fetch)',
   ),
-  'charles-fat': p(
-    peep('charles-fat'),
+  'charles-fat': pPool(
+    POOL_CAROLINGIAN,
+    'charles-fat',
     'Charles the Fat',
-    'Portrait tradition — Charles III the Fat',
-    'Wikimedia Commons — File:Charles III the Fat.jpg (public domain)',
+    'Carolingian-era northern Frankish world (evocative; portrait file pending offline fetch)',
   ),
-  'hastein-bjorn': p(
-    peep('hastein-bjorn'),
+  'hastein-bjorn': pPool(
+    POOL_VIKING,
+    'hastein-bjorn',
     'Hastein & Björn (Ironside)',
-    'Oseberg ship — Viking Ship Museum, Oslo (9th-c. ship burial; evocative of great-fleet raids)',
-    'Wikimedia Commons — File:Oseberg ship - IMG 9186.jpg © Daderot, CC0',
+    'Viking Age — ships, raids, and chronicles (evocative; dedicated tile pending fetch)',
   ),
   'monastic-chronicler-voices': p(
     peep('monastic-chronicler-voices'),
@@ -508,58 +518,58 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Scriptorium.jpg © Daniel Villafruela, CC BY-SA 3.0',
   ),
   'william-longsword': p(
-    peep('william-longsword'),
+    A.rolloFalaiseStatue,
     'William Longsword',
-    'Statue — ducal monument suite, Falaise',
-    'Wikimedia Commons — File:William longsword statue in falaise.JPG © Osado, CC BY-SA 3.0',
+    'Ducal monument suite, Falaise — Rollo statue (evocative of early ducal line; Longsword statue pending fetch)',
+    'Wikimedia Commons — File:Rollo statue in falaise.JPG © Imars / Michael Shea, CC BY-SA 2.5',
   ),
-  'richard-ii': p(
-    peep('richard-ii'),
+  'richard-ii': pPool(
+    POOL_NORMAN_ORIGINS,
+    'richard-ii',
     'Richard II of Normandy',
-    'Miniature — Chroniques de France tradition',
-    'Wikimedia Commons — File:Richard II of Normandy.jpg (public domain)',
+    'Norman origins — Channel ports & duchy formation (evocative; miniature pending fetch)',
   ),
-  'richard-iii-robert-i': p(
-    '/story/normandy-figures/people/richard-iii-robert-i.png',
+  'richard-iii-robert-i': pPool(
+    POOL_NORMAN_ORIGINS,
+    'richard-iii-robert-i',
     'Richard III / Robert I (Magnificent)',
-    'Genealogical Chronicle miniature — Richard III of Normandy (later manuscript tradition)',
-    'Wikimedia Commons — File:Richard III of Normandy.png (public domain)',
+    'Norman origins — Channel ports & duchy formation (evocative; chronicle miniature pending fetch)',
   ),
-  'emma-gunnor': p(
-    peep('emma-gunnor'),
+  'emma-gunnor': pPool(
+    POOL_NORMAN_ORIGINS,
+    'emma-gunnor',
     'Emma of Normandy',
-    'Queen Emma received at Richard II’s court — Cambridge MS tradition (detail)',
-    'Wikimedia Commons — File:Emma of Normandy 1.jpg (public domain)',
+    'Norman origins — Channel ports & duchy formation (evocative; Emma portrait pending fetch)',
   ),
   dudo: p(
-    peep('dudo'),
+    A.bayeuxOath,
     'Dudo of Saint-Quentin',
-    'Bayeux Tapestry — opening scene (Edward; Norman origin narrative milieu for Dudo’s story-world)',
-    'Wikimedia Commons — File:BayeuxTapestryScene01.jpg (public domain)',
+    'Bayeux Tapestry — oath scene (Norman origin narrative milieu for Dudo’s story-world)',
+    'Wikimedia Commons — File:BayeuxTapestryScene23.jpg (public domain)',
   ),
   'gisela-frankish': p(
-    peep('gisela-frankish'),
+    peep('rollo-early-normandy'),
     'Gisela of France',
-    '19th-c. tableau — Charles the Simple, Rollo, and Gisela (dramatic tradition)',
-    'Wikimedia Commons — File:Karl+Rollo+Gisela.jpg © Wolpertinger, CC BY-SA 3.0',
+    'Charles the Simple & Rollo — manuscript pairing (dramatic tradition; Gisela tableau pending fetch)',
+    'Wikimedia Commons — File:Rollo+Charles.jpg (public domain)',
   ),
   'maurilius-archbishop-rouen': p(
-    peep('maurilius-archbishop-rouen'),
+    peep('rotomagus-bishops-transition'),
     'Maurilius of Rouen',
-    'Cathedra — Notre-Dame de Rouen (episcopal seat as narrative anchor)',
-    'Wikimedia Commons — File:Cathèdre, Cathédrale Notre-Dame de Rouen-8529a (cropped).jpg © K.Weikert, CC BY-SA 4.0',
+    'Rouen Cathedral — transept (episcopal Rouen as narrative anchor)',
+    'Wikimedia Commons — File:Rouen Cathedral, View up the transept and tower 20140215 1.jpg © DXR, CC BY-SA 3.0',
   ),
   'michael-archbishop-rouen': p(
-    peep('michael-archbishop-rouen'),
+    peep('romain-rouen-legend'),
     'Michael of Rouen',
-    'Empress Matilda epitaph — Rouen Cathedral (Angevin–ducal church politics context)',
-    'Wikimedia Commons — File:Epitaph of Empress Matilda, Rouen Cathedral.jpg © KayPerring, CC BY-SA 4.0',
+    'Notre-Dame de Rouen — façade (ducal church politics context; epitaph image pending fetch)',
+    'Wikimedia Commons — File:Rouen Cathedral, front.jpg © Joe Mabel, CC BY-SA 3.0',
   ),
   'roman-magistrates-map': p(
-    peep('roman-magistrates-map'),
+    peep('roman-magistrates-lugdunensis'),
     'Roman magistrates (map voice)',
-    'Gallo-Roman archaeology display — Musée de Picardie (northern Gaul material culture)',
-    'Wikimedia Commons — File:Musée Picardie Archéo 01.jpg © Vassil, CC BY 3.0',
+    'Roman theatre — Fourvière (northern imperial Gaul anchor; Picardie museum image pending fetch)',
+    'Wikimedia Commons — File:Théâtre romain de Fourvière.jpg © Jean-Christophe BENOIST, CC BY-SA 3.0',
   ),
   'frankish-clovis-map': p(
     peep('frankish-clovis-map'),
@@ -568,16 +578,16 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Baptism of Clovis.jpg (public domain)',
   ),
   'dagobert-frankish-map': p(
-    peep('dagobert-frankish-map'),
+    A.merovingianBnfBrunehaut,
     'Dagobert I (map voice)',
-    'Jumièges abbey church ruins — Dagobert patronage anchor',
-    'Wikimedia Commons — File:Jumièges Abbaye de Jumièges Église Saint-Pierre 2.jpg © Pierre-Édouard Bonnin, CC BY-SA 4.0',
+    'Merovingian manuscript world — Jumièges patronage context (abbey photo pending fetch)',
+    'Wikimedia Commons — BnF Gallica, Fr 2610 f.31r (15th c., public domain)',
   ),
   'viking-rollo-precursor': p(
-    peep('viking-rollo-precursor'),
+    A.vikingLongship,
     'Viking–Rollo precursor voices',
-    'Gokstad ship — Viking Age burial ship (Oslo museums; distinct from Oseberg tile)',
-    'Wikimedia Commons — File:Cf19474 04 Gokstadskipet i Universitetshagen (Gokstad ship. Kulturhistorisk museum UiO Oslo, Norway. License CC BY-SA 4.0).jpg © Kulturhistorisk museum UiO, CC BY-SA 4.0',
+    'Oseberg-type longship milieu — committed Viking Age hull reference (Gokstad tile pending fetch)',
+    CREDIT,
   ),
   'rollo-early-normandy': p(
     peep('rollo-early-normandy'),
@@ -586,10 +596,10 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Rollo+Charles.jpg (public domain)',
   ),
   'matilda-flanders': p(
-    peep('matilda-flanders'),
+    A.bayeuxCoronation,
     'Matilda of Flanders',
-    'Imaginary portrait — 19th-c. print tradition',
-    'Wikimedia Commons — File:Matilda of Flanders.jpg (public domain)',
+    'Bayeux Tapestry — coronation arc (ducal marriage / consecration milieu; Matilda print pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene38.jpg (public domain)',
   ),
   'odo-bayeux': p(
     peep('odo-bayeux'),
@@ -598,16 +608,16 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Odo of Bayeux.jpg (public domain)',
   ),
   'lanfranc-anselm': p(
-    peep('lanfranc-anselm'),
+    A.bayeuxOath,
     'Lanfranc / Anselm',
-    'Anselm of Canterbury — narrative stand-in for the Bec–Canterbury reform arc (Lanfranc as predecessor)',
-    'Wikimedia Commons — File:Anselm of Canterbury.jpg (public domain)',
+    'Bayeux Tapestry — oath scene (reform-era church–duchy milieu; Anselm portrait pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene23.jpg (public domain)',
   ),
   'robert-curthose': p(
-    peep('robert-curthose'),
+    A.bayeuxHastings,
     'Robert Curthose',
-    'Imaginary portrait — 19th-c. print tradition',
-    'Wikimedia Commons — File:Robert Curthose.jpg (public domain)',
+    'Bayeux Tapestry — Hastings campaign world (Robert Curthose print pending fetch)',
+    'Wikimedia Commons — File:Bayeux Tapestry scene57 Harold death (cropped).jpg (public domain)',
   ),
   'henry-i-england': p(
     peep('henry-i-england'),
@@ -616,10 +626,10 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Wikimedia Commons — File:Henry I of England.jpg (public domain)',
   ),
   'robert-mortain': p(
-    peep('robert-mortain'),
+    A.bayeuxKnights,
     'Robert, Count of Mortain',
-    'Bayeux Tapestry — scene 44 (Robert of Mortain)',
-    'Wikimedia Commons — File:Bayeux Tapestry scene44 Robert de Morten.jpg (public domain)',
+    'Bayeux Tapestry — Norman knights (Mortain scene 44 pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene55.jpg (public domain)',
   ),
   'william-rufus': p(
     peep('william-rufus'),
@@ -627,53 +637,53 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Portrait miniature tradition',
     'Wikimedia Commons — File:William II of England.jpg (public domain)',
   ),
-  'belleme-magnates': p(
-    peep('belleme-magnates'),
+  'belleme-magnates': pPool(
+    POOL_DUCHY,
+    'belleme-magnates',
     'Bellême magnates',
-    'Château du Tertre — Sérigy, Orne (Bellême–Perche marcher context)',
-    'Wikimedia Commons — File:Château du Tertre 1.jpg © Pierre-Édouard Bonnin, CC BY-SA 4.0',
+    'Norman duchy — Bayeux-era cross-Channel moment (evocative; Bellême château photo pending fetch)',
   ),
   'robert-of-gloucester': p(
-    peep('robert-of-gloucester'),
+    A.bayeuxCoronation,
     'Robert of Gloucester',
-    'Tewkesbury Abbey Founders’ Book — Robert of Gloucester (later depiction)',
-    'Wikimedia Commons — File:RobertConsul TewkesburyAbbey FoundersBook.jpg (public domain)',
+    'Bayeux Tapestry — coronation arc (Anglo-Norman church politics milieu; Founders’ Book pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene38.jpg (public domain)',
   ),
   'hauteville-tancred': p(
-    peep('hauteville-tancred'),
+    A.robertGuiscardBlondel,
     'Tancred of Hauteville',
-    'Imaginary portrait — Tancrède de Hauteville (later print tradition)',
-    'Wikimedia Commons — File:Tancrède de Hauteville.jpg (public domain)',
+    'Hauteville generation — Robert Guiscard portrait suite (Tancred print pending fetch)',
+    'Wikimedia Commons — File:Robert Guiscard (by Merry-Joseph Blondel).jpg (public domain)',
   ),
   'roger-i-ii': p(
-    peep('roger-i-ii'),
+    A.cyprus,
     'Roger I / Roger II',
-    'Roger II of Sicily — mosaic portrait tradition (later reproduction)',
-    'Wikimedia Commons — File:Roger II of Sicily.jpg (public domain)',
+    'Richard I at Limassol — Mediterranean Norman expansion milieu (Sicily mosaic pending fetch)',
+    'Wikimedia Commons — Richard Cyprus Limassol reference in /public/story',
   ),
   'william-iron-arm': p(
-    peep('william-iron-arm'),
+    A.bayeuxKnights,
     'William Iron Arm',
-    'Cathedral statue — “Guillaume Bras-de-Fer”, Coutances (Hauteville memorial suite)',
-    'Wikimedia Commons — File:Statue cathédrale Coutances Guillaume Bras-de-fer.JPG © Giogo, CC BY-SA 3.0',
+    'Bayeux Tapestry — mounted knights (Italo-Norman arms milieu; Coutances statue pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene55.jpg (public domain)',
   ),
   'drogo-hauteville': p(
-    peep('drogo-hauteville'),
+    A.crusade,
     'Drogo of Hauteville',
-    'Hauteville tomb suite — Venosa (Italo-Norman burial anchor)',
-    'Wikimedia Commons — File:Tomba degli Altavilla.jpg © Berthold Werner, CC BY-SA 3.0',
+    'First Crusade Jerusalem — Italo-Norman southern Italy context (Venosa tomb pending fetch)',
+    'Wikimedia Commons — crusade-era reference image in /public/story',
   ),
   'humphrey-hauteville': p(
-    peep('humphrey-hauteville'),
+    A.bayeuxKnights,
     'Humphrey of Hauteville',
-    'Cathedral statue — Hauteville memorial figure, Coutances (trad. identification varies)',
-    'Wikimedia Commons — File:Statue cathédrale Coutances Hauteville 2.JPG © Giogo, CC BY-SA 3.0',
+    'Bayeux Tapestry — knights (Norman military milieu; Coutances statue pending fetch)',
+    'Wikimedia Commons — File:BayeuxTapestryScene55.jpg (public domain)',
   ),
   'alexios-i-komnenos': p(
-    peep('alexios-i-komnenos'),
+    A.crusade,
     'Alexios I Komnenos',
-    'Byzantine mosaic — Hagia Sophia (ruler portrait tradition)',
-    'Wikimedia Commons — File:Alexios I Komnenos.jpg © Myrabella, CC BY-SA 3.0',
+    'First Crusade world — Byzantine–crusader encounter milieu (Komnenos mosaic pending fetch)',
+    'Wikimedia Commons — crusade-era reference image in /public/story',
   ),
   'popes-reform-era': p(
     peep('popes-reform-era'),
@@ -693,71 +703,71 @@ const PORTRAIT_OVERRIDES: Partial<Record<string, NormandyStoryFigurePortrait>> =
     'Imaginary portrait — Henri Lehmann (Versailles series)',
     'Wikimedia Commons — File:Lehmann - Louis VIII of France.jpg (public domain)',
   ),
-  'edward-iii': p(
-    peep('edward-iii'),
+  'edward-iii': pPool(
+    POOL_LATE_MEDIEVAL,
+    'edward-iii',
     'Edward III',
-    'Imaginary portrait — 18th-c. engraving tradition',
-    'Wikimedia Commons — File:Edward III of England.jpg (public domain)',
+    'Late medieval France — cross-Channel war milieu (portrait pending fetch)',
   ),
-  'edward-black-prince': p(
-    peep('edward-black-prince'),
+  'edward-black-prince': pPool(
+    POOL_LATE_MEDIEVAL,
+    'edward-black-prince',
     'Edward the Black Prince',
-    'Portrait tradition — Edward of Woodstock',
-    'Wikimedia Commons — File:Edward the Black Prince.jpg (public domain)',
+    'Late medieval France — cross-Channel war milieu (portrait pending fetch)',
   ),
-  'bertrand-du-guesclin': p(
-    peep('bertrand-du-guesclin'),
+  'bertrand-du-guesclin': pPool(
+    POOL_LATE_MEDIEVAL,
+    'bertrand-du-guesclin',
     'Bertrand du Guesclin',
-    'Imaginary portrait — 19th-c. print tradition',
-    'Wikimedia Commons — File:Bertrand du Guesclin.jpg (public domain)',
+    'Late medieval France — cross-Channel war milieu (portrait pending fetch)',
   ),
-  'henry-v': p(
-    peep('henry-v'),
+  'henry-v': pPool(
+    POOL_LATE_MEDIEVAL,
+    'henry-v',
     'Henry V',
-    'Portrait miniature tradition',
-    'Wikimedia Commons — File:Henry V of England.jpg (public domain)',
+    'Late medieval France — cross-Channel war milieu (portrait pending fetch)',
   ),
   'charles-vii': p(
-    peep('charles-vii'),
+    A.joanOfArcMiniature,
     'Charles VII',
-    'Imaginary portrait — later tradition',
-    'Wikimedia Commons — File:Charles VII of France.jpg (public domain)',
+    'Joan of Arc miniature — Rouen trial generation (Charles VII portrait pending fetch)',
+    'Wikimedia Commons — File:Joan of Arc miniature graded.jpg (public domain)',
   ),
-  coligny: p(
-    peep('coligny'),
+  coligny: pPool(
+    POOL_LATE_MEDIEVAL,
+    'coligny',
     'Gaspard II de Coligny',
-    'Portrait — school of Clouet tradition',
-    'Wikimedia Commons — File:Gaspard II de Coligny.jpg (public domain)',
+    'Late medieval France — Wars of Religion milieu (portrait pending fetch)',
   ),
-  villegagnon: p(
-    peep('villegagnon'),
+  villegagnon: pPool(
+    POOL_ATLANTIC_FRANCE,
+    'villegagnon',
     'Nicolas Durand de Villegagnon',
-    'Portrait attributed to Nicolas Lagneau (traditional identification)',
-    'Wikimedia Commons — File:Nicolas Lagneau - Nicolas Durand de Villegagnon.jpg (public domain)',
+    'Atlantic France — exploration staging (portrait pending fetch)',
   ),
-  'iberville-bienville': p(
-    peep('iberville-bienville'),
+  'iberville-bienville': pPool(
+    POOL_NEW_FRANCE,
+    'iberville-bienville',
     'Iberville & Bienville',
-    'Pierre Le Moyne d’Iberville — engraving tradition (card also names Jean-Baptiste de Bienville)',
-    'Wikimedia Commons — File:Iberville.jpg (public domain)',
+    'St. Lawrence & colonial France (evocative; Iberville engraving pending fetch)',
   ),
   'francois-gaston-levis': p(
-    peep('francois-gaston-levis'),
+    A.wolfeQuebec,
     'François-Gaston de Lévis',
-    'Portrait with marshal’s baton — 18th-c. tradition (Stewart cast photo)',
-    'Wikimedia Commons — File:François Gaston de Lévis (Stewart 1984-8).jpg © Stewart Museum, CC BY-SA 4.0',
+    'Plains of Abraham era — Seven Years’ War Canada (Lévis portrait pending fetch)',
+    'Wikimedia Commons — File:Benjamin West - The Death of General Wolfe - WGA25558.jpg (public domain)',
   ),
-  'pierre-de-rigaud-vaudreuil': p(
-    peep('pierre-de-rigaud-vaudreuil'),
+  'pierre-de-rigaud-vaudreuil': pPool(
+    POOL_NEW_FRANCE,
+    'pierre-de-rigaud-vaudreuil',
     'Pierre de Rigaud de Vaudreuil',
-    'Portrait tradition — last French governor general of New France',
-    'Wikimedia Commons — File:Pierre de Rigaud de Vaudreuil.jpg (public domain)',
+    'St. Lawrence & colonial France (evocative; Vaudreuil portrait pending fetch)',
   ),
   'francois-bigot': p(
-    peep('francois-bigot'),
+    A.wolfeQuebec,
     'François Bigot',
-    'Known faux-historical portrait (19th-c. pastiche; useful thumbnail only)',
-    'Wikimedia Commons — File:Chevignard-Faux-Portrait-de-Bigot 02.jpg (public domain)',
+    'Seven Years’ War Canada — fall of New France milieu (Bigot pastiche pending fetch)',
+    'Wikimedia Commons — File:Benjamin West - The Death of General Wolfe - WGA25558.jpg (public domain)',
   ),
 };
 
