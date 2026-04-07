@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { Search, MapPin, Map, ExternalLink } from 'lucide-react';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasHubPageShell, {
+  ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS,
+} from '@/components/layout/AtlasHubPageShell';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { useMapStore } from '@/lib/store';
 import { useLocale } from '@/hooks/use-atlas';
@@ -541,7 +543,6 @@ export default function JournalPage() {
   const [indexSearch, setIndexSearch] = useState('');
   const deferredIndexSearch = useDeferredValue(indexSearch);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
 
   useReferenceHubSwipeNav(contentRef, { disabled: mobileTocOpen });
 
@@ -638,18 +639,19 @@ export default function JournalPage() {
         Skip to content
       </a>
 
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
-        <AtlasSubpageChromeHeader
-          onOpenToolsMenu={() => setToolsOpen(true)}
-          mobileToc={{
-            open: mobileTocOpen,
-            onToggle: () => setMobileTocOpen((v) => !v),
-            openLabel: t('companion.tocOpen', locale),
-            closeLabel: t('companion.tocClose', locale),
-          }}
-        />
+      <AtlasHubPageShell beforeReferenceNav={stopLedgerPulseOnJournalNavigate}>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
+          <AtlasSubpageChromeHeader
+            mobilePageTitle={t('atlasJournal.tooltip.label', locale)}
+            mobileToc={{
+              open: mobileTocOpen,
+              onToggle: () => setMobileTocOpen((v) => !v),
+              openLabel: t('companion.tocOpen', locale),
+              closeLabel: t('companion.tocClose', locale),
+            }}
+          />
 
-        <ReferenceHubTabs />
+          <ReferenceHubTabs />
 
         <div className="relative flex min-h-0 flex-1">
         {/* Desktop TOC */}
@@ -677,7 +679,7 @@ export default function JournalPage() {
         {/* Content */}
         <div
           ref={contentRef}
-          className="relative z-10 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pb-[max(2.5rem,env(safe-area-inset-bottom)+1.5rem)] md:px-8 md:py-14 md:pb-14"
+          className={`relative z-10 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:py-14 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
         >
           <div className="max-w-3xl">
             <h1 className="sr-only">{t('atlasJournal.tooltip.label', locale)}</h1>
@@ -1238,13 +1240,8 @@ export default function JournalPage() {
           </div>
         </div>
         </div>
-      </div>
-
-      <AtlasSubpageToolsMenu
-        open={toolsOpen}
-        onClose={() => setToolsOpen(false)}
-        beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
-      />
+        </div>
+      </AtlasHubPageShell>
     </div>
   );
 }

@@ -7,7 +7,9 @@ import { ArrowLeft, Copy, Dna, ExternalLink, Heart, Map, GitBranch } from 'lucid
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
 import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
-import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasHubPageShell, {
+  ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS,
+} from '@/components/layout/AtlasHubPageShell';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
 import { useLocale } from '@/hooks/use-atlas';
@@ -235,7 +237,6 @@ const LineageSourceList = memo(function LineageSourceList({
 
 const LineageProfileClient = memo(function LineageProfileClient({ profile }: { profile: HaplogroupProfile }) {
   const locale = useLocale();
-  const [toolsOpen, setToolsOpen] = useState(false);
   const [eraLens, setEraLens] = useState<LineageEraLens>('early_medieval');
   const [fav, setFav] = useState(() => readLineageFavorites().includes(profile.id));
   const [copyState, setCopyState] = useState<'idle' | 'done'>('idle');
@@ -291,12 +292,15 @@ const LineageProfileClient = memo(function LineageProfileClient({ profile }: { p
   return (
     <div className="fixed inset-0 z-0 flex flex-col bg-[var(--color-background)]">
       <AtlasReadingNoiseBackdrop />
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
-        <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
-        <ReferenceHubTabs />
-        <div className={genealogyHubSplitClassName}>
-          <GenealogySubnav />
-          <main className="relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-24 pt-8 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-10">
+      <AtlasHubPageShell>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
+          <AtlasSubpageChromeHeader mobilePageTitle={profile.name} />
+          <ReferenceHubTabs />
+          <div className={genealogyHubSplitClassName}>
+            <GenealogySubnav />
+            <main
+              className={`relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pt-8 px-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-10 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
+            >
           <div className="mx-auto max-w-3xl">
             <Link
               href="/lineage-explorer"
@@ -657,11 +661,11 @@ const LineageProfileClient = memo(function LineageProfileClient({ profile }: { p
               </h2>
               <LineageSourceList sources={profile.sources} locale={locale} />
             </section>
+            </div>
+            </main>
           </div>
-          </main>
         </div>
-      </div>
-      <AtlasSubpageToolsMenu open={toolsOpen} onClose={() => setToolsOpen(false)} />
+      </AtlasHubPageShell>
     </div>
   );
 });

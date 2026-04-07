@@ -32,7 +32,7 @@ const ReferenceHubTabs = memo(function ReferenceHubTabs() {
   return (
     <nav
       aria-label={t('referenceHub.tabsAria', locale)}
-      className="relative w-full shrink-0 border-b border-chrome-border/60"
+      className="relative hidden w-full shrink-0 border-b border-chrome-border/60 md:block"
       style={{ background: 'var(--color-chrome-fill)' }}
     >
       <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col items-stretch gap-2 py-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:gap-3 sm:py-2.5 md:flex-row md:flex-nowrap md:items-center md:justify-center md:gap-2 md:overflow-x-auto md:overscroll-x-contain md:px-8 md:[scrollbar-width:thin]">

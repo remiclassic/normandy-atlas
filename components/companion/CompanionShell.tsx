@@ -3,7 +3,9 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasHubPageShell, {
+  ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS,
+} from '@/components/layout/AtlasHubPageShell';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import { useLocale } from '@/hooks/use-atlas';
 import { useMapStore } from '@/lib/store';
@@ -94,7 +96,6 @@ export default function CompanionShell({
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState(() => flatToc[0]?.id ?? '');
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
 
   useReferenceHubSwipeNav(contentRef, { disabled: mobileTocOpen });
 
@@ -160,19 +161,20 @@ export default function CompanionShell({
         Skip to content
       </a>
 
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
-        <div className="companion-hide-print">
-          <AtlasSubpageChromeHeader
-            onOpenToolsMenu={() => setToolsOpen(true)}
-            mobileToc={{
-              open: mobileTocOpen,
-              onToggle: () => setMobileTocOpen((v) => !v),
-              openLabel: t('companion.tocOpen', locale),
-              closeLabel: t('companion.tocClose', locale),
-            }}
-          />
-          <ReferenceHubTabs />
-        </div>
+      <AtlasHubPageShell beforeReferenceNav={stopLedgerPulseOnJournalNavigate}>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
+          <div className="companion-hide-print">
+            <AtlasSubpageChromeHeader
+              mobilePageTitle={t('companion.title', locale)}
+              mobileToc={{
+                open: mobileTocOpen,
+                onToggle: () => setMobileTocOpen((v) => !v),
+                openLabel: t('companion.tocOpen', locale),
+                closeLabel: t('companion.tocClose', locale),
+              }}
+            />
+            <ReferenceHubTabs />
+          </div>
 
         <div className="relative flex min-h-0 flex-1">
         <aside
@@ -208,21 +210,14 @@ export default function CompanionShell({
         <main
           id="companion-content"
           ref={contentRef}
-          className="companion-print-main relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin bg-[var(--color-background)] py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] pb-[max(2.5rem,env(safe-area-inset-bottom)+1.5rem)] md:px-8 md:py-14 md:pb-14"
+          className={`companion-print-main relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin bg-[var(--color-background)] py-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:py-14 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
         >
           <CompanionMarkdown source={source} />
           <div className="h-24" />
         </main>
         </div>
-      </div>
-
-      <div className="companion-hide-print">
-        <AtlasSubpageToolsMenu
-          open={toolsOpen}
-          onClose={() => setToolsOpen(false)}
-          beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
-        />
-      </div>
+        </div>
+      </AtlasHubPageShell>
     </div>
   );
 }

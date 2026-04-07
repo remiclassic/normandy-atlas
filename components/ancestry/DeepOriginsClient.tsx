@@ -29,7 +29,7 @@ import {
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
 import GenealogySubnav, { genealogyHubSplitClassName } from '@/components/layout/GenealogySubnav';
-import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasHubPageShell from '@/components/layout/AtlasHubPageShell';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import BottomSheet from '@/components/ui/BottomSheet';
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
@@ -140,7 +140,6 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
   const router = useRouter();
   const sp = useSearchParams();
   const isMobile = useIsMobile();
-  const [toolsOpen, setToolsOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const urlSynced = useRef(false);
 
@@ -664,15 +663,16 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       >
         Skip to content
       </a>
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
-        <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
-        <ReferenceHubTabs />
-        <div className={genealogyHubSplitClassName}>
-          <GenealogySubnav />
-          <div
-            id="deep-origins-main"
-            className="relative flex min-h-0 min-w-0 flex-1 flex-col md:flex-row"
-          >
+      <AtlasHubPageShell>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
+          <AtlasSubpageChromeHeader mobilePageTitle={t('deepOrigins.pageTitle', locale)} />
+          <ReferenceHubTabs />
+          <div className={genealogyHubSplitClassName}>
+            <GenealogySubnav />
+            <div
+              id="deep-origins-main"
+              className="relative flex min-h-0 min-w-0 flex-1 flex-col md:flex-row"
+            >
           {!isMobile ? (
             <aside className="flex w-full shrink-0 border-b border-chrome-border-strong/35 bg-chrome-fill/[0.04] md:w-[400px] md:flex-col md:border-b-0 md:border-r md:bg-chrome-fill/[0.06]">
               <div className="flex min-h-0 flex-1 flex-col">
@@ -725,7 +725,7 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
             <button
               type="button"
               onClick={() => setLegendOpen((o) => !o)}
-              className="pointer-events-auto absolute bottom-14 right-14 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-chrome-border-strong/50 bg-[var(--color-surface)]/95 text-text shadow-md md:bottom-3 md:right-3"
+              className="pointer-events-auto absolute bottom-[max(5.5rem,calc(3.75rem+env(safe-area-inset-bottom)+1.25rem))] right-3 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-chrome-border-strong/50 bg-[var(--color-surface)]/95 text-text shadow-md md:bottom-3 md:right-3"
               aria-label={t('deepOrigins.legendToggle', locale)}
             >
               <Layers className="h-4 w-4" />
@@ -734,16 +734,17 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
               <button
                 type="button"
                 onClick={() => setSheetOpen(true)}
-                className="pointer-events-auto absolute bottom-3 right-14 z-10 flex items-center gap-2 rounded-full border border-chrome-border-strong/50 bg-[var(--color-surface)]/95 px-4 py-2 text-[12px] font-medium text-text shadow-md"
+                className="pointer-events-auto absolute bottom-3 right-14 z-[25] flex items-center gap-2 rounded-full border border-chrome-border-strong/50 bg-[var(--color-surface)]/95 px-4 py-2 text-[12px] font-medium text-text shadow-md max-md:bottom-[max(1rem,calc(env(safe-area-inset-bottom)+0.5rem))] max-md:right-16"
               >
                 <Menu className="h-4 w-4" aria-hidden />
                 {t('deepOrigins.detailsSheet', locale)}
               </button>
             ) : null}
           </div>
+            </div>
+          </div>
         </div>
-        </div>
-      </div>
+      </AtlasHubPageShell>
 
       <BottomSheet open={isMobile && sheetOpen} onClose={() => setSheetOpen(false)} maxHeight="88dvh">
         <div className="max-h-[80dvh] overflow-y-auto overscroll-y-contain px-4 pb-6 pt-2 scrollbar-thin">
@@ -774,7 +775,6 @@ const DeepOriginsClient = memo(function DeepOriginsClient() {
       </BottomSheet>
 
       {blendModal}
-      <AtlasSubpageToolsMenu open={toolsOpen} onClose={() => setToolsOpen(false)} />
     </div>
   );
 });

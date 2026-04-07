@@ -18,6 +18,7 @@ import {
   MapPin,
   Share2,
   Signpost,
+  Terminal,
   Type,
   Users,
 } from 'lucide-react';
@@ -33,6 +34,7 @@ import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import { ATLAS_REFERENCE_HUB_PATH } from '@/lib/atlas-reference-routes';
 import { GENEALOGY_HUB_PATH, GENEALOGY_DEEP_ORIGINS_PATH } from '@/lib/genealogy-paths';
+import { requestOpenCommandPalette } from '@/lib/command-palette/open-command-palette';
 import type { AtlasLocale } from '@/core/types';
 
 export type AtlasToolsMenuBodyProps = {
@@ -50,6 +52,8 @@ export type AtlasToolsMenuBodyProps = {
   onShare: () => void;
   onCredits: () => void;
   onSupport?: () => void;
+  /** Mobile “More” sheet: quick entry to command palette (removed from subpage header on narrow viewports). */
+  includeCommandPaletteEntry?: boolean;
 };
 
 export default function AtlasToolsMenuBody({
@@ -66,6 +70,7 @@ export default function AtlasToolsMenuBody({
   onShare,
   onCredits,
   onSupport,
+  includeCommandPaletteEntry = false,
 }: AtlasToolsMenuBodyProps) {
   void _guidesPublic;
   const guidesPublic = isDigitalGuidesPublic();
@@ -73,6 +78,19 @@ export default function AtlasToolsMenuBody({
 
   return (
     <div className="space-y-6">
+      {includeCommandPaletteEntry && (
+        <button
+          type="button"
+          onClick={() => {
+            requestOpenCommandPalette();
+            onClose();
+          }}
+          className="flex min-h-11 w-full items-center gap-3 rounded-lg border border-chrome-border-strong/50 bg-chrome-fill/30 px-3 py-2.5 text-left text-[13px] font-medium text-text-muted transition-colors hover:border-gold/25 hover:bg-chrome-fill-badge hover:text-parchment touch-manipulation"
+        >
+          <Terminal className="h-4 w-4 shrink-0 opacity-70" strokeWidth={1.5} aria-hidden />
+          {t('mobileNav.commandPalette', locale)}
+        </button>
+      )}
       <div className="space-y-5">
         <div className="space-y-2">
           <p className={sectionClass}>{t('toolsMenu.section.atlas', locale)}</p>

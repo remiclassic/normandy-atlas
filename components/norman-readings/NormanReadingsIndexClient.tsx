@@ -6,7 +6,9 @@ import { memo, useCallback, useState } from 'react';
 
 import AtlasSubpageChromeHeader from '@/components/layout/AtlasSubpageChromeHeader';
 import ReferenceHubTabs from '@/components/layout/ReferenceHubTabs';
-import AtlasSubpageToolsMenu from '@/components/layout/AtlasSubpageToolsMenu';
+import AtlasHubPageShell, {
+  ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS,
+} from '@/components/layout/AtlasHubPageShell';
 import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBackdrop';
 import NormanReadingsNavList from '@/components/norman-readings/NormanReadingsNavList';
 import NormanReadingsBrowseDrawer from '@/components/norman-readings/NormanReadingsBrowseDrawer';
@@ -25,7 +27,6 @@ type Props = {
 const NormanReadingsIndexClient = memo(function NormanReadingsIndexClient({ readings }: Props) {
   const locale = useLocale();
   const isMobile = useIsMobile();
-  const [toolsOpen, setToolsOpen] = useState(false);
   const [browseOpen, setBrowseOpen] = useState(false);
   const backLabel = locale === 'fr' ? 'Journal' : 'Journal';
   const hubTitle = locale === 'fr' ? 'Lectures normandes' : 'Norman readings';
@@ -44,9 +45,10 @@ const NormanReadingsIndexClient = memo(function NormanReadingsIndexClient({ read
   return (
     <div className="fixed inset-0 z-0 flex flex-col bg-[var(--color-background)]">
       <AtlasReadingNoiseBackdrop />
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
-        <AtlasSubpageChromeHeader onOpenToolsMenu={() => setToolsOpen(true)} />
-        <ReferenceHubTabs />
+      <AtlasHubPageShell>
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col" style={atlasHubShellStyle}>
+          <AtlasSubpageChromeHeader mobilePageTitle={t('toolsMenu.normanReadingsLabel', locale)} />
+          <ReferenceHubTabs />
         <div className="relative flex min-h-0 flex-1 flex-col md:flex-row">
           <aside
             className="hidden min-h-0 w-[min(288px,34vw)] shrink-0 flex-col border-chrome-border bg-chrome-fill/[0.05] md:flex md:border-r"
@@ -60,7 +62,9 @@ const NormanReadingsIndexClient = memo(function NormanReadingsIndexClient({ read
             </div>
           </aside>
 
-          <main className="relative min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pb-[max(4rem,env(safe-area-inset-bottom)+2rem)] pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pb-20 md:pt-10">
+          <main
+            className={`relative min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pt-8 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-10 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
+          >
             <div className="mx-auto max-w-5xl">
               <Link
                 href="/journal"
@@ -113,8 +117,8 @@ const NormanReadingsIndexClient = memo(function NormanReadingsIndexClient({ read
             </div>
           </main>
         </div>
-      </div>
-      <AtlasSubpageToolsMenu open={toolsOpen} onClose={() => setToolsOpen(false)} />
+        </div>
+      </AtlasHubPageShell>
       <NormanReadingsBrowseDrawer
         open={browseOpen}
         onClose={() => setBrowseOpen(false)}

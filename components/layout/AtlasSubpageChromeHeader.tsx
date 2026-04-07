@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Menu, X } from 'lucide-react';
+import { ArrowLeft, List, Menu, X } from 'lucide-react';
 import { ChromeIconTooltip } from '@/components/ui/ChromeIconTooltip';
 import TextSizeMenu from '@/components/ui/TextSizeMenu';
 import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
@@ -13,6 +13,7 @@ import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
 import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLockup';
 import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
+import { useAtlasHubDesktopTools } from '@/components/layout/HubMobileChromeContext';
 
 /** Shared with `ReferenceHubTabs` back-to-map control */
 export const atlasSubpageBackChipClass =
@@ -28,15 +29,18 @@ const chromeToolsRowClass =
 /**
  * Map-aligned header for /journal, /companion, /reference, etc.: Norman Atlas brand strip,
  * same inline tools as the map (text, theme, basemap, music, language), optional TOC toggle, then hamburger.
- * On viewports below `md`, back-to-map lives in this row (left); hub tabs are in `ReferenceHubTabs`.
+ * Below `md`, hub pages use `mobilePageTitle` + bottom tabs; command palette and settings move into the More sheet.
  */
 const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
   onOpenToolsMenu,
+  /** Narrow viewports: single-line title centered between back and optional TOC (replaces the brand lockup). */
+  mobilePageTitle,
   mobileToc,
   /** Omit the vertical rule after the brand (avoids a bar sitting flush after the tagline on md+). */
   hidePostBrandDivider = true,
 }: {
-  onOpenToolsMenu: () => void;
+  onOpenToolsMenu?: () => void;
+  mobilePageTitle?: string;
   hidePostBrandDivider?: boolean;
   mobileToc?: {
     open: boolean;
@@ -46,6 +50,8 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
   };
 }) {
   const locale = useLocale();
+  const desktopToolsCtx = useAtlasHubDesktopTools();
+  const openDesktopToolsMenu = onOpenToolsMenu ?? desktopToolsCtx?.openDesktopToolsMenu;
 
   const chromePill = (
     <div className={chromeToolsRowClass} data-onboarding="theme">
@@ -78,10 +84,16 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
             <ArrowLeft className="h-4 w-4 shrink-0 opacity-80" strokeWidth={2.25} aria-hidden />
           </Link>
 
-          <ChromeIconTooltip
+          {mobilePageTitle ? (
+            <h1 className="min-w-0 flex-1 truncate text-center font-sans text-[13px] font-semibold uppercase tracking-[0.12em] text-parchment md:hidden">
+              {mobilePageTitle}
+            </h1>
+          ) : null}
+
+          <ChromeIconTooltip 
             label={t('credits.eyebrow', locale)}
             hint={t('header.tagline', locale)}
-            wrapperClassName="inline-flex min-w-0 flex-1 md:shrink-0 md:flex-initial"
+            wrapperClassName={`${mobilePageTitle ? 'hidden md:inline-flex' : 'inline-flex'} min-w-0 flex-1 md:shrink-0 md:flex-initial`}
           >
             <Link
               href="/"
@@ -103,16 +115,18 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
           <div className="hidden shrink-0 items-center gap-2.5 md:flex">
             <div className="hidden shrink-0 xl:flex">{chromePill}</div>
             <CommandPaletteHeaderTrigger />
-            <ChromeIconTooltip label={t('header.settingsMenu', locale)} hint={t('header.settingsMenu.hint', locale)}>
-              <button
-                type="button"
-                onClick={onOpenToolsMenu}
-                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-                aria-label={t('header.settingsMenu', locale)}
-              >
-                <Menu className="h-[15px] w-[15px]" strokeWidth={1.5} aria-hidden />
-              </button>
-            </ChromeIconTooltip>
+            {openDesktopToolsMenu ? (
+              <ChromeIconTooltip label={t('header.settingsMenu', locale)} hint={t('header.settingsMenu.hint', locale)}>
+                <button
+                  type="button"
+                  onClick={openDesktopToolsMenu}
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
+                  aria-label={t('header.settingsMenu', locale)}
+                >
+                  <Menu className="h-[15px] w-[15px]" strokeWidth={1.5} aria-hidden />
+                </button>
+              </ChromeIconTooltip>
+            ) : null}
           </div>
 
           {mobileToc && (
@@ -122,23 +136,9 @@ const AtlasSubpageChromeHeader = memo(function AtlasSubpageChromeHeader({
               className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-lg text-text-dim transition-colors hover:bg-chrome-fill hover:text-text-muted md:hidden"
               aria-label={mobileToc.open ? mobileToc.closeLabel : mobileToc.openLabel}
             >
-              {mobileToc.open ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
+              {mobileToc.open ? <X size={18} strokeWidth={1.5} /> : <List size={20} strokeWidth={1.5} aria-hidden />}
             </button>
           )}
-
-          <div className="flex shrink-0 items-center gap-1 md:hidden">
-            <CommandPaletteHeaderTrigger size="mobileTouch" />
-            <ChromeIconTooltip label={t('header.settingsMenu', locale)} hint={t('header.settingsMenu.hint', locale)}>
-              <button
-                type="button"
-                onClick={onOpenToolsMenu}
-                className="flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-md text-text-muted/70 transition-colors duration-200 hover:bg-chrome-fill hover:text-parchment"
-                aria-label={t('header.settingsMenu', locale)}
-              >
-                <Menu className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
-              </button>
-            </ChromeIconTooltip>
-          </div>
         </div>
       </div>
     </header>

@@ -54,6 +54,10 @@ import { GuidesReferenceHubTrigger } from '@/components/layout/GuidesReferenceHu
 import { AtlasHeaderBrandLockup } from '@/components/layout/AtlasHeaderBrandLockup';
 import AtlasMenuDrawer from '@/components/layout/AtlasMenuDrawer';
 import AtlasToolsMenuBody from '@/components/layout/AtlasToolsMenuBody';
+import MobileMoreSheet from '@/components/layout/MobileMoreSheet';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
+import MobileContinueJourneyFab from '@/components/layout/MobileContinueJourneyFab';
+import { HubMobileChromeProvider } from '@/components/layout/HubMobileChromeContext';
 import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
 import AncestryJourneyMapDock from '@/components/ancestry/AncestryJourneyMapDock';
 import NormanStoryMode from '@/components/norman-identity/NormanStoryMode';
@@ -329,8 +333,28 @@ export default function AtlasHomeShell() {
     ],
   );
 
+  const mapToolsMenuBody = (
+    <AtlasToolsMenuBody
+      locale={locale}
+      guidesPublic={guidesPublic}
+      changelogHasUnread={changelogHasUnread}
+      supportAtlasEnabled={SUPPORT_ATLAS_ENABLED}
+      onClose={closeMobileMenu}
+      beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
+      includeCommandPaletteEntry={isMobile}
+      onNormanOverview={openNormanOverview}
+      onChangelog={openChangelog}
+      onLedger={openLedgerAndEndCelebration}
+      onProfile={() => router.push('/profile')}
+      onShare={handleShareView}
+      onCredits={openCredits}
+      onSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
+    />
+  );
+
   return (
     <StoryLauncherContext.Provider value={storyLauncherCtx}>
+    <HubMobileChromeProvider openMoreSheet={openMobileMenu} moreSheetOpen={mobileMenuOpen}>
     <div className="flex h-dvh w-screen flex-col overflow-hidden bg-background">
       {/* ─── Header ─────────────────────────────────────────── */}
       <header
@@ -527,7 +551,9 @@ export default function AtlasHomeShell() {
           <div
             className={`absolute z-20 flex flex-col items-start gap-2 transition-opacity duration-200 ${
               isMobile
-                ? 'bottom-20 left-3 right-3'
+                ? storyMode
+                  ? 'bottom-20 left-3 right-3'
+                  : 'bottom-[max(5.5rem,calc(3.75rem+env(safe-area-inset-bottom)+2.25rem))] left-3 right-3'
                 : 'bottom-28 left-5'
             } ${storyEraIntroActive ? 'pointer-events-none opacity-0' : ''}`}
             data-onboarding="layers"
@@ -541,7 +567,11 @@ export default function AtlasHomeShell() {
             layer stack z-20). A z-20 wrapper trapped story UI below illustration pins in the same column.
           */}
           <div
-            className={`max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-[50] max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))] md:contents transition-opacity duration-200 ${
+            className={`max-[767px]:pointer-events-none max-[767px]:absolute max-[767px]:bottom-0 max-[767px]:inset-x-0 max-[767px]:z-[50] max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-3 max-[767px]:px-3 ${
+              storyMode
+                ? 'max-[767px]:pb-[max(1rem,env(safe-area-inset-bottom))]'
+                : 'max-[767px]:pb-[max(4.25rem,calc(3.25rem+env(safe-area-inset-bottom)))]'
+            } md:contents transition-opacity duration-200 ${
               storyEraIntroActive
                 ? 'pointer-events-none opacity-0 max-[767px]:opacity-0 [&>*]:md:opacity-0 [&>*]:md:pointer-events-none'
                 : ''
@@ -576,24 +606,23 @@ export default function AtlasHomeShell() {
         />
       </div>
 
-      {/* ─── Settings & tools drawer (mobile: left, desktop: right) ── */}
-      <AtlasMenuDrawer open={mobileMenuOpen} onClose={closeMobileMenu} side={isMobile ? 'left' : 'right'}>
-        <AtlasToolsMenuBody
-          locale={locale}
-          guidesPublic={guidesPublic}
-          changelogHasUnread={changelogHasUnread}
-          supportAtlasEnabled={SUPPORT_ATLAS_ENABLED}
-          onClose={closeMobileMenu}
-          beforeReferenceNav={stopLedgerPulseOnJournalNavigate}
-          onNormanOverview={openNormanOverview}
-          onChangelog={openChangelog}
-          onLedger={openLedgerAndEndCelebration}
-          onProfile={() => router.push('/profile')}
-          onShare={handleShareView}
-          onCredits={openCredits}
-          onSupport={SUPPORT_ATLAS_ENABLED ? openSupport : undefined}
-        />
-      </AtlasMenuDrawer>
+      {/* ─── Settings & tools: bottom sheet on mobile (aligns with hub), right drawer on desktop ── */}
+      {isMobile ? (
+        <MobileMoreSheet open={mobileMenuOpen} onClose={closeMobileMenu}>
+          {mapToolsMenuBody}
+        </MobileMoreSheet>
+      ) : (
+        <AtlasMenuDrawer open={mobileMenuOpen} onClose={closeMobileMenu} side="right">
+          {mapToolsMenuBody}
+        </AtlasMenuDrawer>
+      )}
+
+      {isMobile && !storyMode ? (
+        <>
+          <MobileContinueJourneyFab />
+          <MobileBottomNav />
+        </>
+      ) : null}
 
       {/* ─── Modals ─────────────────────────────────────────── */}
       <CreditsModal
@@ -646,6 +675,7 @@ export default function AtlasHomeShell() {
         )}
       </AnimatePresence>
     </div>
+    </HubMobileChromeProvider>
     </StoryLauncherContext.Provider>
   );
 }
