@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { memo, useCallback, useMemo, type ReactNode } from 'react';
-import { ArrowRight, BookOpen, GitBranch, Library, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Library } from 'lucide-react';
 import { useLocale } from '@/hooks/use-atlas';
 import type { AtlasLocale } from '@/core/types';
 import { pickI18n } from '@/lib/locale';
@@ -17,58 +17,37 @@ import { publicAssetUrl } from '@/lib/public-asset-url';
 import { useMapStore } from '@/lib/store';
 import { t } from '@/lib/ui-strings';
 
-type ImageVisual = 'journal' | 'companion' | 'guides';
-type AccentKind = 'readings' | 'genealogy';
+type HubVisual =
+  | 'guides'
+  | 'readings'
+  | 'companion'
+  | 'journal'
+  | 'genealogy';
 
-type HubCardDef =
-  | {
-      key: string;
-      kind: 'image';
-      visual: ImageVisual;
-      href: string;
-      title: string;
-      description: string;
-      disabled?: boolean;
-      onNavigate?: () => void;
-    }
-  | {
-      key: string;
-      kind: 'accent';
-      accent: AccentKind;
-      href: string;
-      title: string;
-      description: string;
-      disabled?: boolean;
-    };
+type HubCardDef = {
+  key: string;
+  visual: HubVisual;
+  href: string;
+  title: string;
+  description: string;
+  disabled?: boolean;
+  onNavigate?: () => void;
+};
 
-const hubCardImageSrc: Record<ImageVisual, string> = {
-  journal: publicAssetUrl('/reference-hub/reference-hub-journal.png'),
-  companion: publicAssetUrl('/reference-hub/reference-hub-companion.png'),
+const hubCardImageSrc: Record<HubVisual, string> = {
   guides: publicAssetUrl('/reference-hub/reference-hub-guides.png'),
+  readings: publicAssetUrl('/reference-hub/reference-hub-norman-readings.png'),
+  companion: publicAssetUrl('/reference-hub/reference-hub-companion.png'),
+  journal: publicAssetUrl('/reference-hub/reference-hub-journal.png'),
+  genealogy: publicAssetUrl('/reference-hub/reference-hub-genealogy.png'),
 };
 
-const imageVisualSurface: Record<ImageVisual, { cornerGlow: string }> = {
-  journal: { cornerGlow: 'from-indigo-500/15 to-transparent' },
-  companion: { cornerGlow: 'from-amber-500/12 to-transparent' },
+const imageVisualSurface: Record<HubVisual, { cornerGlow: string }> = {
   guides: { cornerGlow: 'from-emerald-500/14 to-transparent' },
-};
-
-const accentSurface: Record<
-  AccentKind,
-  { cornerGlow: string; gradient: string; Icon: LucideIcon }
-> = {
-  readings: {
-    cornerGlow: 'from-amber-500/14 to-transparent',
-    gradient:
-      'from-amber-950/55 via-[var(--color-background)] to-slate-950/[0.92]',
-    Icon: BookOpen,
-  },
-  genealogy: {
-    cornerGlow: 'from-violet-500/14 to-transparent',
-    gradient:
-      'from-violet-950/50 via-[var(--color-background)] to-emerald-950/40',
-    Icon: GitBranch,
-  },
+  readings: { cornerGlow: 'from-amber-500/14 to-transparent' },
+  companion: { cornerGlow: 'from-amber-500/12 to-transparent' },
+  journal: { cornerGlow: 'from-indigo-500/15 to-transparent' },
+  genealogy: { cornerGlow: 'from-violet-500/14 to-transparent' },
 };
 
 const frameClass =
@@ -115,75 +94,43 @@ const ReferenceHubCardLi = memo(function ReferenceHubCardLi({
     </div>
   );
 
-  let topBlock: ReactNode;
+  const v = imageVisualSurface[card.visual];
+  const imgSrc = hubCardImageSrc[card.visual];
+  const usePriority = priorityImageKeys.has(card.key);
 
-  if (card.kind === 'image') {
-    const v = imageVisualSurface[card.visual];
-    const imgSrc = hubCardImageSrc[card.visual];
-    const usePriority = priorityImageKeys.has(card.key);
-
-    topBlock = (
-      <>
+  const topBlock: ReactNode = (
+    <>
+      <div
+        className={`pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${v.cornerGlow} blur-3xl`}
+        aria-hidden
+      />
+      <div
+        className={`relative aspect-[3/3.5] w-full shrink-0 overflow-hidden border-b border-chrome-border-strong/50 ${card.disabled ? 'grayscale-[0.45] saturate-[0.65]' : ''}`}
+      >
         <div
-          className={`pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${v.cornerGlow} blur-3xl`}
+          className="absolute inset-0 motion-safe:origin-[50%_58%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.045]"
+          aria-hidden
+        >
+          <Image
+            src={imgSrc}
+            alt=""
+            fill
+            priority={usePriority && !card.disabled}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-center"
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent"
           aria-hidden
         />
         <div
-          className={`relative aspect-[3/3.5] w-full shrink-0 overflow-hidden border-b border-chrome-border-strong/50 ${card.disabled ? 'grayscale-[0.45] saturate-[0.65]' : ''}`}
-        >
-          <div
-            className="absolute inset-0 motion-safe:origin-[50%_58%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.045]"
-            aria-hidden
-          >
-            <Image
-              src={imgSrc}
-              alt=""
-              fill
-              priority={usePriority && !card.disabled}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover object-center"
-            />
-          </div>
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-chrome-fill/90 to-transparent"
-            aria-hidden
-          />
-        </div>
-      </>
-    );
-  } else {
-    const cfg = accentSurface[card.accent];
-    const Icon = cfg.Icon;
-    topBlock = (
-      <>
-        <div
-          className={`pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-gradient-to-br ${cfg.cornerGlow} blur-3xl`}
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-chrome-fill/90 to-transparent"
           aria-hidden
         />
-        <div
-          className={`relative aspect-[3/3.5] w-full shrink-0 overflow-hidden border-b border-chrome-border-strong/50 bg-gradient-to-br ${cfg.gradient}`}
-        >
-          <Icon
-            className="absolute left-1/2 top-[42%] h-[22%] w-[22%] min-h-[3.25rem] min-w-[3.25rem] -translate-x-1/2 -translate-y-1/2 text-[var(--color-gold)]/[0.22]"
-            strokeWidth={1.15}
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-chrome-fill/85 to-transparent"
-            aria-hidden
-          />
-        </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 
   const inner = (
     <>
@@ -209,7 +156,7 @@ const ReferenceHubCardLi = memo(function ReferenceHubCardLi({
     <li className="flex h-full min-h-[20rem] md:min-h-0">
       <Link
         href={card.href}
-        onClick={card.kind === 'image' ? card.onNavigate : undefined}
+        onClick={card.onNavigate}
         className={frameClass}
       >
         {inner}
@@ -229,7 +176,6 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
   const { shelfRead, shelfWorkspace, priorityImageKeys } = useMemo(() => {
     const guides: HubCardDef = {
       key: 'guides',
-      kind: 'image',
       visual: 'guides',
       href: '/guides',
       title: pickI18n(digitalGuidesTooltipLabel, locale),
@@ -240,15 +186,13 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
     };
     const readings: HubCardDef = {
       key: 'readings',
-      kind: 'accent',
-      accent: 'readings',
+      visual: 'readings',
       href: '/norman-readings',
       title: t('toolsMenu.normanReadingsLabel', locale),
       description: t('toolsMenu.normanReadingsHint', locale),
     };
     const companion: HubCardDef = {
       key: 'companion',
-      kind: 'image',
       visual: 'companion',
       href: '/companion',
       title: t('companion.title', locale),
@@ -256,7 +200,6 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
     };
     const journal: HubCardDef = {
       key: 'journal',
-      kind: 'image',
       visual: 'journal',
       href: '/journal',
       title: t('atlasJournal.tooltip.label', locale),
@@ -265,8 +208,7 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
     };
     const genealogy: HubCardDef = {
       key: 'genealogy',
-      kind: 'accent',
-      accent: 'genealogy',
+      visual: 'genealogy',
       href: GENEALOGY_HUB_PATH,
       title: t('genealogy.navLabel', locale),
       description: t('referenceHub.cardGenealogyHint', locale),
@@ -277,7 +219,7 @@ const ReferenceHubCards = memo(function ReferenceHubCards() {
 
     const priorityImageKeys = new Set<string>();
     for (const c of [...shelfReadCards, ...shelfWorkspaceCards]) {
-      if (c.kind === 'image' && !c.disabled && priorityImageKeys.size < 2) {
+      if (!c.disabled && priorityImageKeys.size < 2) {
         priorityImageKeys.add(c.key);
       }
     }

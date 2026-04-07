@@ -866,6 +866,16 @@ html.text-size-large .maplibregl-ctrl-attrib {
   isolation: isolate;
 }
 
+/* Map safe zones: bottom nav + optional play dock (set on shell; MapLibre controls + layer stack read vars). */
+.atlas-map-ui-host {
+  --atlas-map-ui-bottom-spacer: max(4.5rem, calc(3.35rem + env(safe-area-inset-bottom)));
+  --atlas-map-layers-stack-gap: 5.75rem;
+}
+
+.atlas-map-ui-host[data-play-dock='1'] {
+  --atlas-map-ui-bottom-spacer: max(8rem, calc(6.75rem + env(safe-area-inset-bottom)));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .parchment-water-sheen-motion,
   .parchment-water-noise-motion,
@@ -1039,10 +1049,10 @@ html.atlas-reduced-motion .cinematic-ocean-drift-motion {
   touch-action: manipulation;
 }
 
-/* Mobile map controls — enlarge on small screens */
+/* Mobile map controls — enlarge on small screens; bottom clears tab bar + safe area (+ play dock via host). */
 @media (max-width: 768px) {
-  .maplibregl-ctrl-bottom-right {
-    bottom: 4.5rem !important;
+  .atlas-map-ui-host .maplibregl-ctrl-bottom-right {
+    bottom: var(--atlas-map-ui-bottom-spacer) !important;
   }
 
   .maplibregl-ctrl-group button {

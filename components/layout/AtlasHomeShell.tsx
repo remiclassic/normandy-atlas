@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Award, Clapperboard, Heart, BookOpen, Menu } from 'lucide-react';
+import { ArrowLeft, Heart, BookOpen, Menu } from 'lucide-react';
 import { useMapStore } from '@/lib/store';
 import MapLoader from '@/components/map/MapLoader';
 import MapDeepLinkSync from '@/components/map/MapDeepLinkSync';
@@ -56,9 +56,9 @@ import AtlasMenuDrawer from '@/components/layout/AtlasMenuDrawer';
 import AtlasToolsMenuBody from '@/components/layout/AtlasToolsMenuBody';
 import MobileMoreSheet from '@/components/layout/MobileMoreSheet';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
-import MobileContinueJourneyFab from '@/components/layout/MobileContinueJourneyFab';
 import { HubMobileChromeProvider } from '@/components/layout/HubMobileChromeContext';
 import { CommandPaletteHeaderTrigger } from '@/components/command-palette/CommandPaletteHeaderTrigger';
+import AtlasMobileMapHeader from '@/components/layout/AtlasMobileMapHeader';
 import AncestryJourneyMapDock from '@/components/ancestry/AncestryJourneyMapDock';
 import NormanStoryMode from '@/components/norman-identity/NormanStoryMode';
 import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
@@ -193,8 +193,12 @@ export default function AtlasHomeShell() {
   }, []);
 
   const storyMode = useMapStore((s) => s.storyMode);
+  const atlasMode = useMapStore((s) => s.atlasMode);
+  const cinematicFlythrough = useMapStore((s) => s.cinematicFlythrough);
   const storyEraIntroActive = useMapStore((s) => s.storyEraIntroActive);
   const normanIdentityStoryOpen = useMapStore((s) => s.normanIdentityStoryOpen);
+  const playDockVisible =
+    isMobile && !storyMode && Boolean(atlasMode) && cinematicFlythrough == null;
   useEffect(() => {
     document.documentElement.classList.toggle('atlas-story-open', storyMode);
     return () => document.documentElement.classList.remove('atlas-story-open');
@@ -361,84 +365,12 @@ export default function AtlasHomeShell() {
         className={`relative z-30 w-full shrink-0 border-b border-chrome-border bg-background/80 backdrop-blur-xl pointer-events-none shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-opacity duration-200 ${storyEraIntroActive ? 'opacity-0' : ''}`}
       >
         {isMobile ? (
-          /* ── Mobile compact header ─────────────────────── */
-          <div className="flex flex-col pointer-events-auto">
-            {/* Row 1: nav icons + expedition chip */}
-            <div className="flex items-center gap-2 px-3 py-1.5">
-              <button
-                onClick={openMobileMenu}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-text-muted transition-colors touch-target"
-                aria-label="Open menu"
-              >
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
-
-              {storyLibraryOpen ? (
-                <button
-                  ref={storyLibraryCloseRef}
-                  type="button"
-                  onClick={closeStoryLibrary}
-                  className="flex max-w-[min(100%,11rem)] shrink-0 touch-target items-center gap-1.5 rounded-lg border border-chrome-border bg-chrome-fill px-2.5 py-2 text-[11px] font-semibold text-text-muted transition-colors hover:border-gold/35 hover:bg-chrome-fill-active hover:text-parchment"
-                  aria-label={t('storyLibrary.backToMap', locale)}
-                >
-                  <ArrowLeft className="h-4 w-4 shrink-0 text-gold/80" strokeWidth={2.25} aria-hidden />
-                  <span className="truncate">{t('storyLibrary.backToMap', locale)}</span>
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={openStoryLibrary}
-                  className="atlas-icon-hover-cyan flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim transition-colors hover:bg-chrome-fill touch-target"
-                  aria-label={t('storyLibrary.aria.open', locale)}
-                >
-                  <Clapperboard className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
-                </button>
-              )}
-
-              {!storyLibraryOpen && (
-                <Link
-                  href={GENEALOGY_NORMAN_IDENTITY_PATH}
-                  onClick={stopLedgerPulseOnJournalNavigate}
-                  className="atlas-cyan-nav-chip flex max-w-[min(100%,7rem)] shrink-0 touch-target items-center justify-center rounded-lg px-2 py-2 text-[10px] font-bold uppercase leading-tight tracking-wide"
-                >
-                  {t('normanIdentity.cta.startStory', locale)}
-                </Link>
-              )}
-
-              {!storyLibraryOpen && (
-                <Link
-                  href="/profile"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-text-dim hover:bg-chrome-fill hover:text-parchment transition-colors touch-target"
-                  aria-label={t('profile.aria.open', locale)}
-                >
-                  <Award className="h-[17px] w-[17px]" strokeWidth={1.5} aria-hidden />
-                </Link>
-              )}
-
-              <CommandPaletteHeaderTrigger size="mobileTouch" />
-
-              <AtlasHeaderRetentionChips storyLibraryOpen={storyLibraryOpen} compact />
-
-              <div className="min-w-0 flex-1 flex justify-end">
-                <ExpeditionProgressChip onOpenLedger={openLedgerAndEndCelebration} compact />
-              </div>
-            </div>
-
-            {/* Row 2: era selector or story library title (full width) */}
-            <div className="min-w-0 w-full border-t border-chrome-border/40 px-3">
-              {storyLibraryOpen ? (
-                <div className="flex min-h-9 items-center justify-center px-1">
-                  <p className="truncate text-center font-display text-[12px] font-semibold tracking-tight text-text-muted">
-                    {t('storyLibrary.title', locale)}
-                  </p>
-                </div>
-              ) : (
-                <EraSelector compact />
-              )}
-            </div>
-          </div>
+          <AtlasMobileMapHeader
+            storyLibraryOpen={storyLibraryOpen}
+            storyLibraryCloseRef={storyLibraryCloseRef}
+            onCloseStoryLibrary={closeStoryLibrary}
+            onOpenLedger={openLedgerAndEndCelebration}
+          />
         ) : (
           /* ── Desktop/tablet header ─────────────────────── */
           <div className="flex flex-col pointer-events-auto">
@@ -540,8 +472,9 @@ export default function AtlasHomeShell() {
       {/* ─── Main content ───────────────────────────────────── */}
       <div className="relative flex min-h-0 min-w-0 flex-1">
         <div
-          className={`relative min-h-0 min-w-0 flex-1 ${storyEraIntroActive ? 'overflow-hidden' : ''}`}
+          className={`relative min-h-0 min-w-0 flex-1 atlas-map-ui-host ${storyEraIntroActive ? 'overflow-hidden' : ''}`}
           data-onboarding="map"
+          data-play-dock={playDockVisible ? '1' : '0'}
         >
           <MapDeepLinkSync />
           <MapLoader />
@@ -549,11 +482,11 @@ export default function AtlasHomeShell() {
 
           {/* Map overlay panels, repositioned for mobile to clear the play dock */}
           <div
-            className={`absolute z-20 flex flex-col items-start gap-2 transition-opacity duration-200 ${
+            className={`absolute z-20 flex flex-col items-start gap-2 transition-[bottom,opacity] duration-200 ease-out ${
               isMobile
                 ? storyMode
                   ? 'bottom-20 left-3 right-3'
-                  : 'bottom-[max(5.5rem,calc(3.75rem+env(safe-area-inset-bottom)+2.25rem))] left-3 right-3'
+                  : 'left-3 right-3 max-md:bottom-[calc(var(--atlas-map-ui-bottom-spacer)+var(--atlas-map-layers-stack-gap))]'
                 : 'bottom-28 left-5'
             } ${storyEraIntroActive ? 'pointer-events-none opacity-0' : ''}`}
             data-onboarding="layers"
@@ -617,12 +550,7 @@ export default function AtlasHomeShell() {
         </AtlasMenuDrawer>
       )}
 
-      {isMobile && !storyMode ? (
-        <>
-          <MobileContinueJourneyFab />
-          <MobileBottomNav />
-        </>
-      ) : null}
+      {isMobile && !storyMode ? <MobileBottomNav /> : null}
 
       {/* ─── Modals ─────────────────────────────────────────── */}
       <CreditsModal

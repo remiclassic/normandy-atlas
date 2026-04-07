@@ -1,7 +1,8 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { memo, useEffect, useId, useRef } from 'react';
+import { memo, useEffect, useId, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocale } from '@/hooks/use-atlas';
 import { t, type UiStringKey } from '@/lib/ui-strings';
@@ -21,6 +22,8 @@ const MobileMoreSheet = memo(function MobileMoreSheet({
   const locale = useLocale();
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
+  const [portalReady, setPortalReady] = useState(false);
+  useEffect(() => setPortalReady(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -39,7 +42,10 @@ const MobileMoreSheet = memo(function MobileMoreSheet({
     return () => cancelAnimationFrame(tmr);
   }, [open]);
 
-  return (
+  /** After mount: portal to body so fixed layers are not clipped by hub shells (fixed/sticky/overflow). */
+  if (!portalReady) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -61,17 +67,17 @@ const MobileMoreSheet = memo(function MobileMoreSheet({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '100%', opacity: 0.96 }}
             transition={{ type: 'spring', damping: 30, stiffness: 320 }}
-            className="fixed inset-x-0 bottom-0 z-[73] max-h-[min(92dvh,48rem)] overflow-hidden rounded-t-2xl border border-chrome-border-strong/80 bg-chrome-popover shadow-[0_-8px_40px_rgba(0,0,0,0.45)] md:hidden"
+            className="fixed inset-x-0 bottom-0 z-[73] flex max-h-[min(92dvh,48rem)] flex-col overflow-hidden rounded-t-2xl border border-chrome-border-strong/80 bg-chrome-popover shadow-[0_-8px_40px_rgba(0,0,0,0.45)] md:hidden"
             style={{
               paddingBottom: 'env(safe-area-inset-bottom)',
               backdropFilter: 'blur(40px) saturate(1.15)',
               WebkitBackdropFilter: 'blur(40px) saturate(1.15)',
             }}
           >
-            <div className="sticky top-0 z-10 flex items-center justify-center border-b border-chrome-border/60 bg-chrome-popover/95 px-3 py-2">
+            <div className="flex shrink-0 items-center justify-center border-b border-chrome-border/60 bg-chrome-popover/95 px-3 py-2">
               <div className="h-1 w-9 shrink-0 rounded-full bg-chrome-divider" aria-hidden />
             </div>
-            <div className="flex items-center justify-between gap-3 border-b border-chrome-border/50 px-4 py-3">
+            <div className="flex shrink-0 items-center justify-between gap-3 border-b border-chrome-border/50 px-4 py-3">
               <h2 id={titleId} className="min-w-0 truncate font-display text-base font-semibold tracking-wide text-gold">
                 {t(titleKey, locale)}
               </h2>
@@ -83,13 +89,14 @@ const MobileMoreSheet = memo(function MobileMoreSheet({
                 {t('mobileNav.moreSheetClose', locale)}
               </button>
             </div>
-            <div className="max-h-[min(78dvh,42rem)] overflow-y-auto overscroll-y-contain px-4 pb-6 pt-4 scrollbar-thin">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-4 pb-6 pt-4 [-webkit-overflow-scrolling:touch] scrollbar-thin">
               {children}
             </div>
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 });
 

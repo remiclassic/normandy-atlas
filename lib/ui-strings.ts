@@ -4213,6 +4213,16 @@ const STRINGS = {
     sv: 'Fortsätt resan',
     da: 'Fortsæt rejsen',
   },
+  'mobileNav.continueJourneyDismiss': {
+    en: 'Hide continue journey',
+    fr: 'Masquer la reprise du parcours',
+    es: 'Ocultar continuar recorrido',
+    it: 'Nascondi continua percorso',
+    de: 'Fortsetzen ausblenden',
+    nb: 'Skjul fortsett reisen',
+    sv: 'Dölj fortsätt resan',
+    da: 'Skjul fortsæt rejsen',
+  },
 
   'genealogy.subnav.moreTools': {
     en: 'More tools',

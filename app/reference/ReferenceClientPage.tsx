@@ -10,6 +10,7 @@ import AtlasReadingNoiseBackdrop from '@/components/layout/AtlasReadingNoiseBack
 import { atlasHubShellStyle } from '@/lib/atlas-hub-shell-style';
 import { useLocale } from '@/hooks/use-atlas';
 import { t } from '@/lib/ui-strings';
+import ReferenceHubContinueCard from '@/components/layout/ReferenceHubContinueCard';
 
 export default function ReferenceClientPage() {
   const locale = useLocale();
@@ -35,6 +36,7 @@ export default function ReferenceClientPage() {
             id="reference-hub-main"
             className={`relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-y-contain scrollbar-thin pt-10 pl-[max(1.25rem,env(safe-area-inset-left))] pr-[max(1.25rem,env(safe-area-inset-right))] md:px-8 md:pt-14 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
           >
+            <ReferenceHubContinueCard />
             <ReferenceHubCards />
           </main>
         </div>

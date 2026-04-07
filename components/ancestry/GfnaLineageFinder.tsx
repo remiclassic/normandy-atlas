@@ -32,10 +32,10 @@ const CatalogHitRow = memo(function CatalogHitRow({ h, locale }: { h: GfnaCatalo
   return (
     <li className="rounded-lg border border-chrome-border/50 bg-chrome-fill/30 px-3 py-2 text-[12px]">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-medium text-parchment/95">{h.label}</span>
+        <span className="font-medium text-parchment">{h.label}</span>
         <span className="font-mono text-[11px] text-text-muted">{h.haplogroup}</span>
       </div>
-      <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-wide text-text-dim">
+      <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] font-medium uppercase tracking-wide text-text-muted">
         <span>{h.kind === 'Y' ? 'Y-DNA' : 'mtDNA'}</span>
         <span>{h.status === 'presumed' ? 'Presumed' : 'Triangulated'}</span>
         {h.marriageYear != null ? <span>m. {h.marriageYear}</span> : null}
@@ -45,7 +45,7 @@ const CatalogHitRow = memo(function CatalogHitRow({ h, locale }: { h: GfnaCatalo
       <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
         <Link
           href={`/?${h.mapQuery.key}=${encodeURIComponent(h.mapQuery.value)}`}
-          className="text-[11px] font-medium text-gold/85 hover:text-gold"
+          className="text-[11px] font-semibold text-gold hover:text-gold-bright"
         >
           {t('genealogy.gfnaFinderOpenMap', locale)}
         </Link>
@@ -54,7 +54,7 @@ const CatalogHitRow = memo(function CatalogHitRow({ h, locale }: { h: GfnaCatalo
             href={gfnaFamilySheetUrl(h.familySheetNo)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-sky-300/85 hover:text-sky-200"
+            className="text-[11px] font-medium text-[color:var(--color-blue)] underline-offset-2 hover:text-[color:var(--color-blue-bright)] hover:underline"
           >
             {t('genealogy.gfnaFinderFamilySheet', locale)}
           </a>
@@ -64,7 +64,7 @@ const CatalogHitRow = memo(function CatalogHitRow({ h, locale }: { h: GfnaCatalo
             href={gfnaMtTriangulationUrl(h.triId)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-emerald-300/85 hover:text-emerald-200"
+            className="text-[11px] font-medium text-[color:var(--color-ember)] underline-offset-2 hover:underline hover:opacity-95"
           >
             {t('genealogy.gfnaFinderTriSheet', locale)}
           </a>
@@ -165,8 +165,8 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
       onClick={() => setKindFilter(id)}
       className={`rounded-md border px-2.5 py-1 text-[11px] font-medium transition-colors duration-150 ${
         kindFilter === id
-          ? 'border-gold/45 bg-gold/15 text-gold/95'
-          : 'border-chrome-border-strong/50 bg-chrome-fill-badge text-text-dim hover:border-chrome-border hover:text-text-muted'
+          ? 'border-gold/45 bg-gold/15 text-gold'
+          : 'border-chrome-border-strong/50 bg-chrome-fill-badge text-text-muted hover:border-chrome-border hover:text-parchment'
       }`}
     >
       {t(labelKey, locale)}
@@ -178,17 +178,17 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
       className="mb-10 space-y-4 rounded-xl border border-chrome-border-strong/45 bg-chrome-fill/25 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
       aria-labelledby="gfna-catalog-finder-heading"
     >
-      <h2 id="gfna-catalog-finder-heading" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold/70">
+      <h2 id="gfna-catalog-finder-heading" className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
         {t('genealogy.gfnaFinderTitle', locale)}
       </h2>
-      <p className="text-[12px] leading-relaxed text-text-dim">{t('genealogy.gfnaFinderHint', locale)}</p>
-      <p className="text-[11px] leading-relaxed text-text-dim/85">{t('genealogy.gfnaFinderCatalogContext', locale)}</p>
+      <p className="text-[12px] leading-relaxed text-text-muted">{t('genealogy.gfnaFinderHint', locale)}</p>
+      <p className="text-[11px] leading-relaxed text-text-muted">{t('genealogy.gfnaFinderCatalogContext', locale)}</p>
 
       <div className="rounded-lg border border-chrome-border/40 bg-chrome-fill/20 p-4 space-y-3">
-        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/55">
+        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-muted">
           {t('genealogy.gfnaFinderBrowseTitle', locale)}
         </h3>
-        <p className="text-[11px] leading-relaxed text-text-dim/90">{t('genealogy.gfnaFinderBrowseSubtitle', locale)}</p>
+        <p className="text-[11px] leading-relaxed text-text-muted">{t('genealogy.gfnaFinderBrowseSubtitle', locale)}</p>
 
         <div className="flex flex-wrap gap-1.5" role="group" aria-label={t('genealogy.gfnaFinderBrowseTitle', locale)}>
           {kindBtn('all', 'genealogy.gfnaFinderFilterAll')}
@@ -198,7 +198,7 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
 
         {kindFilter !== 'mtDNA' ? (
           <label className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-text-dim shrink-0">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-text-muted shrink-0">
               {t('genealogy.gfnaFinderYGroupLabel', locale)}
             </span>
             <AtlasSelect
@@ -214,7 +214,7 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
         ) : null}
 
         <label className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-text-dim shrink-0">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-text-muted shrink-0">
             {t('genealogy.gfnaFinderSortLabel', locale)}
           </span>
           <AtlasSelect
@@ -226,7 +226,7 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
           />
         </label>
 
-        <label className="flex cursor-pointer items-center gap-2 text-[11px] text-text-dim/90">
+        <label className="flex cursor-pointer items-center gap-2 text-[11px] text-text-muted">
           <input
             type="checkbox"
             checked={normanAtlasOnly}
@@ -237,10 +237,10 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
         </label>
 
         {browseFiltered.length === 0 ? (
-          <p className="text-[11px] text-text-dim">{t('genealogy.gfnaFinderEmpty', locale)}</p>
+          <p className="text-[11px] text-text-muted">{t('genealogy.gfnaFinderEmpty', locale)}</p>
         ) : (
           <>
-            <p className="text-[10px] text-text-dim/85">
+            <p className="text-[10px] text-text-muted">
               {locale === 'fr'
                 ? `${rangeFrom}–${rangeTo} sur ${browseFiltered.length} ${t('genealogy.gfnaFinderLineages', locale)}`
                 : `${rangeFrom}–${rangeTo} of ${browseFiltered.length} ${t('genealogy.gfnaFinderLineages', locale)}`}
@@ -256,18 +256,18 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
                   type="button"
                   disabled={safePage <= 0}
                   onClick={() => setPage((p) => Math.max(0, p - 1))}
-                  className="rounded-md border border-chrome-border-strong/50 px-3 py-1 text-[11px] font-medium text-text-dim enabled:hover:border-gold/35 enabled:hover:text-text-muted disabled:opacity-40"
+                  className="rounded-md border border-chrome-border-strong/50 px-3 py-1 text-[11px] font-medium text-text-muted enabled:hover:border-gold/35 enabled:hover:text-parchment disabled:opacity-40"
                 >
                   {t('genealogy.gfnaFinderPrev', locale)}
                 </button>
-                <span className="text-[10px] text-text-dim">
+                <span className="text-[10px] font-medium tabular-nums text-text-muted">
                   {safePage + 1} / {pageCount}
                 </span>
                 <button
                   type="button"
                   disabled={safePage >= pageCount - 1}
                   onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
-                  className="rounded-md border border-chrome-border-strong/50 px-3 py-1 text-[11px] font-medium text-text-dim enabled:hover:border-gold/35 enabled:hover:text-text-muted disabled:opacity-40"
+                  className="rounded-md border border-chrome-border-strong/50 px-3 py-1 text-[11px] font-medium text-text-muted enabled:hover:border-gold/35 enabled:hover:text-parchment disabled:opacity-40"
                 >
                   {t('genealogy.gfnaFinderNext', locale)}
                 </button>
@@ -278,13 +278,13 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold/55">
+        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-muted">
           {t('genealogy.gfnaFinderSearchTitle', locale)}
         </h3>
         <label className="relative block">
           <span className="sr-only">{t('genealogy.gfnaFinderPlaceholder', locale)}</span>
           <Search
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-dim/60"
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted/70"
             aria-hidden
           />
           <input
@@ -297,7 +297,7 @@ const GfnaLineageFinder = memo(function GfnaLineageFinder() {
           />
         </label>
         {q.trim().length >= 2 && searchHits.length === 0 ? (
-          <p className="text-[11px] text-text-dim">{t('genealogy.gfnaFinderEmpty', locale)}</p>
+          <p className="text-[11px] text-text-muted">{t('genealogy.gfnaFinderEmpty', locale)}</p>
         ) : null}
         {q.trim().length >= 2 && searchHits.length > 0 ? (
           <ul className="max-h-52 space-y-2 overflow-y-auto scrollbar-thin pr-1">
