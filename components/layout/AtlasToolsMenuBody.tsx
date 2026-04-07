@@ -10,6 +10,7 @@ import {
   Feather,
   FolderOpen,
   GitCompare,
+  GraduationCap,
   Heart,
   Library,
   Map,
@@ -18,6 +19,7 @@ import {
   MapPin,
   Share2,
   Signpost,
+  Sparkles,
   Terminal,
   Type,
   Users,
@@ -117,6 +119,21 @@ export default function AtlasToolsMenuBody({
               <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('storyLibrary.subtitle', locale)}</span>
             </span>
           </Link>
+          <Link
+            href="/profile#atlas-pro"
+            onClick={() => onClose()}
+            className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"
+          >
+            <Sparkles className="mt-0.5 h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block text-[13px] font-medium text-text-muted">{t('toolsMenu.atlasProLabel', locale)}</span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">
+                {process.env.NEXT_PUBLIC_ATLAS_PRO_CHECKOUT_ENABLED === 'true'
+                  ? t('toolsMenu.atlasProHint', locale)
+                  : t('toolsMenu.atlasProHintSoon', locale)}
+              </span>
+            </span>
+          </Link>
         </div>
 
         <div className="space-y-2">
@@ -147,6 +164,20 @@ export default function AtlasToolsMenuBody({
             <span className="min-w-0 flex-1">
               <span className="block text-[13px] font-medium text-text-muted">{t('atlasJournal.tooltip.label', locale)}</span>
               <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('atlasJournal.tooltip.hint', locale)}</span>
+            </span>
+          </Link>
+          <Link
+            href="/education"
+            onClick={() => {
+              beforeReferenceNav?.();
+              onClose();
+            }}
+            className="flex w-full items-start gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-chrome-fill-badge touch-target"
+          >
+            <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 opacity-60" strokeWidth={1.2} aria-hidden />
+            <span className="min-w-0 flex-1">
+              <span className="block text-[13px] font-medium text-text-muted">{t('toolsMenu.educationLabel', locale)}</span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-text-dim">{t('toolsMenu.educationHint', locale)}</span>
             </span>
           </Link>
           <Link

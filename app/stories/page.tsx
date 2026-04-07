@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import { defaultOpenGraphImages, defaultTwitterImages } from '@/lib/social-metadata';
 import StoriesPageClient from './StoriesPageClient';
 
 const title = 'Story library — Norman Atlas';
@@ -9,7 +10,8 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title, description },
+  openGraph: { title, description, type: 'website', images: defaultOpenGraphImages },
+  twitter: { card: 'summary_large_image', title, description, images: defaultTwitterImages },
 };
 
 function StoriesFallback() {

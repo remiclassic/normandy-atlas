@@ -5,6 +5,10 @@ import { useMapStore } from '@/lib/store';
 import { getBeat, getBeatCount, getEffectiveStoryBeat } from '@/core';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
+import {
+  normanAtlanticStory,
+  normanAtlanticGalleryStepIdFromBeatId,
+} from '@/data/stories';
 import { IllustrationGalleryLightbox } from './StoryBeatIllustration';
 
 const CINEMATIC_ARC_IDS = new Set(['leif-erikson']);
@@ -24,6 +28,18 @@ export default memo(function StoryImageGallery() {
 
   const items = useMemo(() => {
     if (!gallery.open || !gallery.beatId) return [];
+    const legacyStepId = normanAtlanticGalleryStepIdFromBeatId(gallery.beatId);
+    if (legacyStepId != null) {
+      const step = normanAtlanticStory.find((s) => s.id === legacyStepId);
+      if (!step?.imageUrl) return [];
+      return [
+        {
+          src: publicAssetUrl(step.imageUrl),
+          alt: step.title,
+          credit: step.imageCaption ?? null,
+        },
+      ];
+    }
     const beat = getBeat(Math.min(stepIndex, getBeatCount(storyArc) - 1), storyArc);
     if (!beat) return [];
     const cinematic = storyArc != null && CINEMATIC_ARC_IDS.has(storyArc);

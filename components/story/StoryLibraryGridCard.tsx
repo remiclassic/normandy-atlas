@@ -9,6 +9,7 @@ import { arcChromeStyle } from '@/data/atlas/era-arcs';
 import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import { t } from '@/lib/ui-strings';
+import { reliabilityLabelKey } from '@/lib/normandy-story-figures';
 
 interface Props {
   row: StoryLibraryRowModel;
@@ -16,8 +17,6 @@ interface Props {
   uiTheme: UiTheme;
   progress?: StoryProgressRecord;
   variant: 'medium' | 'standard';
-  /** Horizontal shelves (e.g. continue watching): keep 16:9 for every category; People arcs are otherwise portrait in grids. */
-  forceLandscapeAspect?: boolean;
   isSelected?: boolean;
   onSelect: (row: StoryLibraryRowModel) => void;
   onHoverEnter?: (row: StoryLibraryRowModel) => void;
@@ -30,7 +29,6 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
   uiTheme,
   progress,
   variant,
-  forceLandscapeAspect = false,
   isSelected,
   onSelect,
   onHoverEnter,
@@ -67,19 +65,30 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
   const handleMouseEnter = useCallback(() => onHoverEnter?.(row), [onHoverEnter, row]);
   const handleMouseLeave = useCallback(() => onHoverLeave?.(), [onHoverLeave]);
 
-  const isPeople = row.meta.category === 'People';
-  const aspectClass =
-    forceLandscapeAspect || !isPeople
-      ? variant === 'medium'
-        ? 'aspect-[16/10]'
-        : 'aspect-video'
-      : 'aspect-[3/4]';
+  /** Uniform letterbox tiles (16:9); avoids tall portrait tiles and mixed heights in category grids. */
+  const aspectClass = 'aspect-video';
 
   const metaLine = useMemo(() => {
     const parts: string[] = [];
     if (row.timelineRange) {
       const fmt = (y: number) => (y < 0 ? `${Math.abs(y)} BCE` : String(y));
       parts.push(`${fmt(row.timelineRange.start)}–${fmt(row.timelineRange.end)}`);
+    }
+    if (row.meta.rowKind === 'normandyFigure') {
+      if (row.meta.normandyFigureReliability) {
+        parts.push(t(reliabilityLabelKey(row.meta.normandyFigureReliability), locale));
+      }
+      if (row.chapterTitlesExtended.length > 0) {
+        parts.push(
+          t('storyLibrary.figure.arcStagesCount', locale).replace(
+            '{count}',
+            String(row.chapterTitlesExtended.length),
+          ),
+        );
+      } else {
+        parts.push(t('storyLibrary.figure.cardMeta', locale));
+      }
+      return parts.join(' · ');
     }
     parts.push(
       t('storyLibrary.scenes', locale).replace('{count}', String(row.sceneCount)),
@@ -88,7 +97,7 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
       parts.push(`~${row.meta.estimatedMinutes} min`);
     }
     return parts.join(' · ');
-  }, [row.timelineRange, row.sceneCount, row.meta.estimatedMinutes, locale]);
+  }, [row, locale]);
 
   return (
     <button
@@ -114,7 +123,7 @@ export const StoryLibraryGridCard = memo(function StoryLibraryGridCard({
           alt=""
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.06]"
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-transparent to-white/[0.02]" />

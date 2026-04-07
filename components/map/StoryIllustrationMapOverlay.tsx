@@ -11,6 +11,10 @@ import {
 } from '@/core';
 import type { AtlasLocale, StoryBeatIllustrationSlide } from '@/core/types';
 import { StoryBeatMapPin } from '@/components/story/StoryBeatIllustration';
+import {
+  normanAtlanticStory,
+  normanAtlanticStoryGalleryBeatId,
+} from '@/data/stories';
 
 const CINEMATIC_ARC_IDS = new Set(['leif-erikson']);
 
@@ -42,24 +46,45 @@ export function StoryIllustrationMapOverlay({
   const locale = useMapStore((s) => s.locale);
 
   const pins = useMemo((): ResolvedPin[] => {
-    if (!storyMode || !atlasMode) return [];
-    const count = getBeatCount(storyArc);
-    if (count < 1) return [];
-    const rawBeat = getBeat(Math.min(stepIndex, count - 1), storyArc);
-    if (!rawBeat) return [];
-    const cinematic = storyArc != null && CINEMATIC_ARC_IDS.has(storyArc);
-    const beat = getEffectiveStoryBeat(rawBeat, { cinematic, storyViewMode });
-    const slides = beat.illustrations;
-    if (!slides?.length) return [];
+    if (!storyMode) return [];
+    if (atlasMode) {
+      const count = getBeatCount(storyArc);
+      if (count < 1) return [];
+      const rawBeat = getBeat(Math.min(stepIndex, count - 1), storyArc);
+      if (!rawBeat) return [];
+      const cinematic = storyArc != null && CINEMATIC_ARC_IDS.has(storyArc);
+      const beat = getEffectiveStoryBeat(rawBeat, { cinematic, storyViewMode });
+      const slides = beat.illustrations;
+      if (!slides?.length) return [];
 
-    const result: ResolvedPin[] = [];
-    for (let i = 0; i < slides.length; i++) {
-      const slide = slides[i];
-      const anchor = resolveSlideAnchor(slide, beat);
-      if (!anchor) continue;
-      result.push({ slide, lng: anchor[0], lat: anchor[1], slideIndex: i, beatId: beat.id });
+      const result: ResolvedPin[] = [];
+      for (let i = 0; i < slides.length; i++) {
+        const slide = slides[i];
+        const anchor = resolveSlideAnchor(slide, beat);
+        if (!anchor) continue;
+        result.push({ slide, lng: anchor[0], lat: anchor[1], slideIndex: i, beatId: beat.id });
+      }
+      return result;
     }
-    return result;
+
+    const step = normanAtlanticStory[Math.min(stepIndex, normanAtlanticStory.length - 1)];
+    if (!step?.imageUrl) return [];
+    const center = step.camera?.center;
+    if (!center || center.length < 2) return [];
+    const slide: StoryBeatIllustrationSlide = {
+      src: step.imageUrl,
+      alt: { en: step.title },
+      ...(step.imageCaption ? { credit: { en: step.imageCaption } } : {}),
+    };
+    return [
+      {
+        slide,
+        lng: center[0],
+        lat: center[1],
+        slideIndex: 0,
+        beatId: normanAtlanticStoryGalleryBeatId(step.id),
+      },
+    ];
   }, [storyMode, atlasMode, storyArc, stepIndex, storyViewMode]);
 
   const [positions, setPositions] = useState<(({ x: number; y: number }) | null)[]>([]);

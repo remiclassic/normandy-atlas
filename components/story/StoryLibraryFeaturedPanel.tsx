@@ -12,6 +12,7 @@ import { pickI18n } from '@/lib/locale';
 import { publicAssetUrl } from '@/lib/public-asset-url';
 import { t, type UiStringKey } from '@/lib/ui-strings';
 import { STORY_LIBRARY_EMPTY_HERO_POSTER } from '@/lib/story-library-empty-hero';
+import { reliabilityLabelKey } from '@/lib/normandy-story-figures';
 import { ChevronLeft, ChevronRight, Play, RotateCcw } from 'lucide-react';
 
 const CATEGORY_KEY: Record<StoryCategory, UiStringKey> = {
@@ -50,6 +51,8 @@ interface Props {
   totalCount?: number;
   onSwipeNext?: () => void;
   onSwipePrev?: () => void;
+  /** Figure with both norman reading slug and legacy map step: opens chronicle on map. */
+  onPlayFigureMapChronicle?: () => void;
 }
 
 export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel({
@@ -65,6 +68,7 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
   totalCount,
   onSwipeNext,
   onSwipePrev,
+  onPlayFigureMapChronicle,
 }: Props) {
   const reducedMotion = useReducedMotion();
 
@@ -77,7 +81,12 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
         ? pickI18n(row.arcEntry.label, locale)
         : '';
 
-    const hook = row.meta.hook ? pickI18n(row.meta.hook, locale) : '';
+    const isFigure = row.meta.rowKind === 'normandyFigure';
+    const figureLinked =
+      isFigure && Boolean(row.meta.normanReadingSlug || row.meta.legacyAtlanticStoryStepId);
+    const hookFromMeta = row.meta.hook ? pickI18n(row.meta.hook, locale) : '';
+    const hook =
+      hookFromMeta || (figureLinked ? t('storyLibrary.figure.linkedArcHook', locale) : '');
     const blurb = pickI18n(row.meta.blurb, locale);
     const poster = row.resolvedPosterSrc ? publicAssetUrl(row.resolvedPosterSrc) : null;
     const canResume = Boolean(progress && !progress.completed && progress.lastStep > 0);
@@ -88,12 +97,49 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
     const durationLabel = row.meta.estimatedMinutes != null
       ? t('storyLibrary.durationMinutes', locale).replace('{count}', String(row.meta.estimatedMinutes))
       : null;
-    const scenesLabel = t('storyLibrary.scenes', locale).replace('{count}', String(row.sceneCount));
+    let scenesLabel: string;
+    if (!isFigure) {
+      scenesLabel = t('storyLibrary.scenes', locale).replace('{count}', String(row.sceneCount));
+    } else if (row.chapterTitlesExtended.length > 0) {
+      const parts: string[] = [];
+      if (row.meta.normandyFigureReliability) {
+        parts.push(t(reliabilityLabelKey(row.meta.normandyFigureReliability), locale));
+      }
+      parts.push(
+        t('storyLibrary.figure.arcStagesCount', locale).replace(
+          '{count}',
+          String(row.chapterTitlesExtended.length),
+        ),
+      );
+      scenesLabel = parts.join(' · ');
+    } else if (row.meta.normandyFigureReliability) {
+      scenesLabel = t(reliabilityLabelKey(row.meta.normandyFigureReliability), locale);
+    } else {
+      scenesLabel = t('storyLibrary.figure.cardMeta', locale);
+    }
     const timelineLabel = row.timelineRange ? formatTimelineRange(row.timelineRange) : null;
+    const kindSuffixLabel =
+      isFigure && figureLinked
+        ? t('storyLibrary.figure.arcSuffix', locale)
+        : isFigure
+          ? t('storyLibrary.figure.kindSuffix', locale)
+          : `${categoryLabel} Arc`;
+    const primaryCtaLabel = isFigure
+      ? figureLinked
+        ? row.meta.normanReadingSlug
+          ? t('storyLibrary.figure.openLinked', locale)
+          : t('storyLibrary.figure.openMapChronicle', locale)
+        : t('storyLibrary.figure.detailsPrompt', locale)
+      : t('storyLibrary.beginJourney', locale);
+
+    const showFigureMapChronicleCta =
+      isFigure &&
+      Boolean(row.meta.normanReadingSlug && row.meta.legacyAtlanticStoryStepId);
 
     return {
       title, hook, blurb, poster, canResume, chrome,
       categoryLabel, toneLabel, durationLabel, scenesLabel, timelineLabel,
+      kindSuffixLabel, primaryCtaLabel, figureLinked, isFigure, showFigureMapChronicleCta,
     };
   }, [row, locale, uiTheme, progress]);
 
@@ -165,6 +211,7 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
   const {
     title, hook, blurb, poster, canResume, chrome,
     categoryLabel, toneLabel, durationLabel, scenesLabel, timelineLabel,
+    kindSuffixLabel, primaryCtaLabel, figureLinked, isFigure, showFigureMapChronicleCta,
   } = derived;
 
   const heroContent = (
@@ -293,14 +340,14 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
             {timelineLabel && <span>{timelineLabel}</span>}
             {timelineLabel && <span className="text-white/20">·</span>}
             <span>{scenesLabel}</span>
-            {durationLabel && (
+            {!isFigure && durationLabel && (
               <>
                 <span className="text-white/20">·</span>
                 <span>~{durationLabel}</span>
               </>
             )}
             <span className="text-white/20">·</span>
-            <span>{categoryLabel} Arc</span>
+            <span>{kindSuffixLabel}</span>
           </div>
 
           {/* Actions */}
@@ -310,13 +357,30 @@ export const StoryLibraryFeaturedPanel = memo(function StoryLibraryFeaturedPanel
               onClick={onPlay}
               whileHover={reducedMotion ? undefined : { scale: 1.03 }}
               whileTap={reducedMotion ? undefined : { scale: 0.97 }}
-              className="flex h-11 sm:h-12 items-center gap-2.5 rounded-md bg-white px-6 sm:px-8 text-sm font-bold text-black hover:bg-white/90 transition-colors shadow-lg shadow-black/30"
+              className={`flex h-11 sm:h-12 items-center gap-2.5 rounded-md px-6 sm:px-8 text-sm font-bold transition-colors shadow-lg shadow-black/30 ${
+                isFigure && !figureLinked
+                  ? 'bg-white/85 text-black/80 hover:bg-white/95'
+                  : 'bg-white text-black hover:bg-white/90'
+              }`}
             >
               <Play className="h-4 w-4 fill-current" />
-              {t('storyLibrary.beginJourney', locale)}
+              {primaryCtaLabel}
             </motion.button>
 
-            {canResume && (
+            {showFigureMapChronicleCta && onPlayFigureMapChronicle && (
+              <motion.button
+                type="button"
+                onClick={onPlayFigureMapChronicle}
+                whileHover={reducedMotion ? undefined : { scale: 1.03 }}
+                whileTap={reducedMotion ? undefined : { scale: 0.97 }}
+                className="flex h-11 sm:h-12 items-center gap-2 rounded-md bg-white/15 px-5 sm:px-7 text-sm font-semibold text-white hover:bg-white/25 backdrop-blur-sm transition-colors border border-white/20"
+              >
+                <Play className="h-3.5 w-3.5 fill-current" />
+                {t('storyLibrary.figure.openMapChronicle', locale)}
+              </motion.button>
+            )}
+
+            {canResume && !isFigure && (
               <motion.button
                 type="button"
                 onClick={onResume}

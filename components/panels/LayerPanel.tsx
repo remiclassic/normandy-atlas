@@ -17,6 +17,8 @@ import type { AtlasLocale, HistoricalPresenceView } from '@/core/types';
 import { explainProvenance, HISTORICAL_PRESENCE_YEAR_PRESETS } from '@/core';
 import { historicalMacroRegionsDatasetMeta } from '@/data/atlas/historical-macro-regions/dataset-meta';
 import { GENEALOGY_HUB_PATH } from '@/lib/genealogy-paths';
+import { useEntitlements } from '@/hooks/useEntitlements';
+import { emitProGate } from '@/components/billing/ProGateHost';
 
 const LAYER_ICONS: Record<string, React.ReactNode> = {
   'regions-fill': (
@@ -557,6 +559,7 @@ const HistoricalPresenceControls = memo(function HistoricalPresenceControls() {
   const setView = useMapStore((s) => s.setHistoricalPresenceView);
   const setYear = useMapStore((s) => s.setHistoricalPresenceYear);
   const setCompare = useMapStore((s) => s.setHistoricalPresenceCompare);
+  const { loading: entLoading, data: ent } = useEntitlements();
 
   if (!(layers['historical-presence'] ?? false)) return null;
 
@@ -638,7 +641,16 @@ const HistoricalPresenceControls = memo(function HistoricalPresenceControls() {
           type="checkbox"
           className="rounded border-chrome-border"
           checked={compareOn}
-          onChange={(e) => setCompare(e.target.checked)}
+          onChange={(e) => {
+            const next = e.target.checked;
+            if (next) {
+              if (!entLoading && ent && !ent.macroCompare) {
+                emitProGate('macro_compare');
+                return;
+              }
+            }
+            setCompare(next);
+          }}
         />
         Compare two years (map overlay + detail panel)
       </label>

@@ -18,6 +18,9 @@ export const normanAtlanticStory: StoryStep[] = [
       zoom: 4.5,
     },
     highlightRouteIds: ['viking-seine'],
+    imageUrl: '/story/viking-age/oseberg-ship-viking-longship.jpg',
+    imageCaption:
+      'Oseberg ship (c. 820, Norway) — Viking Age longship type like those used in Seine raids. Photo: Wikimedia Commons.',
   },
   {
     id: 'step-rollo-treaty',
@@ -35,6 +38,9 @@ export const normanAtlanticStory: StoryStep[] = [
       zoom: 7,
     },
     highlightRegionIds: ['normandy'],
+    imageUrl: '/story/age-of-exploration/honfleur-port.jpg',
+    imageCaption:
+      'Honfleur (Seine estuary) — modern harbour in the Norman maritime world centred on Rouen, granted to Rollo’s followers. Story library photograph.',
   },
 
   // ──── Chapter 2: Norman Power ────
@@ -54,6 +60,9 @@ export const normanAtlanticStory: StoryStep[] = [
       zoom: 6.5,
     },
     highlightRouteIds: ['norman-conquest-1066'],
+    imageUrl: '/story/william-conqueror/bayeux-tapestry-fleet.jpg',
+    imageCaption:
+      'Bayeux Tapestry — Duke William’s invasion fleet crossing the Channel (1066). Wikimedia Commons (public domain).',
   },
   {
     id: 'step-norman-world',
@@ -71,6 +80,9 @@ export const normanAtlanticStory: StoryStep[] = [
       zoom: 4.2,
     },
     highlightRouteIds: ['norman-conquest-1066', 'norman-sicily'],
+    imageUrl: '/story/norman-expansion/crusade-jerusalem-1099.jpg',
+    imageCaption:
+      'First Crusade — Jerusalem (1099); one Mediterranean frontier where Norman lords and kin also built power (Italy, Sicily, Outremer). Wikimedia Commons.',
   },
 
   // ──── Chapter 3: The Atlantic Turn ────
@@ -91,6 +103,8 @@ export const normanAtlanticStory: StoryStep[] = [
       duration: 3000,
     },
     highlightRegionIds: ['normandy', 'brittany'],
+    imageUrl: '/story/age-of-exploration/dieppe-port.jpg',
+    imageCaption: 'Dieppe — Atlantic-facing Norman port (story library photograph).',
   },
   {
     id: 'step-cartier',
@@ -109,6 +123,8 @@ export const normanAtlanticStory: StoryStep[] = [
       duration: 4500,
     },
     highlightRouteIds: ['cartier-voyage-1534'],
+    imageUrl: '/story/new-france-foundations/saint-malo-historical-engraving.png',
+    imageCaption: 'Saint-Malo — Cartier’s sailing world (historical engraving, story library).',
   },
 
   // ──── Chapter 4: New France ────
@@ -130,6 +146,9 @@ export const normanAtlanticStory: StoryStep[] = [
     },
     highlightSettlementIds: ['quebec-city'],
     highlightRouteIds: ['champlain-quebec-1608'],
+    imageUrl: '/story/normandy-figures/samuel-de-champlain.jpg',
+    imageCaption:
+      'Samuel de Champlain — portrait after 17th-century tradition (Ronjat, 19th c.). Wikimedia Commons.',
   },
   {
     id: 'step-st-lawrence',
@@ -149,6 +168,9 @@ export const normanAtlanticStory: StoryStep[] = [
     },
     highlightRouteIds: ['st-lawrence-corridor'],
     highlightSettlementIds: ['quebec-city', 'montreal', 'trois-rivieres'],
+    imageUrl: '/story/age-of-exploration/gaspe-point-newport.jpg',
+    imageCaption:
+      'Gulf of St. Lawrence coast — eastern seaway into the river colony linking Quebec, Trois-Rivières, and Montreal to France. Story library photograph.',
   },
 
   // ──── Chapter 5: Acadia & the Frontier ────
@@ -170,6 +192,8 @@ export const normanAtlanticStory: StoryStep[] = [
     },
     highlightRegionIds: ['acadia'],
     highlightSettlementIds: ['port-royal', 'louisbourg'],
+    imageUrl: '/story/new-france-foundations/port-royal-habitation.jpg',
+    imageCaption: 'Port-Royal figure — French Acadian foothold (after Lescarbot; library).',
   },
 
   // ──── Chapter 6: The Interior ────
@@ -191,6 +215,9 @@ export const normanAtlanticStory: StoryStep[] = [
     },
     highlightRouteIds: ['mississippi-corridor'],
     highlightSettlementIds: ['new-orleans'],
+    imageUrl: '/story/normandy-figures/rene-robert-cavelier-de-la-salle.jpg',
+    imageCaption:
+      'René-Robert Cavelier, Sieur de La Salle — engraving-style portrait (Appleton’s Cyclopædia, 1892). Wikimedia Commons.',
   },
 
   // ──── Chapter 7: The Fall ────
@@ -212,5 +239,20 @@ export const normanAtlanticStory: StoryStep[] = [
     },
     highlightRegionIds: ['new-france-core', 'acadia', 'louisiana-colony'],
     highlightSettlementIds: ['quebec-city'],
+    imageUrl: '/story/atlantic-imprint/benjamin-west-death-of-general-wolfe.jpg',
+    imageCaption:
+      'Benjamin West, The Death of General Wolfe (1770) — Battle of the Plains of Abraham, 1759. Wikimedia Commons (public domain).',
   },
 ];
+
+/** `storyImageGallery.beatId` value for Atlantic chronicle (`normanAtlanticStory`) map-pin lightbox. */
+export const NORMAN_ATLANTIC_STORY_GALLERY_BEAT_PREFIX = 'legacy-atlantic:' as const;
+
+export function normanAtlanticStoryGalleryBeatId(stepId: string): string {
+  return `${NORMAN_ATLANTIC_STORY_GALLERY_BEAT_PREFIX}${stepId}`;
+}
+
+export function normanAtlanticGalleryStepIdFromBeatId(beatId: string): string | null {
+  if (!beatId.startsWith(NORMAN_ATLANTIC_STORY_GALLERY_BEAT_PREFIX)) return null;
+  return beatId.slice(NORMAN_ATLANTIC_STORY_GALLERY_BEAT_PREFIX.length);
+}

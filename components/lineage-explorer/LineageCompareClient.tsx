@@ -32,6 +32,8 @@ import type {
   NormanAtlasLineageFocus,
 } from '@/core/types';
 import AtlasSelect from '@/components/ui/AtlasSelect';
+import { useEntitlements } from '@/hooks/useEntitlements';
+import { emitProGate } from '@/components/billing/ProGateHost';
 
 const COMPARE_QUICK_PICKS = ['R1b', 'R1b-U106', 'I1', 'H1', 'U5', 'J2', 'E1b1b'];
 
@@ -344,6 +346,8 @@ const LineageCompareClient = memo(function LineageCompareClient() {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const { loading: entLoading, data: ent } = useEntitlements();
+  const lineageLocked = !entLoading && ent && !ent.lineageCompareTool;
 
   const idA = sp.get('a') ?? sp.get('y') ?? '';
   const idB = sp.get('b') ?? sp.get('mt') ?? '';
@@ -405,7 +409,7 @@ const LineageCompareClient = memo(function LineageCompareClient() {
             <main
               className={`relative z-10 min-h-0 min-w-0 flex-1 overflow-y-auto scrollbar-thin px-4 pt-8 md:px-8 md:pt-10 ${ATLAS_HUB_MOBILE_MAIN_BOTTOM_PAD_CLASS}`}
             >
-          <div className="mx-auto max-w-5xl">
+          <div className="relative mx-auto max-w-5xl">
             <Link
               href="/lineage-explorer"
               className="mb-6 inline-flex items-center gap-1.5 text-[12px] text-text-dim hover:text-gold"
@@ -546,7 +550,38 @@ const LineageCompareClient = memo(function LineageCompareClient() {
                 </div>
               </section>
             ) : null}
-            </div>
+
+            {lineageLocked ? (
+              <div className="pointer-events-auto absolute inset-0 z-20 flex items-start justify-center rounded-xl bg-background/80 px-4 pb-8 pt-12 backdrop-blur-[3px]">
+                <div className="max-w-md rounded-xl border border-gold/25 bg-chrome-fill p-6 text-center shadow-atlas-popover">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/60">Atlas Pro</p>
+                  <p className="mt-3 font-display text-[17px] font-semibold text-parchment">
+                    {locale === 'fr' ? 'Comparer deux lignées' : 'Compare two lineages'}
+                  </p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-text-muted">
+                    {locale === 'fr'
+                      ? 'Cet outil fait partie d’Atlas Pro. Les profils individuels restent gratuits.'
+                      : 'This tool is part of Atlas Pro. Individual lineage profiles stay free.'}
+                  </p>
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => emitProGate('lineage_compare')}
+                      className="rounded-lg border border-gold/35 bg-gold/15 px-4 py-2.5 text-[13px] font-semibold text-gold hover:bg-gold/25"
+                    >
+                      {locale === 'fr' ? 'Voir les offres' : 'View plans'}
+                    </button>
+                    <Link
+                      href="/lineage-explorer"
+                      className="rounded-lg border border-chrome-border px-4 py-2.5 text-[13px] font-medium text-text-muted hover:border-gold/25"
+                    >
+                      {locale === 'fr' ? 'Explorateur des lignées' : 'Lineage explorer'}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+          </div>
             </main>
           </div>
         </div>

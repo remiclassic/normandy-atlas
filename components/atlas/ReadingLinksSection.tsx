@@ -4,6 +4,7 @@ import { memo } from 'react';
 import type { AtlasReadingLink, AtlasLocale, ReadingLinkKind } from '@/core/types';
 import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
+import { appendAffiliateToUrl } from '@/lib/affiliate';
 
 const KIND_KEY_MAP: Record<ReadingLinkKind, `sources.kind.${ReadingLinkKind}`> = {
   primary: 'sources.kind.primary',
@@ -59,7 +60,7 @@ const ReadingLinksSection = memo(function ReadingLinksSection({
           return (
             <li key={link.url + i}>
               <a
-                href={link.url}
+                href={appendAffiliateToUrl(link.url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/link flex items-start gap-2.5 rounded-lg border border-chrome-border bg-chrome-fill-badge/40 px-3 py-2.5 hover:border-gold/20 hover:bg-gold/[0.04] transition-colors"

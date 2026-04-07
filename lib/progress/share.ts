@@ -1,4 +1,5 @@
 import { buildMapHref, type MapDeepLinkParams } from '@/lib/map-deep-link';
+import { trackAtlasConversion } from '@/lib/analytics/conversion';
 
 // ---------------------------------------------------------------------------
 // Share helpers — basePath-aware public URLs + clipboard copy.
@@ -66,12 +67,19 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 
 /** Try the Web Share API if available, else copy to clipboard. */
 export async function shareOrCopy(data: { title: string; text: string; url: string }): Promise<'shared' | 'copied' | 'failed'> {
+  const mapDeepLink =
+    typeof data.url === 'string' &&
+    (data.url.includes('view=') || data.url.includes('era=') || data.url.includes('lineage='));
   if (typeof navigator !== 'undefined' && navigator.share) {
     try {
       await navigator.share(data);
+      trackAtlasConversion('share_deep_link_native', { map_view: mapDeepLink });
       return 'shared';
     } catch { /* user cancelled or not supported */ }
   }
   const ok = await copyToClipboard(data.url);
+  if (ok) {
+    trackAtlasConversion('share_deep_link_copied', { map_view: mapDeepLink });
+  }
   return ok ? 'copied' : 'failed';
 }

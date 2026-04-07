@@ -14,6 +14,7 @@ import { buildMapHref } from '@/lib/map-deep-link';
 import { copyToClipboard } from '@/lib/progress/share';
 import { t, type UiStringKey } from '@/lib/ui-strings';
 import { getAtlasEra } from '@/core/era/engine';
+import { reliabilityLabelKey } from '@/lib/normandy-story-figures';
 import { X, Play, RotateCcw, Link2, ChevronDown, MapPin, Globe, Route } from 'lucide-react';
 
 const CATEGORY_KEY: Record<StoryCategory, UiStringKey> = {
@@ -72,6 +73,8 @@ interface Props {
   relatedRows?: StoryLibraryRowModel[];
   onSelectRelated?: (row: StoryLibraryRowModel) => void;
   resolveRowTitle?: (row: StoryLibraryRowModel) => string;
+  /** When a figure has both a reading slug and a map chronicle id, secondary entry to the chronicle. */
+  onPlayFigureMapChronicle?: () => void;
 }
 
 export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
@@ -85,6 +88,7 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
   relatedRows = [],
   onSelectRelated,
   resolveRowTitle,
+  onPlayFigureMapChronicle,
 }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const [copied, setCopied] = useState<'playback' | 'library' | null>(null);
@@ -112,6 +116,17 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
 
   const copyPlaybackLink = useCallback(() => {
     if (!row || typeof window === 'undefined') return;
+    if (row.meta.rowKind === 'normandyFigure') {
+      const slug = row.meta.normanReadingSlug;
+      if (!slug) return;
+      const u = `${window.location.origin}/norman-readings/${slug}`;
+      void copyToClipboard(u).then((ok) => {
+        if (!ok) return;
+        setCopied('playback');
+        window.setTimeout(() => setCopied((c) => (c === 'playback' ? null : c)), 2000);
+      });
+      return;
+    }
     const u = new URL(window.location.origin + window.location.pathname);
     u.searchParams.set('story', row.meta.arcId ?? '');
     u.searchParams.set('step', String(progress?.lastStep ?? 0));
@@ -124,10 +139,16 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
 
   const copyLibraryLink = useCallback(() => {
     if (!row || typeof window === 'undefined') return;
+    const arcForLibrary =
+      row.meta.rowKind === 'normandyFigure'
+        ? row.meta.arcId ?? row.progressKey
+        : row.meta.arcId === null
+          ? ''
+          : row.meta.arcId;
     const href = buildMapHref(
       {
         library: true,
-        libraryArc: row.meta.arcId === null ? '' : row.meta.arcId,
+        libraryArc: arcForLibrary,
         libraryDetail: true,
       },
       window.location.pathname === '/stories' ? '/stories' : '/',
@@ -152,7 +173,14 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
         : '';
 
     const blurb = pickI18n(row.meta.blurb, locale);
-    const hook = row.meta.hook ? pickI18n(row.meta.hook, locale) : '';
+    const figureLinked =
+      row.meta.rowKind === 'normandyFigure' &&
+      Boolean(row.meta.normanReadingSlug || row.meta.legacyAtlanticStoryStepId);
+    const hook = row.meta.hook
+      ? pickI18n(row.meta.hook, locale)
+      : figureLinked
+        ? t('storyLibrary.figure.linkedArcHook', locale)
+        : '';
     const synopsis = row.meta.synopsisExtended
       ? pickI18n(row.meta.synopsisExtended, locale)
       : null;
@@ -179,7 +207,26 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
     const durationLabel = row.meta.estimatedMinutes != null
       ? replaceCount(t('storyLibrary.durationMinutes', locale), row.meta.estimatedMinutes)
       : null;
-    const scenesLabel = replaceCount(t('storyLibrary.scenes', locale), row.sceneCount);
+    let scenesLabel: string;
+    if (row.meta.rowKind !== 'normandyFigure') {
+      scenesLabel = replaceCount(t('storyLibrary.scenes', locale), row.sceneCount);
+    } else if (row.chapterTitlesExtended.length > 0) {
+      const parts: string[] = [];
+      if (row.meta.normandyFigureReliability) {
+        parts.push(t(reliabilityLabelKey(row.meta.normandyFigureReliability), locale));
+      }
+      parts.push(
+        t('storyLibrary.figure.arcStagesCount', locale).replace(
+          '{count}',
+          String(row.chapterTitlesExtended.length),
+        ),
+      );
+      scenesLabel = parts.join(' · ');
+    } else if (row.meta.normandyFigureReliability) {
+      scenesLabel = t(reliabilityLabelKey(row.meta.normandyFigureReliability), locale);
+    } else {
+      scenesLabel = t('storyLibrary.figure.cardMeta', locale);
+    }
     const timelineLabel = row.timelineRange ? formatTimelineRange(row.timelineRange) : null;
 
     return {
@@ -194,6 +241,13 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
     title, blurb, hook, synopsis, poster, canResume, completed, pct,
     recommended, chrome, categoryLabel, toneLabel, durationLabel, scenesLabel, timelineLabel,
   } = derived;
+
+  const figurePlayBlocked =
+    row.meta.rowKind === 'normandyFigure' &&
+    !row.meta.normanReadingSlug &&
+    !row.meta.legacyAtlanticStoryStepId;
+  const showPlaybackLinkCopy =
+    row.meta.rowKind !== 'normandyFigure' || Boolean(row.meta.normanReadingSlug);
 
   const chapters = row.chapterTitlesExtended;
   const needsCollapse = chapters.length > CHAPTER_COLLAPSE_THRESHOLD;
@@ -417,27 +471,50 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                         {t('storyLibrary.section.related', locale)}
                       </p>
                       <ul className="space-y-1.5">
-                        {relatedRows.map((r) => (
-                          <li key={r.progressKey}>
-                            <button
-                              type="button"
-                              onClick={() => onSelectRelated(r)}
-                              className="w-full rounded-md border px-3 py-2 text-left text-[12px] font-medium transition-colors hover:bg-chrome-fill"
-                              style={{
-                                borderColor: 'var(--color-chrome-border)',
-                                color: 'var(--color-text)',
-                              }}
-                            >
-                              {resolveRowTitle
-                                ? resolveRowTitle(r)
-                                : r.meta.displayTitle
-                                  ? pickI18n(r.meta.displayTitle, locale)
-                                  : r.arcEntry
-                                    ? pickI18n(r.arcEntry.label, locale)
-                                    : ''}
-                            </button>
-                          </li>
-                        ))}
+                        {relatedRows.map((r) => {
+                          const relatedTitle = resolveRowTitle
+                            ? resolveRowTitle(r)
+                            : r.meta.displayTitle
+                              ? pickI18n(r.meta.displayTitle, locale)
+                              : r.arcEntry
+                                ? pickI18n(r.arcEntry.label, locale)
+                                : '';
+                          const relatedPoster = r.resolvedPosterSrc
+                            ? publicAssetUrl(r.resolvedPosterSrc)
+                            : null;
+                          return (
+                            <li key={r.progressKey}>
+                              <button
+                                type="button"
+                                onClick={() => onSelectRelated(r)}
+                                className="flex w-full items-center gap-3 rounded-md border px-2 py-2 text-left text-[12px] font-medium transition-colors hover:bg-chrome-fill"
+                                style={{
+                                  borderColor: 'var(--color-chrome-border)',
+                                  color: 'var(--color-text)',
+                                }}
+                              >
+                                <div
+                                  className="relative h-11 w-[4.5rem] shrink-0 overflow-hidden rounded"
+                                  style={{ background: 'var(--color-chrome-fill)' }}
+                                >
+                                  {relatedPoster ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img
+                                      src={relatedPoster}
+                                      alt=""
+                                      loading="lazy"
+                                      decoding="async"
+                                      className="absolute inset-0 h-full w-full object-cover"
+                                    />
+                                  ) : (
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-white/[0.03]" />
+                                  )}
+                                </div>
+                                <span className="min-w-0 flex-1 leading-snug line-clamp-2">{relatedTitle}</span>
+                              </button>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </motion.div>
                   )}
@@ -483,16 +560,42 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                     <button
                       type="button"
                       onClick={onPlay}
-                      className="flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-bold transition-colors"
+                      disabled={figurePlayBlocked}
+                      className="flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-45"
                       style={{
                         background: uiTheme === 'light' ? 'var(--color-foreground)' : '#fff',
                         color: uiTheme === 'light' ? 'var(--color-background)' : '#000',
                       }}
                     >
                       <Play className="h-4 w-4 fill-current" />
-                      {t('storyLibrary.play', locale)}
+                      {row.meta.rowKind === 'normandyFigure'
+                        ? figurePlayBlocked
+                          ? t('storyLibrary.figure.noDirectLink', locale)
+                          : row.meta.normanReadingSlug
+                            ? t('storyLibrary.figure.openLinked', locale)
+                            : t('storyLibrary.figure.openMapChronicle', locale)
+                        : t('storyLibrary.play', locale)}
                     </button>
-                    {canResume && (
+                    {row.meta.rowKind === 'normandyFigure' &&
+                      !figurePlayBlocked &&
+                      row.meta.normanReadingSlug &&
+                      row.meta.legacyAtlanticStoryStepId &&
+                      onPlayFigureMapChronicle && (
+                        <button
+                          type="button"
+                          onClick={onPlayFigureMapChronicle}
+                          className="flex h-10 items-center justify-center gap-2 rounded-md px-5 text-[13px] font-semibold transition-colors"
+                          style={{
+                            background: 'var(--color-chrome-fill-raised)',
+                            color: 'var(--color-text)',
+                            border: '1px solid var(--color-chrome-border)',
+                          }}
+                        >
+                          <Play className="h-3.5 w-3.5 fill-current opacity-90" />
+                          {t('storyLibrary.figure.openMapChronicle', locale)}
+                        </button>
+                      )}
+                    {canResume && row.meta.rowKind !== 'normandyFigure' && (
                       <button
                         type="button"
                         onClick={onResume}
@@ -506,18 +609,22 @@ export const StoryLibraryDetailSheet = memo(function StoryLibraryDetailSheet({
                         {t('storyLibrary.resume', locale)}
                       </button>
                     )}
-                    <button
-                      type="button"
-                      onClick={copyPlaybackLink}
-                      className="flex h-10 items-center justify-center gap-2 rounded-md px-3 text-[12px] transition-colors"
-                      style={{ color: 'var(--color-text-dim)' }}
-                      aria-label={t('storyLibrary.copyPlaybackLink', locale)}
-                    >
-                      <Link2 className="h-3.5 w-3.5 opacity-70" />
-                      {copied === 'playback'
-                        ? t('storyLibrary.linkCopied', locale)
-                        : t('storyLibrary.copyPlaybackLink', locale)}
-                    </button>
+                    {showPlaybackLinkCopy && (
+                      <button
+                        type="button"
+                        onClick={copyPlaybackLink}
+                        className="flex h-10 items-center justify-center gap-2 rounded-md px-3 text-[12px] transition-colors"
+                        style={{ color: 'var(--color-text-dim)' }}
+                        aria-label={t('storyLibrary.copyPlaybackLink', locale)}
+                      >
+                        <Link2 className="h-3.5 w-3.5 opacity-70" />
+                        {copied === 'playback'
+                          ? t('storyLibrary.linkCopied', locale)
+                          : row.meta.rowKind === 'normandyFigure'
+                            ? t('storyLibrary.copyReadingLink', locale)
+                            : t('storyLibrary.copyPlaybackLink', locale)}
+                      </button>
+                    )}
                     <button
                       type="button"
                       onClick={copyLibraryLink}

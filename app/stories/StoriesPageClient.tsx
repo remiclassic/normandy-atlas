@@ -47,6 +47,7 @@ export default function StoriesPageClient() {
     <StoryLibraryPanel
       open
       onClose={onClose}
+      pathnameOverride="/stories"
       useShellChrome={false}
       bootstrap={bootstrap}
       onBootstrapConsumed={() => setBootstrap(null)}

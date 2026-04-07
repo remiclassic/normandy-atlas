@@ -1,4 +1,7 @@
 import type { I18nString } from '@/core/types';
+import type { StoryFigureReliability } from '@/types';
+
+export type StoryLibraryRowKind = 'arc' | 'normandyFigure';
 
 export type StoryCategory =
   | 'Origins'
@@ -26,6 +29,14 @@ export interface StoryLibraryMeta {
   category: StoryCategory;
   /** When set, the row also matches these category filters (primary `category` stays for badges and “All” sections). */
   alsoInCategories?: StoryCategory[];
+  /** Synthetic arc rows from `NORMANDY_STORY_FIGURES` use `rowKind: 'normandyFigure'` and a prefixed `arcId`. */
+  rowKind?: StoryLibraryRowKind;
+  normandyFigureId?: string;
+  normandyFigureReliability?: StoryFigureReliability;
+  /** Long-form article under `/norman-readings/[slug]` when present. */
+  normanReadingSlug?: string;
+  /** `normanAtlanticStory` step id for legacy map chronicle handoff. */
+  legacyAtlanticStoryStepId?: string;
   displayTitle?: I18nString;
   blurb: I18nString;
   hook?: I18nString;

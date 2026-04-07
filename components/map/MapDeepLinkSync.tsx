@@ -16,6 +16,8 @@ import { getNfYdnaFeature } from '@/data/atlas/new-france-ydna';
 import { getNfYdnaPresumedFeature } from '@/data/atlas/gfna-ydna-presumed';
 import { getNfMtdnaFeature } from '@/data/atlas/gfna-mtdna-lineages';
 import { getNormanNodeCenter } from '@/data/norman-expansion/nodes';
+import { emitProGate } from '@/components/billing/ProGateHost';
+import { getPublicEntitlements } from '@/lib/billing/public-entitlements';
 
 /**
  * Reads URL query parameters once on mount, applies them to the map store,
@@ -203,6 +205,17 @@ export default function MapDeepLinkSync() {
     const hpQuery = parseHistoricalPresenceSearchParams(params);
     if (!view?.hp && hpQuery) {
       applyHistoricalPresence(hpQuery);
+    }
+
+    if (useMapStore.getState().historicalPresenceCompareEnabled) {
+      queueMicrotask(() => {
+        void getPublicEntitlements().then((e) => {
+          if (!e.macroCompare && useMapStore.getState().historicalPresenceCompareEnabled) {
+            useMapStore.getState().setHistoricalPresenceCompare(false);
+            emitProGate('macro_compare');
+          }
+        });
+      });
     }
 
     window.history.replaceState({}, '', window.location.pathname);

@@ -64,10 +64,19 @@ import NormanStoryMode from '@/components/norman-identity/NormanStoryMode';
 import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
 import { getEraFlagshipStoryItem } from '@/lib/story-launcher';
 import { readStoryProgressMap, arcIdToProgressKey } from '@/lib/story-progress';
+import { consumePendingLegacyAtlanticStoryStepIndex } from '@/lib/pending-legacy-atlantic-story';
 
 export default function AtlasHomeShell() {
   const router = useRouter();
   const locale = useLocale();
+
+  useEffect(() => {
+    const pending = consumePendingLegacyAtlanticStoryStepIndex();
+    if (pending == null) return;
+    const st = useMapStore.getState();
+    if (st.atlasMode) st.setAtlasMode(false);
+    st.startStory(null, { stepIndex: pending });
+  }, []);
   const isMobile = useIsMobile();
   const guidesPublic = isDigitalGuidesPublic();
   const [creditsOpen, setCreditsOpen] = useState(false);

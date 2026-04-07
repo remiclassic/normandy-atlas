@@ -29,11 +29,18 @@ import { StoryLibraryEditorialGrid } from '@/components/story/StoryLibraryEditor
 import { StoryLibraryDetailSheet } from '@/components/story/StoryLibraryDetailSheet';
 import { useIsMobile } from '@/hooks/use-responsive';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { GENEALOGY_NORMAN_IDENTITY_PATH } from '@/lib/genealogy-paths';
+import {
+  clearPendingLegacyAtlanticStoryStepIndex,
+  setPendingLegacyAtlanticStoryStepIndex,
+} from '@/lib/pending-legacy-atlantic-story';
+import { normanAtlanticStory } from '@/data/stories';
 
 export default function StoryLibraryPanel({
   open,
   onClose,
+  pathnameOverride,
   useShellChrome = true,
   bootstrap = null,
   onBootstrapConsumed,
@@ -41,6 +48,8 @@ export default function StoryLibraryPanel({
 }: {
   open: boolean;
   onClose: () => void;
+  /** When the story library is used outside `/`, set this so “Map chronicle” can still deep-link home. */
+  pathnameOverride?: string;
   useShellChrome?: boolean;
   bootstrap?: {
     focusProgressKey?: string;
@@ -52,8 +61,12 @@ export default function StoryLibraryPanel({
   allRowsOverride?: StoryLibraryRowModel[];
 }) {
   const locale = useLocale();
+  const router = useRouter();
+  const routerPathname = usePathname();
+  const pathname = pathnameOverride ?? routerPathname;
   const uiTheme = useMapStore((s) => s.uiTheme);
   const startStory = useMapStore((s) => s.startStory);
+  const setAtlasMode = useMapStore((s) => s.setAtlasMode);
   const closeRef = useRef<HTMLButtonElement>(null);
   const scrollBodyRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -240,8 +253,45 @@ export default function StoryLibraryPanel({
 
   const displayedRow = hoverPreviewRow ?? activeRow;
 
+  const launchLegacyAtlanticChronicle = useCallback(
+    (stepIndex: number) => {
+      if (pathname === '/stories') {
+        setPendingLegacyAtlanticStoryStepIndex(stepIndex);
+        onClose();
+        return;
+      }
+      clearPendingLegacyAtlanticStoryStepIndex();
+      if (useMapStore.getState().atlasMode) setAtlasMode(false);
+      startStory(null, { stepIndex });
+      onClose();
+    },
+    [pathname, onClose, setAtlasMode, startStory],
+  );
+
   const playRow = useCallback(
     (row: StoryLibraryRowModel, resume: boolean) => {
+      if (row.meta.rowKind === 'normandyFigure') {
+        const slug = row.meta.normanReadingSlug;
+        const stepId = row.meta.legacyAtlanticStoryStepId;
+        if (slug) {
+          clearPendingLegacyAtlanticStoryStepIndex();
+          router.push(`/norman-readings/${slug}`);
+          setSelectedRow(null);
+          onClose();
+          return;
+        }
+        if (stepId) {
+          const idx = normanAtlanticStory.findIndex((s) => s.id === stepId);
+          if (idx >= 0) {
+            launchLegacyAtlanticChronicle(idx);
+            setSelectedRow(null);
+            return;
+          }
+        }
+        return;
+      }
+
+      clearPendingLegacyAtlanticStoryStepIndex();
       const key = row.progressKey;
       const saved = resume ? progressMap[key]?.lastStep ?? 0 : 0;
       if (row.meta.arcId === null) {
@@ -253,7 +303,7 @@ export default function StoryLibraryPanel({
       setSelectedRow(null);
       onClose();
     },
-    [startStory, onClose, progressMap],
+    [startStory, onClose, progressMap, router, launchLegacyAtlanticChronicle],
   );
 
   const handleCardSelect = useCallback(
@@ -304,7 +354,16 @@ export default function StoryLibraryPanel({
   }, [filteredRows, activeIndex]);
 
   const handlePlay = useCallback(() => {
-    if (displayedRow) playRow(displayedRow, false);
+    if (!displayedRow) return;
+    if (
+      displayedRow.meta.rowKind === 'normandyFigure' &&
+      !displayedRow.meta.normanReadingSlug &&
+      !displayedRow.meta.legacyAtlanticStoryStepId
+    ) {
+      setSelectedRow(displayedRow);
+      return;
+    }
+    playRow(displayedRow, false);
   }, [displayedRow, playRow]);
 
   const handleResume = useCallback(() => {
@@ -318,12 +377,35 @@ export default function StoryLibraryPanel({
   const handleDetailClose = useCallback(() => setSelectedRow(null), []);
 
   const handleDetailPlay = useCallback(() => {
-    if (selectedRow) playRow(selectedRow, false);
+    if (!selectedRow) return;
+    if (
+      selectedRow.meta.rowKind === 'normandyFigure' &&
+      !selectedRow.meta.normanReadingSlug &&
+      !selectedRow.meta.legacyAtlanticStoryStepId
+    ) {
+      return;
+    }
+    playRow(selectedRow, false);
   }, [selectedRow, playRow]);
 
   const handleDetailResume = useCallback(() => {
-    if (selectedRow) playRow(selectedRow, true);
+    if (!selectedRow || selectedRow.meta.rowKind === 'normandyFigure') return;
+    playRow(selectedRow, true);
   }, [selectedRow, playRow]);
+
+  const playFigureMapChronicle = useCallback(
+    (row: StoryLibraryRowModel) => {
+      if (row.meta.rowKind !== 'normandyFigure') return;
+      const stepId = row.meta.legacyAtlanticStoryStepId;
+      if (!stepId) return;
+      const idx = normanAtlanticStory.findIndex((s) => s.id === stepId);
+      if (idx >= 0) {
+        launchLegacyAtlanticChronicle(idx);
+        setSelectedRow((r) => (r?.progressKey === row.progressKey ? null : r));
+      }
+    },
+    [launchLegacyAtlanticChronicle],
+  );
 
   const relatedRows = useMemo(() => {
     if (!selectedRow) return [];
@@ -448,6 +530,13 @@ export default function StoryLibraryPanel({
                 totalCount={filteredRows.length}
                 onSwipeNext={goToNextHero}
                 onSwipePrev={goToPrevHero}
+                onPlayFigureMapChronicle={
+                  displayedRow?.meta.rowKind === 'normandyFigure' &&
+                  displayedRow.meta.normanReadingSlug &&
+                  displayedRow.meta.legacyAtlanticStoryStepId
+                    ? () => playFigureMapChronicle(displayedRow)
+                    : undefined
+                }
               />
             </div>
 
@@ -579,6 +668,13 @@ export default function StoryLibraryPanel({
             relatedRows={relatedRows}
             onSelectRelated={handleRelatedSelect}
             resolveRowTitle={resolveRowTitle}
+            onPlayFigureMapChronicle={
+              selectedRow?.meta.rowKind === 'normandyFigure' &&
+              selectedRow.meta.normanReadingSlug &&
+              selectedRow.meta.legacyAtlanticStoryStepId
+                ? () => playFigureMapChronicle(selectedRow)
+                : undefined
+            }
           />
         </motion.div>
       )}

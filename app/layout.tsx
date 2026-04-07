@@ -7,9 +7,11 @@ import { NORMAN_GEO_LOCALE_COOKIE } from '@/lib/locale-geo';
 import { REDUCE_MOTION_STORAGE_KEY } from '@/lib/reduced-motion';
 import { HIGH_CONTRAST_STORAGE_KEY } from '@/lib/high-contrast';
 import { MOBILE_TEXT_SIZE_DEFAULT_MAX_WIDTH_PX, TEXT_SIZE_STORAGE_KEY } from '@/lib/text-size';
+import { defaultOpenGraphImages, defaultTwitterImages } from '@/lib/social-metadata';
 import ClientBootstrap from '@/components/layout/ClientBootstrap';
 import CommandPaletteHost from '@/components/command-palette/CommandPaletteHost';
 import AtlasMotionConfig from '@/components/layout/AtlasMotionConfig';
+import ProGateHost from '@/components/billing/ProGateHost';
 import { BackgroundMusicProvider } from '@/components/audio/BackgroundMusic';
 import './globals.css';
 
@@ -54,6 +56,7 @@ const siteTitle = 'Norman Atlas — A Living Map of People, Movement, and Time';
 const siteDescription =
   'A dynamic historical atlas exploring the origins, movements, and global influence of the Normans. Navigate through time from Neolithic Normandy to the expansion of Norman culture across Europe and beyond.';
 
+/** Prefer NEXT_PUBLIC_SITE_URL in production so og:image and metadata use your canonical domain, not only *.vercel.app. */
 function siteUrl(): URL {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
   if (explicit) {
@@ -74,11 +77,13 @@ export const metadata: Metadata = {
     description: siteDescription,
     type: 'website',
     locale: 'en_US',
+    images: defaultOpenGraphImages,
   },
   twitter: {
     card: 'summary_large_image',
     title: siteTitle,
     description: siteDescription,
+    images: defaultTwitterImages,
   },
 };
 
@@ -108,6 +113,7 @@ export default function RootLayout({
         />
         <BackgroundMusicProvider>
           <ClientBootstrap />
+          <ProGateHost />
           <CommandPaletteHost />
           <AtlasMotionConfig>
             {children}

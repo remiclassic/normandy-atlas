@@ -12,6 +12,7 @@ export function listResumableStoryRows(locale: AtlasLocale): StoryLibraryRowMode
 
   return rows
     .filter((r) => {
+      if (r.meta.rowKind === 'normandyFigure') return false;
       const p: StoryProgressRecord | undefined = progressMap[r.progressKey];
       return Boolean(p && !p.completed && p.lastStep > 0);
     })

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CompanionShell from '@/components/companion/CompanionShell';
+import { defaultOpenGraphImages, defaultTwitterImages } from '@/lib/social-metadata';
 import { extractCompanionToc, getCompanionSource } from '@/lib/load-companion';
 import './companion-tactical.css';
 import './print.css';
@@ -11,8 +12,8 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title, description, type: 'website' },
-  twitter: { card: 'summary_large_image', title, description },
+  openGraph: { title, description, type: 'website', images: defaultOpenGraphImages },
+  twitter: { card: 'summary_large_image', title, description, images: defaultTwitterImages },
 };
 
 export default function CompanionPage() {

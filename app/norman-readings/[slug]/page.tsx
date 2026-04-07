@@ -5,6 +5,7 @@ import NormanReadingArticleClient from '@/components/norman-readings/NormanReadi
 import { getNormanReadingPageData } from '@/lib/norman-readings/load-norman-reading';
 import { buildNormanReadingMapHref } from '@/lib/norman-readings/map-cta';
 import { NORMAN_READINGS, NORMAN_READING_SLUGS } from '@/lib/norman-readings/manifest';
+import { defaultOpenGraphImages, defaultTwitterImages } from '@/lib/social-metadata';
 
 export function generateStaticParams() {
   return NORMAN_READING_SLUGS.map((slug) => ({ slug }));
@@ -25,8 +26,18 @@ export async function generateMetadata({
   return {
     title,
     description: entry.description,
-    openGraph: { title, description: entry.description, type: 'article' },
-    twitter: { card: 'summary_large_image', title, description: entry.description },
+    openGraph: {
+      title,
+      description: entry.description,
+      type: 'article',
+      images: defaultOpenGraphImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: entry.description,
+      images: defaultTwitterImages,
+    },
   };
 }
 

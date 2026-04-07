@@ -153,6 +153,44 @@ export interface EventRecord {
 
 // --- Story ---
 
+/** How solid the historiographic footing is for story-arc casting. */
+export type StoryFigureReliability = 'documentary' | 'chronicler' | 'legend' | 'composite';
+
+/** Portrait for story-library figure cards (site path or absolute URL). */
+export interface NormandyStoryFigurePortrait {
+  src: string;
+  alt: string;
+  credit: string;
+}
+
+/** Curated named figures for Normandy-region narrative planning (map + atlas timelines). */
+export interface NormandyStoryFigure {
+  id: string;
+  name: string;
+  /** Era id from `data/eras.ts` or `data/atlas/eras.ts` (see eraSource). */
+  eraId: string;
+  eraSource: 'map' | 'atlas';
+  reliability: StoryFigureReliability;
+  /** Regions this figure ties to in atlas gazetteer terms (e.g. normandy). */
+  regionIds: string[];
+  /** Short curator note for writers (English). */
+  note?: string;
+  /** Long-form reading slug under /norman-readings/[slug] when present. */
+  normanReadingSlug?: string;
+  /** Step id in `normanAtlanticStory` (`data/stories.ts`) for the legacy map chronicle. */
+  legacyAtlanticStoryStepId?: string;
+  /**
+   * When set, this figure is omitted from the story library grid because the same journey exists
+   * as a curated arc (`story-library-meta` / `arcId`). Use when `id` does not match `arcId`
+   * (e.g. figure `champlain` vs arc `samuel-de-champlain`).
+   */
+  supersededByStoryArcId?: string;
+  /** First-wave arcs: Viking Age, early duchy, late medieval Rouen, exploration. */
+  editorialPriority?: 'primary' | 'standard';
+  /** Assigned in `mergeNormandyFigurePortraits` (or override manually on a raw row). */
+  portrait?: NormandyStoryFigurePortrait;
+}
+
 export interface StoryStep {
   id: string;
   eraId: string;

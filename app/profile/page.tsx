@@ -19,6 +19,7 @@ import { pickI18n } from '@/lib/locale';
 import { t } from '@/lib/ui-strings';
 import type { AtlasLocale } from '@/core/types';
 import ProfileAchievementsGrid from '@/components/profile/ProfileAchievementsGrid';
+import AtlasProCard from '@/components/billing/AtlasProCard';
 import {
   ATLAS_ROLE_LABEL_KEY,
   AtlasCoveragePillsGrid,
@@ -242,6 +243,10 @@ export default function ProfilePage() {
           </section>
 
           <AtlasCoveragePillsGrid locale={locale} stats={displayStats} />
+
+          <section className="mb-10">
+            <AtlasProCard />
+          </section>
 
           {mounted && (
             <section className="mb-10">

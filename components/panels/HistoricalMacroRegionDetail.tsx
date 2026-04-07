@@ -15,6 +15,8 @@ import { historicalMacroRegionsGeoJson } from '@/data/atlas/historical-macro-reg
 import { buildHistoricalPresenceCsv } from '@/lib/historical-presence-csv';
 import { copyToClipboard } from '@/lib/progress/share';
 import { t } from '@/lib/ui-strings';
+import { useEntitlements } from '@/hooks/useEntitlements';
+import { emitProGate } from '@/components/billing/ProGateHost';
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -63,6 +65,7 @@ export default function HistoricalMacroRegionDetail({ regionId }: { regionId: st
   const compareYear = useMapStore((s) => s.historicalPresenceCompareYear);
   const startStoryAct = useMapStore((s) => s.startStory);
   const [csvDone, setCsvDone] = useState(false);
+  const { loading: entLoading, data: ent } = useEntitlements();
 
   const title = useMemo(() => {
     const f = historicalMacroRegionsGeoJson.features.find((x) => x.properties.id === regionId);
@@ -90,12 +93,17 @@ export default function HistoricalMacroRegionDetail({ regionId }: { regionId: st
   }, [ranked]);
 
   const onCopyCsv = useCallback(async () => {
+    if (entLoading) return;
+    if (!ent?.macroCsvExport) {
+      emitProGate('macro_csv');
+      return;
+    }
     const ok = await copyToClipboard(buildHistoricalPresenceCsv(year, view, locale));
     if (ok) {
       setCsvDone(true);
       window.setTimeout(() => setCsvDone(false), 2000);
     }
-  }, [year, view, locale]);
+  }, [year, view, locale, entLoading, ent?.macroCsvExport]);
 
   return (
     <>

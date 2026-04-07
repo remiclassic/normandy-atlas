@@ -6,22 +6,48 @@ import pngToIco from 'png-to-ico';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const appDir = path.join(__dirname, '..', 'app');
+const sourcePath = path.join(__dirname, 'favicon-source.png');
 
-function starSvg(size) {
-  const fsz = Math.max(7, Math.round(size * 0.34));
-  const y = Math.round(size * 0.62);
-  const x1 = Math.round(size * 0.28);
-  const x2 = Math.round(size * 0.58);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
-  <rect width="100%" height="100%" fill="#0d1117"/>
-  <text x="${x1}" y="${y}" font-size="${fsz}" fill="#c9b081" font-family="Georgia,serif">★</text>
-  <text x="${x2}" y="${y}" font-size="${fsz}" fill="#c9b081" font-family="Georgia,serif">★</text>
-</svg>`;
+/** Trim black padding, then center-crop to a square (tighter favicon at 16×16). */
+async function squaredLogoPng() {
+  const trimmed = await sharp(sourcePath)
+    .trim({ background: '#000000' })
+    .toBuffer({ resolveWithObject: true });
+  const w = trimmed.info.width;
+  const h = trimmed.info.height;
+  const side = Math.min(w, h);
+  const left = Math.max(0, Math.floor((w - side) / 2));
+  const top = Math.max(0, Math.floor((h - side) / 2));
+  return sharp(trimmed.data)
+    .extract({ left, top, width: side, height: side })
+    .png()
+    .toBuffer();
 }
 
-const png16 = await sharp(Buffer.from(starSvg(16))).png().toBuffer();
-const png32 = await sharp(Buffer.from(starSvg(32))).png().toBuffer();
+if (!fs.existsSync(sourcePath)) {
+  console.error(`Missing ${sourcePath} — add a square PNG (e.g. your logo) and run npm run favicon`);
+  process.exit(1);
+}
+
+const squarePng = await squaredLogoPng();
+
+const png16 = await sharp(squarePng)
+  .resize(16, 16, { fit: 'fill', kernel: sharp.kernel.lanczos3 })
+  .png()
+  .toBuffer();
+const png32 = await sharp(squarePng)
+  .resize(32, 32, { fit: 'fill', kernel: sharp.kernel.lanczos3 })
+  .png()
+  .toBuffer();
 const ico = await pngToIco([png16, png32]);
+
+const icon512 = await sharp(squarePng)
+  .resize(512, 512, { fit: 'fill', kernel: sharp.kernel.lanczos3 })
+  .png()
+  .toBuffer();
 
 fs.mkdirSync(appDir, { recursive: true });
 fs.writeFileSync(path.join(appDir, 'favicon.ico'), ico);
+fs.writeFileSync(path.join(appDir, 'icon.png'), icon512);
+
+console.log('Wrote app/favicon.ico and app/icon.png');

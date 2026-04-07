@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:norman-identity-engine": "npx tsx scripts/test-norman-identity-engine.ts",
+    "fetch:people-assets": "node scripts/fetch-people-story-assets.mjs",
     "favicon": "node scripts/make-favicon.mjs",
     "export:normandy-geo": "npx tsx scripts/export-normandy-geo.ts",
     "story:i18n-report": "npx tsx scripts/story-beat-i18n-coverage.ts",

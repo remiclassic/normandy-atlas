@@ -15,6 +15,12 @@ import { STORY_BEAT_TITLES_DE } from '@/data/atlas/story-beat-titles-de';
 import { arcIdToProgressKey } from '@/lib/story-progress';
 import { getAtlasEra, getAtlasEras, getEraRange } from '@/core/era/engine';
 import type { AtlasEra } from '@/core/types';
+import { buildNormandyFigureLibraryRows } from '@/lib/normandy-figure-library-row';
+import {
+  fallbackPosterForAtlasEraId,
+  fallbackPosterForCategory,
+  isThematicFallbackPoster,
+} from '@/lib/story-library-poster-fallback';
 
 export interface FocusStats {
   uniquePlaces: number;
@@ -29,7 +35,7 @@ export interface StoryLibraryRowModel {
   chapterTitles: string[];
   chapterTitlesExtended: string[];
   progressKey: string;
-  /** Resolved poster image — meta.thumb if set, else first illustrated beat's src. */
+  /** Resolved poster image — thumb, beat illustration, then era/category thematic fallback. */
   resolvedPosterSrc: string | null;
   /** Timeline year range derived from beats, if computable. */
   timelineRange: { start: number; end: number } | null;
@@ -72,13 +78,16 @@ function findArcEntry(arcId: string | null): EraArcEntry | null {
   return atlasEraArcs.find((a) => a.arcId === arcId) ?? null;
 }
 
-function resolvePosterSrc(meta: StoryLibraryMeta): string | null {
+function resolvePosterSrc(meta: StoryLibraryMeta, relatedEraIds: string[]): string | null {
   if (meta.thumb) return meta.thumb;
   const beats = getStoryBeats(meta.arcId);
   for (const b of beats) {
     if (b.illustration?.src) return b.illustration.src;
   }
-  return null;
+  const eraId = meta.recommendedEraId ?? relatedEraIds[0];
+  const byEra = fallbackPosterForAtlasEraId(eraId);
+  if (byEra) return byEra;
+  return fallbackPosterForCategory(meta.category);
 }
 
 function computeTimelineRange(
@@ -136,12 +145,17 @@ function resolvePosterCredit(
   resolvedSrc: string | null,
   locale: AtlasLocale,
 ): string | null {
-  if (meta.posterCredit) return pickI18n(meta.posterCredit, locale);
-  if (!resolvedSrc || meta.thumb) return null;
-  const beats = getStoryBeats(meta.arcId);
-  for (const b of beats) {
-    if (b.illustration?.src === resolvedSrc && b.illustration.credit) {
-      return pickI18n(b.illustration.credit, locale);
+  if (!resolvedSrc) return null;
+  if (isThematicFallbackPoster(resolvedSrc)) return null;
+  if (meta.thumb && resolvedSrc === meta.thumb && meta.posterCredit) {
+    return pickI18n(meta.posterCredit, locale);
+  }
+  if (!meta.thumb) {
+    const beats = getStoryBeats(meta.arcId);
+    for (const b of beats) {
+      if (b.illustration?.src === resolvedSrc && b.illustration.credit) {
+        return pickI18n(b.illustration.credit, locale);
+      }
     }
   }
   return null;
@@ -159,7 +173,8 @@ export function buildStoryLibraryRows(locale: AtlasLocale): StoryLibraryRowModel
     if (sceneCount === 0) continue;
 
     const beats = getStoryBeats(meta.arcId);
-    const resolvedSrc = resolvePosterSrc(meta);
+    const relatedEraIds = relatedEraIdsForRow(meta, beats);
+    const resolvedSrc = resolvePosterSrc(meta, relatedEraIds);
 
     rows.push({
       meta,
@@ -172,9 +187,11 @@ export function buildStoryLibraryRows(locale: AtlasLocale): StoryLibraryRowModel
       timelineRange: computeTimelineRange(beats),
       focusStats: computeFocusStats(beats),
       posterCredit: resolvePosterCredit(meta, resolvedSrc, locale),
-      relatedEraIds: relatedEraIdsForRow(meta, beats),
+      relatedEraIds,
     });
   }
+
+  rows.push(...buildNormandyFigureLibraryRows(locale));
 
   return rows;
 }
@@ -243,5 +260,9 @@ export function storyLibraryRowSearchHaystack(row: StoryLibraryRowModel, locale:
       return era ? pickI18n(era.label, locale) : '';
     })
     .join(' ');
-  return `${title} ${hook} ${blurb} ${chapters} ${eraLabels}`.toLowerCase();
+  const reliability =
+    row.meta.rowKind === 'normandyFigure' && row.meta.normandyFigureReliability
+      ? row.meta.normandyFigureReliability
+      : '';
+  return `${title} ${hook} ${blurb} ${chapters} ${eraLabels} ${reliability}`.toLowerCase();
 }
